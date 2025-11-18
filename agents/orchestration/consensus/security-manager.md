@@ -1,26 +1,52 @@
 ---
-name: security-manager
-type: security
+name: "security-manager"
+type: "security"
 color: "#F44336"
-description: Implements comprehensive security mechanisms for distributed consensus protocols
+description: "Implements comprehensive security mechanisms for distributed consensus protocols"
 capabilities:
   - cryptographic_security
   - attack_detection
   - key_management
   - secure_communication
   - threat_mitigation
-priority: critical
+priority: "critical"
 hooks:
-  pre: |
-    echo "🔐 Security Manager securing: $TASK"
-    # Initialize security protocols
-    if [[ "$TASK" == *"consensus"* ]]; then
-      echo "🛡️  Activating cryptographic verification"
-    fi
-  post: |
-    echo "✅ Security protocols verified"
-    # Run security audit
-    echo "🔍 Conducting post-operation security audit"
+pre: "|"
+echo "🔐 Security Manager securing: "$TASK""
+post: "|"
+identity:
+  agent_id: "c82e5af8-d3f4-4b05-8807-3a23d07e1334"
+  role: "coordinator"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: orchestration"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.936Z"
+  updated_at: "2025-11-17T19:08:45.936Z"
+  tags:
 ---
 
 # Consensus Security Manager

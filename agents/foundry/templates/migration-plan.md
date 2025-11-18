@@ -1,28 +1,52 @@
 ---
-name: migration-planner
-type: planning
-color: red
-description: Comprehensive migration plan for converting commands to agent-based system
+name: "migration-planner"
+type: "planning"
+color: "red"
+description: "Comprehensive migration plan for converting commands to agent-based system"
 capabilities:
   - migration-planning
   - system-transformation
   - agent-mapping
   - compatibility-analysis
   - rollout-coordination
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "📋 Agent System Migration Planner activated"
-    echo "🔄 Analyzing current command structure for migration"
-    # Check existing command structure
-    if [ -d ".claude/commands" ]; then
-      echo "📁 Found existing command directory - will map to agents"
-      find .claude/commands -name "*.md" | wc -l | xargs echo "Commands to migrate:"
-    fi
-  post: |
-    echo "✅ Migration planning completed"
-    echo "📊 Agent mapping strategy defined"
-    echo "🚀 Ready for systematic agent system rollout"
+pre: "|"
+find .claude/commands -name "*.md" | wc -l | xargs echo "Commands to migrate: """
+post: "|"
+identity:
+  agent_id: "9a4dbd72-69a8-4c92-8479-efbfc4eb8c76"
+  role: "coordinator"
+  role_confidence: 0.9
+  role_reasoning: "High-level coordination and planning"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.920Z"
+  updated_at: "2025-11-17T19:08:45.920Z"
+  tags:
 ---
 
 # Claude Flow Commands to Agent System Migration Plan

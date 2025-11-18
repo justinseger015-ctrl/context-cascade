@@ -1,8 +1,8 @@
 ---
-name: technical-debt-manager
-type: core
+name: "technical-debt-manager"
+type: "core"
 color: "#E74C3C"
-description: Identify technical debt, prioritize refactoring, and manage code quality
+description: "Identify technical debt, prioritize refactoring, and manage code quality"
 capabilities:
   - debt_identification
   - refactoring_prioritization
@@ -10,16 +10,51 @@ capabilities:
   - connascence_detection
   - technical_debt_tracking
   - improvement_planning
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "Technical Debt Manager starting: $TASK"
-    echo "Analyzing codebase for technical debt and quality issues..."
-    npx claude-flow@alpha memory retrieve --key "debt/analysis" 2>/dev/null || echo "No stored debt analysis"
-  post: |
-    echo "Technical debt analysis complete"
-    echo "Storing debt metrics in memory..."
-    npx claude-flow@alpha memory store --key "debt/metrics/$(date +%s)" --value "Debt analysis completed"
+pre: "|"
+echo "Technical Debt Manager starting: "$TASK""
+post: "|"
+identity:
+  agent_id: "9a755b44-d920-48dc-8fff-c9acf0de1204"
+  role: "developer"
+  role_confidence: 0.9
+  role_reasoning: "Code implementation is core developer work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.916Z"
+  updated_at: "2025-11-17T19:08:45.916Z"
+  tags:
 ---
 
 # Technical Debt Manager

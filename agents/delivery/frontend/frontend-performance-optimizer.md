@@ -1,16 +1,16 @@
 ---
-name: frontend-performance-optimizer
-type: frontend
-phase: optimization
-category: performance
-description: Frontend performance optimization specialist focusing on Lighthouse, Core Web Vitals, bundle optimization, rendering performance, and web performance best practices
+name: "frontend-performance-optimizer"
+type: "frontend"
+phase: "optimization"
+category: "performance"
+description: "Frontend performance optimization specialist focusing on Lighthouse, Core Web Vitals, bundle optimization, rendering performance, and web performance best practices"
 capabilities:
   - lighthouse_optimization
   - core_web_vitals
   - bundle_optimization
   - rendering_performance
   - resource_optimization
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Edit
@@ -20,17 +20,53 @@ mcp_servers:
   - flow-nexus
   - memory-mcp
 hooks:
-  pre: |-
-    echo "[PHASE] Frontend Performance Optimizer initiated"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-  post: |-
-    echo "[OK] Performance optimization complete"
-    npx claude-flow@alpha hooks post-task --task-id "$(date +%s)"
+pre: "|-"
+post: "|-"
 quality_gates:
   - lighthouse_score_90_plus
   - core_web_vitals_passed
   - bundle_budget_met
-preferred_model: claude-sonnet-4
+preferred_model: "claude-sonnet-4"
+identity:
+  agent_id: "d891d383-4341-4ebf-9191-6ea2921d6048"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: delivery"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.907Z"
+  updated_at: "2025-11-17T19:08:45.907Z"
+  tags:
 ---
 
 # FRONTEND PERFORMANCE OPTIMIZER - SPECIALIST AGENT

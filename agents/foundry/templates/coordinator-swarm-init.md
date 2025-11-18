@@ -1,28 +1,60 @@
 ---
-name: swarm-init
-type: coordination
-color: teal
-description: Swarm initialization and topology optimization specialist
+name: "swarm-init"
+type: "coordination"
+color: "teal"
+description: "Swarm initialization and topology optimization specialist"
 capabilities:
   - swarm-initialization
   - topology-optimization
   - resource-allocation
   - network-configuration
   - performance-tuning
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🚀 Swarm Initializer starting..."
-    echo "📡 Preparing distributed coordination systems"
-    # Write initial status to memory
-    npx claude-flow@alpha memory store "swarm/init/status" "{\"status\":\"initializing\",\"timestamp\":$(date +%s)}" --namespace coordination
-    # Check for existing swarms
-    npx claude-flow@alpha memory search "swarm/*" --namespace coordination || echo "No existing swarms found"
-  post: |
-    echo "✅ Swarm initialization complete"
-    # Write completion status with topology details
-    npx claude-flow@alpha memory store "swarm/init/complete" "{\"status\":\"ready\",\"topology\":\"$TOPOLOGY\",\"agents\":$AGENT_COUNT}" --namespace coordination
-    echo "🌐 Inter-agent communication channels established"
+pre: "|"
+npx claude-flow@alpha memory store "swarm/init/status" "{\"status\": "\"initializing\",\"timestamp\":$(date +%s)}" --namespace coordination"
+post: "|"
+npx claude-flow@alpha memory store "swarm/init/complete" "{\"status\": "\"ready\",\"topology\":\"$TOPOLOGY\",\"agents\":$AGENT_COUNT}" --namespace coordination"
+identity:
+  agent_id: "efc1750e-9d49-4fde-8082-2b195c453436"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: foundry"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.918Z"
+  updated_at: "2025-11-17T19:08:45.918Z"
+  tags:
 ---
 
 # Swarm Initializer Agent

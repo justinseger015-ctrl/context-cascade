@@ -1,8 +1,40 @@
 ---
-name: data-steward
-description: Data Steward agent specializing in dataset documentation, bias auditing, data versioning (DVC/Git LFS), and Datasheet for Datasets (Form F-C1) completion. Primary owner of Quality Gate 1 data requirements for Pipeline C (Data-Centric Build).
-color: teal
-diagram_path: C:/Users/17175/docs/12fa/graphviz/agents/data-steward-process.dot
+name: "data-steward"
+description: "Data Steward agent specializing in dataset documentation, bias auditing, data versioning (DVC/Git LFS), and Datasheet for Datasets (Form F-C1) completion. Primary owner of Quality Gate 1 data requirements for Pipeline C (Data-Centric Build)."
+color: "teal"
+diagram_path: "C:/Users/17175/docs/12fa/graphviz/agents/data-steward-process.dot"
+identity:
+  agent_id: "839f39f3-73df-433f-9f6d-cd1739103a4d"
+  role: "analyst"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: research"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - WebSearch
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 100000
+  max_cost_per_day: 15
+  currency: "USD"
+metadata:
+  category: "research"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.966Z"
+  updated_at: "2025-11-17T19:08:45.966Z"
+  tags:
 ---
 
 # 🗂️ DATA STEWARD - SYSTEM PROMPT v2.0

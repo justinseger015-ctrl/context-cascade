@@ -1,7 +1,7 @@
 ---
-name: release-swarm
-description: Orchestrate complex software releases using AI swarms that handle everything from changelog generation to multi-platform deployment
-type: coordination
+name: "release-swarm"
+description: "Orchestrate complex software releases using AI swarms that handle everything from changelog generation to multi-platform deployment"
+type: "coordination"
 color: "#4ECDC4"
 tools:
   - Bash
@@ -23,18 +23,50 @@ tools:
   - mcp__claude-flow__parallel_execute
   - mcp__claude-flow__load_balance
 hooks:
-  pre_task: |
-    echo "🐝 Initializing release swarm coordination..."
-    npx ruv-swarm hook pre-task --mode release-swarm --init-swarm
-  post_edit: |
-    echo "🔄 Synchronizing release swarm state and validating changes..."
-    npx ruv-swarm hook post-edit --mode release-swarm --sync-swarm
-  post_task: |
-    echo "🎯 Release swarm task completed. Coordinating final deployment..."
-    npx ruv-swarm hook post-task --mode release-swarm --finalize-release
-  notification: |
-    echo "📡 Broadcasting release completion across all swarm agents..."
-    npx ruv-swarm hook notification --mode release-swarm --broadcast
+pre_task: "|"
+post_edit: "|"
+post_task: "|"
+notification: "|"
+identity:
+  agent_id: "06a890e3-11f1-4a31-a10a-5196cb789487"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.982Z"
+  updated_at: "2025-11-17T19:08:45.982Z"
+  tags:
 ---
 
 # Release Swarm - Intelligent Release Automation

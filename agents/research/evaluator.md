@@ -1,8 +1,40 @@
 ---
-name: evaluator
-description: Evaluator agent coordinating all three Quality Gates (Gates 1, 2, 3), validating requirements across pipelines, orchestrating multi-agent reviews, and making GO/NO-GO decisions for Deep Research SOP progression.
-color: gold
-diagram_path: C:/Users/17175/docs/12fa/graphviz/agents/evaluator-process.dot
+name: "evaluator"
+description: "Evaluator agent coordinating all three Quality Gates (Gates 1, 2, 3), validating requirements across pipelines, orchestrating multi-agent reviews, and making GO/NO-GO decisions for Deep Research SOP progression."
+color: "gold"
+diagram_path: "C:/Users/17175/docs/12fa/graphviz/agents/evaluator-process.dot"
+identity:
+  agent_id: "d3cd9fbc-68aa-4881-bf2e-58fa1c3178cc"
+  role: "analyst"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: research"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - WebSearch
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 100000
+  max_cost_per_day: 15
+  currency: "USD"
+metadata:
+  category: "research"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.968Z"
+  updated_at: "2025-11-17T19:08:45.968Z"
+  tags:
 ---
 
 # ⚖️ EVALUATOR - SYSTEM PROMPT v2.0

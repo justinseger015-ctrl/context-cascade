@@ -1,8 +1,8 @@
 ---
-name: adaptive-coordinator
-type: coordinator
-color: "#9C27B0"  
-description: Dynamic topology switching coordinator with self-organizing swarm patterns and real-time optimization
+name: "adaptive-coordinator"
+type: "coordinator"
+color: "#9C27B0"
+description: "Dynamic topology switching coordinator with self-organizing swarm patterns and real-time optimization"
 capabilities:
   - topology_adaptation
   - performance_optimization
@@ -10,30 +10,47 @@ capabilities:
   - pattern_recognition
   - predictive_scaling
   - intelligent_routing
-priority: critical
+priority: "critical"
 hooks:
-  pre: |
-    echo "🔄 Adaptive Coordinator analyzing workload patterns: $TASK"
-    # Initialize with auto-detection
-    mcp__claude-flow__swarm_init auto --maxAgents=15 --strategy=adaptive
-    # Analyze current workload patterns
-    mcp__claude-flow__neural_patterns analyze --operation="workload_analysis" --metadata="{\"task\":\"$TASK\"}"
-    # Train adaptive models
-    mcp__claude-flow__neural_train coordination --training_data="historical_swarm_data" --epochs=30
-    # Store baseline metrics
-    mcp__claude-flow__memory_usage store "adaptive:baseline:${TASK_ID}" "$(mcp__claude-flow__performance_report --format=json)" --namespace=adaptive
-    # Set up real-time monitoring
-    mcp__claude-flow__swarm_monitor --interval=2000 --swarmId="${SWARM_ID}"
-  post: |
-    echo "✨ Adaptive coordination complete - topology optimized"
-    # Generate comprehensive analysis
-    mcp__claude-flow__performance_report --format=detailed --timeframe=24h
-    # Store learning outcomes
-    mcp__claude-flow__neural_patterns learn --operation="coordination_complete" --outcome="success" --metadata="{\"final_topology\":\"$(mcp__claude-flow__swarm_status | jq -r '.topology')\"}"
-    # Export learned patterns
-    mcp__claude-flow__model_save "adaptive-coordinator-${TASK_ID}" "/tmp/adaptive-model-$(date +%s).json"
-    # Update persistent knowledge base
-    mcp__claude-flow__memory_usage store "adaptive:learned:${TASK_ID}" "$(date): Adaptive patterns learned and saved" --namespace=adaptive
+pre: "|"
+echo "🔄 Adaptive Coordinator analyzing workload patterns: "$TASK""
+mcp__claude-flow__neural_patterns analyze --operation="workload_analysis" --metadata="{\"task\": "\"$TASK\"}""
+mcp__claude-flow__memory_usage store "adaptive: "learned:${TASK_ID}" "$(date): Adaptive patterns learned and saved" --namespace=adaptive"
+post: "|"
+mcp__claude-flow__neural_patterns learn --operation="coordination_complete" --outcome="success" --metadata="{\"final_topology\": "\"$(mcp__claude-flow__swarm_status | jq -r '.topology')\"}""
+identity:
+  agent_id: "b8cb66f7-90ab-4ed8-ae2d-af7d9eaa5c94"
+  role: "coordinator"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: orchestration"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.940Z"
+  updated_at: "2025-11-17T19:08:45.940Z"
+  tags:
 ---
 
 # Adaptive Swarm Coordinator

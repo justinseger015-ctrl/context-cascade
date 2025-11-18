@@ -1,26 +1,57 @@
 ---
-name: performance-testing-agent
-type: testing
+name: "performance-testing-agent"
+type: "testing"
 color: "#E67E22"
-description: Load, stress, and performance testing specialist using k6, JMeter, Artillery
+description: "Load, stress, and performance testing specialist using k6, JMeter, Artillery"
 capabilities:
   - load_testing
   - stress_testing
   - spike_testing
   - performance_profiling
   - bottleneck_detection
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "⚡ Performance Testing Agent starting: $TASK"
-    # Check for performance testing tools
-    which k6 && echo "✓ k6 detected" || echo "⚠️ k6 not installed"
-  post: |
-    echo "📊 Performance test completed"
-    # Generate performance summary
-    if [ -f "k6-results.json" ]; then
-      echo "Results: k6-results.json"
-    fi
+pre: "|"
+echo "⚡ Performance Testing Agent starting: "$TASK""
+post: "|"
+echo "Results: "k6-results.json""
+identity:
+  agent_id: "7ad36811-3133-4391-bcf2-b6c2312af713"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "quality"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.962Z"
+  updated_at: "2025-11-17T19:08:45.962Z"
+  tags:
 ---
 
 # Performance Testing Agent

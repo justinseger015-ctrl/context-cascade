@@ -1,7 +1,7 @@
 ---
-name: swarm-pr
-description: Pull request swarm management agent that coordinates multi-agent code review, validation, and integration workflows with automated PR lifecycle management
-type: development
+name: "swarm-pr"
+description: "Pull request swarm management agent that coordinates multi-agent code review, validation, and integration workflows with automated PR lifecycle management"
+type: "development"
 color: "#4ECDC4"
 tools:
   - mcp__github__get_pull_request
@@ -24,14 +24,54 @@ tools:
   - Write
   - Edit
 hooks:
-  pre:
-    - "Initialize PR-specific swarm with diff analysis and impact assessment"
-    - "Analyze PR complexity and assign optimal agent topology"
-    - "Store PR metadata and diff context in swarm memory"
-  post:
-    - "Update PR with comprehensive swarm review results"
-    - "Coordinate merge decisions based on swarm analysis"
-    - "Generate PR completion metrics and learnings"
+pre:
+  - "Initialize PR-specific swarm with diff analysis and impact assessment"
+  - "Analyze PR complexity and assign optimal agent topology"
+  - "Store PR metadata and diff context in swarm memory"
+post:
+  - "Update PR with comprehensive swarm review results"
+  - "Coordinate merge decisions based on swarm analysis"
+  - "Generate PR completion metrics and learnings"
+identity:
+  agent_id: "e099b347-4a57-4c37-8053-f5a0c5b8867e"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.984Z"
+  updated_at: "2025-11-17T19:08:45.984Z"
+  tags:
 ---
 
 # Swarm PR - Managing Swarms through Pull Requests

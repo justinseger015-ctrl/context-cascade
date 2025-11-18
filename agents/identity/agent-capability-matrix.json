@@ -1,0 +1,257 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Capability Matrix",
+  "description": "Maps agent capabilities to RBAC roles for automatic role assignment during migration",
+  "version": "1.0.0",
+  "capability_to_role_mapping": {
+    "description": "Primary capability patterns that determine role assignment",
+    "rules": [
+      {
+        "capabilities": ["system-design", "architecture", "infrastructure", "full-access"],
+        "assigned_role": "admin",
+        "confidence": 0.95,
+        "reasoning": "System-level design requires admin access"
+      },
+      {
+        "capabilities": ["coding", "api-design", "refactoring", "implementation"],
+        "assigned_role": "developer",
+        "confidence": 0.9,
+        "reasoning": "Code implementation is core developer work"
+      },
+      {
+        "capabilities": ["code-review", "quality-analysis", "static-analysis"],
+        "assigned_role": "reviewer",
+        "confidence": 0.9,
+        "reasoning": "Review and analysis requires read-only + analysis tools"
+      },
+      {
+        "capabilities": ["security-audit", "vulnerability-scanning", "penetration-testing", "compliance"],
+        "assigned_role": "security",
+        "confidence": 0.95,
+        "reasoning": "Security work requires elevated permissions"
+      },
+      {
+        "capabilities": ["database-design", "schema-migration", "query-optimization", "sql"],
+        "assigned_role": "database",
+        "confidence": 0.9,
+        "reasoning": "Database work requires specific permissions"
+      },
+      {
+        "capabilities": ["ui-design", "react", "vue", "css", "accessibility", "frontend-optimization"],
+        "assigned_role": "frontend",
+        "confidence": 0.85,
+        "reasoning": "Frontend focus with UI/component work"
+      },
+      {
+        "capabilities": ["api-design", "backend-logic", "server-design", "microservices"],
+        "assigned_role": "backend",
+        "confidence": 0.85,
+        "reasoning": "Backend API and server logic"
+      },
+      {
+        "capabilities": ["testing", "test-design", "qa", "integration-testing", "e2e-testing"],
+        "assigned_role": "tester",
+        "confidence": 0.9,
+        "reasoning": "Quality assurance and testing"
+      },
+      {
+        "capabilities": ["data-analysis", "reporting", "metrics", "monitoring"],
+        "assigned_role": "analyst",
+        "confidence": 0.85,
+        "reasoning": "Analysis and reporting focus"
+      },
+      {
+        "capabilities": ["orchestration", "workflow-management", "agent-coordination", "planning"],
+        "assigned_role": "coordinator",
+        "confidence": 0.9,
+        "reasoning": "High-level coordination and planning"
+      }
+    ]
+  },
+  "agent_category_to_role_mapping": {
+    "description": "Maps agent categories to default roles",
+    "delivery": {
+      "default_role": "developer",
+      "subcategories": {
+        "architecture": "admin",
+        "development": "developer",
+        "frontend": "frontend",
+        "sparc": "developer"
+      }
+    },
+    "foundry": {
+      "default_role": "developer",
+      "subcategories": {
+        "core": "developer",
+        "registry": "admin",
+        "templates": "developer"
+      }
+    },
+    "operations": {
+      "default_role": "backend",
+      "subcategories": {
+        "devops": "admin",
+        "infrastructure": "admin",
+        "monitoring": "analyst",
+        "optimization": "analyst"
+      }
+    },
+    "orchestration": {
+      "default_role": "coordinator",
+      "subcategories": {
+        "consensus": "coordinator",
+        "goal": "coordinator",
+        "hive-mind": "coordinator",
+        "swarm": "coordinator"
+      }
+    },
+    "platforms": {
+      "default_role": "backend",
+      "subcategories": {
+        "ai-ml": "developer",
+        "data": "database",
+        "graphql": "backend",
+        "search": "backend"
+      }
+    },
+    "quality": {
+      "default_role": "reviewer",
+      "subcategories": {
+        "analysis": "reviewer",
+        "testing": "tester",
+        "validation": "reviewer"
+      }
+    },
+    "research": {
+      "default_role": "analyst",
+      "subcategories": {
+        "analysis": "analyst",
+        "deep-research": "reviewer",
+        "literature": "analyst"
+      }
+    },
+    "security": {
+      "default_role": "security",
+      "subcategories": {
+        "audit": "security",
+        "compliance": "security",
+        "penetration": "security",
+        "threat-modeling": "security"
+      }
+    },
+    "specialists": {
+      "default_role": "developer",
+      "subcategories": {
+        "backend": "backend",
+        "frontend": "frontend",
+        "mobile": "developer",
+        "ml": "developer"
+      }
+    },
+    "tooling": {
+      "default_role": "developer",
+      "subcategories": {
+        "automation": "developer",
+        "cli": "developer",
+        "sdk": "developer"
+      }
+    }
+  },
+  "role_assignment_algorithm": {
+    "description": "Algorithm for automatic role assignment to agents",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Extract agent capabilities from YAML frontmatter",
+        "logic": "Parse 'capabilities' array"
+      },
+      {
+        "step": 2,
+        "action": "Match capabilities to capability_to_role_mapping rules",
+        "logic": "Find highest confidence match (>0.8 threshold)"
+      },
+      {
+        "step": 3,
+        "action": "If no capability match, use agent category",
+        "logic": "Look up agent category in agent_category_to_role_mapping"
+      },
+      {
+        "step": 4,
+        "action": "If category has subcategories, use more specific mapping",
+        "logic": "Check subcategory path in agent file structure"
+      },
+      {
+        "step": 5,
+        "action": "If still ambiguous, default to 'developer' role",
+        "logic": "Fallback to safest general-purpose role"
+      },
+      {
+        "step": 6,
+        "action": "Validate role assignment against agent type",
+        "logic": "Ensure role makes sense for agent name (e.g., 'backend-dev' -> 'backend')"
+      }
+    ],
+    "conflict_resolution": {
+      "multiple_capability_matches": "Use highest confidence match",
+      "category_vs_capability_mismatch": "Prefer capability-based assignment",
+      "ambiguous_agent_name": "Use category as tiebreaker",
+      "specialist_vs_generalist": "Assign specialist role if agent has 'specialist: true' in metadata"
+    }
+  },
+  "examples": [
+    {
+      "agent_name": "backend-dev",
+      "capabilities": ["coding", "api-design", "database", "testing"],
+      "category": "delivery/development/backend",
+      "assigned_role": "backend",
+      "reasoning": "Primary capability 'api-design' + category match -> backend role",
+      "confidence": 0.9
+    },
+    {
+      "agent_name": "security-manager",
+      "capabilities": ["security-audit", "vulnerability-scanning", "compliance"],
+      "category": "security/audit",
+      "assigned_role": "security",
+      "reasoning": "Security capabilities + security category -> security role",
+      "confidence": 0.95
+    },
+    {
+      "agent_name": "coder",
+      "capabilities": ["code_generation", "refactoring", "optimization"],
+      "category": "foundry/core",
+      "assigned_role": "developer",
+      "reasoning": "General coding capabilities -> developer role",
+      "confidence": 0.9
+    },
+    {
+      "agent_name": "hierarchical-coordinator",
+      "capabilities": ["orchestration", "agent-coordination", "workflow-management"],
+      "category": "orchestration/swarm",
+      "assigned_role": "coordinator",
+      "reasoning": "Orchestration capabilities + orchestration category -> coordinator role",
+      "confidence": 0.95
+    },
+    {
+      "agent_name": "react-specialist",
+      "capabilities": ["react", "ui-design", "css", "accessibility"],
+      "category": "delivery/frontend",
+      "assigned_role": "frontend",
+      "reasoning": "Frontend-specific capabilities -> frontend role",
+      "confidence": 0.9
+    }
+  ],
+  "validation_rules": {
+    "required_fields": ["agent_name", "capabilities", "category", "assigned_role"],
+    "role_must_exist": "assigned_role must be one of 10 defined RBAC roles",
+    "confidence_threshold": 0.7,
+    "manual_review_threshold": 0.5,
+    "description": "Agents with confidence <0.7 should be manually reviewed before migration"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_at": "2025-01-17T00:00:00Z",
+    "last_updated": "2025-01-17T00:00:00Z",
+    "compatible_with_schema_version": "1.0.0",
+    "compatible_with_rbac_version": "1.0.0"
+  }
+}

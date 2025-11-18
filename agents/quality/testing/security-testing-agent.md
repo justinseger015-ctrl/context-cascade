@@ -1,27 +1,56 @@
 ---
-name: security-testing-agent
-type: testing
+name: "security-testing-agent"
+type: "testing"
 color: "#E74C3C"
-description: SAST, DAST, and vulnerability scanning specialist for comprehensive security testing
+description: "SAST, DAST, and vulnerability scanning specialist for comprehensive security testing"
 capabilities:
   - static_analysis
   - dynamic_analysis
   - vulnerability_scanning
   - dependency_audit
   - penetration_testing
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🔒 Security Testing Agent starting: $TASK"
-    # Check for security tools
-    which snyk && echo "✓ Snyk detected" || echo "⚠️ Install snyk for dependency scanning"
-    which semgrep && echo "✓ Semgrep detected" || echo "⚠️ Install semgrep for SAST"
-  post: |
-    echo "🛡️ Security scan completed"
-    # Report critical vulnerabilities
-    if [ -f "security-report.json" ]; then
-      jq '.vulnerabilities | map(select(.severity == "critical")) | length' security-report.json 2>/dev/null
-    fi
+pre: "|"
+echo "🔒 Security Testing Agent starting: "$TASK""
+post: "|"
+identity:
+  agent_id: "d6053f7c-9c96-4b45-bf97-64ba2d240fb9"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "quality"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.963Z"
+  updated_at: "2025-11-17T19:08:45.963Z"
+  tags:
 ---
 
 # Security Testing Agent

@@ -1,16 +1,23 @@
 ---
-name: security-manager
-type: security
+name: "security-manager"
+type: "security"
 color: "#F44336"
 version: "2.0.0"
 created: "2025-07-25"
 last_updated: "2025-10-29"
-description: Implements comprehensive security mechanisms for distributed consensus protocols with command and MCP tool integration
+description: "Implements comprehensive security mechanisms for distributed consensus protocols with command and MCP tool integration"
 metadata:
-  enhancement: "Command mapping + MCP tool integration + Prompt optimization"
-  specialization: "Security auditing, compliance, threat detection, cryptographic security"
-  complexity: "high"
-  autonomous: true
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "2.0.0"
+  created_at: "2025-11-17T19:08:45.935Z"
+  updated_at: "2025-11-17T19:08:45.935Z"
+  tags:
+enhancement: "Command mapping + MCP tool integration + Prompt optimization"
+specialization: "Security auditing, compliance, threat detection, cryptographic security"
+complexity: "high"
+autonomous: true
 capabilities:
   - cryptographic_security
   - attack_detection
@@ -19,18 +26,36 @@ capabilities:
   - threat_mitigation
   - compliance_validation
   - vulnerability_scanning
-priority: critical
+priority: "critical"
 hooks:
-  pre: |
-    echo "🔐 Security Manager securing: $TASK"
-    # Initialize security protocols
-    if [[ "$TASK" == *"consensus"* ]]; then
-      echo "🛡️  Activating cryptographic verification"
-    fi
-  post: |
-    echo "✅ Security protocols verified"
-    # Run security audit
-    echo "🔍 Conducting post-operation security audit"
+pre: "|"
+echo "🔐 Security Manager securing: "$TASK""
+post: "|"
+identity:
+  agent_id: "bb377227-a069-46af-8d9c-252eaa6ea4c9"
+  role: "security"
+  role_confidence: 0.95
+  role_reasoning: "Security work requires elevated permissions"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+    - connascence-analyzer
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
 ---
 
 # Security Manager / Security Specialist Agent

@@ -1,26 +1,52 @@
 ---
-name: crdt-synchronizer
-type: synchronizer
+name: "crdt-synchronizer"
+type: "synchronizer"
 color: "#4CAF50"
-description: Implements Conflict-free Replicated Data Types for eventually consistent state synchronization
+description: "Implements Conflict-free Replicated Data Types for eventually consistent state synchronization"
 capabilities:
   - state_based_crdts
   - operation_based_crdts
   - delta_synchronization
   - conflict_resolution
   - causal_consistency
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🔄 CRDT Synchronizer syncing: $TASK"
-    # Initialize CRDT state tracking
-    if [[ "$TASK" == *"synchronization"* ]]; then
-      echo "📊 Preparing delta state computation"
-    fi
-  post: |
-    echo "🎯 CRDT synchronization complete"
-    # Verify eventual consistency
-    echo "✅ Validating conflict-free state convergence"
+pre: "|"
+echo "🔄 CRDT Synchronizer syncing: "$TASK""
+post: "|"
+identity:
+  agent_id: "2bd925ad-3482-4b34-b928-6fadcadde276"
+  role: "coordinator"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: orchestration"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.932Z"
+  updated_at: "2025-11-17T19:08:45.932Z"
+  tags:
 ---
 
 # CRDT Synchronizer

@@ -1,8 +1,8 @@
 ---
-name: developer-documentation-agent
-type: documentation
+name: "developer-documentation-agent"
+type: "documentation"
 color: "#50C878"
-description: README, setup guides, and architecture documentation specialist
+description: "README, setup guides, and architecture documentation specialist"
 capabilities:
   - readme_generation
   - setup_guides
@@ -10,17 +10,38 @@ capabilities:
   - contribution_guidelines
   - changelog_management
   - code_examples
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "Developer Documentation Agent starting: $TASK"
-    echo "Analyzing project structure and documentation needs..."
-    find . -name "README*" -o -name "CONTRIBUTING*" -o -name "CHANGELOG*" | grep -v node_modules
-    ls -la docs/ 2>/dev/null || echo "No docs directory found"
-  post: |
-    echo "Developer documentation complete"
-    echo "Documentation files created/updated:"
-    find . -name "*.md" -mmin -5 | grep -v node_modules
+pre: "|"
+echo "Developer Documentation Agent starting: "$TASK""
+post: "|"
+echo "Documentation files created/updated: """
+identity:
+  agent_id: "0d54c7e9-7bfa-4dc9-aa96-acd5b24ec136"
+  role: "admin"
+  role_confidence: 0.95
+  role_reasoning: "System-level design requires admin access"
+rbac:
+  allowed_tools:
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - *
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 500000
+  max_cost_per_day: 100
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.976Z"
+  updated_at: "2025-11-17T19:08:45.976Z"
+  tags:
 ---
 
 # Developer Documentation Agent

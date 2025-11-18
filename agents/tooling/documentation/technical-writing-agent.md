@@ -1,8 +1,8 @@
 ---
-name: technical-writing-agent
-type: documentation
+name: "technical-writing-agent"
+type: "documentation"
 color: "#E67E22"
-description: Blog posts, tutorials, whitepapers, and technical content specialist
+description: "Blog posts, tutorials, whitepapers, and technical content specialist"
 capabilities:
   - blog_writing
   - tutorial_creation
@@ -10,16 +10,51 @@ capabilities:
   - case_study_writing
   - technical_storytelling
   - content_optimization
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "Technical Writing Agent starting: $TASK"
-    echo "Analyzing content requirements and audience..."
-    find . -name "blog" -o -name "articles" -o -name "tutorials" | head -5
-  post: |
-    echo "Technical content complete"
-    echo "Running style checks and readability analysis..."
-    find . -name "*.md" -mmin -5 | grep -E "blog|article|tutorial|whitepaper"
+pre: "|"
+echo "Technical Writing Agent starting: "$TASK""
+post: "|"
+identity:
+  agent_id: "ada9dc0f-b983-43b4-ba8e-dfef5bee2070"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.977Z"
+  updated_at: "2025-11-17T19:08:45.977Z"
+  tags:
 ---
 
 # Technical Writing Agent

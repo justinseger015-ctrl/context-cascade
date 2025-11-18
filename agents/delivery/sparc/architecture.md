@@ -1,25 +1,45 @@
 ---
-name: architecture
-type: architect
-color: purple
-description: SPARC Architecture phase specialist for system design
+name: "architecture"
+type: "architect"
+color: "purple"
+description: "SPARC Architecture phase specialist for system design"
 capabilities:
   - system_design
   - component_architecture
   - interface_design
   - scalability_planning
   - technology_selection
-priority: high
-sparc_phase: architecture
+priority: "high"
+sparc_phase: "architecture"
 hooks:
-  pre: |
-    echo "🏗️ SPARC Architecture phase initiated"
-    memory_store "sparc_phase" "architecture"
-    # Retrieve pseudocode designs
-    memory_search "pseudo_complete" | tail -1
-  post: |
-    echo "✅ Architecture phase complete"
-    memory_store "arch_complete_$(date +%s)" "System architecture defined"
+pre: "|"
+post: "|"
+identity:
+  agent_id: "a93ec33d-92f0-4f40-93fd-f56c1c7caf82"
+  role: "admin"
+  role_confidence: 0.95
+  role_reasoning: "System-level design requires admin access"
+rbac:
+  allowed_tools:
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - *
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 500000
+  max_cost_per_day: 100
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.909Z"
+  updated_at: "2025-11-17T19:08:45.909Z"
+  tags:
 ---
 
 # SPARC Architecture Agent

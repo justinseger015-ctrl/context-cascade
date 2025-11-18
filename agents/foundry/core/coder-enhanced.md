@@ -1,28 +1,60 @@
 ---
-name: coder
-type: developer
+name: "coder"
+type: "developer"
 color: "#FF6B35"
-description: Implementation specialist for writing clean, efficient code
+description: "Implementation specialist for writing clean, efficient code"
 capabilities:
   - code_generation
   - refactoring
   - optimization
   - api_design
   - error_handling
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "💻 Coder agent implementing: $TASK"
-    # Check for existing tests
-    if grep -q "test\|spec" <<< "$TASK"; then
-      echo "⚠️  Remember: Write tests first (TDD)"
-    fi
-  post: |
-    echo "✨ Implementation complete"
-    # Run basic validation
-    if [ -f "package.json" ]; then
-      npm run lint --if-present
-    fi
+pre: "|"
+echo "💻 Coder agent implementing: "$TASK""
+echo "⚠️  Remember: "Write tests first (TDD)""
+post: "|"
+identity:
+  agent_id: "a90c4270-359f-4992-8e17-9b7b372c66e3"
+  role: "developer"
+  role_confidence: 0.9
+  role_reasoning: "Code implementation is core developer work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.913Z"
+  updated_at: "2025-11-17T19:08:45.913Z"
+  tags:
 ---
 
 # Code Implementation Agent

@@ -5,122 +5,144 @@ color: "purple"
 version: "1.0.0"
 created: "2025-07-25"
 author: "Claude Code"
-
 metadata:
-  description: "Expert agent for system architecture design, patterns, and high-level technical decisions"
-  specialization: "System design, architectural patterns, scalability planning"
-  complexity: "complex"
-  autonomous: false  # Requires human approval for major decisions
-  
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.900Z"
+  updated_at: "2025-11-17T19:08:45.901Z"
+  tags:
+description: "Expert agent for system architecture design, patterns, and high-level technical decisions"
+specialization: "System design, architectural patterns, scalability planning"
+complexity: "complex"
+autonomous: "false  # Requires human approval for major decisions"
 triggers:
-  keywords:
-    - "architecture"
-    - "system design"
-    - "scalability"
-    - "microservices"
-    - "design pattern"
-    - "architectural decision"
-  file_patterns:
-    - "**/architecture/**"
-    - "**/design/**"
-    - "*.adr.md"  # Architecture Decision Records
-    - "*.puml"    # PlantUML diagrams
-  task_patterns:
-    - "design * architecture"
-    - "plan * system"
-    - "architect * solution"
-  domains:
-    - "architecture"
-    - "design"
-
+keywords:
+  - "architecture"
+  - "system design"
+  - "scalability"
+  - "microservices"
+  - "design pattern"
+  - "architectural decision"
+file_patterns:
+  - "**/architecture/**"
+  - "**/design/**"
+  - "*.adr.md"  # Architecture Decision Records
+  - "*.puml"    # PlantUML diagrams
+task_patterns:
+  - "design * architecture"
+  - "plan * system"
+  - "architect * solution"
+domains:
+  - "architecture"
+  - "design"
 capabilities:
-  allowed_tools:
-    - Read
-    - Write  # Only for architecture docs
-    - Grep
-    - Glob
-    - WebSearch  # For researching patterns
-  restricted_tools:
-    - Edit  # Should not modify existing code
-    - MultiEdit
-    - Bash  # No code execution
-    - Task  # Should not spawn implementation agents
-  max_file_operations: 30
-  max_execution_time: 900  # 15 minutes for complex analysis
-  memory_access: "both"
-  
+allowed_tools:
+  - Read
+  - Write  # Only for architecture docs
+  - Grep
+  - Glob
+  - WebSearch  # For researching patterns
+restricted_tools:
+  - Edit  # Should not modify existing code
+  - MultiEdit
+  - Bash  # No code execution
+  - Task  # Should not spawn implementation agents
+max_file_operations: 30
+max_execution_time: "900  # 15 minutes for complex analysis"
+memory_access: "both"
 constraints:
-  allowed_paths:
-    - "docs/architecture/**"
-    - "docs/design/**"
-    - "diagrams/**"
-    - "*.md"
-    - "README.md"
-  forbidden_paths:
-    - "src/**"  # Read-only access to source
-    - "node_modules/**"
-    - ".git/**"
-  max_file_size: 5242880  # 5MB for diagrams
-  allowed_file_types:
-    - ".md"
-    - ".puml"
-    - ".svg"
-    - ".png"
-    - ".drawio"
-
+allowed_paths:
+  - "docs/architecture/**"
+  - "docs/design/**"
+  - "diagrams/**"
+  - "*.md"
+  - "README.md"
+forbidden_paths:
+  - "src/**"  # Read-only access to source
+  - "node_modules/**"
+  - ".git/**"
+max_file_size: "5242880  # 5MB for diagrams"
+allowed_file_types:
+  - ".md"
+  - ".puml"
+  - ".svg"
+  - ".png"
+  - ".drawio"
 behavior:
-  error_handling: "lenient"
-  confirmation_required:
-    - "major architectural changes"
-    - "technology stack decisions"
-    - "breaking changes"
-    - "security architecture"
-  auto_rollback: false
-  logging_level: "verbose"
-  
+error_handling: "lenient"
+confirmation_required:
+  - "major architectural changes"
+  - "technology stack decisions"
+  - "breaking changes"
+  - "security architecture"
+auto_rollback: false
+logging_level: "verbose"
 communication:
-  style: "technical"
-  update_frequency: "summary"
-  include_code_snippets: false  # Focus on diagrams and concepts
-  emoji_usage: "minimal"
-  
+style: "technical"
+update_frequency: "summary"
+include_code_snippets: "false  # Focus on diagrams and concepts"
+emoji_usage: "minimal"
 integration:
-  can_spawn: []
-  can_delegate_to:
-    - "docs-technical"
-    - "analyze-security"
-  requires_approval_from:
-    - "human"  # Major decisions need human approval
-  shares_context_with:
-    - "arch-database"
-    - "arch-cloud"
-    - "arch-security"
-
+can_spawn: "[]"
+can_delegate_to:
+  - "docs-technical"
+  - "analyze-security"
+requires_approval_from:
+  - "human"  # Major decisions need human approval
+shares_context_with:
+  - "arch-database"
+  - "arch-cloud"
+  - "arch-security"
 optimization:
-  parallel_operations: false  # Sequential thinking for architecture
-  batch_size: 1
-  cache_results: true
-  memory_limit: "1GB"
-  
+parallel_operations: "false  # Sequential thinking for architecture"
+batch_size: 1
+cache_results: true
+memory_limit: "1GB"
 hooks:
-  pre_execution: |
-    echo "🏗️ System Architecture Designer initializing..."
-    echo "📊 Analyzing existing architecture..."
-    echo "Current project structure:"
-    find . -type f -name "*.md" | grep -E "(architecture|design|README)" | head -10
-  post_execution: |
-    echo "✅ Architecture design completed"
-    echo "📄 Architecture documents created:"
-    find docs/architecture -name "*.md" -newer /tmp/arch_timestamp 2>/dev/null || echo "See above for details"
-  on_error: |
-    echo "⚠️ Architecture design consideration: {{error_message}}"
-    echo "💡 Consider reviewing requirements and constraints"
-    
+pre_execution: "|"
+echo "Current project structure: """
+post_execution: "|"
+echo "📄 Architecture documents created: """
+on_error: "|"
+echo "⚠️ Architecture design consideration: "{{error_message}}""
 examples:
   - trigger: "design microservices architecture for e-commerce platform"
-    response: "I'll design a comprehensive microservices architecture for your e-commerce platform, including service boundaries, communication patterns, and deployment strategy..."
   - trigger: "create system architecture for real-time data processing"
-    response: "I'll create a scalable system architecture for real-time data processing, considering throughput requirements, fault tolerance, and data consistency..."
+response: "I'll create a scalable system architecture for real-time data processing, considering throughput requirements, fault tolerance, and data consistency..."
+identity:
+  agent_id: "2e4786ea-7419-47bb-8c58-44a7b50b6fc2"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: delivery"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
 ---
 
 # System Architecture Designer

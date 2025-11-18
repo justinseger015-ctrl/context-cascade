@@ -1,33 +1,55 @@
 ---
-name: hierarchical-coordinator
-type: coordinator
+name: "hierarchical-coordinator"
+type: "coordinator"
 color: "#FF6B35"
-description: Queen-led hierarchical swarm coordination with specialized worker delegation
+description: "Queen-led hierarchical swarm coordination with specialized worker delegation"
 capabilities:
   - swarm_coordination
   - task_decomposition
   - agent_supervision
-  - work_delegation  
+  - work_delegation
   - performance_monitoring
   - conflict_resolution
-priority: critical
+priority: "critical"
 hooks:
-  pre: |
-    echo "👑 Hierarchical Coordinator initializing swarm: $TASK"
-    # Initialize swarm topology
-    mcp__claude-flow__swarm_init hierarchical --maxAgents=10 --strategy=adaptive
-    # MANDATORY: Write initial status to coordination namespace
-    mcp__claude-flow__memory_usage store "swarm/hierarchical/status" "{\"agent\":\"hierarchical-coordinator\",\"status\":\"initializing\",\"timestamp\":$(date +%s),\"topology\":\"hierarchical\"}" --namespace=coordination
-    # Set up monitoring
-    mcp__claude-flow__swarm_monitor --interval=5000 --swarmId="${SWARM_ID}"
-  post: |
-    echo "✨ Hierarchical coordination complete"
-    # Generate performance report
-    mcp__claude-flow__performance_report --format=detailed --timeframe=24h
-    # MANDATORY: Write completion status
-    mcp__claude-flow__memory_usage store "swarm/hierarchical/complete" "{\"status\":\"complete\",\"agents_used\":$(mcp__claude-flow__swarm_status | jq '.agents.total'),\"timestamp\":$(date +%s)}" --namespace=coordination
-    # Cleanup resources
-    mcp__claude-flow__coordination_sync --swarmId="${SWARM_ID}"
+pre: "|"
+echo "👑 Hierarchical Coordinator initializing swarm: "$TASK""
+# MANDATORY: "Write completion status"
+mcp__claude-flow__memory_usage store "swarm/hierarchical/status" "{\"agent\": "\"hierarchical-coordinator\",\"status\":\"initializing\",\"timestamp\":$(date +%s),\"topology\":\"hierarchical\"}" --namespace=coordination"
+post: "|"
+mcp__claude-flow__memory_usage store "swarm/hierarchical/complete" "{\"status\": "\"complete\",\"agents_used\":$(mcp__claude-flow__swarm_status | jq '.agents.total'),\"timestamp\":$(date +%s)}" --namespace=coordination"
+identity:
+  agent_id: "c3a487b8-6815-43fa-91e3-4bf01f7134ab"
+  role: "analyst"
+  role_confidence: 0.85
+  role_reasoning: "Analysis and reporting focus"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - WebSearch
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 100000
+  max_cost_per_day: 15
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.941Z"
+  updated_at: "2025-11-17T19:08:45.941Z"
+  tags:
 ---
 
 # Hierarchical Swarm Coordinator

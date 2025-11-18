@@ -1,16 +1,16 @@
 ---
-name: ui-component-builder
-type: frontend
-phase: execution
-category: design-systems
-description: Component library and design system specialist focused on reusable UI components, accessibility, visual consistency, and design tokens
+name: "ui-component-builder"
+type: "frontend"
+phase: "execution"
+category: "design-systems"
+description: "Component library and design system specialist focused on reusable UI components, accessibility, visual consistency, and design tokens"
 capabilities:
   - component_library
   - design_systems
   - storybook
   - design_tokens
   - visual_consistency
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -23,18 +23,54 @@ mcp_servers:
   - playwright
   - filesystem
 hooks:
-  pre: |-
-    echo "[PHASE] UI Component Builder initiated"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-  post: |-
-    echo "[OK] Design system component complete"
-    npx claude-flow@alpha hooks post-task --task-id "$(date +%s)"
+pre: "|-"
+post: "|-"
 quality_gates:
   - visual_regression_passed
   - storybook_documented
   - accessibility_tested
   - design_tokens_used
-preferred_model: claude-sonnet-4
+preferred_model: "claude-sonnet-4"
+identity:
+  agent_id: "956ee5bd-a970-4752-83f9-98fcc0076323"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: delivery"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.908Z"
+  updated_at: "2025-11-17T19:08:45.908Z"
+  tags:
 ---
 
 # UI COMPONENT BUILDER - SPECIALIST AGENT

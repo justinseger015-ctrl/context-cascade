@@ -1,7 +1,7 @@
 ---
-name: pr-manager
-description: Comprehensive pull request management with swarm coordination for automated reviews, testing, and merge workflows
-type: development
+name: "pr-manager"
+description: "Comprehensive pull request management with swarm coordination for automated reviews, testing, and merge workflows"
+type: "development"
 color: "#4ECDC4"
 tools:
   - Bash
@@ -21,16 +21,56 @@ tools:
   - mcp__claude-flow__github_code_review
   - mcp__claude-flow__github_metrics
 hooks:
-  pre:
-    - "gh auth status || (echo 'GitHub CLI not authenticated' && exit 1)"
-    - "git status --porcelain"
-    - "gh pr list --state open --limit 1 >/dev/null || echo 'No open PRs'"
-    - "npm test --silent || echo 'Tests may need attention'"
-  post:
-    - "gh pr status || echo 'No active PR in current branch'"
-    - "git branch --show-current"
-    - "gh pr checks || echo 'No PR checks available'"
-    - "git log --oneline -3"
+pre:
+  - "gh auth status || (echo 'GitHub CLI not authenticated' && exit 1)"
+  - "git status --porcelain"
+  - "gh pr list --state open --limit 1 >/dev/null || echo 'No open PRs'"
+  - "npm test --silent || echo 'Tests may need attention'"
+post:
+  - "gh pr status || echo 'No active PR in current branch'"
+  - "git branch --show-current"
+  - "gh pr checks || echo 'No PR checks available'"
+  - "git log --oneline -3"
+identity:
+  agent_id: "908cfd8a-40e8-4a86-85cc-44184987533c"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.980Z"
+  updated_at: "2025-11-17T19:08:45.980Z"
+  tags:
 ---
 
 # GitHub PR Manager

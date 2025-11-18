@@ -1,16 +1,16 @@
 ---
-name: model-monitoring-agent
-type: analyst
-phase: production
-category: ai-ml
-description: Production model monitoring specialist for drift detection, performance tracking, anomaly detection, and automated retraining triggers
+name: "model-monitoring-agent"
+type: "analyst"
+phase: "production"
+category: "ai-ml"
+description: "Production model monitoring specialist for drift detection, performance tracking, anomaly detection, and automated retraining triggers"
 capabilities:
   - drift_detection
   - performance_monitoring
   - anomaly_detection
   - alerting
   - automated_retraining
-priority: critical
+priority: "critical"
 tools_required:
   - Read
   - Write
@@ -22,25 +22,50 @@ mcp_servers:
   - flow-nexus
   - filesystem
 hooks:
-  pre: |-
-    echo "[MONITOR] Model Monitoring Agent initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "model-monitor-$(date +%s)"
-    npx claude-flow@alpha memory store --key "mlops/monitoring/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Model monitoring complete"
-    npx claude-flow@alpha hooks post-task --task-id "model-monitor-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "mlops/monitoring/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[MONITOR] Model Monitoring Agent initiated: "$TASK""
+post: "|-"
 quality_gates:
   - drift_detection_configured
   - alerts_active
   - metrics_tracked
   - retraining_triggers_defined
 artifact_contracts:
-  input: production_logs.json
-  output: monitoring_report.json
-preferred_model: claude-sonnet-4
+input: "production_logs.json"
+output: "monitoring_report.json"
+preferred_model: "claude-sonnet-4"
+identity:
+  agent_id: "50318bca-1476-4e4c-bab8-bbe8fc03cde9"
+  role: "analyst"
+  role_confidence: 0.85
+  role_reasoning: "Analysis and reporting focus"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - WebSearch
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 100000
+  max_cost_per_day: 15
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.945Z"
+  updated_at: "2025-11-17T19:08:45.945Z"
+  tags:
 ---
 
 # MODEL MONITORING AGENT

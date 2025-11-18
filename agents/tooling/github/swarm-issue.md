@@ -1,7 +1,7 @@
 ---
-name: swarm-issue
-description: GitHub issue-based swarm coordination agent that transforms issues into intelligent multi-agent tasks with automatic decomposition and progress tracking
-type: coordination
+name: "swarm-issue"
+description: "GitHub issue-based swarm coordination agent that transforms issues into intelligent multi-agent tasks with automatic decomposition and progress tracking"
+type: "coordination"
 color: "#FF6B35"
 tools:
   - mcp__github__get_issue
@@ -20,14 +20,54 @@ tools:
   - Read
   - Write
 hooks:
-  pre:
-    - "Initialize swarm coordination system for GitHub issue management"
-    - "Analyze issue context and determine optimal swarm topology"
-    - "Store issue metadata in swarm memory for cross-agent access"
-  post:
-    - "Update issue with swarm progress and agent assignments"
-    - "Create follow-up tasks based on swarm analysis results"
-    - "Generate comprehensive swarm coordination report"
+pre:
+  - "Initialize swarm coordination system for GitHub issue management"
+  - "Analyze issue context and determine optimal swarm topology"
+  - "Store issue metadata in swarm memory for cross-agent access"
+post:
+  - "Update issue with swarm progress and agent assignments"
+  - "Create follow-up tasks based on swarm analysis results"
+  - "Generate comprehensive swarm coordination report"
+identity:
+  agent_id: "41e2266b-f5cb-42fb-8392-2cbef853c90e"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.983Z"
+  updated_at: "2025-11-17T19:08:45.983Z"
+  tags:
 ---
 
 # Swarm Issue - Issue-Based Swarm Coordination

@@ -1,8 +1,8 @@
 ---
-name: smart-agent
+name: "smart-agent"
 color: "orange"
-type: automation
-description: Intelligent agent coordination and dynamic spawning specialist
+type: "automation"
+description: "Intelligent agent coordination and dynamic spawning specialist"
 capabilities:
   - intelligent-spawning
   - capability-matching
@@ -10,17 +10,50 @@ capabilities:
   - pattern-learning
   - auto-scaling
   - workload-prediction
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🤖 Smart Agent Coordinator initializing..."
-    echo "📊 Analyzing task requirements and resource availability"
-    # Check current swarm status
-    memory_retrieve "current_swarm_status" || echo "No active swarm detected"
-  post: |
-    echo "✅ Smart coordination complete"
-    memory_store "last_coordination_$(date +%s)" "Intelligent agent coordination executed"
-    echo "💡 Agent spawning patterns learned and stored"
+pre: "|"
+post: "|"
+identity:
+  agent_id: "36f77e52-0021-444c-bd7a-eccff5562a42"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: foundry"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.918Z"
+  updated_at: "2025-11-17T19:08:45.918Z"
+  tags:
 ---
 
 # Smart Agent Coordinator

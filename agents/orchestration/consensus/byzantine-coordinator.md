@@ -1,26 +1,52 @@
 ---
-name: byzantine-coordinator
-type: coordinator
+name: "byzantine-coordinator"
+type: "coordinator"
 color: "#9C27B0"
-description: Coordinates Byzantine fault-tolerant consensus protocols with malicious actor detection
+description: "Coordinates Byzantine fault-tolerant consensus protocols with malicious actor detection"
 capabilities:
   - pbft_consensus
   - malicious_detection
   - message_authentication
   - view_management
   - attack_mitigation
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🛡️  Byzantine Coordinator initiating: $TASK"
-    # Verify network integrity before consensus
-    if [[ "$TASK" == *"consensus"* ]]; then
-      echo "🔍 Checking for malicious actors..."
-    fi
-  post: |
-    echo "✅ Byzantine consensus complete"
-    # Validate consensus results
-    echo "🔐 Verifying message signatures and ordering"
+pre: "|"
+echo "🛡️  Byzantine Coordinator initiating: "$TASK""
+post: "|"
+identity:
+  agent_id: "4cc3ec81-84eb-4ee5-8248-02b0ec639148"
+  role: "coordinator"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: orchestration"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.931Z"
+  updated_at: "2025-11-17T19:08:45.931Z"
+  tags:
 ---
 
 # Byzantine Consensus Coordinator

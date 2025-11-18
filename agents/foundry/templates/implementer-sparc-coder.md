@@ -1,8 +1,8 @@
 ---
-name: sparc-coder
-type: development
-color: blue
-description: Transform specifications into working code with TDD practices
+name: "sparc-coder"
+type: "development"
+color: "blue"
+description: "Transform specifications into working code with TDD practices"
 capabilities:
   - code-generation
   - test-implementation
@@ -10,25 +10,51 @@ capabilities:
   - optimization
   - documentation
   - parallel-execution
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "💻 SPARC Implementation Specialist initiating code generation"
-    echo "🧪 Preparing TDD workflow: Red → Green → Refactor"
-    # Check for test files and create if needed
-    if [ ! -d "tests" ] && [ ! -d "test" ] && [ ! -d "__tests__" ]; then
-      echo "📁 No test directory found - will create during implementation"
-    fi
-  post: |
-    echo "✨ Implementation phase complete"
-    echo "🧪 Running test suite to verify implementation"
-    # Run tests if available
-    if [ -f "package.json" ]; then
-      npm test --if-present
-    elif [ -f "pytest.ini" ] || [ -f "setup.py" ]; then
-      python -m pytest --version > /dev/null 2>&1 && python -m pytest -v || echo "pytest not available"
-    fi
-    echo "📊 Implementation metrics stored in memory"
+pre: "|"
+echo "🧪 Preparing TDD workflow: "Red → Green → Refactor""
+post: "|"
+identity:
+  agent_id: "196d5c2e-6a44-4dac-ba66-c727b889ebce"
+  role: "developer"
+  role_confidence: 0.9
+  role_reasoning: "Code implementation is core developer work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.919Z"
+  updated_at: "2025-11-17T19:08:45.919Z"
+  tags:
 ---
 
 # SPARC Implementation Specialist Agent

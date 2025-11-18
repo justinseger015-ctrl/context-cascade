@@ -1,0 +1,276 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent RBAC Rules",
+  "description": "Role-Based Access Control rules defining permissions for 10 agent roles following least-privilege principle",
+  "version": "1.0.0",
+  "roles": {
+    "admin": {
+      "description": "Full system access - use sparingly, requires approval for destructive operations",
+      "level": 10,
+      "permissions": {
+        "tools": ["*"],
+        "paths": ["**"],
+        "api_access": ["*"],
+        "can_spawn_agents": true,
+        "can_modify_agents": true,
+        "can_access_secrets": true,
+        "requires_approval_for": ["KillShell", "file_delete", "production_deploy"]
+      },
+      "budget": {
+        "max_tokens_per_session": 500000,
+        "max_cost_per_day": 100.0
+      },
+      "typical_agents": ["system-architect", "security-manager"]
+    },
+    "developer": {
+      "description": "Code implementation and modification - full read/write on code directories",
+      "level": 8,
+      "permissions": {
+        "tools": ["Read", "Write", "Edit", "MultiEdit", "Bash", "Grep", "Glob", "Task", "TodoWrite"],
+        "paths": ["src/**", "tests/**", "scripts/**", "config/**"],
+        "api_access": ["github", "gitlab", "memory-mcp"],
+        "can_spawn_agents": true,
+        "can_modify_agents": false,
+        "can_access_secrets": false,
+        "requires_approval_for": ["production_deploy"]
+      },
+      "budget": {
+        "max_tokens_per_session": 200000,
+        "max_cost_per_day": 30.0
+      },
+      "typical_agents": ["coder", "backend-dev", "frontend-developer", "mobile-dev"]
+    },
+    "reviewer": {
+      "description": "Code review and analysis - read-only with quality tools",
+      "level": 6,
+      "permissions": {
+        "tools": ["Read", "Grep", "Glob", "Task"],
+        "paths": ["**"],
+        "api_access": ["github", "memory-mcp", "connascence-analyzer"],
+        "can_spawn_agents": false,
+        "can_modify_agents": false,
+        "can_access_secrets": false,
+        "requires_approval_for": []
+      },
+      "budget": {
+        "max_tokens_per_session": 150000,
+        "max_cost_per_day": 20.0
+      },
+      "typical_agents": ["reviewer", "code-analyzer", "functionality-audit"]
+    },
+    "security": {
+      "description": "Security audits and vulnerability scanning - read access + security tools",
+      "level": 7,
+      "permissions": {
+        "tools": ["Read", "Grep", "Glob", "Task", "WebFetch"],
+        "paths": ["**"],
+        "api_access": ["github", "memory-mcp", "connascence-analyzer"],
+        "can_spawn_agents": true,
+        "can_modify_agents": false,
+        "can_access_secrets": true,
+        "requires_approval_for": ["penetration_test"]
+      },
+      "budget": {
+        "max_tokens_per_session": 180000,
+        "max_cost_per_day": 25.0
+      },
+      "typical_agents": ["security-manager", "security-audit-agent", "compliance-validator"]
+    },
+    "database": {
+      "description": "Database operations and schema management",
+      "level": 7,
+      "permissions": {
+        "tools": ["Read", "Write", "Edit", "Bash", "Task"],
+        "paths": ["backend/**", "database/**", "migrations/**", "schemas/**"],
+        "api_access": ["memory-mcp"],
+        "can_spawn_agents": false,
+        "can_modify_agents": false,
+        "can_access_secrets": true,
+        "requires_approval_for": ["production_migration"]
+      },
+      "budget": {
+        "max_tokens_per_session": 150000,
+        "max_cost_per_day": 20.0
+      },
+      "typical_agents": ["sql-database-specialist", "database-migration-agent", "query-optimization-agent"]
+    },
+    "frontend": {
+      "description": "Frontend development - UI/UX implementation",
+      "level": 6,
+      "permissions": {
+        "tools": ["Read", "Write", "Edit", "MultiEdit", "Bash", "Grep", "Glob", "Task"],
+        "paths": ["frontend/**", "src/components/**", "src/pages/**", "public/**", "styles/**"],
+        "api_access": ["github", "memory-mcp"],
+        "can_spawn_agents": false,
+        "can_modify_agents": false,
+        "can_access_secrets": false,
+        "requires_approval_for": []
+      },
+      "budget": {
+        "max_tokens_per_session": 150000,
+        "max_cost_per_day": 20.0
+      },
+      "typical_agents": ["react-specialist", "vue-developer", "ui-component-builder", "css-styling-specialist"]
+    },
+    "backend": {
+      "description": "Backend development - API and server logic",
+      "level": 7,
+      "permissions": {
+        "tools": ["Read", "Write", "Edit", "MultiEdit", "Bash", "Grep", "Glob", "Task"],
+        "paths": ["backend/**", "src/api/**", "src/services/**", "src/models/**", "tests/**"],
+        "api_access": ["github", "gitlab", "memory-mcp"],
+        "can_spawn_agents": true,
+        "can_modify_agents": false,
+        "can_access_secrets": false,
+        "requires_approval_for": []
+      },
+      "budget": {
+        "max_tokens_per_session": 180000,
+        "max_cost_per_day": 25.0
+      },
+      "typical_agents": ["backend-dev", "api-designer", "golang-backend-specialist", "rust-systems-developer"]
+    },
+    "tester": {
+      "description": "Testing and quality assurance - can read all, write tests",
+      "level": 6,
+      "permissions": {
+        "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob", "Task"],
+        "paths": ["tests/**", "e2e/**", "**/*.test.*", "**/*.spec.*"],
+        "api_access": ["github", "memory-mcp"],
+        "can_spawn_agents": false,
+        "can_modify_agents": false,
+        "can_access_secrets": false,
+        "requires_approval_for": []
+      },
+      "budget": {
+        "max_tokens_per_session": 150000,
+        "max_cost_per_day": 20.0
+      },
+      "typical_agents": ["tester", "test-orchestrator", "integration-test-specialist"]
+    },
+    "analyst": {
+      "description": "Data analysis and reporting - read-only with search capabilities",
+      "level": 5,
+      "permissions": {
+        "tools": ["Read", "Grep", "Glob", "WebSearch", "WebFetch"],
+        "paths": ["**"],
+        "api_access": ["github", "memory-mcp"],
+        "can_spawn_agents": false,
+        "can_modify_agents": false,
+        "can_access_secrets": false,
+        "requires_approval_for": []
+      },
+      "budget": {
+        "max_tokens_per_session": 100000,
+        "max_cost_per_day": 15.0
+      },
+      "typical_agents": ["analyst", "data-analyst", "performance-analyzer"]
+    },
+    "coordinator": {
+      "description": "Orchestration and workflow management - can spawn/coordinate agents",
+      "level": 8,
+      "permissions": {
+        "tools": ["Read", "Grep", "Glob", "Task", "TodoWrite"],
+        "paths": ["**"],
+        "api_access": ["memory-mcp", "flow-nexus", "ruv-swarm"],
+        "can_spawn_agents": true,
+        "can_modify_agents": false,
+        "can_access_secrets": false,
+        "requires_approval_for": []
+      },
+      "budget": {
+        "max_tokens_per_session": 250000,
+        "max_cost_per_day": 40.0
+      },
+      "typical_agents": ["hierarchical-coordinator", "mesh-coordinator", "queen-coordinator", "planner"]
+    }
+  },
+  "permission_matrix": {
+    "description": "Quick reference matrix for role permissions",
+    "tools": {
+      "Read": ["admin", "developer", "reviewer", "security", "database", "frontend", "backend", "tester", "analyst", "coordinator"],
+      "Write": ["admin", "developer", "database", "frontend", "backend", "tester"],
+      "Edit": ["admin", "developer", "database", "frontend", "backend", "tester"],
+      "MultiEdit": ["admin", "developer", "frontend", "backend"],
+      "Bash": ["admin", "developer", "database", "frontend", "backend", "tester"],
+      "Grep": ["admin", "developer", "reviewer", "security", "frontend", "backend", "tester", "analyst", "coordinator"],
+      "Glob": ["admin", "developer", "reviewer", "security", "frontend", "backend", "tester", "analyst", "coordinator"],
+      "Task": ["admin", "developer", "reviewer", "security", "database", "frontend", "backend", "tester", "coordinator"],
+      "TodoWrite": ["admin", "developer", "coordinator"],
+      "WebSearch": ["analyst"],
+      "WebFetch": ["security", "analyst"],
+      "KillShell": ["admin"],
+      "BashOutput": ["admin", "developer", "backend"]
+    },
+    "api_access": {
+      "github": ["admin", "developer", "reviewer", "security", "frontend", "backend", "tester", "analyst"],
+      "gitlab": ["admin", "developer", "backend"],
+      "memory-mcp": ["admin", "developer", "reviewer", "security", "database", "frontend", "backend", "tester", "analyst", "coordinator"],
+      "connascence-analyzer": ["reviewer", "security"],
+      "flow-nexus": ["coordinator"],
+      "ruv-swarm": ["coordinator"]
+    },
+    "path_access": {
+      "src/**": ["admin", "developer", "frontend", "backend"],
+      "tests/**": ["admin", "developer", "tester"],
+      "backend/**": ["admin", "developer", "database", "backend"],
+      "frontend/**": ["admin", "developer", "frontend"],
+      "**": ["admin", "reviewer", "security", "analyst", "coordinator"]
+    }
+  },
+  "escalation_rules": {
+    "description": "Rules for role escalation and approval workflows",
+    "high_risk_operations": [
+      {
+        "operation": "production_deploy",
+        "requires_role": "admin",
+        "requires_approval": true,
+        "approvers": ["human", "admin"]
+      },
+      {
+        "operation": "production_migration",
+        "requires_role": "database",
+        "requires_approval": true,
+        "approvers": ["human", "admin"]
+      },
+      {
+        "operation": "secret_access",
+        "requires_role": "security",
+        "requires_approval": false,
+        "audit_required": true
+      },
+      {
+        "operation": "agent_modification",
+        "requires_role": "admin",
+        "requires_approval": true,
+        "approvers": ["human"]
+      },
+      {
+        "operation": "budget_override",
+        "requires_role": "admin",
+        "requires_approval": true,
+        "approvers": ["human"]
+      }
+    ],
+    "budget_escalation": {
+      "threshold_1": {
+        "cost": 10.0,
+        "action": "notify"
+      },
+      "threshold_2": {
+        "cost": 25.0,
+        "action": "pause_and_approve"
+      },
+      "threshold_3": {
+        "cost": 50.0,
+        "action": "terminate"
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_at": "2025-01-17T00:00:00Z",
+    "last_updated": "2025-01-17T00:00:00Z",
+    "compatible_with_schema_version": "1.0.0"
+  }
+}

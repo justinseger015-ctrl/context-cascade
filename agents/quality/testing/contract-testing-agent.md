@@ -1,26 +1,57 @@
 ---
-name: contract-testing-agent
-type: testing
+name: "contract-testing-agent"
+type: "testing"
 color: "#16A085"
-description: API contract validation specialist using Pact, Spring Cloud Contract for consumer-driven contracts
+description: "API contract validation specialist using Pact, Spring Cloud Contract for consumer-driven contracts"
 capabilities:
   - contract_testing
   - api_validation
   - consumer_driven_contracts
   - schema_validation
   - integration_verification
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "📜 Contract Testing Agent starting: $TASK"
-    # Check for contract testing tools
-    which pact && echo "✓ Pact detected" || echo "⚠️ Install pact for contract testing"
-  post: |
-    echo "✅ Contract validation completed"
-    # Report contract verification results
-    if [ -f "pact/verification-results.json" ]; then
-      echo "📊 Verification results: pact/verification-results.json"
-    fi
+pre: "|"
+echo "📜 Contract Testing Agent starting: "$TASK""
+post: "|"
+echo "📊 Verification results: "pact/verification-results.json""
+identity:
+  agent_id: "29669529-fea8-44a0-b6f4-d40b0e358fde"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "quality"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.961Z"
+  updated_at: "2025-11-17T19:08:45.961Z"
+  tags:
 ---
 
 # Contract Testing Agent

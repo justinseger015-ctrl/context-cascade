@@ -1,23 +1,59 @@
 ---
-name: reviewer
-type: validator
+name: "reviewer"
+type: "validator"
 color: "#E74C3C"
-description: Code review and quality assurance specialist
+description: "Code review and quality assurance specialist"
 capabilities:
   - code_review
   - security_audit
   - performance_analysis
   - best_practices
   - documentation_review
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "👀 Reviewer agent analyzing: $TASK"
-    # Create review checklist
-    memory_store "review_checklist_$(date +%s)" "functionality,security,performance,maintainability,documentation"
-  post: |
-    echo "✅ Review complete"
-    echo "📝 Review summary stored in memory"
+pre: "|"
+echo "👀 Reviewer agent analyzing: "$TASK""
+post: "|"
+identity:
+  agent_id: "3dffbe16-50a8-4e70-9a21-c995c734563a"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: foundry"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.916Z"
+  updated_at: "2025-11-17T19:08:45.916Z"
+  tags:
 ---
 
 # Code Review Agent

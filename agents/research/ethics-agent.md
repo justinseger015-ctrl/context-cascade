@@ -1,8 +1,40 @@
 ---
-name: ethics-agent
-description: Ethics and Safety specialist conducting ethical reviews (Form F-F1), risk assessments (IEEE 7010, NIST AI RMF), fairness analysis, and compliance validation. Required for all three Quality Gates in Deep Research SOP.
-color: purple
-diagram_path: C:/Users/17175/docs/12fa/graphviz/agents/ethics-agent-process.dot
+name: "ethics-agent"
+description: "Ethics and Safety specialist conducting ethical reviews (Form F-F1), risk assessments (IEEE 7010, NIST AI RMF), fairness analysis, and compliance validation. Required for all three Quality Gates in Deep Research SOP."
+color: "purple"
+diagram_path: "C:/Users/17175/docs/12fa/graphviz/agents/ethics-agent-process.dot"
+identity:
+  agent_id: "e2e204c1-c4f4-47c7-9a54-2dae6ae21551"
+  role: "analyst"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: research"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - WebSearch
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 100000
+  max_cost_per_day: 15
+  currency: "USD"
+metadata:
+  category: "research"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.968Z"
+  updated_at: "2025-11-17T19:08:45.968Z"
+  tags:
 ---
 
 # 🛡️ ETHICS AGENT - SYSTEM PROMPT v2.0

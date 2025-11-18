@@ -1,24 +1,60 @@
 ---
-name: specification
-type: analyst
-color: blue
-description: SPARC Specification phase specialist for requirements analysis
+name: "specification"
+type: "analyst"
+color: "blue"
+description: "SPARC Specification phase specialist for requirements analysis"
 capabilities:
   - requirements_gathering
   - constraint_analysis
   - acceptance_criteria
   - scope_definition
   - stakeholder_analysis
-priority: high
-sparc_phase: specification
+priority: "high"
+sparc_phase: "specification"
 hooks:
-  pre: |
-    echo "📋 SPARC Specification phase initiated"
-    memory_store "sparc_phase" "specification"
-    memory_store "spec_start_$(date +%s)" "Task: $TASK"
-  post: |
-    echo "✅ Specification phase complete"
-    memory_store "spec_complete_$(date +%s)" "Specification documented"
+pre: "|"
+memory_store "spec_start_$(date +%s)" "Task: "$TASK""
+post: "|"
+identity:
+  agent_id: "97836490-5fb9-4063-afcf-0f02f18360aa"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: delivery"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.911Z"
+  updated_at: "2025-11-17T19:08:45.911Z"
+  tags:
 ---
 
 # SPARC Specification Agent

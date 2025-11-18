@@ -1,26 +1,57 @@
 ---
-name: chaos-engineering-agent
-type: testing
+name: "chaos-engineering-agent"
+type: "testing"
 color: "#E67E22"
-description: Fault injection and resilience testing specialist for chaos engineering experiments
+description: "Fault injection and resilience testing specialist for chaos engineering experiments"
 capabilities:
   - fault_injection
   - resilience_testing
   - disaster_recovery
   - chaos_experiments
   - failure_scenario_testing
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "🌪️ Chaos Engineering Agent starting: $TASK"
-    # Check for chaos engineering tools
-    which chaos && echo "✓ Chaos Mesh detected" || echo "⚠️ Install chaos engineering tools"
-  post: |
-    echo "✅ Chaos experiment completed"
-    # Report resilience metrics
-    if [ -f "chaos-report.json" ]; then
-      echo "📊 Chaos report: chaos-report.json"
-    fi
+pre: "|"
+echo "🌪️ Chaos Engineering Agent starting: "$TASK""
+post: "|"
+echo "📊 Chaos report: "chaos-report.json""
+identity:
+  agent_id: "6944a4af-3fd1-4f56-a3f3-5ca20361c85b"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "quality"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.961Z"
+  updated_at: "2025-11-17T19:08:45.961Z"
+  tags:
 ---
 
 # Chaos Engineering Agent

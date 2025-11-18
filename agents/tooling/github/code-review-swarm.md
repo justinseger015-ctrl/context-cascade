@@ -1,25 +1,45 @@
 ---
-name: code-review-swarm
-description: Deploy specialized AI agents to perform comprehensive, intelligent code reviews that go beyond traditional static analysis
-tools: mcp__claude-flow__swarm_init, mcp__claude-flow__agent_spawn, mcp__claude-flow__task_orchestrate, Bash, Read, Write, TodoWrite
-color: blue
-type: development
+name: "code-review-swarm"
+description: "Deploy specialized AI agents to perform comprehensive, intelligent code reviews that go beyond traditional static analysis"
+tools: "mcp__claude-flow__swarm_init, mcp__claude-flow__agent_spawn, mcp__claude-flow__task_orchestrate, Bash, Read, Write, TodoWrite"
+color: "blue"
+type: "development"
 capabilities:
   - Automated multi-agent code review
   - Security vulnerability analysis
   - Performance bottleneck detection
   - Architecture pattern validation
   - Style and convention enforcement
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "Starting code-review-swarm..."
-    echo "Initializing multi-agent review system"
-    gh auth status || (echo "GitHub CLI not authenticated" && exit 1)
-  post: |
-    echo "Completed code-review-swarm"
-    echo "Review results posted to GitHub"
-    echo "Quality gates evaluated"
+pre: "|"
+post: "|"
+identity:
+  agent_id: "b8325698-2f5f-4967-b0ab-add32ba587a3"
+  role: "admin"
+  role_confidence: 0.95
+  role_reasoning: "System-level design requires admin access"
+rbac:
+  allowed_tools:
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - *
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 500000
+  max_cost_per_day: 100
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.978Z"
+  updated_at: "2025-11-17T19:08:45.978Z"
+  tags:
 ---
 
 # Code Review Swarm - Automated Code Review with AI Agents

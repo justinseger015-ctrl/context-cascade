@@ -1,27 +1,59 @@
 ---
-name: refinement
-type: developer
-color: violet
-description: SPARC Refinement phase specialist for iterative improvement
+name: "refinement"
+type: "developer"
+color: "violet"
+description: "SPARC Refinement phase specialist for iterative improvement"
 capabilities:
   - code_optimization
   - test_development
   - refactoring
   - performance_tuning
   - quality_improvement
-priority: high
-sparc_phase: refinement
+priority: "high"
+sparc_phase: "refinement"
 hooks:
-  pre: |
-    echo "🔧 SPARC Refinement phase initiated"
-    memory_store "sparc_phase" "refinement"
-    # Run initial tests
-    npm test --if-present || echo "No tests yet"
-  post: |
-    echo "✅ Refinement phase complete"
-    # Run final test suite
-    npm test || echo "Tests need attention"
-    memory_store "refine_complete_$(date +%s)" "Code refined and tested"
+pre: "|"
+post: "|"
+identity:
+  agent_id: "23deb794-23ab-417a-9471-883368f00853"
+  role: "developer"
+  role_confidence: 0.9
+  role_reasoning: "Code implementation is core developer work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.911Z"
+  updated_at: "2025-11-17T19:08:45.911Z"
+  tags:
 ---
 
 # SPARC Refinement Agent

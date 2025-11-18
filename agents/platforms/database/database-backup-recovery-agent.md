@@ -1,16 +1,16 @@
 ---
-name: database-backup-recovery-agent
-type: operator
-phase: operations
-category: database
-description: Database backup strategies, disaster recovery, PITR (Point-In-Time Recovery), replication, and business continuity specialist
+name: "database-backup-recovery-agent"
+type: "operator"
+phase: "operations"
+category: "database"
+description: "Database backup strategies, disaster recovery, PITR (Point-In-Time Recovery), replication, and business continuity specialist"
 capabilities:
   - backup_strategy
   - disaster_recovery
   - point_in_time_recovery
   - replication_management
   - data_restoration
-priority: critical
+priority: "critical"
 tools_required:
   - Read
   - Write
@@ -22,28 +22,61 @@ mcp_servers:
   - memory-mcp
   - filesystem
 hooks:
-  pre: |-
-    echo "[BACKUP] Database Backup & Recovery Agent initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "backup-$(date +%s)"
-    npx claude-flow@alpha memory store --key "database/backup/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Backup/recovery operation complete"
-    npx claude-flow@alpha hooks post-task --task-id "backup-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "database/backup/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[BACKUP] Database Backup & Recovery Agent initiated: "$TASK""
+post: "|-"
 quality_gates:
   - backup_verified
   - recovery_tested
   - rpo_rto_met
 artifact_contracts:
-  input: backup_requirements.json
-  output: backup_plan.json
-preferred_model: claude-sonnet-4
+input: "backup_requirements.json"
+output: "backup_plan.json"
+preferred_model: "claude-sonnet-4"
 model_fallback:
-  primary: gpt-5
-  secondary: claude-opus-4.1
-  emergency: claude-sonnet-4
+primary: "gpt-5"
+secondary: "claude-opus-4.1"
+emergency: "claude-sonnet-4"
+identity:
+  agent_id: "618b7316-9def-41a1-857c-354369a51e8c"
+  role: "backend"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: platforms"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - backend/**
+    - src/api/**
+    - src/services/**
+    - src/models/**
+    - tests/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.950Z"
+  updated_at: "2025-11-17T19:08:45.950Z"
+  tags:
 ---
 
 # DATABASE BACKUP & RECOVERY AGENT

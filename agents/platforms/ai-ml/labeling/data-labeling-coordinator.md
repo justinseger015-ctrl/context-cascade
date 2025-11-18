@@ -1,16 +1,16 @@
 ---
-name: data-labeling-coordinator
-type: coordinator
-phase: data-preparation
-category: ai-ml
-description: Data labeling workflow coordinator using Label Studio, Prodigy, CVAT for annotation management, quality control, and active learning
+name: "data-labeling-coordinator"
+type: "coordinator"
+phase: "data-preparation"
+category: "ai-ml"
+description: "Data labeling workflow coordinator using Label Studio, Prodigy, CVAT for annotation management, quality control, and active learning"
 capabilities:
   - labeling_project_management
   - annotation_quality_control
   - active_learning_sampling
   - labeling_consensus
   - annotation_export_import
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -21,25 +21,58 @@ mcp_servers:
   - memory-mcp
   - filesystem
 hooks:
-  pre: |-
-    echo "[LABEL] Data Labeling Coordinator initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "labeling-coord-$(date +%s)"
-    npx claude-flow@alpha memory store --key "mlops/labeling/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Labeling coordination complete"
-    npx claude-flow@alpha hooks post-task --task-id "labeling-coord-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "mlops/labeling/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[LABEL] Data Labeling Coordinator initiated: "$TASK""
+post: "|-"
 quality_gates:
   - labeling_guidelines_defined
   - annotator_training_complete
   - quality_metrics_tracked
   - inter_annotator_agreement_acceptable
 artifact_contracts:
-  input: unlabeled_data.csv
-  output: labeled_data.json
-preferred_model: claude-sonnet-4
+input: "unlabeled_data.csv"
+output: "labeled_data.json"
+preferred_model: "claude-sonnet-4"
+identity:
+  agent_id: "3aea88f8-45a1-4cb5-adb9-4a222c56c9c2"
+  role: "backend"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: platforms"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - backend/**
+    - src/api/**
+    - src/services/**
+    - src/models/**
+    - tests/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.944Z"
+  updated_at: "2025-11-17T19:08:45.944Z"
+  tags:
 ---
 
 # DATA LABELING COORDINATOR AGENT

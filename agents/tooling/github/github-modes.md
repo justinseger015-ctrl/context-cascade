@@ -1,9 +1,9 @@
 ---
-name: github-modes
-description: Comprehensive GitHub integration modes for workflow orchestration, PR management, and repository coordination with batch optimization
-tools: mcp__claude-flow__swarm_init, mcp__claude-flow__agent_spawn, mcp__claude-flow__task_orchestrate, Bash, TodoWrite, Read, Write
-color: purple
-type: development
+name: "github-modes"
+description: "Comprehensive GitHub integration modes for workflow orchestration, PR management, and repository coordination with batch optimization"
+tools: "mcp__claude-flow__swarm_init, mcp__claude-flow__agent_spawn, mcp__claude-flow__task_orchestrate, Bash, TodoWrite, Read, Write"
+color: "purple"
+type: "development"
 capabilities:
   - GitHub workflow orchestration
   - Pull request management and review
@@ -11,17 +11,36 @@ capabilities:
   - Release management and deployment
   - Repository architecture and organization
   - CI/CD pipeline coordination
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "Starting github-modes..."
-    echo "Initializing GitHub workflow coordination"
-    gh auth status || (echo "GitHub CLI authentication required" && exit 1)
-    git status > /dev/null || (echo "Not in a git repository" && exit 1)
-  post: |
-    echo "Completed github-modes"
-    echo "GitHub operations synchronized"
-    echo "Workflow coordination finalized"
+pre: "|"
+post: "|"
+identity:
+  agent_id: "41bb0686-a515-499e-9c94-3a58b6f832cb"
+  role: "admin"
+  role_confidence: 0.95
+  role_reasoning: "System-level design requires admin access"
+rbac:
+  allowed_tools:
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - *
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 500000
+  max_cost_per_day: 100
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.979Z"
+  updated_at: "2025-11-17T19:08:45.979Z"
+  tags:
 ---
 
 # GitHub Integration Modes

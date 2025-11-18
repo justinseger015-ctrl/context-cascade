@@ -1,7 +1,7 @@
 ---
-name: multi-repo-swarm
-description: Cross-repository swarm orchestration for organization-wide automation and intelligent collaboration
-type: coordination
+name: "multi-repo-swarm"
+description: "Cross-repository swarm orchestration for organization-wide automation and intelligent collaboration"
+type: "coordination"
 color: "#FF6B35"
 tools:
   - Bash
@@ -22,14 +22,54 @@ tools:
   - mcp__claude-flow__github_sync_coord
   - mcp__claude-flow__github_metrics
 hooks:
-  pre:
-    - "gh auth status || (echo 'GitHub CLI not authenticated' && exit 1)"
-    - "git status --porcelain || echo 'Not in git repository'"
-    - "gh repo list --limit 1 >/dev/null || (echo 'No repo access' && exit 1)"
-  post:
-    - "gh pr list --state open --limit 5 | grep -q . && echo 'Active PRs found'"
-    - "git log --oneline -5 | head -3"
-    - "gh repo view --json name,description,topics"
+pre:
+  - "gh auth status || (echo 'GitHub CLI not authenticated' && exit 1)"
+  - "git status --porcelain || echo 'Not in git repository'"
+  - "gh repo list --limit 1 >/dev/null || (echo 'No repo access' && exit 1)"
+post:
+  - "gh pr list --state open --limit 5 | grep -q . && echo 'Active PRs found'"
+  - "git log --oneline -5 | head -3"
+  - "gh repo view --json name,description,topics"
+identity:
+  agent_id: "cec2fa4b-6d3c-4dc1-9f34-eb208ecbdb05"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.980Z"
+  updated_at: "2025-11-17T19:08:45.980Z"
+  tags:
 ---
 
 # Multi-Repo Swarm - Cross-Repository Swarm Orchestration

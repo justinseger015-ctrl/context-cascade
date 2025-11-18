@@ -1,16 +1,16 @@
 ---
-name: accessibility-specialist
-type: frontend
-phase: validation
-category: accessibility
-description: WCAG compliance and accessibility specialist focused on a11y testing, screen reader support, keyboard navigation, ARIA patterns, and inclusive design
+name: "accessibility-specialist"
+type: "frontend"
+phase: "validation"
+category: "accessibility"
+description: "WCAG compliance and accessibility specialist focused on a11y testing, screen reader support, keyboard navigation, ARIA patterns, and inclusive design"
 capabilities:
   - wcag_compliance
   - screen_reader_testing
   - keyboard_navigation
   - aria_patterns
   - inclusive_design
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Edit
@@ -21,18 +21,47 @@ mcp_servers:
   - memory-mcp
   - filesystem
 hooks:
-  pre: |-
-    echo "[PHASE] Accessibility Specialist initiated"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-  post: |-
-    echo "[OK] Accessibility validation complete"
-    npx claude-flow@alpha hooks post-task --task-id "$(date +%s)"
+pre: "|-"
+post: "|-"
 quality_gates:
   - wcag_aa_compliant
   - keyboard_accessible
   - screen_reader_tested
   - no_axe_violations
-preferred_model: claude-sonnet-4
+preferred_model: "claude-sonnet-4"
+identity:
+  agent_id: "aa5d6073-a1ea-448c-9979-61a08731f860"
+  role: "security"
+  role_confidence: 0.95
+  role_reasoning: "Security work requires elevated permissions"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+    - connascence-analyzer
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.905Z"
+  updated_at: "2025-11-17T19:08:45.905Z"
+  tags:
 ---
 
 # ACCESSIBILITY SPECIALIST - SPECIALIST AGENT

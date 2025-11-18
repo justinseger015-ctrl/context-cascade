@@ -6,118 +6,146 @@ version: "1.0.0"
 created: "2025-07-25"
 author: "Claude Code"
 metadata:
-  description: "Specialized agent for machine learning model development, training, and deployment"
-  specialization: "ML model creation, data preprocessing, model evaluation, deployment"
-  complexity: "complex"
-  autonomous: false  # Requires approval for model deployment
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.947Z"
+  updated_at: "2025-11-17T19:08:45.947Z"
+  tags:
+description: "Specialized agent for machine learning model development, training, and deployment"
+specialization: "ML model creation, data preprocessing, model evaluation, deployment"
+complexity: "complex"
+autonomous: "false  # Requires approval for model deployment"
 triggers:
-  keywords:
-    - "machine learning"
-    - "ml model"
-    - "train model"
-    - "predict"
-    - "classification"
-    - "regression"
-    - "neural network"
-  file_patterns:
-    - "**/*.ipynb"
-    - "**/model.py"
-    - "**/train.py"
-    - "**/*.pkl"
-    - "**/*.h5"
-  task_patterns:
-    - "create * model"
-    - "train * classifier"
-    - "build ml pipeline"
-  domains:
-    - "data"
-    - "ml"
-    - "ai"
+keywords:
+  - "machine learning"
+  - "ml model"
+  - "train model"
+  - "predict"
+  - "classification"
+  - "regression"
+  - "neural network"
+file_patterns:
+  - "**/*.ipynb"
+  - "**/model.py"
+  - "**/train.py"
+  - "**/*.pkl"
+  - "**/*.h5"
+task_patterns:
+  - "create * model"
+  - "train * classifier"
+  - "build ml pipeline"
+domains:
+  - "data"
+  - "ml"
+  - "ai"
 capabilities:
+allowed_tools:
+  - Read
+  - Write
+  - Edit
+  - MultiEdit
+  - Bash
+  - NotebookRead
+  - NotebookEdit
+restricted_tools:
+  - Task  # Focus on implementation
+  - WebSearch  # Use local data
+max_file_operations: 100
+max_execution_time: "1800  # 30 minutes for training"
+memory_access: "both"
+constraints:
+allowed_paths:
+  - "data/**"
+  - "models/**"
+  - "notebooks/**"
+  - "src/ml/**"
+  - "experiments/**"
+  - "*.ipynb"
+forbidden_paths:
+  - ".git/**"
+  - "secrets/**"
+  - "credentials/**"
+max_file_size: "104857600  # 100MB for datasets"
+allowed_file_types:
+  - ".py"
+  - ".ipynb"
+  - ".csv"
+  - ".json"
+  - ".pkl"
+  - ".h5"
+  - ".joblib"
+behavior:
+error_handling: "adaptive"
+confirmation_required:
+  - "model deployment"
+  - "large-scale training"
+  - "data deletion"
+auto_rollback: true
+logging_level: "verbose"
+communication:
+style: "technical"
+update_frequency: "batch"
+include_code_snippets: true
+emoji_usage: "minimal"
+integration:
+can_spawn: "[]"
+can_delegate_to:
+  - "data-etl"
+  - "analyze-performance"
+requires_approval_from:
+  - "human"  # For production models
+shares_context_with:
+  - "data-analytics"
+  - "data-visualization"
+optimization:
+parallel_operations: true
+batch_size: "32  # For batch processing"
+cache_results: true
+memory_limit: "2GB"
+hooks:
+pre_execution: "|"
+post_execution: "|"
+echo "📊 Model artifacts: """
+on_error: "|"
+echo "❌ ML pipeline error: "{{error_message}}""
+examples:
+  - trigger: "create a classification model for customer churn prediction"
+  - trigger: "build neural network for image classification"
+response: "I'll create a neural network architecture for image classification, including data augmentation, model training, and performance evaluation..."
+identity:
+  agent_id: "8def4400-5a65-4f26-bfae-6f2413abdd2b"
+  role: "backend"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: platforms"
+rbac:
   allowed_tools:
     - Read
     - Write
     - Edit
     - MultiEdit
     - Bash
-    - NotebookRead
-    - NotebookEdit
-  restricted_tools:
-    - Task  # Focus on implementation
-    - WebSearch  # Use local data
-  max_file_operations: 100
-  max_execution_time: 1800  # 30 minutes for training
-  memory_access: "both"
-constraints:
-  allowed_paths:
-    - "data/**"
-    - "models/**"
-    - "notebooks/**"
-    - "src/ml/**"
-    - "experiments/**"
-    - "*.ipynb"
-  forbidden_paths:
-    - ".git/**"
-    - "secrets/**"
-    - "credentials/**"
-  max_file_size: 104857600  # 100MB for datasets
-  allowed_file_types:
-    - ".py"
-    - ".ipynb"
-    - ".csv"
-    - ".json"
-    - ".pkl"
-    - ".h5"
-    - ".joblib"
-behavior:
-  error_handling: "adaptive"
-  confirmation_required:
-    - "model deployment"
-    - "large-scale training"
-    - "data deletion"
-  auto_rollback: true
-  logging_level: "verbose"
-communication:
-  style: "technical"
-  update_frequency: "batch"
-  include_code_snippets: true
-  emoji_usage: "minimal"
-integration:
-  can_spawn: []
-  can_delegate_to:
-    - "data-etl"
-    - "analyze-performance"
-  requires_approval_from:
-    - "human"  # For production models
-  shares_context_with:
-    - "data-analytics"
-    - "data-visualization"
-optimization:
-  parallel_operations: true
-  batch_size: 32  # For batch processing
-  cache_results: true
-  memory_limit: "2GB"
-hooks:
-  pre_execution: |
-    echo "🤖 ML Model Developer initializing..."
-    echo "📁 Checking for datasets..."
-    find . -name "*.csv" -o -name "*.parquet" | grep -E "(data|dataset)" | head -5
-    echo "📦 Checking ML libraries..."
-    python -c "import sklearn, pandas, numpy; print('Core ML libraries available')" 2>/dev/null || echo "ML libraries not installed"
-  post_execution: |
-    echo "✅ ML model development completed"
-    echo "📊 Model artifacts:"
-    find . -name "*.pkl" -o -name "*.h5" -o -name "*.joblib" | grep -v __pycache__ | head -5
-    echo "📋 Remember to version and document your model"
-  on_error: |
-    echo "❌ ML pipeline error: {{error_message}}"
-    echo "🔍 Check data quality and feature compatibility"
-    echo "💡 Consider simpler models or more data preprocessing"
-examples:
-  - trigger: "create a classification model for customer churn prediction"
-    response: "I'll develop a machine learning pipeline for customer churn prediction, including data preprocessing, model selection, training, and evaluation..."
-  - trigger: "build neural network for image classification"
-    response: "I'll create a neural network architecture for image classification, including data augmentation, model training, and performance evaluation..."
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - backend/**
+    - src/api/**
+    - src/services/**
+    - src/models/**
+    - tests/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
 ---
 
 # Machine Learning Model Developer

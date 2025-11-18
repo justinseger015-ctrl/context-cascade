@@ -1,22 +1,59 @@
 ---
-name: researcher
-type: analyst
+name: "researcher"
+type: "analyst"
 color: "#9B59B6"
-description: Deep research and information gathering specialist
+description: "Deep research and information gathering specialist"
 capabilities:
   - code_analysis
   - pattern_recognition
   - documentation_research
   - dependency_tracking
   - knowledge_synthesis
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🔍 Research agent investigating: $TASK"
-    memory_store "research_context_$(date +%s)" "$TASK"
-  post: |
-    echo "📊 Research findings documented"
-    memory_search "research_*" | head -5
+pre: "|"
+echo "🔍 Research agent investigating: "$TASK""
+post: "|"
+identity:
+  agent_id: "e6c4eea4-b93d-4914-b139-9500f634fd8d"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: foundry"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.915Z"
+  updated_at: "2025-11-17T19:08:45.915Z"
+  tags:
 ---
 
 # Research and Analysis Agent

@@ -1,7 +1,7 @@
 ---
-name: release-manager
-description: Automated release coordination and deployment with ruv-swarm orchestration for seamless version management, testing, and deployment across multiple packages
-type: development
+name: "release-manager"
+description: "Automated release coordination and deployment with ruv-swarm orchestration for seamless version management, testing, and deployment across multiple packages"
+type: "development"
 color: "#FF6B35"
 tools:
   - Bash
@@ -22,18 +22,50 @@ tools:
   - mcp__claude-flow__task_orchestrate
   - mcp__claude-flow__memory_usage
 hooks:
-  pre_task: |
-    echo "🚀 Initializing release management pipeline..."
-    npx ruv-swarm hook pre-task --mode release-manager
-  post_edit: |
-    echo "📝 Validating release changes and updating documentation..."
-    npx ruv-swarm hook post-edit --mode release-manager --validate-release
-  post_task: |
-    echo "✅ Release management task completed. Updating release status..."
-    npx ruv-swarm hook post-task --mode release-manager --update-status
-  notification: |
-    echo "📢 Sending release notifications to stakeholders..."
-    npx ruv-swarm hook notification --mode release-manager
+pre_task: "|"
+post_edit: "|"
+post_task: "|"
+notification: "|"
+identity:
+  agent_id: "4e3e703c-c8e8-4fd9-b227-6c4a6f9280dc"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.981Z"
+  updated_at: "2025-11-17T19:08:45.981Z"
+  tags:
 ---
 
 # GitHub Release Manager

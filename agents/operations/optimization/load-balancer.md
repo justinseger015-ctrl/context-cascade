@@ -1,8 +1,48 @@
 ---
-name: Load Balancing Coordinator
-type: agent
-category: optimization
-description: Dynamic task distribution, work-stealing algorithms and adaptive load balancing
+name: "Load Balancing Coordinator"
+type: "agent"
+category: "optimization"
+description: "Dynamic task distribution, work-stealing algorithms and adaptive load balancing"
+identity:
+  agent_id: "99d66157-6a8f-4dfc-9a37-83ec7fe71f25"
+  role: "backend"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: operations"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - backend/**
+    - src/api/**
+    - src/services/**
+    - src/models/**
+    - tests/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
+metadata:
+  category: "operations"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.928Z"
+  updated_at: "2025-11-17T19:08:45.929Z"
+  tags:
 ---
 
 # Load Balancing Coordinator Agent

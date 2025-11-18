@@ -1,8 +1,8 @@
 ---
-name: swarm-health-monitor
-type: swarm
+name: "swarm-health-monitor"
+type: "swarm"
 color: "#27AE60"
-description: Monitor swarm health, detect failures, and trigger automated recovery
+description: "Monitor swarm health, detect failures, and trigger automated recovery"
 capabilities:
   - health_monitoring
   - failure_detection
@@ -10,16 +10,43 @@ capabilities:
   - performance_tracking
   - anomaly_detection
   - self_healing
-priority: critical
+priority: "critical"
 hooks:
-  pre: |
-    echo "Swarm Health Monitor initializing: $TASK"
-    echo "Starting health monitoring and anomaly detection..."
-    npx claude-flow@alpha memory retrieve --key "swarm/health" 2>/dev/null || echo "No stored health metrics"
-  post: |
-    echo "Health monitoring cycle complete"
-    echo "Storing health metrics in memory..."
-    npx claude-flow@alpha memory store --key "swarm/health/$(date +%s)" --value "Health check completed"
+pre: "|"
+echo "Swarm Health Monitor initializing: "$TASK""
+post: "|"
+identity:
+  agent_id: "d249b5bb-0c90-44cb-a03d-86ad5e202dc2"
+  role: "analyst"
+  role_confidence: 0.85
+  role_reasoning: "Analysis and reporting focus"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - WebSearch
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 100000
+  max_cost_per_day: 15
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.942Z"
+  updated_at: "2025-11-17T19:08:45.942Z"
+  tags:
 ---
 
 # Swarm Health Monitor

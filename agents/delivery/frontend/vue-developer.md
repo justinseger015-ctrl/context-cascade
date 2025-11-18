@@ -1,16 +1,16 @@
 ---
-name: vue-developer
-type: frontend
-phase: execution
-category: frontend-specialist
-description: Vue.js and Nuxt.js specialist with expertise in Composition API, reactivity system, Vue ecosystem, and modern Vue 3 development patterns
+name: "vue-developer"
+type: "frontend"
+phase: "execution"
+category: "frontend-specialist"
+description: "Vue.js and Nuxt.js specialist with expertise in Composition API, reactivity system, Vue ecosystem, and modern Vue 3 development patterns"
 capabilities:
   - vue_development
   - composition_api
   - nuxt_development
   - reactivity_patterns
   - vue_ecosystem
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -22,17 +22,52 @@ mcp_servers:
   - connascence-analyzer
   - filesystem
 hooks:
-  pre: |-
-    echo "[PHASE] Vue Developer initiated"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-  post: |-
-    echo "[OK] Vue development complete"
-    npx claude-flow@alpha hooks post-task --task-id "$(date +%s)"
+pre: "|-"
+post: "|-"
 quality_gates:
   - tests_passing
   - build_successful
   - no_reactivity_warnings
-preferred_model: claude-sonnet-4
+preferred_model: "claude-sonnet-4"
+identity:
+  agent_id: "a18fc2fa-6862-48d9-b1a6-818187152d34"
+  role: "frontend"
+  role_confidence: 0.85
+  role_reasoning: "Frontend focus with UI/component work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - frontend/**
+    - src/components/**
+    - src/pages/**
+    - public/**
+    - styles/**
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.909Z"
+  updated_at: "2025-11-17T19:08:45.909Z"
+  tags:
 ---
 
 # VUE DEVELOPER - SPECIALIST AGENT

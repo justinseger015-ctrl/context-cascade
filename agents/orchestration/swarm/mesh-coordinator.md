@@ -1,35 +1,56 @@
 ---
-name: mesh-coordinator
-type: coordinator  
+name: "mesh-coordinator"
+type: "coordinator"
 color: "#00BCD4"
-description: Peer-to-peer mesh network swarm with distributed decision making and fault tolerance
+description: "Peer-to-peer mesh network swarm with distributed decision making and fault tolerance"
 capabilities:
   - distributed_coordination
   - peer_communication
-  - fault_tolerance  
+  - fault_tolerance
   - consensus_building
   - load_balancing
   - network_resilience
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🌐 Mesh Coordinator establishing peer network: $TASK"
-    # Initialize mesh topology
-    mcp__claude-flow__swarm_init mesh --maxAgents=12 --strategy=distributed
-    # Set up peer discovery and communication
-    mcp__claude-flow__daa_communication --from="mesh-coordinator" --to="all" --message="{\"type\":\"network_init\",\"topology\":\"mesh\"}"
-    # Initialize consensus mechanisms
-    mcp__claude-flow__daa_consensus --agents="all" --proposal="{\"coordination_protocol\":\"gossip\",\"consensus_threshold\":0.67}"
-    # Store network state
-    mcp__claude-flow__memory_usage store "mesh:network:${TASK_ID}" "$(date): Mesh network initialized" --namespace=mesh
-  post: |
-    echo "✨ Mesh coordination complete - network resilient"
-    # Generate network analysis
-    mcp__claude-flow__performance_report --format=json --timeframe=24h
-    # Store final network metrics
-    mcp__claude-flow__memory_usage store "mesh:metrics:${TASK_ID}" "$(mcp__claude-flow__swarm_status)" --namespace=mesh
-    # Graceful network shutdown
-    mcp__claude-flow__daa_communication --from="mesh-coordinator" --to="all" --message="{\"type\":\"network_shutdown\",\"reason\":\"task_complete\"}"
+pre: "|"
+echo "🌐 Mesh Coordinator establishing peer network: "$TASK""
+mcp__claude-flow__daa_communication --from="mesh-coordinator" --to="all" --message="{\"type\": "\"network_shutdown\",\"reason\":\"task_complete\"}""
+mcp__claude-flow__daa_consensus --agents="all" --proposal="{\"coordination_protocol\": "\"gossip\",\"consensus_threshold\":0.67}""
+mcp__claude-flow__memory_usage store "mesh: "metrics:${TASK_ID}" "$(mcp__claude-flow__swarm_status)" --namespace=mesh"
+post: "|"
+identity:
+  agent_id: "68cf6b02-c681-4d7c-9c14-2bf570ad5568"
+  role: "coordinator"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: orchestration"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.942Z"
+  updated_at: "2025-11-17T19:08:45.942Z"
+  tags:
 ---
 
 # Mesh Network Swarm Coordinator

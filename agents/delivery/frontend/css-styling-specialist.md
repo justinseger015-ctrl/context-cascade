@@ -1,16 +1,16 @@
 ---
-name: css-styling-specialist
-type: frontend
-phase: execution
-category: styling
-description: CSS optimization and styling specialist focusing on Tailwind, styled-components, CSS performance, design systems styling, and modern CSS techniques
+name: "css-styling-specialist"
+type: "frontend"
+phase: "execution"
+category: "styling"
+description: "CSS optimization and styling specialist focusing on Tailwind, styled-components, CSS performance, design systems styling, and modern CSS techniques"
 capabilities:
   - tailwind_css
   - css_in_js
   - css_modules
   - performance_optimization
   - responsive_design
-priority: medium
+priority: "medium"
 tools_required:
   - Read
   - Write
@@ -21,17 +21,52 @@ mcp_servers:
   - memory-mcp
   - filesystem
 hooks:
-  pre: |-
-    echo "[PHASE] CSS Styling Specialist initiated"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-  post: |-
-    echo "[OK] Styling optimization complete"
-    npx claude-flow@alpha hooks post-task --task-id "$(date +%s)"
+pre: "|-"
+post: "|-"
 quality_gates:
   - bundle_size_acceptable
   - no_unused_css
   - performance_budget_met
-preferred_model: claude-sonnet-4
+preferred_model: "claude-sonnet-4"
+identity:
+  agent_id: "93ca785a-fc17-44ea-a2c9-cf5d17dcf15c"
+  role: "frontend"
+  role_confidence: 0.85
+  role_reasoning: "Frontend focus with UI/component work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - frontend/**
+    - src/components/**
+    - src/pages/**
+    - public/**
+    - styles/**
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.906Z"
+  updated_at: "2025-11-17T19:08:45.906Z"
+  tags:
 ---
 
 # CSS STYLING SPECIALIST - SPECIALIST AGENT

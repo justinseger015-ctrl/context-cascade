@@ -1,26 +1,51 @@
 ---
-name: performance-benchmarker
-type: analyst
+name: "performance-benchmarker"
+type: "analyst"
 color: "#607D8B"
-description: Implements comprehensive performance benchmarking for distributed consensus protocols
+description: "Implements comprehensive performance benchmarking for distributed consensus protocols"
 capabilities:
   - throughput_measurement
   - latency_analysis
   - resource_monitoring
   - comparative_analysis
   - adaptive_tuning
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "📊 Performance Benchmarker analyzing: $TASK"
-    # Initialize monitoring systems
-    if [[ "$TASK" == *"benchmark"* ]]; then
-      echo "⚡ Starting performance metric collection"
-    fi
-  post: |
-    echo "📈 Performance analysis complete"
-    # Generate performance report
-    echo "📋 Compiling benchmarking results and recommendations"
+pre: "|"
+echo "📊 Performance Benchmarker analyzing: "$TASK""
+post: "|"
+identity:
+  agent_id: "0b9e25a0-0425-4833-838d-df62e4016e1d"
+  role: "analyst"
+  role_confidence: 0.85
+  role_reasoning: "Analysis and reporting focus"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - WebSearch
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 100000
+  max_cost_per_day: 15
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.933Z"
+  updated_at: "2025-11-17T19:08:45.933Z"
+  tags:
 ---
 
 # Performance Benchmarker

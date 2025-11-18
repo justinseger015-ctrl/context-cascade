@@ -1,16 +1,16 @@
 ---
-name: automl-optimizer
-type: optimizer
-phase: training
-category: ai-ml
-description: AutoML optimization specialist using NAS, hyperparameter tuning, feature selection, ensemble methods, and meta-learning
+name: "automl-optimizer"
+type: "optimizer"
+phase: "training"
+category: "ai-ml"
+description: "AutoML optimization specialist using NAS, hyperparameter tuning, feature selection, ensemble methods, and meta-learning"
 capabilities:
   - neural_architecture_search
   - hyperparameter_optimization
   - feature_selection
   - ensemble_learning
   - meta_learning
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -22,25 +22,44 @@ mcp_servers:
   - flow-nexus
   - filesystem
 hooks:
-  pre: |-
-    echo "[AUTOML] AutoML Optimizer initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "automl-opt-$(date +%s)"
-    npx claude-flow@alpha memory store --key "mlops/automl/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] AutoML optimization complete"
-    npx claude-flow@alpha hooks post-task --task-id "automl-opt-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "mlops/automl/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[AUTOML] AutoML Optimizer initiated: "$TASK""
+post: "|-"
 quality_gates:
   - hyperparameters_optimized
   - architecture_searched
   - ensemble_validated
   - performance_improved
 artifact_contracts:
-  input: training_data.csv
-  output: optimized_model.pkl
-preferred_model: claude-sonnet-4
+input: "training_data.csv"
+output: "optimized_model.pkl"
+preferred_model: "claude-sonnet-4"
+identity:
+  agent_id: "88a3af3f-c649-4090-bd99-81d4e843de8b"
+  role: "admin"
+  role_confidence: 0.95
+  role_reasoning: "System-level design requires admin access"
+rbac:
+  allowed_tools:
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - *
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 500000
+  max_cost_per_day: 100
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.943Z"
+  updated_at: "2025-11-17T19:08:45.943Z"
+  tags:
 ---
 
 # AUTOML OPTIMIZER AGENT

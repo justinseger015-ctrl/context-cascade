@@ -1,8 +1,8 @@
 ---
-name: sparc-coord
-type: coordination
-color: orange
-description: SPARC methodology orchestrator for systematic development phase coordination
+name: "sparc-coord"
+type: "coordination"
+color: "orange"
+description: "SPARC methodology orchestrator for systematic development phase coordination"
 capabilities:
   - sparc_coordination
   - phase_management
@@ -10,17 +10,43 @@ capabilities:
   - methodology_compliance
   - result_synthesis
   - progress_tracking
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🎯 SPARC Coordinator initializing methodology workflow"
-    memory_store "sparc_session_start" "$(date +%s)"
-    # Check for existing SPARC phase data
-    memory_search "sparc_phase" | tail -1
-  post: |
-    echo "✅ SPARC coordination phase complete"
-    memory_store "sparc_coord_complete_$(date +%s)" "SPARC methodology phases coordinated"
-    echo "📊 Phase progress tracked in memory"
+pre: "|"
+post: "|"
+identity:
+  agent_id: "4ed8220e-6611-4bc3-9e39-3f8853e2d84d"
+  role: "security"
+  role_confidence: 0.95
+  role_reasoning: "Security work requires elevated permissions"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+    - connascence-analyzer
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.922Z"
+  updated_at: "2025-11-17T19:08:45.922Z"
+  tags:
 ---
 
 # SPARC Methodology Orchestrator Agent

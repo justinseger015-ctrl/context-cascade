@@ -1,8 +1,8 @@
 ---
-name: memory-coordinator
-type: coordination
-color: green
-description: Manage persistent memory across sessions and facilitate cross-agent memory sharing
+name: "memory-coordinator"
+type: "coordination"
+color: "green"
+description: "Manage persistent memory across sessions and facilitate cross-agent memory sharing"
 capabilities:
   - memory-management
   - namespace-coordination
@@ -10,21 +10,51 @@ capabilities:
   - compression-optimization
   - synchronization
   - search-retrieval
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🧠 Memory Coordination Specialist initializing"
-    echo "💾 Checking memory system status and available namespaces"
-    # Check memory system availability
-    echo "📊 Current memory usage:"
-    # List active namespaces if memory tools are available
-    echo "🗂️ Available namespaces will be scanned"
-  post: |
-    echo "✅ Memory operations completed successfully"
-    echo "📈 Memory system optimized and synchronized"
-    echo "🔄 Cross-session persistence enabled"
-    # Log memory operation summary
-    echo "📋 Memory coordination session summary stored"
+pre: "|"
+echo "📊 Current memory usage: """
+post: "|"
+identity:
+  agent_id: "93bc7e05-13f9-4140-b9d9-6351f4002ff1"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: foundry"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.920Z"
+  updated_at: "2025-11-17T19:08:45.920Z"
+  tags:
 ---
 
 # Memory Coordination Specialist Agent

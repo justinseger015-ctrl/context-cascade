@@ -112,6 +112,19 @@
         },
         "enabled": false,
         "continueOnError": true
+      },
+      {
+        "name": "visibility-pipeline",
+        "description": "Log all agent actions to database and broadcast to dashboard UI",
+        "command": "node",
+        "args": [
+          "hooks/12fa/visibility-pipeline.js"
+        ],
+        "matcher": {
+          "toolNames": ["Task", "Edit", "Write", "Bash", "Read", "Grep", "Glob"]
+        },
+        "enabled": true,
+        "continueOnError": true
       }
     ],
     "UserPromptSubmit": [
@@ -257,7 +270,53 @@
     "memory": ["pre-edit-memory", "session-restore", "session-persist", "pre-compact-memory"],
     "automation": ["post-edit-formatting", "post-task-neural-training"],
     "lifecycle": ["session-restore", "session-persist", "graceful-shutdown", "subagent-cleanup"],
-    "optimization": ["pre-search-cache", "post-task-neural-training"]
+    "optimization": ["pre-search-cache", "post-task-neural-training"],
+    "security": ["pre-identity-verify", "pre-permission-check", "pre-budget-enforce", "pre-approval-gate", "post-audit-trail", "post-budget-deduct"],
+    "observability": ["visibility-pipeline"]
+  },
+  "securityHooks": {
+    "pre-identity-verify": {
+      "description": "Verify agent identity before any operation",
+      "script": "hooks/12fa/security-hooks/pre-identity-verify.js",
+      "blocking": true,
+      "priority": 1,
+      "enabled": true
+    },
+    "pre-permission-check": {
+      "description": "Enforce RBAC rules before tool use",
+      "script": "hooks/12fa/security-hooks/pre-permission-check.js",
+      "blocking": true,
+      "priority": 2,
+      "enabled": true
+    },
+    "pre-budget-enforce": {
+      "description": "Check budget before operation",
+      "script": "hooks/12fa/security-hooks/pre-budget-enforce.js",
+      "blocking": true,
+      "priority": 3,
+      "enabled": true
+    },
+    "pre-approval-gate": {
+      "description": "Human approval for high-risk operations",
+      "script": "hooks/12fa/security-hooks/pre-approval-gate.js",
+      "blocking": true,
+      "priority": 4,
+      "enabled": true
+    },
+    "post-audit-trail": {
+      "description": "Log all operations to audit trail",
+      "script": "hooks/12fa/security-hooks/post-audit-trail.js",
+      "blocking": false,
+      "priority": 5,
+      "enabled": true
+    },
+    "post-budget-deduct": {
+      "description": "Deduct tokens/cost after operation",
+      "script": "hooks/12fa/security-hooks/post-budget-deduct.js",
+      "blocking": false,
+      "priority": 6,
+      "enabled": true
+    }
   },
   "notes": {
     "required_mcp": "claude-flow@alpha",

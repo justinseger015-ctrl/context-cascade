@@ -1,28 +1,60 @@
 ---
-name: production-validator
-type: validator
+name: "production-validator"
+type: "validator"
 color: "#4CAF50"
-description: Production validation specialist ensuring applications are fully implemented and deployment-ready
+description: "Production validation specialist ensuring applications are fully implemented and deployment-ready"
 capabilities:
   - production_validation
   - implementation_verification
   - end_to_end_testing
   - deployment_readiness
   - real_world_simulation
-priority: critical
+priority: "critical"
 hooks:
-  pre: |
-    echo "🔍 Production Validator starting: $TASK"
-    # Verify no mock implementations remain
-    echo "🚫 Scanning for mock/fake implementations..."
-    grep -r "mock\|fake\|stub\|TODO\|FIXME" src/ || echo "✅ No mock implementations found"
-  post: |
-    echo "✅ Production validation complete"
-    # Run full test suite against real implementations
-    if [ -f "package.json" ]; then
-      npm run test:production --if-present
-      npm run test:e2e --if-present
-    fi
+pre: "|"
+echo "🔍 Production Validator starting: "$TASK""
+post: "|"
+npm run test: "e2e --if-present"
+identity:
+  agent_id: "ffab87e8-79c5-40a5-bef2-a7fc951d89ff"
+  role: "developer"
+  role_confidence: 0.9
+  role_reasoning: "Code implementation is core developer work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "quality"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.965Z"
+  updated_at: "2025-11-17T19:08:45.965Z"
+  tags:
 ---
 
 # Production Validation Agent

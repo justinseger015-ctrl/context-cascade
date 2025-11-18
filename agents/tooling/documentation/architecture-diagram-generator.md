@@ -1,8 +1,8 @@
 ---
-name: architecture-diagram-generator
-type: documentation
+name: "architecture-diagram-generator"
+type: "documentation"
 color: "#3498DB"
-description: System diagrams, C4 models, UML, and visual architecture documentation
+description: "System diagrams, C4 models, UML, and visual architecture documentation"
 capabilities:
   - c4_model_diagrams
   - uml_diagrams
@@ -10,16 +10,38 @@ capabilities:
   - data_flow_diagrams
   - sequence_diagrams
   - mermaid_visualization
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "Architecture Diagram Generator starting: $TASK"
-    echo "Analyzing system architecture and components..."
-    find . -name "*.mmd" -o -name "*.puml" -o -name "architecture*" | grep -v node_modules | head -10
-  post: |
-    echo "Architecture diagrams generated"
-    echo "Diagrams created:"
-    find . -name "*.mmd" -o -name "*.svg" -o -name "*.png" -mmin -5 | head -10
+pre: "|"
+echo "Architecture Diagram Generator starting: "$TASK""
+post: "|"
+echo "Diagrams created: """
+identity:
+  agent_id: "08938b7a-97ef-4290-ba9a-69fce2c5c0d5"
+  role: "admin"
+  role_confidence: 0.95
+  role_reasoning: "System-level design requires admin access"
+rbac:
+  allowed_tools:
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - *
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 500000
+  max_cost_per_day: 100
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.976Z"
+  updated_at: "2025-11-17T19:08:45.976Z"
+  tags:
 ---
 
 # Architecture Diagram Generator

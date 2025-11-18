@@ -1,16 +1,16 @@
 ---
-name: query-optimization-agent
-type: optimizer
-phase: execution
-category: database
-description: SQL query tuning, index optimization, execution plan analysis, and database performance specialist
+name: "query-optimization-agent"
+type: "optimizer"
+phase: "execution"
+category: "database"
+description: "SQL query tuning, index optimization, execution plan analysis, and database performance specialist"
 capabilities:
   - query_optimization
   - index_tuning
   - execution_plan_analysis
   - performance_benchmarking
   - bottleneck_detection
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -22,28 +22,61 @@ mcp_servers:
   - connascence-analyzer
   - filesystem
 hooks:
-  pre: |-
-    echo "[PERFORMANCE] Query Optimization Agent initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "query-opt-$(date +%s)"
-    npx claude-flow@alpha memory store --key "database/optimization/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Query optimization complete"
-    npx claude-flow@alpha hooks post-task --task-id "query-opt-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "database/optimization/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[PERFORMANCE] Query Optimization Agent initiated: "$TASK""
+post: "|-"
 quality_gates:
   - performance_benchmarked
   - indexes_optimized
   - execution_plans_verified
 artifact_contracts:
-  input: query_performance_report.json
-  output: optimization_plan.json
-preferred_model: claude-sonnet-4
+input: "query_performance_report.json"
+output: "optimization_plan.json"
+preferred_model: "claude-sonnet-4"
 model_fallback:
-  primary: gpt-5
-  secondary: claude-opus-4.1
-  emergency: claude-sonnet-4
+primary: "gpt-5"
+secondary: "claude-opus-4.1"
+emergency: "claude-sonnet-4"
+identity:
+  agent_id: "9ef1159c-dd3d-4da2-a351-a4fca07ee83d"
+  role: "backend"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: platforms"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - backend/**
+    - src/api/**
+    - src/services/**
+    - src/models/**
+    - tests/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.952Z"
+  updated_at: "2025-11-17T19:08:45.952Z"
+  tags:
 ---
 
 # QUERY OPTIMIZATION AGENT

@@ -1,0 +1,281 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Identity Schema",
+  "description": "Comprehensive identity schema for Agent Reality Map compliance - transforms agents into first-class identities with roles, permissions, and budgets",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["agent_id", "name", "role", "capabilities", "rbac", "budget", "metadata"],
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the agent (UUIDv4)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Agent name as defined in agent YAML frontmatter",
+      "pattern": "^[a-z0-9-]+$",
+      "examples": ["backend-dev", "coder", "security-manager"]
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "developer",
+        "reviewer",
+        "security",
+        "database",
+        "frontend",
+        "backend",
+        "tester",
+        "analyst",
+        "coordinator"
+      ],
+      "description": "Primary RBAC role determining permissions and access"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of capabilities this agent possesses",
+      "examples": [
+        ["coding", "api-design", "database"],
+        ["security-audit", "vulnerability-scanning"],
+        ["ui-design", "react", "accessibility"]
+      ]
+    },
+    "rbac": {
+      "type": "object",
+      "required": ["allowed_tools", "path_scopes"],
+      "properties": {
+        "allowed_tools": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Read",
+              "Write",
+              "Edit",
+              "MultiEdit",
+              "Bash",
+              "Grep",
+              "Glob",
+              "Task",
+              "TodoWrite",
+              "WebSearch",
+              "WebFetch",
+              "KillShell",
+              "BashOutput",
+              "NotebookEdit"
+            ]
+          },
+          "description": "Tools this agent is permitted to use"
+        },
+        "denied_tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tools explicitly denied (overrides allowed_tools)",
+          "default": []
+        },
+        "path_scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "File path patterns this agent can access (glob patterns)",
+          "examples": [
+            ["src/**", "tests/**"],
+            ["backend/**", "api/**"],
+            ["**"]
+          ]
+        },
+        "api_access": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "openai",
+              "anthropic",
+              "github",
+              "gitlab",
+              "memory-mcp",
+              "connascence-analyzer",
+              "flow-nexus",
+              "ruv-swarm"
+            ]
+          },
+          "description": "External APIs this agent can access",
+          "default": []
+        },
+        "requires_approval": {
+          "type": "boolean",
+          "description": "Whether high-risk operations require human approval",
+          "default": false
+        },
+        "approval_threshold": {
+          "type": "number",
+          "description": "Cost threshold (USD) triggering approval requirement",
+          "minimum": 0,
+          "default": 10.0
+        }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "required": ["max_tokens_per_session", "max_cost_per_day", "currency"],
+      "properties": {
+        "max_tokens_per_session": {
+          "type": "integer",
+          "description": "Maximum tokens this agent can use per session",
+          "minimum": 1000,
+          "maximum": 1000000,
+          "default": 100000
+        },
+        "max_cost_per_day": {
+          "type": "number",
+          "description": "Maximum daily cost in currency units",
+          "minimum": 0,
+          "default": 10.0
+        },
+        "currency": {
+          "type": "string",
+          "enum": ["USD", "EUR", "GBP"],
+          "default": "USD"
+        },
+        "current_usage": {
+          "type": "object",
+          "description": "Current usage tracking (updated at runtime)",
+          "properties": {
+            "tokens_used_today": {
+              "type": "integer",
+              "default": 0
+            },
+            "cost_spent_today": {
+              "type": "number",
+              "default": 0.0
+            },
+            "last_reset_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["category", "specialist"],
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": [
+            "delivery",
+            "foundry",
+            "operations",
+            "orchestration",
+            "platforms",
+            "quality",
+            "research",
+            "security",
+            "specialists",
+            "tooling"
+          ],
+          "description": "High-level category grouping"
+        },
+        "specialist": {
+          "type": "boolean",
+          "description": "Whether this is a specialist agent (vs generalist)",
+          "default": false
+        },
+        "requires_approval": {
+          "type": "boolean",
+          "description": "Whether operations require human approval",
+          "default": false
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Agent version (semantic versioning)",
+          "default": "1.0.0"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of agent creation"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of last update"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Searchable tags for agent discovery",
+          "default": []
+        }
+      }
+    },
+    "performance": {
+      "type": "object",
+      "description": "Performance metrics and quality scores (optional, tracked at runtime)",
+      "properties": {
+        "success_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Success rate (0-1) based on historical performance"
+        },
+        "average_execution_time_ms": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Average task execution time in milliseconds"
+        },
+        "quality_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Quality score based on Connascence analysis"
+        },
+        "total_tasks_completed": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "agent_id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "backend-dev",
+      "role": "developer",
+      "capabilities": ["coding", "api-design", "database", "testing"],
+      "rbac": {
+        "allowed_tools": ["Read", "Write", "Edit", "Bash", "Task"],
+        "denied_tools": ["KillShell"],
+        "path_scopes": ["src/**", "backend/**", "tests/**"],
+        "api_access": ["github", "memory-mcp"],
+        "requires_approval": false,
+        "approval_threshold": 10.0
+      },
+      "budget": {
+        "max_tokens_per_session": 150000,
+        "max_cost_per_day": 20.0,
+        "currency": "USD"
+      },
+      "metadata": {
+        "category": "delivery",
+        "specialist": true,
+        "requires_approval": false,
+        "version": "1.0.0",
+        "tags": ["backend", "api", "development"]
+      }
+    }
+  ]
+}

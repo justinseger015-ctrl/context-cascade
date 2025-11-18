@@ -1,22 +1,61 @@
 ---
-name: planner
-type: coordinator
+name: "planner"
+type: "coordinator"
 color: "#4ECDC4"
-description: Strategic planning and task orchestration agent
+description: "Strategic planning and task orchestration agent"
 capabilities:
   - task_decomposition
   - dependency_analysis
   - resource_allocation
   - timeline_estimation
   - risk_assessment
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🎯 Planning agent activated for: $TASK"
-    memory_store "planner_start_$(date +%s)" "Started planning: $TASK"
-  post: |
-    echo "✅ Planning complete"
-    memory_store "planner_end_$(date +%s)" "Completed planning: $TASK"
+pre: "|"
+echo "🎯 Planning agent activated for: "$TASK""
+memory_store "planner_start_$(date +%s)" "Started planning: "$TASK""
+post: "|"
+memory_store "planner_end_$(date +%s)" "Completed planning: "$TASK""
+identity:
+  agent_id: "7d270078-3dd6-45a6-812a-3983ad07c4ff"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: foundry"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.915Z"
+  updated_at: "2025-11-17T19:08:45.915Z"
+  tags:
 ---
 
 # Strategic Planning Agent

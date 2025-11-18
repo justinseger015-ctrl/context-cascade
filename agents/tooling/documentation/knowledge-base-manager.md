@@ -1,8 +1,8 @@
 ---
-name: knowledge-base-manager
-type: documentation
+name: "knowledge-base-manager"
+type: "documentation"
 color: "#9B59B6"
-description: Documentation organization, search, and versioning specialist
+description: "Documentation organization, search, and versioning specialist"
 capabilities:
   - documentation_organization
   - semantic_search
@@ -10,17 +10,52 @@ capabilities:
   - knowledge_retrieval
   - documentation_indexing
   - cross_reference_management
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "Knowledge Base Manager initializing: $TASK"
-    echo "Analyzing existing documentation structure..."
-    find docs/ -type f -name "*.md" 2>/dev/null | wc -l || echo "0 docs found"
-    npx claude-flow@alpha memory retrieve --key "docs/structure" 2>/dev/null || echo "No stored structure"
-  post: |
-    echo "Knowledge base operations complete"
-    echo "Storing documentation metadata in memory..."
-    npx claude-flow@alpha memory store --key "docs/updated" --value "$(date): Documentation updated"
+pre: "|"
+echo "Knowledge Base Manager initializing: "$TASK""
+post: "|"
+npx claude-flow@alpha memory store --key "docs/updated" --value "$(date): "Documentation updated""
+identity:
+  agent_id: "41887153-2262-49f0-acb1-8b05b98e7fcd"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.977Z"
+  updated_at: "2025-11-17T19:08:45.977Z"
+  tags:
 ---
 
 # Knowledge Base Manager

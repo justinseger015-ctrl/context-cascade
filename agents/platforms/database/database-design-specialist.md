@@ -1,16 +1,16 @@
 ---
-name: database-design-specialist
-type: architect
-phase: design
-category: database
-description: Database schema design, normalization, ER modeling, and data architecture specialist for relational and document databases
+name: "database-design-specialist"
+type: "architect"
+phase: "design"
+category: "database"
+description: "Database schema design, normalization, ER modeling, and data architecture specialist for relational and document databases"
 capabilities:
   - schema_design
   - data_modeling
   - normalization
   - migration_planning
   - database_optimization
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -21,28 +21,54 @@ mcp_servers:
   - memory-mcp
   - filesystem
 hooks:
-  pre: |-
-    echo "[DATABASE] Database Design Specialist initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "database-design-$(date +%s)"
-    npx claude-flow@alpha memory store --key "database/design/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Database design complete"
-    npx claude-flow@alpha hooks post-task --task-id "db-design-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "database/design/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[DATABASE] Database Design Specialist initiated: "$TASK""
+post: "|-"
 quality_gates:
   - schema_validated
   - normalization_verified
   - constraints_defined
 artifact_contracts:
-  input: requirements.json
-  output: schema_design.json
-preferred_model: claude-sonnet-4
+input: "requirements.json"
+output: "schema_design.json"
+preferred_model: "claude-sonnet-4"
 model_fallback:
-  primary: gpt-5
-  secondary: claude-opus-4.1
-  emergency: claude-sonnet-4
+primary: "gpt-5"
+secondary: "claude-opus-4.1"
+emergency: "claude-sonnet-4"
+identity:
+  agent_id: "ffd6f579-f2d3-4e69-a0b5-16497a47f96a"
+  role: "coordinator"
+  role_confidence: 0.9
+  role_reasoning: "High-level coordination and planning"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.950Z"
+  updated_at: "2025-11-17T19:08:45.950Z"
+  tags:
 ---
 
 # DATABASE DESIGN SPECIALIST AGENT

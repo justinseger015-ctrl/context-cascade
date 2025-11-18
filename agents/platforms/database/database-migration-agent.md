@@ -1,16 +1,16 @@
 ---
-name: database-migration-agent
-type: deployer
-phase: deployment
-category: database
-description: Database schema migration, zero-downtime deployment, rollback strategies, and version control specialist
+name: "database-migration-agent"
+type: "deployer"
+phase: "deployment"
+category: "database"
+description: "Database schema migration, zero-downtime deployment, rollback strategies, and version control specialist"
 capabilities:
   - schema_migration
   - zero_downtime_deployment
   - rollback_management
   - migration_testing
   - version_control
-priority: critical
+priority: "critical"
 tools_required:
   - Read
   - Write
@@ -21,28 +21,58 @@ mcp_servers:
   - memory-mcp
   - filesystem
 hooks:
-  pre: |-
-    echo "[MIGRATION] Database Migration Agent initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "migration-$(date +%s)"
-    npx claude-flow@alpha memory store --key "database/migrations/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Migration complete"
-    npx claude-flow@alpha hooks post-task --task-id "migration-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "database/migrations/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[MIGRATION] Database Migration Agent initiated: "$TASK""
+post: "|-"
 quality_gates:
   - migration_tested
   - rollback_verified
   - zero_downtime_validated
 artifact_contracts:
-  input: schema_changes.json
-  output: migration_plan.json
-preferred_model: claude-sonnet-4
+input: "schema_changes.json"
+output: "migration_plan.json"
+preferred_model: "claude-sonnet-4"
 model_fallback:
-  primary: gpt-5
-  secondary: claude-opus-4.1
-  emergency: claude-sonnet-4
+primary: "gpt-5"
+secondary: "claude-opus-4.1"
+emergency: "claude-sonnet-4"
+identity:
+  agent_id: "54fc9295-a7bf-4c7d-8cb5-001deabfef7b"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.951Z"
+  updated_at: "2025-11-17T19:08:45.951Z"
+  tags:
 ---
 
 # DATABASE MIGRATION AGENT

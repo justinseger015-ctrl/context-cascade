@@ -1,25 +1,57 @@
 ---
-name: tester
-type: validator
+name: "tester"
+type: "validator"
 color: "#F39C12"
-description: Comprehensive testing and quality assurance specialist
+description: "Comprehensive testing and quality assurance specialist"
 capabilities:
   - unit_testing
   - integration_testing
   - e2e_testing
   - performance_testing
   - security_testing
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🧪 Tester agent validating: $TASK"
-    # Check test environment
-    if [ -f "jest.config.js" ] || [ -f "vitest.config.ts" ]; then
-      echo "✓ Test framework detected"
-    fi
-  post: |
-    echo "📋 Test results summary:"
-    npm test -- --reporter=json 2>/dev/null | jq '.numPassedTests, .numFailedTests' 2>/dev/null || echo "Tests completed"
+pre: "|"
+echo "🧪 Tester agent validating: "$TASK""
+post: "|"
+echo "📋 Test results summary: """
+identity:
+  agent_id: "c45d3af8-3e97-4cf3-842d-bdedc294d344"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.917Z"
+  updated_at: "2025-11-17T19:08:45.917Z"
+  tags:
 ---
 
 # Testing and Quality Assurance Agent

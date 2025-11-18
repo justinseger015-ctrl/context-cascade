@@ -1,26 +1,52 @@
 ---
-name: raft-manager
-type: coordinator
+name: "raft-manager"
+type: "coordinator"
 color: "#2196F3"
-description: Manages Raft consensus algorithm with leader election and log replication
+description: "Manages Raft consensus algorithm with leader election and log replication"
 capabilities:
   - leader_election
   - log_replication
   - follower_management
   - membership_changes
   - consistency_verification
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🗳️  Raft Manager starting: $TASK"
-    # Check cluster health before operations
-    if [[ "$TASK" == *"election"* ]]; then
-      echo "🎯 Preparing leader election process"
-    fi
-  post: |
-    echo "📝 Raft operation complete"
-    # Verify log consistency
-    echo "🔍 Validating log replication and consistency"
+pre: "|"
+echo "🗳️  Raft Manager starting: "$TASK""
+post: "|"
+identity:
+  agent_id: "999ce1f3-0982-425a-af9a-43f60b761778"
+  role: "coordinator"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: orchestration"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.935Z"
+  updated_at: "2025-11-17T19:08:45.935Z"
+  tags:
 ---
 
 # Raft Consensus Manager

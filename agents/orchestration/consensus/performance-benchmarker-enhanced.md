@@ -1,16 +1,23 @@
 ---
-name: performance-benchmarker
-type: analyst
+name: "performance-benchmarker"
+type: "analyst"
 color: "#607D8B"
 version: "2.0.0"
 created: "2025-07-25"
 last_updated: "2025-10-29"
-description: Implements comprehensive performance benchmarking for distributed consensus protocols with command and MCP tool integration
+description: "Implements comprehensive performance benchmarking for distributed consensus protocols with command and MCP tool integration"
 metadata:
-  enhancement: "Command mapping + MCP tool integration + Prompt optimization"
-  specialization: "Performance analysis, benchmarking, optimization, monitoring"
-  complexity: "high"
-  autonomous: true
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "2.0.0"
+  created_at: "2025-11-17T19:08:45.933Z"
+  updated_at: "2025-11-17T19:08:45.933Z"
+  tags:
+enhancement: "Command mapping + MCP tool integration + Prompt optimization"
+specialization: "Performance analysis, benchmarking, optimization, monitoring"
+complexity: "high"
+autonomous: true
 capabilities:
   - throughput_measurement
   - latency_analysis
@@ -19,18 +26,35 @@ capabilities:
   - adaptive_tuning
   - bottleneck_detection
   - performance_optimization
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "📊 Performance Benchmarker analyzing: $TASK"
-    # Initialize monitoring systems
-    if [[ "$TASK" == *"benchmark"* ]]; then
-      echo "⚡ Starting performance metric collection"
-    fi
-  post: |
-    echo "📈 Performance analysis complete"
-    # Generate performance report
-    echo "📋 Compiling benchmarking results and recommendations"
+pre: "|"
+echo "📊 Performance Benchmarker analyzing: "$TASK""
+post: "|"
+identity:
+  agent_id: "db4882e6-051e-4308-921e-959c725eaa23"
+  role: "analyst"
+  role_confidence: 0.85
+  role_reasoning: "Analysis and reporting focus"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - WebSearch
+    - WebFetch
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 100000
+  max_cost_per_day: 15
+  currency: "USD"
 ---
 
 # Performance Analyzer / Performance Benchmarker Agent

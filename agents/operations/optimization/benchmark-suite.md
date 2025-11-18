@@ -1,8 +1,48 @@
 ---
-name: Benchmark Suite
-type: agent
-category: optimization
-description: Comprehensive performance benchmarking, regression detection and performance validation
+name: "Benchmark Suite"
+type: "agent"
+category: "optimization"
+description: "Comprehensive performance benchmarking, regression detection and performance validation"
+identity:
+  agent_id: "f71822bb-9614-4e7c-9aff-1c32381f6450"
+  role: "backend"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: operations"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - backend/**
+    - src/api/**
+    - src/services/**
+    - src/models/**
+    - tests/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
+metadata:
+  category: "operations"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.928Z"
+  updated_at: "2025-11-17T19:08:45.928Z"
+  tags:
 ---
 
 # Benchmark Suite Agent

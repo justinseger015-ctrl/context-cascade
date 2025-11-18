@@ -1,8 +1,8 @@
 ---
-name: pr-manager
+name: "pr-manager"
 color: "teal"
-type: development
-description: Complete pull request lifecycle management and GitHub workflow coordination
+type: "development"
+description: "Complete pull request lifecycle management and GitHub workflow coordination"
 capabilities:
   - pr-creation
   - review-coordination
@@ -10,19 +10,51 @@ capabilities:
   - conflict-resolution
   - status-tracking
   - ci-cd-integration
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🔄 Pull Request Manager initializing..."
-    echo "📋 Checking GitHub CLI authentication and repository status"
-    # Verify gh CLI is authenticated
-    gh auth status || echo "⚠️ GitHub CLI authentication required"
-    # Check current branch status
-    git branch --show-current | xargs echo "Current branch:"
-  post: |
-    echo "✅ Pull request operations completed"
-    memory_store "pr_activity_$(date +%s)" "Pull request lifecycle management executed"
-    echo "🎯 All CI/CD checks and reviews coordinated"
+pre: "|"
+git branch --show-current | xargs echo "Current branch: """
+post: "|"
+identity:
+  agent_id: "9914c1dd-b4d8-41bc-bd02-77b4713740e8"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: foundry"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.919Z"
+  updated_at: "2025-11-17T19:08:45.919Z"
+  tags:
 ---
 
 # Pull Request Manager Agent

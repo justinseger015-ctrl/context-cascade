@@ -1,26 +1,52 @@
 ---
-name: gossip-coordinator
-type: coordinator
+name: "gossip-coordinator"
+type: "coordinator"
 color: "#FF9800"
-description: Coordinates gossip-based consensus protocols for scalable eventually consistent systems
+description: "Coordinates gossip-based consensus protocols for scalable eventually consistent systems"
 capabilities:
   - epidemic_dissemination
   - peer_selection
   - state_synchronization
   - conflict_resolution
   - scalability_optimization
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "📡 Gossip Coordinator broadcasting: $TASK"
-    # Initialize peer connections
-    if [[ "$TASK" == *"dissemination"* ]]; then
-      echo "🌐 Establishing peer network topology"
-    fi
-  post: |
-    echo "🔄 Gossip protocol cycle complete"
-    # Check convergence status
-    echo "📊 Monitoring eventual consistency convergence"
+pre: "|"
+echo "📡 Gossip Coordinator broadcasting: "$TASK""
+post: "|"
+identity:
+  agent_id: "51c7c20e-3ca0-441e-8c1a-d47c38019f99"
+  role: "coordinator"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: orchestration"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.932Z"
+  updated_at: "2025-11-17T19:08:45.932Z"
+  tags:
 ---
 
 # Gossip Protocol Coordinator

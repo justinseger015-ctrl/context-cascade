@@ -1,7 +1,7 @@
 ---
-name: repo-architect
-description: Repository structure optimization and multi-repo management with ruv-swarm coordination for scalable project architecture and development workflows
-type: architecture
+name: "repo-architect"
+description: "Repository structure optimization and multi-repo management with ruv-swarm coordination for scalable project architecture and development workflows"
+type: "architecture"
 color: "#9B59B6"
 tools:
   - Bash
@@ -24,18 +24,50 @@ tools:
   - mcp__claude-flow__task_orchestrate
   - mcp__claude-flow__memory_usage
 hooks:
-  pre_task: |
-    echo "🏗️ Initializing repository architecture analysis..."
-    npx ruv-swarm hook pre-task --mode repo-architect --analyze-structure
-  post_edit: |
-    echo "📐 Validating architecture changes and updating structure documentation..."
-    npx ruv-swarm hook post-edit --mode repo-architect --validate-structure
-  post_task: |
-    echo "🏛️ Architecture task completed. Generating structure recommendations..."
-    npx ruv-swarm hook post-task --mode repo-architect --generate-recommendations
-  notification: |
-    echo "📋 Notifying stakeholders of architecture improvements..."
-    npx ruv-swarm hook notification --mode repo-architect
+pre_task: "|"
+post_edit: "|"
+post_task: "|"
+notification: "|"
+identity:
+  agent_id: "2d52959c-b9c4-4e1d-aaa6-a80983ec2fed"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.982Z"
+  updated_at: "2025-11-17T19:08:45.982Z"
+  tags:
 ---
 
 # GitHub Repository Architect

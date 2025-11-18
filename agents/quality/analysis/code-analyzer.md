@@ -1,26 +1,64 @@
 ---
-name: analyst
-type: code-analyzer
-color: indigo
-priority: high
+name: "analyst"
+type: "code-analyzer"
+color: "indigo"
+priority: "high"
 hooks:
-  pre: |
-    npx claude-flow@alpha hooks pre-task --description "Code analysis agent starting: ${description}" --auto-spawn-agents false
-  post: |
-    npx claude-flow@alpha hooks post-task --task-id "analysis-${timestamp}" --analyze-performance true
+pre: "|"
+npx claude-flow@alpha hooks pre-task --description "Code analysis agent starting: "${description}" --auto-spawn-agents false"
+post: "|"
 metadata:
-  description: Advanced code quality analysis agent for comprehensive code reviews and improvements
-  capabilities:
-    - Code quality assessment and metrics
-    - Performance bottleneck detection
-    - Security vulnerability scanning
-    - Architectural pattern analysis
-    - Dependency analysis
-    - Code complexity evaluation
-    - Technical debt identification
-    - Best practices validation
-    - Code smell detection
-    - Refactoring suggestions
+  category: "quality"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.958Z"
+  updated_at: "2025-11-17T19:08:45.958Z"
+  tags:
+description: "Advanced code quality analysis agent for comprehensive code reviews and improvements"
+capabilities:
+  - Code quality assessment and metrics
+  - Performance bottleneck detection
+  - Security vulnerability scanning
+  - Architectural pattern analysis
+  - Dependency analysis
+  - Code complexity evaluation
+  - Technical debt identification
+  - Best practices validation
+  - Code smell detection
+  - Refactoring suggestions
+identity:
+  agent_id: "601c545c-3dd3-4cd8-a223-29625a15729e"
+  role: "developer"
+  role_confidence: 0.9
+  role_reasoning: "Code implementation is core developer work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
 ---
 
 # Code Analyzer Agent

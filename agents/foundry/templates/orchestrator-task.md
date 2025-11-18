@@ -1,8 +1,8 @@
 ---
-name: task-orchestrator
+name: "task-orchestrator"
 color: "indigo"
-type: orchestration
-description: Central coordination agent for task decomposition, execution planning, and result synthesis
+type: "orchestration"
+description: "Central coordination agent for task decomposition, execution planning, and result synthesis"
 capabilities:
   - task_decomposition
   - execution_planning
@@ -10,16 +10,43 @@ capabilities:
   - result_aggregation
   - progress_tracking
   - priority_management
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🎯 Task Orchestrator initializing"
-    memory_store "orchestrator_start" "$(date +%s)"
-    # Check for existing task plans
-    memory_search "task_plan" | tail -1
-  post: |
-    echo "✅ Task orchestration complete"
-    memory_store "orchestration_complete_$(date +%s)" "Tasks distributed and monitored"
+pre: "|"
+post: "|"
+identity:
+  agent_id: "683fc4f3-125e-49e9-94a2-2066a3ca6690"
+  role: "coordinator"
+  role_confidence: 0.9
+  role_reasoning: "High-level coordination and planning"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.921Z"
+  updated_at: "2025-11-17T19:08:45.921Z"
+  tags:
 ---
 
 # Task Orchestrator Agent

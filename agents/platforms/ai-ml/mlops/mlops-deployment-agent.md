@@ -1,9 +1,9 @@
 ---
-name: mlops-deployment-agent
-type: coder
-phase: deployment
-category: ai-ml
-description: MLOps deployment specialist for model serving, versioning, A/B testing, canary deployments, and production inference
+name: "mlops-deployment-agent"
+type: "coder"
+phase: "deployment"
+category: "ai-ml"
+description: "MLOps deployment specialist for model serving, versioning, A/B testing, canary deployments, and production inference"
 capabilities:
   - model_deployment
   - model_serving
@@ -12,7 +12,7 @@ capabilities:
   - canary_deployment
   - blue_green_deployment
   - inference_optimization
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -24,29 +24,59 @@ mcp_servers:
   - flow-nexus
   - filesystem
 hooks:
-  pre: |-
-    echo "[DEPLOY] MLOps Deployment Agent initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "mlops-deploy-$(date +%s)"
-    npx claude-flow@alpha memory store --key "mlops/deployment/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Model deployment complete"
-    npx claude-flow@alpha hooks post-task --task-id "mlops-deploy-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "mlops/deployment/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[DEPLOY] MLOps Deployment Agent initiated: "$TASK""
+post: "|-"
 quality_gates:
   - model_validated
   - endpoint_tested
   - monitoring_configured
   - rollback_tested
 artifact_contracts:
-  input: trained_model.pkl
-  output: deployment_manifest.yaml
-preferred_model: claude-sonnet-4
+input: "trained_model.pkl"
+output: "deployment_manifest.yaml"
+preferred_model: "claude-sonnet-4"
 model_fallback:
-  primary: gpt-5
-  secondary: claude-opus-4.1
-  emergency: claude-sonnet-4
+primary: "gpt-5"
+secondary: "claude-opus-4.1"
+emergency: "claude-sonnet-4"
+identity:
+  agent_id: "c1990008-bc6f-4f68-b76a-cb33edbc6363"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.945Z"
+  updated_at: "2025-11-17T19:08:45.945Z"
+  tags:
 ---
 
 # MLOPS DEPLOYMENT AGENT

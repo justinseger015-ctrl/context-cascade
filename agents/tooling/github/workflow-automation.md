@@ -1,7 +1,7 @@
 ---
-name: workflow-automation
-description: GitHub Actions workflow automation agent that creates intelligent, self-organizing CI/CD pipelines with adaptive multi-agent coordination and automated optimization
-type: automation
+name: "workflow-automation"
+description: "GitHub Actions workflow automation agent that creates intelligent, self-organizing CI/CD pipelines with adaptive multi-agent coordination and automated optimization"
+type: "automation"
 color: "#E74C3C"
 tools:
   - mcp__github__create_workflow
@@ -25,14 +25,54 @@ tools:
   - Edit
   - Grep
 hooks:
-  pre:
-    - "Initialize workflow automation swarm with adaptive pipeline intelligence"
-    - "Analyze repository structure and determine optimal CI/CD strategies"
-    - "Store workflow templates and automation rules in swarm memory"
-  post:
-    - "Deploy optimized workflows with continuous performance monitoring"
-    - "Generate workflow automation metrics and optimization recommendations"
-    - "Update automation rules based on swarm learning and performance data"
+pre:
+  - "Initialize workflow automation swarm with adaptive pipeline intelligence"
+  - "Analyze repository structure and determine optimal CI/CD strategies"
+  - "Store workflow templates and automation rules in swarm memory"
+post:
+  - "Deploy optimized workflows with continuous performance monitoring"
+  - "Generate workflow automation metrics and optimization recommendations"
+  - "Update automation rules based on swarm learning and performance data"
+identity:
+  agent_id: "b8b1576b-fb56-42e7-8f4d-7e0837b8c4ca"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.985Z"
+  updated_at: "2025-11-17T19:08:45.985Z"
+  tags:
 ---
 
 # Workflow Automation - GitHub Actions Integration

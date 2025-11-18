@@ -1,9 +1,9 @@
 ---
-name: experiment-tracking-agent
-type: analyst
-phase: experimentation
-category: ai-ml
-description: ML experiment tracking specialist using MLflow, Weights & Biases, Neptune for parameter logging, metric tracking, and reproducibility
+name: "experiment-tracking-agent"
+type: "analyst"
+phase: "experimentation"
+category: "ai-ml"
+description: "ML experiment tracking specialist using MLflow, Weights & Biases, Neptune for parameter logging, metric tracking, and reproducibility"
 capabilities:
   - experiment_tracking
   - parameter_logging
@@ -11,7 +11,7 @@ capabilities:
   - artifact_management
   - experiment_comparison
   - reproducibility
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -22,25 +22,58 @@ mcp_servers:
   - memory-mcp
   - filesystem
 hooks:
-  pre: |-
-    echo "[TRACK] Experiment Tracking Agent initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "experiment-track-$(date +%s)"
-    npx claude-flow@alpha memory store --key "mlops/experiments/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Experiment tracking complete"
-    npx claude-flow@alpha hooks post-task --task-id "experiment-track-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "mlops/experiments/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[TRACK] Experiment Tracking Agent initiated: "$TASK""
+post: "|-"
 quality_gates:
   - experiments_logged
   - metrics_tracked
   - artifacts_stored
   - reproducibility_verified
 artifact_contracts:
-  input: training_script.py
-  output: experiment_report.json
-preferred_model: claude-sonnet-4
+input: "training_script.py"
+output: "experiment_report.json"
+preferred_model: "claude-sonnet-4"
+identity:
+  agent_id: "b2ce9313-5498-4415-ac12-e8c35ac756c2"
+  role: "backend"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: platforms"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - backend/**
+    - src/api/**
+    - src/services/**
+    - src/models/**
+    - tests/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.943Z"
+  updated_at: "2025-11-17T19:08:45.943Z"
+  tags:
 ---
 
 # EXPERIMENT TRACKING AGENT

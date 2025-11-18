@@ -1,28 +1,57 @@
 ---
-name: visual-regression-agent
-type: testing
+name: "visual-regression-agent"
+type: "testing"
 color: "#3498DB"
-description: Visual regression and screenshot comparison specialist for UI consistency testing
+description: "Visual regression and screenshot comparison specialist for UI consistency testing"
 capabilities:
   - visual_regression
   - screenshot_comparison
   - pixel_diff_detection
   - responsive_testing
   - ui_consistency_validation
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "📸 Visual Regression Agent starting: $TASK"
-    # Check for visual testing tools
-    if [ -f "playwright.config.ts" ] || [ -f "backstop.json" ]; then
-      echo "✓ Visual testing framework detected"
-    fi
-  post: |
-    echo "✅ Visual regression test completed"
-    # Report visual changes
-    if [ -d "visual-report" ]; then
-      echo "📊 Visual report: visual-report/index.html"
-    fi
+pre: "|"
+echo "📸 Visual Regression Agent starting: "$TASK""
+post: "|"
+echo "📊 Visual report: "visual-report/index.html""
+identity:
+  agent_id: "a58ff9bc-72e1-4bc4-a650-6e65c02847b0"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "quality"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.965Z"
+  updated_at: "2025-11-17T19:08:45.965Z"
+  tags:
 ---
 
 # Visual Regression Agent

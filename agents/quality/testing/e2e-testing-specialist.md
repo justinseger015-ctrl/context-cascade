@@ -1,28 +1,59 @@
 ---
-name: e2e-testing-specialist
-type: testing
+name: "e2e-testing-specialist"
+type: "testing"
 color: "#9B59B6"
-description: End-to-end testing automation specialist for Playwright, Cypress, and browser-based testing
+description: "End-to-end testing automation specialist for Playwright, Cypress, and browser-based testing"
 capabilities:
   - e2e_automation
   - visual_testing
   - regression_testing
   - cross_browser_testing
   - accessibility_testing
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🎭 E2E Testing Specialist starting: $TASK"
-    # Check for browser automation frameworks
-    if [ -f "playwright.config.ts" ] || [ -f "cypress.config.js" ]; then
-      echo "✓ Browser testing framework detected"
-    fi
-  post: |
-    echo "✅ E2E tests completed"
-    # Generate test report
-    if [ -f "playwright-report/index.html" ]; then
-      echo "📊 Report: playwright-report/index.html"
-    fi
+pre: "|"
+echo "🎭 E2E Testing Specialist starting: "$TASK""
+post: "|"
+echo "📊 Report: "playwright-report/index.html""
+identity:
+  agent_id: "162d54e7-6414-49b7-9188-fba5e8b49ca2"
+  role: "frontend"
+  role_confidence: 0.85
+  role_reasoning: "Frontend focus with UI/component work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - frontend/**
+    - src/components/**
+    - src/pages/**
+    - public/**
+    - styles/**
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "quality"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.962Z"
+  updated_at: "2025-11-17T19:08:45.962Z"
+  tags:
 ---
 
 # E2E Testing Specialist Agent

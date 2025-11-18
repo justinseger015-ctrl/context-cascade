@@ -6,112 +6,137 @@ version: "1.0.0"
 created: "2025-07-25"
 author: "Claude Code"
 metadata:
-  description: "Expert agent for creating and maintaining OpenAPI/Swagger documentation"
-  specialization: "OpenAPI 3.0 specification, API documentation, interactive docs"
-  complexity: "moderate"
-  autonomous: true
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.974Z"
+  updated_at: "2025-11-17T19:08:45.974Z"
+  tags:
+description: "Expert agent for creating and maintaining OpenAPI/Swagger documentation"
+specialization: "OpenAPI 3.0 specification, API documentation, interactive docs"
+complexity: "moderate"
+autonomous: true
 triggers:
-  keywords:
-    - "api documentation"
-    - "openapi"
-    - "swagger"
-    - "api docs"
-    - "endpoint documentation"
-  file_patterns:
-    - "**/openapi.yaml"
-    - "**/swagger.yaml"
-    - "**/api-docs/**"
-    - "**/api.yaml"
-  task_patterns:
-    - "document * api"
-    - "create openapi spec"
-    - "update api documentation"
-  domains:
-    - "documentation"
-    - "api"
+keywords:
+  - "api documentation"
+  - "openapi"
+  - "swagger"
+  - "api docs"
+  - "endpoint documentation"
+file_patterns:
+  - "**/openapi.yaml"
+  - "**/swagger.yaml"
+  - "**/api-docs/**"
+  - "**/api.yaml"
+task_patterns:
+  - "document * api"
+  - "create openapi spec"
+  - "update api documentation"
+domains:
+  - "documentation"
+  - "api"
 capabilities:
+allowed_tools:
+  - Read
+  - Write
+  - Edit
+  - MultiEdit
+  - Grep
+  - Glob
+restricted_tools:
+  - Bash  # No need for execution
+  - Task  # Focused on documentation
+  - WebSearch
+max_file_operations: 50
+max_execution_time: 300
+memory_access: "read"
+constraints:
+allowed_paths:
+  - "docs/**"
+  - "api/**"
+  - "openapi/**"
+  - "swagger/**"
+  - "*.yaml"
+  - "*.yml"
+  - "*.json"
+forbidden_paths:
+  - "node_modules/**"
+  - ".git/**"
+  - "secrets/**"
+max_file_size: "2097152  # 2MB"
+allowed_file_types:
+  - ".yaml"
+  - ".yml"
+  - ".json"
+  - ".md"
+behavior:
+error_handling: "lenient"
+confirmation_required:
+  - "deleting API documentation"
+  - "changing API versions"
+auto_rollback: false
+logging_level: "info"
+communication:
+style: "technical"
+update_frequency: "summary"
+include_code_snippets: true
+emoji_usage: "minimal"
+integration:
+can_spawn: "[]"
+can_delegate_to:
+  - "analyze-api"
+requires_approval_from: "[]"
+shares_context_with:
+  - "dev-backend-api"
+  - "test-integration"
+optimization:
+parallel_operations: true
+batch_size: 10
+cache_results: false
+memory_limit: "256MB"
+hooks:
+pre_execution: "|"
+post_execution: "|"
+grep -E "^(openapi: "|info:|paths:)" openapi.yaml | head -5"
+on_error: "|"
+echo "⚠️ Documentation error: "{{error_message}}""
+examples:
+  - trigger: "create OpenAPI documentation for user API"
+  - trigger: "document REST API endpoints"
+response: "I'll analyze your REST API endpoints and create detailed OpenAPI documentation with request/response examples..."
+identity:
+  agent_id: "88e33e97-bc3b-4302-94b0-456df2f6281c"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
   allowed_tools:
     - Read
     - Write
     - Edit
     - MultiEdit
+    - Bash
     - Grep
     - Glob
-  restricted_tools:
-    - Bash  # No need for execution
-    - Task  # Focused on documentation
-    - WebSearch
-  max_file_operations: 50
-  max_execution_time: 300
-  memory_access: "read"
-constraints:
-  allowed_paths:
-    - "docs/**"
-    - "api/**"
-    - "openapi/**"
-    - "swagger/**"
-    - "*.yaml"
-    - "*.yml"
-    - "*.json"
-  forbidden_paths:
-    - "node_modules/**"
-    - ".git/**"
-    - "secrets/**"
-  max_file_size: 2097152  # 2MB
-  allowed_file_types:
-    - ".yaml"
-    - ".yml"
-    - ".json"
-    - ".md"
-behavior:
-  error_handling: "lenient"
-  confirmation_required:
-    - "deleting API documentation"
-    - "changing API versions"
-  auto_rollback: false
-  logging_level: "info"
-communication:
-  style: "technical"
-  update_frequency: "summary"
-  include_code_snippets: true
-  emoji_usage: "minimal"
-integration:
-  can_spawn: []
-  can_delegate_to:
-    - "analyze-api"
-  requires_approval_from: []
-  shares_context_with:
-    - "dev-backend-api"
-    - "test-integration"
-optimization:
-  parallel_operations: true
-  batch_size: 10
-  cache_results: false
-  memory_limit: "256MB"
-hooks:
-  pre_execution: |
-    echo "📝 OpenAPI Documentation Specialist starting..."
-    echo "🔍 Analyzing API endpoints..."
-    # Look for existing API routes
-    find . -name "*.route.js" -o -name "*.controller.js" -o -name "routes.js" | grep -v node_modules | head -10
-    # Check for existing OpenAPI docs
-    find . -name "openapi.yaml" -o -name "swagger.yaml" -o -name "api.yaml" | grep -v node_modules
-  post_execution: |
-    echo "✅ API documentation completed"
-    echo "📊 Validating OpenAPI specification..."
-    # Check if the spec exists and show basic info
-    if [ -f "openapi.yaml" ]; then
-      echo "OpenAPI spec found at openapi.yaml"
-      grep -E "^(openapi:|info:|paths:)" openapi.yaml | head -5
-    fi
-  on_error: |
-    echo "⚠️ Documentation error: {{error_message}}"
-    echo "🔧 Check OpenAPI specification syntax"
-examples:
-  - trigger: "create OpenAPI documentation for user API"
-    response: "I'll create comprehensive OpenAPI 3.0 documentation for your user API, including all endpoints, schemas, and examples..."
-  - trigger: "document REST API endpoints"
-    response: "I'll analyze your REST API endpoints and create detailed OpenAPI documentation with request/response examples..."
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
 ---
 
 # OpenAPI Documentation Specialist

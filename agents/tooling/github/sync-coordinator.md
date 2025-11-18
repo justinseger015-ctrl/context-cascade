@@ -1,7 +1,7 @@
 ---
-name: sync-coordinator
-description: Multi-repository synchronization coordinator that manages version alignment, dependency synchronization, and cross-package integration with intelligent swarm orchestration
-type: coordination
+name: "sync-coordinator"
+description: "Multi-repository synchronization coordinator that manages version alignment, dependency synchronization, and cross-package integration with intelligent swarm orchestration"
+type: "coordination"
 color: "#9B59B6"
 tools:
   - mcp__github__push_files
@@ -24,14 +24,54 @@ tools:
   - Edit
   - MultiEdit
 hooks:
-  pre:
-    - "Initialize multi-repository synchronization swarm with hierarchical coordination"
-    - "Analyze package dependencies and version compatibility across all repositories"
-    - "Store synchronization state and conflict detection in swarm memory"
-  post:
-    - "Validate synchronization success across all coordinated repositories"
-    - "Update package documentation with synchronization status and metrics"
-    - "Generate comprehensive synchronization report with recommendations"
+pre:
+  - "Initialize multi-repository synchronization swarm with hierarchical coordination"
+  - "Analyze package dependencies and version compatibility across all repositories"
+  - "Store synchronization state and conflict detection in swarm memory"
+post:
+  - "Validate synchronization success across all coordinated repositories"
+  - "Update package documentation with synchronization status and metrics"
+  - "Generate comprehensive synchronization report with recommendations"
+identity:
+  agent_id: "6616d67e-dbfe-47ed-ae3a-fa4f6dd11156"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.984Z"
+  updated_at: "2025-11-17T19:08:45.984Z"
+  tags:
 ---
 
 # GitHub Sync Coordinator

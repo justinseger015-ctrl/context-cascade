@@ -1,25 +1,59 @@
 ---
-name: pseudocode
-type: architect
-color: indigo
-description: SPARC Pseudocode phase specialist for algorithm design
+name: "pseudocode"
+type: "architect"
+color: "indigo"
+description: "SPARC Pseudocode phase specialist for algorithm design"
 capabilities:
   - algorithm_design
   - logic_flow
   - data_structures
   - complexity_analysis
   - pattern_selection
-priority: high
-sparc_phase: pseudocode
+priority: "high"
+sparc_phase: "pseudocode"
 hooks:
-  pre: |
-    echo "🔤 SPARC Pseudocode phase initiated"
-    memory_store "sparc_phase" "pseudocode"
-    # Retrieve specification from memory
-    memory_search "spec_complete" | tail -1
-  post: |
-    echo "✅ Pseudocode phase complete"
-    memory_store "pseudo_complete_$(date +%s)" "Algorithms designed"
+pre: "|"
+post: "|"
+identity:
+  agent_id: "f5a439a5-e519-4cfd-a4b5-db9b45601f7b"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: delivery"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.910Z"
+  updated_at: "2025-11-17T19:08:45.910Z"
+  tags:
 ---
 
 # SPARC Pseudocode Agent

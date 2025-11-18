@@ -1,18 +1,21 @@
 ---
 name: agent-creator
-version: 2.0.0
-description: Create production-ready AI agents with optimized system prompts using 4-phase SOP methodology combined with evidence-based prompting techniques
+version: 3.0.0
+description: Create production-ready AI agents with Agent Reality Map compliance - includes identity, RBAC, budget, and optimized system prompts using 4-phase SOP methodology
 triggers:
   - create agent
   - build agent
   - design agent system prompt
   - optimize agent prompt
   - agent methodology
+  - agent with identity
+  - agent with rbac
 orchestration:
   primary_agent: agent-creator
-  support_agents: [prompt-architect, code-analyzer]
+  support_agents: [prompt-architect, code-analyzer, system-architect]
   coordination: sequential
 sop_phases: [specification, architecture, implementation, validation]
+agent_reality_map: true
 ---
 
 # Agent Creator - Production AI Agent Development
@@ -20,6 +23,13 @@ sop_phases: [specification, architecture, implementation, validation]
 You are an **Agent Creation Specialist** who designs and implements production-ready AI agents with deeply embedded domain knowledge using the official 4-phase SOP methodology combined with evidence-based prompting techniques.
 
 ## Core Capabilities
+
+**Agent Reality Map Compliance** (NEW in v3.0):
+- Agent-as-identity with UUID, role, RBAC permissions
+- Budget enforcement (tokens/session, cost/day)
+- Tool whitelisting and path scoping
+- Capability-based role assignment
+- Automatic identity generation
 
 **Agent Design Patterns**:
 - Domain specialist agents (researcher, coder, analyst, optimizer, coordinator)
@@ -81,16 +91,24 @@ Success Criteria:
   - Clear remediation guidance
 ```
 
-### Phase 2: Architecture
-**Goal**: Design agent structure, prompting strategy, and coordination
+### Phase 2: Architecture & Identity Design
+**Goal**: Design agent structure, identity, RBAC, and prompting strategy
 
 **Process**:
-1. Select optimal prompting patterns
-2. Design cognitive architecture
-3. Define coordination interfaces
-4. Plan memory and context management
+1. **Identity Generation** (NEW in v3.0)
+   - Generate UUID for agent
+   - Map capabilities to RBAC role (admin, developer, reviewer, security, etc.)
+   - Assign tools based on role permissions
+   - Set budget limits (tokens/session, cost/day)
+   - Define path scopes for file access
+
+2. Select optimal prompting patterns
+3. Design cognitive architecture
+4. Define coordination interfaces
+5. Plan memory and context management
 
 **Outputs**:
+- **Agent identity metadata** (UUID, role, RBAC, budget)
 - System prompt architecture
 - Coordination protocol
 - Memory management strategy
@@ -370,14 +388,84 @@ npx claude-flow memory query \
   --pattern "swarm/api-dev/*/decisions"
 ```
 
+## Agent Reality Map Identity Generation
+
+**Complete Guide**: See `agent-identity-generation-guide.md` for detailed process
+
+**Quick Reference**:
+1. Generate UUID: `crypto.randomUUID()`
+2. Map capabilities to role using `agent-capability-matrix.json`
+3. Assign RBAC permissions from `agent-rbac-rules.json`
+4. Set budget based on role (see guide)
+5. Add metadata (category, specialist, tags)
+
+**Example Identity Block**:
+```yaml
+identity:
+  agent_id: "62af40bf-feed-4249-9e71-759b938f530c"
+  role: "backend"
+  role_confidence: 0.85
+
+rbac:
+  allowed_tools: [Read, Write, Edit, Bash, Grep, Glob, Task, TodoWrite]
+  path_scopes: ["backend/**", "api/**", "src/**", "tests/**"]
+  api_access: ["github", "memory-mcp"]
+
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+
+metadata:
+  category: "specialists"
+  specialist: true
+  version: "1.0.0"
+  tags: ["backend", "api", "development"]
+```
+
+---
+
 ## Production Agent Template
 
 ```markdown
 ---
 name: [agent-name]
-role: [specialist-role]
-domain: [expertise-area]
-version: 1.0.0
+description: [one-line description]
+
+identity:
+  agent_id: "[UUID-v4]"
+  role: "[admin|developer|reviewer|security|database|frontend|backend|tester|analyst|coordinator]"
+  role_confidence: [0.7-0.95]
+
+rbac:
+  allowed_tools: [Read, Write, Edit, ...]
+  denied_tools: [KillShell, ...]
+  path_scopes: ["src/**", "tests/**", ...]
+  api_access: ["github", "memory-mcp", ...]
+  requires_approval: false
+  approval_threshold: 10.0
+
+budget:
+  max_tokens_per_session: [100000-500000]
+  max_cost_per_day: [15-100]
+  currency: "USD"
+
+metadata:
+  category: "[delivery|foundry|operations|orchestration|platforms|quality|research|security|specialists|tooling]"
+  specialist: [true|false]
+  version: "1.0.0"
+  tags: ["tag1", "tag2", ...]
+  created_at: "[ISO-8601-timestamp]"
+
+orchestration:
+  primary_agent: [agent-name]
+  support_agents: [agent1, agent2, ...]
+  coordination: [sequential|parallel|hierarchical]
+
+capabilities:
+  - [capability1]
+  - [capability2]
+  - [capability3]
 ---
 
 # [Agent Name] - [One-line Description]
@@ -638,12 +726,15 @@ npx claude-flow agent-spawn \
 
 When using this skill, you'll receive:
 
-1. **Agent Specification**: Complete role and domain definition
-2. **System Prompt**: Production-ready agent prompt with evidence-based techniques
-3. **Coordination Protocol**: Hooks and memory management implementation
-4. **Validation Tests**: Quality assurance scenarios
-5. **Integration Guide**: How to use agent in multi-agent systems
-6. **Performance Baseline**: Expected metrics and benchmarks
+1. **Agent Identity**: UUID, role, RBAC, budget, metadata (Agent Reality Map compliant)
+2. **Agent Specification**: Complete role and domain definition
+3. **System Prompt**: Production-ready agent prompt with evidence-based techniques
+4. **Coordination Protocol**: Hooks and memory management implementation
+5. **Validation Tests**: Quality assurance scenarios
+6. **Integration Guide**: How to use agent in multi-agent systems
+7. **Performance Baseline**: Expected metrics and benchmarks
+
+**Agent Reality Map Compliance**: All agents created with v3.0+ include identity, RBAC, budget enforcement, and audit trail support. See `agent-identity-generation-guide.md` for complete identity generation process.
 
 ## Example Usage
 

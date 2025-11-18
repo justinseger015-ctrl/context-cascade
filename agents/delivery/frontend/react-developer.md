@@ -1,16 +1,14 @@
 ---
-name: react-developer
-type: frontend
-phase: execution
-category: frontend-specialist
-description: Modern React development specialist with expertise in component architecture, hooks, state management, and React ecosystem best practices
+name: "react-developer"
+type: "frontend"
+phase: "execution"
+category: "frontend-specialist"
+description: "Modern React development specialist with expertise in component architecture, hooks, state management, and React ecosystem best practices"
 capabilities:
-  - react_development
-  - component_architecture
-  - hooks_patterns
-  - state_management
-  - performance_optimization
-priority: high
+  - reasoning
+  - coding
+  - react_patterns
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -24,38 +22,69 @@ mcp_servers:
   - connascence-analyzer
   - filesystem
 hooks:
-  pre: |-
-    echo "[PHASE] React Developer initiated"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    memory_store "react_dev_start_$(date +%s)" "Task: $TASK"
-  post: |-
-    echo "[OK] React development complete"
-    npx claude-flow@alpha hooks post-task --task-id "$(date +%s)"
-    memory_store "react_dev_complete_$(date +%s)" "Task completed"
+pre: "|-"
+memory_store "react_dev_start_$(date +%s)" "Task: "$TASK""
+post: "|-"
 quality_gates:
   - tests_passing
   - bundle_size_acceptable
   - no_console_errors
   - accessibility_basic
 artifact_contracts:
-  input: react_task.json
-  output: react_output.json
-preferred_model: claude-sonnet-4
+input: "react_task.json"
+output: "react_output.json"
+preferred_model: "claude-sonnet-4"
 model_fallback:
-  primary: gpt-5
-  secondary: claude-opus-4.1
-  emergency: claude-sonnet-4
+primary: "gpt-5"
+secondary: "claude-opus-4.1"
+emergency: "claude-sonnet-4"
 model_requirements:
-  context_window: standard
-  capabilities:
-    - reasoning
-    - coding
-    - react_patterns
-  specialized_features: []
-  cost_sensitivity: medium
+context_window: "standard"
+specialized_features: "[]"
+cost_sensitivity: "medium"
 model_routing:
-  gemini_conditions: []
-  codex_conditions: []
+gemini_conditions: "[]"
+codex_conditions: "[]"
+identity:
+  agent_id: "683f40fa-7d5a-4096-8f95-8f291441583d"
+  role: "developer"
+  role_confidence: 0.9
+  role_reasoning: "Code implementation is core developer work"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "delivery"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.907Z"
+  updated_at: "2025-11-17T19:08:45.908Z"
+  tags:
 ---
 
 # REACT DEVELOPER - SPECIALIST AGENT

@@ -1,16 +1,16 @@
 ---
-name: cache-strategy-agent
-type: optimizer
-phase: execution
-category: database
-description: Redis/Memcached caching patterns, cache invalidation, TTL strategies, and cache warming specialist
+name: "cache-strategy-agent"
+type: "optimizer"
+phase: "execution"
+category: "database"
+description: "Redis/Memcached caching patterns, cache invalidation, TTL strategies, and cache warming specialist"
 capabilities:
   - cache_design
   - cache_invalidation
   - cache_warming
   - performance_optimization
   - distributed_caching
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -21,28 +21,61 @@ mcp_servers:
   - memory-mcp
   - filesystem
 hooks:
-  pre: |-
-    echo "[CACHE] Cache Strategy Agent initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "cache-$(date +%s)"
-    npx claude-flow@alpha memory store --key "cache/strategy/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Cache strategy implementation complete"
-    npx claude-flow@alpha hooks post-task --task-id "cache-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "cache/strategy/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[CACHE] Cache Strategy Agent initiated: "$TASK""
+post: "|-"
 quality_gates:
   - cache_hit_ratio_optimal
   - invalidation_tested
   - performance_benchmarked
 artifact_contracts:
-  input: cache_requirements.json
-  output: cache_implementation.js
-preferred_model: claude-sonnet-4
+input: "cache_requirements.json"
+output: "cache_implementation.js"
+preferred_model: "claude-sonnet-4"
 model_fallback:
-  primary: gpt-5
-  secondary: claude-opus-4.1
-  emergency: claude-sonnet-4
+primary: "gpt-5"
+secondary: "claude-opus-4.1"
+emergency: "claude-sonnet-4"
+identity:
+  agent_id: "7036554f-3c34-4a38-844a-a0f5803cd562"
+  role: "backend"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: platforms"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - backend/**
+    - src/api/**
+    - src/services/**
+    - src/models/**
+    - tests/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 180000
+  max_cost_per_day: 25
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.948Z"
+  updated_at: "2025-11-17T19:08:45.948Z"
+  tags:
 ---
 
 # CACHE STRATEGY AGENT

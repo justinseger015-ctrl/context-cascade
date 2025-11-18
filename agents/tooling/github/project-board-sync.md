@@ -1,7 +1,7 @@
 ---
-name: project-board-sync
-description: Synchronize AI swarms with GitHub Projects for visual task management, progress tracking, and team coordination
-type: coordination
+name: "project-board-sync"
+description: "Synchronize AI swarms with GitHub Projects for visual task management, progress tracking, and team coordination"
+type: "coordination"
 color: "#A8E6CF"
 tools:
   - Bash
@@ -24,16 +24,56 @@ tools:
   - mcp__claude-flow__workflow_create
   - mcp__claude-flow__workflow_execute
 hooks:
-  pre:
-    - "gh auth status || (echo 'GitHub CLI not authenticated' && exit 1)"
-    - "gh project list --owner @me --limit 1 >/dev/null || echo 'No projects accessible'"
-    - "git status --porcelain || echo 'Not in git repository'"
-    - "gh api user | jq -r '.login' || echo 'API access check'"
-  post:
-    - "gh project list --owner @me --limit 3 | head -5"
-    - "gh issue list --limit 3 --json number,title,state"
-    - "git branch --show-current || echo 'Not on a branch'"
-    - "gh repo view --json name,description"
+pre:
+  - "gh auth status || (echo 'GitHub CLI not authenticated' && exit 1)"
+  - "gh project list --owner @me --limit 1 >/dev/null || echo 'No projects accessible'"
+  - "git status --porcelain || echo 'Not in git repository'"
+  - "gh api user | jq -r '.login' || echo 'API access check'"
+post:
+  - "gh project list --owner @me --limit 3 | head -5"
+  - "gh issue list --limit 3 --json number,title,state"
+  - "git branch --show-current || echo 'Not on a branch'"
+  - "gh repo view --json name,description"
+identity:
+  agent_id: "6d1d007a-e3ea-4f17-a40c-5651a86a6218"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.981Z"
+  updated_at: "2025-11-17T19:08:45.981Z"
+  tags:
 ---
 
 # Project Board Sync - GitHub Projects Integration

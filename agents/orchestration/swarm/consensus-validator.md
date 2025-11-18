@@ -1,8 +1,8 @@
 ---
-name: consensus-validator
-type: swarm
+name: "consensus-validator"
+type: "swarm"
 color: "#16A085"
-description: Validate Byzantine agreement, quorum decisions, and consensus protocols
+description: "Validate Byzantine agreement, quorum decisions, and consensus protocols"
 capabilities:
   - byzantine_validation
   - quorum_verification
@@ -10,16 +10,48 @@ capabilities:
   - vote_aggregation
   - fault_tolerance_testing
   - agreement_verification
-priority: critical
+priority: "critical"
 hooks:
-  pre: |
-    echo "Consensus Validator initializing: $TASK"
-    echo "Setting up Byzantine fault tolerance verification..."
-    npx claude-flow@alpha memory retrieve --key "swarm/consensus" 2>/dev/null || echo "No stored consensus state"
-  post: |
-    echo "Consensus validation complete"
-    echo "Storing consensus results in memory..."
-    npx claude-flow@alpha memory store --key "swarm/consensus/$(date +%s)" --value "Consensus validated"
+pre: "|"
+echo "Consensus Validator initializing: "$TASK""
+post: "|"
+identity:
+  agent_id: "497ab370-72d4-40c8-9a88-8e4473c66348"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "orchestration"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.940Z"
+  updated_at: "2025-11-17T19:08:45.940Z"
+  tags:
 ---
 
 # Consensus Validator

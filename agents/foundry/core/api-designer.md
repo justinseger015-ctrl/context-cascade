@@ -1,8 +1,8 @@
 ---
-name: api-designer
-type: core
+name: "api-designer"
+type: "core"
 color: "#2ECC71"
-description: REST/GraphQL API design and contract-first development specialist
+description: "REST/GraphQL API design and contract-first development specialist"
 capabilities:
   - api_design
   - contract_first_development
@@ -10,18 +10,48 @@ capabilities:
   - graphql_schema_design
   - api_versioning
   - contract_testing
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "API Designer starting: $TASK"
-    echo "Analyzing API requirements and existing contracts..."
-    find . -name "openapi.*" -o -name "schema.graphql" -o -name "*.proto" | grep -v node_modules | head -10
-    npx claude-flow@alpha memory retrieve --key "api/contracts" 2>/dev/null || echo "No stored contracts"
-  post: |
-    echo "API design complete"
-    echo "Storing API contracts in memory..."
-    npx claude-flow@alpha memory store --key "api/contracts/$(date +%s)" --value "API contract designed"
-    echo "Validating API specifications..."
+pre: "|"
+echo "API Designer starting: "$TASK""
+post: "|"
+identity:
+  agent_id: "f991ccbe-2bcf-434d-9ccb-7bb797221907"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "foundry"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.912Z"
+  updated_at: "2025-11-17T19:08:45.912Z"
+  tags:
 ---
 
 # API Designer

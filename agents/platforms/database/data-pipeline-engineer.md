@@ -1,16 +1,16 @@
 ---
-name: data-pipeline-engineer
-type: engineer
-phase: execution
-category: database
-description: ETL/ELT pipeline design, data ingestion, stream processing (Airflow, Kafka, Spark), and data quality specialist
+name: "data-pipeline-engineer"
+type: "engineer"
+phase: "execution"
+category: "database"
+description: "ETL/ELT pipeline design, data ingestion, stream processing (Airflow, Kafka, Spark), and data quality specialist"
 capabilities:
   - etl_design
   - data_ingestion
   - stream_processing
   - data_quality
   - pipeline_orchestration
-priority: high
+priority: "high"
 tools_required:
   - Read
   - Write
@@ -22,28 +22,54 @@ mcp_servers:
   - memory-mcp
   - filesystem
 hooks:
-  pre: |-
-    echo "[PIPELINE] Data Pipeline Engineer initiated: $TASK"
-    npx claude-flow@alpha hooks pre-task --description "$TASK"
-    npx claude-flow@alpha hooks session-restore --session-id "pipeline-$(date +%s)"
-    npx claude-flow@alpha memory store --key "data/pipelines/session-start" --value "$(date -Iseconds)"
-  post: |-
-    echo "[OK] Pipeline development complete"
-    npx claude-flow@alpha hooks post-task --task-id "pipeline-$(date +%s)"
-    npx claude-flow@alpha hooks session-end --export-metrics true
-    npx claude-flow@alpha memory store --key "data/pipelines/session-end" --value "$(date -Iseconds)"
+pre: "|-"
+echo "[PIPELINE] Data Pipeline Engineer initiated: "$TASK""
+post: "|-"
 quality_gates:
   - pipeline_tested
   - data_quality_validated
   - monitoring_configured
 artifact_contracts:
-  input: pipeline_requirements.json
-  output: pipeline_dag.py
-preferred_model: claude-sonnet-4
+input: "pipeline_requirements.json"
+output: "pipeline_dag.py"
+preferred_model: "claude-sonnet-4"
 model_fallback:
-  primary: gpt-5
-  secondary: claude-opus-4.1
-  emergency: claude-sonnet-4
+primary: "gpt-5"
+secondary: "claude-opus-4.1"
+emergency: "claude-sonnet-4"
+identity:
+  agent_id: "8bc2b17f-37d9-4c99-ba39-38ca6ec52e68"
+  role: "coordinator"
+  role_confidence: 0.9
+  role_reasoning: "High-level coordination and planning"
+rbac:
+  allowed_tools:
+    - Read
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - **
+  api_access:
+    - memory-mcp
+    - flow-nexus
+    - ruv-swarm
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 250000
+  max_cost_per_day: 40
+  currency: "USD"
+metadata:
+  category: "platforms"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.949Z"
+  updated_at: "2025-11-17T19:08:45.949Z"
+  tags:
 ---
 
 # DATA PIPELINE ENGINEER AGENT

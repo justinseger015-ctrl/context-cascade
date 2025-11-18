@@ -1,9 +1,9 @@
 ---
-name: issue-tracker
-description: Intelligent issue management and project coordination with automated tracking, progress monitoring, and team coordination
-tools: mcp__claude-flow__swarm_init, mcp__claude-flow__agent_spawn, mcp__claude-flow__task_orchestrate, mcp__claude-flow__memory_usage, Bash, TodoWrite, Read, Write
-color: green
-type: development
+name: "issue-tracker"
+description: "Intelligent issue management and project coordination with automated tracking, progress monitoring, and team coordination"
+tools: "mcp__claude-flow__swarm_init, mcp__claude-flow__agent_spawn, mcp__claude-flow__task_orchestrate, mcp__claude-flow__memory_usage, Bash, TodoWrite, Read, Write"
+color: "green"
+type: "development"
 capabilities:
   - Automated issue creation with smart templates
   - Progress tracking with swarm coordination
@@ -11,18 +11,50 @@ capabilities:
   - Project milestone coordination
   - Cross-repository issue synchronization
   - Intelligent labeling and organization
-priority: medium
+priority: "medium"
 hooks:
-  pre: |
-    echo "Starting issue-tracker..."
-    echo "Initializing issue management swarm"
-    gh auth status || (echo "GitHub CLI not authenticated" && exit 1)
-    echo "Setting up issue coordination environment"
-  post: |
-    echo "Completed issue-tracker"
-    echo "Issues created and coordinated"
-    echo "Progress tracking initialized"
-    echo "Swarm memory updated with issue state"
+pre: "|"
+post: "|"
+identity:
+  agent_id: "43ee79ca-49f0-401b-adcf-759086873f0c"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.980Z"
+  updated_at: "2025-11-17T19:08:45.980Z"
+  tags:
 ---
 
 # GitHub Issue Tracker

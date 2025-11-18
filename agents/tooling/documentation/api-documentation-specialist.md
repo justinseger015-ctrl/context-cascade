@@ -1,8 +1,8 @@
 ---
-name: api-documentation-specialist
-type: documentation
+name: "api-documentation-specialist"
+type: "documentation"
 color: "#4A90E2"
-description: OpenAPI, AsyncAPI, and interactive documentation specialist
+description: "OpenAPI, AsyncAPI, and interactive documentation specialist"
 capabilities:
   - openapi_specification
   - asyncapi_specification
@@ -10,18 +10,52 @@ capabilities:
   - api_contract_design
   - documentation_versioning
   - swagger_ui
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "API Documentation Specialist initializing: $TASK"
-    find . -name "*.yaml" -o -name "*.yml" -o -name "openapi.*" -o -name "swagger.*" | grep -v node_modules | head -10
-    echo "Analyzing API endpoints and schemas..."
-  post: |
-    echo "API documentation complete"
-    if [ -f "openapi.yaml" ]; then
-      echo "Validating OpenAPI specification..."
-      grep -E "^(openapi:|info:|paths:|components:)" openapi.yaml | head -10
-    fi
+pre: "|"
+echo "API Documentation Specialist initializing: "$TASK""
+post: "|"
+grep -E "^(openapi: "|info:|paths:|components:)" openapi.yaml | head -10"
+identity:
+  agent_id: "41acb321-4576-498e-b833-2b1b4f57b440"
+  role: "developer"
+  role_confidence: 0.7
+  role_reasoning: "Category mapping: tooling"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - MultiEdit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+    - TodoWrite
+  denied_tools:
+  path_scopes:
+    - src/**
+    - tests/**
+    - scripts/**
+    - config/**
+  api_access:
+    - github
+    - gitlab
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 200000
+  max_cost_per_day: 30
+  currency: "USD"
+metadata:
+  category: "tooling"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.975Z"
+  updated_at: "2025-11-17T19:08:45.975Z"
+  tags:
 ---
 
 # API Documentation Specialist

@@ -1,28 +1,56 @@
 ---
-name: tdd-london-swarm
-type: tester
+name: "tdd-london-swarm"
+type: "tester"
 color: "#E91E63"
-description: TDD London School specialist for mock-driven development within swarm coordination
+description: "TDD London School specialist for mock-driven development within swarm coordination"
 capabilities:
   - mock_driven_development
   - outside_in_tdd
   - behavior_verification
   - swarm_test_coordination
   - collaboration_testing
-priority: high
+priority: "high"
 hooks:
-  pre: |
-    echo "🧪 TDD London School agent starting: $TASK"
-    # Initialize swarm test coordination
-    if command -v npx >/dev/null 2>&1; then
-      echo "🔄 Coordinating with swarm test agents..."
-    fi
-  post: |
-    echo "✅ London School TDD complete - mocks verified"
-    # Run coordinated test suite with swarm
-    if [ -f "package.json" ]; then
-      npm test --if-present
-    fi
+pre: "|"
+echo "🧪 TDD London School agent starting: "$TASK""
+post: "|"
+identity:
+  agent_id: "30dc618a-56e3-4abe-b255-a13f6b986fc0"
+  role: "tester"
+  role_confidence: 0.9
+  role_reasoning: "Quality assurance and testing"
+rbac:
+  allowed_tools:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Glob
+    - Task
+  denied_tools:
+  path_scopes:
+    - tests/**
+    - e2e/**
+    - **/*.test.*
+    - **/*.spec.*
+  api_access:
+    - github
+    - memory-mcp
+  requires_approval: undefined
+  approval_threshold: 10
+budget:
+  max_tokens_per_session: 150000
+  max_cost_per_day: 20
+  currency: "USD"
+metadata:
+  category: "quality"
+  specialist: false
+  requires_approval: false
+  version: "1.0.0"
+  created_at: "2025-11-17T19:08:45.964Z"
+  updated_at: "2025-11-17T19:08:45.964Z"
+  tags:
 ---
 
 # TDD London School Swarm Agent
