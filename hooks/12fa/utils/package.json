@@ -1,0 +1,32 @@
+{
+  "name": "agent-rbac-engine",
+  "version": "1.0.0",
+  "description": "RBAC Engine for Agent Reality Map Integration",
+  "main": "identity.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:identity": "jest identity.test.js",
+    "test:permissions": "jest permission-checker.test.js",
+    "test:performance": "jest --testNamePattern='Performance'"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "minimatch": "^9.0.3",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  }
+}

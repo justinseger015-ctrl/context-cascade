@@ -1,0 +1,48 @@
+{
+  "test-agent-1": {
+    "publicKey": "public-key-123",
+    "metadata": {
+      "category": "coder"
+    },
+    "registeredAt": "2025-11-18T01:44:11.290Z",
+    "lastVerified": "2025-11-18T01:44:11.302Z"
+  },
+  "test-agent-2": {
+    "publicKey": "auto-registered",
+    "metadata": {
+      "category": "unknown",
+      "autoRegistered": true,
+      "registeredBy": "pre-identity-verify-hook"
+    },
+    "registeredAt": "2025-11-17T20:07:38.309Z",
+    "lastVerified": "2025-11-18T01:44:11.295Z"
+  },
+  "test-agent-3": {
+    "publicKey": "auto-registered",
+    "metadata": {
+      "category": "unknown",
+      "autoRegistered": true,
+      "registeredBy": "pre-identity-verify-hook"
+    },
+    "registeredAt": "2025-11-17T20:07:38.311Z",
+    "lastVerified": "2025-11-18T01:44:11.296Z"
+  },
+  "coder-001": {
+    "publicKey": "public-key-coder",
+    "metadata": {
+      "category": "development",
+      "team": "backend"
+    },
+    "registeredAt": "2025-11-17T21:39:16.759Z",
+    "lastVerified": "2025-11-17T21:39:16.771Z"
+  },
+  "reviewer-001": {
+    "publicKey": "public-key-reviewer",
+    "metadata": {
+      "category": "quality-assurance",
+      "team": "qa"
+    },
+    "registeredAt": "2025-11-17T21:39:16.761Z",
+    "lastVerified": "2025-11-17T21:39:16.770Z"
+  }
+}

@@ -1,0 +1,95 @@
+=== LOOP 3: COMPREHENSIVE ENDPOINT TESTING ===
+
+[1/6] Health Check - Comprehensive
+{
+    "status": "healthy",
+    "database": "connected",
+    "api": "operational"
+}
+{
+    "status": "online",
+    "service": "Agent Reality Map Backend API",
+    "version": "1.0.0",
+    "message": "Backend API is operational"
+}
+
+[2/6] Registry Agents - Multiple Scenarios
+  - Fetch 1 agent:
+[
+    {
+        "agent_id": "b8a2d5e4-f315-452d-8982-5d1c0a0ec7c5",
+        "name": "test-agent-001",
+        "role": "developer",
+        "capabilities": [
+            "coding",
+            "api-design",
+            "testing"
+        ],
+        "rbac": {
+            "allowed_tools": [
+                "Read",
+                "Write",
+                "Edit",
+                "Bash",
+                "Grep"
+            ],
+            "path_scopes": [
+                "src/**",
+  - Fetch with role filter (developer):
+[
+    {
+        "agent_id": "b8a2d5e4-f315-452d-8982-5d1c0a0ec7c5",
+        "name": "test-agent-001",
+        "role": "developer",
+        "capabilities": [
+            "coding",
+            "api-design",
+            "testing"
+        ],
+        "rbac": {
+            "allowed_tools": [
+                "Read",
+                "Write",
+                "Edit",
+
+[3/6] Agent Activity - Multiple Queries
+  - Recent activity (24h):
+[]  - Specific agent (if exists):
+[]
+[4/6] Events - Multiple Queries
+  - Recent events:
+[]  - With pagination:
+[]
+[5/6] Quality Metrics - Time Ranges
+  - 7 days:
+{
+    "overall_quality_score": 0,
+    "total_code_violations": 0,
+    "metrics_analyzed": 0,
+    "period_days": 7
+}
+  - 30 days:
+{
+    "overall_quality_score": 0,
+    "total_code_violations": 0,
+    "metrics_analyzed": 0,
+    "period_days": 30
+}
+
+[6/6] Resource Usage - Time Ranges
+  - 7 days:
+{
+    "total_tokens_used": 0,
+    "total_cost_usd": 0,
+    "total_api_calls": 0,
+    "period_days": 7
+}
+  - 90 days:
+{
+    "total_tokens_used": 0,
+    "total_cost_usd": 0,
+    "total_api_calls": 0,
+    "period_days": 90
+}
+
+=== COMPREHENSIVE TESTING COMPLETE ===

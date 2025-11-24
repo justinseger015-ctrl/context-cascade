@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "source": "manual-bug-fixes",
+    "timestamp": "2025-11-18T00:40:00Z",
+    "loop": 3,
+    "mode": "quality-validation"
+  },
+  "before": {
+    "uuid_import_bug": "ESM import error in best-of-n-pipeline.js",
+    "scss_import_bug": "Missing SCSS import in layout.jsx",
+    "missing_endpoints": 5,
+    "validation_errors": 2,
+    "endpoint_success_rate": "83% (5/6)",
+    "total_bugs": 6
+  },
+  "fixes_applied": [
+    {
+      "file": "hooks/12fa/best-of-n-pipeline.js",
+      "fix": "Replaced uuid ESM import with crypto.randomUUID()",
+      "type": "import-compatibility"
+    },
+    {
+      "file": "skilltree/src/app/layout.jsx",
+      "fix": "Removed missing SCSS import",
+      "type": "import-error"
+    },
+    {
+      "file": "backend/app/routers/agent_activity_router.py",
+      "fix": "Created /api/v1/agent-activity endpoint",
+      "type": "missing-endpoint"
+    },
+    {
+      "file": "backend/app/routers/events.py",
+      "fix": "Added GET endpoint + made schema fields optional",
+      "type": "missing-endpoint + validation-fix"
+    },
+    {
+      "file": "backend/app/routers/metrics.py",
+      "fix": "Added quality and resource usage endpoints",
+      "type": "missing-endpoints"
+    },
+    {
+      "file": "backend/app/routers/registry.py",
+      "fix": "Fixed Python cache + added performance/timestamps fields",
+      "type": "import-issue + schema-mismatch"
+    }
+  ],
+  "after": {
+    "endpoint_success_rate": "100% (6/6)",
+    "bugs_fixed": 6,
+    "root_causes": [
+      "Python bytecode cache (.pyc files)",
+      "Pydantic schema mismatch",
+      "ESM import incompatibility",
+      "Missing file imports"
+    ]
+  }
+}

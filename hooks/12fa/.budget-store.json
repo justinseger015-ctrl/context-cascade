@@ -1,0 +1,152 @@
+{
+  "agents": {
+    "test-agent-1": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 10000,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 62,
+        "operationCount": 1,
+        "totalCost": 0.000123,
+        "lastReset": "2025-11-18T01:44:11.292Z"
+      }
+    },
+    "test-agent-3": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 100,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 0,
+        "operationCount": 0,
+        "totalCost": 0,
+        "lastReset": "2025-11-18T01:44:11.296Z"
+      }
+    },
+    "test-agent-fresh": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 10000,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 1000,
+        "operationCount": 1,
+        "totalCost": 0.002,
+        "lastReset": "2025-11-18T01:44:11.301Z"
+      }
+    },
+    "coder-001": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 500000,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 50,
+        "operationCount": 1,
+        "totalCost": 0.0001,
+        "lastReset": "2025-11-17T21:39:16.762Z"
+      }
+    },
+    "reviewer-001": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 100000,
+        "maxCostPerOperation": 0.05
+      },
+      "usage": {
+        "tokensUsed": 95000,
+        "operationCount": 1,
+        "totalCost": 0.19,
+        "lastReset": "2025-11-17T21:39:16.763Z"
+      }
+    },
+    "test-coder": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 500000,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 0,
+        "operationCount": 0,
+        "totalCost": 0,
+        "lastReset": "2025-11-19T13:49:20.330Z"
+      }
+    },
+    "test-agent": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 10000,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 0,
+        "operationCount": 0,
+        "totalCost": 0,
+        "lastReset": "2025-11-19T13:49:18.449Z"
+      }
+    },
+    "test-agent-2": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 10000,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 0,
+        "operationCount": 0,
+        "totalCost": 0,
+        "lastReset": "2025-11-19T13:47:36.922Z"
+      }
+    },
+    "test-agent-secure": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 500000,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 0,
+        "operationCount": 0,
+        "totalCost": 0,
+        "lastReset": "2025-11-19T14:21:11.298Z"
+      }
+    },
+    "test-basic": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 500000,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 0,
+        "operationCount": 0,
+        "totalCost": 0,
+        "lastReset": "2025-11-19T14:21:31.021Z"
+      }
+    },
+    "test-agent-001": {
+      "limits": {
+        "tokensPerHour": 100000,
+        "tokensPerDay": 500000,
+        "maxCostPerOperation": 0.1
+      },
+      "usage": {
+        "tokensUsed": 0,
+        "operationCount": 0,
+        "totalCost": 0,
+        "lastReset": "2025-11-19T14:51:38.125Z"
+      }
+    }
+  },
+  "globalBudget": {
+    "tokensPerDay": 1000000,
+    "tokensUsed": 210410,
+    "resetAt": "2025-11-18T05:00:00.000Z"
+  }
+}

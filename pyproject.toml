@@ -1,0 +1,53 @@
+[project]
+name = "ruv-sparc-three-loop-system"
+version = "1.0.0"
+description = "Agent Reality Map - Three-Loop Development System with 207 Agents"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi==0.104.1",
+    "uvicorn[standard]==0.24.0",
+    "python-multipart==0.0.6",
+    "sqlalchemy==2.0.23",
+    "alembic==1.12.1",
+    "websockets==12.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings==2.1.0",
+    "httpx>=0.25.2"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "black>=23.11.0",
+    "flake8==6.1.0",
+]
+
+[project.scripts]
+backend = "uvicorn backend.app.main:app --reload --host 0.0.0.0 --port 8000"
+backend-prod = "uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --workers 4"
+
+[dependency-groups]
+dev = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "httpx>=0.25.2",
+    "black>=23.11.0",
+    "flake8>=6.1.0",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311', 'py312']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,55 @@
+{
+  "roles": {
+    "admin": {
+      "permissions": [
+        "*"
+      ],
+      "description": "Full system access"
+    },
+    "developer": {
+      "permissions": [
+        "file:read",
+        "file:write",
+        "file:edit",
+        "task:spawn",
+        "task:monitor",
+        "memory:read",
+        "memory:write",
+        "bash:execute"
+      ],
+      "description": "Standard development operations"
+    },
+    "reviewer": {
+      "permissions": [
+        "file:read",
+        "task:monitor",
+        "memory:read"
+      ],
+      "description": "Read-only review access"
+    },
+    "tester": {
+      "permissions": [
+        "file:read",
+        "task:spawn",
+        "bash:execute"
+      ],
+      "description": "Testing and validation"
+    }
+  },
+  "agentRoles": {
+    "test-agent-1": "developer",
+    "test-agent-2": "reviewer",
+    "coder-001": "developer",
+    "reviewer-001": "reviewer"
+  },
+  "operationMap": {
+    "Edit": "file:edit",
+    "Write": "file:write",
+    "Read": "file:read",
+    "Bash": "bash:execute",
+    "Task": "task:spawn",
+    "TodoWrite": "task:monitor",
+    "memory_store": "memory:write",
+    "vector_search": "memory:read"
+  }
+}

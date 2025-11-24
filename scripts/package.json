@@ -1,0 +1,12 @@
+{
+  "name": "audit-database-scripts",
+  "version": "1.0.0",
+  "description": "Database setup and management scripts",
+  "main": "setup-audit-database.js",
+  "scripts": {
+    "setup": "node setup-audit-database.js"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  }
+}

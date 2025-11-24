@@ -27,6 +27,8 @@ import json
 import re
 from typing import Dict, List, Tuple
 from dataclasses import dataclass, asdict
+import httpx
+import os
 
 
 @dataclass
@@ -205,6 +207,29 @@ class IntentClassifier:
         )
 
 
+def log_to_terminal_manager(result: IntentAnalysis, text: str):
+    """Log intent analysis to Terminal Manager"""
+    try:
+        terminal_manager_url = os.getenv('TERMINAL_MANAGER_URL', 'http://localhost:8000')
+        
+        payload = {
+            "level": "INFO",
+            "message": f"Intent classified: {result.primary_category} ({result.confidence:.2f})",
+            "source": "ruv-sparc-intent-classifier",
+            "context": {
+                "input_text": text,
+                "analysis": asdict(result)
+            }
+        }
+        
+        # Fire and forget - short timeout
+        httpx.post(f"{terminal_manager_url}/api/v1/logs", json=payload, timeout=0.5)
+        
+    except Exception:
+        # Don't fail the classifier if logging fails
+        pass
+
+
 def main():
     """Main entry point"""
     import argparse
@@ -232,6 +257,9 @@ def main():
     # Classify intent
     classifier = IntentClassifier(verbose=args.verbose)
     result = classifier.classify(text)
+
+    # Log to terminal manager
+    log_to_terminal_manager(result, text)
 
     # Output JSON
     output = asdict(result)

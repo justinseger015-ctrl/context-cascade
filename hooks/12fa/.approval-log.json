@@ -1,0 +1,50 @@
+{
+  "approvals": [
+    {
+      "agentId": "test-agent-1",
+      "operation": "Bash",
+      "context": {
+        "command": "rm -rf test"
+      },
+      "timestamp": "2025-11-17T20:07:52.542Z",
+      "autoApproved": true
+    },
+    {
+      "agentId": "coder-001",
+      "operation": "Bash",
+      "context": {
+        "command": "rm -rf test/"
+      },
+      "timestamp": "2025-11-17T20:08:28.241Z",
+      "autoApproved": true
+    },
+    {
+      "agentId": "test-agent-1",
+      "operation": "Bash",
+      "context": {
+        "command": "rm -rf test"
+      },
+      "timestamp": "2025-11-17T21:39:14.809Z",
+      "autoApproved": true
+    },
+    {
+      "agentId": "coder-001",
+      "operation": "Bash",
+      "context": {
+        "command": "rm -rf test/"
+      },
+      "timestamp": "2025-11-17T21:39:16.772Z",
+      "autoApproved": true
+    },
+    {
+      "agentId": "test-agent-1",
+      "operation": "Bash",
+      "context": {
+        "command": "rm -rf test"
+      },
+      "timestamp": "2025-11-18T00:55:25.204Z",
+      "autoApproved": true
+    }
+  ],
+  "denials": []
+}
