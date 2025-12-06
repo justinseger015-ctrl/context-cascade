@@ -1,0 +1,268 @@
+{
+  "demo": {
+    "schemes": [
+      "Standard Leapfrog",
+      "Time-scaled (2x)",
+      "Weighted Spatial",
+      "Conservative",
+      "Aggressive"
+    ],
+    "invariance_tests": [
+      {
+        "scheme_A": "Standard Leapfrog",
+        "scheme_B": "Time-scaled (2x)",
+        "difference": 0.0,
+        "relative_difference": 0.0,
+        "energy_drift_A": 0.21188769368830707,
+        "energy_drift_B": 0.21188769368830707,
+        "is_invariant": "True"
+      },
+      {
+        "scheme_A": "Standard Leapfrog",
+        "scheme_B": "Weighted Spatial",
+        "difference": 0.737248955205382,
+        "relative_difference": 0.29818675231142133,
+        "energy_drift_A": 0.21188769368830707,
+        "energy_drift_B": 0.10255265052817969,
+        "is_invariant": "False"
+      },
+      {
+        "scheme_A": "Standard Leapfrog",
+        "scheme_B": "Conservative",
+        "difference": 0.0,
+        "relative_difference": 0.0,
+        "energy_drift_A": 0.21188769368830707,
+        "energy_drift_B": 0.21188769368830707,
+        "is_invariant": "True"
+      },
+      {
+        "scheme_A": "Standard Leapfrog",
+        "scheme_B": "Aggressive",
+        "difference": 0.0,
+        "relative_difference": 0.0,
+        "energy_drift_A": 0.21188769368830707,
+        "energy_drift_B": 0.21188769368830707,
+        "is_invariant": "True"
+      },
+      {
+        "scheme_A": "Time-scaled (2x)",
+        "scheme_B": "Weighted Spatial",
+        "difference": 0.737248955205382,
+        "relative_difference": 0.29818675231142133,
+        "energy_drift_A": 0.21188769368830707,
+        "energy_drift_B": 0.10255265052817969,
+        "is_invariant": "False"
+      },
+      {
+        "scheme_A": "Time-scaled (2x)",
+        "scheme_B": "Conservative",
+        "difference": 0.0,
+        "relative_difference": 0.0,
+        "energy_drift_A": 0.21188769368830707,
+        "energy_drift_B": 0.21188769368830707,
+        "is_invariant": "True"
+      },
+      {
+        "scheme_A": "Time-scaled (2x)",
+        "scheme_B": "Aggressive",
+        "difference": 0.0,
+        "relative_difference": 0.0,
+        "energy_drift_A": 0.21188769368830707,
+        "energy_drift_B": 0.21188769368830707,
+        "is_invariant": "True"
+      },
+      {
+        "scheme_A": "Weighted Spatial",
+        "scheme_B": "Conservative",
+        "difference": 0.737248955205382,
+        "relative_difference": 0.30882862196145366,
+        "energy_drift_A": 0.10255265052817969,
+        "energy_drift_B": 0.21188769368830707,
+        "is_invariant": "False"
+      },
+      {
+        "scheme_A": "Weighted Spatial",
+        "scheme_B": "Aggressive",
+        "difference": 0.737248955205382,
+        "relative_difference": 0.30882862196145366,
+        "energy_drift_A": 0.10255265052817969,
+        "energy_drift_B": 0.21188769368830707,
+        "is_invariant": "False"
+      },
+      {
+        "scheme_A": "Conservative",
+        "scheme_B": "Aggressive",
+        "difference": 0.0,
+        "relative_difference": 0.0,
+        "energy_drift_A": 0.21188769368830707,
+        "energy_drift_B": 0.21188769368830707,
+        "is_invariant": "True"
+      }
+    ]
+  },
+  "pymoo": {
+    "status": "completed",
+    "pareto_front": [
+      {
+        "time_scaling": 1.0947758121804019,
+        "spatial_weight": 0.49892813270618847,
+        "cfl_factor": 0.6046005042592502,
+        "error": 0.0019079058252969355,
+        "runtime": 0.06174325942993164,
+        "energy_drift": 0.20904748410784682
+      },
+      {
+        "time_scaling": 1.7526215435621841,
+        "spatial_weight": 0.4905693957802422,
+        "cfl_factor": 0.8781516180241817,
+        "error": 0.030292250139444917,
+        "runtime": 0.04986572265625,
+        "energy_drift": 0.2174550481641612
+      },
+      {
+        "time_scaling": 1.7526215435621841,
+        "spatial_weight": 0.4898871747834715,
+        "cfl_factor": 0.8781516180241817,
+        "error": 0.03262746909724468,
+        "runtime": 0.046235084533691406,
+        "energy_drift": 0.21812880392006573
+      },
+      {
+        "time_scaling": 1.306293821132647,
+        "spatial_weight": 0.5175453803754317,
+        "cfl_factor": 0.8639169725109406,
+        "error": 0.059698211658482665,
+        "runtime": 0.05890512466430664,
+        "energy_drift": 0.18936076893865844
+      },
+      {
+        "time_scaling": 0.688670463497828,
+        "spatial_weight": 0.5221961378681383,
+        "cfl_factor": 0.8635188001091524,
+        "error": 0.07471545102715005,
+        "runtime": 0.07547569274902344,
+        "energy_drift": 0.18425388725922826
+      },
+      {
+        "time_scaling": 1.3320781488367865,
+        "spatial_weight": 0.5284524339531824,
+        "cfl_factor": 0.8639169725109406,
+        "error": 0.09466800793675051,
+        "runtime": 0.04746270179748535,
+        "energy_drift": 0.17727900514916
+      },
+      {
+        "time_scaling": 1.3195928434407576,
+        "spatial_weight": 0.5320966736980216,
+        "cfl_factor": 0.8349450824742752,
+        "error": 0.10615505780853178,
+        "runtime": 0.06482505798339844,
+        "energy_drift": 0.17316518678065407
+      },
+      {
+        "time_scaling": 1.3195928434407576,
+        "spatial_weight": 0.5391617885541855,
+        "cfl_factor": 0.8349450824742752,
+        "error": 0.12813332451059264,
+        "runtime": 0.06927990913391113,
+        "energy_drift": 0.16509505060032578
+      },
+      {
+        "time_scaling": 1.3192985872077183,
+        "spatial_weight": 0.5433975713312081,
+        "cfl_factor": 0.8055747627893758,
+        "error": 0.1411209749477226,
+        "runtime": 0.05904269218444824,
+        "energy_drift": 0.16020441358761395
+      },
+      {
+        "time_scaling": 0.5128474777337106,
+        "spatial_weight": 0.5529198347691774,
+        "cfl_factor": 0.7186195577949667,
+        "error": 0.16978394529305407,
+        "runtime": 0.06587576866149902,
+        "energy_drift": 0.14909870191287547
+      },
+      {
+        "time_scaling": 0.5598602332994329,
+        "spatial_weight": 0.552998815677453,
+        "cfl_factor": 0.8790438700426869,
+        "error": 0.17001853431824757,
+        "runtime": 0.08793020248413086,
+        "energy_drift": 0.1490060751825485
+      },
+      {
+        "time_scaling": 1.7910873729808465,
+        "spatial_weight": 0.5608061173729981,
+        "cfl_factor": 0.8790438700426869,
+        "error": 0.19294597873694683,
+        "runtime": 0.05844378471374512,
+        "energy_drift": 0.13982274587932586
+      },
+      {
+        "time_scaling": 1.7526215435621841,
+        "spatial_weight": 0.5613286039422222,
+        "cfl_factor": 0.8790438700426869,
+        "error": 0.19446164888940826,
+        "runtime": 0.10436415672302246,
+        "energy_drift": 0.1392067732027812
+      },
+      {
+        "time_scaling": 1.7526578138017872,
+        "spatial_weight": 0.5613286039422222,
+        "cfl_factor": 0.8790438700426869,
+        "error": 0.19446164888940826,
+        "runtime": 0.07358503341674805,
+        "energy_drift": 0.1392067732027813
+      },
+      {
+        "time_scaling": 0.8677739428210781,
+        "spatial_weight": 0.5687085880140417,
+        "cfl_factor": 0.8055747627893758,
+        "error": 0.2156148801245713,
+        "runtime": 0.062253475189208984,
+        "energy_drift": 0.13050111732967992
+      },
+      {
+        "time_scaling": 0.501446698938791,
+        "spatial_weight": 0.5736084307795479,
+        "cfl_factor": 0.6008956378126009,
+        "error": 0.22939232121436182,
+        "runtime": 0.05911588668823242,
+        "energy_drift": 0.12472766693431736
+      },
+      {
+        "time_scaling": 0.5764468185935474,
+        "spatial_weight": 0.5820740052695892,
+        "cfl_factor": 0.8713049255407865,
+        "error": 0.25268351868138883,
+        "runtime": 0.06814169883728027,
+        "energy_drift": 0.11480292849824
+      },
+      {
+        "time_scaling": 1.3110837979824317,
+        "spatial_weight": 0.5910044061535512,
+        "cfl_factor": 0.8504524277142329,
+        "error": 0.2765364121312042,
+        "runtime": 0.05219149589538574,
+        "energy_drift": 0.10446070639993198
+      },
+      {
+        "time_scaling": 0.501446698938791,
+        "spatial_weight": 0.598746142445615,
+        "cfl_factor": 0.5906613709020936,
+        "error": 0.29660757976410457,
+        "runtime": 0.062281131744384766,
+        "energy_drift": 0.09565775327302785
+      },
+      {
+        "time_scaling": 0.9001190973180633,
+        "spatial_weight": 0.6068801064192838,
+        "cfl_factor": 0.5917635506440139,
+        "error": 0.3170797529789412,
+        "runtime": 0.059051513671875,
+        "energy_drift": 0.08662901945200122
+      }
+    ]
+  }
+}

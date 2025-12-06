@@ -1,0 +1,202 @@
+{
+  "demo": {
+    "n_states": 30,
+    "dimension": 4,
+    "spectral_invariance": {
+      "spectra": {
+        "FS": [
+          -2.2467582807238207e-15,
+          0.2472920157750118,
+          0.4077712118149817,
+          0.6995514806976402,
+          0.9043875857059703
+        ],
+        "Bures": [
+          -1.8413141020592882e-15,
+          0.3170217486286401,
+          0.4841352222261647,
+          0.7965062810372999,
+          1.0215573579664539
+        ]
+      },
+      "max_spectral_difference": 0.11716977226048353,
+      "is_invariant": "True"
+    },
+    "clustering_robustness": {
+      "metrics_A": [
+        "FS"
+      ],
+      "metrics_B": [
+        "Bures"
+      ],
+      "embedding_difference": 0.12391305997329703,
+      "agreement": 0.9261083625810604,
+      "is_robust": "True"
+    }
+  },
+  "pymoo": {
+    "status": "completed",
+    "pareto_front": [
+      {
+        "epsilon": 0.3271123328639189,
+        "delta_t": 0.26320709953206367,
+        "n_steps": 4,
+        "cluster_quality": 1.0,
+        "agreement": 0.9155164957900073,
+        "spectral_gap": 0.7798223836469109
+      },
+      {
+        "epsilon": 0.010019379511523221,
+        "delta_t": 0.2822923683630618,
+        "n_steps": 3,
+        "cluster_quality": 1.0,
+        "agreement": 0.9993919677544416,
+        "spectral_gap": 5.813059269667397e-18
+      },
+      {
+        "epsilon": 0.010019379511523221,
+        "delta_t": 0.2042353389088145,
+        "n_steps": 3,
+        "cluster_quality": 1.0,
+        "agreement": 0.9993919677544416,
+        "spectral_gap": 5.813059269667397e-18
+      },
+      {
+        "epsilon": 0.2006341467750478,
+        "delta_t": 0.3994701731565912,
+        "n_steps": 14,
+        "cluster_quality": 1.0,
+        "agreement": 0.9593347515924537,
+        "spectral_gap": 0.15454969475624253
+      },
+      {
+        "epsilon": 0.24430355696535186,
+        "delta_t": 0.2712453377575675,
+        "n_steps": 4,
+        "cluster_quality": 1.0,
+        "agreement": 0.9404537991328685,
+        "spectral_gap": 0.31488875010384854
+      },
+      {
+        "epsilon": 0.27157050596461,
+        "delta_t": 0.2707036776253901,
+        "n_steps": 7,
+        "cluster_quality": 1.0,
+        "agreement": 0.9286311355068829,
+        "spectral_gap": 0.4462897597529726
+      },
+      {
+        "epsilon": 0.22840323346465846,
+        "delta_t": 0.26308326381046204,
+        "n_steps": 6,
+        "cluster_quality": 1.0,
+        "agreement": 0.9478226770269876,
+        "spectral_gap": 0.24919918922462955
+      },
+      {
+        "epsilon": 0.31912635497766156,
+        "delta_t": 0.206473954634922,
+        "n_steps": 6,
+        "cluster_quality": 1.0,
+        "agreement": 0.9162418907978962,
+        "spectral_gap": 0.7269804204092036
+      },
+      {
+        "epsilon": 0.18139611004027076,
+        "delta_t": 0.24685303769077696,
+        "n_steps": 15,
+        "cluster_quality": 1.0,
+        "agreement": 0.9651120238480662,
+        "spectral_gap": 0.10396059822105679
+      },
+      {
+        "epsilon": 0.2120279478953225,
+        "delta_t": 0.28161079317926413,
+        "n_steps": 6,
+        "cluster_quality": 1.0,
+        "agreement": 0.9549735261425618,
+        "spectral_gap": 0.19027469043157874
+      },
+      {
+        "epsilon": 0.10265017913530675,
+        "delta_t": 0.31081074877256687,
+        "n_steps": 4,
+        "cluster_quality": 1.0,
+        "agreement": 0.9817369750043844,
+        "spectral_gap": 0.007112704900511165
+      },
+      {
+        "epsilon": 0.06729193053055632,
+        "delta_t": 0.11938892466688747,
+        "n_steps": 14,
+        "cluster_quality": 1.0,
+        "agreement": 0.9896257332239198,
+        "spectral_gap": 0.0005244172182444438
+      },
+      {
+        "epsilon": 0.28364003669521287,
+        "delta_t": 0.32374405391873384,
+        "n_steps": 6,
+        "cluster_quality": 1.0,
+        "agreement": 0.9242778498895751,
+        "spectral_gap": 0.5116371496420169
+      },
+      {
+        "epsilon": 0.13863140065674318,
+        "delta_t": 0.2183922984718921,
+        "n_steps": 3,
+        "cluster_quality": 1.0,
+        "agreement": 0.9732522430144361,
+        "spectral_gap": 0.03232095885058829
+      },
+      {
+        "epsilon": 0.23070084162744064,
+        "delta_t": 0.23926148271749467,
+        "n_steps": 4,
+        "cluster_quality": 1.0,
+        "agreement": 0.9467680621148022,
+        "spectral_gap": 0.25817910575921793
+      },
+      {
+        "epsilon": 0.19540324012048904,
+        "delta_t": 0.3994701731565912,
+        "n_steps": 14,
+        "cluster_quality": 1.0,
+        "agreement": 0.9611116456786204,
+        "spectral_gap": 0.13959332055397403
+      },
+      {
+        "epsilon": 0.2916940002457396,
+        "delta_t": 0.32281568996928284,
+        "n_steps": 4,
+        "cluster_quality": 1.0,
+        "agreement": 0.9217924863117075,
+        "spectral_gap": 0.5575607651598885
+      },
+      {
+        "epsilon": 0.023691963765241714,
+        "delta_t": 0.23823387259291473,
+        "n_steps": 3,
+        "cluster_quality": 1.0,
+        "agreement": 0.9969418964673454,
+        "spectral_gap": 4.27013837802091e-09
+      },
+      {
+        "epsilon": 0.9999546655907623,
+        "delta_t": 0.28168615989279927,
+        "n_steps": 5,
+        "cluster_quality": 0.4898469228366136,
+        "agreement": 0.9990923590847024,
+        "spectral_gap": 6.5137793157354205
+      },
+      {
+        "epsilon": 0.9999546655907623,
+        "delta_t": 0.28519562110120544,
+        "n_steps": 5,
+        "cluster_quality": 0.4898469228366136,
+        "agreement": 0.9990923590847024,
+        "spectral_gap": 6.5137793157354205
+      }
+    ]
+  }
+}
