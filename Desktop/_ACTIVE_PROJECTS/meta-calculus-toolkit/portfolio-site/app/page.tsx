@@ -22,6 +22,9 @@ export default function HomePage() {
           <Link href="/exploration" className="btn-primary">
             Start the Journey
           </Link>
+          <Link href="/textbook" className="btn-secondary">
+            Read the Textbook
+          </Link>
           <Link href="/results" className="btn-secondary">
             See the Results
           </Link>
@@ -126,6 +129,39 @@ export default function HomePage() {
             actually learned about physics.
           </p>
         </Link>
+      </div>
+
+      {/* Progress & Documentation Section */}
+      <div className="mx-auto max-w-4xl my-16">
+        <h2 className="text-3xl font-bold text-center mb-8">Development Progress</h2>
+        <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
+          Real research is messy. We document the full journey - including failures, pivots, and lessons learned.
+        </p>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <Link href="/math-history/timeline" className="card group hover:border-primary-500 transition-colors text-center">
+            <div className="text-primary-400 mb-2 text-2xl">&#128197;</div>
+            <h3 className="font-semibold mb-1 group-hover:text-primary-400 transition-colors">Timeline</h3>
+            <p className="text-gray-500 text-xs">Chronological development</p>
+          </Link>
+
+          <Link href="/math-history/derivations" className="card group hover:border-blue-500 transition-colors text-center">
+            <div className="text-blue-400 mb-2 text-2xl">&#8747;</div>
+            <h3 className="font-semibold mb-1 group-hover:text-blue-400 transition-colors">Derivations</h3>
+            <p className="text-gray-500 text-xs">Mathematical proofs</p>
+          </Link>
+
+          <Link href="/math-history/failures" className="card group hover:border-red-500 transition-colors text-center">
+            <div className="text-red-400 mb-2 text-2xl">&#10060;</div>
+            <h3 className="font-semibold mb-1 group-hover:text-red-400 transition-colors">Failures & Pivots</h3>
+            <p className="text-gray-500 text-xs">What didn't work</p>
+          </Link>
+
+          <Link href="/math-history/experiments" className="card group hover:border-green-500 transition-colors text-center">
+            <div className="text-green-400 mb-2 text-2xl">&#128300;</div>
+            <h3 className="font-semibold mb-1 group-hover:text-green-400 transition-colors">Experiments</h3>
+            <p className="text-gray-500 text-xs">Computational tests</p>
+          </Link>
+        </div>
       </div>
 
       {/* Key Results Preview */}
