@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
 """
-Quantum State Space Geometry and Multi-Geometry Diffusion
+Quantum State Space Geometry and Multi-Geometry Diffusion (v2.0)
 
 Implements multi-geometry diffusion on quantum state space:
 - Fubini-Study metric for pure states
 - Bures metric for mixed states
 - Multi-operator diffusion (alternating geometries)
+
+VERSION HISTORY:
+- v1: 30 random pure states, FS vs Bures, dim=4
+- v2: Entangled bipartite states, mixed states, complexity metric
+
+UPGRADES in v2:
+1. Entangled States: 2-qubit states with varying entanglement
+2. Mixed States: Density matrices with Bures + Hilbert-Schmidt
+3. Complexity Metric: Nielsen-type geodesic approximation
+4. Higher Dimensions: dim=8 (3 qubits) scaling tests
 
 Key insight: Different metrics on state space are C-schemes.
 Scheme-robust features are those invariant under all geometric views.

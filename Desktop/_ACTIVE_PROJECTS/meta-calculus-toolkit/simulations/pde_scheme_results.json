@@ -1,12 +1,5 @@
 {
   "demo": {
-    "schemes": [
-      "Standard Leapfrog",
-      "Time-scaled (2x)",
-      "Weighted Spatial",
-      "Conservative",
-      "Aggressive"
-    ],
     "invariance_tests": [
       {
         "scheme_A": "Standard Leapfrog",
@@ -98,171 +91,601 @@
         "energy_drift_B": 0.21188769368830707,
         "is_invariant": "True"
       }
+    ],
+    "energy_conservation": [
+      {
+        "scheme": "Standard Leapfrog",
+        "drift": 0.21188769368830707
+      },
+      {
+        "scheme": "Time-scaled (2x)",
+        "drift": 0.21188769368830707
+      },
+      {
+        "scheme": "Weighted Spatial",
+        "drift": 0.10255265052817969
+      },
+      {
+        "scheme": "Conservative",
+        "drift": 0.21188769368830707
+      },
+      {
+        "scheme": "Aggressive",
+        "drift": 0.21188769368830707
+      }
+    ],
+    "convergence_analysis": [
+      {
+        "scheme": "Standard Leapfrog",
+        "resolution_tests": [
+          {
+            "Nx": 25,
+            "dx": 0.04,
+            "error": 0.04819040001906868,
+            "energy_drift": 0.13775072076884187
+          },
+          {
+            "Nx": 50,
+            "dx": 0.02,
+            "error": 0.016812893193839714,
+            "energy_drift": 0.19394567308608257
+          },
+          {
+            "Nx": 100,
+            "dx": 0.01,
+            "error": 0.011662613014795105,
+            "energy_drift": 0.2119084697756697
+          },
+          {
+            "Nx": 200,
+            "dx": 0.005,
+            "error": 0.0067110846983219246,
+            "energy_drift": 0.21865448683282004
+          }
+        ],
+        "convergence_order": 0.9060060665849938,
+        "is_second_order": "False"
+      },
+      {
+        "scheme": "Time-scaled (2x)",
+        "resolution_tests": [
+          {
+            "Nx": 25,
+            "dx": 0.04,
+            "error": 0.04819040001906868,
+            "energy_drift": 0.13775072076884187
+          },
+          {
+            "Nx": 50,
+            "dx": 0.02,
+            "error": 0.016812893193839714,
+            "energy_drift": 0.19394567308608257
+          },
+          {
+            "Nx": 100,
+            "dx": 0.01,
+            "error": 0.011662613014795105,
+            "energy_drift": 0.2119084697756697
+          },
+          {
+            "Nx": 200,
+            "dx": 0.005,
+            "error": 0.0067110846983219246,
+            "energy_drift": 0.21865448683282004
+          }
+        ],
+        "convergence_order": 0.9060060665849938,
+        "is_second_order": "False"
+      },
+      {
+        "scheme": "Weighted Spatial",
+        "resolution_tests": [
+          {
+            "Nx": 25,
+            "dx": 0.04,
+            "error": 0.27695081636575103,
+            "energy_drift": 0.00791268830381503
+          },
+          {
+            "Nx": 50,
+            "dx": 0.02,
+            "error": 0.3070582678137395,
+            "energy_drift": 0.06682939657887885
+          },
+          {
+            "Nx": 100,
+            "dx": 0.01,
+            "error": 0.3077574953623636,
+            "energy_drift": 0.1014567406653945
+          },
+          {
+            "Nx": 200,
+            "dx": 0.005,
+            "error": 0.30413508104860626,
+            "energy_drift": 0.11869737828933101
+          }
+        ],
+        "convergence_order": -0.04085288800603135,
+        "is_second_order": "False"
+      }
+    ],
+    "pair_convergence": [
+      {
+        "scheme_A": "Standard Leapfrog",
+        "scheme_B": "Time-scaled (2x)",
+        "resolution_tests": [
+          {
+            "Nx": 25,
+            "dx": 0.04,
+            "diff": 0.0,
+            "drift_A": 0.13775072076884187,
+            "drift_B": 0.13775072076884187
+          },
+          {
+            "Nx": 50,
+            "dx": 0.02,
+            "diff": 0.0,
+            "drift_A": 0.19394567308608257,
+            "drift_B": 0.19394567308608257
+          },
+          {
+            "Nx": 100,
+            "dx": 0.01,
+            "diff": 0.0,
+            "drift_A": 0.2119084697756697,
+            "drift_B": 0.2119084697756697
+          },
+          {
+            "Nx": 200,
+            "dx": 0.005,
+            "diff": 0.0,
+            "drift_A": 0.21865448683282004,
+            "drift_B": 0.21865448683282004
+          }
+        ],
+        "diff_convergence_order": 3.1734994431117127e-16,
+        "schemes_equivalent": "False",
+        "interpretation": "Schemes differ at leading order"
+      }
+    ],
+    "burgers_tests": [
+      {
+        "scheme": "Standard Leapfrog",
+        "shock_quality": 46.17615082838822,
+        "total_variation": 3.446682239204281
+      },
+      {
+        "scheme": "Time-scaled (2x)",
+        "shock_quality": 46.320640607170596,
+        "total_variation": 2.2476370548771833
+      },
+      {
+        "scheme": "Weighted Spatial",
+        "shock_quality": 41.12677832863246,
+        "total_variation": 3.397416174545898
+      }
+    ],
+    "numerical_gr_preview": {
+      "formulations": [
+        {
+          "name": "ADM",
+          "variables": [
+            "gamma_ij",
+            "K_ij",
+            "alpha",
+            "beta^i"
+          ],
+          "constraints": [
+            "Hamiltonian H=0",
+            "Momentum M_i=0"
+          ],
+          "scheme_freedom": [
+            "Gauge (lapse, shift)",
+            "Slicing"
+          ],
+          "known_issues": "Constraint-violating modes can grow"
+        },
+        {
+          "name": "BSSN",
+          "variables": [
+            "phi",
+            "tilde{gamma}_ij",
+            "K",
+            "tilde{A}_ij",
+            "tilde{Gamma}^i"
+          ],
+          "constraints": [
+            "H=0",
+            "M_i=0",
+            "det(tilde{gamma})=1",
+            "tr(A)=0"
+          ],
+          "scheme_freedom": [
+            "Conformal factor",
+            "Gauge"
+          ],
+          "known_issues": "More constraints but better stability"
+        },
+        {
+          "name": "Generalized Harmonic",
+          "variables": [
+            "g_ab",
+            "Pi_ab",
+            "Phi_iab"
+          ],
+          "constraints": [
+            "H_a = 0 (gauge source functions)"
+          ],
+          "scheme_freedom": [
+            "Source functions H_a"
+          ],
+          "known_issues": "Gauge source prescription critical"
+        }
+      ],
+      "scheme_invariance_test": {
+        "observable": "Waveform h_+ and h_x at infinity",
+        "invariance_under": [
+          "Gauge choice",
+          "Slicing condition",
+          "Formulation"
+        ],
+        "key_insight": "Physical waveform = scheme-robust observable",
+        "constraint_propagation": "Constraints should stay zero if initially zero"
+      },
+      "connection_to_wave_equation": {
+        "analogy": "Wave equation = linearized GR with fixed background",
+        "scheme_choices": "Time parametrization = lapse-like",
+        "what_transfers": "Convergence analysis, energy conservation"
+      }
+    },
+    "schemes": [
+      "Standard Leapfrog",
+      "Time-scaled (2x)",
+      "Weighted Spatial",
+      "Conservative",
+      "Aggressive"
     ]
   },
   "pymoo": {
     "status": "completed",
     "pareto_front": [
       {
-        "time_scaling": 1.0947758121804019,
-        "spatial_weight": 0.49892813270618847,
-        "cfl_factor": 0.6046005042592502,
-        "error": 0.0019079058252969355,
-        "runtime": 0.06174325942993164,
-        "energy_drift": 0.20904748410784682
+        "time_scaling": 1.0332672998174302,
+        "spatial_weight": 0.49952285810177216,
+        "cfl_factor": 0.9174633206498579,
+        "error": 9.595322654558147e-05,
+        "runtime": 0.05814862251281738,
+        "energy_drift": 0.20843869136021012
       },
       {
-        "time_scaling": 1.7526215435621841,
-        "spatial_weight": 0.4905693957802422,
-        "cfl_factor": 0.8781516180241817,
-        "error": 0.030292250139444917,
-        "runtime": 0.04986572265625,
-        "energy_drift": 0.2174550481641612
+        "time_scaling": 0.822675390204086,
+        "spatial_weight": 0.49811738634117714,
+        "cfl_factor": 0.5246215043829143,
+        "error": 0.004642210861894322,
+        "runtime": 0.05753040313720703,
+        "energy_drift": 0.2098751696603378
       },
       {
-        "time_scaling": 1.7526215435621841,
-        "spatial_weight": 0.4898871747834715,
-        "cfl_factor": 0.8781516180241817,
-        "error": 0.03262746909724468,
-        "runtime": 0.046235084533691406,
-        "energy_drift": 0.21812880392006573
+        "time_scaling": 0.5382629332022577,
+        "spatial_weight": 0.5054899097050535,
+        "cfl_factor": 0.5021693137893677,
+        "error": 0.020068496153380685,
+        "runtime": 0.05723309516906738,
+        "energy_drift": 0.20225476708226958
       },
       {
-        "time_scaling": 1.306293821132647,
-        "spatial_weight": 0.5175453803754317,
-        "cfl_factor": 0.8639169725109406,
-        "error": 0.059698211658482665,
-        "runtime": 0.05890512466430664,
-        "energy_drift": 0.18936076893865844
+        "time_scaling": 0.5018355994379561,
+        "spatial_weight": 0.5098218782083542,
+        "cfl_factor": 0.8283506607823632,
+        "error": 0.034422711476786126,
+        "runtime": 0.05787777900695801,
+        "energy_drift": 0.1976812760028526
       },
       {
-        "time_scaling": 0.688670463497828,
-        "spatial_weight": 0.5221961378681383,
-        "cfl_factor": 0.8635188001091524,
-        "error": 0.07471545102715005,
-        "runtime": 0.07547569274902344,
-        "energy_drift": 0.18425388725922826
+        "time_scaling": 1.7104762860194522,
+        "spatial_weight": 0.5162470522573532,
+        "cfl_factor": 0.6968088319090431,
+        "error": 0.05547839207901308,
+        "runtime": 0.05787158012390137,
+        "energy_drift": 0.19077380700817845
       },
       {
-        "time_scaling": 1.3320781488367865,
-        "spatial_weight": 0.5284524339531824,
-        "cfl_factor": 0.8639169725109406,
-        "error": 0.09466800793675051,
-        "runtime": 0.04746270179748535,
-        "energy_drift": 0.17727900514916
+        "time_scaling": 1.0723159661604553,
+        "spatial_weight": 0.5232525746262972,
+        "cfl_factor": 0.9835521944303847,
+        "error": 0.07810488876086645,
+        "runtime": 0.057494401931762695,
+        "energy_drift": 0.18308430670996925
       },
       {
-        "time_scaling": 1.3195928434407576,
-        "spatial_weight": 0.5320966736980216,
-        "cfl_factor": 0.8349450824742752,
-        "error": 0.10615505780853178,
-        "runtime": 0.06482505798339844,
-        "energy_drift": 0.17316518678065407
+        "time_scaling": 1.038229102514208,
+        "spatial_weight": 0.5249903800451747,
+        "cfl_factor": 0.9412914441399446,
+        "error": 0.0836626175733341,
+        "runtime": 0.06281352043151855,
+        "energy_drift": 0.1811529947131309
       },
       {
-        "time_scaling": 1.3195928434407576,
-        "spatial_weight": 0.5391617885541855,
-        "cfl_factor": 0.8349450824742752,
-        "error": 0.12813332451059264,
-        "runtime": 0.06927990913391113,
-        "energy_drift": 0.16509505060032578
+        "time_scaling": 0.8939248059141995,
+        "spatial_weight": 0.5263077546446778,
+        "cfl_factor": 0.5442286156394185,
+        "error": 0.08786089664678842,
+        "runtime": 0.059195518493652344,
+        "energy_drift": 0.17968294423051037
       },
       {
-        "time_scaling": 1.3192985872077183,
-        "spatial_weight": 0.5433975713312081,
-        "cfl_factor": 0.8055747627893758,
-        "error": 0.1411209749477226,
-        "runtime": 0.05904269218444824,
-        "energy_drift": 0.16020441358761395
+        "time_scaling": 0.8936508491067863,
+        "spatial_weight": 0.5333774551008035,
+        "cfl_factor": 0.9440820137890146,
+        "error": 0.11016813319171273,
+        "runtime": 0.058318138122558594,
+        "energy_drift": 0.17171111054068217
       },
       {
-        "time_scaling": 0.5128474777337106,
-        "spatial_weight": 0.5529198347691774,
-        "cfl_factor": 0.7186195577949667,
-        "error": 0.16978394529305407,
-        "runtime": 0.06587576866149902,
-        "energy_drift": 0.14909870191287547
+        "time_scaling": 1.4992917095159402,
+        "spatial_weight": 0.5419467128313359,
+        "cfl_factor": 0.9262333187512464,
+        "error": 0.13668859483064105,
+        "runtime": 0.05758357048034668,
+        "energy_drift": 0.16188354544071337
       },
       {
-        "time_scaling": 0.5598602332994329,
-        "spatial_weight": 0.552998815677453,
-        "cfl_factor": 0.8790438700426869,
-        "error": 0.17001853431824757,
-        "runtime": 0.08793020248413086,
-        "energy_drift": 0.1490060751825485
+        "time_scaling": 1.5611358314309463,
+        "spatial_weight": 0.5458423546813546,
+        "cfl_factor": 0.9126907507956823,
+        "error": 0.1485512199957198,
+        "runtime": 0.055550575256347656,
+        "energy_drift": 0.15736636979784582
       },
       {
-        "time_scaling": 1.7910873729808465,
-        "spatial_weight": 0.5608061173729981,
-        "cfl_factor": 0.8790438700426869,
-        "error": 0.19294597873694683,
-        "runtime": 0.05844378471374512,
-        "energy_drift": 0.13982274587932586
+        "time_scaling": 0.5018355994379561,
+        "spatial_weight": 0.5565323730790596,
+        "cfl_factor": 0.8340582813433388,
+        "error": 0.18045991846034753,
+        "runtime": 0.05647444725036621,
+        "energy_drift": 0.14485562285418968
       },
       {
-        "time_scaling": 1.7526215435621841,
-        "spatial_weight": 0.5613286039422222,
-        "cfl_factor": 0.8790438700426869,
-        "error": 0.19446164888940826,
-        "runtime": 0.10436415672302246,
-        "energy_drift": 0.1392067732027812
+        "time_scaling": 1.6655213709498229,
+        "spatial_weight": 0.5590291785225482,
+        "cfl_factor": 0.9708158410255222,
+        "error": 0.18777361165089584,
+        "runtime": 0.06520605087280273,
+        "energy_drift": 0.14191666663848926
       },
       {
-        "time_scaling": 1.7526578138017872,
-        "spatial_weight": 0.5613286039422222,
-        "cfl_factor": 0.8790438700426869,
-        "error": 0.19446164888940826,
-        "runtime": 0.07358503341674805,
-        "energy_drift": 0.1392067732027813
+        "time_scaling": 1.6820597643413597,
+        "spatial_weight": 0.5696714421269486,
+        "cfl_factor": 0.9307559397590353,
+        "error": 0.21833921133822945,
+        "runtime": 0.06385374069213867,
+        "energy_drift": 0.12936568148222016
       },
       {
-        "time_scaling": 0.8677739428210781,
-        "spatial_weight": 0.5687085880140417,
-        "cfl_factor": 0.8055747627893758,
-        "error": 0.2156148801245713,
-        "runtime": 0.062253475189208984,
-        "energy_drift": 0.13050111732967992
+        "time_scaling": 0.5382629332022577,
+        "spatial_weight": 0.5757038723165985,
+        "cfl_factor": 0.5206963345584088,
+        "error": 0.2352183184753129,
+        "runtime": 0.05981087684631348,
+        "energy_drift": 0.12226358048975704
       },
       {
-        "time_scaling": 0.501446698938791,
-        "spatial_weight": 0.5736084307795479,
-        "cfl_factor": 0.6008956378126009,
-        "error": 0.22939232121436182,
-        "runtime": 0.05911588668823242,
-        "energy_drift": 0.12472766693431736
+        "time_scaling": 0.8433319562084668,
+        "spatial_weight": 0.5826512808750233,
+        "cfl_factor": 0.9412914441399446,
+        "error": 0.2542478297092483,
+        "runtime": 0.05796694755554199,
+        "energy_drift": 0.11412968322313191
       },
       {
-        "time_scaling": 0.5764468185935474,
-        "spatial_weight": 0.5820740052695892,
-        "cfl_factor": 0.8713049255407865,
-        "error": 0.25268351868138883,
-        "runtime": 0.06814169883728027,
-        "energy_drift": 0.11480292849824
+        "time_scaling": 0.863390246190886,
+        "spatial_weight": 0.5900731980854935,
+        "cfl_factor": 0.515154737850629,
+        "error": 0.2740839995534375,
+        "runtime": 0.058196067810058594,
+        "energy_drift": 0.10553088964090471
       },
       {
-        "time_scaling": 1.3110837979824317,
-        "spatial_weight": 0.5910044061535512,
-        "cfl_factor": 0.8504524277142329,
-        "error": 0.2765364121312042,
-        "runtime": 0.05219149589538574,
-        "energy_drift": 0.10446070639993198
+        "time_scaling": 0.5288423851095218,
+        "spatial_weight": 0.5987964545675976,
+        "cfl_factor": 0.8520400843228786,
+        "error": 0.2967361564210994,
+        "runtime": 0.058814048767089844,
+        "energy_drift": 0.09560115577560863
       },
       {
-        "time_scaling": 0.501446698938791,
-        "spatial_weight": 0.598746142445615,
-        "cfl_factor": 0.5906613709020936,
-        "error": 0.29660757976410457,
-        "runtime": 0.062281131744384766,
-        "energy_drift": 0.09565775327302785
+        "time_scaling": 0.9735125534500773,
+        "spatial_weight": 0.6015439891261843,
+        "cfl_factor": 0.951423902560451,
+        "error": 0.3037209836165298,
+        "runtime": 0.061234235763549805,
+        "energy_drift": 0.09252382661857411
       },
       {
-        "time_scaling": 0.9001190973180633,
-        "spatial_weight": 0.6068801064192838,
-        "cfl_factor": 0.5917635506440139,
-        "error": 0.3170797529789412,
-        "runtime": 0.059051513671875,
-        "energy_drift": 0.08662901945200122
+        "time_scaling": 0.5283180449335989,
+        "spatial_weight": 0.6059296244098978,
+        "cfl_factor": 0.720363387721576,
+        "error": 0.3147203009030748,
+        "runtime": 0.06717348098754883,
+        "energy_drift": 0.08767057089843894
       }
     ]
+  },
+  "globalmoo": {
+    "status": "completed",
+    "method": "grid_search",
+    "n_evaluations": 320,
+    "pareto_front": [
+      {
+        "time_scaling": 0.5,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.5,
+        "error": 0.09504468118495855,
+        "runtime": 0.0599522590637207,
+        "energy_drift": 0.17714524617462166
+      },
+      {
+        "time_scaling": 0.5,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.6125,
+        "error": 0.09504468118495855,
+        "runtime": 0.05901956558227539,
+        "energy_drift": 0.17714524617462166
+      },
+      {
+        "time_scaling": 0.5,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.725,
+        "error": 0.09504468118495855,
+        "runtime": 0.05973386764526367,
+        "energy_drift": 0.17714524617462166
+      },
+      {
+        "time_scaling": 0.5,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.8374999999999999,
+        "error": 0.09504468118495855,
+        "runtime": 0.05998635292053223,
+        "energy_drift": 0.17714524617462166
+      },
+      {
+        "time_scaling": 0.5,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.95,
+        "error": 0.09504468118495855,
+        "runtime": 0.060205698013305664,
+        "energy_drift": 0.17714524617462166
+      },
+      {
+        "time_scaling": 0.7142857142857143,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.5,
+        "error": 0.09504468118495855,
+        "runtime": 0.06083798408508301,
+        "energy_drift": 0.17714524617462174
+      },
+      {
+        "time_scaling": 0.7142857142857143,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.6125,
+        "error": 0.09504468118495855,
+        "runtime": 0.0608365535736084,
+        "energy_drift": 0.17714524617462174
+      },
+      {
+        "time_scaling": 0.7142857142857143,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.725,
+        "error": 0.09504468118495855,
+        "runtime": 0.05967521667480469,
+        "energy_drift": 0.17714524617462174
+      },
+      {
+        "time_scaling": 0.7142857142857143,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.8374999999999999,
+        "error": 0.09504468118495855,
+        "runtime": 0.059893131256103516,
+        "energy_drift": 0.17714524617462174
+      },
+      {
+        "time_scaling": 0.7142857142857143,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.95,
+        "error": 0.09504468118495855,
+        "runtime": 0.05884289741516113,
+        "energy_drift": 0.17714524617462174
+      },
+      {
+        "time_scaling": 0.9285714285714286,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.5,
+        "error": 0.09504468118495855,
+        "runtime": 0.059385061264038086,
+        "energy_drift": 0.17714524617462182
+      },
+      {
+        "time_scaling": 0.9285714285714286,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.6125,
+        "error": 0.09504468118495855,
+        "runtime": 0.05884194374084473,
+        "energy_drift": 0.17714524617462182
+      },
+      {
+        "time_scaling": 0.9285714285714286,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.725,
+        "error": 0.09504468118495855,
+        "runtime": 0.05983614921569824,
+        "energy_drift": 0.17714524617462182
+      },
+      {
+        "time_scaling": 0.9285714285714286,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.8374999999999999,
+        "error": 0.09504468118495855,
+        "runtime": 0.059845685958862305,
+        "energy_drift": 0.17714524617462182
+      },
+      {
+        "time_scaling": 0.9285714285714286,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.95,
+        "error": 0.09504468118495855,
+        "runtime": 0.059827327728271484,
+        "energy_drift": 0.17714524617462182
+      },
+      {
+        "time_scaling": 1.3571428571428572,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.5,
+        "error": 0.09504468118495855,
+        "runtime": 0.0588839054107666,
+        "energy_drift": 0.17714524617462168
+      },
+      {
+        "time_scaling": 1.3571428571428572,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.6125,
+        "error": 0.09504468118495855,
+        "runtime": 0.05901360511779785,
+        "energy_drift": 0.17714524617462168
+      },
+      {
+        "time_scaling": 1.3571428571428572,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.725,
+        "error": 0.09504468118495855,
+        "runtime": 0.058878183364868164,
+        "energy_drift": 0.17714524617462168
+      },
+      {
+        "time_scaling": 1.3571428571428572,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.8374999999999999,
+        "error": 0.09504468118495855,
+        "runtime": 0.05904698371887207,
+        "energy_drift": 0.17714524617462168
+      },
+      {
+        "time_scaling": 1.3571428571428572,
+        "spatial_weight": 0.5285714285714286,
+        "cfl_factor": 0.95,
+        "error": 0.09504468118495855,
+        "runtime": 0.05906176567077637,
+        "energy_drift": 0.17714524617462168
+      }
+    ]
+  },
+  "metadata": {
+    "simulation": "pde_scheme_optimizer",
+    "version": "2.0",
+    "upgrades": [
+      "Convergence analysis (error ~ dx^p)",
+      "Burgers equation (nonlinear shock test)",
+      "Numerical GR preview (ADM/BSSN/GHG)"
+    ],
+    "description": "PDE numerical schemes as C-scheme choices"
   }
 }

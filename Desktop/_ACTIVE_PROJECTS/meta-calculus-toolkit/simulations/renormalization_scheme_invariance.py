@@ -1,10 +1,20 @@
 #!/usr/bin/env python3
 """
-Renormalization Scheme Invariance Simulation
+Renormalization Scheme Invariance Simulation (v2.0)
 
 Tests the scheme-invariance principle in QFT renormalization:
-- Different renormalization schemes (MS-bar, on-shell, etc.)
+- Different renormalization schemes (MS-bar, on-shell, MOM)
 - Same physical observables (S-matrix, pole masses, critical exponents)
+
+VERSION HISTORY:
+- v1: Basic MS-bar, on-shell, MOM comparison
+- v2: Harder kinematics, 2-loop beta function, exotic schemes
+
+UPGRADES in v2:
+1. Expanded kinematics: 20+ (s,t,u) configurations including thresholds
+2. Real 2-loop beta function contribution
+3. Exotic/pathological schemes that SHOULD fail invariance
+4. Running coupling evolution across schemes
 
 Key insight: Renormalization scheme choice is a C-scheme in G_scheme.
 Physical observables must be scheme-invariant.

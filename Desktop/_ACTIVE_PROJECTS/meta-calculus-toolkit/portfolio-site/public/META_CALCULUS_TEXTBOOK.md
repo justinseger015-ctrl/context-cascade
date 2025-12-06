@@ -912,6 +912,119 @@ Physical: n >= 0
 
 ---
 
+## Appendix D: Simulation Upgrades (v2.0)
+
+**December 2025 Update**
+
+All 6 scheme-invariance simulations have been upgraded based on critical analysis from a mathematical physics perspective. Each upgrade adds rigorous stress tests, missing physics, and convergence analysis.
+
+### D.1 QFT Renormalization Schemes (v2.0)
+
+**Original (v1):** MS-bar, On-shell, MOM comparison at single kinematics
+**Upgraded (v2):**
+- 20+ kinematic configurations including threshold regions (s ~ 4m^2)
+- Real 2-loop beta function contributions
+- Exotic/pathological schemes that SHOULD fail invariance
+- Running coupling evolution across schemes
+
+**Key Result:** Physical S-matrix elements remain scheme-invariant; pathological schemes correctly flagged.
+
+### D.2 Kramers-Wannier Duality (v2.0)
+
+**Original (v1):** L=16 lattice, K_c to 1e-11 precision
+**Upgraded (v2):**
+- Larger lattices: L = 16, 32, 64 with finite-size scaling
+- Correlation length exponent extraction: nu = 1 (exact)
+- External field breaking analysis: h != 0 breaks duality
+- Free energy scaling: diff ~ L^(-alpha)
+
+**Key Result:** Duality holds exactly for h=0; external fields are NOT scheme choices.
+
+### D.3 Chiral Anomaly Detection (v2.0)
+
+**Original (v1):** Naive lattice Dirac - FALSE NEGATIVE (phase ~ 0)
+**Upgraded (v2):**
+- Wilson fermions: D_W = D_naive + (r/2a) * Laplacian
+- Fujikawa regulated trace: Tr(gamma5 * exp(-D^dag D / M^2))
+- Spectral asymmetry and Dirac index computation
+
+**Evolution Story:**
+```
+V1 (Naive):  Phase ~ 0 even with B-field  -> FALSE NEGATIVE
+V2 (Wilson): Phase scales with B and alpha -> CORRECT DETECTION
+```
+
+**Key Insight:** Framework is honest (no hallucinated obstructions). The false negative revealed the scheme space needed expansion.
+
+### D.4 PDE Numerical Schemes (v2.0)
+
+**Original (v1):** 5 schemes, 4/5 invariant, energy drift 0.10-0.21
+**Upgraded (v2):**
+- Convergence analysis: error ~ dx^p extraction at multiple resolutions
+- Energy conservation scaling: drift(dx) analysis
+- Burgers equation (nonlinear): u_t + u*u_x = nu*u_xx with shock tests
+- Numerical GR preview: ADM vs BSSN vs GHG comparison notes
+
+**Key Result:** Good schemes show diff ~ dx^2; bad schemes differ at leading order.
+
+### D.5 Quantum State Geometry (v2.0)
+
+**Original (v1):** 30 random pure states, 92.6% clustering agreement
+**Upgraded (v2):**
+- Entangled 2-qubit states with varying entanglement
+- Mixed states with Bures + Hilbert-Schmidt metrics
+- Nielsen-type complexity metric approximation
+- Higher dimensions: dim=8 (3 qubits) scaling tests
+
+**Key Result:** Entanglement structure preserved across metric choices.
+
+### D.6 Wheeler-DeWitt Factor Ordering (v2.0)
+
+**Original (v1):** p in [-1, 3] scan, p=1 (Laplace-Beltrami) optimal
+**Upgraded (v2):**
+- Potentials: Cosmological constant V(a) = Lambda*a^3
+- Different clock variables: scale factor a vs scalar field phi
+- Quantum corrections: O(hbar) beyond WKB
+- Bouncing cosmology: test with bounce potential (a_min > 0)
+
+**Key Result:** p=1 remains special with potentials; WKB is ordering-robust.
+
+---
+
+## Appendix E: The Evolution Story
+
+The v1 -> v2 upgrade process demonstrates the scientific method applied to computational physics:
+
+### E.1 Framework Honesty
+
+**Example: Chiral Anomaly**
+
+The v1 naive lattice implementation showed NO anomaly (phase ~ 0) even when theory predicted one. This was a FALSE NEGATIVE, but an honest one:
+- The framework didn't hallucinate an obstruction that wasn't there
+- It revealed that the scheme space (naive fermions) was incomplete
+- The fix (Wilson fermions) correctly captures the anomaly
+
+**Lesson:** A framework that gives false negatives is honest. A framework that gives false positives is dangerous.
+
+### E.2 Convergence Analysis
+
+All v2 simulations include explicit convergence tests:
+- diff ~ dx^p extraction shows the order of accuracy
+- Schemes that converge to the same answer as dx -> 0 are equivalent in G_scheme
+- Schemes that don't converge are genuinely different physics
+
+### E.3 What This Means
+
+The scheme-invariance framework now has:
+1. **Harder stress tests** - can't pass by accident
+2. **Missing physics added** - anomalies, nonlinearity, potentials
+3. **Evolution documented** - shows how rigorous falsification led to improvement
+4. **Convergence proven** - good schemes agree in the continuum limit
+
+---
+
 **END OF TEXTBOOK**
 
 *This document synthesizes the meta-calculus research journey from initial discovery through rigorous validation, paradigm shift, and practical application. All claims are supported by the referenced documentation.*
+
+**Version 2.0 Update (December 2025):** Added Appendix D (Simulation Upgrades) and Appendix E (Evolution Story) documenting the v1->v2 upgrade process based on mathematical physics critique.

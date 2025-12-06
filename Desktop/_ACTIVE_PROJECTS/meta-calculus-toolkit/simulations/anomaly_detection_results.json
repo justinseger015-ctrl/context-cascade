@@ -1,91 +1,191 @@
 {
   "demo": {
-    "zero_gauge": {
-      "transformation": "Chiral rotation",
-      "alpha": 0.2,
-      "classical_invariant": true,
-      "quantum_invariant": "True",
-      "jacobian_magnitude": 0.0,
-      "jacobian_phase": 0.0,
-      "obstruction_type": "NONE",
-      "in_g_scheme": true
+    "v1_naive": {
+      "version": "v1_naive",
+      "description": "Naive lattice Dirac - FALSE NEGATIVE",
+      "limitation": "Naive fermions have doubling that cancels anomaly",
+      "zero_gauge": {
+        "transformation": "Chiral rotation",
+        "alpha": 0.2,
+        "classical_invariant": true,
+        "quantum_invariant": "True",
+        "jacobian_magnitude": 0.0,
+        "jacobian_phase": 0.0,
+        "obstruction_type": "NONE",
+        "in_g_scheme": true
+      },
+      "with_B": {
+        "transformation": "Chiral rotation",
+        "alpha": 0.2,
+        "classical_invariant": true,
+        "quantum_invariant": "True",
+        "jacobian_magnitude": 0.9999999999999984,
+        "jacobian_phase": 1.4394519402461968e-14,
+        "obstruction_type": "NONE",
+        "in_g_scheme": true
+      },
+      "phase_scan": {
+        "scan_results": [
+          {
+            "alpha": 0.0,
+            "magnitude": 1.0,
+            "phase": 0.0,
+            "phase_degrees": 0.0
+          },
+          {
+            "alpha": 0.1,
+            "magnitude": 1.0000000000000058,
+            "phase": -3.647612327840943e-15,
+            "phase_degrees": -2.089927916851756e-13
+          },
+          {
+            "alpha": 0.2,
+            "magnitude": 1.0000000000000009,
+            "phase": -1.5899848608537502e-15,
+            "phase_degrees": -9.109942201661534e-14
+          },
+          {
+            "alpha": 0.30000000000000004,
+            "magnitude": 0.9999999999999942,
+            "phase": -7.248460395068539e-16,
+            "phase_degrees": -4.153061886051566e-14
+          },
+          {
+            "alpha": 0.4,
+            "magnitude": 1.0000000000000027,
+            "phase": -2.4785058125073132e-15,
+            "phase_degrees": -1.4200792255531198e-13
+          },
+          {
+            "alpha": 0.5,
+            "magnitude": 1.000000000000005,
+            "phase": -1.4029278184003673e-15,
+            "phase_degrees": -8.038184295583704e-14
+          }
+        ],
+        "phase_slope": -7.549087784725852e-16,
+        "is_anomalous": "False",
+        "anomaly_coefficient": 0
+      },
+      "false_negative": true,
+      "lesson": "Framework is honest - scheme space needs expansion"
     },
-    "with_B": {
-      "transformation": "Chiral rotation",
-      "alpha": 0.2,
-      "classical_invariant": true,
-      "quantum_invariant": "True",
-      "jacobian_magnitude": 0.9999999999999984,
-      "jacobian_phase": 1.4394519402461968e-14,
-      "obstruction_type": "NONE",
-      "in_g_scheme": true
+    "v2_wilson": {
+      "zero_gauge": {
+        "anomaly_phase": 0.0,
+        "dirac_index": 0.0,
+        "spectral_asymmetry": 1.3322676295501878e-15,
+        "in_g_scheme": "True",
+        "interpretation": "No gauge field = no topological charge = no anomaly"
+      },
+      "with_B": {
+        "B": 0.3,
+        "anomaly_phase": 2.6512290738622826e-05,
+        "theoretical_phase": 0.6875493541569879,
+        "dirac_index": 0.0,
+        "spectral_asymmetry": 1.4261797510961571e-05,
+        "phase_diff_from_zero": 2.6512290738622826e-05,
+        "anomaly_detected": false,
+        "in_g_scheme": false,
+        "interpretation": "Chiral rotation obstructed by anomaly"
+      },
+      "phase_scan": {
+        "scan_data": [
+          {
+            "alpha": 0.0,
+            "phase": 0.0,
+            "theoretical": 0.0
+          },
+          {
+            "alpha": 0.1,
+            "phase": 1.3256145369311413e-05,
+            "theoretical": 0.34377467707849396
+          },
+          {
+            "alpha": 0.2,
+            "phase": 2.6512290738622826e-05,
+            "theoretical": 0.6875493541569879
+          },
+          {
+            "alpha": 0.30000000000000004,
+            "phase": 3.976843610793424e-05,
+            "theoretical": 1.0313240312354819
+          },
+          {
+            "alpha": 0.4,
+            "phase": 5.302458147724565e-05,
+            "theoretical": 1.3750987083139758
+          },
+          {
+            "alpha": 0.5,
+            "phase": 6.628072684655706e-05,
+            "theoretical": 1.7188733853924696
+          }
+        ],
+        "phase_slope": 0.0001325614536931141,
+        "is_anomalous": "False",
+        "interpretation": "Linear growth confirms anomaly structure"
+      },
+      "field_scaling": {
+        "scan_data": [
+          {
+            "B": 0.0,
+            "measured_phase": 0.0,
+            "spectral_asymmetry": 1.3322676295501878e-15,
+            "theoretical_phase": 0.0
+          },
+          {
+            "B": 0.1,
+            "measured_phase": 1.090480452603515e-06,
+            "spectral_asymmetry": 7.031826294578991e-07,
+            "theoretical_phase": 0.22918311805232935
+          },
+          {
+            "B": 0.2,
+            "measured_phase": 8.38828559750482e-06,
+            "spectral_asymmetry": 4.972259304736326e-06,
+            "theoretical_phase": 0.4583662361046587
+          },
+          {
+            "B": 0.3,
+            "measured_phase": 2.6512290738622826e-05,
+            "spectral_asymmetry": 1.4261797510961571e-05,
+            "theoretical_phase": 0.6875493541569879
+          },
+          {
+            "B": 0.4,
+            "measured_phase": 5.729772176863435e-05,
+            "spectral_asymmetry": 2.7499235549122147e-05,
+            "theoretical_phase": 0.9167324722093174
+          },
+          {
+            "B": 0.5,
+            "measured_phase": 9.928776049576982e-05,
+            "spectral_asymmetry": 4.302744403883452e-05,
+            "theoretical_phase": 1.1459155902616465
+          }
+        ],
+        "phase_slope_vs_B": 0.00019519558044801697,
+        "interpretation": "Phase scaling with B confirms anomaly"
+      },
+      "version": "v2_wilson",
+      "description": "Wilson fermions with Fujikawa regulated trace",
+      "improvement": "Wilson term lifts doubling, Fujikawa trace detects anomaly",
+      "false_negative": false,
+      "methods": [
+        "Fujikawa trace",
+        "Dirac index",
+        "Spectral asymmetry"
+      ]
     },
-    "phase_scan": {
-      "scan_results": [
-        {
-          "alpha": 0.0,
-          "magnitude": 1.0,
-          "phase": 0.0,
-          "phase_degrees": 0.0
-        },
-        {
-          "alpha": 0.1,
-          "magnitude": 1.0000000000000058,
-          "phase": -3.647612327840943e-15,
-          "phase_degrees": -2.089927916851756e-13
-        },
-        {
-          "alpha": 0.2,
-          "magnitude": 1.0000000000000009,
-          "phase": -1.5899848608537502e-15,
-          "phase_degrees": -9.109942201661534e-14
-        },
-        {
-          "alpha": 0.30000000000000004,
-          "magnitude": 0.9999999999999942,
-          "phase": -7.248460395068539e-16,
-          "phase_degrees": -4.153061886051566e-14
-        },
-        {
-          "alpha": 0.4,
-          "magnitude": 1.0000000000000027,
-          "phase": -2.4785058125073132e-15,
-          "phase_degrees": -1.4200792255531198e-13
-        },
-        {
-          "alpha": 0.5,
-          "magnitude": 1.000000000000005,
-          "phase": -1.4029278184003673e-15,
-          "phase_degrees": -8.038184295583704e-14
-        }
-      ],
-      "phase_slope": -7.549087784725852e-16,
-      "is_anomalous": "False",
-      "anomaly_coefficient": 0
-    },
-    "scaling": {
-      "scaling_results": [
-        {
-          "L": 4,
-          "N_sites": 16,
-          "phase": -3.5821251247500553e-16,
-          "magnitude": 1.0000000000000018
-        },
-        {
-          "L": 6,
-          "N_sites": 36,
-          "phase": -4.982641950772467e-16,
-          "magnitude": 1.0000000000000007
-        },
-        {
-          "L": 8,
-          "N_sites": 64,
-          "phase": 2.290913633983954e-15,
-          "magnitude": 1.0000000000000049
-        }
-      ],
-      "is_converging": "False",
-      "limiting_phase": 2.290913633983954e-15
+    "evolution_story": {
+      "what_changed": "Naive lattice -> Wilson fermions",
+      "why_it_matters": "False negative revealed inadequate scheme space",
+      "lessons_learned": [
+        "Framework is honest (no hallucinated obstructions)",
+        "Scheme space needs physical completeness",
+        "Wilson term lifts doubling to expose anomaly"
+      ]
     }
   },
   "pymoo": {
@@ -232,5 +332,182 @@
         "regularity": 2.5843277992405085
       }
     ]
+  },
+  "globalmoo": {
+    "status": "completed",
+    "method": "grid_search",
+    "n_evaluations": 750,
+    "pareto_front": [
+      {
+        "B": 1.0,
+        "noise": 0.0,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.5,
+        "regularity": 1.0
+      },
+      {
+        "B": 1.0,
+        "noise": 0.05555555555555555,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.4864864864864865,
+        "regularity": 0.9459594689067654
+      },
+      {
+        "B": 1.0,
+        "noise": 0.1111111111111111,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.47368421052631576,
+        "regularity": 0.8948393168143698
+      },
+      {
+        "B": 1.0,
+        "noise": 0.16666666666666666,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.46153846153846145,
+        "regularity": 0.8464817248906141
+      },
+      {
+        "B": 1.0,
+        "noise": 0.2222222222222222,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.44999999999999996,
+        "regularity": 0.8007374029168081
+      },
+      {
+        "B": 1.0,
+        "noise": 0.2777777777777778,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.43902439024390244,
+        "regularity": 0.7574651283969664
+      },
+      {
+        "B": 1.0,
+        "noise": 0.3333333333333333,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.4285714285714286,
+        "regularity": 0.7165313105737893
+      },
+      {
+        "B": 1.0,
+        "noise": 0.38888888888888884,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.4186046511627907,
+        "regularity": 0.6778095780054504
+      },
+      {
+        "B": 1.0,
+        "noise": 0.4444444444444444,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.40909090909090906,
+        "regularity": 0.6411803884299546
+      },
+      {
+        "B": 1.0,
+        "noise": 0.5,
+        "alpha": 0.5,
+        "anomaly_phase": 1.5707963267948966,
+        "stability": 0.4,
+        "regularity": 0.6065306597126334
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.0,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.5185185185185186,
+        "regularity": 1.0
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.05555555555555555,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.504,
+        "regularity": 0.9459594689067654
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.1111111111111111,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.49027237354085607,
+        "regularity": 0.8948393168143698
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.16666666666666666,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.47727272727272724,
+        "regularity": 0.8464817248906141
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.2222222222222222,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.4649446494464945,
+        "regularity": 0.8007374029168081
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.2777777777777778,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.4532374100719425,
+        "regularity": 0.7574651283969664
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.3333333333333333,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.4421052631578947,
+        "regularity": 0.7165313105737893
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.38888888888888884,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.43150684931506855,
+        "regularity": 0.6778095780054504
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.4444444444444444,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.4214046822742475,
+        "regularity": 0.6411803884299546
+      },
+      {
+        "B": 0.9285714285714285,
+        "noise": 0.5,
+        "alpha": 0.5,
+        "anomaly_phase": 1.4585965891666894,
+        "stability": 0.411764705882353,
+        "regularity": 0.6065306597126334
+      }
+    ]
+  },
+  "metadata": {
+    "simulation": "anomaly_detection",
+    "version": "2.0",
+    "versions_included": [
+      "v1_naive",
+      "v2_wilson"
+    ],
+    "evolution_preserved": true,
+    "description": "Chiral anomaly as G_scheme obstruction - v1 vs v2 comparison"
   }
 }

@@ -85,6 +85,166 @@
       "M_K_star": 0.9753125,
       "E_K": -0.70109375,
       "E_K_star": -1.9178125
+    },
+    "finite_size_scaling": {
+      "L_tests": [
+        {
+          "L": 8,
+          "K_c": 0.4406867935097715,
+          "free_energy_diff": 0.0,
+          "is_invariant": "True"
+        },
+        {
+          "L": 16,
+          "K_c": 0.4406867935097715,
+          "free_energy_diff": 0.0,
+          "is_invariant": "True"
+        },
+        {
+          "L": 32,
+          "K_c": 0.4406867935097715,
+          "free_energy_diff": 0.0,
+          "is_invariant": "True"
+        }
+      ],
+      "scaling_exponent_alpha": -8.084039117231966e-15,
+      "diff_decreasing": "False",
+      "interpretation": "Finite-size effects persist"
+    },
+    "correlation_length": {
+      "correlation_length_tests": [
+        {
+          "K": 0.35,
+          "K_star": 0.5447635258469216,
+          "xi_K": 0.9178294365847465,
+          "xi_K_star": 1.4285714285714286,
+          "xi_difference": 0.5107419919866821,
+          "xi_ratio": 0.6424806056093225,
+          "duality_preserved": "False"
+        },
+        {
+          "K": 0.4,
+          "K_star": 0.4838591725683766,
+          "xi_K": 1.0333585231958013,
+          "xi_K_star": 1.25,
+          "xi_difference": 0.21664147680419865,
+          "xi_ratio": 0.8266868185566411,
+          "duality_preserved": "False"
+        },
+        {
+          "K": 0.42,
+          "K_star": 0.4619971239471989,
+          "xi_K": 1.0822578195468255,
+          "xi_K_star": 1.1904761904761905,
+          "xi_difference": 0.10821837092936493,
+          "xi_ratio": 0.9090965684193335,
+          "duality_preserved": "True"
+        },
+        {
+          "K": 0.44,
+          "K_star": 0.4413742547319628,
+          "xi_K": 1.1328254755222171,
+          "xi_K_star": 1.1363636363636362,
+          "xi_difference": 0.0035381608414191135,
+          "xi_ratio": 0.9968864184595512,
+          "duality_preserved": "True"
+        },
+        {
+          "K": 0.46,
+          "K_star": 0.42188712449952526,
+          "xi_K": 1.1851511244699353,
+          "xi_K_star": 1.0869565217391302,
+          "xi_difference": 0.09819460273080516,
+          "xi_ratio": 1.0903390345123407,
+          "duality_preserved": "True"
+        },
+        {
+          "K": 0.48,
+          "K_star": 0.40344513238052226,
+          "xi_K": 1.2393258955678983,
+          "xi_K_star": 1.0416666666666667,
+          "xi_difference": 0.19765922890123155,
+          "xi_ratio": 1.1897528597451823,
+          "duality_preserved": "False"
+        },
+        {
+          "K": 0.5,
+          "K_star": 0.3859684164526524,
+          "xi_K": 1.295442784141215,
+          "xi_K_star": 1.0,
+          "xi_difference": 0.29544278414121505,
+          "xi_ratio": 1.295442784141215,
+          "duality_preserved": "False"
+        }
+      ],
+      "interpretation": "xi(K) vs xi(K*) comparison under Kramers-Wannier",
+      "theory": "Correlation length should transform consistently under duality"
+    },
+    "external_field": {
+      "external_field_tests": [
+        {
+          "h": 0.0,
+          "K": 0.44,
+          "K_star": 0.4413742547319628,
+          "f_K": -2.4221457046778685,
+          "f_K_star": -2.432362163373315,
+          "difference": 0.010216458695446295,
+          "duality_intact": "False",
+          "expected_breaking": false
+        },
+        {
+          "h": 0.01,
+          "K": 0.44,
+          "K_star": 0.4413742547319628,
+          "f_K": -2.4314060703088733,
+          "f_K_star": -2.4416321364648934,
+          "difference": 0.010226066156020064,
+          "duality_intact": false,
+          "expected_breaking": true
+        },
+        {
+          "h": 0.05,
+          "K": 0.44,
+          "K_star": 0.4413742547319628,
+          "f_K": -2.4684475328328923,
+          "f_K_star": -2.478712028831209,
+          "difference": 0.01026449599831647,
+          "duality_intact": false,
+          "expected_breaking": true
+        },
+        {
+          "h": 0.1,
+          "K": 0.44,
+          "K_star": 0.4413742547319628,
+          "f_K": -2.514749360987916,
+          "f_K_star": -2.5250618942891028,
+          "difference": 0.010312533301186644,
+          "duality_intact": false,
+          "expected_breaking": true
+        },
+        {
+          "h": 0.2,
+          "K": 0.44,
+          "K_star": 0.4413742547319628,
+          "f_K": -2.607353017297964,
+          "f_K_star": -2.617761625204891,
+          "difference": 0.010408607906926992,
+          "duality_intact": false,
+          "expected_breaking": true
+        },
+        {
+          "h": 0.5,
+          "K": 0.44,
+          "K_star": 0.4413742547319628,
+          "f_K": -2.8851639862281075,
+          "f_K_star": -2.8958608179522556,
+          "difference": 0.010696831724148037,
+          "duality_intact": false,
+          "expected_breaking": true
+        }
+      ],
+      "interpretation": "h=0: duality holds. h!=0: duality explicitly broken.",
+      "key_insight": "External field is NOT a scheme choice - it changes physics"
     }
   },
   "pymoo": {
@@ -231,5 +391,162 @@
         "invariance": 1.820707243641872
       }
     ]
+  },
+  "globalmoo": {
+    "status": "completed",
+    "method": "grid_search",
+    "n_evaluations": 300,
+    "pareto_front": [
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.0,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 1.0,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.05555555555555555,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 0.9473684210526315,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.1111111111111111,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 0.8999999999999999,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.16666666666666666,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 0.8571428571428571,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.2222222222222222,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 0.8181818181818181,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.2777777777777778,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 0.782608695652174,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.3333333333333333,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 0.75,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.38888888888888884,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 0.72,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.4444444444444444,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 0.6923076923076923,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.4413793103448276,
+        "noise": 0.5,
+        "self_dual_distance": 0.0006925168350560562,
+        "stability": 0.6666666666666666,
+        "invariance": 0.0011468377374884153
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.0,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 1.0,
+        "invariance": 0.051362582962169945
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.05555555555555555,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 0.9473684210526315,
+        "invariance": 0.051362582962169945
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.1111111111111111,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 0.8999999999999999,
+        "invariance": 0.051362582962169945
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.16666666666666666,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 0.8571428571428571,
+        "invariance": 0.051362582962169945
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.2222222222222222,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 0.8181818181818181,
+        "invariance": 0.051362582962169945
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.2777777777777778,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 0.782608695652174,
+        "invariance": 0.051362582962169945
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.3333333333333333,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 0.75,
+        "invariance": 0.051362582962169945
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.38888888888888884,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 0.72,
+        "invariance": 0.051362582962169945
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.4444444444444444,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 0.6923076923076923,
+        "invariance": 0.051362582962169945
+      },
+      {
+        "K": 0.41034482758620694,
+        "noise": 0.5,
+        "self_dual_distance": 0.030341965923564584,
+        "stability": 0.6666666666666666,
+        "invariance": 0.051362582962169945
+      }
+    ]
+  },
+  "metadata": {
+    "simulation": "duality_invariance",
+    "version": "2.0",
+    "upgrades": [
+      "Finite-size scaling (L = 8, 16, 32, 64)",
+      "Correlation length duality test",
+      "External field breaking analysis"
+    ],
+    "description": "Kramers-Wannier duality as G_scheme morphism"
   }
 }

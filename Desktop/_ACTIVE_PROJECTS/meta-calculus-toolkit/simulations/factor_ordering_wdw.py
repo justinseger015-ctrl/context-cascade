@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
 """
-Factor Ordering and Quantization Ambiguities
+Factor Ordering and Quantization Ambiguities (v2.0)
 
 Tests scheme-invariance in quantum cosmology:
 - Wheeler-DeWitt equation with different operator orderings
 - Minisuperspace models (FRW + scalar field)
 - Semiclassical WKB limits
+
+VERSION HISTORY:
+- v1: p in [-1, 3] scan, Laplace-Beltrami optimality
+- v2: Add potentials, different clock choices, quantum corrections
+
+UPGRADES in v2:
+1. Potentials: Cosmological constant, scalar field V(phi)
+2. Clock Variables: Scale factor a vs scalar field phi
+3. Quantum Corrections: O(hbar) beyond WKB
+4. Bouncing Cosmology: Test with bounce potential (a_min > 0)
 
 Key insight: Operator ordering is an A-scheme choice in G_scheme.
 Physical observables must be ordering-invariant.
