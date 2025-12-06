@@ -1,0 +1,89 @@
+{
+  "scalar_toy": {
+    "s_range": [
+      1.0,
+      2.0
+    ],
+    "t_range": [
+      1.5,
+      2.5
+    ],
+    "n_samples": 50,
+    "max_penalty": 1.663024780298432e-16,
+    "mean_penalty": 1.6120447889252327e-17,
+    "invariance_verified": true,
+    "note": "Toy scalar amplitude - all representations identical"
+  },
+  "spinor_helicity": {
+    "n_samples": 50,
+    "max_penalty": 0.0,
+    "mean_penalty": 0.0,
+    "std_penalty": 0.0,
+    "all_invariant": true,
+    "penalty_distribution": {
+      "min": 0.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0,
+      "max": 0.0
+    }
+  },
+  "positive_geometry": {
+    "simplex_dim": 2,
+    "test_point": [
+      0.3,
+      0.3,
+      0.4
+    ],
+    "inside_simplex": true,
+    "canonical_form": 27.77777777777778
+  },
+  "detailed_example": {
+    "amplitudes": {
+      "Feynman": {
+        "real": 3.4940603374370633,
+        "imag": 2.34591339479402,
+        "abs": 4.20853505361721
+      },
+      "BCFW": {
+        "real": 3.4940603374370633,
+        "imag": 2.34591339479402,
+        "abs": 4.20853505361721
+      },
+      "Amplituhedron": {
+        "real": 3.4940603374370633,
+        "imag": 2.34591339479402,
+        "abs": 4.20853505361721
+      }
+    },
+    "comparisons": [
+      {
+        "pair": [
+          "Feynman",
+          "BCFW"
+        ],
+        "absolute_diff": 0.0,
+        "relative_diff": 0.0
+      },
+      {
+        "pair": [
+          "Feynman",
+          "Amplituhedron"
+        ],
+        "absolute_diff": 0.0,
+        "relative_diff": 0.0
+      },
+      {
+        "pair": [
+          "BCFW",
+          "Amplituhedron"
+        ],
+        "absolute_diff": 0.0,
+        "relative_diff": 0.0
+      }
+    ],
+    "max_penalty": 0.0,
+    "is_invariant": true,
+    "note": "Currently placeholder - all representations identical by construction"
+  }
+}

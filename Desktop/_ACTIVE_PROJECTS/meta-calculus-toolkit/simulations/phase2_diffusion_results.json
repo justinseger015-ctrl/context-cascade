@@ -1,0 +1,35 @@
+{
+  "triangle": {
+    "final_peak": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "final_entropy": 3.7781840463107916,
+    "mass_conserved": true
+  },
+  "params": {
+    "final_mean_ns": 0.9739336350703692,
+    "final_mean_r": 0.07336586797921268,
+    "planck_comparison": {
+      "predicted_ns": 0.9739336350703692,
+      "observed_ns": 0.9649,
+      "predicted_r": 0.07336586797921268,
+      "observed_r_limit": 0.06
+    }
+  },
+  "robustness": {
+    "triangle": {
+      "robustness_score": 10000000000.0,
+      "interpretation": "robust"
+    },
+    "params": {
+      "robustness_score": 1339.8281665774182,
+      "interpretation": "robust"
+    }
+  },
+  "moo_optimization": {
+    "triangle_pareto_size": 20,
+    "params_pareto_size": 20
+  }
+}

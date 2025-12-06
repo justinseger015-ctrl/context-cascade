@@ -1,0 +1,85 @@
+{
+  "free_scalar": {
+    "bigeometric_equivalence": {
+      "passed": false,
+      "compatibility_type": "incompatible",
+      "details": {
+        "n_tests": 20,
+        "action_pass_rate": 0.0,
+        "el_pass_rate": 0.0,
+        "obs_pass_rate": 0.0
+      }
+    },
+    "observable_invariance": {
+      "passed": true,
+      "invariant_rate": 1.0,
+      "n_tests": 10
+    },
+    "euler_lagrange_test": {
+      "n_tests": 10,
+      "solutions_found": 1.0
+    },
+    "summary": {
+      "all_tests_passed": false,
+      "total_tests": 3,
+      "note": "Property tests on toy system - not formal proofs"
+    }
+  },
+  "scheme_morphisms": {
+    "classical_to_bigeometric": {
+      "S_source": 0.20582025624497158,
+      "S_target": 654.4584634752946,
+      "difference": 654.2526432190497,
+      "equivalent": false,
+      "relative_diff": 3178.757305793772
+    },
+    "classical_to_meta": {
+      "S_source": 0.20582025624497158,
+      "S_target": 0.20582025624497158,
+      "difference": 0.0,
+      "equivalent": true,
+      "relative_diff": 0.0
+    }
+  },
+  "compatibility_hierarchy": [
+    {
+      "pair": [
+        "classical",
+        "bigeometric"
+      ],
+      "type": "incompatible",
+      "details": {
+        "n_tests": 20,
+        "action_pass_rate": 0.0,
+        "el_pass_rate": 0.0,
+        "obs_pass_rate": 0.0
+      }
+    },
+    {
+      "pair": [
+        "classical",
+        "meta"
+      ],
+      "type": "strong",
+      "details": {
+        "n_tests": 20,
+        "action_pass_rate": 1.0,
+        "el_pass_rate": 1.0,
+        "obs_pass_rate": 1.0
+      }
+    },
+    {
+      "pair": [
+        "bigeometric",
+        "meta"
+      ],
+      "type": "strong",
+      "details": {
+        "n_tests": 20,
+        "action_pass_rate": 1.0,
+        "el_pass_rate": 1.0,
+        "obs_pass_rate": 1.0
+      }
+    }
+  ]
+}
