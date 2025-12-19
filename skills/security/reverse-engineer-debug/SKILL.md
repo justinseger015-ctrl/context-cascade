@@ -2,10 +2,67 @@
 skill: reverse-engineer-debug
 description: Perform systematic reverse engineering root cause analysis to debug issues and find real underlying problems
 tags: [debugging, rca, root-cause-analysis, reverse-engineering, investigation, forensics]
-version: 1.0.0
+version: 1.1.0
+cognitive_frame:
+  primary: evidential
+  secondary: morphological
+  rationale: "Root cause analysis requires evidence-backed causal chains (Turkish evidential) and systematic symptom decomposition using 5-Whys (Arabic morphological)"
 ---
 
 # Reverse Engineer Debug Skill
+
+## Kanitsal Kok Neden Analizi (Evidential Root Cause Analysis)
+
+Every causal link in the investigation MUST have supporting evidence. No speculation without proof.
+
+**Evidence Requirements**:
+- **DOGRUDAN** (Direct): Direct observation, log entry, stack trace, metric
+- **CIKARIM** (Inference): Pattern-based inference from multiple signals
+- **KORELASYON** (Correlation): Time-based correlation (not causation, flag as hypothesis)
+
+**Evidential Investigation Protocol**:
+```markdown
+WHY-1: [immediate cause]
+  - EVIDENCE: [log entry | stack trace | metric | observation]
+  - CONFIDENCE: [0.0-1.0]
+  - TYPE: DOGRUDAN | CIKARIM | KORELASYON
+
+WHY-2: [deeper cause]
+  - EVIDENCE: [code inspection | config analysis | dependency check]
+  - CONFIDENCE: [0.0-1.0]
+  - TYPE: DOGRUDAN | CIKARIM | KORELASYON
+
+WHY-N: [ROOT CAUSE]
+  - EVIDENCE: [comprehensive analysis supporting root diagnosis]
+  - CONFIDENCE: [0.0-1.0]
+  - TYPE: DOGRUDAN | CIKARIM
+```
+
+## Al-Itar al-Sarfi li-Tahlil al-Sabab (Morphological Decomposition)
+
+Symptoms compose into causes through systematic decomposition. Each "Why?" peels away one layer.
+
+**Morphological Structure**:
+```
+SYMPTOM (Observable Error)
+  |
+  +-- WHY-1 (Technical Layer: immediate code failure)
+      |
+      +-- WHY-2 (Design Layer: why code was written this way)
+          |
+          +-- WHY-3 (Architectural Layer: why design exists)
+              |
+              +-- WHY-4 (Organizational Layer: process/culture)
+                  |
+                  +-- WHY-5 (ROOT: foundational assumption or requirement)
+```
+
+**NASA 5-Whys Integration**:
+1. **Technical**: Code-level failure (syntax, runtime, logic)
+2. **Systemic**: Design pattern or implementation choice
+3. **Architectural**: System structure or coupling decisions
+4. **Process**: Development workflow or testing gaps
+5. **Foundational**: Core requirements or assumptions
 
 ## Purpose
 This skill performs deep reverse engineering root cause analysis (RCA) to debug complex issues, trace problems to their source, and identify the real underlying causes rather than surface symptoms.
@@ -58,14 +115,81 @@ The skill works best when you provide:
 
 ## Output
 
-The agent provides a comprehensive RCA report including:
-1. **Executive Summary**: Quick overview of problem and root cause
-2. **Symptom Analysis**: All observable symptoms documented
-3. **Investigation Trail**: Hypotheses tested and evidence collected
-4. **Root Cause**: The real problem with technical explanation
-5. **Solution Design**: How to fix it properly (not just workarounds)
-6. **Validation Plan**: How to verify the fix works
-7. **Prevention Strategy**: How to avoid this in the future
+The agent provides a comprehensive evidential RCA report following this template:
+
+```markdown
+### Evidential Root Cause Analysis Report
+
+**SYMPTOM**: [Observable error or behavior]
+  - Evidence: [reproduction steps with logs/metrics]
+  - Status: [VERIFIED | INTERMITTENT | NOT_REPRODUCIBLE]
+
+**WHY-CHAIN** (Morphological Decomposition):
+- **WHY-1** (Technical): [immediate cause]
+  - EVIDENCE: [log entry | stack trace | error message]
+  - TYPE: DOGRUDAN (direct observation)
+  - CONFIDENCE: [0.0-1.0]
+
+- **WHY-2** (Systemic): [design/implementation cause]
+  - EVIDENCE: [code inspection | design pattern analysis]
+  - TYPE: CIKARIM (inference from code)
+  - CONFIDENCE: [0.0-1.0]
+
+- **WHY-3** (Architectural): [system structure cause]
+  - EVIDENCE: [dependency analysis | coupling metrics]
+  - TYPE: DOGRUDAN | CIKARIM
+  - CONFIDENCE: [0.0-1.0]
+
+- **WHY-4** (Process): [workflow/testing gap]
+  - EVIDENCE: [missing tests | review gaps]
+  - TYPE: CIKARIM
+  - CONFIDENCE: [0.0-1.0]
+
+- **ROOT CAUSE** (Foundational): [true root]
+  - EVIDENCE: [comprehensive analysis]
+  - TYPE: DOGRUDAN | CIKARIM
+  - CONFIDENCE: [0.0-1.0]
+
+**HYPOTHESES TESTED**:
+1. **HIPOTEZ-1**: [hypothesis]
+   - Evidence For: [supporting evidence]
+   - Evidence Against: [counter-evidence]
+   - Status: [VERIFIED | REJECTED]
+   - Confidence: [0.0-1.0]
+
+2. **HIPOTEZ-2**: [hypothesis]
+   - Evidence For: [supporting evidence]
+   - Evidence Against: [counter-evidence]
+   - Status: [VERIFIED | REJECTED]
+   - Confidence: [0.0-1.0]
+
+**SOLUTION DESIGN**:
+- Approach: [fix strategy addressing root cause]
+- Files: [specific locations to change]
+- Rationale: [why this addresses the ROOT, not symptoms]
+
+**VALIDATION PLAN** (DOGRULAMA):
+- Tests Before: [expected failures with evidence]
+- Tests After: [expected passes with evidence]
+- Verification: [how to prove fix worked]
+
+**PREVENTION STRATEGY**:
+- Root Cause Pattern: [category for future reference]
+- Pre-mortem Question: [what-if for future planning]
+- Safeguards: [tests/checks to prevent recurrence]
+
+**CONFIDENCE SCORE**: [0.0-1.0]
+- Based on: [evidence quality | reproduction reliability | hypothesis validation]
+```
+
+Standard sections included:
+1. **Executive Summary**: Quick overview with confidence score
+2. **Symptom Analysis**: Evidence-backed observations
+3. **Investigation Trail**: All hypotheses with evidence for/against
+4. **Root Cause**: 5-Whys chain with confidence at each level
+5. **Solution Design**: Fix addressing root, not symptoms
+6. **Validation Plan**: Evidence-based verification
+7. **Prevention Strategy**: Pattern extraction for Loop 1 feedback
 8. **Code References**: Specific file:line locations
 
 ## Examples
@@ -209,12 +333,37 @@ Provide more details about:
 
 ## Success Indicators
 
-✅ Root cause clearly identified with evidence
-✅ Solution addresses cause, not symptoms
-✅ Validation plan confirms fix works
-✅ Prevention strategy prevents recurrence
-✅ Investigation process documented
+✅ Root cause clearly identified with evidence (all WHY levels have DOGRUDAN or CIKARIM support)
+✅ Confidence scores >= 0.7 for each WHY level
+✅ All hypotheses tested with evidence for/against
+✅ Solution addresses ROOT cause, not symptoms (verified by WHY-5 level)
+✅ Validation plan has DOGRUDAN evidence requirements
+✅ Prevention strategy includes pre-mortem question for Loop 1
+✅ Investigation process fully documented with evidence chain
 
 ---
 
-**Remember**: This skill finds THE REAL PROBLEM, not just surface symptoms. It's designed for thorough, systematic investigation when you need to truly understand what went wrong and how to fix it properly.
+**Remember**: This skill finds THE REAL PROBLEM through evidential reasoning and morphological decomposition. Every causal claim requires evidence. Every symptom decomposes through 5-Whys until the root is reached. No speculation without proof. No fixes without addressing the foundational cause.
+
+## Changelog
+
+### v1.1.0 (2025-12-19)
+- Applied cognitive lensing with evidential (Turkish) and morphological (Arabic) frames
+- Added "Kanitsal Kok Neden Analizi" section requiring evidence for all causal claims
+- Added "Al-Itar al-Sarfi li-Tahlil al-Sabab" section for systematic symptom decomposition
+- Introduced evidential RCA output template with:
+  - Why-Chain decomposition (WHY-1 through ROOT with evidence types and confidence)
+  - Hypothesis testing protocol with evidence for/against
+  - Evidence type classification (DOGRUDAN, CIKARIM, KORELASYON)
+  - Confidence scoring at each level
+- Integrated NASA 5-Whys methodology (technical -> systemic -> architectural -> process -> foundational)
+- Enhanced output template with evidence requirements throughout
+- Added success criteria requiring evidence-backed causal chains
+- Enhanced cognitive_frame metadata in YAML frontmatter
+
+### v1.0.0 (Initial Release)
+- Systematic reverse engineering root cause analysis
+- Deep investigation for complex issues
+- Hypothesis generation and testing
+- Solution design and validation planning
+- Prevention strategies

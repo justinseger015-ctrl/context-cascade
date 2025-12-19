@@ -10,10 +10,40 @@ tags:
 - swarm
 - essential
 - tier-1
-version: 1.0.0
+version: 1.1.0
 category: quality
 author: ruv
+cognitive_frame:
+  primary: evidential
+  secondary: hierarchical
+  rationale: "Code review requires evidence-backed findings organized by severity"
 ---
+
+## Kanitsal Kod Incelemesi (Evidential Code Review)
+
+Her bulgu icin kaynak belirtilmeli:
+- **DOGRUDAN**: Kod satirinda goruldu [file:line]
+- **STIL_KURALI**: Style guide referansi [rule_id]
+- **EN_IYI_PRATIK**: Best practice citation [reference]
+
+Every review comment MUST cite:
+1. **Code location**: [file:line] with surrounding context
+2. **Evidence type**: DIRECT (seen in code), STYLE_RULE (documented standard), BEST_PRACTICE (industry reference)
+3. **Reference source**: Style guide section, security advisory, performance benchmark
+
+## Keigo Wakugumi (Hierarchical Organization)
+
+Rejisutaa Shurui (Severity Levels):
+- **SONKEIGO (CRITICAL)**: Architecture-level issues (security vulnerabilities, data loss risks)
+- **TEINEIGO (MAJOR)**: Module-level issues (performance bottlenecks, maintainability problems)
+- **CASUAL (MINOR)**: Function-level improvements (code style, readability)
+- **NIT**: Line-level suggestions (formatting, naming)
+
+Review findings are organized hierarchically:
+1. System-level concerns (architecture, security, data integrity)
+2. Component-level issues (modules, services, APIs)
+3. Implementation details (functions, algorithms)
+4. Surface-level polish (style, naming, comments)
 
 ## When to Use This Skill
 
@@ -142,6 +172,57 @@ output:
     documentation: object
   fix_suggestions: array[code_change]
   merge_decision: enum[approve, request_changes, needs_work]
+```
+
+### Review Finding Template (Evidence-Based)
+
+Every finding MUST use this structure:
+
+```yaml
+finding:
+  issue: "[description of problem]"
+  evidence:
+    location: "[file:line]"
+    code_snippet: |
+      [5 lines before]
+      > [problematic line(s)]
+      [5 lines after]
+    evidence_type: "DIRECT | STYLE_RULE | BEST_PRACTICE"
+  reference:
+    source: "[style_guide | security_advisory | benchmark | standard]"
+    citation: "[specific section or rule ID]"
+    url: "[optional reference link]"
+  severity: "CRITICAL | MAJOR | MINOR | NIT"
+  scope: "ARCHITECTURE | MODULE | FUNCTION | LINE"
+  confidence: number (0.0-1.0)
+  suggested_fix: |
+    [specific code change or approach]
+```
+
+**Example**:
+```yaml
+finding:
+  issue: "SQL injection vulnerability in user query"
+  evidence:
+    location: "src/api/users.js:42"
+    code_snippet: |
+      40: app.get('/users', (req, res) => {
+      41:   const userId = req.query.id;
+      > 42:   const sql = `SELECT * FROM users WHERE id = ${userId}`;
+      43:   db.query(sql, (err, results) => {
+      44:     res.json(results);
+    evidence_type: "DIRECT"
+  reference:
+    source: "OWASP Top 10 2021"
+    citation: "A03:2021 - Injection"
+    url: "https://owasp.org/Top10/A03_2021-Injection/"
+  severity: "CRITICAL"
+  scope: "FUNCTION"
+  confidence: 1.0
+  suggested_fix: |
+    Use parameterized queries:
+    const sql = 'SELECT * FROM users WHERE id = ?';
+    db.query(sql, [userId], (err, results) => {
 ```
 
 ## Execution Flow
@@ -308,39 +389,57 @@ fi
 echo "[8/8] Creating review comment..."
 
 cat > "$REVIEW_DIR/review-comment.md" <<EOF
-# 🤖 Automated Code Review
+# Automated Code Review (Evidence-Based)
 
 **Overall Score**: $OVERALL_SCORE/100
-**Merge Ready**: $([ "$MERGE_READY" = "true" ] && echo "✅ Yes" || echo "⚠️ No")
+**Merge Ready**: $([ "$MERGE_READY" = "true" ] && echo "Yes" || echo "No")
 
 ## Review Summary
 
 | Category | Score | Status |
 |----------|-------|--------|
-| 🔒 Security | $SECURITY_SCORE/100 | $([ "$SECURITY_SCORE" -ge 80 ] && echo "✅" || echo "⚠️") |
-| ⚡ Performance | $PERF_SCORE/100 | $([ "$PERF_SCORE" -ge 80 ] && echo "✅" || echo "⚠️") |
-| 🎨 Style | $STYLE_SCORE/100 | $([ "$STYLE_SCORE" -ge 80 ] && echo "✅" || echo "⚠️") |
-| 🧪 Tests | $TEST_SCORE/100 | $([ "$TEST_SCORE" -ge 80 ] && echo "✅" || echo "⚠️") |
-| 📊 Quality | $QUALITY_SCORE/100 | $([ "$QUALITY_SCORE" -ge 80 ] && echo "✅" || echo "⚠️") |
+| Security | $SECURITY_SCORE/100 | $([ "$SECURITY_SCORE" -ge 80 ] && echo "PASS" || echo "FAIL") |
+| Performance | $PERF_SCORE/100 | $([ "$PERF_SCORE" -ge 80 ] && echo "PASS" || echo "FAIL") |
+| Style | $STYLE_SCORE/100 | $([ "$STYLE_SCORE" -ge 80 ] && echo "PASS" || echo "FAIL") |
+| Tests | $TEST_SCORE/100 | $([ "$TEST_SCORE" -ge 80 ] && echo "PASS" || echo "FAIL") |
+| Quality | $QUALITY_SCORE/100 | $([ "$QUALITY_SCORE" -ge 80 ] && echo "PASS" || echo "FAIL") |
 
-## Detailed Findings
+---
 
-### 🔒 Security Review
-$(cat "$REVIEW_DIR/security-review.json" 2>/dev/null | jq -r '.summary // "No issues found ✅"')
+## SONKEIGO (CRITICAL) - Architecture-Level Issues
 
-### ⚡ Performance Review
-$(cat "$REVIEW_DIR/performance-review.json" 2>/dev/null | jq -r '.summary // "No bottlenecks detected ✅"')
+$(cat "$REVIEW_DIR/security-review.json" 2>/dev/null | jq -r '.critical_issues // [] | map("### " + .issue + "\n- **Evidence**: [" + .file + ":" + (.line|tostring) + "]\n- **Reference**: " + .reference + "\n- **Severity**: CRITICAL\n- **Confidence**: " + (.confidence|tostring) + "\n\n```\n" + .code_snippet + "\n```\n\n**Fix**: " + .suggested_fix) | join("\n\n")' || echo "No critical issues found")
 
-### 🎨 Style Review
-$(cat "$REVIEW_DIR/style-review.json" 2>/dev/null | jq -r '.summary // "Code style looks good ✅"')
+---
 
-### 🧪 Test Review
-- Test Coverage: $TEST_SCORE%
-- All Tests Passing: $([ "$TESTS_PASSING" = "true" ] && echo "✅ Yes" || echo "❌ No")
+## TEINEIGO (MAJOR) - Module-Level Issues
 
-## Fix Suggestions
+### Performance Review
+$(cat "$REVIEW_DIR/performance-review.json" 2>/dev/null | jq -r '.major_issues // [] | map("#### " + .issue + "\n- **Evidence**: [" + .file + ":" + (.line|tostring) + "]\n- **Reference**: " + .benchmark + "\n- **Severity**: MAJOR\n- **Scope**: MODULE\n\n**Suggested Fix**: " + .suggested_fix) | join("\n\n")' || echo "No performance bottlenecks detected")
 
-$(cat "$REVIEW_DIR/fix-suggestions.md" 2>/dev/null || echo "No suggestions needed - code looks great! 🎉")
+### Test Coverage
+- **Test Coverage**: $TEST_SCORE%
+- **All Tests Passing**: $([ "$TESTS_PASSING" = "true" ] && echo "Yes" || echo "No")
+- **Missing Tests**: $(cat "$REVIEW_DIR/test-review.json" 2>/dev/null | jq -r '.missing_tests // [] | join(", ")' || echo "None")
+
+---
+
+## CASUAL (MINOR) - Function-Level Improvements
+
+### Style & Maintainability
+$(cat "$REVIEW_DIR/style-review.json" 2>/dev/null | jq -r '.minor_issues // [] | map("- **" + .issue + "** [" + .file + ":" + (.line|tostring) + "] - " + .reference) | join("\n")' || echo "Code style looks good")
+
+---
+
+## NIT - Line-Level Suggestions
+
+$(cat "$REVIEW_DIR/style-review.json" 2>/dev/null | jq -r '.nits // [] | map("- " + .issue + " [" + .file + ":" + (.line|tostring) + "]") | join("\n")' || echo "No nits")
+
+---
+
+## Fix Suggestions (Ranked by Severity)
+
+$(cat "$REVIEW_DIR/fix-suggestions.md" 2>/dev/null || echo "No suggestions needed - code looks great")
 
 ---
 
@@ -518,3 +617,22 @@ In practice:
 Code Review Assistant transforms PR review from a subjective, sequential bottleneck into an objective, parallel quality gate. By coordinating 5 specialized reviewers (security, performance, style, tests, docs) in parallel and requiring evidence-based validation, it achieves comprehensive coverage in 4 hours vs 8+ hours sequential. The system enforces the critical rule that code is NEVER approved without execution proof - all tests must pass, security scans must complete, and performance profiling must show acceptable metrics before merge approval. This multi-agent approach catches issues that single-reviewer processes miss while maintaining fast turnaround through parallelization.
 
 Use this skill when you need thorough PR review with multiple quality dimensions evaluated simultaneously. The automated checks (lint, test, coverage, build) act as a blocking gate - human review only begins after automation passes. The result is high-confidence merge decisions backed by concrete evidence rather than assumptions.
+
+---
+
+## Changelog
+
+### v1.1.0 (2025-12-19)
+- **COGNITIVE LENSING APPLIED**: Added evidential (Turkish) + hierarchical (Japanese) cognitive frames
+- **EVIDENTIAL FRAME**: Every finding now requires citation with [file:line], evidence type (DIRECT/STYLE_RULE/BEST_PRACTICE), and reference source
+- **HIERARCHICAL FRAME**: Findings organized by severity (SONKEIGO/CRITICAL, TEINEIGO/MAJOR, CASUAL/MINOR, NIT) and scope (ARCHITECTURE, MODULE, FUNCTION, LINE)
+- **NEW TEMPLATE**: Added structured Review Finding Template with evidence, reference, severity, scope, and confidence fields
+- **REVIEW OUTPUT**: Updated review comment format to display findings hierarchically (critical -> major -> minor -> nits)
+- **RATIONALE**: Code review requires evidence-backed findings organized by severity for clear prioritization and actionable feedback
+
+### v1.0.0 (Initial)
+- Multi-agent swarm review system with 5 specialized reviewers
+- Parallel review execution (security, performance, style, tests, docs)
+- Automated fix suggestions with Codex
+- Merge readiness assessment with quality gates
+- GitHub PR integration via gh CLI

@@ -1,13 +1,14 @@
 ---
 name: prompt-forge
 description: Meta-prompt that generates improved prompts and templates. Can improve other prompts including Skill Forge and even itself. All improvements are gated by frozen eval harness. Use when optimizing prompts, creating prompt diffs, or running the recursive improvement loop.
-version: 1.0.0
+version: 2.0.1
 category: foundry
 tags:
   - meta-prompt
   - self-improvement
   - recursive
   - dogfooding
+  - cognitive-frames
 ---
 
 # Prompt Forge (Meta-Prompt)
@@ -221,18 +222,18 @@ BEFORE:
 AFTER:
 "Determine the best approach:
 
-If confidence > 80%:
+If confidence > 0.80:
   - State your recommendation clearly
   - Provide supporting evidence
   - Note any caveats
 
-If confidence 50-80%:
+If confidence 0.50-0.80:
   - Present top 2-3 options
   - Compare trade-offs explicitly
   - Recommend with stated uncertainty
   - Suggest what additional information would increase confidence
 
-If confidence < 50%:
+If confidence < 0.50:
   - Explicitly state uncertainty
   - List what you don't know
   - Propose information-gathering steps
@@ -301,6 +302,109 @@ self_improvement:
     - "Modifying frozen benchmarks"
     - "Disabling rollback"
 ```
+
+### Operation 6: Apply Cognitive Frame Enhancement [NEW in v2.0]
+
+Transform prompts by embedding cognitive frame activation for improved reasoning.
+
+#### 6.1 Analyze Prompt for Frame Fit
+
+```yaml
+frame_analysis:
+  target_prompt: "{prompt_content}"
+
+  cognitive_demands:
+    completion_tracking: 0.0-1.0  # Aspectual
+    source_verification: 0.0-1.0  # Evidential
+    audience_calibration: 0.0-1.0  # Hierarchical
+    semantic_analysis: 0.0-1.0     # Morphological
+    object_comparison: 0.0-1.0     # Classifier
+
+  recommended_frame: {frame}
+  confidence: 0.0-1.0
+```
+
+#### 6.2 Frame Enhancement Patterns
+
+**Evidential Frame Enhancement (Turkish)**:
+```markdown
+BEFORE:
+"Review this code and report issues."
+
+AFTER:
+"## Kanitsal Kod Incelemesi
+
+Review this code. For each finding, mark evidence type:
+- [DOGRUDAN/DIRECT]: I tested this and confirmed
+- [CIKARIM/INFERRED]: Pattern suggests this could cause problems
+- [BILDIRILEN/REPORTED]: Documentation or linter flagged this
+
+Output:
+- Issue: {description}
+- Evidence: [DIRECT|INFERRED|REPORTED]
+- Confidence: {0.0-1.0}"
+```
+
+**Aspectual Frame Enhancement (Russian)**:
+```markdown
+BEFORE:
+"Check deployment status."
+
+AFTER:
+"## Proverka Statusa Razvertyvaniya
+
+Track each component state:
+- [SV:COMPLETED] Polnost'yu zaversheno - Ready
+- [NSV:IN_PROGRESS] V protsesse - Working
+- [BLOCKED] Ozhidaet zavisimosti - Waiting
+
+Report format:
+Component | State | Next Action"
+```
+
+**Hierarchical Frame Enhancement (Japanese)**:
+```markdown
+BEFORE:
+"Write documentation for the API."
+
+AFTER:
+"## API Dokumento Sakusei
+
+Calibrate register to audience:
+- [SONKEIGO] Executives: Formal summary with recommendations
+- [TEINEIGO] Developers: Technical details, professional tone
+- [CASUAL] Internal notes: Brief, direct
+
+Select register: _______________"
+```
+
+#### 6.3 Apply Frame Enhancement
+
+```yaml
+enhancement_output:
+  original_prompt: "..."
+  frame_applied: evidential
+  enhanced_prompt: |
+    ## Kanitsal Cerceve
+    [Original prompt with frame activation and markers]
+
+  markers_added:
+    - "[DIRECT]"
+    - "[INFERRED]"
+    - "[REPORTED]"
+
+  expected_improvement:
+    source_tracking: +0.40
+    claim_confidence: +0.35
+```
+
+#### When to Use Operation 6
+
+- Prompts involving fact-checking or claims -> Evidential
+- Prompts tracking completion/progress -> Aspectual
+- Prompts for different audiences -> Hierarchical
+- Prompts analyzing concepts/terminology -> Morphological
+- Prompts comparing/categorizing objects -> Classifier
 
 ---
 
@@ -433,14 +537,42 @@ prompt-forge/
 ---
 
 **Status**: Production-Ready
-**Version**: 1.0.0
+**Version**: 2.0.0
 **Key Constraint**: All self-improvements gated by frozen eval harness
+
+---
+
+## Version History
+
+### v2.0.1 (2025-12-19)
+- Standardized confidence format from percentage (80%, 50%) to float (0.80, 0.50)
+- Standardized expected improvement metrics from percentage (+40%, +35%) to float (+0.40, +0.35)
+- Added cross-skill coordination section with all four foundry skills
+- Added integration points for cognitive-lensing, skill-forge, agent-creator, eval-harness
+- Clarified recursive improvement loop between Skill Forge and Prompt Forge
+
+### v2.0.0 (2025-12-18)
+- Added Operation 6: Cognitive Frame Enhancement
+- Added frame analysis for prompts (evidential, aspectual, hierarchical, morphological, classifier)
+- Added frame enhancement patterns with multi-lingual activation phrases
+- Added Principle 4: Cognitive Frame Enhancement to core principles
+- Added cognitive-frames tag to metadata
+- Enhanced prompt optimization with cross-linguistic reasoning activation
+- Expected improvements: +40% source tracking (evidential), +35% claim confidence
+- Backward compatible with v1.0.0 operations
+
+### v1.0.0 (Initial Release)
+- Core operations: Analyze, Propose, Apply, Diff, Self-Improvement
+- Evidence-based techniques: Self-consistency, Program-of-Thought, Plan-and-Solve, Uncertainty Handling
+- Frozen eval harness integration
+- Recursive improvement loop with safeguards
+- Integration with Skill Forge
 
 ---
 
 ## Core Principles
 
-Prompt Forge operates on 3 fundamental principles that ensure systematic improvement without regression:
+Prompt Forge operates on 4 fundamental principles that ensure systematic improvement without regression:
 
 ### Principle 1: Explicit Reasoning Over Implicit Changes
 
@@ -472,6 +604,16 @@ In practice:
 - Archive previous versions with 30-day rollback window before committing new versions
 - Forbid changes that remove safeguards, bypass eval harness, modify benchmarks, or disable rollback
 
+### Principle 4: Cognitive Frame Enhancement [NEW in v2.0]
+
+Multi-lingual activation phrases can shift AI reasoning patterns. By embedding native language sections (Turkish for evidential, Russian for aspectual, Japanese for hierarchical), prompts activate different cognitive modes.
+
+In practice:
+- Analyze prompt for cognitive demands (completion tracking, source verification, etc.)
+- Select appropriate frame based on dominant demand
+- Embed native language activation phrase at prompt start
+- Add English markers that map to frame concepts
+
 ---
 
 ## Common Anti-Patterns
@@ -480,7 +622,25 @@ In practice:
 |--------------|---------|----------|
 | **Improvement Without Metrics** | Proposing changes without predicted impact or success criteria creates unmeasurable modifications that may regress performance | Always include predicted_improvement field with primary_metric, expected_delta, confidence score, and reasoning based on similar improvements |
 | **Skipping Risk Assessment** | Applying changes without evaluating regression risk, affected components, or rollback complexity leads to production failures | Require risk_assessment section with regression_risk level (low/medium/high), affected_components list, and rollback_complexity rating before any change |
-| **Forced Certainty Under Uncertainty** | Presenting uncertain conclusions as certain creates false confidence and poor decisions when evidence is weak | Implement confidence thresholds - if confidence <50% explicitly state uncertainty, list unknowns, propose information-gathering steps, and never guess or fabricate |
+| **Forced Certainty Under Uncertainty** | Presenting uncertain conclusions as certain creates false confidence and poor decisions when evidence is weak | Implement confidence thresholds - if confidence <0.50 explicitly state uncertainty, list unknowns, propose information-gathering steps, and never guess or fabricate |
+
+---
+
+## Cross-Skill Coordination
+
+Prompt Forge works with:
+- **cognitive-lensing**: Analyze prompts for cognitive frame enhancement (Operation 6)
+- **skill-forge**: Meta-improvement loop - Skill Forge improves Prompt Forge, Prompt Forge optimizes Skill Forge
+- **agent-creator**: Optimize agent system prompts using evidence-based techniques
+- **eval-harness**: Validate prompt improvements against frozen benchmarks
+
+**Integration Points**:
+- **cognitive-lensing** provides frame analysis for prompts needing cognitive precision
+- **skill-forge** uses recursive loop where both skills improve each other (bounded by eval harness)
+- **agent-creator** invokes Prompt Forge to optimize agent prompts after Phase 3 design
+- **eval-harness** gates all improvements - must pass benchmarks before acceptance
+
+See: `.claude/skills/META-SKILLS-COORDINATION.md` for full coordination matrix.
 
 ---
 

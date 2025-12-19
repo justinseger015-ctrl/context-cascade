@@ -1,7 +1,7 @@
 ---
 name: eval-harness
-description: Frozen evaluation harness that gates all self-improvement changes. Contains benchmark suites, regression tests, and human approval gates. CRITICAL - This skill does NOT self-improve. Only manually expanded.
-version: 1.0.0
+description: Frozen evaluation harness that gates all self-improvement changes. Contains benchmark suites, regression tests, and human approval gates. Evaluates cognitive frame application and cross-lingual integration quality. CRITICAL - This skill does NOT self-improve. Only manually expanded.
+version: 1.1.0
 category: foundry
 tags:
   - evaluation
@@ -9,6 +9,8 @@ tags:
   - regression
   - frozen
   - gate
+  - cognitive-frames
+  - cross-lingual
 ---
 
 # Eval Harness (Frozen Evaluation)
@@ -166,6 +168,126 @@ benchmark:
     validation_completeness: 0.75
 ```
 
+### Suite 4: Cognitive Frame Quality
+
+**ID**: `cognitive-frame-benchmark-v1`
+**Purpose**: Evaluate quality of cognitive frame application
+
+```yaml
+benchmark:
+  id: cognitive-frame-benchmark-v1
+  version: 1.0.0
+  last_modified: "2025-12-18"
+  frozen: true
+
+  tasks:
+    - id: "cf-001"
+      name: "Evidential Frame Application"
+      input: "Apply evidential frame to code review task"
+      expected_qualities:
+        - has_source_markers
+        - has_confidence_levels
+        - has_multi_lingual_activation
+        - markers_consistently_applied
+      scoring:
+        marker_coverage: 0.0-1.0
+        activation_quality: 0.0-1.0
+        output_improvement: 0.0-1.0
+
+    - id: "cf-002"
+      name: "Aspectual Frame Application"
+      input: "Apply aspectual frame to deployment tracking"
+      expected_qualities:
+        - has_completion_markers
+        - has_progress_states
+        - has_multi_lingual_activation
+        - states_accurately_tracked
+      scoring:
+        marker_coverage: 0.0-1.0
+        activation_quality: 0.0-1.0
+        tracking_accuracy: 0.0-1.0
+
+    - id: "cf-003"
+      name: "Frame Selection Accuracy"
+      input: "Given task, select appropriate frame"
+      expected_qualities:
+        - goal_analysis_complete
+        - checklist_followed
+        - frame_matches_task_type
+        - rationale_documented
+      scoring:
+        selection_accuracy: 0.0-1.0
+        rationale_quality: 0.0-1.0
+
+  minimum_passing:
+    average_marker_coverage: 0.75
+    average_activation_quality: 0.7
+    selection_accuracy: 0.8
+```
+
+### Suite 5: Cross-Lingual Integration Quality
+
+**ID**: `cross-lingual-benchmark-v1`
+**Purpose**: Evaluate quality of cross-lingual cognitive integration
+
+```yaml
+benchmark:
+  id: cross-lingual-benchmark-v1
+  version: 1.0.0
+  last_modified: "2025-12-18"
+  frozen: true
+
+  tasks:
+    - id: "cl-001"
+      name: "Turkish Evidential Integration"
+      input: "Generate evidential markers with Turkish activation"
+      expected_qualities:
+        - turkish_text_grammatically_correct
+        - markers_map_to_turkish_concepts
+        - english_output_incorporates_markers
+      scoring:
+        linguistic_quality: 0.0-1.0
+        integration_quality: 0.0-1.0
+
+    - id: "cl-002"
+      name: "Russian Aspectual Integration"
+      input: "Generate aspectual markers with Russian activation"
+      expected_qualities:
+        - russian_text_grammatically_correct
+        - sv_nsv_distinction_applied
+        - english_output_tracks_completion
+      scoring:
+        linguistic_quality: 0.0-1.0
+        integration_quality: 0.0-1.0
+
+    - id: "cl-003"
+      name: "Japanese Hierarchical Integration"
+      input: "Generate audience-calibrated output with Japanese keigo activation"
+      expected_qualities:
+        - japanese_register_terms_correct
+        - audience_calibration_applied
+        - english_output_reflects_register
+      scoring:
+        linguistic_quality: 0.0-1.0
+        integration_quality: 0.0-1.0
+
+    - id: "cl-004"
+      name: "Multi-Frame Composition"
+      input: "Compose two frames for complex task"
+      expected_qualities:
+        - both_frames_activated
+        - no_marker_conflicts
+        - output_benefits_from_both
+      scoring:
+        composition_quality: 0.0-1.0
+        coherence: 0.0-1.0
+
+  minimum_passing:
+    average_linguistic_quality: 0.7
+    average_integration_quality: 0.75
+    composition_quality: 0.7
+```
+
 ---
 
 ## Regression Tests
@@ -248,6 +370,56 @@ regression_suite:
       name: "Test cases generated"
       action: "Generate skill"
       expected: "Output includes test cases"
+      must_pass: true
+
+  failure_threshold: 0
+```
+
+### Regression Suite: Cognitive Lensing
+
+**ID**: `cognitive-lensing-regression-v1`
+
+```yaml
+regression_suite:
+  id: cognitive-lensing-regression-v1
+  version: 1.0.0
+  frozen: true
+
+  tests:
+    - id: "clr-001"
+      name: "Goal analysis preserved"
+      action: "Run frame selection on task"
+      expected: "All three goal orders analyzed (1st, 2nd, 3rd)"
+      must_pass: true
+
+    - id: "clr-002"
+      name: "Checklist followed"
+      action: "Select frame for ambiguous task"
+      expected: "Checklist completed before selection"
+      must_pass: true
+
+    - id: "clr-003"
+      name: "Multi-lingual activation included"
+      action: "Apply frame to prompt"
+      expected: "Native language activation section present"
+      must_pass: true
+
+    - id: "clr-004"
+      name: "English output maintained"
+      action: "Generate frame-enhanced output"
+      expected: "Final output is in English with markers"
+      must_pass: true
+
+    - id: "clr-005"
+      name: "Frame selection logged"
+      action: "Complete frame selection"
+      expected: "Selection stored in memory-mcp with WHO/WHEN/PROJECT/WHY"
+      must_pass: true
+
+    - id: "clr-006"
+      name: "Backward compatibility"
+      action: "Run prompt without frame selection"
+      expected: "Standard processing works when frame not selected"
       must_pass: true
 
   failure_threshold: 0
@@ -453,8 +625,27 @@ expansion_request:
 
 ---
 
+## Version History
+
+### v1.1.0 (2025-12-18)
+- Added Suite 4: Cognitive Frame Quality (cognitive-frame-benchmark-v1)
+- Added Suite 5: Cross-Lingual Integration Quality (cross-lingual-benchmark-v1)
+- Added Regression Suite: Cognitive Lensing (cognitive-lensing-regression-v1)
+- Added cognitive-frames and cross-lingual tags
+- Expanded scope to evaluate cross-lingual cognitive enhancement
+- NOTE: Expansion approved per protocol - does not invalidate existing tests
+
+### v1.0.0 (Initial Release)
+- Core benchmark suites: Prompt Generation, Skill Generation, Expertise File Quality
+- Regression suites: Prompt Forge, Skill Forge
+- 5 human gates for risk management
+- Evaluation protocol and expansion protocol
+- Anti-patterns documentation
+
+---
+
 **Status**: Production-Ready (FROZEN)
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Key Constraint**: This skill does NOT self-improve
 **Expansion**: Manual only, with human approval
 

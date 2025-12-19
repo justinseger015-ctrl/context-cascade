@@ -10,13 +10,60 @@ tags:
 - testing
 - essential
 - tier-1
-version: 1.0.0
+version: 1.1.0
 category: delivery
 author: ruv
+cognitive_frame:
+  primary: evidential
+  secondary: morphological
+  rationale: "Bug fixing requires evidence-backed root cause analysis (Turkish evidential)
+    and systematic symptom decomposition to root causes (Arabic morphological)"
 ---
 
 # Smart Bug Fix
 
+## Kanitsal Hata Ayiklama (Evidential Debugging)
+
+Every bug hypothesis requires evidence. The evidential frame ensures no fix is applied without proof of causation.
+
+**Evidence Requirements**:
+- **GOZLEM** (Observation): Bug observed with concrete reproduction steps
+- **HIPOTEZ** (Hypothesis): Theory X based on evidence Y
+- **DOGRULAMA** (Verification): Fix verified by test results Z
+- **RED** (Rejection): Hypothesis rejected due to counter-evidence W
+
+**Example**:
+```
+GOZLEM: API timeout after 30s under load (reproduction: 1000 concurrent requests)
+HIPOTEZ: Database connection pool exhausted (evidence: pool size=10, active=10, waiting=990)
+DOGRULAMA: Increased pool to 100, timeout resolved (evidence: 0 timeouts in 10k requests)
+```
+
+## Al-Itar al-Sarfi li-Tahlil al-Sabab (Root Cause Morphology)
+
+Symptoms are composed of causes. Decompose systematically using the "Why Chain" until the root is reached.
+
+**Morphological Decomposition**:
+- **SYMPTOM**: Observable error or behavior (surface manifestation)
+- **CAUSE-1**: Immediate cause (why-1: "Why did this symptom occur?")
+- **CAUSE-2**: Deeper cause (why-2: "Why did cause-1 occur?")
+- **ROOT**: True root cause (why-N: "Why did cause-(N-1) occur?" until no further "why" exists)
+
+**Example**:
+```
+SYMPTOM: Login fails on Firefox
+CAUSE-1: JWT token not in cookie (why-1)
+CAUSE-2: SameSite=Strict blocks cross-site cookies (why-2)
+ROOT: Auth server on different subdomain than app (why-3 - architectural root)
+```
+
+**NASA 5 Whys Integration**:
+The morphological frame is implemented through the 5 Whys methodology:
+1. Why-1: Immediate cause (technical layer)
+2. Why-2: Systemic cause (design layer)
+3. Why-3: Process cause (architectural layer)
+4. Why-4: Cultural cause (organizational layer)
+5. Why-5: Root cause (foundational layer)
 
 ## When to Use This Skill
 
@@ -124,6 +171,116 @@ output:
     regression_check: boolean
     performance_impact: string
   confidence: number (0-1)
+```
+
+## Evidential Output Template
+
+All bug fixes MUST follow this evidence-based structure:
+
+```markdown
+### Bug Analysis Output
+
+**Symptom**: [observable_error_or_behavior]
+
+**Reproduction**: [step_by_step_reproduction] [VERIFIED|INTERMITTENT|NOT_REPRODUCIBLE]
+
+**Why-Chain** (Morphological Decomposition):
+- **Why-1** (Immediate): [technical_cause]
+  - EVIDENCE: [log_entry | metric | stack_trace | observation]
+  - CONFIDENCE: [0.0-1.0]
+
+- **Why-2** (Systemic): [design_cause]
+  - EVIDENCE: [code_inspection | architecture_diagram | dependency_analysis]
+  - CONFIDENCE: [0.0-1.0]
+
+- **Why-3** (Architectural): [process_or_architectural_cause]
+  - EVIDENCE: [system_design | configuration | infrastructure_analysis]
+  - CONFIDENCE: [0.0-1.0]
+
+- **ROOT CAUSE**: [foundational_cause]
+  - EVIDENCE: [comprehensive_analysis_supporting_root_diagnosis]
+  - CONFIDENCE: [0.0-1.0]
+
+**Hypotheses Tested**:
+1. **HIPOTEZ-1**: [hypothesis_description]
+   - Evidence For: [supporting_evidence]
+   - Evidence Against: [counter_evidence]
+   - Status: [VERIFIED|REJECTED]
+
+2. **HIPOTEZ-2**: [hypothesis_description]
+   - Evidence For: [supporting_evidence]
+   - Evidence Against: [counter_evidence]
+   - Status: [VERIFIED|REJECTED]
+
+**Fix Applied**:
+- **Approach**: [fix_strategy]
+- **Files Changed**: [list_of_modified_files]
+- **Rationale**: [why_this_fix_addresses_root_cause]
+
+**Verification** (DOGRULAMA):
+- **Tests Before Fix**: [failure_count] failures, [error_logs]
+  - EVIDENCE: [test_output_or_logs]
+
+- **Tests After Fix**: [success_count] passing, [regression_check]
+  - EVIDENCE: [test_output_or_logs]
+
+- **Performance Impact**: [before_vs_after_metrics]
+  - EVIDENCE: [benchmark_results | profiling_data]
+
+**Confidence Score**: [0.0-1.0]
+- Based on: [evidence_quality | reproduction_reliability | test_coverage]
+```
+
+**Example Output**:
+
+```markdown
+### Bug Analysis Output
+
+**Symptom**: API returns 504 Gateway Timeout under load
+
+**Reproduction**: Send 1000 concurrent POST /api/users requests [VERIFIED]
+
+**Why-Chain**:
+- **Why-1**: Database connection timeout after 30s
+  - EVIDENCE: PostgreSQL logs show "connection pool exhausted"
+  - CONFIDENCE: 0.95
+
+- **Why-2**: Connection pool size (10) < concurrent request load (1000)
+  - EVIDENCE: Config shows max_connections=10, connection_wait_queue=990
+  - CONFIDENCE: 0.90
+
+- **ROOT CAUSE**: Initial pool sizing based on dev load (10 users), not production load (1000 users)
+  - EVIDENCE: Config comments show "set for local dev", no load testing performed
+  - CONFIDENCE: 0.85
+
+**Hypotheses Tested**:
+1. **HIPOTEZ-1**: Slow query causing timeouts
+   - Evidence For: Some queries take 5-10s
+   - Evidence Against: Timeouts occur even on fast queries (<100ms)
+   - Status: REJECTED
+
+2. **HIPOTEZ-2**: Connection pool exhaustion
+   - Evidence For: Pool=10, wait_queue=990, timeouts correlate with pool saturation
+   - Evidence Against: None
+   - Status: VERIFIED
+
+**Fix Applied**:
+- Approach: Increased pool from 10 to 100 connections
+- Files Changed: config/database.yml
+- Rationale: Pool size now matches production concurrency requirements
+
+**Verification**:
+- Tests Before: 990/1000 requests timeout (99% failure)
+  - EVIDENCE: Load test logs show 504 errors
+
+- Tests After: 0/10000 requests timeout (0% failure)
+  - EVIDENCE: Load test logs show all 200 OK
+
+- Performance Impact: P99 latency 30000ms -> 150ms (200x improvement)
+  - EVIDENCE: New Relic metrics before/after deployment
+
+**Confidence Score**: 0.90
+- Based on: High-quality evidence (logs + metrics), 100% reproduction, comprehensive load testing
 ```
 
 ## Execution Flow
@@ -331,3 +488,26 @@ Smart Bug Fix transforms debugging from an art into a systematic science. By com
 Use this skill when bugs matter - production incidents, recurring issues, or complex failures requiring deep investigation. The RCA-first methodology prevents the whack-a-mole anti-pattern where surface fixes create new bugs elsewhere. The Codex iteration loop provides resilience, automatically recovering from initial implementation failures.
 
 The result is a repeatable process that goes from bug report to validated fix with high confidence. When bugs cannot afford to recur, Smart Bug Fix provides the systematic rigor that manual debugging lacks.
+
+## Changelog
+
+### v1.1.0 (2025-12-19)
+- Applied cognitive lensing with evidential (Turkish) and morphological (Arabic) frames
+- Added "Kanitsal Hata Ayiklama" (Evidential Debugging) section requiring evidence for all hypotheses
+- Added "Al-Itar al-Sarfi li-Tahlil al-Sabab" (Root Cause Morphology) section for systematic symptom decomposition
+- Introduced structured Evidential Output Template with:
+  - Why-Chain decomposition (Why-1 through ROOT with evidence and confidence scores)
+  - Hypothesis testing protocol (GOZLEM, HIPOTEZ, DOGRULAMA, RED)
+  - Comprehensive verification requirements (before/after evidence)
+  - Confidence scoring based on evidence quality
+- Integrated NASA 5 Whys methodology into morphological frame (technical -> systemic -> architectural -> cultural -> foundational)
+- Added detailed example outputs demonstrating evidence-based bug analysis
+- Enhanced cognitive_frame metadata in YAML frontmatter
+
+### v1.0.0 (Initial Release)
+- Root cause analysis using 5 Whys and inverse reasoning
+- Multi-model reasoning (Claude RCA + Codex alternatives)
+- Codex auto-fix with iteration loops (max 5 attempts)
+- Comprehensive testing and regression validation
+- Performance impact analysis
+- Integration with bug-triage-workflow and production-incident-response cascades

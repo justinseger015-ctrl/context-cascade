@@ -35,18 +35,303 @@ description: Production deployment validation for Deep Research SOP Pipeline H e
   deployment plans, or validating infrastructure requirements. Validates performance
   benchmarks, monitoring setup, incident response plans, rollback strategies, and
   infrastructure scalability for Quality Gate 3.
-version: 1.0.0
+version: 1.1.0
 category: operations
 tags:
 - operations
 - deployment
 - infrastructure
 author: ruv
+cognitive_frame:
+  primary: aspectual
+  secondary: classifier
+  rationale: "Deployment tracking requires explicit state management (aspectual) and type/risk classification (classifier)"
 ---
 
 # Deployment Readiness
 
 Validate ML models and systems for production deployment, ensuring operational readiness across performance, monitoring, security, and incident management dimensions.
+
+---
+
+## Aspektual'naya Ramka (Deployment State Tracking)
+
+### Tipy Sostoyaniya (State Types)
+
+**Perfective [SV] - Completed Actions**:
+- `[SV:ZAVERSHENO]` - Stage fully completed
+- `[SV:PROVERENO]` - Validated and verified
+- `[SV:ODOBRENO]` - Approved for next stage
+- `[SV:RAZVERNUTO]` - Deployed successfully
+
+**Imperfective [NSV] - Ongoing/Incomplete Actions**:
+- `[NSV:V_PROTSESSE]` - Stage actively in progress
+- `[NSV:VYPOLNYAETSYA]` - Currently executing
+- `[NSV:TESTIRUYETSYA]` - Testing in progress
+- `[NSV:MONITORITSYA]` - Under monitoring
+
+**Blocked/Special States**:
+- `[ZABLOKIROVANO]` - Blocked by dependency
+- `[OZHIDAET]` - Waiting for prerequisite
+- `[OTKAT]` - Rollback initiated
+- `[AVARIYA]` - Emergency state
+
+### Deployment Pipeline States
+
+```
+Infrastructure Setup:
+  Capacity Planning      [SV|NSV|ZABLOKIROVANO]
+  Environment Setup      [SV|NSV|ZABLOKIROVANO]
+  Network Configuration  [SV|NSV|ZABLOKIROVANO]
+  → Output: [SV:ZAVERSHENO] or [NSV:V_PROTSESSE]
+
+Performance Benchmarking:
+  Latency Testing        [SV|NSV|ZABLOKIROVANO]
+  Throughput Testing     [SV|NSV|ZABLOKIROVANO]
+  Resource Utilization   [SV|NSV|ZABLOKIROVANO]
+  → Output: [SV:PROVERENO] or [NSV:TESTIRUYETSYA]
+
+Monitoring Setup:
+  Metrics Collection     [SV|NSV|ZABLOKIROVANO]
+  Alerting Configuration [SV|NSV|ZABLOKIROVANO]
+  Dashboard Creation     [SV|NSV|ZABLOKIROVANO]
+  → Output: [SV:ODOBRENO] or [NSV:V_PROTSESSE]
+
+Deployment Execution:
+  Staging Deployment     [SV|NSV|ZABLOKIROVANO|OTKAT]
+  Production Deployment  [SV|NSV|ZABLOKIROVANO|OTKAT|AVARIYA]
+  Post-Deploy Validation [SV|NSV|ZABLOKIROVANO]
+  → Output: [SV:RAZVERNUTO] or [OTKAT] or [AVARIYA]
+```
+
+### State Transition Rules
+
+1. **Sequential Progression**: `[NSV] → [SV] → Next Stage [NSV]`
+2. **Rollback Path**: `[AVARIYA] → [OTKAT] → Previous [SV]`
+3. **Blocking Cascade**: Parent `[ZABLOKIROVANO]` → Children `[OZHIDAET]`
+4. **Monitoring Loop**: `[SV:RAZVERNUTO] → [NSV:MONITORITSYA]` (continuous)
+
+### Example State Tracking Output
+
+```markdown
+## Deployment Status Report - 2025-12-19 14:32:00
+
+### Infrastructure Validation [SV:ZAVERSHENO]
+- Capacity Planning: [SV:ZAVERSHENO] at 2025-12-19 10:15
+- Environment Setup: [SV:ZAVERSHENO] at 2025-12-19 12:45
+- Network Configuration: [SV:PROVERENO] at 2025-12-19 13:20
+
+### Performance Benchmarking [NSV:TESTIRUYETSYA]
+- Latency Testing: [SV:PROVERENO] at 2025-12-19 14:00
+- Throughput Testing: [NSV:VYPOLNYAETSYA] started 2025-12-19 14:15
+- Resource Utilization: [OZHIDAET] (blocked by throughput test)
+
+### Monitoring Setup [OZHIDAET]
+- Blocked by: Performance Benchmarking [NSV:TESTIRUYETSYA]
+
+### Deployment Execution [OZHIDAET]
+- Blocked by: All prerequisites must be [SV:ZAVERSHENO]
+```
+
+---
+
+## Liangci Kuangjia (Deployment Classification Framework)
+
+### Deployment Type Classifiers
+
+**FEATURE (xin gong-neng)** - New Functionality
+- Risk: MEDIUM-HIGH
+- Testing: Comprehensive E2E required
+- Rollback: Feature flag toggle
+- Monitoring: New metrics for feature usage
+- Example: "New payment gateway integration"
+
+**HOTFIX (jin-ji xiu-fu)** - Critical Bug Fix
+- Risk: HIGH (expedited process)
+- Testing: Focused regression on affected area
+- Rollback: Immediate revert capability required
+- Monitoring: Error rate alerts with 1-min interval
+- Example: "Fix authentication bypass vulnerability"
+
+**ROLLBACK (hui-gun)** - Revert to Previous Version
+- Risk: LOW-MEDIUM (known good state)
+- Testing: Smoke tests only
+- Rollback: N/A (is rollback)
+- Monitoring: Verify previous metrics restored
+- Example: "Revert failed v2.3.0 deployment"
+
+**CONFIG (pei-zhi)** - Configuration-Only Change
+- Risk: LOW
+- Testing: Config validation, no code changes
+- Rollback: Config file revert
+- Monitoring: Service health checks
+- Example: "Update feature flag percentages"
+
+**MIGRATION (qian-yi)** - Database/Infrastructure Migration
+- Risk: CRITICAL
+- Testing: Full backup, dry-run in staging
+- Rollback: Migration rollback script required
+- Monitoring: Database metrics, query performance
+- Example: "Migrate PostgreSQL 15 to 16"
+
+### Risk Level Classifiers
+
+**HIGH (gao feng-xian)** - Breaking Changes
+- Database migrations with data transformation
+- Authentication/authorization changes
+- Payment processing modifications
+- Third-party API version upgrades
+- Multi-service coordination required
+- **Gate Requirement**: Manual approval + 24hr monitoring
+
+**MEDIUM (zhong feng-xian)** - Standard Features
+- New API endpoints (backward compatible)
+- UI component updates
+- Non-critical service additions
+- Dependency minor version updates
+- **Gate Requirement**: Automated tests + smoke tests
+
+**LOW (di feng-xian)** - Minor Updates
+- Documentation changes
+- Logging improvements
+- Configuration tweaks (non-breaking)
+- UI copy changes
+- **Gate Requirement**: Basic validation only
+
+### Environment Progression Classifier
+
+**DEV (kai-fa huan-jing)** - Development Environment
+- Purpose: Rapid iteration, breaking changes allowed
+- Deployment: Continuous (on every commit)
+- Monitoring: Basic logs, no SLA
+- Rollback: Not required
+
+**STAGING (yan-zheng huan-jing)** - Staging Environment
+- Purpose: Production-like validation
+- Deployment: Daily or on-demand
+- Monitoring: Full observability stack
+- Rollback: Required, tested before prod
+- **Gate**: Must pass ALL tests before prod promotion
+
+**PRODUCTION (sheng-chan huan-jing)** - Production Environment
+- Purpose: Live customer traffic
+- Deployment: Scheduled windows only
+- Monitoring: 24/7 alerting, SLA tracking
+- Rollback: <5 min SLA, tested in staging
+- **Gate**: Requires staging validation + approvals
+
+### Deployment Strategy Classifier
+
+**BLUE-GREEN (lan-lv bu-shu)** - Zero-Downtime Switch
+- Two identical environments (blue=current, green=new)
+- Traffic switch is instantaneous
+- Rollback: Switch traffic back to blue
+- Best for: HOTFIX, FEATURE with high confidence
+
+**CANARY (jin-si-que bu-shu)** - Gradual Rollout
+- Progressive traffic shift: 5% → 25% → 50% → 100%
+- Monitor metrics at each stage
+- Rollback: Reduce traffic to 0%
+- Best for: FEATURE, MIGRATION with uncertainty
+
+**ROLLING (gun-dong bu-shu)** - Instance-by-Instance Update
+- Update instances sequentially
+- Maintain minimum capacity during update
+- Rollback: Reverse instance updates
+- Best for: CONFIG, low-risk FEATURE
+
+**BIG-BANG (yi-ci-xing bu-shu)** - All-at-Once Deployment
+- Replace all instances simultaneously
+- Downtime window required
+- Rollback: Full redeployment of previous version
+- Best for: MIGRATION (database), scheduled maintenance
+
+### Classification Decision Matrix
+
+```yaml
+deployment_classification:
+  type: FEATURE
+  risk: HIGH
+  environments:
+    - DEV [SV:RAZVERNUTO]
+    - STAGING [NSV:TESTIRUYETSYA]
+    - PRODUCTION [OZHIDAET]
+  strategy: CANARY
+  rollback_plan: blue-green-fallback
+  monitoring:
+    - error_rate: <5% threshold
+    - latency_p95: <200ms threshold
+    - saturation: <80% threshold
+  gates_passed:
+    - tests: [SV:PROVERENO] 100% pass
+    - security: [SV:ODOBRENO] zero critical issues
+    - performance: [NSV:VYPOLNYAETSYA] benchmarking in progress
+```
+
+### Output Template: Deployment Classification Report
+
+```markdown
+# Deployment Classification Report
+
+**Deployment ID**: DEPLOY-2025-12-19-001
+**Timestamp**: 2025-12-19T14:32:00Z
+**Requested By**: platform-team
+
+## Classification
+
+- **Type**: FEATURE (xin gong-neng) - Payment gateway v2
+- **Risk Level**: HIGH (gao feng-xian) - Third-party API integration
+- **Strategy**: CANARY (jin-si-que bu-shu) - 5% → 25% → 50% → 100%
+- **Environment**: STAGING (yan-zheng huan-jing) → PRODUCTION (sheng-chan huan-jing)
+
+## State Tracking
+
+### Infrastructure [SV:ZAVERSHENO]
+- Capacity Planning: [SV:ZAVERSHENO] ✓
+- Environment Setup: [SV:ZAVERSHENO] ✓
+- Load Balancer Config: [SV:PROVERENO] ✓
+
+### Testing [NSV:VYPOLNYAETSYA]
+- Unit Tests: [SV:PROVERENO] 100% pass ✓
+- Integration Tests: [NSV:VYPOLNYAETSYA] 87/100 pass (in progress)
+- Load Tests: [OZHIDAET] (blocked by integration tests)
+
+### Deployment Gates
+- Gate 1 (Security): [SV:ODOBRENO] ✓
+- Gate 2 (Performance): [NSV:TESTIRUYETSYA] (pending load tests)
+- Gate 3 (Approval): [OZHIDAET] (requires Gate 2)
+
+## Rollback Plan
+
+- **Strategy**: Blue-Green fallback
+- **RTO**: <5 minutes
+- **Procedure**: `kubectl patch service payment-gateway -p '{"spec":{"selector":{"version":"blue"}}}'`
+- **Validation**: [SV:PROVERENO] tested in staging
+
+## Risk Mitigation
+
+- **HIGH Risk Items**:
+  - Payment processing: Feature flag at 5% initial rollout
+  - Database migration: Separate deployment, tested with prod-like data
+  - Third-party API: Circuit breaker configured (timeout: 3s, failure threshold: 5)
+
+- **Monitoring Alerts**:
+  - Payment failure rate >2%: Auto-rollback
+  - API latency p95 >500ms: Alert + manual review
+  - Error spike >10x baseline: Auto-rollback
+
+## Recommendation
+
+**Status**: [ZABLOKIROVANO] - DO NOT DEPLOY
+**Reason**: Integration tests incomplete (87/100), load tests not started
+**Next Steps**:
+1. Complete integration tests → [SV:PROVERENO]
+2. Run load tests → [SV:PROVERENO]
+3. Gate 2 approval → [SV:ODOBRENO]
+4. Schedule deployment window (Tuesday 10am-12pm)
+```
+
+---
 
 ## Overview
 
@@ -702,6 +987,36 @@ evaluator agent validates Gate 3
 - Prometheus Best Practices
 - OpenTelemetry
 - The Four Golden Signals (Latency, Traffic, Errors, Saturation)
+
+---
+
+## Changelog
+
+### Version 1.1.0 (2025-12-19)
+
+**Added**:
+- Cognitive lensing framework with aspectual (Russian) and classifier (Mandarin) frames
+- Aspektual'naya Ramka section for explicit deployment state tracking
+  - Perfective/Imperfective/Blocked state markers (SV/NSV/ZABLOKIROVANO)
+  - Deployment pipeline state tracking with transition rules
+  - Example state tracking output templates
+- Liangci Kuangjia section for deployment classification
+  - Deployment type classifiers: FEATURE, HOTFIX, ROLLBACK, CONFIG, MIGRATION
+  - Risk level classifiers: HIGH, MEDIUM, LOW with gate requirements
+  - Environment progression classifiers: DEV, STAGING, PRODUCTION
+  - Deployment strategy classifiers: BLUE-GREEN, CANARY, ROLLING, BIG-BANG
+  - Classification decision matrix with YAML template
+  - Complete deployment classification report template
+- State transition rules for deployment lifecycle management
+- Risk mitigation patterns integrated with state tracking
+
+**Changed**:
+- Version bumped from 1.0.0 to 1.1.0
+- Added cognitive_frame metadata to YAML frontmatter
+
+**Rationale**:
+Deployment tracking requires explicit state management to avoid ambiguity about deployment readiness. The aspectual frame (borrowed from Russian grammar) provides perfective/imperfective markers that make state completion explicit - critical when deciding whether to proceed to production. The classifier frame (inspired by Mandarin measure words) enables systematic categorization by deployment type, risk level, and environment, ensuring appropriate validation gates and rollback strategies are applied. This cognitive lensing reduces deployment failures by forcing explicit state reasoning and systematic risk classification.
+
 ---
 
 ## Core Principles

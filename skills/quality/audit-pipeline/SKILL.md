@@ -2,10 +2,70 @@
 skill: audit-pipeline
 description: Comprehensive 3-phase code quality pipeline: 1) Theater detection (find mocks/placeholders), 2) Functionality audit with Codex sandbox iteration (verify it works), 3) Style audit (polish and refine)
 tags: [audit, quality, pipeline, orchestration, theater, functionality, style, codex]
-version: 1.0.0
+version: 1.1.0
+cognitive_frame:
+  primary: evidential
+  secondary: morphological
+  rationale: "Quality pipeline requires metric-backed findings decomposed to root causes"
 ---
 
 # Audit Pipeline - Complete Code Quality Workflow
+
+## Cognitive Frame Activation
+
+### Kanitsal Kalite Hatti (Evidential Quality Pipeline)
+
+Her bulgu icin metrik kaniti gereklidir:
+- **Finding**: [description of quality issue]
+- **Evidence**: [metric: value at location]
+- **Standard**: [threshold from reference]
+- **Impact**: [quantified effect on quality score]
+- **Confidence**: [0.0-1.0]
+
+Every quality finding MUST include:
+1. **Metric evidence**: Concrete measurement (complexity=13, coverage=60%, lines=72)
+2. **Location evidence**: Exact file path and line number [file:line]
+3. **Standard reference**: Documented threshold (NASA limit, WCAG level, OWASP category)
+4. **Impact quantification**: Quality score delta, risk level, maintainability cost
+
+### Al-Tahlil al-Sarfi lil-Jawda (Morphological Quality Analysis)
+
+Root Cause Decomposition - Every quality issue has layers:
+
+```
+DIMENSION: [Maintainability | Performance | Security | Reliability]
+  SURFACE: [visible symptom in code]
+    - Location: [file:line]
+    - Metric: [measurement]
+  ROOT: [underlying cause]
+    - Pattern: [anti-pattern name]
+    - Origin: [design decision, knowledge gap, time pressure]
+  DERIVED: [contributing factors]
+    - Technical debt
+    - Missing tests
+    - Unclear requirements
+  REMEDIATION: [target the root cause]
+    - Fix: [address root, not symptom]
+    - Prevent: [process change to avoid recurrence]
+```
+
+**Example Decomposition**:
+```
+DIMENSION: Maintainability
+  SURFACE: God Object with 26 methods
+    - Location: src/UserService.js:1-450
+    - Metric: methods=26 (threshold=15), lines=450 (threshold=250)
+  ROOT: Single Responsibility Principle violation
+    - Pattern: God Object anti-pattern
+    - Origin: Feature additions without refactoring
+  DERIVED:
+    - Missing abstraction for authentication logic
+    - Missing abstraction for data validation
+    - Missing abstraction for error handling
+  REMEDIATION:
+    - Fix: Extract AuthService, ValidationService, ErrorHandler
+    - Prevent: Code review gate at 15 methods, refactoring sprint every 3 months
+```
 
 ## Purpose
 Execute a comprehensive 3-phase code quality audit that systematically transforms code from prototype to production-ready by eliminating theater, verifying functionality through sandbox testing with Codex iteration, and polishing style to meet professional standards.
@@ -305,6 +365,85 @@ def calculate_total_with_tax(
 
 ---
 
+## Quality Finding Template (Evidence + Root Cause)
+
+Every finding from the audit pipeline MUST use this structure:
+
+```yaml
+finding:
+  id: "QUAL-001"
+  phase: "theater | functionality | style"
+
+  # EVIDENTIAL FRAME (Turkish)
+  evidence:
+    metric: "[measurement with unit]"
+    location: "[file:line-range]"
+    standard: "[reference threshold]"
+    impact: "[quantified effect]"
+    confidence: 0.95
+    code_snippet: |
+      [context showing the issue]
+
+  # MORPHOLOGICAL FRAME (Arabic)
+  root_cause:
+    dimension: "Maintainability | Performance | Security | Reliability"
+    surface:
+      symptom: "[visible issue]"
+      location: "[file:line]"
+      metric: "[measurement]"
+    root:
+      cause: "[underlying problem]"
+      pattern: "[anti-pattern name]"
+      origin: "[why it happened]"
+    derived:
+      - "[contributing factor 1]"
+      - "[contributing factor 2]"
+    remediation:
+      fix: "[address root cause]"
+      prevent: "[process change]"
+      validation: "[how to verify fix]"
+```
+
+**Complete Example**:
+```yaml
+finding:
+  id: "QUAL-042"
+  phase: "functionality"
+
+  evidence:
+    metric: "test_coverage=60% (lines), 0% (branches)"
+    location: "src/payment/processor.js:1-150"
+    standard: "Required: 80% line coverage, 70% branch coverage"
+    impact: "-20 quality points, HIGH risk in production"
+    confidence: 1.0
+    code_snippet: |
+      120: function processRefund(orderId, amount) {
+      121:   if (amount > 0 && amount <= order.total) {
+      122:     // Refund logic - NO TESTS
+      123:     return stripe.refund(orderId, amount);
+      124:   }
+      125: }
+
+  root_cause:
+    dimension: Reliability
+    surface:
+      symptom: "Missing test coverage for refund edge cases"
+      location: "src/payment/processor.js:120-125"
+      metric: "0% branch coverage (4 branches untested)"
+    root:
+      cause: "Test-after development pattern"
+      pattern: "Untested critical path"
+      origin: "Time pressure during payment feature sprint"
+    derived:
+      - "No test-driven development discipline"
+      - "Missing edge case documentation"
+      - "No pre-commit coverage gate"
+    remediation:
+      fix: "Add test cases: zero amount, negative amount, amount > total, stripe API failure"
+      prevent: "Enforce TDD for payment code, pre-commit hook blocks <80% coverage"
+      validation: "Coverage report shows 100% branch coverage, all edge cases documented"
+```
+
 ## Pipeline Configuration
 
 ### Default Behavior
@@ -312,6 +451,7 @@ def calculate_total_with_tax(
 - Uses Codex Full Auto for functionality fixes
 - Applies standard linting rules
 - Produces comprehensive report
+- **NEW**: All findings use evidential + morphological template
 
 ### Customization Options
 
@@ -462,6 +602,24 @@ Pipeline succeeds when:
 - **Very large project** (50K+ lines): 1-3 hours
 
 Times include Codex iteration loops and style refactoring.
+
+---
+
+## Changelog
+
+### v1.1.0 (2025-12-19)
+- **COGNITIVE LENSING APPLIED**: Added evidential (Turkish) + morphological (Arabic) cognitive frames
+- **EVIDENTIAL FRAME**: Every finding requires metric evidence (complexity=13), location ([file:line]), standard reference (NASA limit), and impact quantification (-20 quality points)
+- **MORPHOLOGICAL FRAME**: Root cause decomposition for every issue - DIMENSION (Maintainability/Performance/Security/Reliability) -> SURFACE (symptom) -> ROOT (cause) -> DERIVED (factors) -> REMEDIATION (fix + prevent)
+- **NEW TEMPLATE**: Quality Finding Template with evidence and root_cause sections structured for both cognitive frames
+- **EXAMPLE ADDED**: Complete example showing test coverage issue decomposed from symptom (60% coverage) to root cause (test-after development) to remediation (TDD enforcement)
+- **RATIONALE**: Quality pipeline requires metric-backed findings decomposed to root causes for effective remediation
+
+### v1.0.0 (Initial)
+- 3-phase pipeline: Theater detection, Functionality audit, Style audit
+- Codex sandbox iteration for automated fixes
+- Comprehensive quality report generation
+- Integration with GitHub PR workflow
 
 ---
 

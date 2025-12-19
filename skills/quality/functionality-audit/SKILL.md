@@ -6,14 +6,33 @@ description: Validates that code actually works through sandbox testing, executi
   isolated test environments, executes code with realistic inputs, identifies bugs
   through systematic analysis, and applies best practices to fix issues without breaking
   existing functionality. This ensures code delivers its intended behavior reliably.
-version: 1.0.0
+version: 1.1.0
 category: quality
 tags:
 - quality
 - testing
 - validation
 author: ruv
+cognitive_frame:
+  primary: evidential
+  secondary: morphological
+  rationale: "Quality auditing requires metric-backed findings decomposed to root causes"
 ---
+
+## Kanitsal Kalite Denetimi (Evidential Quality Audit)
+
+Her bulgu icin olcum gerekli:
+- METRIK: Measured value at [location]
+- ESIK: Threshold from [quality_standard]
+- ETKI: Impact quantified [confidence: X]
+
+## Al-Tahlil al-Sarfi lil-Jawda (Morphological Quality Analysis)
+
+Quality Decomposition:
+- DIMENSION: Maintainability/Performance/Security
+  - ROOT: Primary quality factor
+  - DERIVED: Contributing sub-factors
+  - REMEDIATION: Target root, not symptoms
 
 ## When to Use This Skill
 
@@ -124,11 +143,43 @@ Execute code in the sandbox while carefully monitoring behavior including standa
 
 Use instrumentation and logging liberally during testing. Add temporary print statements or debug logs to expose intermediate values. Use debugger breakpoints to step through complex logic. The goal is complete transparency into what the code is actually doing during execution.
 
-### Output Verification
+### Output Verification (Evidence-Backed Template)
 
 Verify that code produces correct outputs by comparing actual results against expected results using precise equality for deterministic functions, range checking or statistical measures for functions with acceptable variance, structural validation for complex outputs like JSON or objects, and assertion checking for invariants that should always hold.
 
 Output verification requires clear specifications of what correct behavior looks like. For functions with complex outputs, define validation logic that checks all important properties rather than just superficial aspects. Subtle bugs often hide in outputs that are mostly right but wrong in small ways.
+
+**Quality Finding Template**:
+
+```markdown
+### Quality Finding
+- **Dimension**: [Maintainability|Performance|Security|Reliability|Testability]
+- **Issue**: [description]
+- **Evidence**:
+  - Metric: [value] at [location:line]
+  - Threshold: [limit] from [standard]
+- **Root Cause Analysis**:
+  - Surface: [visible_symptom]
+  - ROOT: [true_underlying_cause]
+- **Impact**: [quantified_effect] [Confidence: 0.0-1.0]
+- **Remediation**: [fix targeting root cause]
+```
+
+**Example**:
+
+```markdown
+### Quality Finding
+- **Dimension**: Performance
+- **Issue**: Excessive database queries in user fetch loop
+- **Evidence**:
+  - Metric: 847 queries in src/api/users.js:42
+  - Threshold: 1 query per operation (N+1 anti-pattern)
+- **Root Cause Analysis**:
+  - Surface: Slow page load (4.2s)
+  - ROOT: Unbatched queries inside loop iteration
+- **Impact**: 4x page load degradation [Confidence: 0.95]
+- **Remediation**: Replace loop with single JOIN query or batch loader
+```
 
 ### Failure Analysis
 
@@ -338,3 +389,15 @@ Functionality Audit transforms code quality assurance from a superficial checkin
 Use this skill whenever code correctness is critical, particularly after generating or modifying complex logic, integrating code from multiple sources, or before production releases. The skill is essential when visual inspection is insufficient due to code complexity, when debugging mysterious failures that only occur under specific conditions, or when establishing confidence that new code will behave correctly in production environments.
 
 The systematic approach embodied in functionality-audit - from sandbox creation through test execution to root cause analysis and verified fixes - creates a repeatable quality process that catches bugs early and prevents regressions. When integrated with theater-detection-audit to ensure code is genuine and style-audit to ensure maintainability, functionality-audit completes a comprehensive quality pipeline that delivers production-ready code with verified behavior, not just syntactically correct placeholders.
+
+---
+
+## Changelog
+
+### v1.1.0 (2025-12-19)
+- Added cognitive frame: evidential (primary) + morphological (secondary)
+- Added Turkish/Arabic cognitive frame activation headers
+- Added evidence-backed Quality Finding Template with metrics, thresholds, and root cause analysis
+- Added example quality finding demonstrating N+1 query detection
+- Enhanced output verification section with structured reporting format
+- Rationale: Quality auditing requires metric-backed findings decomposed to root causes

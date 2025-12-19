@@ -6,7 +6,7 @@ description: Advanced skill creation system for Claude Code that combines deep i
   follow best practices, and incorporate sophisticated prompt engineering techniques.
   This skill transforms skill creation from template filling into a strategic design
   process.
-version: 2.3.0
+version: 3.0.1
 category: foundry
 tags:
 - foundry
@@ -166,12 +166,91 @@ Before writing any prose, define the skill's I/O contracts and behavior using a 
 **Reference**: See `templates/skill-schema.json` for complete schema structure and examples.
 
 **Integration with Other Phases**:
+- **Phase 0.5**: Cognitive frame selected based on schema's domain and goals
 - **Phase 1**: Schema informs intent analysis - guides strategic questions about I/O
 - **Phase 2**: Use cases must match schema's output_examples
 - **Phase 3**: Structure must implement schema's contracts
 - **Phase 5**: Instructions must satisfy schema's success_conditions
 - **Phase 7**: Testing validates against schema's test_cases
 - **Phase 8**: Metrics track deviation from schema over time
+
+### Phase 0.5: Cognitive Frame Design (5-10 minutes) [NEW in v3.0]
+
+**Objective**: Design cognitive frame activation for the skill.
+
+**Activities**:
+
+1. **Skill Domain Analysis**
+   What cognitive demands does this skill place on the AI?
+
+   | Demand Type | Examples | Frame Indicated |
+   |-------------|----------|-----------------|
+   | Tracking completion | Build, deploy, migrate | Aspectual |
+   | Verifying sources | Research, audit, fact-check | Evidential |
+   | Audience calibration | Docs, reports, summaries | Hierarchical |
+   | Semantic mapping | Taxonomy, ontology, glossary | Morphological |
+   | Object comparison | Design, visual, categorize | Classifier |
+
+2. **Goal-Based Frame Selection**
+   Complete the checklist:
+   - 1st Order Goal (Immediate): _______________
+   - 2nd Order Goal (Why): _______________
+   - 3rd Order Goal (Ultimate): _______________
+
+   Based on goals, select primary frame: _______________
+
+3. **Multi-Lingual Skill Sections**
+   For skills requiring specific cognitive patterns, include activation:
+
+   Example for Aspectual (deployment/build skills):
+   ```markdown
+   ## Sostoyanie Gotovnosti (Readiness State Tracking)
+
+   Kazhdyy etap:
+   - [SV] Zaversheno - COMPLETED
+   - [NSV] V protsesse - IN_PROGRESS
+   - [BLOCKED] Ozhidaet - WAITING
+   ```
+
+   Example for Evidential (research/audit skills):
+   ```markdown
+   ## Kanitsal Cerceve Aktivasyonu
+
+   Her bulgu icin kaynak:
+   - [DIRECT] Dogrudan test edildi
+   - [INFERRED] Kanitlardan cikarildi
+   - [REPORTED] Dokumantasyonda belirtildi
+   ```
+
+**Validation Gate**:
+- [ ] Domain analysis completed
+- [ ] Goal-based selection done
+- [ ] Frame activation prepared
+- [ ] Multi-lingual section ready (if applicable)
+
+**Outputs**:
+- Selected cognitive frame (or "none" if not applicable)
+- Frame activation phrase
+- Multi-lingual skill section (optional)
+
+**Time Investment**: 5-10 minutes for frame design. ROI: Enhanced cognitive precision, improved task completion tracking, better evidence verification.
+
+**Quality Gate: Cognitive Frame Completeness**
+- All three goal levels identified (1st, 2nd, 3rd order)
+- Primary frame selected based on domain analysis
+- Frame activation phrase prepared (if frame selected)
+- Multi-lingual section created (if applicable to frame type)
+
+**Research Impact**: Cognitive frame activation improves task completion accuracy by aligning AI cognitive patterns with specific domain requirements.
+
+**Reference**: See `templates/cognitive-frames.md` for complete frame taxonomy and activation patterns.
+
+**Integration with Other Phases**:
+- **Phase 0**: Schema goals inform frame selection
+- **Phase 1**: Frame shapes intent analysis questions
+- **Phase 3**: Multi-lingual sections integrated into structure
+- **Phase 5**: Frame activation embedded in instructions
+- **Phase 7**: Frame effectiveness validated through testing
 
 ### Phase 1: Intent Archaeology
 
@@ -263,7 +342,7 @@ Transform abstract understanding into concrete examples that demonstrate how the
 
 Design the skill's structure based on the progressive disclosure principle and evidence-based prompting patterns. This phase determines what goes in SKILL.md versus bundled resources, and how information should be organized.
 
-**Apply Progressive Disclosure**: Determine what information belongs at each level of the skill's three-tier loading system. Metadata should concisely communicate the skill's purpose and trigger conditions. SKILL.md should contain core procedural knowledge and workflow guidance. Bundled resources should include detailed references, executable scripts, and reusable assets.
+**Apply Progressive Disclosure**: Determine what information belongs at each level of the skill's three-tier loading system. Metadata should concisely communicate the skill's purpose and trigger conditions. SKILL.md should contain core procedural knowledge, workflow guidance, and cognitive frame activation (from Phase 0.5). Bundled resources should include detailed references, executable scripts, and reusable assets.
 
 **Identify Resource Requirements**: Based on the use cases, determine what bundled resources the skill needs. Consider whether any operations would benefit from deterministic scripts rather than token generation. Identify if reference documentation is needed for complex schemas, APIs, or domain knowledge. Determine if asset files like templates, icons, or boilerplate code would be valuable.
 
@@ -275,7 +354,7 @@ Design the skill's structure based on the progressive disclosure principle and e
 
 ### Phase 4: Metadata Engineering
 
-Craft the skill's metadata (name and description) with strategic precision. These approximately 100 words determine when Claude discovers and activates the skill, making them among the most important words in the entire skill.
+Craft the skill's metadata (name, description, and cognitive frame) with strategic precision. These approximately 100 words plus cognitive frame metadata determine when Claude discovers and activates the skill, making them among the most important words in the entire skill.
 
 **Choose a Strategic Name**: Select a name that is memorable, descriptive, and distinct from other skills. The name should suggest the skill's purpose without being overly long or abstract. Avoid generic terms that could apply to many skills. Consider how the name will appear in skill lists and whether it clearly indicates the skill's domain.
 
@@ -286,6 +365,18 @@ Craft the skill's metadata (name and description) with strategic precision. Thes
 **Specify Clear Boundaries**: Indicate what the skill does NOT do as well as what it does. This prevents inappropriate activation when similar but distinct functionality is needed. Boundaries can be stated explicitly or implied through specificity about what the skill covers.
 
 **Use Third-Person Voice**: Write the description objectively using third-person construction. Instead of "Use this skill when you need to..." write "This skill should be used when..." or "Use when..." This maintains consistency with skill metadata conventions.
+
+**Specify Cognitive Frame** [NEW in v3.0]: Include the cognitive frame selected in Phase 0.5 in the YAML frontmatter:
+```yaml
+cognitive_frame:
+  primary: evidential|aspectual|hierarchical|morphological|classifier|none
+  goal_analysis:
+    first_order: "Immediate goal"
+    second_order: "Why this matters"
+    third_order: "Ultimate purpose"
+```
+
+This metadata enables skills to activate the appropriate cognitive patterns for their domain-specific tasks.
 
 ### Phase 5: Instruction Crafting
 
@@ -886,16 +977,97 @@ Skill Forge itself improves through practice and reflection. Each skill creation
 
 **Embrace Iteration**: Accept that initial skill designs may not be perfect. Plan for iterative refinement based on actual usage. View skill creation as an ongoing process rather than a one-time event. Continuously improve skills as understanding deepens.
 
+## Skill Template (Updated for v3.0)
+
+When creating new skills with Skill Forge, use this template structure:
+
+```yaml
+---
+name: "{skill-name}"
+description: "{concise description of what skill does and when to use it}"
+version: 1.0.0
+category: "{category}"
+tags:
+- "{tag1}"
+- "{tag2}"
+author: "{author}"
+cognitive_frame:
+  primary: evidential|aspectual|hierarchical|morphological|classifier|none
+  goal_analysis:
+    first_order: "Immediate goal the skill accomplishes"
+    second_order: "Why this goal matters (deeper purpose)"
+    third_order: "Ultimate value delivered to user"
+---
+
+## Overview
+[Skill overview and purpose]
+
+## When to Use This Skill
+[Trigger conditions and use cases]
+
+[If cognitive frame selected in Phase 0.5, include multi-lingual section here]
+
+## Core Workflow
+[Main process steps]
+
+## Examples
+[Concrete usage examples]
+
+## Conclusion
+[Summary and key takeaways]
+```
+
 ## Conclusion
 
-Skill Forge transforms skill creation from template filling into strategic design. By combining deep intent analysis, evidence-based prompting principles, and systematic methodology, it ensures every skill you create is well-engineered and genuinely powerful.
+Skill Forge transforms skill creation from template filling into strategic design. By combining deep intent analysis, cognitive frame activation (new in v3.0), evidence-based prompting principles, and systematic methodology, it ensures every skill you create is well-engineered and genuinely powerful.
 
 The investment in thoughtful skill design pays dividends through skills that work reliably, handle edge cases gracefully, and become increasingly valuable over time. As you build a library of well-crafted skills, Claude Code becomes progressively more capable in your specific domain, ultimately becoming a true extension of your expertise.
 
+The addition of cognitive frame design in Phase 0.5 brings domain-specific cognitive precision to skill creation, ensuring skills activate the right mental patterns for their specific tasks - whether tracking completion states, verifying evidence, calibrating for audience, mapping semantics, or comparing objects.
+
 Remember that skill creation is both art and science. This framework provides the science—the principles, patterns, and methodologies that research and practice have shown to be effective. The art comes from applying these principles with judgment, creativity, and deep understanding of your specific needs. Use Skill Forge as a foundation while developing your own expertise in skill design through practice and reflection.
+## Version History
+
+### v3.0.1 (2025-12-19)
+- Added cross-skill coordination section with all four foundry skills
+- Added integration points for cognitive-lensing, agent-creator, prompt-forge, eval-harness
+- Clarified how skills integrate during different phases of skill creation
+
+### v3.0.0 (2025-12-18)
+- Added Phase 0.5: Cognitive Frame Design between Phase 0 and Phase 1
+- Integrated cognitive frame selection (evidential, aspectual, hierarchical, morphological, classifier)
+- Added goal-based frame selection methodology (1st, 2nd, 3rd order goals)
+- Included multi-lingual skill section activation for frame-specific patterns
+- Updated skill template with cognitive_frame YAML frontmatter
+- Enhanced metadata engineering to include cognitive frame specification
+- Added validation gate for cognitive frame completeness
+- Integrated frame activation with existing phase workflow
+
+### v2.3.0 (2025-11-01)
+- Enhanced adversarial testing protocol
+- Added documentation completeness audit (Phase 7b)
+- Integrated with recursive improvement meta-loop
+- Added REQUIRED-SECTIONS compliance enforcement
+
+### v2.2.0 (2025-10-15)
+- Added Phase 8: Metrics Tracking for revision gains
+- Implemented technique effectiveness ROI tracking
+- Added quality gate thresholds for 4 core metrics
+
+### v2.1.0 (2025-09-20)
+- Enhanced Chain-of-Verification protocol
+- Added Phase 1b and Phase 5b verification steps
+- Improved confidence rating system
+
+### v2.0.0 (2025-08-10)
+- Complete rewrite with 8-phase methodology
+- Added Phase 0: Schema-First Design
+- Integrated evidence-based prompting principles
+- Added GraphViz process visualization
+
 ## Core Principles
 
-Skill Forge operates on 3 fundamental principles:
+Skill Forge operates on 4 fundamental principles (expanded in v3.0):
 
 ### Principle 1: Schema-First Design Prevents Structural Debt
 
@@ -924,6 +1096,16 @@ In practice:
 - Risk-score using Likelihood x Impact matrix (fix CRITICAL and HIGH scores)
 - Reattack after fixes until no CRITICAL issues remain
 
+### Principle 4: Cognitive Frame Activation Enhances Domain Precision [NEW in v3.0]
+
+Selecting and activating the appropriate cognitive frame aligns AI cognitive patterns with specific domain requirements. Different tasks benefit from different cognitive modes - tracking completion states (aspectual), verifying evidence (evidential), calibrating for audience (hierarchical), mapping semantics (morphological), or comparing objects (classifier).
+
+In practice:
+- Analyze skill domain to identify primary cognitive demand
+- Select frame based on 1st/2nd/3rd order goal analysis
+- Include multi-lingual activation sections for frame-specific patterns
+- Validate frame effectiveness through testing and metrics
+
 ## Common Anti-Patterns
 
 | Anti-Pattern | Problem | Solution |
@@ -933,6 +1115,22 @@ In practice:
 | **Vague Action Verbs** | Instructions like "handle", "process", "deal with" allow excessive interpretation | Replace with specific verbs: "Parse JSON into CSV", "Validate against schema", "Extract fields: name, email" |
 | **No Adversarial Testing** | Skills fail on edge cases, missing prerequisites, boundary conditions in production | Run Phase 7a adversarial protocol, fix all CRITICAL (score 12+) issues before deployment |
 | **Generic Skill Bloat** | Skills try to do too much, violating single-responsibility principle | Decompose into focused micro-skills with clean interfaces for composition |
+
+## Cross-Skill Coordination
+
+Skill Forge works with:
+- **cognitive-lensing**: Design cognitive frames for skills (Phase 0.5 frame selection)
+- **agent-creator**: Create agents that will use the skills being forged
+- **prompt-forge**: Optimize skill instructions using meta-prompting techniques
+- **eval-harness**: Validate skills through benchmark testing
+
+**Integration Points**:
+- **cognitive-lensing** provides frame analysis during skill design (goal-based selection)
+- **agent-creator** uses skills created by skill-forge in agent workflows
+- **prompt-forge** can optimize skill instructions after Phase 5 instruction crafting
+- **eval-harness** validates skill quality through regression and performance tests
+
+See: `.claude/skills/META-SKILLS-COORDINATION.md` for full coordination matrix.
 
 ## Conclusion
 

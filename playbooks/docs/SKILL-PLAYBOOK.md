@@ -1,8 +1,9 @@
 # Skill Playbook System
 ## Orchestrated Skill Sequences for Optimal Workflows
 
-**Version**: 1.0.0
-**Updated**: 2025-11-14
+**Version**: 1.1.0
+**Updated**: 2025-12-19
+**Changelog**: Added cognitive lensing framework to three-loop playbook
 
 ---
 
@@ -100,6 +101,26 @@ User Request
 
 **When**: Complex feature, multiple components, high stakes
 
+**Metadata**:
+```yaml
+playbook_id: three-loop-research-to-implementation
+version: 1.1.0
+cognitive_frame:
+  frames:
+    - type: evidential
+      language: Turkish
+      purpose: "Track evidence from research to implementation"
+      method: "Kanitsal Zincir (Evidential Chain)"
+    - type: aspectual
+      language: Russian
+      purpose: "Manage workflow state transitions"
+      method: "Aspektual'noye Otslezhivaniye (State Tracking)"
+    - type: hierarchical
+      language: Japanese
+      purpose: "Organize phases and tasks"
+      method: "Keigo Wakugumi (Work Hierarchy)"
+```
+
 **Sequence**:
 ```yaml
 1. intent-analyzer → Deep requirements analysis
@@ -111,6 +132,182 @@ User Request
 7. cicd-intelligent-recovery → Loop 3 (automated testing + fixes)
 8. production-readiness → Final deployment validation
 ```
+
+---
+
+## Cognitive Frame Activation
+
+### Kanitsal Zincir (Evidential Chain - Turkish)
+
+Every decision requires citation from research through to code:
+
+```
+Research Finding [EVIDENCE] → Design Decision [RATIONALE] → Implementation Choice [CODE]
+          ↓                           ↓                              ↓
+    Literature review          Technology selection           Actual implementation
+    Best practices docs        Architecture patterns          Test validation
+    Pre-mortem analysis        Risk mitigation plan           Production deployment
+```
+
+**Enforcement**:
+- LOOP 1 (Research): Document all sources (papers, docs, APIs)
+- LOOP 2 (Implementation): Every pattern MUST cite design decision
+- LOOP 3 (Validation): Tests MUST trace back to requirements
+
+**Example**:
+```
+RESEARCH: "Stripe recommends idempotency keys for payment retry" [CITE: Stripe Docs]
+   ↓
+DESIGN: "Use Redis to store idempotency keys with 24hr TTL" [RATIONALE: Prevent duplicate charges]
+   ↓
+CODE: implements RedisIdempotencyStore with 86400s expiry [VALIDATED: Unit tests pass]
+```
+
+---
+
+### Aspektual'noye Otslezhivaniye (State Tracking - Russian)
+
+Track completion state for each phase using aspectual markers:
+
+```
+LOOP 1: RESEARCH-DRIVEN PLANNING
+  - Literature review:        [SV] (Completed - Sovershenny Vid)
+  - Pre-mortem cycles:        [NSV] (In-progress - Nesovershenny Vid)
+  - Technology selection:     [BLOCKED] (Waiting on stakeholder)
+  - Risk mitigation plan:     [NSV]
+
+LOOP 2: PARALLEL SWARM IMPLEMENTATION
+  - Backend API:              [NSV] (Implementation ongoing)
+  - Frontend components:      [NSV] (Implementation ongoing)
+  - Database schema:          [SV] (Migration complete)
+  - Integration tests:        [PENDING]
+
+LOOP 3: CI/CD RECOVERY
+  - Test execution:           [NSV] (Running test suite)
+  - Failure analysis:         [PENDING]
+  - Auto-repair:              [PENDING]
+  - Production deploy:        [PENDING]
+```
+
+**State Transitions**:
+- `PENDING` → `NSV` (task started)
+- `NSV` → `SV` (task completed)
+- `NSV` → `BLOCKED` (dependency unmet)
+- `BLOCKED` → `NSV` (dependency resolved)
+
+**Checkpoint Gates**:
+- Cannot proceed to LOOP 2 until LOOP 1 all [SV]
+- Cannot proceed to LOOP 3 until LOOP 2 all [SV]
+- Cannot deploy until LOOP 3 all [SV]
+
+---
+
+### Keigo Wakugumi (Work Hierarchy - Japanese)
+
+Organize work with respect levels (hierarchy):
+
+```
+PLAYBOOK: Three-Loop Research-to-Implementation (Highest level - Sonkei)
+  |
+  +-- LOOP 1: Research-Driven Planning (Phase level - Kenjougo)
+      |-- TASK 1.1: Literature Review (Task level - Teineigo)
+      |   |-- SUBTASK: Search academic databases
+      |   |-- SUBTASK: Extract best practices
+      |   |-- SUBTASK: Document citations
+      |
+      |-- TASK 1.2: Pre-mortem Analysis (Task level - Teineigo)
+      |   |-- SUBTASK: Identify failure modes (5 cycles)
+      |   |-- SUBTASK: Generate mitigation strategies
+      |   |-- SUBTASK: Multi-agent consensus
+      |
+      |-- TASK 1.3: Technology Selection (Task level - Teineigo)
+          |-- SUBTASK: Evaluate options
+          |-- SUBTASK: Create decision matrix
+          |-- SUBTASK: Document rationale
+  |
+  +-- LOOP 2: Parallel Swarm Implementation (Phase level - Kenjougo)
+      |-- TASK 2.1: Backend Development (Task level - Teineigo)
+      |   |-- SUBTASK: Implement API endpoints
+      |   |-- SUBTASK: Database integration
+      |   |-- SUBTASK: Authentication middleware
+      |
+      |-- TASK 2.2: Frontend Development (Task level - Teineigo)
+      |   |-- SUBTASK: Component library
+      |   |-- SUBTASK: State management
+      |   |-- SUBTASK: API integration
+      |
+      |-- TASK 2.3: Testing & Validation (Task level - Teineigo)
+          |-- SUBTASK: Unit tests
+          |-- SUBTASK: Integration tests
+          |-- SUBTASK: Theater detection
+  |
+  +-- LOOP 3: CI/CD Intelligent Recovery (Phase level - Kenjougo)
+      |-- TASK 3.1: Test Execution (Task level - Teineigo)
+      |-- TASK 3.2: Failure Analysis (Task level - Teineigo)
+      |-- TASK 3.3: Automated Repair (Task level - Teineigo)
+      |-- TASK 3.4: Production Deployment (Task level - Teineigo)
+```
+
+**Hierarchy Rules**:
+- **Sonkei** (Playbook): Strategic decisions only
+- **Kenjougo** (Loop): Tactical coordination
+- **Teineigo** (Task): Execution details
+
+**Benefit**: Clear separation of concerns, no scope creep between levels
+
+---
+
+## Evidence Chain Requirements
+
+Each loop MUST maintain evidential linkage:
+
+### LOOP 1: Research → Design
+```yaml
+evidence_chain:
+  research_sources:
+    - type: academic_paper
+      title: "Best Practices for Payment Processing"
+      citation: "Smith et al., 2024"
+      key_finding: "Idempotency prevents duplicate charges"
+    - type: vendor_docs
+      url: "https://stripe.com/docs/idempotency"
+      key_recommendation: "Use Redis for key storage"
+
+  design_decisions:
+    - decision: "Use Redis for idempotency key storage"
+      evidence: ["Smith et al., 2024", "Stripe Docs"]
+      rationale: "24hr TTL prevents key exhaustion"
+      alternatives_considered: ["PostgreSQL", "In-memory cache"]
+      rejection_rationale: "PostgreSQL: too slow; In-memory: not distributed"
+```
+
+### LOOP 2: Design → Implementation
+```yaml
+implementation_traces:
+  - component: "RedisIdempotencyStore"
+    design_reference: "Redis idempotency key storage"
+    evidence: "Implements Stripe recommendation"
+    files:
+      - "src/payments/idempotency.js"
+      - "tests/idempotency.test.js"
+    validation:
+      - type: unit_test
+        status: PASS
+        coverage: 95%
+```
+
+### LOOP 3: Implementation → Validation
+```yaml
+validation_chain:
+  - test: "Duplicate payment prevention"
+    implementation: "RedisIdempotencyStore"
+    design: "24hr TTL idempotency keys"
+    research: "Stripe best practices"
+    result: PASS
+    evidence: "100 duplicate requests blocked"
+```
+
+---
 
 **Example Triggers**:
 - "Build payment processing with Stripe"

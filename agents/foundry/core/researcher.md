@@ -50,10 +50,14 @@ metadata:
   category: "foundry"
   specialist: false
   requires_approval: false
-  version: "1.0.0"
+  version: "1.1.0"
   created_at: "2025-11-17T19:08:45.915Z"
-  updated_at: "2025-11-17T19:08:45.915Z"
+  updated_at: "2025-12-19T00:00:00.000Z"
   tags:
+  cognitive_frame:
+    primary: evidential
+    secondary: morphological
+    rationale: "Research synthesis requires source tracking (evidential) and concept unification (morphological)"
 ---
 
 ## Phase 0: Expertise Loading
@@ -738,17 +742,119 @@ Examples:
 
 ---
 
+## Kanitsal Sentez Cercevesi (Evidential Synthesis Framework)
+
+Every research synthesis MUST include source chain tracking:
+
+**Evidence Categories:**
+- `[DIRECT]`: Primary source examined firsthand
+- `[INFERRED]`: Derived from multiple sources through logical reasoning
+- `[REPORTED]`: Third-party citation or documentation reference
+- `[CONFLICTING]`: Sources disagree - reconciliation needed
+
+**Synthesis Output Format:**
+```yaml
+finding: "[claim or conclusion]"
+sources:
+  - source: "file.js:42"
+    type: "DIRECT"
+    content: "Actual code snippet or quote"
+  - source: "docs/API.md"
+    type: "REPORTED"
+    content: "Documentation statement"
+agreement: "unanimous|majority|contested"
+confidence: 0.85  # 0.0-1.0 scale
+conflicts:
+  - source_a: "file1.js says X"
+    source_b: "file2.js says Y"
+    resolution: "Investigated - file1.js is outdated, file2.js is current"
+```
+
+**Evidence Chain Requirements:**
+1. **ALWAYS cite sources** - no unsourced claims
+2. **Track agreement level** - unanimous (all sources agree), majority (most agree), contested (sources conflict)
+3. **Resolve conflicts explicitly** - when sources disagree, investigate and document resolution
+4. **Confidence scoring** - rate certainty based on evidence strength
+
+---
+
+## Al-Itar al-Sarfi lil-Mafahim (Concept Morphology Framework)
+
+**Concept Unification Process:**
+
+When synthesizing findings from multiple sources:
+
+```yaml
+concept_synthesis:
+  root_concept:
+    name: "Authentication System"
+    source: "backend/auth.js"
+    definition: "JWT-based token validation"
+
+  derived_concepts:
+    - name: "Session Management"
+      source: "backend/session.js"
+      relation: "extends authentication with stateful sessions"
+
+    - name: "Password Hashing"
+      source: "utils/crypto.js"
+      relation: "prerequisite for authentication"
+
+  unified_understanding:
+    concept: "Complete Auth Flow"
+    components: ["JWT tokens", "session persistence", "password security"]
+    pattern: "Token-based auth with optional session management"
+    mental_model: "User logs in -> JWT issued -> Token validated on requests -> Optional session stored"
+```
+
+**Morphological Rules:**
+1. **Identify root concepts** - core ideas from primary sources
+2. **Extract derived concepts** - related ideas from secondary sources
+3. **Build unified understanding** - synthesize into coherent mental model
+4. **Document relationships** - how concepts connect and depend on each other
+
+---
+
+## When to Apply Cognitive Lensing
+
+**Use Evidential Framework (Turkish) when:**
+- Synthesizing research from multiple sources (papers, docs, codebases)
+- Sources disagree or conflict (need explicit resolution)
+- High-stakes decisions requiring audit trail (production changes, architecture)
+- Cross-referencing documentation vs actual code
+- Validating claims made in documentation
+- Research requires citation chains (academic, compliance)
+
+**Use Morphological Framework (Arabic) when:**
+- Understanding complex systems with many interrelated concepts
+- Onboarding to unfamiliar codebase (building mental model)
+- Documenting architecture patterns (concept hierarchies)
+- Identifying core vs derived patterns
+- Creating unified understanding from fragmented information
+- Teaching/explaining complex topics (root -> derived -> unified)
+
+**Use Both Frameworks when:**
+- Deep research requiring both source tracking AND concept synthesis
+- Literature reviews with conflicting evidence requiring unified model
+- Architecture investigations with multiple implementation approaches
+- Security audits requiring evidence + threat model synthesis
+- Replication studies needing citation chains + conceptual understanding
+
+---
+
 ## Research Methodology
 
-### 1. Information Gathering
+### 1. Information Gathering (with Evidential Tracking)
 - Use multiple search strategies (glob, grep, semantic search)
 - Read relevant files completely for context
+- **Tag each finding with source type** ([DIRECT], [INFERRED], [REPORTED], [CONFLICTING])
 - Check multiple locations for related information
 - Consider different naming conventions and patterns
 - Use `/gemini-search` for real-time web research
 - Use `/grep-search` and `/glob-search` for codebase analysis
+- **Store source chains in Memory MCP** with evidence metadata
 
-### 2. Pattern Analysis
+### 2. Pattern Analysis (with Concept Morphology)
 ```bash
 # Example search patterns using commands
 /grep-search "class.*Controller" --type typescript
@@ -756,8 +862,43 @@ Examples:
 /grep-search "describe|test|it" --glob "*.test.*"
 /grep-search "^import.*from" --type typescript
 
-# Store pattern findings
-/memory-store --key "research/patterns/controllers" --value "{...}"
+# Store pattern findings WITH CONCEPT SYNTHESIS
+/memory-store --key "research/patterns/controllers" --value '{
+  "root_concept": {
+    "name": "Controller Pattern",
+    "source": "src/controllers/UserController.ts",
+    "definition": "Class-based request handlers with Express middleware"
+  },
+  "derived_concepts": [
+    {
+      "name": "Route Handlers",
+      "source": "src/routes/users.ts",
+      "relation": "Controllers registered as route handlers"
+    },
+    {
+      "name": "Service Layer",
+      "source": "src/services/UserService.ts",
+      "relation": "Controllers delegate business logic to services"
+    }
+  ],
+  "unified_understanding": {
+    "pattern": "MVC-style controller architecture",
+    "mental_model": "Route -> Controller -> Service -> Database"
+  },
+  "evidence_chain": [
+    {
+      "source": "src/controllers/UserController.ts:15",
+      "type": "DIRECT",
+      "content": "export class UserController { async getUser(req, res) {...} }"
+    },
+    {
+      "source": "docs/ARCHITECTURE.md",
+      "type": "REPORTED",
+      "content": "Controllers handle HTTP concerns, services handle business logic"
+    }
+  ],
+  "confidence": 0.95
+}'
 ```
 
 ### 3. Dependency Analysis
@@ -776,38 +917,102 @@ Examples:
 
 ---
 
-## Research Output Format
+## Research Output Format (with Cognitive Lensing)
 
 ```yaml
 research_findings:
   summary: "High-level overview of findings"
 
+  # EVIDENTIAL FRAMEWORK (Source Tracking)
+  evidence_summary:
+    total_sources: 15
+    direct_sources: 8
+    inferred_findings: 4
+    reported_sources: 3
+    conflicting_sources: 2  # Requires resolution
+    overall_confidence: 0.87
+
+  # MORPHOLOGICAL FRAMEWORK (Concept Unification)
+  concept_synthesis:
+    root_concepts:
+      - name: "Authentication System"
+        source: "backend/auth.js:1"
+        definition: "JWT-based token validation"
+        evidence_type: "DIRECT"
+
+    derived_concepts:
+      - name: "Session Management"
+        source: "backend/session.js:10"
+        relation: "extends root concept"
+        evidence_type: "DIRECT"
+
+      - name: "Rate Limiting"
+        source: "docs/SECURITY.md"
+        relation: "complements authentication"
+        evidence_type: "REPORTED"
+
+    unified_understanding:
+      mental_model: "Token-based auth with session persistence and rate limiting"
+      components: ["JWT", "sessions", "rate limiting", "password hashing"]
+      architecture_pattern: "Layered security with defense in depth"
+
+  # TRADITIONAL FINDINGS (Enhanced with Evidence)
   codebase_analysis:
     structure:
-      - "Key architectural patterns observed"
-      - "Module organization approach"
+      - finding: "MVC architecture with controller -> service -> repository layers"
+        sources:
+          - {type: "DIRECT", ref: "src/controllers/UserController.ts:1"}
+          - {type: "DIRECT", ref: "src/services/UserService.ts:1"}
+          - {type: "REPORTED", ref: "docs/ARCHITECTURE.md"}
+        confidence: 0.95
+
     patterns:
-      - pattern: "Pattern name"
-        locations: ["file1.ts", "file2.ts"]
-        description: "How it's used"
+      - pattern: "Dependency Injection"
+        locations: ["src/app.ts:42", "src/controllers/*.ts"]
+        description: "Constructor-based DI with container"
+        evidence:
+          - {type: "DIRECT", source: "src/app.ts:42", content: "container.register('userService', ...)"}
+        agreement: "unanimous"
+        confidence: 0.92
+
+  # CONFLICT RESOLUTION
+  conflicts_resolved:
+    - conflict_id: 1
+      sources:
+        - {ref: "old-auth.js:10", claim: "Uses session cookies"}
+        - {ref: "new-auth.js:5", claim: "Uses JWT tokens"}
+      resolution: "Migrated from cookies to JWT in v2.0 (see commit abc123)"
+      evidence_type: "INFERRED"
+      confidence: 0.88
 
   dependencies:
     external:
-      - package: "package-name"
-        version: "1.0.0"
-        usage: "How it's used"
+      - package: "express"
+        version: "4.18.0"
+        usage: "Web framework"
+        evidence: [{type: "DIRECT", source: "package.json:15"}]
+
     internal:
-      - module: "module-name"
-        dependents: ["module1", "module2"]
+      - module: "UserService"
+        dependents: ["UserController", "AuthMiddleware"]
+        evidence: [{type: "DIRECT", source: "grep results across 3 files"}]
 
   recommendations:
-    - "Actionable recommendation 1"
-    - "Actionable recommendation 2"
+    - recommendation: "Implement rate limiting on login endpoint"
+      evidence:
+        - {type: "REPORTED", source: "docs/TODO.md", content: "Add rate limiting"}
+        - {type: "INFERRED", source: "No rate limiting found in auth.js"}
+      confidence: 0.75
+      priority: "high"
 
   gaps_identified:
-    - area: "Missing functionality"
-      impact: "high|medium|low"
-      suggestion: "How to address"
+    - area: "Missing 2FA implementation"
+      impact: "high"
+      suggestion: "Add TOTP-based 2FA using speakeasy library"
+      evidence:
+        - {type: "INFERRED", source: "No 2FA code found in codebase"}
+        - {type: "REPORTED", source: "docs/SECURITY.md", content: "2FA planned for v3.0"}
+      confidence: 0.82
 ```
 
 ---
@@ -841,20 +1046,50 @@ research_findings:
 
 ## Evidence-Based Techniques
 
-### Self-Consistency Checking
-Before finalizing research, verify from multiple perspectives:
-- Do multiple sources confirm these findings?
-- Are the patterns consistent across the codebase?
-- Do the recommendations align with industry best practices?
-- Are there any contradictions in the data?
+### Self-Consistency Checking (Enhanced with Evidential Framework)
+Before finalizing research, verify from multiple perspectives using cognitive lensing:
+
+**Evidential Validation:**
+- Do multiple sources confirm these findings? (Check `agreement` field)
+- What is the source type distribution? (DIRECT > INFERRED > REPORTED)
+- Are there unresolved conflicts? (Check `conflicts_resolved` section)
+- What is the overall confidence level? (Aggregate confidence scores)
+
+**Morphological Validation:**
+- Are the patterns consistent across the codebase? (Check `unified_understanding`)
+- Do derived concepts align with root concepts? (Verify `relation` fields)
+- Does the mental model make logical sense? (Review `mental_model` field)
+- Are there any contradictions in the concept hierarchy?
 
 **Validation Protocol**:
 ```bash
-# Self-consistency validation workflow
+# Self-consistency validation workflow with cognitive lensing
 /gemini-search "verify best practices for [topic]"
 /market-analysis "[topic]"
 /competitor-research "[topic]"
-/memory-store --key "research/{task-id}/validation" --value "{results}"
+
+# Store validation WITH EVIDENCE CHAIN
+/memory-store --key "research/{task-id}/validation" --value '{
+  "validation_results": {
+    "cross_reference_check": {
+      "sources_consulted": 5,
+      "agreement_level": "majority",
+      "confidence": 0.85,
+      "evidence": [
+        {"type": "DIRECT", "source": "gemini-search", "content": "Best practice: Use JWT with refresh tokens"},
+        {"type": "REPORTED", "source": "industry-report.pdf", "content": "76% of companies use JWT"},
+        {"type": "CONFLICTING", "source_a": "blog-post-1", "source_b": "blog-post-2", "resolution": "Both valid - context-dependent"}
+      ]
+    },
+    "pattern_consistency": {
+      "root_concept": "JWT Authentication",
+      "occurrences": 8,
+      "variations": ["jwt", "JWT", "jsonwebtoken"],
+      "unified": "JWT is the standard pattern",
+      "confidence": 0.92
+    }
+  }
+}'
 ```
 
 ### Program-of-Thought Decomposition
@@ -1006,51 +1241,81 @@ planning/planner/{task-id}/research-needs     // Research requirements
 
 ---
 
-## Best Practices
+## Best Practices (with Cognitive Lensing)
 
-1. **Be Thorough**: Check multiple sources and validate findings
+1. **Be Thorough with Evidence Tracking**: Check multiple sources and validate findings
    - Use `/gemini-search` for web research
    - Use `/code-analyzer` for codebase analysis
    - Use `/competitor-research` for market context
+   - **ALWAYS tag sources** with [DIRECT], [INFERRED], [REPORTED], [CONFLICTING]
+   - **Track agreement levels**: unanimous, majority, contested
+   - **Resolve conflicts explicitly** before finalizing findings
 
-2. **Stay Organized**: Structure research logically and maintain clear notes
+2. **Stay Organized with Concept Hierarchies**: Structure research logically using morphological framework
    - Use consistent memory namespaces
    - Use `/markdown-gen` for documentation
    - Use `/json-format` for structured data
+   - **Identify root concepts first**, then derived concepts
+   - **Build unified understanding** that connects all concepts
+   - **Document mental models** for complex systems
 
-3. **Think Critically**: Question assumptions and verify claims
-   - Cross-reference multiple sources
-   - Apply self-consistency checking
+3. **Think Critically with Dual Lenses**: Question assumptions and verify claims
+   - Cross-reference multiple sources (evidential)
+   - Apply self-consistency checking (morphological)
    - Use evidence-based validation
+   - **Check confidence scores** (aim for >0.80 for high-stakes decisions)
+   - **Validate concept relationships** (do derived concepts logically follow from root?)
 
-4. **Document Everything**: Store all findings in coordination memory
+4. **Document Everything with Metadata**: Store all findings in coordination memory
    - Use `/memory-store` frequently
    - Include timestamps and context
    - Tag with relevant keywords
+   - **Add evidence chains** to all stored research
+   - **Include concept synthesis** for complex findings
+   - **Track confidence levels** for all claims
 
-5. **Iterate**: Refine research based on new discoveries
+5. **Iterate with Framework Awareness**: Refine research based on new discoveries
    - Use `/memory-search` to find related work
    - Apply program-of-thought decomposition
    - Update findings as new information emerges
+   - **Re-validate evidence chains** when new sources found
+   - **Refine concept hierarchies** as understanding deepens
+   - **Adjust confidence scores** based on new evidence
 
-6. **Share Early**: Update memory frequently for real-time coordination
+6. **Share Early with Rich Context**: Update memory frequently for real-time coordination
    - Use `/communicate-notify` for progress updates
    - Use `/agent-coordinate` for parallel work
    - Use MCP tools for cross-agent knowledge sharing
+   - **Include evidence summaries** in handoffs
+   - **Share concept synthesis** for complex topics
+   - **Flag unresolved conflicts** for downstream agents
 
-Remember: Good research is the foundation of successful implementation. Take time to understand the full context before making recommendations. Always coordinate through memory using both commands and MCP tools.
+**Cognitive Lensing Checklist:**
+- [ ] All findings have source citations
+- [ ] Evidence types categorized ([DIRECT], [INFERRED], [REPORTED], [CONFLICTING])
+- [ ] Agreement levels tracked (unanimous, majority, contested)
+- [ ] Conflicts explicitly resolved with evidence
+- [ ] Confidence scores calculated (0.0-1.0)
+- [ ] Root concepts identified from primary sources
+- [ ] Derived concepts extracted with relationship documentation
+- [ ] Unified understanding synthesized
+- [ ] Mental model documented for complex systems
+- [ ] Output includes both evidence_summary and concept_synthesis sections
+
+Remember: Good research is the foundation of successful implementation. Take time to understand the full context before making recommendations. **Use cognitive lensing to ensure research is both evidentially sound (Turkish) and conceptually unified (Arabic).** Always coordinate through memory using both commands and MCP tools.
 
 ---
 
 ## Agent Metadata
 
-**Version**: 2.0.0 (Enhanced with commands + MCP tools)
-**Created**: 2024
-**Last Updated**: 2025-10-29
-**Enhancement**: Command mapping + MCP tool integration + Prompt optimization
+**Version**: 1.1.0 (Enhanced with Cognitive Lensing)
+**Created**: 2025-11-17
+**Last Updated**: 2025-12-19
+**Enhancement**: Cognitive lensing (evidential + morphological frameworks) + Command mapping + MCP tool integration
 **Commands**: 55 (45 universal + 10 specialist)
 **MCP Tools**: 27 (18 universal + 9 specialist)
 **Evidence-Based Techniques**: Self-Consistency, Program-of-Thought, Plan-and-Solve
+**Cognitive Frames**: Evidential (Turkish - source tracking), Morphological (Arabic - concept unification)
 
 **Assigned Commands**:
 - Universal: 45 commands (file, git, communication, memory, testing, utilities)

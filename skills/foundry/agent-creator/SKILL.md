@@ -1,14 +1,14 @@
 ---
 name: agent-creator
-version: 2.2.0
-description: Creates specialized AI agents with optimized system prompts using the official 5-phase SOP methodology (v2.0 adds Phase 0 expertise loading), combined with evidence-based prompting techniques and Claude Agent SDK implementation. Use this skill when creating production-ready agents for specific domains, workflows, or tasks requiring consistent high-quality performance with deeply embedded domain knowledge. Integrates with recursive improvement loop.
+version: 3.0.1
+description: Creates specialized AI agents with optimized system prompts using the official 5-phase SOP methodology (v3.0 adds Phase 0.5 cognitive frame selection), combined with evidence-based prompting techniques and Claude Agent SDK implementation. Use this skill when creating production-ready agents for specific domains, workflows, or tasks requiring consistent high-quality performance with deeply embedded domain knowledge and cognitive frame optimization. Integrates with recursive improvement loop.
 ---
 
-# Agent Creator - Enhanced with 5-Phase SOP Methodology (v2.0)
+# Agent Creator - Enhanced with 5-Phase SOP Methodology (v3.0)
 
-This skill provides the **official comprehensive framework** for creating specialized AI agents, integrating the proven 5-phase methodology (v2.0 adds Phase 0 for expertise loading) from Desktop .claude-flow with Claude Agent SDK implementation and evidence-based prompting techniques.
+This skill provides the **official comprehensive framework** for creating specialized AI agents, integrating the proven 5-phase methodology (v3.0 adds Phase 0.5 cognitive frame selection) from Desktop .claude-flow with Claude Agent SDK implementation and evidence-based prompting techniques.
 
-n## Trigger Keywords
+## Trigger Keywords
 
 **USE WHEN user mentions:**
 - "create agent", "build agent", "new agent", "design agent"
@@ -89,12 +89,12 @@ const similarAgents = await mcp__memory-mcp__vector_search({
 **Token Cost**: 6.0k tokens (3.0% of 200k context)
 **When to Load**: When creating new agents or optimizing existing agent architectures
 
-## The 5-Phase Agent Creation Methodology (v2.0)
+## The 5-Phase Agent Creation Methodology (v3.0)
 
 **Source**: Desktop `.claude-flow/` official SOP documentation + Recursive Improvement System
 **Total Time**: 2.5-4 hours per agent (first-time), 1.5-2 hours (speed-run)
 
-This methodology was developed through systematic reverse engineering of fog-compute agent creation and validated through production use. **v2.0 adds Phase 0 for expertise loading and recursive improvement integration.**
+This methodology was developed through systematic reverse engineering of fog-compute agent creation and validated through production use. **v3.0 adds Phase 0.5 for cognitive frame selection with multi-lingual embedding.**
 
 ### Phase 0: Expertise Loading (5-10 minutes) [NEW]
 
@@ -135,6 +135,63 @@ This methodology was developed through systematic reverse engineering of fog-com
 **Outputs**:
 - Domain expertise context (if available)
 - Discovery mode flag (if not)
+
+---
+
+### Phase 0.5: Cognitive Frame Selection (5-10 minutes) [NEW in v3.0]
+
+**Objective**: Select optimal cognitive frame based on goal analysis.
+
+**Activities**:
+
+1. **Goal Analysis**
+   - 1st Order Goal: What will this agent DO immediately?
+   - 2nd Order Goal: WHY is this agent needed?
+   - 3rd Order Goal: What ULTIMATE outcome does this enable?
+
+2. **Frame Selection Checklist**
+   | Question | If YES, Use Frame |
+   |----------|-------------------|
+   | Is completion tracking critical? | Aspectual (Russian) |
+   | Is source verification critical? | Evidential (Turkish) |
+   | Is audience calibration critical? | Hierarchical (Japanese) |
+   | Is semantic analysis needed? | Morphological (Arabic) |
+   | Is object comparison needed? | Classifier (Mandarin) |
+
+3. **Frame Embedding**
+   Embed frame activation phrase in agent system prompt:
+
+   For Evidential Frame:
+   ```
+   ## Kanitsal Cerceve (Evidential Mode)
+   Bu agent her iddia icin kaynak belirtir:
+   - DOGRUDAN: "I tested this directly"
+   - CIKARIM: "Evidence suggests..."
+   - BILDIRILEN: "Documentation states..."
+   ```
+
+   For Aspectual Frame:
+   ```
+   ## Aspektual'naya Ramka (Aspectual Mode)
+   Etot agent otslezhivaet zavershenie:
+   - [SV] Polnost'yu zaversheno - COMPLETED
+   - [NSV] V protsesse - IN_PROGRESS
+   - [BLOCKED] Ozhidaet - WAITING
+   ```
+
+4. **Multi-Lingual Section**
+   Include 3-5 lines in target language within agent template.
+
+**Validation Gate**:
+- [ ] Goal analysis completed (all 3 orders)
+- [ ] Frame selection checklist run
+- [ ] Frame activation phrase prepared
+- [ ] Multi-lingual section ready
+
+**Outputs**:
+- Selected cognitive frame
+- Frame activation phrase
+- Multi-lingual embedding for system prompt
 
 ---
 
@@ -193,6 +250,18 @@ This methodology was developed through systematic reverse engineering of fog-com
    - Primary role: [Specific title]
    - Expertise domains: [List activated domains]
    - Cognitive patterns: [Heuristics used]
+
+   ## Cognitive Frame (NEW in v3.0)
+   ```yaml
+   cognitive_frame:
+     primary: evidential|aspectual|hierarchical|morphological|classifier
+     goal_analysis:
+       first_order: "..."
+       second_order: "..."
+       third_order: "..."
+     frame_embedding: |
+       [Multi-lingual activation phrase]
+   ```
 
    ## Core Capabilities
    1. [Capability with specific examples]
@@ -792,9 +861,16 @@ Use this methodology to create agents with:
 ## Cross-Skill Coordination
 
 Agent Creator works with:
-- **skill-forge**: To improve agent-creator itself
-- **prompt-architect**: To optimize agent system prompts
-- **eval-harness**: To validate created agents
+- **cognitive-lensing**: Select optimal cognitive frames for agents (Phase 0.5 integration)
+- **skill-forge**: Improve agent-creator itself through meta-prompting
+- **prompt-forge**: Optimize agent system prompts using evidence-based techniques
+- **eval-harness**: Validate created agents against benchmarks
+
+**Integration Points**:
+- **cognitive-lensing** provides frame selection during agent creation (goal-based analysis)
+- **prompt-forge** optimizes agent prompts after Phase 3 architecture design
+- **skill-forge** uses meta-loop to improve the agent creation process itself
+- **eval-harness** validates agent quality through regression and benchmark tests
 
 See: `.claude/skills/META-SKILLS-COORDINATION.md` for full coordination matrix.
 
@@ -1059,3 +1135,50 @@ Agent Creator transforms agent development from ad-hoc prompt writing into syste
 The investment in systematic agent creation compounds over time. Agents built with this methodology handle edge cases gracefully, avoid documented failure modes, and improve continuously through metrics tracking. When integrated with expertise files and recursive improvement loops, agents become institutional knowledge repositories that preserve and enhance organizational capabilities.
 
 Use Agent Creator when building production-ready agents for domains requiring consistent high-quality performance. The 2.5-4 hour first-time investment becomes 1.5-2 hours for speed-runs, yielding agents that reliably execute complex workflows without constant supervision.
+
+---
+
+## Version History
+
+### v3.0.1 (2025-12-19)
+- Fixed typo: "n## Trigger Keywords" -> "## Trigger Keywords"
+- Enhanced cross-skill coordination section with all four foundry skills
+- Added integration points for cognitive-lensing, skill-forge, prompt-forge, eval-harness
+- Clarified how skills integrate at different phases of agent creation
+
+### v3.0.0 (2025-12-18)
+- Added Phase 0.5: Cognitive Frame Selection with multi-lingual embedding
+- Integrated goal analysis framework (1st, 2nd, 3rd order goals)
+- Added frame selection checklist (Aspectual, Evidential, Hierarchical, Morphological, Classifier)
+- Added frame activation phrases for Evidential (Turkish) and Aspectual (Russian) modes
+- Extended Agent Specification template with cognitive_frame YAML section
+- Added multi-lingual embedding requirements for agent system prompts
+
+### v2.2.0 (2025-11-08)
+- Added Phase 0: Expertise Loading
+- Integrated expertise system for domain knowledge inheritance
+- Added discovery mode for agents without pre-existing expertise
+- Updated 5-phase workflow to 6 phases (Phase 0 + Phases 1-4)
+- Added expertise validation gates
+- Updated speed-run timelines to account for expertise loading
+
+### v2.1.0 (2025-10-15)
+- Enhanced Meta-Cognitive Extraction with decision framework templates
+- Added quality standards documentation
+- Improved agent specification structure
+- Added supporting artifacts guidelines
+
+### v2.0.0 (2025-09-20)
+- Official 5-phase SOP methodology integration from Desktop .claude-flow
+- Added systematic domain analysis (Phase 1)
+- Added meta-cognitive extraction (Phase 2)
+- Added architecture design phase (Phase 3)
+- Added technical enhancement phase (Phase 4)
+- Integrated evidence-based prompting techniques
+- Added production validation frameworks
+
+### v1.0.0 (2025-08-01)
+- Initial agent-creator skill
+- Basic agent creation workflow
+- Claude Agent SDK implementation
+- Evidence-based prompting techniques (self-consistency, PoT, plan-and-solve)

@@ -1,5 +1,22 @@
 ---
 
+## CHANGELOG
+
+### v1.1.0 (2025-12-19)
+- **Added cognitive lensing**: Evidential (Turkish) and morphological (Arabic) frames
+- **Evidential markers**: All deliverables now tagged with [DIRECT|INFERRED|REPORTED] and confidence levels
+- **Morphological decomposition**: Research questions decompose into ROOT → DERIVED → COMPOSED concepts
+- **Evidence chains**: Full traceability from measurements to conclusions
+- **Confidence thresholds**: Gate approval requires ≥90% overall confidence
+- **Enhanced quality gates**: Each requirement includes evidential markers and confidence criteria
+- **Updated principles**: Systematic rigor and reproducibility now include evidential enforcement
+- **Enhanced conclusion**: Added evidence-based guarantees and cognitive lensing summary
+
+### v1.0.0 (Initial)
+- Initial Deep Research Orchestrator with 3 phases, 9 pipelines, 3 quality gates
+
+---
+
 ## SKILL-SPECIFIC GUIDANCE
 
 ### When to Use This Skill
@@ -52,18 +69,81 @@ description: Meta-orchestrator for complete Deep Research SOP lifecycle managing
   conducting systematic ML research, or ensuring rigorous scientific methodology from
   literature review through production deployment. Coordinates all SOP skills and
   agents for end-to-end research execution.
-version: 1.0.0
+version: 1.1.0
 category: research
 tags:
 - research
 - analysis
 - planning
 author: ruv
+cognitive_frame:
+  primary: evidential
+  secondary: morphological
+  rationale: "Research requires rigorous source tracking and concept decomposition"
 ---
 
 # Deep Research Orchestrator
 
 Master orchestration skill for the complete Deep Research Standard Operating Procedure (SOP), managing the entire research lifecycle from ideation through production deployment with rigorous quality gates.
+
+## Kanitsal Cerceve Aktivasyonu (Evidential Frame)
+
+Bu arastirma gorevi icin her iddia kaynaklandirilmalidir:
+
+**Kaynak Turleri:**
+- **DOGRUDAN (-DI)**: Birincil kaynak, dogrudan inceleme
+- **CIKARIM (-mIs)**: Ikincil analiz, cikarim yapildi
+- **BILDIRILEN (-mIs)**: Ucuncu taraf bildirimi
+
+**English Application:**
+- **[DIRECT]**: Primary source, directly examined
+- **[INFERRED]**: Secondary analysis, derived conclusion
+- **[REPORTED]**: Third-party report or citation
+
+**Usage in Research Pipelines:**
+Every deliverable must include evidential markers indicating the source type and confidence level.
+
+Example:
+```
+Literature Review Finding [DIRECT, confidence: 95%]:
+- Baseline accuracy: 94.2% (source: original paper Table 3, directly replicated)
+
+Hypothesis [INFERRED, confidence: 78%]:
+- Multi-scale attention may improve performance (derived from 5 papers showing similar patterns)
+
+Related Work [REPORTED, confidence: 90%]:
+- Vision Transformers achieve SOTA (cited from Dosovitskiy et al. 2021, not replicated)
+```
+
+## Al-Itar al-Sarfi (Morphological Frame)
+
+Hadhihi al-mahimma tatatallab tahlil al-judur:
+
+**Concept Decomposition:**
+- **ROOT**: Core research question (undivisible atomic concept)
+- **DERIVED**: Sub-questions from decomposition (morphological transformations)
+- **COMPOSED**: Synthesized findings from multiple roots (compound concepts)
+
+**English Application:**
+
+Research questions follow morphological decomposition:
+
+**ROOT**: "How does multi-scale attention improve vision transformers?"
+
+**DERIVED** (decomposition):
+1. What is multi-scale attention? (definition root)
+2. How do vision transformers work? (mechanism root)
+3. What metrics define improvement? (evaluation root)
+4. What baselines exist? (comparison root)
+
+**COMPOSED** (synthesis):
+- Multi-scale attention + vision transformers + evaluation metrics = testable hypothesis
+- Baseline performance + novel method + statistical validation = publishable contribution
+
+**Usage in Pipelines:**
+- **Pipeline A (Literature)**: Decompose research question into ROOT concepts
+- **Pipeline D (Baseline)**: Verify ROOT assumptions with [DIRECT] evidence
+- **Pipeline E (Holistic Eval)**: Synthesize COMPOSED metrics across dimensions
 
 ## Overview
 
@@ -193,10 +273,19 @@ claude-code invoke-skill literature-synthesis \
 ```
 
 **Deliverables**:
-- Literature review document (50-100 papers)
-- SOTA performance benchmarks
-- Research gap analysis
-- Hypothesis formulation
+- Literature review document (50-100 papers) **[REPORTED, confidence: varies per paper]**
+- SOTA performance benchmarks **[DIRECT if replicated, REPORTED if cited]**
+- Research gap analysis **[INFERRED from literature patterns]**
+- Hypothesis formulation **[COMPOSED from ROOT + DERIVED concepts]**
+
+**Evidential Requirements**:
+- Each paper tagged with [DIRECT|REPORTED] based on whether code/results were verified
+- Confidence levels for each claim (90%+ for DIRECT, 70-90% for REPORTED, 60-80% for INFERRED)
+
+**Morphological Decomposition**:
+- ROOT question decomposed into 3-5 atomic sub-questions
+- DERIVED concepts mapped to literature sources
+- COMPOSED hypothesis shows clear lineage from decomposition
 
 **Agent**: researcher
 
@@ -221,10 +310,13 @@ npx claude-flow@alpha sparc run ethics-agent \
 ```
 
 **Deliverables**:
-- Datasheet (Form F-P1)
-- Bias audit report
-- Ethics review (Gate 1)
-- IRB approval (if human subjects)
+- Datasheet (Form F-P1) **[DIRECT, confidence: 100% - primary documentation]**
+- Bias audit report **[DIRECT, confidence: 95% - measured on actual data]**
+- Ethics review (Gate 1) **[INFERRED, confidence: 85% - risk assessment based on analysis]**
+- IRB approval (if human subjects) **[DIRECT, confidence: 100% - official approval]**
+
+**Evidence Chain**:
+- Data properties [DIRECT] → Bias measurements [DIRECT] → Risk assessment [INFERRED] → Ethics decision [COMPOSED]
 
 **Agents**: data-steward, ethics-agent
 
@@ -261,10 +353,19 @@ claude-code invoke-skill baseline-replication \
 ```
 
 **Deliverables**:
-- Baseline implementation (100% test coverage)
-- Statistical comparison (±1% tolerance)
-- Reproducibility package (Docker)
-- Baseline evaluation report
+- Baseline implementation (100% test coverage) **[DIRECT, confidence: 100% - code verified]**
+- Statistical comparison (±1% tolerance) **[DIRECT, confidence: 98% - measured results]**
+- Reproducibility package (Docker) **[DIRECT, confidence: 100% - tested in fresh env]**
+- Baseline evaluation report **[COMPOSED from DIRECT measurements + REPORTED paper claims]**
+
+**Evidence Chain**:
+1. Original paper claims (reported baseline) **[REPORTED]**
+2. Our replication results **[DIRECT]**
+3. Statistical comparison **[DIRECT, computed from measurements]**
+4. Reproducibility validation **[DIRECT, 3/3 fresh runs]**
+5. Final assessment **[COMPOSED, confidence: 95%]**
+
+**Confidence Threshold**: Must achieve ≥95% confidence that replication is within ±1% tolerance
 
 **Agents**: researcher, data-steward, coder, tester, archivist, evaluator
 
@@ -278,18 +379,30 @@ claude-code invoke-skill baseline-replication \
 claude-code invoke-skill gate-validation --gate 1
 ```
 
-**Gate 1 Requirements**:
-- [ ] Literature review complete (≥50 papers)
-- [ ] Datasheet complete (Form F-P1, ≥90% filled)
-- [ ] Ethics review APPROVED (data-steward + ethics-agent)
-- [ ] Baseline replication ±1% tolerance
-- [ ] Reproducibility package tested (3/3 runs successful)
-- [ ] Dataset validated (bias audit complete)
+**Gate 1 Requirements** (with Evidential Markers):
+- [ ] Literature review complete (≥50 papers) **[REPORTED, avg confidence: ≥80%]**
+- [ ] Datasheet complete (Form F-P1, ≥90% filled) **[DIRECT, confidence: 100%]**
+- [ ] Ethics review APPROVED (data-steward + ethics-agent) **[INFERRED risk assessment ≥85% confidence]**
+- [ ] Baseline replication ±1% tolerance **[DIRECT, confidence: ≥95%]**
+- [ ] Reproducibility package tested (3/3 runs successful) **[DIRECT, confidence: 100%]**
+- [ ] Dataset validated (bias audit complete) **[DIRECT, confidence: ≥90%]**
 
-**Decision**:
-- **APPROVED**: Proceed to Phase 2 (Method Development)
-- **CONDITIONAL**: Minor fixes required, proceed with restrictions
-- **REJECTED**: Critical issues, return to Phase 1
+**Evidence Chain for Gate Decision**:
+1. Collect all [DIRECT] measurements from Phase 1 pipelines
+2. Aggregate [REPORTED] confidence from literature (weighted by paper quality)
+3. Synthesize [INFERRED] risk assessments from ethics review
+4. Compute overall confidence: weighted average of 6 requirements
+5. **Gate 1 approval threshold**: ≥90% overall confidence
+
+**Decision Criteria**:
+- **APPROVED** (≥90% confidence): Proceed to Phase 2 (Method Development)
+- **CONDITIONAL** (80-89% confidence): Minor fixes required, proceed with restrictions
+- **REJECTED** (<80% confidence): Critical issues, return to Phase 1
+
+**Confidence Decomposition**:
+- ROOT requirements: Datasheet, baseline, reproducibility (must be [DIRECT] ≥95%)
+- DERIVED requirements: Literature, bias audit (can be [REPORTED] ≥80%)
+- COMPOSED decision: Overall confidence synthesis
 
 **Agent**: evaluator
 
@@ -308,11 +421,22 @@ claude-code invoke-skill method-development \
 ```
 
 **Deliverables**:
-- Novel method implementation
-- Ablation study results (≥5 components)
-- Hyperparameter optimization results
-- Performance comparison vs. baseline
-- Method card (Mitchell et al. 2019 template)
+- Novel method implementation **[DIRECT, confidence: 100% - our code]**
+- Ablation study results (≥5 components) **[DIRECT, confidence: 95% - measured with error bars]**
+- Hyperparameter optimization results **[DIRECT, confidence: 90% - grid/random search]**
+- Performance comparison vs. baseline **[COMPOSED from DIRECT measurements]**
+- Method card (Mitchell et al. 2019 template) **[COMPOSED documentation]**
+
+**Evidence Requirements for Method Development**:
+- Each ablation must report: mean, std dev, confidence intervals (95%)
+- Statistical significance: p-values < 0.05 required
+- Effect size: Cohen's d ≥ 0.5 for meaningful improvements
+- All claims tagged [DIRECT] or [INFERRED] with confidence levels
+
+**Morphological Analysis**:
+- **ROOT method**: Core novel component (e.g., "multi-scale attention")
+- **DERIVED variations**: Ablations removing components
+- **COMPOSED system**: Full method with all components
 
 **Agents**: system-architect, coder, tester, reviewer
 
@@ -329,12 +453,24 @@ claude-code invoke-skill holistic-evaluation \
 ```
 
 **Deliverables**:
-- Holistic evaluation report
-- Fairness metrics (demographic parity, equalized odds)
-- Robustness analysis (adversarial, OOD)
-- Efficiency profiling (latency, memory, energy)
-- Interpretability analysis (SHAP, attention viz)
-- Safety evaluation (harmful outputs, bias, privacy)
+- Holistic evaluation report **[COMPOSED from 6 DIRECT measurement pipelines]**
+- Fairness metrics (demographic parity, equalized odds) **[DIRECT, confidence: 90%]**
+- Robustness analysis (adversarial, OOD) **[DIRECT, confidence: 85%]**
+- Efficiency profiling (latency, memory, energy) **[DIRECT, confidence: 95%]**
+- Interpretability analysis (SHAP, attention viz) **[INFERRED from model internals, confidence: 75%]**
+- Safety evaluation (harmful outputs, bias, privacy) **[DIRECT measurements + INFERRED risk assessment]**
+
+**Evidence Chain for Each Dimension**:
+1. **Accuracy** [DIRECT]: Test set performance, error bars
+2. **Fairness** [DIRECT]: Measured across demographic groups
+3. **Robustness** [DIRECT]: Adversarial attack success rate, OOD performance
+4. **Efficiency** [DIRECT]: Profiled latency/memory/energy
+5. **Interpretability** [INFERRED]: Feature importance, attention patterns (cannot directly measure understanding)
+6. **Safety** [COMPOSED]: Bias audit [DIRECT] + risk assessment [INFERRED]
+
+**Confidence Aggregation**:
+- Overall holistic evaluation confidence = weighted average of 6 dimensions
+- Minimum 80% confidence required for Gate 2 approval
 
 **Agents**: tester, ethics-agent
 
@@ -371,18 +507,30 @@ npx claude-flow@alpha sparc run ethics-agent \
 claude-code invoke-skill gate-validation --gate 2
 ```
 
-**Gate 2 Requirements**:
-- [ ] Novel method outperforms baseline (statistically significant)
-- [ ] Ablation studies complete (≥5 components)
-- [ ] Holistic evaluation complete (6+ dimensions)
-- [ ] Ethics review APPROVED (ethics-agent)
-- [ ] Method card complete (≥90% filled)
-- [ ] Reproducibility tested (3/3 runs successful)
+**Gate 2 Requirements** (with Evidential Markers):
+- [ ] Novel method outperforms baseline (statistically significant) **[DIRECT, p < 0.05, d ≥ 0.5, confidence: ≥95%]**
+- [ ] Ablation studies complete (≥5 components) **[DIRECT, each with error bars, confidence: ≥90%]**
+- [ ] Holistic evaluation complete (6+ dimensions) **[COMPOSED from 6 DIRECT pipelines, avg confidence: ≥85%]**
+- [ ] Ethics review APPROVED (ethics-agent) **[INFERRED risk assessment, confidence: ≥85%]**
+- [ ] Method card complete (≥90% filled) **[COMPOSED documentation, confidence: 100%]**
+- [ ] Reproducibility tested (3/3 runs successful) **[DIRECT, confidence: 100%]**
 
-**Decision**:
-- **APPROVED**: Proceed to Phase 3 (Production)
-- **CONDITIONAL**: Mitigation plan required
-- **REJECTED**: Critical issues, return to Phase 2
+**Evidence Chain for Gate 2**:
+1. Performance improvement [DIRECT]: t-test p-value < 0.05, Cohen's d ≥ 0.5
+2. Ablation validity [DIRECT]: Each component tested with 3+ runs, error bars computed
+3. Holistic evaluation [COMPOSED]: 6 dimensions measured → weighted average confidence
+4. Ethics approval [INFERRED]: Risk assessment based on fairness metrics [DIRECT] + safety evaluation [INFERRED]
+5. Reproducibility [DIRECT]: 3/3 fresh runs within ±1% variance
+
+**Decision Criteria**:
+- **APPROVED** (≥90% confidence): Proceed to Phase 3 (Production)
+- **CONDITIONAL** (80-89% confidence): Mitigation plan required (e.g., fairness gaps, robustness issues)
+- **REJECTED** (<80% confidence): Critical issues (performance regression, safety risks)
+
+**Confidence Requirements by Type**:
+- [DIRECT] measurements: ≥90% required (performance, ablations, reproducibility)
+- [INFERRED] assessments: ≥80% required (ethics, safety)
+- [COMPOSED] synthesis: ≥85% required (holistic evaluation, method card)
 
 **Agent**: evaluator
 
@@ -408,11 +556,22 @@ npx claude-flow@alpha sparc run archivist \
 ```
 
 **Deliverables**:
-- Model card (Form F-G2, ≥90% filled)
-- Reproducibility package (code + data + environment)
-- DOIs assigned (dataset, model, code)
-- Registry URLs (HuggingFace, Zenodo)
-- Archive (.tar.gz with manifest)
+- Model card (Form F-G2, ≥90% filled) **[COMPOSED from all prior DIRECT measurements]**
+- Reproducibility package (code + data + environment) **[DIRECT, confidence: 100% - tested]**
+- DOIs assigned (dataset, model, code) **[DIRECT, confidence: 100% - verified URLs]**
+- Registry URLs (HuggingFace, Zenodo) **[DIRECT, confidence: 100% - accessible]**
+- Archive (.tar.gz with manifest) **[DIRECT, confidence: 100% - checksum verified]**
+
+**Evidence Preservation**:
+- All [DIRECT] measurements archived with full provenance
+- All [INFERRED] conclusions documented with reasoning chain
+- All [REPORTED] claims linked to original sources (DOIs, URLs)
+- Model card synthesizes evidence chains from Phases 1-3
+
+**Reproducibility Evidence Requirements**:
+- Fresh environment reproduction: 3/3 successful runs **[DIRECT]**
+- Performance variance: < 1% across runs **[DIRECT]**
+- Artifact completeness: 100% checklist items **[DIRECT]**
 
 **Agent**: archivist
 
@@ -470,19 +629,43 @@ claude-code invoke-skill research-publication \
 claude-code invoke-skill gate-validation --gate 3
 ```
 
-**Gate 3 Requirements**:
-- [ ] Model card complete (≥90% filled)
-- [ ] Reproducibility package tested (3/3 runs)
-- [ ] DOIs assigned (dataset, model, code)
-- [ ] Code public (GitHub release)
-- [ ] Ethics review APPROVED (deployment)
-- [ ] Deployment plan validated
-- [ ] Publication artifacts ready
+**Gate 3 Requirements** (with Evidential Markers):
+- [ ] Model card complete (≥90% filled) **[COMPOSED from Phases 1-3, confidence: 100%]**
+- [ ] Reproducibility package tested (3/3 runs) **[DIRECT, confidence: 100%]**
+- [ ] DOIs assigned (dataset, model, code) **[DIRECT, verified URLs, confidence: 100%]**
+- [ ] Code public (GitHub release) **[DIRECT, accessible, confidence: 100%]**
+- [ ] Ethics review APPROVED (deployment) **[INFERRED deployment risks, confidence: ≥85%]**
+- [ ] Deployment plan validated **[DIRECT infrastructure tests, confidence: ≥90%]**
+- [ ] Publication artifacts ready **[COMPOSED from all phases, confidence: 100%]**
 
-**Decision**:
-- **APPROVED**: Deploy to production, submit publication
-- **CONDITIONAL**: Minor documentation fixes
-- **REJECTED**: Critical reproducibility or ethics issues
+**Evidence Chain for Gate 3**:
+1. Artifact completeness [DIRECT]: All checklist items (100% verifiable)
+2. Reproducibility [DIRECT]: 3/3 fresh environments, <1% variance
+3. Public accessibility [DIRECT]: DOIs resolve, code clones successfully
+4. Deployment readiness [DIRECT]: Infrastructure validated, monitoring tested
+5. Ethics clearance [INFERRED]: Production risk assessment based on Phase 2 safety evaluation [DIRECT]
+6. Publication package [COMPOSED]: All prior evidence chains synthesized
+
+**Decision Criteria**:
+- **APPROVED** (≥95% confidence): Deploy to production, submit publication
+  - All [DIRECT] requirements: 100% (reproducibility, DOIs, code, deployment tests)
+  - [INFERRED] ethics: ≥85%
+  - [COMPOSED] artifacts: 100% completeness
+- **CONDITIONAL** (90-94% confidence): Minor documentation fixes
+- **REJECTED** (<90% confidence): Critical reproducibility or ethics issues
+
+**Final Evidence Preservation**:
+- Model card documents full evidence chain: ROOT question → DERIVED hypotheses → COMPOSED findings
+- All [DIRECT] measurements archived with provenance (who, when, how)
+- All [INFERRED] conclusions documented with reasoning + confidence
+- All [REPORTED] claims linked to sources (DOIs, paper references)
+
+**Publication Readiness Checklist**:
+- [ ] Evidence chain complete (ROOT → DERIVED → COMPOSED)
+- [ ] All claims tagged ([DIRECT] | [INFERRED] | [REPORTED])
+- [ ] Confidence levels reported (mean ± std dev for all measurements)
+- [ ] Reproducibility verified (3/3 independent runs)
+- [ ] Ethics approved (≥85% confidence on deployment risks)
 
 **Agent**: evaluator
 
@@ -774,21 +957,39 @@ Total: 16 weeks (4 months) for complete research lifecycle
 
 Deep Research Orchestrator operates on 3 fundamental principles:
 
-### Principle 1: Systematic Rigor Over Expedience
+### Principle 1: Systematic Rigor Over Expedience (Evidential Frame)
 Research quality cannot be compromised for speed. Every phase and pipeline follows evidence-based methodology (PRISMA, ACM badging, NeurIPS reproducibility standards) ensuring publishable results.
 
 In practice:
-- Quality Gates enforce GO/NO-GO decisions with statistical validation
-- Minimum thresholds prevent premature progression (50+ papers, ±1% baseline tolerance, 3/3 reproducibility)
-- Ethics reviews (data-steward + ethics-agent) occur at every gate, not just final submission
+- Quality Gates enforce GO/NO-GO decisions with statistical validation **[DIRECT confidence thresholds]**
+- Minimum thresholds prevent premature progression:
+  - Literature: 50+ papers **[REPORTED, avg confidence ≥80%]**
+  - Baseline: ±1% tolerance **[DIRECT, confidence ≥95%]**
+  - Reproducibility: 3/3 runs **[DIRECT, confidence 100%]**
+- Ethics reviews (data-steward + ethics-agent) occur at every gate **[INFERRED risk assessment ≥85%]**, not just final submission
 
-### Principle 2: Reproducibility as First-Class Requirement
+**Evidential Enforcement**:
+- Every claim requires source tag: [DIRECT] | [INFERRED] | [REPORTED]
+- Every measurement requires confidence level: ≥90% for production approval
+- Evidence chains must be traceable: ROOT → DERIVED → COMPOSED
+
+### Principle 2: Reproducibility as First-Class Requirement (Morphological Frame)
 Reproducibility is not an afterthought but a continuous validation requirement from Phase 1 through Phase 3. Every artifact must be independently verifiable.
 
 In practice:
-- Baseline replication (±1% tolerance) validates computational environment before novel method development
-- Reproducibility packages tested in fresh Docker containers with zero cached dependencies
-- All code, data, hyperparameters archived with permanent DOIs (Zenodo, HuggingFace) before Gate 3
+- **ROOT validation**: Baseline replication (±1% tolerance) **[DIRECT, confidence ≥95%]** validates computational environment before novel method development
+- **DERIVED verification**: Reproducibility packages tested in fresh Docker containers with zero cached dependencies **[DIRECT, 3/3 runs]**
+- **COMPOSED archival**: All code, data, hyperparameters archived with permanent DOIs (Zenodo, HuggingFace) **[DIRECT, verified URLs]** before Gate 3
+
+**Morphological Decomposition of Reproducibility**:
+- **ROOT**: Can the baseline be replicated? (atomic verification)
+- **DERIVED**: Can the novel method be replicated? (depends on ROOT)
+- **COMPOSED**: Can the full research pipeline be replicated? (end-to-end verification)
+
+**Evidence Requirements**:
+- Each level requires [DIRECT] verification with ≥95% confidence
+- Failures at ROOT level block all DERIVED work (Gate 1 enforcement)
+- COMPOSED artifacts synthesize all prior evidence chains
 
 ### Principle 3: Multi-Agent Coordination for Comprehensive Coverage
 No single agent possesses complete expertise. Deep Research requires 9+ agents working in coordinated phases to ensure data integrity, methodological soundness, and production readiness.
@@ -814,6 +1015,23 @@ In practice:
 
 The Deep Research Orchestrator is the definitive workflow for conducting rigorous, reproducible, and ethically sound machine learning research from ideation to production deployment. By enforcing 3 quality gates across 9 pipelines (A-I), this orchestrator ensures that research meets the standards required for top-tier academic publication (NeurIPS, ICML, CVPR) and production deployment.
 
-This skill is essential when research quality cannot be compromised: systematic literature reviews with 50+ papers, baseline replication within ±1% tolerance, holistic evaluation across 6+ dimensions (accuracy, fairness, robustness, efficiency, interpretability, safety), and reproducibility packages tested in independent environments. The 2-6 month timeline reflects the complexity of comprehensive research, but the result is publication-ready artifacts with ACM Artifact Evaluation badges and permanent DOIs.
+**Cognitive Lensing Enhancement**:
 
-Use this orchestrator when starting new ML research projects, preparing academic submissions with artifact tracks, or ensuring regulatory compliance (FDA, EU AI Act). The coordinated multi-agent approach (researcher, data-steward, ethics-agent, archivist, coder, tester, evaluator) ensures no dimension is overlooked, and the quality gate system prevents premature progression. The investment in systematic methodology yields research that not only passes peer review but advances the state of the art with confidence in its validity and reproducibility.
+This skill now integrates **evidential reasoning** (Turkish linguistic frame) and **morphological decomposition** (Arabic linguistic frame) to ensure:
+
+1. **Evidential Tracking**: Every claim is tagged with source type ([DIRECT] | [INFERRED] | [REPORTED]) and confidence level (60-100%)
+2. **Morphological Analysis**: Research questions decompose into ROOT (atomic concepts) → DERIVED (sub-questions) → COMPOSED (synthesized findings)
+3. **Evidence Chains**: Full traceability from raw measurements to final conclusions
+4. **Confidence Thresholds**: Gate approval requires ≥90% overall confidence from aggregated evidence
+
+**When to Use**:
+
+This skill is essential when research quality cannot be compromised: systematic literature reviews with 50+ papers **[REPORTED, avg confidence ≥80%]**, baseline replication within ±1% tolerance **[DIRECT, confidence ≥95%]**, holistic evaluation across 6+ dimensions **[COMPOSED from DIRECT measurements]**, and reproducibility packages tested in independent environments **[DIRECT, 3/3 runs]**. The 2-6 month timeline reflects the complexity of comprehensive research, but the result is publication-ready artifacts with ACM Artifact Evaluation badges and permanent DOIs.
+
+Use this orchestrator when starting new ML research projects, preparing academic submissions with artifact tracks, or ensuring regulatory compliance (FDA, EU AI Act). The coordinated multi-agent approach (researcher, data-steward, ethics-agent, archivist, coder, tester, evaluator) ensures no dimension is overlooked, and the quality gate system prevents premature progression. The investment in systematic methodology yields research that not only passes peer review but advances the state of the art with **verifiable confidence** in its validity and reproducibility.
+
+**Evidence-Based Guarantee**:
+- All [DIRECT] measurements: ≥95% confidence
+- All [INFERRED] conclusions: ≥80% confidence, documented reasoning
+- All [REPORTED] claims: Linked to sources (DOIs), ≥70% confidence
+- Overall research validity: ≥90% confidence threshold for publication approval
