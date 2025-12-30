@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "2.1.0",
+  "category": "tooling",
+  "tags": [
+    "general"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Dependency management and analysis hub. Map project dependencies",
+    "analyze dependency graphs",
+    "identify vulnerabilities",
+    "and manage package versions. Routes to dependency-mapper and related analysis too [ground:given] [conf:0.95] [state:confirmed"
+  ]
+}

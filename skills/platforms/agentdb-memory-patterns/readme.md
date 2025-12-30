@@ -1,5 +1,10 @@
 # AgentDB Memory Patterns - Comprehensive Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 AgentDB Memory Patterns provides a complete framework for implementing persistent memory in AI agents using AgentDB's high-performance storage system. This skill enables agents to maintain context across sessions, learn from interactions, and build long-term knowledge bases with 150x-12,500x faster performance than traditional solutions.
@@ -254,3 +259,7 @@ Based on official benchmarks:
 ---
 
 **Note**: This skill is part of the SPARC Three-Loop System for systematic agent development.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

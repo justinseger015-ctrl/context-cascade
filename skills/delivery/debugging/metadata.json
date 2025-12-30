@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "delivery",
+  "tags": [
+    "delivery",
+    "development",
+    "workflow"
+  ],
+  "author": "ruv",
+  "verix-description": [
+    "assert|neutral] Systematic debugging methodology using a 5-phase protocol. Use when troubleshooting code failures",
+    "investigating bugs",
+    "or analyzing unexpected behavior. Applies 10 proven debugging techniques includin [ground:given] [conf:0.95] [state:confirmed"
+  ]
+}

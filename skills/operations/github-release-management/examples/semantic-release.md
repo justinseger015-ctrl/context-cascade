@@ -1,5 +1,10 @@
 # Example: Semantic Release Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: GITHUB OPERATIONS SAFETY GUARDRAILS
 
 **BEFORE any GitHub operation, validate**:
@@ -577,3 +582,7 @@ This example demonstrates:
 - ✅ GitHub integration
 - ✅ CI/CD automation
 - ✅ Dry-run testing
+
+
+---
+*Promise: `<promise>SEMANTIC_RELEASE_VERIX_COMPLIANT</promise>`*

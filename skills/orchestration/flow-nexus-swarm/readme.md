@@ -1,5 +1,10 @@
 # Flow Nexus Swarm - Gold Tier Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Status**: Gold Tier (12+ files)
 **Version**: 2.0.0
 **Category**: Cloud Orchestration
@@ -293,3 +298,7 @@ npx flow-nexus@latest login
 **Skill Tier**: Gold (13 files)
 **Last Updated**: 2025-11-02
 **Maintainer**: Claude Code Enhancement Team
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

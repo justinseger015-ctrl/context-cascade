@@ -1,5 +1,10 @@
 # Testing Framework Process - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Table of Contents
 
 1. [Test Strategy Development](#test-strategy-development)
@@ -135,10 +140,10 @@ export default {
 - Staging: Staging environment
 
 ### Success Criteria
-- All tests pass
-- Coverage > 80%
-- No critical bugs
-- Performance < 5min
+- [assert|neutral] All tests pass [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Coverage > 80% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] No critical bugs [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Performance < 5min [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Risk Assessment
 - High Risk: Payment processing, authentication
@@ -695,3 +700,7 @@ See SKILL.md Phase 5 for complete CI/CD setup.
 - Optimize database operations
 - Run tests in parallel
 - Use coverage caching in CI
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

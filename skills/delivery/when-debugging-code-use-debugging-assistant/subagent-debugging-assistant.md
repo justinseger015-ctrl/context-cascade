@@ -1,5 +1,10 @@
 # Debugging Assistant Subagent
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Agent Identity
 
 **Name:** debugging-assistant
@@ -106,50 +111,50 @@ Task("debugging-assistant", "Debug null pointer exception in user processing", "
 ## Output Format
 
 ### Successful Resolution
-```json
-{
-  "status": "resolved",
-  "issueId": "debug-20231015-001",
-  "summary": "Fixed TypeError caused by missing await on async database call",
-  "phases": {
-    "symptomIdentification": {
-      "duration": "3m 45s",
-      "findings": "User object undefined due to unresolved Promise"
-    },
-    "rootCauseAnalysis": {
-      "duration": "7m 12s",
-      "cause": "Missing await keyword on getUserById call",
-      "confidence": 0.95
-    },
-    "fixGeneration": {
-      "duration": "5m 23s",
-      "approach": "Added await and null validation",
-      "alternativesConsidered": 2
-    },
-    "validationTesting": {
-      "duration": "4m 56s",
-      "testsCreated": 3,
-      "regressionsPassed": "247/247"
-    },
-    "regressionPrevention": {
-      "duration": "6m 18s",
-      "testAdded": "tests/users.test.js",
+- [assert|neutral] ```json [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] { [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "status": "resolved", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "issueId": "debug-20231015-001", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "summary": "Fixed TypeError caused by missing await on async database call", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "phases": { [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "symptomIdentification": { [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "duration": "3m 45s", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "findings": "User object undefined due to unresolved Promise" [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] }, [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "rootCauseAnalysis": { [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "duration": "7m 12s", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "cause": "Missing await keyword on getUserById call", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "confidence": 0.95 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] }, [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "fixGeneration": { [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "duration": "5m 23s", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "approach": "Added await and null validation", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "alternativesConsidered": 2 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] }, [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "validationTesting": { [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "duration": "4m 56s", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "testsCreated": 3, [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "regressionsPassed": "247/247" [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] }, [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "regressionPrevention": { [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "duration": "6m 18s", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "testAdded": "tests/users.test.js", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
       "documentationUpdated": ["CHANGELOG.md", "src/users.js"]
-    }
-  },
-  "fix": {
+- [assert|neutral] } [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] }, [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "fix": { [ground:acceptance-criteria] [conf:0.90] [state:provisional]
     "files": ["src/users.js"],
-    "changes": "Added await keyword and null validation",
-    "testCoverage": "+1.9%"
-  },
-  "totalDuration": "27m 34s",
+- [assert|neutral] "changes": "Added await keyword and null validation", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "testCoverage": "+1.9%" [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] }, [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "totalDuration": "27m 34s", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
   "recommendedActions": [
-    "Review and merge PR #5678",
-    "Deploy to staging for validation",
-    "Monitor error logs for recurrence"
-  ]
-}
-```
+- [assert|neutral] "Review and merge PR #5678", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "Deploy to staging for validation", [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] "Monitor error logs for recurrence" [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ] [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] } [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ``` [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Partial Resolution
 ```json
@@ -505,3 +510,7 @@ async function reportDebugMetrics(result) {
 - Distributed tracing integration
 - Predictive bug detection
 - Auto-fix suggestion confidence scoring
+
+
+---
+*Promise: `<promise>SUBAGENT_DEBUGGING_ASSISTANT_VERIX_COMPLIANT</promise>`*

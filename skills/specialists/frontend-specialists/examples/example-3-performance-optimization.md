@@ -1,5 +1,10 @@
 # Example 3: Performance Optimization for Large-Scale React Applications
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -700,3 +705,7 @@ export const PerformanceMonitor: React.FC = () => {
 13. **Use Concurrent React**: Enable concurrent rendering for better UX during heavy operations
 14. **Cache Wisely**: Cache computed values but invalidate when source data changes
 15. **Optimize Dependencies**: Keep dependency arrays minimal to prevent unnecessary effect runs
+
+
+---
+*Promise: `<promise>EXAMPLE_3_PERFORMANCE_OPTIMIZATION_VERIX_COMPLIANT</promise>`*

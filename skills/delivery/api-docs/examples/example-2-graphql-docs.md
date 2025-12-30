@@ -1,5 +1,10 @@
 # Example 2: GraphQL Schema Documentation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -798,3 +803,7 @@ project/
 
 - **Example 1**: REST API documentation with OpenAPI
 - **Example 3**: API versioning strategies
+
+
+---
+*Promise: `<promise>EXAMPLE_2_GRAPHQL_DOCS_VERIX_COMPLIANT</promise>`*

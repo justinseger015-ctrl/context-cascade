@@ -1,5 +1,10 @@
 # Example 2: README Automation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -715,3 +720,7 @@ npx claude-flow sparc run documentation \
 2. **Try the skill**: Run `npx claude-flow sparc run documentation "Generate README"`
 3. **Customize**: Edit templates in `docs/templates/readme-template.md`
 4. **Automate**: Set up git hooks for auto-regeneration
+
+
+---
+*Promise: `<promise>EXAMPLE_2_README_AUTOMATION_VERIX_COMPLIANT</promise>`*

@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "2.2.0",
+  "category": "tooling",
+  "tags": [
+    "general"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Documentation generation hub for code documentation",
+    "API docs",
+    "READMEs",
+    "and inline comments. Routes to doc-generator and related documentation tools. Use when generating or improving project documenta [ground:given] [conf:0.95] [state:confirmed"
+  ]
+}

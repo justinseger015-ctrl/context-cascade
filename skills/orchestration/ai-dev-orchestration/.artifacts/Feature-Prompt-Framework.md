@@ -1,5 +1,10 @@
 # Feature Prompt Framework
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Use this template when implementing features with AI coding tools (Cursor, Claude Code, Lovable, Bolt).
 
 **Critical**: Use in a FRESH AI chat (don't reuse previous conversations).
@@ -193,3 +198,7 @@ Step 3: Test checklist above
 2. Include all 6 sections
 3. "Do not touch" list is MANDATORY
 4. User journey must be specific and testable
+
+
+---
+*Promise: `<promise>FEATURE_PROMPT_FRAMEWORK_VERIX_COMPLIANT</promise>`*

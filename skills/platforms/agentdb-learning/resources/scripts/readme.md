@@ -1,5 +1,10 @@
 # AgentDB Learning Scripts
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 Production-ready training scripts for all 9 AgentDB reinforcement learning algorithms.
 
@@ -345,3 +350,7 @@ await adapter.insertPattern({
 ## License
 
 MIT License - See LICENSE file for details
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

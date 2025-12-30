@@ -16,6 +16,11 @@ author: ruv
 
 # Research Publication
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Prepare research for academic publication with comprehensive reproducibility artifacts, ensuring compliance with venue requirements and ACM Artifact Evaluation standards.
 
 ## Overview
@@ -655,3 +660,6 @@ archivist agent prepares artifact submission and code release
 - NeurIPS: https://neurips.cc/Conferences/2024/PaperInformation/StyleFiles
 - ICML: https://icml.cc/Conferences/2024/StyleAuthorInstructions
 - CVPR: https://cvpr2024.thecvf.com/
+
+---
+*Promise: `<promise>RESEARCH_PUBLICATION_SKILL_VERIX_COMPLIANT</promise>`*

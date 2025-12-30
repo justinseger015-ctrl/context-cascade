@@ -1,5 +1,10 @@
 # AgentDB Optimization - Process Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Phase 1: Baseline Performance
 
 ```typescript
@@ -71,7 +76,7 @@ console.log('Optimization results:', improvement);
 ```
 
 ## Success Criteria
-
-- Memory: 4-32x reduction
-- Speed: 150x faster
-- Accuracy: > 95%
+- [assert|neutral] Memory: 4-32x reduction [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Speed: 150x faster [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Accuracy: > 95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

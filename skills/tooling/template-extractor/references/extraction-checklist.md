@@ -1,5 +1,10 @@
 # Extraction Checklist
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Systematically extract every element below. Missing any item results in imperfect template recreation.
 
 ## Typography
@@ -146,3 +151,7 @@ OOXML EMUs to inches: divide by 914400
 Points to pixels (at 96 DPI): multiply by 1.333
   Example: 12pt = 16px
 ```
+
+
+---
+*Promise: `<promise>EXTRACTION_CHECKLIST_VERIX_COMPLIANT</promise>`*

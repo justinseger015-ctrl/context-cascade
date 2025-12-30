@@ -1,5 +1,10 @@
 # Security Skill Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This directory contains production-ready scripts, templates, and reference materials for comprehensive security auditing.
 
 ## Directory Structure
@@ -256,3 +261,7 @@ For issues or questions:
 - Review `examples/` directory for usage patterns
 - Consult OWASP documentation for vulnerability details
 - Open issue in repository with error logs
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,0 +1,18 @@
+{
+  "_comment": "MOO OPTIMIZATION STATE - Tracks GlobalMOO + PyMOO integration",
+  "_schema_version": "1.0.0",
+  "globalmoo_project_id": null,
+  "last_optimization_run": null,
+  "last_5d_frontier": [],
+  "last_14d_refinement": [],
+  "thrashing_detector": {
+    "recent_configs": [],
+    "oscillation_count": 0,
+    "stagnation_window": 10,
+    "similarity_threshold": 0.1
+  },
+  "mode_evolution": {
+    "current_modes": ["balanced", "strict", "efficient", "robust", "minimal"],
+    "mode_performance_history": {}
+  }
+}

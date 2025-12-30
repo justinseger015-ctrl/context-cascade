@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "quality",
+  "tags": [
+    "general"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Comprehensive GitHub pull request code review using multi-agent swarm with specialized reviewers for security",
+    "performance",
+    "style",
+    "tests",
+    "and documentation. Coordinates security-auditor",
+    "perf-analyzer [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-reviewing-github-pr-use-github-code-review",
+  "triggers": [
+    "reviewing github pr"
+  ]
+}

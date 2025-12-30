@@ -1,5 +1,10 @@
 # AgentDB Vector Search Optimization - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Optimize AgentDB performance with quantization, HNSW indexing, and caching for 4-32x memory reduction and 150x faster search.
 
 ## When to Use
@@ -32,11 +37,10 @@ npx ts-node optimize-db.ts
 - Batch Operations
 
 ## Success Metrics
-
-- Memory: 4-32x reduction
-- Speed: 150x faster
-- Accuracy: > 95%
-- Cache: > 70% hit rate
+- [assert|neutral] Memory: 4-32x reduction [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Speed: 150x faster [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Accuracy: > 95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Cache: > 70% hit rate [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Agents
 
@@ -47,3 +51,7 @@ npx ts-node optimize-db.ts
 ## Duration
 
 5-7 hours
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

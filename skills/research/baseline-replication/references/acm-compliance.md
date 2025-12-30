@@ -1,5 +1,10 @@
 # ACM Artifact Evaluation Compliance Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL RESEARCH GUARDRAILS (EVIDENCE-BASED)
 
 **NEVER** claim facts without citations. Every claim MUST include:
@@ -488,3 +493,7 @@ Accuracy: 0.945 ± 0.001 (within ±1% of 0.948 published)
 **Version**: ACM Badging Standard v1.1
 **Last Updated**: 2025-11-02
 **Maintained By**: Deep Research SOP Team
+
+
+---
+*Promise: `<promise>ACM_COMPLIANCE_VERIX_COMPLIANT</promise>`*

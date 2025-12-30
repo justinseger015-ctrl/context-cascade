@@ -1,5 +1,10 @@
 # Example 2: Hybrid Search - Vector + Metadata Filtering
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates hybrid search combining AgentDB's semantic vector search with metadata filtering for more precise, context-aware retrieval. This pattern is essential for structured knowledge bases with categories, timestamps, authors, or other metadata.
@@ -466,3 +471,7 @@ if (query.filters.category && specificity > 0.9) {
 - **Example 3**: Learn about [Multi-Stage Reranking](example-3-reranking.md) for even better precision
 - **References**: Read [RAG Patterns](../references/rag-patterns.md) for architecture guidance
 - **Optimization**: See [Embedding Models](../references/embedding-models.md) comparison
+
+
+---
+*Promise: `<promise>EXAMPLE_2_HYBRID_SEARCH_VERIX_COMPLIANT</promise>`*

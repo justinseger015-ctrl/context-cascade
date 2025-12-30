@@ -1,5 +1,10 @@
 # Slash Command Encoder Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Supporting scripts, templates, and utilities for creating ergonomic slash commands for Claude Code.
 
 ## Scripts
@@ -264,3 +269,7 @@ routing_config = {
   'models': ['gemini-megacontext', 'codex-auto']
 }
 ```
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

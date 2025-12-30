@@ -1,4 +1,9 @@
 # Agents Commands
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 ## Command-Specific Requirements
 
 ### Agent Creation Parameters
@@ -29,3 +34,7 @@ Commands for agents operations in Claude Flow.
 - [agent-capabilities](./agent-capabilities.md)
 - [agent-coordination](./agent-coordination.md)
 - [agent-spawning](./agent-spawning.md)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Agent Selector - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Intelligent agent selection from 203-agent registry using semantic matching and capability analysis.
 
@@ -96,3 +101,7 @@ selection:
 - **expertise-manager** - Domain expertise loading
 - **parallel-swarm-implementation** - Uses selected agents
 - **research-driven-planning** - Informs selection criteria
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

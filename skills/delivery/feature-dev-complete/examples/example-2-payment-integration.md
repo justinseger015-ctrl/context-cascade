@@ -1,5 +1,10 @@
 # Example 2: Payment Integration Feature
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -805,3 +810,7 @@ describe('StripeService', () => {
 2. Implement payment analytics dashboard
 3. Add support for multiple payment methods (Apple Pay, Google Pay)
 4. Set up Stripe CLI for local webhook testing during development
+
+
+---
+*Promise: `<promise>EXAMPLE_2_PAYMENT_INTEGRATION_VERIX_COMPLIANT</promise>`*

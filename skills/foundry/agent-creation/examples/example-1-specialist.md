@@ -1,5 +1,10 @@
 # Example 1: Python Performance Specialist Agent
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Agent Type**: Specialist | **Domain**: Python Code Optimization | **Complexity**: Medium
 
 ## Overview
@@ -677,3 +682,7 @@ Task(
 ---
 
 **Next Steps**: Adapt this pattern for other specialist domains (React, SQL, Docker, etc.)
+
+
+---
+*Promise: `<promise>EXAMPLE_1_SPECIALIST_VERIX_COMPLIANT</promise>`*

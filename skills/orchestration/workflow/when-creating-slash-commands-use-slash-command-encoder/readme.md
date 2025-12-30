@@ -1,5 +1,10 @@
 # Slash Command Encoder - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Create ergonomic slash commands for fast access to micro-skills.
 
 ## Quick Start
@@ -29,6 +34,7 @@ npx claude-flow@alpha command install --from dist/commands.bundle.js
 - **base-template-generator:** Template generation
 
 ## Success Metrics
-- Registration: <100ms
-- Validation: <50ms
-- Execution: <2s
+- [assert|neutral] Registration: <100ms [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Validation: <50ms [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Execution: <2s [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>README_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

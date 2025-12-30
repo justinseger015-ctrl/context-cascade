@@ -1,5 +1,10 @@
 # Code Review Assistant Process Walkthrough
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This process orchestrates 4 specialized agents for comprehensive PR review across 5 dimensions: security, performance, style, testing, and documentation.
@@ -53,12 +58,11 @@ This process orchestrates 4 specialized agents for comprehensive PR review acros
    ```
 
 ### Success Criteria
-- Zero critical security issues
-- All OWASP Top 10 checks pass
-- No hardcoded secrets
-- Authentication properly implemented
-
----
+- [assert|neutral] Zero critical security issues [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All OWASP Top 10 checks pass [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] No hardcoded secrets [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Authentication properly implemented [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Phase 2: Performance Review (20 minutes)
 
@@ -658,3 +662,7 @@ jobs:
 - `verification-quality` - Quality verification
 - `style-audit` - Detailed style analysis
 - `smart-bug-fix` - Intelligent bug fixing
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

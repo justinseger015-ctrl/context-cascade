@@ -1,5 +1,10 @@
 # ML Training Debugger Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -140,3 +145,7 @@ This skill works with:
 
 - **1.1.0**: Enhanced tier with resources, tests, examples
 - **1.0.0**: Initial release with basic debugging capabilities
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

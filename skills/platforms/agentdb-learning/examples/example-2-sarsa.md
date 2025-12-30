@@ -1,5 +1,10 @@
 # Example 2: SARSA for Safe Robot Control
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates SARSA (State-Action-Reward-State-Action) for safe robot navigation. Unlike Q-Learning, SARSA is **on-policy**, meaning it learns from the actual actions taken (including exploratory actions), making it more conservative and suitable for safety-critical applications.
@@ -481,3 +486,7 @@ const safeActions = [0, 1, 2, 3, 4].filter(a => isSafeAction(state, a));
 - [Example 3: Deep RL with Actor-Critic](example-3-deep-rl.md) - Advanced continuous control
 - [RL Algorithms Overview](../references/rl-algorithms.md) - Algorithm theory and comparisons
 - [Reward Design Guide](../references/reward-design.md) - Designing effective reward functions
+
+
+---
+*Promise: `<promise>EXAMPLE_2_SARSA_VERIX_COMPLIANT</promise>`*

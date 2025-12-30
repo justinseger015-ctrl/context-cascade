@@ -1,5 +1,10 @@
 # Chain-of-Verification (CoV) Protocol
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Research Foundation**: Dhuliawala et al. (2023) - 42% error reduction, 37% improvement in completeness
 
 **Purpose**: Systematic self-critique mechanism to catch errors, gaps, and ambiguities before they propagate through the skill creation process.
@@ -292,3 +297,7 @@ For any critical decision/analysis:
 ---
 
 **Remember**: CoV is not about being perfect upfront - it's about catching errors through systematic self-critique BEFORE they become expensive to fix later.
+
+
+---
+*Promise: `<promise>COV_PROTOCOL_VERIX_COMPLIANT</promise>`*

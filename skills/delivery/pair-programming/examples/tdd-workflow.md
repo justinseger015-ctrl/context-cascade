@@ -1,5 +1,10 @@
 # TDD Workflow Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -777,3 +782,7 @@ module.exports = Cart;
 - 100% coverage achieved
 - Clean, maintainable code
 - Truth Score: 0.987
+
+
+---
+*Promise: `<promise>TDD_WORKFLOW_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Test 1: Failure Detection & Pattern Recognition
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -269,3 +274,7 @@ rm -f .claude/.artifacts/failure-patterns-history.json
 After passing this test:
 1. Run **test-2-auto-repair.md** to validate automated fix generation
 2. Run **test-3-root-cause-analysis.md** to validate graph-based cascade detection
+
+
+---
+*Promise: `<promise>TEST_1_FAILURE_DETECTION_VERIX_COMPLIANT</promise>`*

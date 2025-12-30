@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "utilities",
+  "tags": [
+    "prompt-engineering",
+    "optimization",
+    "ai-systems",
+    "llm"
+  ],
+  "author": "ruv",
+  "verix-description": [
+    "assert|neutral] Comprehensive framework for analyzing",
+    "creating",
+    "and refining prompts for AI systems using evidence-based techniques [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-optimizing-prompts-use-prompt-architect",
+  "triggers": [
+    "optimizing prompts"
+  ]
+}

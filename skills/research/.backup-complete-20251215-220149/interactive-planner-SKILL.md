@@ -15,6 +15,11 @@ author: ruv
 
 # Interactive Planner
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Leverage Claude Code's AskUserQuestion tool to systematically gather project requirements through structured, interactive questions with multiple choice and multi-select options.
 
@@ -432,3 +437,6 @@ training:
 - Use in Planning Mode for automatic activation
 - Combine with open discussion for best results
 - Save complex projects for CLI, simple tasks for Web
+
+---
+*Promise: `<promise>INTERACTIVE_PLANNER_SKILL_VERIX_COMPLIANT</promise>`*

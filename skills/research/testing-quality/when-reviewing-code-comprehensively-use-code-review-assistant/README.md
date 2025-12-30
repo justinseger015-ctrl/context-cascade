@@ -1,5 +1,10 @@
 # Comprehensive Code Review Assistant
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Multi-agent swarm for thorough PR reviews with specialized agents for security, performance, style, testing, and documentation.
 
 ## Quick Start
@@ -99,3 +104,7 @@ module.exports = {
 - `production-readiness` - Pre-deployment validation
 - `verification-quality` - Comprehensive quality checks
 - `style-audit` - Detailed style analysis
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

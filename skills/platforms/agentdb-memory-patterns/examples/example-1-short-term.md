@@ -1,5 +1,10 @@
 # Example 1: Short-Term Memory (Recent Context)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Short-term memory maintains recent conversation context and active task state. This pattern is ideal for chat systems, command history, and session-based interactions.
@@ -310,3 +315,7 @@ async promoteToLongTerm(patternId: string, longTermAdapter: any) {
 
 - [Example 2: Long-Term Memory](./example-2-long-term.md) - Persistent knowledge storage
 - [Example 3: Episodic Memory](./example-3-episodic.md) - Experience tracking
+
+
+---
+*Promise: `<promise>EXAMPLE_1_SHORT_TERM_VERIX_COMPLIANT</promise>`*

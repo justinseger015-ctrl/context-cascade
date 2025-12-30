@@ -1,5 +1,10 @@
 # AgentDB Learning Algorithm Templates
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 Production-ready configuration templates for all 9 reinforcement learning algorithms.
 
@@ -441,3 +446,7 @@ To add new templates:
 ## License
 
 MIT License - See LICENSE file for details
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

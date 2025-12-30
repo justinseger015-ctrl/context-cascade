@@ -1,5 +1,10 @@
 # Example 3: Model Deployment & Serving with Flow Nexus Neural
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 **Objective**: Deploy a trained sentiment analysis model as a production-ready REST API with horizontal scaling, A/B testing, and real-time monitoring.
@@ -1001,3 +1006,7 @@ app.use('/predict', limiter);
 - [Example 2: Neural Cluster Management](./example-2-neural-cluster.md)
 - [Flow Nexus Deployment Guide](https://flow-nexus.ruv.io/docs/deployment)
 - [Model Serving Best Practices](https://flow-nexus.ruv.io/docs/serving)
+
+
+---
+*Promise: `<promise>EXAMPLE_3_MODEL_DEPLOYMENT_VERIX_COMPLIANT</promise>`*

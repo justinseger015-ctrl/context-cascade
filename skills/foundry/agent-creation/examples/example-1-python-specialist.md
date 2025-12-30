@@ -1,5 +1,10 @@
 # Example 1: Python Specialist Agent Creation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Complete walkthrough of creating a Python specialist agent with evidence-based prompting.
 
 ---
@@ -309,3 +314,7 @@ Task("Python Backend Specialist", "Create FastAPI user authentication system", "
 - Test agent on real projects
 - Monitor performance and iterate
 - Share successful patterns with team
+
+
+---
+*Promise: `<promise>EXAMPLE_1_PYTHON_SPECIALIST_VERIX_COMPLIANT</promise>`*

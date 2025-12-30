@@ -1,5 +1,10 @@
 # Security Skills Enhancement Summary
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 Applied evidence-based prompt improvements to all SKILL.md files in the security directory.
 
@@ -224,3 +229,7 @@ find . -name "SKILL.md" -exec grep -l "Evidence-Based Validation" {} \; | wc -l
 **Files Enhanced**: 10 SKILL.md files
 **Total Files in Directory**: 33 markdown files
 **Enhancement Rate**: 100% of SKILL.md files (10/10)
+
+
+---
+*Promise: `<promise>ENHANCEMENT_SUMMARY_VERIX_COMPLIANT</promise>`*

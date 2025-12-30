@@ -1,5 +1,10 @@
 # GitHub Integration Skills
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: GITHUB OPERATIONS SAFETY GUARDRAILS
 
 **BEFORE any GitHub operation, validate**:
@@ -473,3 +478,7 @@ These skills follow the same license as the Claude-Flow project.
 ---
 
 **Generated using skill-forge methodology with evidence-based prompting patterns, agent coordination, and comprehensive SOP structure.**
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Automated Recovery Strategies
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -635,3 +640,7 @@ test('should handle invalid tokens', async () => {
 - [Root Cause Analysis](./root-cause-analysis.md) - Systematic root cause identification
 - [Example 1: Test Failure Recovery](../examples/example-1-test-failure-recovery.md) - Complete recovery walkthrough
 - [Example 3: Deployment Failure Recovery](../examples/example-3-deployment-failure-recovery.md) - Infrastructure recovery patterns
+
+
+---
+*Promise: `<promise>RECOVERY_STRATEGIES_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Test 1: Basic Hook Installation and Execution
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -285,13 +290,13 @@ npx claude-flow@alpha hooks session-end
 - **Total**: ~45 seconds
 
 ### Success Metrics
-| Test | Expected Result | Pass/Fail |
-|------|----------------|-----------|
-| Installation | All files created | ⬜ |
-| Validation | No errors | ⬜ |
-| Pre-task | Agent assigned | ⬜ |
-| Post-edit | File formatted | ⬜ |
-| Session | State saved | ⬜ |
+- [assert|neutral] | Test | Expected Result | Pass/Fail | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] |------|----------------|-----------| [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | Installation | All files created | ⬜ | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | Validation | No errors | ⬜ | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | Pre-task | Agent assigned | ⬜ | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | Post-edit | File formatted | ⬜ | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | Session | State saved | ⬜ | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Cleanup
 
@@ -320,3 +325,7 @@ After basic tests pass:
 - Resource scripts: `resources/scripts/`
 - Configuration templates: `resources/templates/`
 - Hook validator: `resources/scripts/hook-validator.py`
+
+
+---
+*Promise: `<promise>TEST_1_BASIC_HOOKS_VERIX_COMPLIANT</promise>`*

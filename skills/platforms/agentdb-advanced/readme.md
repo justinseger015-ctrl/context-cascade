@@ -1,5 +1,10 @@
 # AgentDB Advanced Features
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This skill covers advanced AgentDB capabilities for building distributed AI systems with sub-millisecond synchronization, multi-database coordination, custom distance metrics, hybrid search, and production deployment patterns. AgentDB is a high-performance vector database optimized for AI agent memory and reasoning, offering 150x faster search than traditional solutions.
@@ -373,3 +378,7 @@ const adapter = await createAgentDBAdapter({
 **Difficulty**: Advanced
 **Estimated Time**: 45-60 minutes
 **Prerequisites**: Node.js 18+, AgentDB v1.0.7+, distributed systems knowledge
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

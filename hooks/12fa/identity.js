@@ -1,7 +1,11 @@
 /**
- * Agent Identity Management
+ * Agent Identity Management v3.0
  * Verifies agent identity using keypair-based authentication
  * Performance: <5ms per verification
+ *
+ * v3.0: Uses x- prefixed custom fields for Anthropic compliance
+ * - Custom metadata fields should use x- prefix (e.g., x-category, x-role)
+ * - Backward compatibility maintained for reading old format
  */
 
 const crypto = require('crypto');
@@ -36,19 +40,49 @@ class AgentIdentity {
 
   /**
    * Register a new agent identity
+   * v3.0: Normalizes metadata to use x- prefixed custom fields
    * @param {string} agentId - Agent identifier
    * @param {string} publicKey - Public key for verification
-   * @param {object} metadata - Additional agent metadata
+   * @param {object} metadata - Additional agent metadata (custom fields should use x- prefix)
    */
   register(agentId, publicKey, metadata = {}) {
+    // v3.0: Normalize metadata to x- prefixed format
+    const normalizedMetadata = this.normalizeMetadata(metadata);
+
     this.identities[agentId] = {
       publicKey,
-      metadata,
-      registeredAt: new Date().toISOString(),
-      lastVerified: null
+      metadata: normalizedMetadata,
+      'x-registered-at': new Date().toISOString(),
+      'x-last-verified': null,
+      'x-schema-version': '3.0'
     };
     this.saveIdentities();
     return { success: true, agentId };
+  }
+
+  /**
+   * Normalize metadata to v3.0 x- prefixed format
+   * @param {object} metadata - Raw metadata
+   * @returns {object} Normalized metadata with x- prefixes
+   */
+  normalizeMetadata(metadata) {
+    const normalized = {};
+    const fieldsToPrefix = ['category', 'role', 'capabilities', 'team', 'tier', 'version'];
+
+    for (const [key, value] of Object.entries(metadata)) {
+      if (key.startsWith('x-')) {
+        // Already in v3.0 format
+        normalized[key] = value;
+      } else if (fieldsToPrefix.includes(key)) {
+        // Convert known custom fields to x- prefix
+        normalized[`x-${key}`] = value;
+      } else {
+        // Keep other fields as-is (may be standard fields)
+        normalized[key] = value;
+      }
+    }
+
+    return normalized;
   }
 
   /**

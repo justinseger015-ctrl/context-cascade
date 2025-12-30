@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "operations",
+  "tags": [
+    "general"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Multi-repository coordination",
+    "synchronization",
+    "and architecture management with AI swarm orchestration. Coordinates repo-architect",
+    "code-analyzer",
+    "and coordinator agents across multiple repositories  [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-managing-multiple-repos-use-github-multi-repo",
+  "triggers": [
+    "managing multiple repos"
+  ]
+}

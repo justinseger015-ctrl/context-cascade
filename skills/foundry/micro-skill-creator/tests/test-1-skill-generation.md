@@ -1,5 +1,10 @@
 # Test 1: Skill Generation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Objective
 Verify that the micro-skill-creator can generate complete, valid atomic micro-skills with evidence-based agent design.
 
@@ -175,20 +180,18 @@ Check each generated SKILL.md for:
 - Failure modes are realistic and actionable
 
 ## Success Criteria
-
-**Test passes if**:
-1. All 4 skills generate without errors
-2. All structure validations pass
-3. Quality scores ≥ 80/100
-4. Manual review confirms pattern correctness
-5. All validation criteria checkboxes checked
-
-**Test fails if**:
-1. Any skill fails to generate
-2. Validation errors occur
-3. Quality scores < 80/100
-4. Evidence patterns incorrectly applied
-5. Contracts are ambiguous or incomplete
+- [assert|neutral] *Test passes if**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 1. All 4 skills generate without errors [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. All structure validations pass [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. Quality scores ≥ 80/100 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. Manual review confirms pattern correctness [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. All validation criteria checkboxes checked [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Test fails if**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 1. Any skill fails to generate [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. Validation errors occur [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. Quality scores < 80/100 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. Evidence patterns incorrectly applied [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. Contracts are ambiguous or incomplete [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Test Results Template
 
@@ -231,3 +234,7 @@ Overall: [ PASS / FAIL ]
 - Test 2: Validation accuracy
 - Test 3: Optimization effectiveness
 - Example 1: Real-world usage scenarios
+
+
+---
+*Promise: `<promise>TEST_1_SKILL_GENERATION_VERIX_COMPLIANT</promise>`*

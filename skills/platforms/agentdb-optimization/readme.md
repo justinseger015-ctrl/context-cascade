@@ -1,5 +1,10 @@
 # AgentDB Performance Optimization - Silver Tier Documentation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This skill provides comprehensive performance optimization techniques for AgentDB vector databases, achieving 150x-12,500x performance improvements through quantization, HNSW indexing, caching strategies, and batch operations.
@@ -223,3 +228,7 @@ hnswEfSearch: 200            // Higher search quality
 - 3 examples
 - 2 references
 - 1 workflow diagram
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

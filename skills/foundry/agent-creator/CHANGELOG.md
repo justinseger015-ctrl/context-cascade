@@ -1,5 +1,10 @@
 # Agent Creator Changelog
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## v2.2.0 (2025-12-15)
 
 **Minor Release: All Supporting Files Updated from Cycle 8**
@@ -112,3 +117,7 @@ All files in agent-creator folder now consistent with v2.0+ methodology
 - Claude Agent SDK implementation
 - Evidence-based prompting techniques
 - Basic MCP integration
+
+
+---
+*Promise: `<promise>CHANGELOG_VERIX_COMPLIANT</promise>`*

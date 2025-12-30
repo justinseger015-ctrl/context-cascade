@@ -1,5 +1,10 @@
 # Swarm Orchestration - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Complete Execution Script
 
 ```bash
@@ -115,3 +120,4 @@ cat final-report.md
 - [ ] Agent utilization 70-90%
 - [ ] Results synthesized successfully
 - [ ] Final report generated
+- [assert|neutral] Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

@@ -1,5 +1,10 @@
 # Agent Creator - Silver Tier Documentation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 The **Agent Creator** skill provides the official comprehensive framework for creating specialized AI agents using the proven 4-phase SOP methodology from Desktop `.claude-flow`. This skill combines evidence-based prompting techniques, Claude Agent SDK implementation, and systematic domain analysis to produce production-ready agents with deeply embedded expertise.
@@ -294,3 +299,7 @@ Create all 90+ specialist agents with:
 - Measurable performance tracking
 
 **Result**: Production-ready agents that consistently deliver high-quality results across diverse domains and workflows.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

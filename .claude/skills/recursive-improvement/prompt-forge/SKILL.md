@@ -1,20 +1,39 @@
 ---
 name: prompt-forge
 description: Meta-prompt that generates improved prompts and templates. Can improve other prompts including Skill Forge and even itself. All improvements are gated by frozen eval harness. Use when optimizing prompts, creating prompt diffs, or running the recursive improvement loop.
-version: 1.0.0
-category: foundry
+model: sonnet
+x-version: 3.1.1
+x-category: foundry
+x-tier: gold
+x-cognitive-frame: morphological
 tags:
   - meta-prompt
   - self-improvement
   - recursive
   - dogfooding
+x-verix-description: |
+  [assert|neutral] Meta-prompt for recursive prompt improvement with eval gates [ground:system-architecture] [conf:0.95] [state:confirmed]
+---
+
+<!-- PROMPT-FORGE SKILL :: VERILINGUA x VERIX EDITION -->
+<!-- VCL v3.1.1 COMPLIANT - L1 Internal Documentation -->
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+
+## L2 DEFAULT OUTPUT RULE
+
+[direct|emphatic] ALL user-facing output MUST be L2 compression (pure English) [ground:vcl-v3.1.1-spec] [conf:0.99] [state:confirmed]
+
 ---
 
 # Prompt Forge (Meta-Prompt)
 
 ## Purpose
 
-Generate improved prompts and templates with:
+[define|neutral] Generate improved prompts and templates with [ground:system-architecture] [conf:0.95] [state:confirmed]
 - Explicit rationale for each change
 - Predicted improvement metrics
 - Risk assessment
@@ -432,6 +451,12 @@ prompt-forge/
 
 ---
 
+---
+
 **Status**: Production-Ready
-**Version**: 1.0.0
+**Version**: 3.1.1
 **Key Constraint**: All self-improvements gated by frozen eval harness
+
+---
+
+<promise>PROMPT_FORGE_VCL_V3.1.1_COMPLIANT</promise>

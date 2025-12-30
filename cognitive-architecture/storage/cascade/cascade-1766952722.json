@@ -1,0 +1,2678 @@
+[
+  {
+    "phase": "phase_a",
+    "iterations": 1,
+    "pareto_points": [
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      }
+    ],
+    "impact_factors": {
+      "task_accuracy": {
+        "0": 0.3,
+        "1": 0.2,
+        "7": 0.25
+      },
+      "token_efficiency": {
+        "8": 0.4,
+        "7": 0.2
+      },
+      "edge_robustness": {
+        "0": 0.2,
+        "9": 0.3
+      },
+      "epistemic_consistency": {
+        "7": 0.4,
+        "9": 0.25,
+        "10": 0.2
+      }
+    },
+    "best_config_vector": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "best_outcomes": {
+      "task_accuracy": 0.0,
+      "token_efficiency": 0.0,
+      "edge_robustness": 0.0,
+      "epistemic_consistency": 0.0
+    },
+    "duration_seconds": 0.0010023117065429688,
+    "metadata": {
+      "corpus_size": 0
+    }
+  },
+  {
+    "phase": "phase_b",
+    "iterations": 1,
+    "pareto_points": [
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      }
+    ],
+    "impact_factors": {
+      "task_accuracy": {
+        "0": 0.3,
+        "1": 0.2,
+        "7": 0.25
+      },
+      "token_efficiency": {
+        "8": 0.4,
+        "7": 0.2
+      },
+      "edge_robustness": {
+        "0": 0.2,
+        "9": 0.3
+      },
+      "epistemic_consistency": {
+        "7": 0.4,
+        "9": 0.25,
+        "10": 0.2
+      }
+    },
+    "best_config_vector": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "best_outcomes": {
+      "task_accuracy": 0.0,
+      "token_efficiency": 0.0,
+      "edge_robustness": 0.0,
+      "epistemic_consistency": 0.0
+    },
+    "duration_seconds": 0.0009927749633789062,
+    "metadata": {
+      "edge_corpus_size": 0
+    }
+  },
+  {
+    "phase": "phase_c",
+    "iterations": 1,
+    "pareto_points": [
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      },
+      {
+        "config": [
+          0.95,
+          1.0,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          1.0,
+          0.95,
+          1.0,
+          0.95,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 0.0,
+          "token_efficiency": 0.0,
+          "edge_robustness": 0.0,
+          "epistemic_consistency": 0.0
+        }
+      }
+    ],
+    "impact_factors": {
+      "task_accuracy": {
+        "0": 0.3,
+        "1": 0.2,
+        "7": 0.25
+      },
+      "token_efficiency": {
+        "8": 0.4,
+        "7": 0.2
+      },
+      "edge_robustness": {
+        "0": 0.2,
+        "9": 0.3
+      },
+      "epistemic_consistency": {
+        "7": 0.4,
+        "9": 0.25,
+        "10": 0.2
+      }
+    },
+    "best_config_vector": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "best_outcomes": {
+      "task_accuracy": 0.0,
+      "token_efficiency": 0.0,
+      "edge_robustness": 0.0,
+      "epistemic_consistency": 0.0
+    },
+    "duration_seconds": 0.011122941970825195,
+    "metadata": {
+      "combined_corpus_size": 0
+    }
+  }
+]

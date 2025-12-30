@@ -1,5 +1,10 @@
 # Debugging Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -217,3 +222,7 @@ npx claude-flow@alpha hooks post-task --task-id "debug-[id]"
 - [Troubleshooting Guide](references/troubleshooting-guide.md) - Common patterns and anti-patterns
 - [Debugging Methodologies](references/debugging-methodologies.md) - RCA techniques and frameworks
 - [Workflow Diagram](graphviz/workflow.dot) - Visual debugging decision tree
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

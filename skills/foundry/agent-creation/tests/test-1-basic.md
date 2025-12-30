@@ -1,5 +1,10 @@
 # Test 1: Basic Agent Creation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Objective**: Validate basic agent creation workflow and specification structure
 
 **Test Type**: Functional validation
@@ -131,11 +136,11 @@ ls -la ../../tests/output/python-specialist/
 ## Expected Behavior
 
 ### Success Criteria
-1. All files generated without errors
-2. Validation script passes all checks
-3. YAML and JSON syntax valid
-4. File structure matches template
-5. Content is semantically correct
+- [assert|neutral] 1. All files generated without errors [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. Validation script passes all checks [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. YAML and JSON syntax valid [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. File structure matches template [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. Content is semantically correct [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Common Issues
 
@@ -205,3 +210,7 @@ rm -rf ../../tests/output/python-specialist/
 - Proceed to **Test 2: Specialist Agent** for advanced configuration
 - Review generated agent for customization opportunities
 - Test agent deployment with Claude Code Task tool
+
+
+---
+*Promise: `<promise>TEST_1_BASIC_VERIX_COMPLIANT</promise>`*

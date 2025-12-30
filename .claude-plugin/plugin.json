@@ -1,16 +1,21 @@
 {
   "name": "context-cascade",
-  "version": "3.0.0",
   "description": "Context-saving nested plugin architecture for Claude Code. Playbooks contain skills, skills contain agents, agents contain commands. Only load what you need - context cascades down through layers on demand, saving 90%+ context space. Includes 203 agents, 122 skills, 29 playbooks, SPARC methodology, Three-Loop system, and Byzantine consensus.",
+  "version": "3.0.0",
   "author": {
     "name": "DNYoussef",
     "email": "youssef@example.com",
     "url": "https://github.com/DNYoussef"
   },
-  "license": "Apache-2.0",
-  "repository": "https://github.com/DNYoussef/context-cascade",
-  "homepage": "https://github.com/DNYoussef/context-cascade#readme",
-  "keywords": [
+  "commands": "./commands/",
+  "agents": "./agents/",
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json",
+  "x-license": "Apache-2.0",
+  "x-repository": "https://github.com/DNYoussef/context-cascade",
+  "x-homepage": "https://github.com/DNYoussef/context-cascade#readme",
+  "x-keywords": [
     "context-cascade",
     "lazy-loading",
     "nested-context",
@@ -25,11 +30,11 @@
     "ai-agents",
     "swarm-intelligence"
   ],
-  "claudeCode": {
+  "x-claudeCode": {
     "minVersion": "1.0.0",
     "compatibility": "2024.01+"
   },
-  "contents": {
+  "x-contents": {
     "playbooks": {
       "count": 30,
       "note": "Top-level entry points - only playbooks loaded initially",
@@ -103,7 +108,7 @@
       ]
     }
   },
-  "features": [
+  "x-features": [
     "Context Cascade Architecture - Load only what you need (90%+ context savings)",
     "Nested Hierarchy: Playbooks -> Skills -> Agents -> Commands",
     "211 AI Agents organized in 10 categories",
@@ -116,7 +121,7 @@
     "Theater Detection & Reality Validation",
     "Multi-Agent Swarm Coordination (2.5-8x speedup)"
   ],
-  "installation": {
+  "x-installation": {
     "steps": [
       "Clone plugin repository",
       "Install MCP servers (claude-flow required, others optional)",
@@ -134,7 +139,7 @@
       }
     }
   },
-  "documentation": {
+  "x-documentation": {
     "quickStart": "docs/QUICK-START.md",
     "architecture": "docs/ARCHITECTURE.md",
     "agentRegistry": "docs/AGENT-REGISTRY.md",
@@ -142,7 +147,7 @@
     "mcpGuide": "docs/MCP-SETUP.md",
     "examples": "docs/EXAMPLES.md"
   },
-  "maintainers": [
+  "x-maintainers": [
     {
       "name": "ruv",
       "email": "your-email@example.com",

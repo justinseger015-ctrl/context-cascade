@@ -1,5 +1,10 @@
 # Example 2: Multi-Database Management
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates managing multiple AgentDB instances for different domains (knowledge, conversations, code) with coordinated searches and shared memory patterns. Each database is optimized for its specific use case.
@@ -535,3 +540,7 @@ displayStats().catch(console.error);
 - [Example 3: Horizontal Sharding →](./example-3-sharding.md)
 - [Distributed Patterns Reference →](../references/distributed-patterns.md)
 - [Performance Optimization Guide →](../references/performance-optimization.md)
+
+
+---
+*Promise: `<promise>EXAMPLE_2_MULTI_DATABASE_VERIX_COMPLIANT</promise>`*

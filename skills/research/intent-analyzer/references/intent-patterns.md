@@ -1,5 +1,10 @@
 # Intent Interpretation Quick Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -270,3 +275,7 @@ Always clarify when you notice:
 **Being mechanical**: Keep clarification natural and conversational
 
 Remember: The goal is providing value efficiently. Clarify when necessary, but don't over-analyze straightforward requests.
+
+
+---
+*Promise: `<promise>INTENT_PATTERNS_VERIX_COMPLIANT</promise>`*

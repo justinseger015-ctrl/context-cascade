@@ -55,11 +55,11 @@ author: ruv
 - Opinion-based topics without objective truth (use judgment, not research)
 
 ### Success Criteria
-- 90%+ average credibility score across all cited sources
-- 3+ independent sources corroborate key claims
-- All sources annotated with credibility breakdown (Authority, Accuracy, Objectivity, Currency, Coverage)
-- Contradictory evidence reported and analyzed
-- Full citations provided (APA/IEEE/ACM format with access dates)
+- [assert|neutral] 90%+ average credibility score across all cited sources [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3+ independent sources corroborate key claims [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All sources annotated with credibility breakdown (Authority, Accuracy, Objectivity, Currency, Coverage) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Contradictory evidence reported and analyzed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Full citations provided (APA/IEEE/ACM format with access dates) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Edge Cases & Limitations
 - Paywalled sources: Use institutional access, preprints, contact authors
@@ -86,6 +86,11 @@ author: ruv
 ---
 
 # Researcher - Systematic Information Gathering
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 
 Systematic multi-level research with integrated Gemini Search for comprehensive knowledge synthesis.
 
@@ -162,3 +167,6 @@ Use when conducting technical research, gathering information on unfamiliar topi
 - **Synthesis**: Coherent narrative combining sources
 - **Bibliography**: Annotated source list with credibility scores
 - **Analysis**: Detailed evaluation with evidence
+
+---
+*Promise: `<promise>RESEARCHER_SKILL_VERIX_COMPLIANT</promise>`*

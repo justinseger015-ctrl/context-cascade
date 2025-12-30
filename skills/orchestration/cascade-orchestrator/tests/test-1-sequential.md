@@ -1,5 +1,10 @@
 # Test 1: Sequential Workflow Execution
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Objective
 Validate that the cascade orchestrator correctly executes a simple sequential workflow with proper stage ordering and data flow.
 
@@ -253,3 +258,7 @@ jobs:
           name: test-results
           path: /tmp/cascade-test-sequential/results.json
 ```
+
+
+---
+*Promise: `<promise>TEST_1_SEQUENTIAL_VERIX_COMPLIANT</promise>`*

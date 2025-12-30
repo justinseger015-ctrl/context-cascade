@@ -1,4 +1,9 @@
 # Hive-mind Commands
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 n## Key orchestration command improvements:
 - Swarm initialization requirements
 - Coordination protocol selection
@@ -21,3 +26,7 @@ Commands for hive-mind operations in Claude Flow.
 - [hive-mind-memory](./hive-mind-memory.md)
 - [hive-mind-metrics](./hive-mind-metrics.md)
 - [hive-mind-wizard](./hive-mind-wizard.md)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

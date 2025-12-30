@@ -1,0 +1,343 @@
+{
+  "timestamp": "2025-12-28T18:04:55.430296",
+  "skills": {
+    "type": "skill",
+    "total_items": 201,
+    "categories": 10,
+    "converged": 10,
+    "results": [
+      {
+        "category": "foundry",
+        "type": "skill",
+        "items": 24,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 1.0
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 1.0
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "orchestration",
+        "type": "skill",
+        "items": 26,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8500000000000002
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8500000000000002
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "quality",
+        "type": "skill",
+        "items": 24,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999997
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999997
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "research",
+        "type": "skill",
+        "items": 24,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8500000000000001
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8500000000000001
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "operations",
+        "type": "skill",
+        "items": 23,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "security",
+        "type": "skill",
+        "items": 14,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8499999999999998
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8499999999999998
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "platforms",
+        "type": "skill",
+        "items": 25,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999997
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999997
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "specialists",
+        "type": "skill",
+        "items": 13,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8499999999999998
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8499999999999998
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "tooling",
+        "type": "skill",
+        "items": 18,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8499999999999998
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8499999999999998
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "delivery",
+        "type": "skill",
+        "items": 10,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8499999999999999
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.8499999999999999
+          }
+        ],
+        "converged": true
+      }
+    ]
+  },
+  "playbooks": {
+    "type": "playbook",
+    "total_items": 29,
+    "categories": 8,
+    "converged": 8,
+    "results": [
+      {
+        "category": "delivery",
+        "type": "playbook",
+        "items": 5,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "operations",
+        "type": "playbook",
+        "items": 4,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "research",
+        "type": "playbook",
+        "items": 4,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "security",
+        "type": "playbook",
+        "items": 3,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "quality",
+        "type": "playbook",
+        "items": 3,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999998
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999998
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "platform",
+        "type": "playbook",
+        "items": 3,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999998
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999998
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "github",
+        "type": "playbook",
+        "items": 3,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999998
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.6999999999999998
+          }
+        ],
+        "converged": true
+      },
+      {
+        "category": "specialist",
+        "type": "playbook",
+        "items": 4,
+        "iterations": [
+          {
+            "iteration": 1,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          },
+          {
+            "iteration": 2,
+            "avg_verix_delta": 1.0,
+            "avg_frame_delta": 0.85
+          }
+        ],
+        "converged": true
+      }
+    ]
+  }
+}

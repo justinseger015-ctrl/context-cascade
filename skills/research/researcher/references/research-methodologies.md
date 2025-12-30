@@ -1,5 +1,10 @@
 # Research Methodologies for Software Engineering
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -457,3 +462,7 @@ After research completion:
 4. Create implementation plan
 5. Define success metrics
 6. Schedule follow-up review (validate research accuracy)
+
+
+---
+*Promise: `<promise>RESEARCH_METHODOLOGIES_VERIX_COMPLIANT</promise>`*

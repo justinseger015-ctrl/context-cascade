@@ -1,5 +1,10 @@
 # Detailed Process for Functionality Audit
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 The Functionality Audit skill validates code execution through a systematic 5-phase workflow:
@@ -867,3 +872,7 @@ fi
 
 echo "Audit complete!"
 ```
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

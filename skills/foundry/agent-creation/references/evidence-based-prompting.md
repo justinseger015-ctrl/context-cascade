@@ -1,5 +1,10 @@
 # Evidence-Based Prompting: Research Foundation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Purpose**: Provide research-backed foundations for prompt engineering techniques used in agent creation.
 
 ## Research Overview
@@ -480,3 +485,7 @@ Task: [description]
 ---
 
 **Next Steps**: Apply these research-backed techniques to your agent prompts and measure the quantitative improvements!
+
+
+---
+*Promise: `<promise>EVIDENCE_BASED_PROMPTING_VERIX_COMPLIANT</promise>`*

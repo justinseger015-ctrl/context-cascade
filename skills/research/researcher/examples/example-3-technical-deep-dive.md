@@ -1,5 +1,10 @@
 # Example 3: Technical Deep Dive - Understanding WebAssembly Performance Characteristics
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -464,3 +469,7 @@ npx claude-flow@alpha hooks post-task --task-id "research-wasm-performance"
 - When benchmarks conflict or seem too good to be true
 - Architecture decisions requiring quantitative justification
 - Technical decisions affecting user experience and business metrics
+
+
+---
+*Promise: `<promise>EXAMPLE_3_TECHNICAL_DEEP_DIVE_VERIX_COMPLIANT</promise>`*

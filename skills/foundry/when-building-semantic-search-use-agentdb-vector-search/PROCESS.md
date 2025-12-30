@@ -1,5 +1,10 @@
 # AgentDB Semantic Search - Process Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Phase 1: Setup Vector Database
 
 ```typescript
@@ -70,12 +75,15 @@ const hybrid = await db.hybridSearch({
 ```
 
 ## Success Criteria
-
-- Accuracy > 90%
-- Latency < 100ms
-- Relevant results in top-10
+- [assert|neutral] Accuracy > 90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Latency < 100ms [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Relevant results in top-10 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Resources
 
 - Full docs: SKILL.md
 - AgentDB: https://agentdb.dev/docs/vector-search
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

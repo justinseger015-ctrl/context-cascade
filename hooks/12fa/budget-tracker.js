@@ -1,9 +1,10 @@
 /**
- * Budget Tracker
+ * Budget Tracker v3.0
  * Tracks token/cost budgets for agent operations
  * Performance: <5ms per operation
  *
  * BLOCKER-2 FIX: Added Memory MCP persistence for cross-session continuity
+ * v3.0: Uses x- prefixed custom fields for Anthropic-compliant format
  */
 
 const fs = require('fs');
@@ -121,6 +122,7 @@ class BudgetTracker {
 
   /**
    * BLOCKER-2: Save budget state to Memory MCP for cross-session persistence
+   * v3.0: Uses x- prefixed custom fields for Anthropic compliance
    */
   async saveBudgetsToMemoryMCP() {
     if (!memoryMcpAvailable) return;
@@ -131,15 +133,16 @@ class BudgetTracker {
           agentId,
           limits: budget.limits,
           usage: budget.usage,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
+          'x-schema-version': '3.0'
         };
 
-        // Use tagging protocol for WHO/WHEN/PROJECT/WHY metadata
+        // Use tagging protocol for WHO/WHEN/PROJECT/WHY metadata (v3.0 x- prefixed)
         const tagged = taggedMemoryStore(agentId, JSON.stringify(budgetData), {
-          project: 'ruv-sparc-three-loop-system',
-          intent: 'budget_persistence',
-          agent_id: agentId,
-          custom_namespace: 'agent-reality-map/budgets'
+          project: 'context-cascade',
+          'x-intent': 'budget_persistence',
+          'x-agent-id': agentId,
+          'x-namespace': 'agent-reality-map/budgets'
         });
 
         // BLOCKER-3 ACTIVATED: Memory MCP persistence now enabled
@@ -164,6 +167,7 @@ class BudgetTracker {
 
   /**
    * BLOCKER-2: Load budget state from Memory MCP
+   * v3.0: Supports both old and new metadata formats for backward compatibility
    */
   async loadBudgetStateFromMemoryMCP(agentId) {
     if (!memoryMcpAvailable) return null;
@@ -174,13 +178,22 @@ class BudgetTracker {
       console.error(`[BudgetTracker] Querying Memory MCP for ${agentId} budget...`);
 
       if (typeof mcp__memory_mcp__vector_search === 'function') {
+        // v3.0: Query with x- prefixed fields, fall back to old format
         const results = await mcp__memory_mcp__vector_search({
           query: `budget state for ${agentId}`,
           limit: 1,
           metadata: {
             _agent: agentId,
-            _project: 'ruv-sparc-three-loop-system',
-            _intent: 'budget_persistence'
+            // Support both old and new project names
+            $or: [
+              { _project: 'context-cascade' },
+              { _project: 'ruv-sparc-three-loop-system' }
+            ],
+            // Support both old (_intent) and new (x-intent) formats
+            $or: [
+              { _intent: 'budget_persistence' },
+              { 'x-intent': 'budget_persistence' }
+            ]
           }
         });
 

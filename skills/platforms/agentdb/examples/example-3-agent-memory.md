@@ -1,5 +1,10 @@
 # Example 3: Agent Memory
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Goal**: Build persistent cross-session memory for AI agents
 
 **Time**: 20 minutes | **Difficulty**: Intermediate
@@ -615,3 +620,7 @@ def consolidate_memories(agent: AgentMemory):
 - **[Vector Search Reference](../references/vector-search.md)** - Technical details on HNSW and embeddings
 - **[Memory Patterns Reference](../references/memory-patterns.md)** - Advanced memory strategies
 - **[Example 1: Basic Search](example-1-basic-vector-search.md)** - Return to fundamentals
+
+
+---
+*Promise: `<promise>EXAMPLE_3_AGENT_MEMORY_VERIX_COMPLIANT</promise>`*

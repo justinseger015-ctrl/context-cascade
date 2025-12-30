@@ -1,5 +1,10 @@
 # Debugging Assistant - Process Documentation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document details the internal workflow, agent coordination, and technical implementation of the Debugging Assistant skill.
@@ -885,3 +890,7 @@ async function debugSecurity(vulnerability) {
 ---
 
 This process documentation provides the foundation for effective, systematic debugging. Adapt and extend as needed for your specific project context.
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

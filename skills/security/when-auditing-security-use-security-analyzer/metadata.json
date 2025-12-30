@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "security",
+  "tags": [
+    "security",
+    "compliance",
+    "safety"
+  ],
+  "author": "ruv",
+  "verix-description": [
+    "assert|neutral] Comprehensive security auditing across static analysis",
+    "dynamic testing",
+    "dependency vulnerabilities",
+    "secrets detection",
+    "and OWASP compliance [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-auditing-security-use-security-analyzer",
+  "triggers": [
+    "auditing security"
+  ]
+}

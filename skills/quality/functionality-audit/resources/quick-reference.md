@@ -1,5 +1,10 @@
 # Functionality-Audit Quick Reference Card
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version**: 1.0.0 | **Last Updated**: 2025-11-02
 
 ---
@@ -314,3 +319,7 @@ For issues or questions:
 ---
 
 *Generated for functionality-audit skill v1.0.0*
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

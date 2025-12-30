@@ -1,0 +1,242 @@
+[
+  {
+    "category": "delivery",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.75,
+        "frame_delta": 0.75
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.75,
+        "frame_delta": 0.75
+      }
+    ],
+    "converged": true
+  },
+  {
+    "category": "quality",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.9000000000000001,
+        "frame_delta": 0.9000000000000001
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.9000000000000001,
+        "frame_delta": 0.9000000000000001
+      }
+    ],
+    "converged": true
+  },
+  {
+    "category": "orchestration",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.8000000000000003,
+        "frame_delta": 0.8000000000000003
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.8000000000000003,
+        "frame_delta": 0.8000000000000003
+      }
+    ],
+    "converged": true
+  },
+  {
+    "category": "research",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.75,
+        "frame_delta": 0.75
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.75,
+        "frame_delta": 0.75
+      }
+    ],
+    "converged": true
+  },
+  {
+    "category": "foundry",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.8999999999999997,
+        "frame_delta": 0.8999999999999997
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.8999999999999997,
+        "frame_delta": 0.8999999999999997
+      }
+    ],
+    "converged": true
+  },
+  {
+    "category": "operations",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 1.0,
+        "frame_delta": 1.0
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 1.0,
+        "frame_delta": 1.0
+      }
+    ],
+    "converged": true
+  },
+  {
+    "category": "platforms",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 1.0,
+        "frame_delta": 1.0
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 1.0,
+        "frame_delta": 1.0
+      }
+    ],
+    "converged": true
+  },
+  {
+    "category": "security",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.75,
+        "frame_delta": 0.75
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.75,
+        "frame_delta": 0.75
+      }
+    ],
+    "converged": true
+  },
+  {
+    "category": "specialists",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.75,
+        "frame_delta": 0.75
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.75,
+        "frame_delta": 0.75
+      }
+    ],
+    "converged": true
+  },
+  {
+    "category": "tooling",
+    "iterations": [
+      {
+        "iteration": 1,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.8000000000000003,
+        "frame_delta": 0.8000000000000003
+      },
+      {
+        "iteration": 2,
+        "baseline_verix": 0.0,
+        "optimized_verix": 1.0,
+        "verix_delta": 1.0,
+        "baseline_frame": 0.0,
+        "optimized_frame": 0.8000000000000003,
+        "frame_delta": 0.8000000000000003
+      }
+    ],
+    "converged": true
+  }
+]

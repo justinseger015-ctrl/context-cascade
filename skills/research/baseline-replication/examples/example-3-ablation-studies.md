@@ -1,5 +1,10 @@
 # Example 3: Ablation Studies for Baseline Validation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL RESEARCH GUARDRAILS (EVIDENCE-BASED)
 
 **NEVER** claim facts without citations. Every claim MUST include:
@@ -609,3 +614,7 @@ Ablation studies validate baseline implementation at a component level:
 **Estimated Time**: 12 hours (5 ablations × 2.4 hours average)
 **Quality Gate**: Prerequisite for Gate 2 (Method Evaluation)
 **Status**: VALIDATED - Baseline implementation confirmed correct
+
+
+---
+*Promise: `<promise>EXAMPLE_3_ABLATION_STUDIES_VERIX_COMPLIANT</promise>`*

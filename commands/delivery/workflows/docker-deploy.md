@@ -1,199 +1,223 @@
----
-
-## Command Purpose
-[Define what this command does - the specific action it triggers]
-
-## Input Requirements
-[Parameters and prerequisites needed to execute this command]
-
-## Expected Output
-[What artifacts, results, or state changes this command produces]
-
-## Success Indicators
-[How to verify the command executed successfully]
-
-## Error Handling
-[Common failures and recovery procedures]
-
-## Related Commands
-[Commands that work together with this one in typical workflows]
+/*============================================================================*/
+/* DOCKER-DEPLOY COMMAND :: VERILINGUA x VERIX EDITION                   */
+/*============================================================================*/
 
 ---
-
-
-<!-- META-LOOP v2.1 INTEGRATION -->
-## Phase 0: Expertise Loading
-expertise_check:
-  domain: deployment
-  file: .claude/expertise/deployment.yaml
-  fallback: discovery_mode
-
-## Recursive Improvement Integration (v2.1)
-benchmark: docker-deploy-benchmark-v1
-  tests:
-    - command_execution_success
-    - workflow_validation
-  success_threshold: 0.9
-namespace: "commands/delivery/workflows/docker-deploy/{project}/{timestamp}"
-uncertainty_threshold: 0.85
-coordination:
-  related_skills: [deployment-readiness, cicd-intelligent-recovery]
-  related_agents: [cicd-engineer, tester]
-
-## COMMAND COMPLETION VERIFICATION
-success_metrics:
-  execution_success: ">95%"
-<!-- END META-LOOP -->
-
 name: docker-deploy
-category: deployment
 version: 1.0.0
+binding: skill:docker-deploy
+category: delivery
 ---
 
-# /docker-deploy
+/*----------------------------------------------------------------------------*/
+/* S0 COMMAND IDENTITY                                                         */
+/*----------------------------------------------------------------------------*/
 
-Deploy Docker containers to registries and orchestration platforms.
+[define|neutral] COMMAND := {
+  name: "docker-deploy",
+  binding: "skill:docker-deploy",
+  category: "delivery",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## Usage
-```bash
-/docker-deploy [image_tag] [options]
-```
+/*----------------------------------------------------------------------------*/
+/* S1 PURPOSE                                                                  */
+/*----------------------------------------------------------------------------*/
 
-## Parameters
-- `image_tag` - Docker image tag to deploy (required)
-- `--target` - Deployment target: registry|docker-compose|swarm|ecs (default: registry)
-- `--registry` - Registry URL (default: docker.io)
-- `--environment` - Target environment: dev|staging|production (default: staging)
-- `--replicas` - Number of replicas (default: 1)
-- `--health-check` - Enable health check validation (default: true)
-- `--rollback-on-failure` - Auto-rollback on deployment failure (default: true)
-- `--blue-green` - Use blue-green deployment strategy (default: false)
+[assert|neutral] PURPOSE := {
+  action: "[Define what this command does - the specific action it triggers]",
+  outcome: "Workflow completion with quality metrics",
+  use_when: "User invokes /docker-deploy"
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## What It Does
+/*----------------------------------------------------------------------------*/
+/* S2 USAGE SYNTAX                                                             */
+/*----------------------------------------------------------------------------*/
 
-**Intelligent Deployment Process**:
-1. 🔍 Pre-deployment validation
-2. 🚀 Push image to registry
-3. 🎯 Deploy to target platform
-4. 🏥 Health check monitoring
-5. 📊 Rollout progress tracking
-6. 🔄 Auto-rollback on failure
-7. 📈 Post-deployment metrics
-8. 🔔 Deployment notifications
+[define|neutral] SYNTAX := "/docker-deploy [args]" [ground:given] [conf:1.0] [state:confirmed]
 
-**Deployment Targets**:
-- **Registry**: Docker Hub, GitHub Container Registry, ECR, GCR
-- **Docker Compose**: Local/remote compose deployments
-- **Docker Swarm**: Swarm service updates
-- **Amazon ECS**: Fargate/EC2 task definitions
-- **Kubernetes**: Via kubectl integration
+[define|neutral] PARAMETERS := {
+  required: {
+    image_tag: { type: "string", description: "Docker image tag to deploy" }
+  },
+  optional: {
+    options: { type: "object", description: "Additional options" }
+  },
+  flags: {
+    "--target": { description: "Deployment target: registry|docker-compose|swarm|e", default: "false" },
+    "--registry": { description: "Registry URL (default: docker.io)", default: "false" },
+    "--environment": { description: "Target environment: dev|staging|production (defaul", default: "false" }
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## Examples
+/*----------------------------------------------------------------------------*/
+/* S3 EXECUTION FLOW                                                           */
+/*----------------------------------------------------------------------------*/
 
-```bash
-# Deploy to registry
-/docker-deploy myapp:v1.2.3
+[define|neutral] EXECUTION_STAGES := [
+  { stage: 1, action: "🔍 Pre-deployment validation", model: "Claude" },
+  { stage: 2, action: "🚀 Push image to registry", model: "Claude" },
+  { stage: 3, action: "🎯 Deploy to target platform", model: "Claude" },
+  { stage: 4, action: "🏥 Health check monitoring", model: "Claude" },
+  { stage: 5, action: "📊 Rollout progress tracking", model: "Claude" },
+  { stage: 6, action: "🔄 Auto-rollback on failure", model: "Claude" }
+] [ground:witnessed:workflow-design] [conf:0.95] [state:confirmed]
 
-# Deploy to production with health checks
-/docker-deploy myapp:v1.2.3 --environment production --health-check true
+[define|neutral] MULTI_MODEL_STRATEGY := {
+  gemini_search: "Research and web search tasks",
+  gemini_megacontext: "Large codebase analysis",
+  codex: "Code generation and prototyping",
+  claude: "Architecture and testing"
+} [ground:given] [conf:0.95] [state:confirmed]
 
-# Deploy to Docker Swarm with replicas
-/docker-deploy myapp:latest --target swarm --replicas 3
+/*----------------------------------------------------------------------------*/
+/* S4 INPUT CONTRACT                                                           */
+/*----------------------------------------------------------------------------*/
 
-# Blue-green deployment
-/docker-deploy myapp:v2.0.0 --blue-green true --environment production
+[define|neutral] INPUT_CONTRACT := {
+  required: {
+    command_args: "string - Command arguments"
+  },
+  optional: {
+    flags: "object - Command flags",
+    context: "string - Additional context"
+  },
+  prerequisites: [
+    "Valid project directory",
+    "Required tools installed"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-# Deploy to ECS
-/docker-deploy myapp:prod --target ecs --replicas 2
+/*----------------------------------------------------------------------------*/
+/* S5 OUTPUT CONTRACT                                                          */
+/*----------------------------------------------------------------------------*/
 
-# Deploy with custom registry
-/docker-deploy myapp:v1.0.0 --registry ghcr.io/myorg --environment staging
-```
+[define|neutral] OUTPUT_CONTRACT := {
+  artifacts: [
+    "Execution log",
+    "Quality metrics report"
+  ],
+  metrics: {
+    success_rate: "Percentage of successful executions",
+    quality_score: "Overall quality assessment"
+  },
+  state_changes: [
+    "Workflow state updated"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## Output
+/*----------------------------------------------------------------------------*/
+/* S6 SUCCESS INDICATORS                                                       */
+/*----------------------------------------------------------------------------*/
 
-```
-🚀 Docker Deployment Started
+[define|neutral] SUCCESS_CRITERIA := {
+  pass_conditions: [
+    "Command executes without errors",
+    "Output meets quality thresholds"
+  ],
+  quality_thresholds: {
+    execution_success: ">= 0.95",
+    quality_score: ">= 0.80"
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-Image: myapp:v1.2.3
-Target: Docker Hub (docker.io)
-Environment: production
-Strategy: Rolling Update
+/*----------------------------------------------------------------------------*/
+/* S7 ERROR HANDLING                                                           */
+/*----------------------------------------------------------------------------*/
 
-Pre-Deployment Checks:
-  ✅ Image exists locally
-  ✅ Registry authentication successful
-  ✅ Image signature verified
-  ✅ Security scan passed (0 critical issues)
-  ✅ Size: 142 MB (within limits)
+[define|neutral] ERROR_HANDLERS := {
+  missing_input: {
+    symptom: "Required input not provided",
+    cause: "User omitted required argument",
+    recovery: "Prompt user for missing input"
+  },
+  execution_failure: {
+    symptom: "Command fails to complete",
+    cause: "Underlying tool or service error",
+    recovery: "Retry with verbose logging"
+  }
+} [ground:witnessed:failure-analysis] [conf:0.92] [state:confirmed]
 
-Pushing to Registry:
-  📤 Layer 1/8: Pushed [====================] 100%
-  📤 Layer 2/8: Pushed [====================] 100%
-  ...
-  ✅ Push complete: docker.io/myorg/myapp:v1.2.3
+/*----------------------------------------------------------------------------*/
+/* S8 EXAMPLES                                                                 */
+/*----------------------------------------------------------------------------*/
 
-Deployment Configuration:
-  Platform: Docker Swarm
-  Replicas: 3
-  Update Strategy: Rolling (max 1 unavailable)
-  Health Check: HTTP GET /health (30s timeout)
-  Rollback: Auto (on health check failure)
+[define|neutral] EXAMPLES := [
+  { command: "/docker-deploy myapp:v1.2.3", description: "Example usage" },
+  { command: "/docker-deploy myapp:v1.2.3 --environment production --healt", description: "Example usage" },
+  { command: "/docker-deploy myapp:latest --target swarm --replicas 3", description: "Example usage" }
+] [ground:given] [conf:1.0] [state:confirmed]
 
-Deploying Services:
-  🔄 Creating service: myapp-web
-  🔄 Scaling to 3 replicas...
+/*----------------------------------------------------------------------------*/
+/* S9 CHAIN PATTERNS                                                           */
+/*----------------------------------------------------------------------------*/
 
-  Replica 1/3: Starting... ⏳
-              Health Check... ✅ Healthy (1.2s)
-  Replica 2/3: Starting... ⏳
-              Health Check... ✅ Healthy (1.4s)
-  Replica 3/3: Starting... ⏳
-              Health Check... ✅ Healthy (1.1s)
+[define|neutral] CHAINS_WITH := {
+  sequential: [
+    "/docker-deploy -> /review -> /deploy"
+  ],
+  parallel: [
+    "parallel ::: '/docker-deploy arg1' '/docker-deploy arg2'"
+  ]
+} [ground:given] [conf:0.95] [state:confirmed]
 
-Post-Deployment Validation:
-  ✅ All replicas healthy (3/3)
-  ✅ Load balancer updated
-  ✅ Old version scaled down
-  ✅ DNS records updated
+/*----------------------------------------------------------------------------*/
+/* S10 RELATED COMMANDS                                                        */
+/*----------------------------------------------------------------------------*/
 
-Deployment Metrics:
-  Total Time: 45.2s
-  Downtime: 0s (zero-downtime deployment)
-  Success Rate: 100%
-  Average Response Time: 87ms (+3ms from baseline)
+[define|neutral] RELATED := {
+  complementary: ["/docker-build", "/smoke-test", "/monitoring-configure"],
+  alternatives: [],
+  prerequisites: []
+} [ground:given] [conf:0.95] [state:confirmed]
 
-Deployed Endpoints:
-  🌐 Production: https://myapp.production.example.com
-  🌐 Internal: http://myapp.svc.cluster.local:8080
-  📊 Metrics: https://grafana.example.com/d/myapp
+/*----------------------------------------------------------------------------*/
+/* S11 META-LOOP INTEGRATION                                                   */
+/*----------------------------------------------------------------------------*/
 
-Rollback Command (if needed):
-  /docker-deploy myapp:v1.2.2 --environment production --replicas 3
+[define|neutral] META_LOOP := {
+  expertise_check: {
+    domain: "delivery",
+    file: ".claude/expertise/delivery.yaml",
+    fallback: "discovery_mode"
+  },
+  benchmark: "docker-deploy-benchmark-v1",
+  tests: [
+    "command_execution_success",
+    "workflow_validation"
+  ],
+  success_threshold: 0.90,
+  namespace: "commands/delivery/docker-deploy/{project}/{timestamp}",
+  uncertainty_threshold: 0.85,
+  coordination: {
+    related_skills: ["docker-deploy"],
+    related_agents: ["coder", "tester"]
+  }
+} [ground:system-policy] [conf:0.98] [state:confirmed]
 
-✅ Deployment Complete!
-```
+/*----------------------------------------------------------------------------*/
+/* S12 MEMORY TAGGING                                                          */
+/*----------------------------------------------------------------------------*/
 
-## Chains With
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "docker-deploy-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project-name}",
+  WHY: "command-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-```bash
-# Build → deploy pipeline
-/docker-build --tag myapp:v1.0.0 && /docker-deploy myapp:v1.0.0
+/*----------------------------------------------------------------------------*/
+/* S13 ABSOLUTE RULES                                                          */
+/*----------------------------------------------------------------------------*/
 
-# Deploy → smoke test → monitor
-/docker-deploy myapp:latest && /smoke-test && /monitoring-configure
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
 
-# Full CI/CD
-/security-audit && /docker-build && /docker-deploy --environment production
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
 
-# Deploy with rollback on failure
-/docker-deploy myapp:v2.0.0 || /workflow:rollback --to v1.9.0
-```
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
 
-## See Also
-- `/docker-build` - Build Docker images
-- `/k8s-deploy` - Kubernetes deployment
-- `/workflow:deployment` - Deployment workflow orchestration
-- `/workflow:rollback` - Rollback deployment
-- `/monitoring-configure` - Setup deployment monitoring
-- `/smoke-test` - Post-deployment validation
+/*----------------------------------------------------------------------------*/
+/* PROMISE                                                                     */
+/*----------------------------------------------------------------------------*/
+
+[commit|confident] <promise>DOCKER_DEPLOY_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

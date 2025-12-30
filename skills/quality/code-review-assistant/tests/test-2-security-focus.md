@@ -1,5 +1,10 @@
 # Test 2: Security-Focused Review
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Test ID**: TEST-CRA-002
 **Skill**: code-review-assistant
 **Tier**: Gold
@@ -375,3 +380,7 @@ rm -rf /tmp/test-repo-security
 **Issues Found**:
 -
 -
+
+
+---
+*Promise: `<promise>TEST_2_SECURITY_FOCUS_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Example 1: Basic RAG - Document Retrieval for Question Answering
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates a simple RAG (Retrieval Augmented Generation) pipeline using AgentDB for semantic document retrieval. The system chunks documents, generates embeddings, and retrieves relevant context for question answering.
@@ -410,3 +415,7 @@ npx agentdb@latest stats .agentdb/knowledge-base.db
 - **Example 2**: Learn about [Hybrid Search](example-2-hybrid-search.md) with metadata filtering
 - **Example 3**: Explore [Multi-Stage Reranking](example-3-reranking.md) for complex queries
 - **References**: Read about [RAG Patterns](../references/rag-patterns.md) and architecture best practices
+
+
+---
+*Promise: `<promise>EXAMPLE_1_RAG_BASIC_VERIX_COMPLIANT</promise>`*

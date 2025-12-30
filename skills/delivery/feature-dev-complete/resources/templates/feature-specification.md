@@ -1,5 +1,10 @@
 # Feature Specification Template
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -337,3 +342,7 @@ Entity2:
 | Tech Lead | | | |
 | Engineering Manager | | | |
 | Security Lead | | | |
+
+
+---
+*Promise: `<promise>FEATURE_SPECIFICATION_VERIX_COMPLIANT</promise>`*

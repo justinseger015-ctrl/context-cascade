@@ -1,5 +1,10 @@
 # Example 1: Repository Automation with GitHub Integration
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -766,3 +771,7 @@ on:
 **Related Examples:**
 - [Example 2: Webhook Handling](./example-2-webhook-handling.md)
 - [Example 3: Release Workflow](./example-3-release-workflow.md)
+
+
+---
+*Promise: `<promise>EXAMPLE_1_REPO_AUTOMATION_VERIX_COMPLIANT</promise>`*

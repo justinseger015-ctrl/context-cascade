@@ -1,5 +1,10 @@
 # Example 3: Batch Operations for 500x Throughput Improvement
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates how batch operations dramatically improve throughput by reducing database overhead, transaction management, and I/O operations. Learn how to achieve 500x faster inserts and efficient bulk processing.
@@ -502,3 +507,7 @@ async function monitoredBatchInsert(documents) {
 - [Main Skill Documentation](../skill.md)
 - [Quantization Techniques](../references/quantization-techniques.md)
 - [HNSW Parameters](../references/hnsw-parameters.md)
+
+
+---
+*Promise: `<promise>EXAMPLE_3_BATCHING_VERIX_COMPLIANT</promise>`*

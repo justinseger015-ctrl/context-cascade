@@ -1,5 +1,10 @@
 # Example 3: API Versioning Strategies & Documentation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -726,3 +731,7 @@ project/
 
 - **Example 1**: REST API documentation with OpenAPI
 - **Example 2**: GraphQL schema documentation
+
+
+---
+*Promise: `<promise>EXAMPLE_3_API_VERSIONING_VERIX_COMPLIANT</promise>`*

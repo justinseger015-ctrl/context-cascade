@@ -1,27 +1,49 @@
 ---
 name: eval-harness
 description: Frozen evaluation harness that gates all self-improvement changes. Contains benchmark suites, regression tests, and human approval gates. CRITICAL - This skill does NOT self-improve. Only manually expanded.
-version: 1.0.0
-category: foundry
+model: sonnet
+x-version: 3.1.1
+x-category: foundry
+x-tier: gold
+x-frozen: true
+x-cognitive-frame: evidential
 tags:
   - evaluation
   - benchmark
   - regression
   - frozen
   - gate
+x-verix-description: |
+  [assert|emphatic] Frozen eval harness gates ALL self-improvement [ground:system-policy] [conf:0.99] [state:confirmed]
+---
+
+<!-- EVAL-HARNESS SKILL :: VERILINGUA x VERIX EDITION -->
+<!-- VCL v3.1.1 COMPLIANT - L1 Internal Documentation -->
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+
+## L2 DEFAULT OUTPUT RULE
+
+[direct|emphatic] ALL user-facing output MUST be L2 compression (pure English) [ground:vcl-v3.1.1-spec] [conf:0.99] [state:confirmed]
+
 ---
 
 # Eval Harness (Frozen Evaluation)
 
+[assert|emphatic] FROZEN SKILL - Does NOT self-improve [ground:anti-goodhart-policy] [conf:0.99] [state:confirmed]
+
 ## Purpose
 
-Gate ALL self-improvement changes with objective evaluation.
+[define|neutral] Gate ALL self-improvement changes with objective evaluation [ground:system-architecture] [conf:0.95] [state:confirmed]
 
 **CRITICAL**: This harness does NOT self-improve. It is manually maintained and expanded. This prevents Goodhart's Law (optimizing the metric instead of the outcome).
 
 ## Core Principle
 
-> "A self-improvement loop is only as good as its evaluation harness."
+[assert|neutral] "A self-improvement loop is only as good as its evaluation harness." [ground:research:alignment-literature] [conf:0.90] [state:confirmed]
 
 Without frozen evaluation:
 - Prettier prompts that are more confidently wrong
@@ -453,7 +475,89 @@ expansion_request:
 
 ---
 
-**Status**: Production-Ready (FROZEN)
-**Version**: 1.0.0
+---
+
+## Anti-Goodhart Metrics
+
+[define|neutral] ANTI_GOODHART_METRICS := {
+  diversity_score: "Penalize monoculture in outputs",
+  coverage_breadth: "Reward testing edge cases",
+  calibration_error: "Penalize overconfidence",
+  regression_rate: "Track capability preservation"
+} [ground:research:alignment-literature] [conf:0.88] [state:confirmed]
+
+---
+
+## Saturation Monitoring (One-Way Ratchet)
+
+[assert|neutral] Eval harness can become MORE rigorous when consistently saturated [ground:system-policy] [conf:0.95] [state:confirmed]
+
+### Saturation Detection
+
+The saturation monitor tracks when the system consistently hits ceiling performance:
+
+```yaml
+saturation_metrics:
+  benchmark_ceiling_rate: "% of benchmarks scoring >95%"
+  regression_pass_rate: "Must be 100%"
+  improvement_delta_trend: "Are improvements getting smaller?"
+  proposal_pass_rate: "% of proposals passing eval"
+  auditor_unanimous_rate: "% with all auditors agreeing"
+
+saturation_levels:
+  NORMAL: 0.0 - 0.5   # Good discrimination
+  ELEVATED: 0.5 - 0.7 # Early saturation signs
+  HIGH: 0.7 - 0.85    # Significant saturation
+  CRITICAL: 0.85+     # Consistent saturation
+```
+
+### Consistency Thresholds
+
+```yaml
+trigger_expansion_research:
+  - consecutive_high_cycles: ">= 10"
+  - consecutive_critical_cycles: ">= 5"
+  - rolling_avg_with_increasing_trend: ">= 0.70"
+```
+
+### One-Way Ratchet Protocol
+
+[assert|emphatic] Harness expansions can ONLY make tests MORE rigorous [ground:anti-goodhart-policy] [conf:0.99] [state:confirmed]
+
+```yaml
+allowed_changes:
+  - ADD harder benchmarks
+  - ADD edge case tests
+  - RAISE minimum thresholds
+  - ADD new regression tests
+  - ADD stricter quality gates
+
+forbidden_changes:
+  - LOWER any threshold
+  - REMOVE any test
+  - WEAKEN any gate
+  - SIMPLIFY any benchmark
+
+human_gate: required
+```
+
+### Integration
+
+After each evaluation cycle:
+1. Record metrics to saturation monitor
+2. Check consistency against thresholds
+3. If TRIGGER_EXPANSION_RESEARCH: spawn research task
+4. If FLAG_FOR_REVIEW: notify human
+
+See: `hooks/12fa/saturation-monitor.js`
+
+---
+
+**Status**: Production-Ready (FROZEN with One-Way Expansion)
+**Version**: 3.1.1
 **Key Constraint**: This skill does NOT self-improve
 **Expansion**: Manual only, with human approval
+
+---
+
+<promise>EVAL_HARNESS_VCL_V3.1.1_COMPLIANT</promise>

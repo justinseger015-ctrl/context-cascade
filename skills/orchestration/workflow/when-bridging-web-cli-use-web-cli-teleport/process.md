@@ -1,5 +1,10 @@
 # Web-CLI Teleport - Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Complete Script
 
 ```bash
@@ -32,3 +37,4 @@ docker build -t web-cli-bridge . && docker run -d -p 3001:3001 web-cli-bridge
 - [ ] CLI bridge operational
 - [ ] Tests passing
 - [ ] Deployed successfully
+- [assert|neutral] Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

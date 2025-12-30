@@ -1,5 +1,10 @@
 # Foundation Prompt Template
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Use this template when implementing infrastructure foundations (DB, Auth, Payments, APIs) with AI coding tools.
 
 **Critical**: Use in a FRESH AI chat for each foundation piece.
@@ -291,3 +296,7 @@ Step 3: Test in Stripe sandbox:
 2. Propose plan BEFORE implementing
 3. Test thoroughly before moving to next foundation
 4. Store decisions in Memory-MCP for future reference
+
+
+---
+*Promise: `<promise>FOUNDATION_PROMPT_TEMPLATE_VERIX_COMPLIANT</promise>`*

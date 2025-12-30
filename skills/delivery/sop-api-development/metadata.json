@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "delivery",
+  "tags": [
+    "delivery",
+    "development",
+    "workflow"
+  ],
+  "author": "ruv",
+  "verix-description": [
+    "assert|neutral] Complete REST API development workflow coordinating backend",
+    "database",
+    "testing",
+    "documentation",
+    "and DevOps agents. 2-week timeline with TDD approach. [ground:given] [conf:0.95] [state:confirmed"
+  ]
+}

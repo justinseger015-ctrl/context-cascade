@@ -1,5 +1,10 @@
 # Expertise Manager - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Manages .claude/expertise/ YAML files for domain-specific configurations.
 
@@ -149,3 +154,7 @@ Use expertise-manager to analyze: ./project-root
 - **agent-selector** - Uses expertise for matching
 - **skill-forge** - Creates skills with expertise loading
 - **research-driven-planning** - Informs expertise creation
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

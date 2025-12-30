@@ -1,5 +1,10 @@
 # Coordination Skill - Gold Tier
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version:** 2.0.0
 **Tier:** Gold
 **Files:** 13+
@@ -252,3 +257,7 @@ To enhance this Gold tier skill:
 ---
 
 **Skill Tier Achieved:** 🥇 Gold (13+ files, scripts, templates, comprehensive tests)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

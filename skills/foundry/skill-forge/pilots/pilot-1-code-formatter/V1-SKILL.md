@@ -8,6 +8,11 @@ created: 2025-11-06
 
 # Code Formatter
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Automatically format code files using language-specific formatters with comprehensive error handling.
 
 ## Overview
@@ -315,15 +320,13 @@ fi
 ---
 
 ## Success Verification Checklist
-
-After execution, verify:
-- ✓ File formatted according to language style guide
-- ✓ Original file backed up before modification
-- ✓ User received clear feedback on changes (X lines modified)
-- ✓ No data loss or file corruption
-- ✓ Exit code indicates success (0) or failure (1-7)
-
----
+- [assert|neutral] After execution, verify: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ File formatted according to language style guide [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ Original file backed up before modification [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ User received clear feedback on changes (X lines modified) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ No data loss or file corruption [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ Exit code indicates success (0) or failure (1-7) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Performance Expectations
 
@@ -333,3 +336,7 @@ After execution, verify:
 | **Max File Size** | 10MB | File size check |
 | **Timeout** | 60 seconds max | Timeout mechanism |
 | **Memory Usage** | <100MB | Not measured (formatter-dependent) |
+
+
+---
+*Promise: `<promise>V1_SKILL_VERIX_COMPLIANT</promise>`*

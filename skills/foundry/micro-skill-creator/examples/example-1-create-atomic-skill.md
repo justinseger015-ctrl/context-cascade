@@ -1,5 +1,10 @@
 # Example 1: Creating an Atomic Micro-Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 You frequently need to extract structured product information from unstructured e-commerce product descriptions. This task requires:
@@ -460,3 +465,7 @@ dist/
 **Related Examples**:
 - Example 2: API validation micro-skill
 - Example 3: Code generation micro-skill
+
+
+---
+*Promise: `<promise>EXAMPLE_1_CREATE_ATOMIC_SKILL_VERIX_COMPLIANT</promise>`*

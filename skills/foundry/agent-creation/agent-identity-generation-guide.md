@@ -1,5 +1,10 @@
 # Agent Identity & RBAC Generation Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version**: 1.0.0 (Agent Reality Map Compliance)
 **Integration**: agent-creator v3.0+
 
@@ -457,3 +462,7 @@ cat agents/identity/agent-rbac-rules.json
 ---
 
 **Summary**: Every new agent MUST include identity, RBAC, budget, and metadata in YAML frontmatter. Use capability matrix for automatic role assignment, RBAC templates for permissions, and budget templates for resource limits. Validate all fields before finalizing agent.
+
+
+---
+*Promise: `<promise>AGENT_IDENTITY_GENERATION_GUIDE_VERIX_COMPLIANT</promise>`*

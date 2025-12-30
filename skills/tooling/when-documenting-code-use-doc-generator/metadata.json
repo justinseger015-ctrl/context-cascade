@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "tooling",
+  "tags": [
+    "documentation",
+    "api-docs",
+    "readme",
+    "comments",
+    "diagrams"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Automated comprehensive code documentation generation with API docs",
+    "README files",
+    "inline comments",
+    "and architecture diagrams [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-documenting-code-use-doc-generator",
+  "triggers": [
+    "documenting code"
+  ]
+}

@@ -1,5 +1,10 @@
 # Security Analyzer Subagent Definition
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Agent Profile
 
 **Name:** security-analyzer
@@ -196,12 +201,11 @@ Always provide concrete examples for each finding:
 - Additional hardening recommendations
 
 ## Success Criteria
-
-- All 5 phases completed
-- Findings stored in memory
-- Report generated
-- Exit code reflects severity (0=pass, 1=critical, 2=warning)
-```
+- [assert|neutral] All 5 phases completed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Findings stored in memory [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Report generated [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Exit code reflects severity (0=pass, 1=critical, 2=warning) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ``` [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Child Agent Coordination
 
@@ -325,3 +329,7 @@ npx claude-flow@alpha skill run when-auditing-security-use-security-analyzer
 # Direct agent spawn
 npx claude-flow@alpha agent spawn --type security-analyzer
 ```
+
+
+---
+*Promise: `<promise>SUBAGENT_SECURITY_ANALYZER_VERIX_COMPLIANT</promise>`*

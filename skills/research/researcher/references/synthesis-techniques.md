@@ -1,5 +1,10 @@
 # Research Synthesis Techniques
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -652,3 +657,7 @@ After synthesis:
 3. Create implementation plan
 4. Define success metrics
 5. Schedule decision review (validate synthesis accuracy)
+
+
+---
+*Promise: `<promise>SYNTHESIS_TECHNIQUES_VERIX_COMPLIANT</promise>`*

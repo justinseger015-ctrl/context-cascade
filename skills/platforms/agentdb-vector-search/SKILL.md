@@ -1,17 +1,46 @@
 ---
 name: agentdb-vector-search
-description: Implement semantic vector search with AgentDB for intelligent document
-  retrieval, similarity matching, and context-aware querying. Use when building RAG
-  systems, semantic search engines, or intelligent knowledge bases.
-version: 1.0.0
-category: platforms
-tags:
-- platforms
-- integration
-- tools
-author: ruv
+description: Implement semantic vector search with AgentDB for intelligent document retrieval, similarity matching, and context-aware querying. Use when building RAG systems, semantic search engines, or intelligen
+allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
 ---
 
+
+---
+<!-- S0 META-IDENTITY                                                             -->
+---
+
+[define|neutral] SKILL := {
+  name: "agentdb-vector-search",
+  category: "platforms",
+  version: "1.0.0",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S1 COGNITIVE FRAME                                                           -->
+---
+
+[define|neutral] COGNITIVE_FRAME := {
+  frame: "Aspectual",
+  source: "Russian",
+  force: "Complete or ongoing?"
+} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+<!-- S2 TRIGGER CONDITIONS                                                        -->
+---
+
+[define|neutral] TRIGGER_POSITIVE := {
+  keywords: ["agentdb-vector-search", "platforms", "workflow"],
+  context: "user needs agentdb-vector-search capability"
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S3 CORE CONTENT                                                              -->
+---
 
 ## When NOT to Use This Skill
 
@@ -21,13 +50,12 @@ author: ruv
 - Operations that do not require embedding-based retrieval
 
 ## Success Criteria
-
-- Vector search query latency: <10ms for 99th percentile
-- Embedding generation: <100ms per document
-- Index build time: <1s per 1000 vectors
-- Recall@10: >0.95 for similar documents
-- Database connection success rate: >99.9%
-- Memory footprint: <2GB for 1M vectors with quantization
+- [assert|neutral] Vector search query latency: <10ms for 99th percentile [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Embedding generation: <100ms per document [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Index build time: <1s per 1000 vectors [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Recall@10: >0.95 for similar documents [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Database connection success rate: >99.9% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Memory footprint: <2GB for 1M vectors with quantization [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Edge Cases & Error Handling
 
@@ -39,13 +67,12 @@ author: ruv
 - **Dimension Mismatch**: Validate embedding dimensions (384 for sentence-transformers) before insertion
 
 ## Guardrails & Safety
-
-- NEVER expose database connection strings in logs or error messages
-- ALWAYS validate vector dimensions before insertion
-- ALWAYS sanitize metadata to prevent injection attacks
-- NEVER store PII in vector metadata without encryption
-- ALWAYS implement access control for multi-tenant deployments
-- ALWAYS validate search results before returning to users
+- [assert|emphatic] NEVER: expose database connection strings in logs or error messages [ground:policy] [conf:0.98] [state:confirmed]
+- [assert|neutral] ALWAYS: validate vector dimensions before insertion [ground:policy] [conf:0.98] [state:confirmed]
+- [assert|neutral] ALWAYS: sanitize metadata to prevent injection attacks [ground:policy] [conf:0.98] [state:confirmed]
+- [assert|emphatic] NEVER: store PII in vector metadata without encryption [ground:policy] [conf:0.98] [state:confirmed]
+- [assert|neutral] ALWAYS: implement access control for multi-tenant deployments [ground:policy] [conf:0.98] [state:confirmed]
+- [assert|neutral] ALWAYS: validate search results before returning to users [ground:policy] [conf:0.98] [state:confirmed]
 
 ## Evidence-Based Validation
 
@@ -57,6 +84,11 @@ author: ruv
 
 
 # AgentDB Vector Search
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 
 ## What This Skill Does
 
@@ -92,342 +124,67 @@ npx agentdb@latest init ./vectors.db --in-memory
 ### Query Vector Database
 
 ```bash
-# Basic similarity search
-npx agentdb@latest query ./vectors.db "[0.1,0.2,0.3,...]"
-
-# Top-k results
-npx agentdb@latest query ./vectors.db "[0.1,0.2,0.3]" -k 10
-
-# With similarity threshold (cosine similarity)
-npx agentdb@latest query ./vectors.db "0.1 0.2 0.3" -t 0.75 -m cosine
-
-# Different distance metrics
-npx agentdb@latest query ./vectors.db "[...]" -m euclidean  # L2 distance
-npx agentdb@latest query ./vectors.db "[...]" -m dot        # Dot product
-
-# JSON output for automation
-npx agentdb@latest query ./vectors.db "[...]" -f json -k 5
-
-# Verbose output with distances
-npx agentdb@latest query ./vectors.db "[...]" -v
-```
-
-### Import/Export Vectors
-
-```bash
-# Export vectors to JSON
-npx agentdb@latest export ./vectors.db ./backup.json
-
-# Import vectors from JSON
-npx agentdb@latest import ./backup.json
-
-# Get database statistics
-npx agentdb@latest stats ./vectors.db
-```
-
-## Quick Start with API
-
-```typescript
-import { createAgentDBAdapter, computeEmbedding } from 'agentic-flow/reasoningbank';
-
-// Initialize with vector search optimizations
-const adapter = await createAgentDBAdapter({
-  dbPath: '.agentdb/vectors.db',
-  enableLearning: false,       // Vector search only
-  enableReasoning: true,       // Enable semantic matching
-  quantizationType: 'binary',  // 32x memory reduction
-  cacheSize: 1000,             // Fast retrieval
-});
-
-// Store document with embedding
-const text = "The quantum computer achieved 100 qubits";
-const embedding = await computeEmbedding(text);
-
-await adapter.insertPattern({
-  id: '',
-  type: 'document',
-  domain: 'technology',
-  pattern_data: JSON.stringify({
-    embedding,
-    text,
-    metadata: { category: "quantum", date: "2025-01-15" }
-  }),
-  confidence: 1.0,
-  usage_count: 0,
-  success_count: 0,
-  created_at: Date.now(),
-  last_used: Date.now(),
-});
-
-// Semantic search with MMR (Maximal Marginal Relevance)
-const queryEmbedding = await computeEmbedding("quantum computing advances");
-const results = await adapter.retrieveWithReasoning(queryEmbedding, {
-  domain: 'technology',
-  k: 10,
-  useMMR: true,              // Diverse results
-  synthesizeContext: true,    // Rich context
-});
-```
-
-## Core Features
-
-### 1. Vector Storage
-```typescript
-// Store with automatic embedding
-await db.storeWithEmbedding({
-  content: "Your document text",
-  metadata: { source: "docs", page: 42 }
-});
-```
-
-### 2. Similarity Search
-```typescript
-// Find similar documents
-const similar = await db.findSimilar("quantum computing", {
-  limit: 5,
-  minScore: 0.75
-});
-```
-
-### 3. Hybrid Search (Vector + Metadata)
-```typescript
-// Combine vector similarity with metadata filtering
-const results = await db.hybridSearch({
-  query: "machine learning models",
-  filters: {
-    category: "research",
-    date: { $gte: "2024-01-01" }
-  },
-  limit: 20
-});
-```
-
-## Advanced Usage
-
-### RAG (Retrieval Augmented Generation)
-```typescript
-// Build RAG pipeline
-async function ragQuery(question: string) {
-  // 1. Get relevant context
-  const context = await db.searchSimilar(
-    await embed(question),
-    { limit: 5, threshold: 0.7 }
-  );
-
-  // 2. Generate answer with context
-  const prompt = `Context: ${context.map(c => c.text).join('\n')}
-Question: ${question}`;
-
-  return await llm.generate(prompt);
-}
-```
-
-### Batch Operations
-```typescript
-// Efficient batch storage
-await db.batchStore(documents.map(doc => ({
-  text: doc.content,
-  embedding: doc.vector,
-  metadata: doc.meta
-})));
-```
-
-## MCP Server Integration
-
-```bash
-# Start AgentDB MCP server for Claude Code
-npx agentdb@latest mcp
-
-# Add to Claude Code (one-time setup)
-claude mcp add agentdb npx agentdb@latest mcp
-
-# Now use MCP tools in Claude Code:
-# - agentdb_query: Semantic vector search
-# - agentdb_store: Store documents with embeddings
-# - agentdb_stats: Database statistics
-```
-
-## Performance Benchmarks
-
-```bash
-# Run comprehensive benchmarks
-npx agentdb@latest benchmark
-
-# Results:
-# ✅ Pattern Search: 150x faster (100µs vs 15ms)
-# ✅ Batch Insert: 500x faster (2ms vs 1s for 100 vectors)
-# ✅ Large-scale Query: 12,500x faster (8ms vs 100s at 1M vectors)
-# ✅ Memory Efficiency: 4-32x reduction with quantization
-```
-
-## Quantization Options
-
-AgentDB provides multiple quantization strategies for memory efficiency:
-
-### Binary Quantization (32x reduction)
-```typescript
-const adapter = await createAgentDBAdapter({
-  quantizationType: 'binary',  // 768-dim → 96 bytes
-});
-```
-
-### Scalar Quantization (4x reduction)
-```typescript
-const adapter = await createAgentDBAdapter({
-  quantizationType: 'scalar',  // 768-dim → 768 bytes
-});
-```
-
-### Product Quantization (8-16x reduction)
-```typescript
-const adapter = await createAgentDBAdapter({
-  quantizationType: 'product',  // 768-dim → 48-96 bytes
-});
-```
-
-## Distance Metrics
-
-```bash
-# Cosine similarity (default, best for most use cases)
-npx agentdb@latest query ./db.sqlite "[...]" -m cosine
-
-# Euclidean distance (L2 norm)
-npx agentdb@latest query ./db.sqlite "[...]" -m euclidean
-
-# Dot product (for normalized vectors)
-npx agentdb@latest query ./db.sqlite "[...]" -m dot
-```
-
-## Advanced Features
-
-### HNSW Indexing
-- **O(log n) search complexity**
-- **Sub-millisecond retrieval** (<100µs)
-- **Automatic index building**
-
-### Caching
-- **1000 pattern in-memory cache**
-- **<1ms pattern retrieval**
-- **Automatic cache invalidation**
-
-### MMR (Maximal Marginal Relevance)
-- **Diverse result sets**
-- **Avoid redundancy**
-- **Balance relevance and diversity**
-
-## Performance Tips
-
-1. **Enable HNSW indexing**: Automatic with AgentDB, 10-100x faster
-2. **Use quantization**: Binary (32x), Scalar (4x), Product (8-16x) memory reduction
-3. **Batch operations**: 500x faster for bulk inserts
-4. **Match dimensions**: 1536 (OpenAI), 768 (sentence-transformers), 384 (MiniLM)
-5. **Similarity threshold**: Start at 0.7 for quality, adjust based on use case
-6. **Enable caching**: 1000 pattern cache for frequent queries
-
-## Troubleshooting
-
-### Issue: Slow search performance
-```bash
-# Check if HNSW indexing is enabled (automatic)
-npx agentdb@latest stats ./vectors.db
-
-# Expected: <100µs search time
-```
-
-### Issue: High memory usage
-```bash
-# Enable binary quantization (32x reduction)
-# Use in adapter: quantizationType: 'binary'
-```
-
-### Issue: Poor relevance
-```bash
-# Adjust similarity threshold
-npx agentdb@latest query ./db.sqlite "[...]" -t 0.8  # Higher threshold
-
-# Or use MMR for diverse results
-# Use in adapter: useMMR: true
-```
-
-### Issue: Wrong dimensions
-```bash
-# Check embedding model dimensions:
-# - OpenAI ada-002: 1536
-# - sentence-transformers: 768
-# - all-MiniLM-L6-v2: 384
-
-npx agentdb@latest init ./db.sqlite --dimension 768
-```
-
-## Database Statistics
-
-```bash
-# Get comprehensive stats
-npx agentdb@latest stats ./vectors.db
-
-# Shows:
-# - Total patterns/vectors
-# - Database size
-# - Average confidence
-# - Domains distribution
-# - Index status
-```
-
-## Performance Characteristics
-
-- **Vector Search**: <100µs (HNSW indexing)
-- **Pattern Retrieval**: <1ms (with cache)
-- **Batch Insert**: 2ms for 100 vectors
-- **Memory Efficiency**: 4-32x reduction with quantization
-- **Scalability**: Handles 1M+ vectors efficiently
-- **Latency**: Sub-millisecond for most operations
-
-## Learn More
-
-- GitHub: https://github.com/ruvnet/agentic-flow/tree/main/packages/agentdb
-- Documentation: node_modules/agentic-flow/docs/AGENTDB_INTEGRATION.md
-- MCP Integration: `npx agentdb@latest mcp` for Claude Code
-- Website: https://agentdb.ruv.io
-- CLI Help: `npx agentdb@latest --help`
-- Command Help: `npx agentdb@latest help <command>`
-## Core Principles
-
-AgentDB Vector Search operates on 3 fundamental principles:
-
-### Principle 1: Semantic Similarity Through Embedding-Based Retrieval
-Transform unstructured data (text, images, code) into high-dimensional vectors where similar concepts cluster together for intelligent search.
-
-In practice:
-- Embeddings map semantic meaning to geometric space (cosine similarity measures conceptual closeness)
-- "quantum computer" and "qubit processor" retrieve similar results despite different keywords
-- HNSW indexing provides O(log n) search complexity for sub-millisecond retrieval (<100µs) on millions of vectors
-
-### Principle 2: Quantization Trades Minimal Accuracy for Massive Memory Reduction
-Compress vectors by 4-32x with <5% accuracy loss using binary, scalar, or product quantization for scalable deployments.
-
-In practice:
-- Binary quantization (32x reduction) enables 1M vectors in 96MB vs 3GB (mobile/edge deployments)
-- Scalar quantization (4x reduction) balances memory and accuracy for production systems (98-99% original accuracy)
-- Select quantization based on constraints: binary for memory limits, scalar for accuracy, none for maximum precision
-
-### Principle 3: Hybrid Search Combines Vector Similarity with Metadata Filtering
-Merge semantic understanding (embeddings) with structured constraints (metadata) for precision beyond pure vector search.
-
-In practice:
-- Vector search finds semantically relevant documents, metadata filters enforce business rules (date ranges, categories, permissions)
-- MMR (Maximal Marginal Relevance) diversifies results to avoid redundancy while maintaining relevance
-- RAG pipelines combine vector retrieval with LLM generation for context-aware answers
-
-## Common Anti-Patterns
-
-| Anti-Pattern | Problem | Solution |
-|--------------|---------|----------|
-| **Mismatched Embedding Dimensions** | Inserting 1536-dim (OpenAI) vectors into 768-dim database causes dimension mismatch errors | Initialize database with correct dimensions: `--dimension 1536` (OpenAI ada-002), `--dimension 768` (sentence-transformers), `--dimension 384` (MiniLM) |
-| **Low Similarity Threshold** | Threshold 0.3 returns irrelevant results; too high (0.95) misses near-matches | Start with 0.7 for quality; lower to 0.5-0.6 for exploratory search; raise to 0.8-0.9 for high-precision retrieval |
-| **Ignoring Quantization** | Full precision (float32) uses 3GB for 1M vectors causing OOM on constrained environments | Apply binary quantization (32x reduction to 96MB) for mobile/edge; scalar (4x to 768MB) for production; benchmark accuracy vs memory trade-offs |
-
-## Conclusion
-
-AgentDB Vector Search provides production-ready semantic search infrastructure with 150-12,500x performance improvements over naive implementations through HNSW indexing, quantization, and hybrid search capabilities. By transforming unstructured data into embeddings and leveraging vector similarity, you enable intelligent retrieval that understands meaning rather than keyword matching, powering RAG systems, semantic search engines, and intelligent knowledge bases.
-
-Use this skill when building applications requiring semantic understanding (chatbots finding relevant context, document search beyond keywords), scaling to large datasets (>10K documents with sub-10ms latency), or deploying to memory-constrained environments (mobile apps, edge devices with quantization). The key insight is embedding choice determines quality: OpenAI embeddings (1536-dim) provide best semantic understanding, sentence-transformers (768-dim) balance quality and speed, MiniLM (384-dim) optimizes for resource constraints. Start with cosine similarity and scalar quantization, benchmark retrieval quality, and tune threshold/quantization based on accuracy requirements.
+# Basic
+
+---
+<!-- S4 SUCCESS CRITERIA                                                          -->
+---
+
+[define|neutral] SUCCESS_CRITERIA := {
+  primary: "Skill execution completes successfully",
+  quality: "Output meets quality thresholds",
+  verification: "Results validated against requirements"
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S5 MCP INTEGRATION                                                           -->
+---
+
+[define|neutral] MCP_INTEGRATION := {
+  memory_mcp: "Store execution results and patterns",
+  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
+} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
+
+---
+<!-- S6 MEMORY NAMESPACE                                                          -->
+---
+
+[define|neutral] MEMORY_NAMESPACE := {
+  pattern: "skills/platforms/agentdb-vector-search/{project}/{timestamp}",
+  store: ["executions", "decisions", "patterns"],
+  retrieve: ["similar_tasks", "proven_patterns"]
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "agentdb-vector-search-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project_name}",
+  WHY: "skill-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
+---
+
+[direct|emphatic] COMPLETION_CHECKLIST := {
+  agent_spawning: "Spawn agents via Task()",
+  registry_validation: "Use registry agents only",
+  todowrite_called: "Track progress with TodoWrite",
+  work_delegation: "Delegate to specialized agents"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- S8 ABSOLUTE RULES                                                            -->
+---
+
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- PROMISE                                                                      -->
+---
+
+[commit|confident] <promise>AGENTDB_VECTOR_SEARCH_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

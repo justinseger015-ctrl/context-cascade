@@ -1,5 +1,10 @@
 # Security - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Application security and vulnerability management.
 
@@ -46,3 +51,7 @@ Use security harden: [config path]
 - **code-review-assistant**
 - **compliance**
 - **deployment-readiness**
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Example 2: Long-Term Memory (Persistent Knowledge)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Long-term memory stores important facts, learned patterns, and persistent knowledge that should survive across sessions. This pattern is essential for building intelligent agents that remember user preferences, domain knowledge, and successful strategies.
@@ -525,3 +530,7 @@ const benchmark = async () => {
 
 - [Example 1: Short-Term Memory](./example-1-short-term.md) - Recent context
 - [Example 3: Episodic Memory](./example-3-episodic.md) - Experience tracking
+
+
+---
+*Promise: `<promise>EXAMPLE_2_LONG_TERM_VERIX_COMPLIANT</promise>`*

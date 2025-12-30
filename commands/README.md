@@ -1,5 +1,10 @@
 # Commands Directory
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Status:** 219 slash commands organised into ten functional categories  
 **Last reorganised:** 2025-11-02  
 **Command format:** Each command file starts with YAML front matter (`name`, `description`, `category`, `dependencies`, etc.) followed by usage, examples, and chaining guidance.
@@ -85,3 +90,7 @@ The front matter captures metadata (dependencies, chains, tags) while the body d
 4. Regenerate any CLI help or registry artefacts that enumerate all commands.
 
 This unified layout keeps commands, agents, and skills aligned by functional area, simplifying discovery and maintenance across the Three-Loop system.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

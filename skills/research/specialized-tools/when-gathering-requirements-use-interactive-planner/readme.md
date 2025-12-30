@@ -1,5 +1,10 @@
 # Interactive Requirements Planning - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Gather requirements using Claude Code's interactive question tool.
 
 ## Quick Start
@@ -25,3 +30,7 @@ Gather requirements using Claude Code's interactive question tool.
 - Full SOP: [SKILL.md](SKILL.md)
 - Detailed Process: [PROCESS.md](PROCESS.md)
 - Visual Workflow: [process-diagram.gv](process-diagram.gv)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

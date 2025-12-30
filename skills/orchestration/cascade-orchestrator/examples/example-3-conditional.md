@@ -1,5 +1,10 @@
 # Example 3: Conditional Cascade - Adaptive Bug Fix Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates a **conditional branching cascade** where execution paths diverge based on runtime conditions. The workflow adapts its strategy based on bug complexity, automatically choosing between quick fixes, comprehensive analysis, or multi-model collaboration.
@@ -650,3 +655,7 @@ success_rates:
 ---
 
 **Key Takeaway**: Conditional cascades enable intelligent workflow adaptation based on runtime analysis.
+
+
+---
+*Promise: `<promise>EXAMPLE_3_CONDITIONAL_VERIX_COMPLIANT</promise>`*

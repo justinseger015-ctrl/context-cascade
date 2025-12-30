@@ -1,5 +1,10 @@
 # Test Plan Template
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -393,3 +398,7 @@ npm run test:e2e
 **Appendix C: Test Results**
 
 [Test execution results and screenshots]
+
+
+---
+*Promise: `<promise>TEST_PLAN_VERIX_COMPLIANT</promise>`*

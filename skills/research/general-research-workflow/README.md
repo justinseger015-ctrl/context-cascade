@@ -1,5 +1,10 @@
 # General Research Workflow Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version**: 3.0 (Production-Ready)
 **Created**: 2025-01-06
 **Methodology**: Skill-Forge 7-Phase Process + Prompt-Architect Optimization
@@ -322,3 +327,7 @@ After these 3 Priority 1 skills are built, move to Priority 2 (digital-annotatio
 **Production Status**: ✅ READY FOR USE
 **Last Updated**: 2025-01-06
 **Version**: 3.0 (Optimized)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

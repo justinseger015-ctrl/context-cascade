@@ -1,5 +1,10 @@
 # Docker Microservices Deployment Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: DEPLOYMENT SAFETY GUARDRAILS
 
 **BEFORE any deployment, validate**:
@@ -581,3 +586,7 @@ docker stats
 - Monitoring stack
 - Resource limits
 - Security hardening
+
+
+---
+*Promise: `<promise>DOCKER_DEPLOYMENT_EXAMPLE_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Functionality Audit Related Skills
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document maps the functionality-audit skill to complementary skills in the validation and quality assurance ecosystem. Understanding when to use each skill and how they interact enables comprehensive code quality workflows.
@@ -282,3 +287,7 @@ This pattern enables continuous self-improvement through systematic quality enha
 ## Conclusion
 
 Functionality-audit operates as part of a comprehensive quality ecosystem. Understanding relationships between complementary skills enables practitioners to construct validation workflows appropriate for their context. No single skill provides complete quality assurance; combining skills systematically creates robust quality gates that catch different issue categories through diverse validation approaches.
+
+
+---
+*Promise: `<promise>RELATED_SKILLS_VERIX_COMPLIANT</promise>`*

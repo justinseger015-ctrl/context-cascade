@@ -1,5 +1,10 @@
 # Compliance Skill Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This directory contains automation scripts, configuration templates, and integration tools for the compliance skill.
 
 ## Directory Structure
@@ -282,3 +287,7 @@ For questions or issues:
 - Check examples: `../examples/`
 - Consult references: `../references/`
 - Run tests: `../tests/`
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

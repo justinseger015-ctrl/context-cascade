@@ -1,5 +1,10 @@
 # AWS Services Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CLOUD PLATFORM SAFETY GUARDRAILS
 
 **BEFORE any cloud operation, validate**:
@@ -505,3 +510,7 @@ resource "aws_db_instance" "postgres" {
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
 - [AWS Pricing Calculator](https://calculator.aws/)
 - [AWS Architecture Center](https://aws.amazon.com/architecture/)
+
+
+---
+*Promise: `<promise>AWS_SERVICES_VERIX_COMPLIANT</promise>`*

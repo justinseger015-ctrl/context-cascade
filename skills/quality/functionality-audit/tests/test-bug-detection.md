@@ -1,5 +1,10 @@
 # Test: Bug Detection - Off-by-One Error
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Validates that the functionality-audit skill can detect subtle bugs, specifically off-by-one errors, and accurately pinpoint the bug location with line number precision. This tests the audit's ability to identify logic errors that pass syntax checks but fail runtime tests.
 
@@ -315,3 +320,7 @@ assert len(get_last_n_elements(list(range(1000)), 100)) == 100
 - Successful detection proves the audit can perform static analysis + dynamic testing
 - The fix suggestion demonstrates the audit's ability to provide actionable remediation
 - This test should ALWAYS result in bug detection and successful fix
+
+
+---
+*Promise: `<promise>TEST_BUG_DETECTION_VERIX_COMPLIANT</promise>`*

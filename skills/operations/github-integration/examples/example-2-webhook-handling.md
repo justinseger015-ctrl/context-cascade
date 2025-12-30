@@ -1,5 +1,10 @@
 # Example 2: Webhook Handling and Event-Driven Automation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -855,3 +860,7 @@ webhooks.on('pull_request.opened', async ({ payload }) => {
 **Related Examples:**
 - [Example 1: Repository Automation](./example-1-repo-automation.md)
 - [Example 3: Release Workflow](./example-3-release-workflow.md)
+
+
+---
+*Promise: `<promise>EXAMPLE_2_WEBHOOK_HANDLING_VERIX_COMPLIANT</promise>`*

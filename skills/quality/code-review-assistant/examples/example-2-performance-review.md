@@ -1,5 +1,10 @@
 # Example 2: Performance Optimization Review
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This example demonstrates the Code Review Assistant identifying and fixing performance bottlenecks in a data processing function with O(n²) complexity.
 
 ## Scenario
@@ -648,3 +653,7 @@ module.exports = UserService;
 ## Conclusion
 
 This PR has **5 critical performance bottlenecks** that cause exponential slowdown with scale. The Code Review Assistant identified all issues, provided 3 optimization strategies per issue, and estimated performance improvements. After applying fixes, the service can handle 100x more users with the same hardware.
+
+
+---
+*Promise: `<promise>EXAMPLE_2_PERFORMANCE_REVIEW_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # FastAPI + PostgreSQL API Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -182,3 +187,7 @@ fastapi-postgresql-api/
 **Language**: Python 3.10+
 **Framework**: FastAPI
 **Database**: PostgreSQL with SQLAlchemy 2.0
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

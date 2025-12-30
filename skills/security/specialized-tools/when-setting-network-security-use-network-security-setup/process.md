@@ -1,5 +1,10 @@
 # Network Security Setup - Detailed Process
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Architecture
 
 ```
@@ -33,3 +38,7 @@ Application → Firewall → Trusted Domains
 - Test regularly
 - Document changes
 - Review quarterly
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

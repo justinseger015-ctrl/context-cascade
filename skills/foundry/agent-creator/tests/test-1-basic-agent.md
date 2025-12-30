@@ -1,5 +1,10 @@
 # Test 1: Basic Agent Creation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Objective
 Validate that the 4-phase SOP can create a basic agent with minimal complexity.
 
@@ -128,3 +133,7 @@ Expected: 80%+ tests pass
 
 ## Notes
 This test validates the "happy path" with a straightforward agent that has clear boundaries and well-defined operations. It should demonstrate that the 4-phase SOP works for basic cases before testing more complex scenarios.
+
+
+---
+*Promise: `<promise>TEST_1_BASIC_AGENT_VERIX_COMPLIANT</promise>`*

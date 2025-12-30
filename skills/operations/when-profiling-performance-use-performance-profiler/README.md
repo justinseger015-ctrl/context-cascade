@@ -1,5 +1,10 @@
 # Performance Profiler - Quick Start Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## What is Performance Profiler?
 
 A comprehensive multi-dimensional performance profiling system that identifies bottlenecks, generates optimizations, and validates improvements across CPU, memory, I/O, and network.
@@ -427,3 +432,7 @@ Create `.performance-profiler.json` in project root:
 ## License
 
 MIT - Part of Claude Code Skills Collection
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Adversarial Testing Protocol
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Research Foundation**: Perez et al. (2022) - Red teaming reduces vulnerabilities by 58%, post-deployment issues by 67%
 
 **Purpose**: Systematic vulnerability discovery through adversarial attacks before skills reach production, catching edge cases, failure modes, and hidden assumptions.
@@ -412,3 +417,7 @@ For Phase 7 validation:
 ---
 
 **Remember**: Adversarial testing is not about being paranoid - it's about catching real-world failures BEFORE users encounter them. The best skills are battle-tested against worst-case scenarios.
+
+
+---
+*Promise: `<promise>ADVERSARIAL_TESTING_PROTOCOL_VERIX_COMPLIANT</promise>`*

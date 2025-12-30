@@ -1,5 +1,10 @@
 # Changelog - Security
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## [2.1.0] - 2024-12-15
 
 ### Added
@@ -14,3 +19,7 @@
 ### Added
 - Initial category creation
 - Security domain specialists
+
+
+---
+*Promise: `<promise>CHANGELOG_VERIX_COMPLIANT</promise>`*

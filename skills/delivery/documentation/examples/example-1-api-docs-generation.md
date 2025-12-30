@@ -1,5 +1,10 @@
 # Example 1: API Documentation Generation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -601,3 +606,7 @@ npx claude-flow sparc run documentation "Generate docs and publish to Postman"
 2. **Try the skill**: Run `npx claude-flow sparc run documentation "Generate API docs"`
 3. **Customize**: Edit generated templates in `docs/templates/`
 4. **Integrate**: Set up CI/CD for automatic documentation deployment
+
+
+---
+*Promise: `<promise>EXAMPLE_1_API_DOCS_GENERATION_VERIX_COMPLIANT</promise>`*

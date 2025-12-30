@@ -1,5 +1,10 @@
 # AgentDB RL Training - Detailed Process
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Complete walkthrough of reinforcement learning training with AgentDB's 9 RL algorithms.
 
 ## Phase 1: Initialize Learning Environment
@@ -138,15 +143,18 @@ await monitor.start();
 ```
 
 ## Success Criteria
-
-- Reward curve converges
-- Success rate > 80%
-- Improvement over baseline > 50%
-- Inference < 10ms per action
-- Model deployed and monitored
+- [assert|neutral] Reward curve converges [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Success rate > 80% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Improvement over baseline > 50% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Inference < 10ms per action [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Model deployed and monitored [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Additional Resources
 
 - Full documentation: `SKILL.md`
 - Quick start: `README.md`
 - AgentDB Learning: https://agentdb.dev/docs/learning
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

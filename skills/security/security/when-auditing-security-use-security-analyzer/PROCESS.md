@@ -1,5 +1,10 @@
 # Security Analyzer - Detailed Process Documentation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document provides in-depth workflow documentation for each security check type in the Security Analyzer skill.
@@ -695,3 +700,7 @@ Results from each audit are stored in memory and can be used for:
 - False positive reduction
 - Custom rule creation
 - Team security training
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

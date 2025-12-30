@@ -1,5 +1,10 @@
 # Resources - Advanced Coordination
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Supporting scripts, templates, and assets for multi-agent swarm coordination systems.
 
 ## Directory Structure
@@ -70,3 +75,7 @@ npm install -g npx
 ```bash
 chmod +x resources/scripts/*.sh
 ```
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

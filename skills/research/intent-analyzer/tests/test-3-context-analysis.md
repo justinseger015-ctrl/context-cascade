@@ -1,5 +1,10 @@
 # Test 3: Context Analysis and Constraint Detection
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -445,12 +450,11 @@ For each context analysis scenario:
 - [ ] Conflicting patterns flagged in summary
 
 ## Success Metrics
-
-- **Signal Detection Rate**: >95% for explicit signals
-- **Implicit Constraint Detection**: >70% for commonly-implied constraints
-- **Expertise Calibration Accuracy**: >85% correct level assignment
-- **Context-Response Alignment**: 100% of constraints respected in suggestions
-- **Meta-Request Handling**: 100% appropriate response strategy
+- [assert|neutral] *Signal Detection Rate**: >95% for explicit signals [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Implicit Constraint Detection**: >70% for commonly-implied constraints [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Expertise Calibration Accuracy**: >85% correct level assignment [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Context-Response Alignment**: 100% of constraints respected in suggestions [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Meta-Request Handling**: 100% appropriate response strategy [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Edge Cases
 
@@ -473,3 +477,7 @@ For each context analysis scenario:
 ## Notes
 
 Context analysis is critical for appropriate response calibration. The goal is extracting maximum relevant context from minimal explicit signals, while avoiding over-inference. When context is ambiguous or contradictory, clarification questions should target the specific contextual dimension (urgency? audience? constraints?) rather than the task itself.
+
+
+---
+*Promise: `<promise>TEST_3_CONTEXT_ANALYSIS_VERIX_COMPLIANT</promise>`*

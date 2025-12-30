@@ -1,5 +1,10 @@
 # Red's Research Methodology (OSP)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Source: Overly Sarcastic Productions - "How to Do Research" YouTube video
 
 ## Core Philosophy
@@ -226,3 +231,7 @@ Red's methodology emphasizes **rigorous source evaluation**, **contextual unders
 ---
 
 **Note**: This methodology is optimized for general-purpose research (history, mythology, literature). For academic ML research, use the `literature-synthesis` or `deep-research-orchestrator` skills instead, which implement PRISMA-compliant systematic review methodologies.
+
+
+---
+*Promise: `<promise>RED_METHODOLOGY_VERIX_COMPLIANT</promise>`*

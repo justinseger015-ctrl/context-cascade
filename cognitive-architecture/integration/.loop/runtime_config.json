@@ -1,0 +1,25 @@
+{
+  "_comment": "CONTROL INPUT - Written ONLY by UnifiedBridge after Governance approval",
+  "_schema_version": "1.0.0",
+  "mode": "balanced",
+  "vector14": [1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
+  "verix": {
+    "strictness": "MODERATE",
+    "compression": "L1",
+    "require_ground": true,
+    "require_confidence": true
+  },
+  "frames": {
+    "evidential": true,
+    "aspectual": true,
+    "morphological": false,
+    "compositional": false,
+    "honorific": false,
+    "classifier": false,
+    "spatial": false
+  },
+  "iteration": 0,
+  "previous_harness_score": 0.0,
+  "exploration_mode": "explore",
+  "updated_at": "2025-12-30T00:00:00-05:00"
+}

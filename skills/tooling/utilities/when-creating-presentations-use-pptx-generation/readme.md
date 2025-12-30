@@ -1,5 +1,10 @@
 # PPTX Generation - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Enterprise-grade PowerPoint generation with accessibility compliance (WCAG 2.1 AA) and constraint-based design.
 
@@ -41,3 +46,7 @@ npx claude-flow@alpha skill-run pptx-generation \
 - **documentation.md**: Generation details
 
 For detailed documentation, see SKILL.md
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

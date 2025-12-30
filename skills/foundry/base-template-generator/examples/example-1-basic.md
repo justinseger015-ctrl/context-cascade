@@ -1,5 +1,10 @@
 # Example 1: Generate Node.js Express API Template
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 You need to start a new REST API project using Node.js and Express with modern best practices, but don't want to spend time setting up the basic structure.
 
@@ -282,3 +287,7 @@ After generation, you can:
 
 ### Different framework
 > "Generate the same but with Fastify instead of Express"
+
+
+---
+*Promise: `<promise>EXAMPLE_1_BASIC_VERIX_COMPLIANT</promise>`*

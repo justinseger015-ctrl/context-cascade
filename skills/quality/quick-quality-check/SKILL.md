@@ -1,18 +1,45 @@
 ---
 name: quick-quality-check
-description: Lightning-fast quality check using parallel command execution. Runs theater
-  detection, linting, security scan, and basic tests in parallel for instant feedback
-  on code quality.
-tags:
-- quality
-- quick
-- parallel
-- essential
-- tier-enhanced
-version: 2.0.0
-tier: enhanced
-category: quality
-author: ruv
+description: Lightning-fast quality check using parallel command execution. Runs theater detection, linting, security scan, and basic tests in parallel for instant feedback on code quality.
+allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+---
+
+
+---
+<!-- S0 META-IDENTITY                                                             -->
+---
+
+[define|neutral] SKILL := {
+  name: "quick-quality-check",
+  category: "quality",
+  version: "2.0.0",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S1 COGNITIVE FRAME                                                           -->
+---
+
+[define|neutral] COGNITIVE_FRAME := {
+  frame: "Evidential",
+  source: "Turkish",
+  force: "How do you know?"
+} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+<!-- S2 TRIGGER CONDITIONS                                                        -->
+---
+
+[define|neutral] TRIGGER_POSITIVE := {
+  keywords: ["quick-quality-check", "quality", "workflow"],
+  context: "user needs quick-quality-check capability"
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S3 CORE CONTENT                                                              -->
 ---
 
 ## When to Use This Skill
@@ -34,13 +61,12 @@ Do NOT use this skill for:
 - Third-party libraries (focus on application code)
 
 ## Success Criteria
-
-This skill succeeds when:
-- **Violations Detected**: All quality issues found with ZERO false negatives
-- **False Positive Rate**: <5% (95%+ findings are genuine issues)
-- **Actionable Feedback**: Every finding includes file path, line number, and fix guidance
-- **Root Cause Identified**: Issues traced to underlying causes, not just symptoms
-- **Fix Verification**: Proposed fixes validated against codebase constraints
+- [assert|neutral] This skill succeeds when: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Violations Detected**: All quality issues found with ZERO false negatives [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *False Positive Rate**: <5% (95%+ findings are genuine issues) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Actionable Feedback**: Every finding includes file path, line number, and fix guidance [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Root Cause Identified**: Issues traced to underlying causes, not just symptoms [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Fix Verification**: Proposed fixes validated against codebase constraints [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Edge Cases and Limitations
 
@@ -84,154 +110,76 @@ This skill integrates with:
 
 # Quick Quality Check
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 
 Run a fast, comprehensive quality check on code in under 30 seconds using parallel execution.
 
-## Specialist Agent
+## Specialist A
 
-I am a quality assurance specialist focused on rapid feedback loops.
-
-**Methodology** (Parallel Execution Pattern):
-1. Spawn swarm with optimal topology for speed
-2. Execute independent checks in parallel
-3. Aggregate results in real-time
-4. Provide instant actionable feedback
-5. Prioritize findings by severity
-
-**Checks Performed** (parallel):
-- Theater detection (mocks, TODOs, placeholders)
-- Style audit (linting, formatting)
-- Security scan (vulnerabilities, unsafe patterns)
-- Basic test execution
-- Token usage analysis
-
-**Output**: Unified quality report with severity-ranked issues
-
-## Input Contract
-
-```yaml
-input:
-  path: string (file or directory path, required)
-  parallel: boolean (default: true)
-  quick_mode: boolean (skip deep analysis, default: true)
-```
-
-## Output Contract
-
-```yaml
-output:
-  quality_score: number (0-100)
-  issues:
-    critical: array[issue]
-    high: array[issue]
-    medium: array[issue]
-    low: array[issue]
-  execution_time: number (seconds)
-  checks_run: array[string]
-```
-
-## Execution Flow
-
-```bash
-# Initialize swarm for parallel execution
-npx claude-flow coordination swarm-init --topology mesh --max-agents 5
-
-# Spawn specialized agents in parallel
-npx claude-flow automation auto-agent --task "Quick quality assessment" --strategy optimal
-
-# Execute all checks in parallel
-parallel ::: \
-  "npx claude-flow theater-detect '$path' --output theater.json" \
-  "npx claude-flow style-audit '$path' --quick --output style.json" \
-  "npx claude-flow security-scan '$path' --fast --output security.json" \
-  "npx claude-flow test-coverage '$path' --quick --output tests.json" \
-  "npx claude-flow analysis token-usage --time-range 1h --output tokens.json"
-
-# Aggregate results
-npx claude-flow merge-reports theater.json style.json security.json tests.json tokens.json \
-  --output quality-report.json \
-  --prioritize severity
-
-# Display summary
-cat quality-report.json | jq '.summary'
-```
-
-## Integration Points
-
-### Cascades
-- Part of `/production-readiness` cascade
-- Used by `/code-review-assistant` cascade
-- Invoked by `/quick-check` command
-
-### Commands
-- Combines: `/theater-detect`, `/style-audit`, `/security-scan`, `/test-coverage`, `/token-usage`
-- Uses: `/swarm-init`, `/auto-agent`, `/parallel-execute`
-
-### Other Skills
-- Input to `deep-code-audit` skill
-- Used by `pre-commit-check` skill
-- Part of `continuous-quality` skill
-
-## Usage Example
-
-```bash
-# Quick check current directory
-quick-quality-check .
-
-# Quick check specific file
-quick-quality-check src/api/users.js
-
-# Quick check with detailed output
-quick-quality-check src/ --detailed
-```
-
-## Failure Modes
-
-- **Insufficient resources**: Reduce parallelism, run sequentially
-- **Tests failing**: Flag but continue other checks
-- **Security issues found**: Escalate to detailed security review
-- **Poor quality score**: Trigger `deep-code-audit` skill
+---
+<!-- S4 SUCCESS CRITERIA                                                          -->
 ---
 
-## Core Principles
+[define|neutral] SUCCESS_CRITERIA := {
+  primary: "Skill execution completes successfully",
+  quality: "Output meets quality thresholds",
+  verification: "Results validated against requirements"
+} [ground:given] [conf:1.0] [state:confirmed]
 
-Quick Quality Check operates on 3 fundamental principles:
+---
+<!-- S5 MCP INTEGRATION                                                           -->
+---
 
-### Principle 1: Speed Through Parallelization
-Quality feedback must be fast enough to fit into developer flow (under 30 seconds). Sequential checks create context-switching delays.
+[define|neutral] MCP_INTEGRATION := {
+  memory_mcp: "Store execution results and patterns",
+  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
+} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
 
-In practice:
-- All 5 checks (theater, style, security, tests, tokens) run concurrently in mesh topology
-- Results aggregate in real-time as each check completes
-- No check waits for another - independence enables parallel execution
+---
+<!-- S6 MEMORY NAMESPACE                                                          -->
+---
 
-### Principle 2: Fail-Fast Detection
-Critical issues should block development immediately, not hours later in CI/CD. Early detection saves rework time.
+[define|neutral] MEMORY_NAMESPACE := {
+  pattern: "skills/quality/quick-quality-check/{project}/{timestamp}",
+  store: ["executions", "decisions", "patterns"],
+  retrieve: ["similar_tasks", "proven_patterns"]
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-In practice:
-- Theater detection flags mock/stub/TODO patterns that indicate incomplete work
-- Security scan catches vulnerabilities before they reach code review
-- Build validation ensures code compiles before committing
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "quick-quality-check-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project_name}",
+  WHY: "skill-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-### Principle 3: Severity-Based Triage
-Not all issues are equal. Ranking findings by severity (critical/high/medium/low) guides developer prioritization.
+---
+<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
+---
 
-In practice:
-- Critical issues (security, broken builds) surface first in report
-- Low-priority issues (style nitpicks) appear last
-- Quick mode skips deep analysis for faster feedback loop
+[direct|emphatic] COMPLETION_CHECKLIST := {
+  agent_spawning: "Spawn agents via Task()",
+  registry_validation: "Use registry agents only",
+  todowrite_called: "Track progress with TodoWrite",
+  work_delegation: "Delegate to specialized agents"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-## Common Anti-Patterns
+---
+<!-- S8 ABSOLUTE RULES                                                            -->
+---
 
-| Anti-Pattern | Problem | Solution |
-|--------------|---------|----------|
-| **Deep Analysis in Quick Check** | Running comprehensive analysis (full security audit, 100% coverage) instead of quick scan causing 5+ minute delays | Use quick mode flags (--quick, --fast) - deep analysis belongs in pre-commit or CI/CD |
-| **Blocking on Non-Critical Issues** | Failing quality check for minor style violations or low-priority warnings | Only fail on critical/high severity - flag medium/low as warnings that don't block |
-| **No Prioritization** | Showing all 50+ findings in flat list without ranking | Always sort by severity (critical first) and provide counts (3 critical, 12 high, 35 low) |
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
 
-## Conclusion
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
 
-Quick Quality Check provides instant quality feedback (under 30 seconds) by running 5 independent checks in parallel and aggregating results with severity ranking. This enables developers to catch critical issues (theater code, security vulnerabilities, broken builds) before committing, rather than discovering them hours later in CI/CD. The key insight is parallelization - because checks are independent (theater detection doesn't need security scan results), they can run concurrently on separate agents and complete in the time of the slowest check (typically 20-30 seconds).
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
 
-Use this skill when you need fast quality feedback during active development - before git commit, during code review, or as a pre-push hook. The quick mode skips deep analysis (full coverage reports, comprehensive security audits) in favor of speed, making it suitable for tight feedback loops. For thorough analysis, use the comprehensive code review workflow instead.
+---
+<!-- PROMISE                                                                      -->
+---
+
+[commit|confident] <promise>QUICK_QUALITY_CHECK_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

@@ -1,5 +1,10 @@
 # Example 1: Automated Test Failure Recovery
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -683,3 +688,7 @@ Loop 1 will incorporate these failure patterns in next iteration:
 - Pre-mortem question: "What if async operations aren't properly awaited?"
 - Prevention strategy: "Validate breaking changes in dependency upgrades"
 - Testing focus: "Add async operation validation tests"
+
+
+---
+*Promise: `<promise>EXAMPLE_1_TEST_FAILURE_RECOVERY_VERIX_COMPLIANT</promise>`*

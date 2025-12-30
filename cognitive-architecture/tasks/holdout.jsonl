@@ -1,0 +1,30 @@
+{"id": "holdout-001", "task": "Improve this prompt for cross-model compatibility: 'Explain photosynthesis'", "task_type": "prompt_optimization", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-002", "task": "Create a skill definition that works identically across Claude, Gemini, and Codex", "task_type": "skill_creation", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-003", "task": "Apply VERIX notation to describe the uncertainty in this measurement: mass = 5.2 +/- 0.1 kg", "task_type": "verix_application", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-004", "task": "Design an agent that can coordinate tasks across different AI models", "task_type": "agent_creation", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-005", "task": "Apply evidential frame to explain how a neural network makes predictions", "task_type": "frame_activation", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-006", "task": "Create a prompt template that produces consistent outputs across models", "task_type": "prompt_optimization", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-007", "task": "Audit this skill for ambiguity in multi-model contexts", "task_type": "skill_audit", "skill_content": "SKILL: analyze. Trigger: when asked. Steps: 1. Think. 2. Answer.", "category": "cross_model", "never_optimize": true}
+{"id": "holdout-008", "task": "Convert this to VERIX L0 format: 'This is definitely correct based on extensive testing'", "task_type": "verix_conversion", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-009", "task": "Apply aspectual frame to describe a software release cycle", "task_type": "frame_activation", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-010", "task": "Design a meta-prompt that improves other prompts using VERIX claims", "task_type": "prompt_optimization", "category": "meta_regression", "never_optimize": true}
+{"id": "holdout-011", "task": "Create a skill that teaches VERILINGUA frame usage", "task_type": "skill_creation", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-012", "task": "Audit the prompt-architect skill for completeness", "task_type": "skill_audit", "category": "meta_regression", "never_optimize": true}
+{"id": "holdout-013", "task": "Design an agent that evaluates cross-model prompt compatibility", "task_type": "agent_creation", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-014", "task": "Apply morphological frame to decompose 'cross-model-compatibility' into components", "task_type": "frame_activation", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-015", "task": "Write a VERIX claim about the reliability of VERIX itself", "task_type": "verix_meta", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-016", "task": "Create a prompt that generates model-agnostic code", "task_type": "prompt_optimization", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-017", "task": "Design a skill that works correctly on any LLM", "task_type": "skill_creation", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-018", "task": "Audit the agent-creator for model-specific biases", "task_type": "agent_audit", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-019", "task": "Apply all 7 VERILINGUA frames to explain machine learning", "task_type": "frame_activation", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-020", "task": "Convert multi-paragraph reasoning to VERIX L1 format", "task_type": "verix_conversion", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-021", "task": "Create a council evaluation prompt for 3 models", "task_type": "prompt_optimization", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-022", "task": "Design a skill-forge variant that outputs model-specific adaptations", "task_type": "skill_creation", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-023", "task": "Audit the eval harness for cross-model fairness", "task_type": "system_audit", "models": ["claude", "gemini", "codex"], "category": "cross_model", "never_optimize": true}
+{"id": "holdout-024", "task": "Apply spatial frame to describe navigating a large codebase", "task_type": "frame_activation", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-025", "task": "Create VERIX claims about prompt improvement methodology", "task_type": "verix_application", "category": "meta_regression", "never_optimize": true}
+{"id": "holdout-026", "task": "Design an agent coordinator that uses VERILINGUA for communication", "task_type": "agent_creation", "category": "meta_regression", "never_optimize": true}
+{"id": "holdout-027", "task": "Write a prompt that explains its own structure using VERIX notation", "task_type": "prompt_optimization", "category": "meta_regression", "never_optimize": true}
+{"id": "holdout-028", "task": "Create a skill that validates other skills against a quality rubric", "task_type": "skill_creation", "category": "meta_regression", "never_optimize": true}
+{"id": "holdout-029", "task": "Apply honorific frame to adjust technical documentation for executives", "task_type": "frame_activation", "category": "foundation_regression", "never_optimize": true}
+{"id": "holdout-030", "task": "Design the complete meta-loop: prompt-architect -> skill-forge -> agent-creator -> auditor -> eval-harness", "task_type": "system_design", "category": "meta_regression", "never_optimize": true}

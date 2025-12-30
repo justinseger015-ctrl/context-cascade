@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "foundry",
+  "tags": [
+    "meta-tool",
+    "skill-management",
+    "gap-analysis",
+    "portfolio-optimization"
+  ],
+  "author": "ruv",
+  "verix-description": [
+    "assert|neutral] Analyze skill library to identify coverage gaps",
+    "redundant overlaps",
+    "optimization opportunities",
+    "and provide recommendations for skill portfolio improvement [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-analyzing-skill-gaps-use-skill-gap-analyzer",
+  "triggers": [
+    "analyzing skill gaps"
+  ]
+}

@@ -1,5 +1,10 @@
 # Hive Mind - Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Complete Script
 
 ```bash
@@ -34,3 +39,4 @@ npx claude-flow@alpha hive report --output hive-report.md
 - [ ] Consensus mechanisms functional
 - [ ] Memory synchronized
 - [ ] Collective execution successful
+- [assert|neutral] Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

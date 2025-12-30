@@ -1,144 +1,214 @@
-# hook pre-edit
-n## Command-Specific Context
-- Deployment target requirements
-- Pre/post hook execution order
-- Rollback procedures
-- Health check integration
+/*============================================================================*/
+/* PRE-EDIT COMMAND :: VERILINGUA x VERIX EDITION                   */
+/*============================================================================*/
 
+---
+name: pre-edit
+version: 1.0.0
+binding: skill:pre-edit
+category: delivery
+---
 
-<!-- META-LOOP v2.1 INTEGRATION -->
-## Phase 0: Expertise Loading
-expertise_check:
-  domain: hooks
-  file: .claude/expertise/hooks.yaml
-  fallback: discovery_mode
+/*----------------------------------------------------------------------------*/
+/* S0 COMMAND IDENTITY                                                         */
+/*----------------------------------------------------------------------------*/
 
-## Recursive Improvement Integration (v2.1)
-benchmark: pre-edit-benchmark-v1
-  tests:
-    - deployment_success
-    - hook_execution_validation
-  success_threshold: 0.9
-namespace: "commands/operations/hooks/pre-edit/{project}/{timestamp}"
-uncertainty_threshold: 0.85
-coordination:
-  related_skills: [hooks-automation, deployment-readiness]
-  related_agents: [cicd-engineer, kubernetes-specialist]
+[define|neutral] COMMAND := {
+  name: "pre-edit",
+  binding: "skill:pre-edit",
+  category: "delivery",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## COMMAND COMPLETION VERIFICATION
-success_metrics:
-  execution_success: ">95%"
-<!-- END META-LOOP -->
+/*----------------------------------------------------------------------------*/
+/* S1 PURPOSE                                                                  */
+/*----------------------------------------------------------------------------*/
 
+[assert|neutral] PURPOSE := {
+  action: "Execute pre-edit workflow",
+  outcome: "Workflow completion with quality metrics",
+  use_when: "User invokes /pre-edit"
+} [ground:given] [conf:1.0] [state:confirmed]
 
-Execute pre-edit validations and agent assignment before file modifications.
+/*----------------------------------------------------------------------------*/
+/* S2 USAGE SYNTAX                                                             */
+/*----------------------------------------------------------------------------*/
 
-## Usage
+[define|neutral] SYNTAX := "/pre-edit [args]" [ground:given] [conf:1.0] [state:confirmed]
 
-```bash
-npx claude-flow hook pre-edit [options]
-```
+[define|neutral] PARAMETERS := {
+  required: {
+    input: { type: "string", description: "Primary input" }
+  },
+  optional: {
+    options: { type: "object", description: "Additional options" }
+  },
+  flags: {
+    "--verbose": { description: "Enable verbose output", default: "false" }
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## Options
+/*----------------------------------------------------------------------------*/
+/* S3 EXECUTION FLOW                                                           */
+/*----------------------------------------------------------------------------*/
 
-- `--file, -f <path>` - File path to be edited
-- `--auto-assign-agent` - Automatically assign best agent (default: true)
-- `--validate-syntax` - Pre-validate syntax before edit
-- `--check-conflicts` - Check for merge conflicts
-- `--backup-file` - Create backup before editing
+[define|neutral] EXECUTION_STAGES := [
+  { stage: 1, action: "Execute command", model: "Claude" }
+] [ground:witnessed:workflow-design] [conf:0.95] [state:confirmed]
 
-## Examples
+[define|neutral] MULTI_MODEL_STRATEGY := {
+  gemini_search: "Research and web search tasks",
+  gemini_megacontext: "Large codebase analysis",
+  codex: "Code generation and prototyping",
+  claude: "Architecture and testing"
+} [ground:given] [conf:0.95] [state:confirmed]
 
-### Basic pre-edit hook
+/*----------------------------------------------------------------------------*/
+/* S4 INPUT CONTRACT                                                           */
+/*----------------------------------------------------------------------------*/
 
-```bash
-npx claude-flow hook pre-edit --file "src/auth/login.js"
-```
+[define|neutral] INPUT_CONTRACT := {
+  required: {
+    command_args: "string - Command arguments"
+  },
+  optional: {
+    flags: "object - Command flags",
+    context: "string - Additional context"
+  },
+  prerequisites: [
+    "Valid project directory",
+    "Required tools installed"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-### With validation
+/*----------------------------------------------------------------------------*/
+/* S5 OUTPUT CONTRACT                                                          */
+/*----------------------------------------------------------------------------*/
 
-```bash
-npx claude-flow hook pre-edit -f "config/database.js" --validate-syntax
-```
+[define|neutral] OUTPUT_CONTRACT := {
+  artifacts: [
+    "Execution log",
+    "Quality metrics report"
+  ],
+  metrics: {
+    success_rate: "Percentage of successful executions",
+    quality_score: "Overall quality assessment"
+  },
+  state_changes: [
+    "Workflow state updated"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-### Manual agent assignment
+/*----------------------------------------------------------------------------*/
+/* S6 SUCCESS INDICATORS                                                       */
+/*----------------------------------------------------------------------------*/
 
-```bash
-npx claude-flow hook pre-edit -f "api/users.ts" --auto-assign-agent false
-```
+[define|neutral] SUCCESS_CRITERIA := {
+  pass_conditions: [
+    "Command executes without errors",
+    "Output meets quality thresholds"
+  ],
+  quality_thresholds: {
+    execution_success: ">= 0.95",
+    quality_score: ">= 0.80"
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-### Safe editing with backup
+/*----------------------------------------------------------------------------*/
+/* S7 ERROR HANDLING                                                           */
+/*----------------------------------------------------------------------------*/
 
-```bash
-npx claude-flow hook pre-edit -f "production.env" --backup-file --check-conflicts
-```
+[define|neutral] ERROR_HANDLERS := {
+  missing_input: {
+    symptom: "Required input not provided",
+    cause: "User omitted required argument",
+    recovery: "Prompt user for missing input"
+  },
+  execution_failure: {
+    symptom: "Command fails to complete",
+    cause: "Underlying tool or service error",
+    recovery: "Retry with verbose logging"
+  }
+} [ground:witnessed:failure-analysis] [conf:0.92] [state:confirmed]
 
-## Features
+/*----------------------------------------------------------------------------*/
+/* S8 EXAMPLES                                                                 */
+/*----------------------------------------------------------------------------*/
 
-### Auto Agent Assignment
+[define|neutral] EXAMPLES := [
+  { command: "/pre-edit example", description: "Basic usage" }
+] [ground:given] [conf:1.0] [state:confirmed]
 
-- Analyzes file type and content
-- Assigns specialist agents
-- TypeScript → TypeScript expert
-- Database → Data specialist
-- Tests → QA engineer
+/*----------------------------------------------------------------------------*/
+/* S9 CHAIN PATTERNS                                                           */
+/*----------------------------------------------------------------------------*/
 
-### Syntax Validation
+[define|neutral] CHAINS_WITH := {
+  sequential: [
+    "/pre-edit -> /review -> /deploy"
+  ],
+  parallel: [
+    "parallel ::: '/pre-edit arg1' '/pre-edit arg2'"
+  ]
+} [ground:given] [conf:0.95] [state:confirmed]
 
-- Pre-checks syntax validity
-- Identifies potential errors
-- Suggests corrections
-- Prevents broken code
+/*----------------------------------------------------------------------------*/
+/* S10 RELATED COMMANDS                                                        */
+/*----------------------------------------------------------------------------*/
 
-### Conflict Detection
+[define|neutral] RELATED := {
+  complementary: ["/help"],
+  alternatives: [],
+  prerequisites: []
+} [ground:given] [conf:0.95] [state:confirmed]
 
-- Checks for git conflicts
-- Identifies concurrent edits
-- Warns about stale files
-- Suggests merge strategies
+/*----------------------------------------------------------------------------*/
+/* S11 META-LOOP INTEGRATION                                                   */
+/*----------------------------------------------------------------------------*/
 
-### File Backup
+[define|neutral] META_LOOP := {
+  expertise_check: {
+    domain: "delivery",
+    file: ".claude/expertise/delivery.yaml",
+    fallback: "discovery_mode"
+  },
+  benchmark: "pre-edit-benchmark-v1",
+  tests: [
+    "command_execution_success",
+    "workflow_validation"
+  ],
+  success_threshold: 0.90,
+  namespace: "commands/delivery/pre-edit/{project}/{timestamp}",
+  uncertainty_threshold: 0.85,
+  coordination: {
+    related_skills: ["pre-edit"],
+    related_agents: ["coder", "tester"]
+  }
+} [ground:system-policy] [conf:0.98] [state:confirmed]
 
-- Creates safety backups
-- Enables quick rollback
-- Tracks edit history
-- Preserves originals
+/*----------------------------------------------------------------------------*/
+/* S12 MEMORY TAGGING                                                          */
+/*----------------------------------------------------------------------------*/
 
-## Integration
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "pre-edit-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project-name}",
+  WHY: "command-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-This hook is automatically called by Claude Code when:
+/*----------------------------------------------------------------------------*/
+/* S13 ABSOLUTE RULES                                                          */
+/*----------------------------------------------------------------------------*/
 
-- Using Edit or MultiEdit tools
-- Before file modifications
-- During refactoring operations
-- When updating critical files
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
 
-Manual usage in agents:
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
 
-```bash
-# Before editing files
-npx claude-flow hook pre-edit --file "path/to/file.js" --validate-syntax
-```
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
 
-## Output
+/*----------------------------------------------------------------------------*/
+/* PROMISE                                                                     */
+/*----------------------------------------------------------------------------*/
 
-Returns JSON with:
-
-```json
-{
-  "continue": true,
-  "file": "src/auth/login.js",
-  "assignedAgent": "auth-specialist",
-  "syntaxValid": true,
-  "conflicts": false,
-  "backupPath": ".backups/login.js.bak",
-  "warnings": []
-}
-```
-
-## See Also
-
-- `hook post-edit` - Post-edit processing
-- `Edit` - File editing tool
-- `MultiEdit` - Multiple edits tool
-- `agent spawn` - Manual agent creation
+[commit|confident] <promise>PRE_EDIT_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

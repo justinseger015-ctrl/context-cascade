@@ -1,5 +1,10 @@
 # File Structure Standards for Claude Code Skills
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## MECE Principles Applied
 
 ### Mutually Exclusive (No Overlap)
@@ -269,3 +274,7 @@ python skill-forge/resources/scripts/validate_skill.py new-skill/
 ---
 
 **Remember**: MECE structure ensures consistency, discoverability, and maintainability across ALL skills in the ecosystem.
+
+
+---
+*Promise: `<promise>FILE_STRUCTURE_STANDARDS_VERIX_COMPLIANT</promise>`*

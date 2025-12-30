@@ -1,5 +1,10 @@
 # Researcher - Systematic Information Gathering & Synthesis
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -61,11 +66,10 @@ Systematic information gathering and synthesis using Gemini Search and multiple 
 - Memory-MCP integration for persistent research
 
 ## Success Metrics
-
-- 3+ credible sources per research topic
-- 90%+ source reliability
-- Clear, actionable recommendations
-- Complete documentation with citations
+- [assert|neutral] 3+ credible sources per research topic [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 90%+ source reliability [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Clear, actionable recommendations [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Complete documentation with citations [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Research Types Supported
 
@@ -109,3 +113,7 @@ researcher/
 - 3 examples
 - 3 reference docs
 - 1 GraphViz diagram
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

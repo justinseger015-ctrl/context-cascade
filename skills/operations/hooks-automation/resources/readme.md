@@ -1,5 +1,10 @@
 # Hooks Automation Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -283,3 +288,7 @@ For help with resources:
 
 **Maintained by**: Claude Code Plugin System
 **Last Updated**: 2025-11-02
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

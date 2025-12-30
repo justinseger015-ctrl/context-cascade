@@ -1,5 +1,10 @@
 # Base Template Generator
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version**: 1.0.0 (Bronze Tier)
 **Purpose**: Generate clean, minimal boilerplate code templates for common project types
 
@@ -126,3 +131,7 @@ The skill will:
 **Maintained by**: Claude Code (Sonnet 4.5)
 **License**: Same as ruv-sparc-three-loop-system
 **Support**: Create issue in repository
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

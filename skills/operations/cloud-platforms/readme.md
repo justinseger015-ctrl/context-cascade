@@ -1,5 +1,10 @@
 # Cloud Platforms - Multi-Cloud Infrastructure Management
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -344,3 +349,7 @@ Trigger this skill when you need to:
 ---
 
 **Remember**: Choose the right tool for the job. Not every workload needs to be serverless, and not every application benefits from multi-cloud deployment. Start simple, measure, and iterate.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

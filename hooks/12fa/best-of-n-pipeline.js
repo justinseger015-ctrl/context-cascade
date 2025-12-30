@@ -509,57 +509,61 @@ function selectWinner(scoredResults) {
 
 /**
  * Store execution results in Memory MCP for learning
+ * v3.0: Uses x- prefixed custom fields for Anthropic compliance
  */
 async function storeResultsInMemory(taskId, results) {
   const namespace = `best_of_n/task_${taskId}`;
 
-  // Store winner
+  // Store winner (v3.0 x- prefixed fields)
   await taggedMemoryStore('best-of-n-orchestrator', JSON.stringify({
     type: 'winner',
     task_id: taskId,
     agent_id: results.winner.agent_id,
-    agent_type: results.winner.agent_type,
-    score: results.winner.score,
-    breakdown: results.winner.breakdown,
-    artifacts: results.winner.artifacts,
-    metrics: results.winner.metrics
+    'x-agent-type': results.winner.agent_type,
+    'x-score': results.winner.score,
+    'x-breakdown': results.winner.breakdown,
+    'x-artifacts': results.winner.artifacts,
+    'x-metrics': results.winner.metrics,
+    'x-schema-version': '3.0'
   }), {
-    namespace,
-    key: 'winner',
-    category: 'competitive_execution',
-    intent: 'best_of_n_winner'
+    'x-namespace': namespace,
+    'x-key': 'winner',
+    'x-category': 'competitive_execution',
+    'x-intent': 'best_of_n_winner'
   });
 
-  // Store runners-up
+  // Store runners-up (v3.0 x- prefixed fields)
   for (const runnerUp of results.runners_up) {
     await taggedMemoryStore('best-of-n-orchestrator', JSON.stringify({
       type: 'runner_up',
       task_id: taskId,
       agent_id: runnerUp.agent_id,
-      agent_type: runnerUp.agent_type,
-      score: runnerUp.score,
-      breakdown: runnerUp.breakdown
+      'x-agent-type': runnerUp.agent_type,
+      'x-score': runnerUp.score,
+      'x-breakdown': runnerUp.breakdown,
+      'x-schema-version': '3.0'
     }), {
-      namespace,
-      key: `runner_up_${runnerUp.agent_id}`,
-      category: 'competitive_execution',
-      intent: 'best_of_n_runner_up'
+      'x-namespace': namespace,
+      'x-key': `runner_up_${runnerUp.agent_id}`,
+      'x-category': 'competitive_execution',
+      'x-intent': 'best_of_n_runner_up'
     });
   }
 
-  // Store task metadata
+  // Store task metadata (v3.0 x- prefixed fields)
   await taggedMemoryStore('best-of-n-orchestrator', JSON.stringify({
     type: 'task_metadata',
     task_id: taskId,
     task: results.task,
-    execution_time_ms: results.execution_time_ms,
-    agent_count: results.runners_up.length + 1,
-    winner_score: results.winner.score
+    'x-execution-time-ms': results.execution_time_ms,
+    'x-agent-count': results.runners_up.length + 1,
+    'x-winner-score': results.winner.score,
+    'x-schema-version': '3.0'
   }), {
-    namespace,
-    key: 'metadata',
-    category: 'competitive_execution',
-    intent: 'best_of_n_metadata'
+    'x-namespace': namespace,
+    'x-key': 'metadata',
+    'x-category': 'competitive_execution',
+    'x-intent': 'best_of_n_metadata'
   });
 
   logger.info('Results stored in Memory MCP', {
@@ -570,6 +574,7 @@ async function storeResultsInMemory(taskId, results) {
 
 /**
  * Record human selection override
+ * v3.0: Uses x- prefixed custom fields for Anthropic compliance
  */
 async function recordHumanSelection(taskId, selectedAgentId, rationale) {
   const namespace = `best_of_n/task_${taskId}`;
@@ -577,14 +582,15 @@ async function recordHumanSelection(taskId, selectedAgentId, rationale) {
   await taggedMemoryStore('best-of-n-orchestrator', JSON.stringify({
     type: 'human_selection',
     task_id: taskId,
-    selected_agent_id: selectedAgentId,
-    rationale,
-    timestamp: new Date().toISOString()
+    'x-selected-agent-id': selectedAgentId,
+    'x-rationale': rationale,
+    'x-timestamp': new Date().toISOString(),
+    'x-schema-version': '3.0'
   }), {
-    namespace,
-    key: 'human_selection',
-    category: 'competitive_execution',
-    intent: 'human_override'
+    'x-namespace': namespace,
+    'x-key': 'human_selection',
+    'x-category': 'competitive_execution',
+    'x-intent': 'human_override'
   });
 
   logger.info('Human selection recorded', {

@@ -1,5 +1,10 @@
 # Example 3: SOC 2 Compliance Implementation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 A SaaS company providing project management and collaboration tools needs to achieve SOC 2 Type II certification to meet enterprise customer requirements and demonstrate trust in their security controls.
@@ -926,3 +931,7 @@ gantt
 ---
 
 **Certification Achieved**: CollabHub SaaS is now SOC 2 Type II certified and positioned for enterprise growth.
+
+
+---
+*Promise: `<promise>EXAMPLE_3_SOC2_VERIX_COMPLIANT</promise>`*

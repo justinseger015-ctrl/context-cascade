@@ -1,5 +1,10 @@
 # Observability - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Monitoring, logging, tracing, and alerting.
 
@@ -54,3 +59,7 @@ Error Budget: 1% downtime/month
 - **infrastructure**
 - **deployment-readiness**
 - **performance-analysis**
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

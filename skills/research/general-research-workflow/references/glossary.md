@@ -1,5 +1,10 @@
 # Glossary - General Research Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Source Types
 
 ### Primary Source
@@ -208,3 +213,7 @@ Each gate has:
 | 6 | Synthesis | Thesis supported, ≥2 primaries, no fallacies | Return to Phase B |
 
 **Philosophy**: Better to extend duration than produce low-quality research.
+
+
+---
+*Promise: `<promise>GLOSSARY_VERIX_COMPLIANT</promise>`*

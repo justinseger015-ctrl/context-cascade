@@ -1,5 +1,10 @@
 # ML Expert - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Complete ML model development workflow from data preparation to production deployment.
 
@@ -40,3 +45,7 @@ npx claude-flow@alpha skill-run ml-expert \
 - Training curves
 
 For detailed documentation, see SKILL.md
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

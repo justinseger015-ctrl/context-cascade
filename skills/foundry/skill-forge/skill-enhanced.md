@@ -6,6 +6,11 @@ version: 2.0.0
 
 # Skill Forge SOP: Agent-Orchestrated Skill Engineering
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 A comprehensive Standard Operating Procedure for creating production-quality Claude Code skills through coordinated multi-agent workflows, evidence-based prompting principles, and systematic validation.
 
 ## 🎯 Executive Summary
@@ -1014,13 +1019,12 @@ Use self-consistency validation across three approaches [WHY: increases reliabil
 Make success explicit:
 \`\`\`markdown
 ## Success Criteria
-
-This task is complete when:
+- [assert|neutral] This task is complete when: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 - [ ] Output contains all required fields from schema
 - [ ] Validation checks pass for constraints X, Y
 - [ ] Edge cases A, B are handled appropriately
 - [ ] Results formatted according to specification
-\`\`\`
+- [assert|neutral] \`\`\` [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### 7. Build in Quality Mechanisms
 
@@ -3273,3 +3277,7 @@ Throughout this SOP:
 **Version**: 2.0.0
 **Last Updated**: 2025-10-29
 **Methodology**: SPARC + Evidence-Based Prompting + Multi-Agent Orchestration
+
+
+---
+*Promise: `<promise>SKILL_ENHANCED_VERIX_COMPLIANT</promise>`*

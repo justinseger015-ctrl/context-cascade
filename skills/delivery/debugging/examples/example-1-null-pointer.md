@@ -1,5 +1,10 @@
 # Example 1: Fixing Null Pointer Exception (Basic)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -479,3 +484,7 @@ return obj.property.method();
 
 - [Example 2: Race Condition](example-2-race-condition.md) - Debugging async concurrency issues
 - [Example 3: Memory Leak](example-3-memory-leak.md) - Advanced memory leak investigation
+
+
+---
+*Promise: `<promise>EXAMPLE_1_NULL_POINTER_VERIX_COMPLIANT</promise>`*

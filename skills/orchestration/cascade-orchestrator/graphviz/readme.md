@@ -1,5 +1,10 @@
 # GraphViz Workflow Diagrams
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This directory contains GraphViz `.dot` files that visualize cascade orchestration patterns. These diagrams help understand workflow structures, data flows, and execution patterns.
@@ -208,3 +213,7 @@ After generating diagrams, you'll see:
 ---
 
 **Tip**: Generate SVG format for best quality in documentation and presentations.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

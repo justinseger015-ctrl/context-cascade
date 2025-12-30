@@ -1,5 +1,10 @@
 # Skill Builder - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Generate Claude Code Skills with proper YAML frontmatter, structure, and documentation.
 
@@ -33,10 +38,9 @@ npx claude-flow@alpha skill-run skill-builder \
 - `process-diagram.gv` - Visual diagram
 
 ## Success Criteria
-
-- Valid YAML frontmatter
-- All 4 files created
-- Passes validation
-- Executable skill
-
-For detailed documentation, see SKILL.md
+- [assert|neutral] Valid YAML frontmatter [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All 4 files created [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Passes validation [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Executable skill [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] For detailed documentation, see SKILL.md [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>README_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

@@ -1,5 +1,10 @@
 # Agent Types & Patterns
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Agents can be categorized into three primary types based on their scope and capabilities:
@@ -455,3 +460,7 @@ I focus on:
 - Hybrid: 5-6 hours (most complex - multiple domains + coordination)
 
 **Choose wisely**: Match agent type to task requirements for optimal performance.
+
+
+---
+*Promise: `<promise>AGENT_TYPES_VERIX_COMPLIANT</promise>`*

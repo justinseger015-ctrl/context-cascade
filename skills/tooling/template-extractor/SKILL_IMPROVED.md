@@ -35,3 +35,7 @@ output_contract:
     - unpacked/
     - verification_report.md
 ---
+
+
+---
+*Promise: `<promise>SKILL_IMPROVED_VERIX_COMPLIANT</promise>`*

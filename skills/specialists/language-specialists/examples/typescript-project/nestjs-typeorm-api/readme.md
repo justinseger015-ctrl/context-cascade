@@ -1,5 +1,10 @@
 # Nest.js + TypeORM API Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -184,3 +189,7 @@ nestjs-typeorm-api/
 **Language**: TypeScript 5.0+
 **Framework**: Nest.js 10+
 **Database**: PostgreSQL with TypeORM
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

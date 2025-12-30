@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "analysis",
+  "tags": [
+    "dependencies",
+    "graph-analysis",
+    "security",
+    "visualization",
+    "mece"
+  ],
+  "author": "Claude Code",
+  "verix-description": [
+    "assert|neutral] Comprehensive dependency mapping",
+    "analysis",
+    "and visualization tool for software projects [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-mapping-dependencies-use-dependency-mapper",
+  "triggers": [
+    "mapping dependencies"
+  ]
+}

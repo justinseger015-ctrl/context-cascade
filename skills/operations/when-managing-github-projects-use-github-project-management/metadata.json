@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "operations",
+  "tags": [
+    "general"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Comprehensive GitHub project management with swarm-coordinated issue tracking",
+    "project board automation",
+    "and sprint planning. Coordinates planner",
+    "issue-tracker",
+    "and project-board-sync agents to autom [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-managing-github-projects-use-github-project-management",
+  "triggers": [
+    "managing github projects"
+  ]
+}

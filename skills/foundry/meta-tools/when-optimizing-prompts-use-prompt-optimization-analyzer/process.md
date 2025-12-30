@@ -1,5 +1,10 @@
 # Prompt Optimization Analyzer - Process Flow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document outlines the step-by-step process for analyzing and optimizing prompts.
@@ -252,12 +257,11 @@ npx claude-flow@alpha hooks post-task \
 ```
 
 ## Success Criteria
-
-- Token reduction: 20-50%
-- All high-severity anti-patterns eliminated
-- Trigger precision: >90%
-- Clarity score improvement: +30 points minimum
-- Maintainability: Easier to understand and modify
+- [assert|neutral] Token reduction: 20-50% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All high-severity anti-patterns eliminated [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Trigger precision: >90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Clarity score improvement: +30 points minimum [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Maintainability: Easier to understand and modify [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Common Patterns
 
@@ -294,3 +298,7 @@ npx claude-flow@alpha hooks post-task \
 - Skill Gap Analysis (library-wide review)
 - Token Budget Management (chunking strategy)
 - Prompt Architecture (advanced patterns)
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

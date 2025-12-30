@@ -1,5 +1,10 @@
 # Testing Framework Subagent Definition
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Agent Identity
 
 - **Name**: Testing Framework Agent
@@ -397,14 +402,12 @@ npx claude-flow@alpha neural train \
 - **CircleCI**: Intermediate level
 
 ## Success Metrics
-
-The agent's performance is measured by:
-
-1. **Coverage Achievement**: % of files meeting coverage goals
-2. **Test Quality**: Pass rate, flakiness rate, execution time
-3. **Implementation Speed**: Time from request to complete test suite
-4. **CI/CD Integration**: Pipeline success rate, execution time
-5. **Code Quality Impact**: Bugs caught by tests, regression prevention
+- [assert|neutral] The agent's performance is measured by: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 1. **Coverage Achievement**: % of files meeting coverage goals [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. **Test Quality**: Pass rate, flakiness rate, execution time [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. **Implementation Speed**: Time from request to complete test suite [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. **CI/CD Integration**: Pipeline success rate, execution time [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. **Code Quality Impact**: Bugs caught by tests, regression prevention [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Invocation Examples
 
@@ -462,3 +465,7 @@ Task(
   "tester"
 );
 ```
+
+
+---
+*Promise: `<promise>SUBAGENT_TESTING_FRAMEWORK_VERIX_COMPLIANT</promise>`*

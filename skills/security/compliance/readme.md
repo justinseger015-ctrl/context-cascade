@@ -1,5 +1,10 @@
 # Compliance Skill - Regulatory Standards Validation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 The **compliance** skill provides comprehensive regulatory compliance validation and documentation for major frameworks including GDPR, HIPAA, SOC 2, PCI-DSS, and ISO 27001. This skill helps implement compliance controls, prepare for audits, conduct compliance assessments, and maintain ongoing regulatory adherence.
@@ -374,3 +379,7 @@ Ensure leadership commitment and adequate resources for compliance programs.
 ---
 
 **Remember**: Compliance is not a destination but a continuous journey. This skill helps you build and maintain robust compliance programs that protect your organization and stakeholders.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

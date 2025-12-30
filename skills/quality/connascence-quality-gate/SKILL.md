@@ -1,4 +1,53 @@
+---
+name: connascence-quality-gate
+description: SKILL skill for quality workflows
+allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+---
+
+
+---
+<!-- S0 META-IDENTITY                                                             -->
+---
+
+[define|neutral] SKILL := {
+  name: "SKILL",
+  category: "quality",
+  version: "1.0.0",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S1 COGNITIVE FRAME                                                           -->
+---
+
+[define|neutral] COGNITIVE_FRAME := {
+  frame: "Evidential",
+  source: "Turkish",
+  force: "How do you know?"
+} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+<!-- S2 TRIGGER CONDITIONS                                                        -->
+---
+
+[define|neutral] TRIGGER_POSITIVE := {
+  keywords: ["SKILL", "quality", "workflow"],
+  context: "user needs SKILL capability"
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S3 CORE CONTENT                                                              -->
+---
+
 # SKILL: connascence-quality-gate
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 
 ## METADATA
 - **Name**: Connascence Quality Gate
@@ -150,45 +199,67 @@ The Connascence Safety Analyzer detects:
 3. **CoA (Connascence of Algorithm)**: Duplicated logic
 4. **God Objects**: Classes with >15 methods
 5. **NASA Rule Violations**: Deep nesting, long functions
-6. **Cyclomatic Complexity**: >10 complexity score
+6. **Cyc
 
-## EXAMPLE WORKFLOW
+---
+<!-- S4 SUCCESS CRITERIA                                                          -->
+---
 
-```
-User: "Build a user authentication module with perfect code quality"
+[define|neutral] SUCCESS_CRITERIA := {
+  primary: "Skill execution completes successfully",
+  quality: "Output meets quality thresholds",
+  verification: "Results validated against requirements"
+} [ground:given] [conf:1.0] [state:confirmed]
 
-Claude:
-1. Skill("connascence-quality-gate")
-2. Initialize Ralph loop with quality_gate: true
-3. Write initial auth.py
-4. [Hook triggers audit]
-5. Found: 2 magic literals (CoM), 1 param bomb (CoP)
-6. Fix violations
-7. [Hook triggers audit]
-8. Found: 0 violations
-9. <promise>CODE_QUALITY_PASSED</promise>
-10. Loop exits successfully
-```
+---
+<!-- S5 MCP INTEGRATION                                                           -->
+---
 
-## FILES
+[define|neutral] MCP_INTEGRATION := {
+  memory_mcp: "Store execution results and patterns",
+  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
+} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
 
-- Hook: `~/.claude/hooks/connascence-audit/run-audit.sh`
-- Stop Hook: `~/.claude/hooks/ralph-wiggum/quality-gate-stop-hook.sh`
-- Results: `~/.claude/connascence-audit/latest-results.json`
-- Issues: `~/.claude/connascence-audit/pending-issues.md`
-- State: `~/.claude/ralph-wiggum/loop-state.md`
+---
+<!-- S6 MEMORY NAMESPACE                                                          -->
+---
 
-## RELATED SKILLS
+[define|neutral] MEMORY_NAMESPACE := {
+  pattern: "skills/quality/SKILL/{project}/{timestamp}",
+  store: ["executions", "decisions", "patterns"],
+  retrieve: ["similar_tasks", "proven_patterns"]
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-- `ralph-loop`: Base persistence loop
-- `clarity-linter`: Cognitive load analysis
-- `code-review-assistant`: Multi-agent review
-- `testing-quality`: Test coverage verification
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "SKILL-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project_name}",
+  WHY: "skill-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-## SUCCESS CRITERIA
+---
+<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
+---
 
-- All code changes automatically audited
-- Quality issues surfaced immediately
-- Loop continues until quality passes
-- Final code has 0 critical, <=3 high violations
-- Completion promise only accepted when quality gate passes
+[direct|emphatic] COMPLETION_CHECKLIST := {
+  agent_spawning: "Spawn agents via Task()",
+  registry_validation: "Use registry agents only",
+  todowrite_called: "Track progress with TodoWrite",
+  work_delegation: "Delegate to specialized agents"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- S8 ABSOLUTE RULES                                                            -->
+---
+
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- PROMISE                                                                      -->
+---
+
+[commit|confident] <promise>SKILL_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

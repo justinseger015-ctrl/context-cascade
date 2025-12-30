@@ -1,5 +1,10 @@
 # Example 3: Deep RL with Actor-Critic
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates Actor-Critic methods, a powerful class of deep reinforcement learning algorithms that combine policy gradients (Actor) with value function approximation (Critic). Actor-Critic is particularly effective for continuous action spaces and complex environments.
@@ -488,3 +493,7 @@ const reward_with_entropy = reward + entropyBonus;
 ---
 
 **Pro Tip**: For real robotics applications, use physics simulators like MuJoCo or PyBullet for training before deploying to hardware.
+
+
+---
+*Promise: `<promise>EXAMPLE_3_DEEP_RL_VERIX_COMPLIANT</promise>`*

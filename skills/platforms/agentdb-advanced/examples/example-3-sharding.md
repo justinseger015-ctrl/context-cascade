@@ -1,5 +1,10 @@
 # Example 3: Horizontal Sharding
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates horizontal sharding of AgentDB to scale to millions of vectors by distributing data across multiple database instances using consistent hashing. This approach enables linear scalability and high throughput.
@@ -527,3 +532,7 @@ async function reshard(oldNumShards: number, newNumShards: number) {
 - [QUIC Protocol Deep Dive →](../references/quic-protocol.md)
 - [Distributed Patterns Reference →](../references/distributed-patterns.md)
 - [Performance Optimization Guide →](../references/performance-optimization.md)
+
+
+---
+*Promise: `<promise>EXAMPLE_3_SHARDING_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Source Credibility Analyzer - Complete Scoring Examples
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Purpose**: 5 end-to-end examples showing input → calculations → output for diverse source types
 
 **Pattern**: Each example shows:
@@ -608,3 +613,7 @@ Reason: "Not credible (1/5), extremely biased (1/5), and low priority (1/5). Ano
 ---
 
 **Remember**: These examples show the tool working as designed. Adjust rubrics to your domain if needed (e.g., CS vs History citation thresholds).
+
+
+---
+*Promise: `<promise>SCORING_EXAMPLES_VERIX_COMPLIANT</promise>`*

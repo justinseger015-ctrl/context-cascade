@@ -1,5 +1,10 @@
 # Deployment Checklist
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -325,3 +330,7 @@ Contact: [Your Name/Team]
 |-----------|--------|--------|-------|
 | [Time] | [Action taken] | [Success/Fail] | [Additional context] |
 | [Time] | [Action taken] | [Success/Fail] | [Additional context] |
+
+
+---
+*Promise: `<promise>DEPLOYMENT_CHECKLIST_VERIX_COMPLIANT</promise>`*

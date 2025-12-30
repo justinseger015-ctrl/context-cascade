@@ -1,5 +1,10 @@
 # AgentDB Persistent Memory - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Implement persistent memory patterns for AI agents - session memory, long-term storage, pattern learning, and context management.
 
 ## When to Use
@@ -32,11 +37,10 @@ npx ts-node setup-memory.ts
 - **Working**: Active context
 
 ## Success Metrics
-
-- Memory persists across sessions
-- Retrieval < 50ms (p95)
-- Pattern recognition > 85% accuracy
-- Context maintained accurately
+- [assert|neutral] Memory persists across sessions [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Retrieval < 50ms (p95) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Pattern recognition > 85% accuracy [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Context maintained accurately [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Agents Used
 
@@ -47,3 +51,7 @@ npx ts-node setup-memory.ts
 ## Estimated Duration
 
 6-8 hours for complete implementation
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

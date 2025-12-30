@@ -1,5 +1,10 @@
 # ML Training Debugger - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Debug and fix ML training issues: loss divergence, overfitting, slow convergence, gradient problems.
 
@@ -41,3 +46,7 @@ npx claude-flow@alpha skill-run ml-training-debugger \
 - Optimization recommendations
 
 For detailed documentation, see SKILL.md
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

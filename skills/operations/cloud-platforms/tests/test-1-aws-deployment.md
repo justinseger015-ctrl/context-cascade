@@ -1,5 +1,10 @@
 # Test 1: AWS Lambda and ECS Fargate Deployment
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: DEPLOYMENT SAFETY GUARDRAILS
 
 **BEFORE any deployment, validate**:
@@ -418,3 +423,7 @@ aws cloudformation delete-stack --stack-name test-stack --region us-east-1
 - Monitor CloudWatch Logs for debugging
 - Clean up resources to avoid unnecessary charges
 - Test in non-production environment first
+
+
+---
+*Promise: `<promise>TEST_1_AWS_DEPLOYMENT_VERIX_COMPLIANT</promise>`*

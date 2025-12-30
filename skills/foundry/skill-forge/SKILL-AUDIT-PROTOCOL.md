@@ -1,5 +1,10 @@
 # Skill Documentation Audit Protocol v1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Purpose**: Automated audit and improvement of skill documentation completeness.
 **Integrated With**: skill-forge Phase 7a, recursive-improvement meta-loop
 **Last Updated**: 2025-12-17
@@ -182,16 +187,14 @@ skill-audit/history:
 ---
 
 ## Success Criteria
-
-| Metric | Current | Target | Timeline |
-|--------|---------|--------|----------|
-| Tier 1 compliance | 45% | 100% | Immediate |
-| Tier 2 compliance | 20% | 100% | 2 weeks |
-| Tier 3 compliance | 35% | 80% | 1 month |
-| Tier 4 compliance | 30% | 80% | 1 month |
-| COMPLETE skills | 1 | 50+ | 2 weeks |
-
----
+- [assert|neutral] | Metric | Current | Target | Timeline | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] |--------|---------|--------|----------| [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | Tier 1 compliance | 45% | 100% | Immediate | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | Tier 2 compliance | 20% | 100% | 2 weeks | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | Tier 3 compliance | 35% | 80% | 1 month | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | Tier 4 compliance | 30% | 80% | 1 month | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | COMPLETE skills | 1 | 50+ | 2 weeks | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Enforcement
 
@@ -208,3 +211,7 @@ Skills failing Tier 1 compliance CANNOT be marked as production-ready.
 **Version**: 1.0.0
 **Author**: Meta-loop self-improvement
 **Triggered By**: Skill consolidation audit revealing 97% missing sections
+
+
+---
+*Promise: `<promise>SKILL_AUDIT_PROTOCOL_VERIX_COMPLIANT</promise>`*

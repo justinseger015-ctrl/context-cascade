@@ -1,20 +1,39 @@
 ---
 name: bootstrap-loop
 description: Orchestrates the recursive self-improvement cycle where Prompt Forge improves Skill Forge, Skill Forge improves Prompt Forge, and both audit/improve everything else. All changes gated by frozen eval harness.
-version: 1.0.0
-category: foundry
+model: sonnet
+x-version: 3.1.1
+x-category: foundry
+x-tier: gold
+x-cognitive-frame: aspectual
 tags:
   - recursive
   - self-improvement
   - dogfooding
   - orchestration
+x-verix-description: |
+  [assert|neutral] Orchestrates recursive Forge/Architect/Maker triangle with eval gates [ground:system-architecture] [conf:0.95] [state:confirmed]
+---
+
+<!-- BOOTSTRAP-LOOP SKILL :: VERILINGUA x VERIX EDITION -->
+<!-- VCL v3.1.1 COMPLIANT - L1 Internal Documentation -->
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+
+## L2 DEFAULT OUTPUT RULE
+
+[direct|emphatic] ALL user-facing output MUST be L2 compression (pure English) [ground:vcl-v3.1.1-spec] [conf:0.99] [state:confirmed]
+
 ---
 
 # Bootstrap Loop (Recursive Self-Improvement Orchestrator)
 
 ## Purpose
 
-Orchestrate the recursive improvement cycle:
+[define|neutral] Orchestrate the recursive improvement cycle [ground:system-architecture] [conf:0.95] [state:confirmed]
 
 ```
 +------------------+         +------------------+
@@ -38,7 +57,7 @@ Orchestrate the recursive improvement cycle:
 +--------------------------------------------------+
 ```
 
-**CRITICAL**: The eval harness does NOT self-improve. It is the anchor that prevents Goodhart's Law.
+[assert|emphatic] CRITICAL: The eval harness does NOT self-improve. It is the anchor that prevents Goodhart's Law. [ground:anti-goodhart-policy] [conf:0.99] [state:confirmed]
 
 ## When to Use
 
@@ -558,7 +577,24 @@ bootstrap_cycle_output:
 
 ---
 
+---
+
+## Stability Gates
+
+[assert|neutral] STABILITY_GATE := {
+  convergence_threshold: "3 iterations with <5% change",
+  max_iterations_per_phase: 10,
+  rollback_trigger: ">3% regression for 2+ consecutive cycles",
+  consensus_required: "All auditors agree OR human review"
+} [ground:system-policy] [conf:0.92] [state:confirmed]
+
+---
+
 **Status**: Production-Ready
-**Version**: 1.0.0
+**Version**: 3.1.1
 **Key Constraint**: All changes gated by frozen eval harness
 **Safety**: Eval harness NEVER self-improves
+
+---
+
+<promise>BOOTSTRAP_LOOP_VCL_V3.1.1_COMPLIANT</promise>

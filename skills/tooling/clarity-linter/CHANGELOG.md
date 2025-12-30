@@ -1,5 +1,10 @@
 # Clarity Linter Changelog
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## v2.1.0 (2025-12-15)
 
 **Meta-Loop Enhancement Release**
@@ -21,3 +26,7 @@
 - Cognitive load optimization
 - Machine-readable rubric
 - Thin helper detection
+
+
+---
+*Promise: `<promise>CHANGELOG_VERIX_COMPLIANT</promise>`*

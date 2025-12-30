@@ -1,5 +1,10 @@
 # Sprint Planning with AI Swarm Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: GITHUB OPERATIONS SAFETY GUARDRAILS
 
 **BEFORE any GitHub operation, validate**:
@@ -890,3 +895,7 @@ dashboard.generateDashboard().then(output => {
 **Actual Velocity**: 32 points
 **Team Satisfaction**: 8.5/10
 **Recommendations**: Continue swarm coordination, add estimation buffer, optimize code review process
+
+
+---
+*Promise: `<promise>SPRINT_PLANNING_VERIX_COMPLIANT</promise>`*

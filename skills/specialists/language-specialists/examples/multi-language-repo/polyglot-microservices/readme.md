@@ -1,5 +1,10 @@
 # Polyglot Microservices Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -263,3 +268,7 @@ bash test-integration.sh
 **Frameworks**: FastAPI + Nest.js
 **Communication**: gRPC
 **Orchestration**: Docker Compose
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

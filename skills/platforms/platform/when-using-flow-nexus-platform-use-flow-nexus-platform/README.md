@@ -1,5 +1,10 @@
 # Flow Nexus Platform Management - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Comprehensive platform management for Flow Nexus covering authentication, services, deployment, operations, and billing.
 
 ## Quick Start
@@ -46,12 +51,11 @@ mcp__flow-nexus__sandbox_logs
 - **system-architect**: Architecture and design
 
 ## Success Criteria
-
-- User authenticated
-- Services configured
-- Application deployed
-- Monitoring active
-- Billing managed
+- [assert|neutral] User authenticated [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Services configured [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Application deployed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Monitoring active [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Billing managed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Duration
 
@@ -62,3 +66,7 @@ mcp__flow-nexus__sandbox_logs
 - Full SOP: [SKILL.md](SKILL.md)
 - Detailed Process: [PROCESS.md](PROCESS.md)
 - Visual Workflow: [process-diagram.gv](process-diagram.gv)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

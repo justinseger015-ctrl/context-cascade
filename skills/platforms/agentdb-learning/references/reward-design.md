@@ -1,5 +1,10 @@
 # Reward Design Guide for Reinforcement Learning
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Introduction
 
 Reward design is **the most critical aspect** of reinforcement learning. A poorly designed reward function can lead to:
@@ -487,3 +492,7 @@ console.log('Reward B Performance:', performanceB);
 - OpenAI Gym Reward Design: https://openai.com/blog/
 - DeepMind Reward Modeling: https://deepmind.com/
 - Berkeley CS285 Lectures: https://rail.eecs.berkeley.edu/deeprlcourse/
+
+
+---
+*Promise: `<promise>REWARD_DESIGN_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Example 1: Technology Research - Vector Database Comparison
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -265,3 +270,7 @@ python resources/scripts/research-orchestrator.py \
 - This example demonstrates **Level 2 (Multi-Source)** workflow
 - For production use, run **Level 3 (Deep Dive)** with knowledge-synthesizer.py
 - Update query as technology evolves (e.g., new databases, benchmarks)
+
+
+---
+*Promise: `<promise>EXAMPLE_1_TECHNOLOGY_RESEARCH_VERIX_COMPLIANT</promise>`*

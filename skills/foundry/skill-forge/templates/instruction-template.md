@@ -1,5 +1,10 @@
 # Skill Instructions Template (Quick Track - Phase 5)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Time**: 10 minutes | **Purpose**: Write clear, actionable instructions with explicit success criteria
 
 ---
@@ -237,15 +242,13 @@ fi
 ---
 
 ## Success Verification Checklist
-
-After execution, verify:
-- ✓ File was formatted according to style guide
-- ✓ Original file backed up before modification
-- ✓ User received clear feedback on changes
-- ✓ No data loss or corruption
-- ✓ Exit code indicates success/failure correctly
-
----
+- [assert|neutral] After execution, verify: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ File was formatted according to style guide [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ Original file backed up before modification [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ User received clear feedback on changes [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ No data loss or corruption [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✓ Exit code indicates success/failure correctly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Performance Expectations
 
@@ -330,3 +333,7 @@ Run these checks:
 **Template Version**: 2.0.0
 **Last Updated**: 2025-11-06
 **Research Backing**: Evidence-based prompting techniques from Liu et al. (2023), Zhou et al. (2023)
+
+
+---
+*Promise: `<promise>INSTRUCTION_TEMPLATE_VERIX_COMPLIANT</promise>`*

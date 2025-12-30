@@ -1,5 +1,10 @@
 # Cascade Orchestrator Scripts
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Production-ready scripts for sophisticated workflow orchestration with multi-model routing, Codex iteration, and swarm coordination.
 
 ## Scripts Overview
@@ -451,3 +456,7 @@ For issues or questions:
 2. Review templates in `resources/templates/`
 3. Enable verbose mode for detailed logs
 4. Consult main skill documentation in `SKILL.md`
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

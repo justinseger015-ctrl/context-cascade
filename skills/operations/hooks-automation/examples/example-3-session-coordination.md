@@ -1,5 +1,10 @@
 # Example 3: Session Coordination - Context Restoration and State Management
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -589,3 +594,7 @@ By automating session management, developers maintain continuity across work ses
 - Hook manager: `resources/scripts/hook-manager.js`
 - Memory MCP integration: See CLAUDE.md
 - Main skill: `skill.md`
+
+
+---
+*Promise: `<promise>EXAMPLE_3_SESSION_COORDINATION_VERIX_COMPLIANT</promise>`*

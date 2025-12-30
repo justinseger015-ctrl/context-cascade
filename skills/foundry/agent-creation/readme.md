@@ -1,5 +1,10 @@
 # Agent Creation - Systematic Agent Design with Evidence-Based Prompting
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Tier**: Silver (7+ files) | **Status**: Production Ready | **Version**: 1.0.0
 
 ## Overview
@@ -515,3 +520,7 @@ To improve this skill:
 ---
 
 **Next Steps**: Review the examples and references, then start creating your first agent using the 4-phase SOP!
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

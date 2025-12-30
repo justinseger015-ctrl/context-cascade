@@ -1,5 +1,10 @@
 # AgentDB Reinforcement Learning Training - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Train AI learning plugins with AgentDB's 9 reinforcement learning algorithms for building self-learning agents and optimizing agent behavior through experience.
 
 ## When to Use
@@ -31,11 +36,10 @@ npx ts-node quickstart-rl.ts
 - TD3, SAC, Decision Transformer
 
 ## Success Metrics
-
-- Reward curve stabilizes and improves
-- Success rate > 80%
-- Mean reward exceeds baseline by 50%
-- Inference time < 10ms per action
+- [assert|neutral] Reward curve stabilizes and improves [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Success rate > 80% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Mean reward exceeds baseline by 50% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Inference time < 10ms per action [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Agents Used
 
@@ -52,3 +56,7 @@ npx ts-node quickstart-rl.ts
 - [Full SKILL.md documentation](./SKILL.md)
 - [Detailed process walkthrough](./PROCESS.md)
 - AgentDB Learning Docs: https://agentdb.dev/docs/learning
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

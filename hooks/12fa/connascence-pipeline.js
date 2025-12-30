@@ -440,6 +440,7 @@ class ViolationReporter {
 
 /**
  * Memory MCP Integration
+ * v3.0: Uses x- prefixed custom fields for Anthropic compliance
  */
 class MemoryIntegration {
   constructor() {
@@ -448,6 +449,7 @@ class MemoryIntegration {
 
   /**
    * Store quality results in Memory MCP
+   * v3.0: Uses x- prefixed custom fields
    */
   async storeResults(agent, report, violations) {
     if (!this.enabled) return;
@@ -455,17 +457,19 @@ class MemoryIntegration {
     const content = JSON.stringify({
       report,
       violations,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      'x-schema-version': '3.0'
     });
 
+    // v3.0: Use x- prefixed custom fields for metadata
     const metadata = {
       project: 'connascence-analyzer',
-      intent: 'quality-gate',
-      task_id: `quality-${Date.now()}`,
-      quality_score: report.score,
-      quality_grade: report.grade,
-      file: report.file,
-      passed: report.passed
+      'x-intent': 'quality-gate',
+      'x-task-id': `quality-${Date.now()}`,
+      'x-quality-score': report.score,
+      'x-quality-grade': report.grade,
+      'x-file': report.file,
+      'x-passed': report.passed
     };
 
     return taggedMemoryStore(agent, content, metadata);

@@ -1,5 +1,10 @@
 # Agent Creator Best Practices
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Evidence-Based Prompting Principles
 
 ### 1. Self-Consistency Validation
@@ -498,3 +503,7 @@ Use this checklist for EVERY agent before production deployment:
 - ❌ No metrics (define and track performance)
 
 **Result**: Production-ready agents with deeply embedded expertise, robust guardrails, and measurable performance.
+
+
+---
+*Promise: `<promise>BEST_PRACTICES_VERIX_COMPLIANT</promise>`*

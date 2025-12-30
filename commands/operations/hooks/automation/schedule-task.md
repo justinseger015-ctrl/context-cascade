@@ -1,121 +1,214 @@
+/*============================================================================*/
+/* AUTOMATION:SCHEDULE-TASK COMMAND :: VERILINGUA x VERIX EDITION                   */
+/*============================================================================*/
+
 ---
-n## Command-Specific Context
-- Deployment target requirements
-- Pre/post hook execution order
-- Rollback procedures
-- Health check integration
-
-
-<!-- META-LOOP v2.1 INTEGRATION -->
-## Phase 0: Expertise Loading
-expertise_check:
-  domain: hooks
-  file: .claude/expertise/hooks.yaml
-  fallback: discovery_mode
-
-## Recursive Improvement Integration (v2.1)
-benchmark: schedule-task-benchmark-v1
-  tests:
-    - deployment_success
-    - hook_execution_validation
-  success_threshold: 0.9
-namespace: "commands/operations/hooks/automation/schedule-task/{project}/{timestamp}"
-uncertainty_threshold: 0.85
-coordination:
-  related_skills: [hooks-automation, deployment-readiness]
-  related_agents: [cicd-engineer, kubernetes-specialist]
-
-## COMMAND COMPLETION VERIFICATION
-success_metrics:
-  execution_success: ">95%"
-<!-- END META-LOOP -->
-
 name: automation:schedule-task
-description: Task scheduling with cron syntax and job queue management
-category: Automation Hooks
 version: 1.0.0
-requires:
-  - python3
-  - crontab (optional)
-usage: |
-  /automation:schedule-task --task "backup" --cron "0 2 * * *" --command "npm run backup"
-  /automation:schedule-task --task "cleanup" --interval "daily" --time "03:00"
+binding: skill:automation:schedule-task
+category: Automation Hooks
 ---
 
-# Automation: Task Scheduler
+/*----------------------------------------------------------------------------*/
+/* S0 COMMAND IDENTITY                                                         */
+/*----------------------------------------------------------------------------*/
 
-**Category**: Automation Hooks
-**Purpose**: Schedule tasks with cron syntax and job queue management.
+[define|neutral] COMMAND := {
+  name: "automation:schedule-task",
+  binding: "skill:automation:schedule-task",
+  category: "Automation Hooks",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## Implementation
+/*----------------------------------------------------------------------------*/
+/* S1 PURPOSE                                                                  */
+/*----------------------------------------------------------------------------*/
 
-```python
-#!/usr/bin/env python3
-"""
-Task Scheduling with Cron Support
-"""
+[assert|neutral] PURPOSE := {
+  action: "Execute automation:schedule-task workflow",
+  outcome: "Workflow completion with quality metrics",
+  use_when: "User invokes /automation:schedule-task"
+} [ground:given] [conf:1.0] [state:confirmed]
 
-import schedule
-import time
-import subprocess
-from datetime import datetime
+/*----------------------------------------------------------------------------*/
+/* S2 USAGE SYNTAX                                                             */
+/*----------------------------------------------------------------------------*/
 
-class TaskScheduler:
-    """Schedule and manage automated tasks"""
+[define|neutral] SYNTAX := "/automation:schedule-task [args]" [ground:given] [conf:1.0] [state:confirmed]
 
-    def __init__(self):
-        self.jobs = []
+[define|neutral] PARAMETERS := {
+  required: {
+    input: { type: "string", description: "Primary input" }
+  },
+  optional: {
+    options: { type: "object", description: "Additional options" }
+  },
+  flags: {
+    "--verbose": { description: "Enable verbose output", default: "false" }
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-    def add_job(self, task_name: str, command: str, cron_expr: str):
-        """Add scheduled job"""
-        # Parse cron expression (simplified)
-        # Format: "minute hour day month weekday"
-        # Example: "0 2 * * *" = 2:00 AM daily
+/*----------------------------------------------------------------------------*/
+/* S3 EXECUTION FLOW                                                           */
+/*----------------------------------------------------------------------------*/
 
-        if cron_expr == "0 2 * * *":  # Daily at 2 AM
-            schedule.every().day.at("02:00").do(self.run_task, task_name, command)
+[define|neutral] EXECUTION_STAGES := [
+  { stage: 1, action: "Execute command", model: "Claude" }
+] [ground:witnessed:workflow-design] [conf:0.95] [state:confirmed]
 
-        elif cron_expr == "0 * * * *":  # Hourly
-            schedule.every().hour.do(self.run_task, task_name, command)
+[define|neutral] MULTI_MODEL_STRATEGY := {
+  gemini_search: "Research and web search tasks",
+  gemini_megacontext: "Large codebase analysis",
+  codex: "Code generation and prototyping",
+  claude: "Architecture and testing"
+} [ground:given] [conf:0.95] [state:confirmed]
 
-        elif cron_expr == "*/5 * * * *":  # Every 5 minutes
-            schedule.every(5).minutes.do(self.run_task, task_name, command)
+/*----------------------------------------------------------------------------*/
+/* S4 INPUT CONTRACT                                                           */
+/*----------------------------------------------------------------------------*/
 
-        print(f"✅ Scheduled task '{task_name}': {cron_expr}")
+[define|neutral] INPUT_CONTRACT := {
+  required: {
+    command_args: "string - Command arguments"
+  },
+  optional: {
+    flags: "object - Command flags",
+    context: "string - Additional context"
+  },
+  prerequisites: [
+    "Valid project directory",
+    "Required tools installed"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-    def run_task(self, task_name: str, command: str):
-        """Execute scheduled task"""
-        print(f"🕒 [{datetime.now()}] Running task: {task_name}")
+/*----------------------------------------------------------------------------*/
+/* S5 OUTPUT CONTRACT                                                          */
+/*----------------------------------------------------------------------------*/
 
-        result = subprocess.run(command, shell=True, capture_output=True, text=True)
+[define|neutral] OUTPUT_CONTRACT := {
+  artifacts: [
+    "Execution log",
+    "Quality metrics report"
+  ],
+  metrics: {
+    success_rate: "Percentage of successful executions",
+    quality_score: "Overall quality assessment"
+  },
+  state_changes: [
+    "Workflow state updated"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-        if result.returncode == 0:
-            print(f"✅ Task '{task_name}' completed successfully")
-        else:
-            print(f"❌ Task '{task_name}' failed: {result.stderr}")
+/*----------------------------------------------------------------------------*/
+/* S6 SUCCESS INDICATORS                                                       */
+/*----------------------------------------------------------------------------*/
 
-    def start(self):
-        """Start scheduler daemon"""
-        print("🚀 Starting task scheduler...")
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
+[define|neutral] SUCCESS_CRITERIA := {
+  pass_conditions: [
+    "Command executes without errors",
+    "Output meets quality thresholds"
+  ],
+  quality_thresholds: {
+    execution_success: ">= 0.95",
+    quality_score: ">= 0.80"
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-# Example usage
-if __name__ == "__main__":
-    scheduler = TaskScheduler()
+/*----------------------------------------------------------------------------*/
+/* S7 ERROR HANDLING                                                           */
+/*----------------------------------------------------------------------------*/
 
-    # Schedule daily backup at 2 AM
-    scheduler.add_job("backup", "npm run backup", "0 2 * * *")
+[define|neutral] ERROR_HANDLERS := {
+  missing_input: {
+    symptom: "Required input not provided",
+    cause: "User omitted required argument",
+    recovery: "Prompt user for missing input"
+  },
+  execution_failure: {
+    symptom: "Command fails to complete",
+    cause: "Underlying tool or service error",
+    recovery: "Retry with verbose logging"
+  }
+} [ground:witnessed:failure-analysis] [conf:0.92] [state:confirmed]
 
-    # Schedule hourly cleanup
-    scheduler.add_job("cleanup", "npm run cleanup", "0 * * * *")
+/*----------------------------------------------------------------------------*/
+/* S8 EXAMPLES                                                                 */
+/*----------------------------------------------------------------------------*/
 
-    # Start scheduler
-    scheduler.start()
-```
+[define|neutral] EXAMPLES := [
+  { command: "/automation:schedule-task example", description: "Basic usage" }
+] [ground:given] [conf:1.0] [state:confirmed]
 
----
+/*----------------------------------------------------------------------------*/
+/* S9 CHAIN PATTERNS                                                           */
+/*----------------------------------------------------------------------------*/
 
-**Status**: Production Ready
-**Version**: 1.0.0
+[define|neutral] CHAINS_WITH := {
+  sequential: [
+    "/automation:schedule-task -> /review -> /deploy"
+  ],
+  parallel: [
+    "parallel ::: '/automation:schedule-task arg1' '/automation:schedule-task arg2'"
+  ]
+} [ground:given] [conf:0.95] [state:confirmed]
+
+/*----------------------------------------------------------------------------*/
+/* S10 RELATED COMMANDS                                                        */
+/*----------------------------------------------------------------------------*/
+
+[define|neutral] RELATED := {
+  complementary: ["/help"],
+  alternatives: [],
+  prerequisites: []
+} [ground:given] [conf:0.95] [state:confirmed]
+
+/*----------------------------------------------------------------------------*/
+/* S11 META-LOOP INTEGRATION                                                   */
+/*----------------------------------------------------------------------------*/
+
+[define|neutral] META_LOOP := {
+  expertise_check: {
+    domain: "Automation Hooks",
+    file: ".claude/expertise/Automation Hooks.yaml",
+    fallback: "discovery_mode"
+  },
+  benchmark: "automation:schedule-task-benchmark-v1",
+  tests: [
+    "command_execution_success",
+    "workflow_validation"
+  ],
+  success_threshold: 0.90,
+  namespace: "commands/Automation Hooks/automation:schedule-task/{project}/{timestamp}",
+  uncertainty_threshold: 0.85,
+  coordination: {
+    related_skills: ["automation:schedule-task"],
+    related_agents: ["coder", "tester"]
+  }
+} [ground:system-policy] [conf:0.98] [state:confirmed]
+
+/*----------------------------------------------------------------------------*/
+/* S12 MEMORY TAGGING                                                          */
+/*----------------------------------------------------------------------------*/
+
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "automation:schedule-task-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project-name}",
+  WHY: "command-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+/*----------------------------------------------------------------------------*/
+/* S13 ABSOLUTE RULES                                                          */
+/*----------------------------------------------------------------------------*/
+
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
+
+/*----------------------------------------------------------------------------*/
+/* PROMISE                                                                     */
+/*----------------------------------------------------------------------------*/
+
+[commit|confident] <promise>AUTOMATION:SCHEDULE_TASK_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

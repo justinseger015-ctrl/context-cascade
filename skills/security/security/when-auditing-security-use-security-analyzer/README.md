@@ -1,5 +1,10 @@
 # Security Analyzer Skill - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Comprehensive security auditing across 5 vectors: static analysis, dynamic testing, dependency audit, secrets detection, and OWASP compliance.
 
 ## Installation
@@ -314,3 +319,7 @@ Issues? Check:
 2. Memory at `swarm/security/*` for intermediate results
 3. [PROCESS.md](./PROCESS.md) for detailed workflow
 4. [SKILL.md](./SKILL.md) for complete SOP
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

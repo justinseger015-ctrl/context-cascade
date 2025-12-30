@@ -1,5 +1,10 @@
 # Test 2: Skill Validation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Objective
 Verify that skill-validator.sh correctly identifies structural issues, missing components, and quality problems in micro-skills.
 
@@ -274,20 +279,18 @@ fi
    - [ ] Neural training integration
 
 ## Success Criteria
-
-**Test passes if**:
-1. Perfect skill (2.1) passes validation with 0 errors/warnings
-2. All error scenarios (2.2-2.4, 2.6) correctly fail with exit code 1
-3. All warning scenarios (2.5, 2.7, 2.8) pass with exit code 0 but issue warnings
-4. Error messages are clear and actionable
-5. All validation checks execute correctly
-
-**Test fails if**:
-1. False positives (errors on valid content)
-2. False negatives (missing actual errors)
-3. Incorrect exit codes
-4. Unclear or missing error messages
-5. Script crashes or hangs
+- [assert|neutral] *Test passes if**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 1. Perfect skill (2.1) passes validation with 0 errors/warnings [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. All error scenarios (2.2-2.4, 2.6) correctly fail with exit code 1 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. All warning scenarios (2.5, 2.7, 2.8) pass with exit code 0 but issue warnings [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. Error messages are clear and actionable [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. All validation checks execute correctly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Test fails if**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 1. False positives (errors on valid content) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. False negatives (missing actual errors) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. Incorrect exit codes [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. Unclear or missing error messages [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. Script crashes or hangs [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Test Results Template
 
@@ -347,3 +350,7 @@ Overall: [ PASS / FAIL ]
 - Test 1: Generation accuracy (generates valid skills)
 - Test 3: Optimization effectiveness
 - Example 2: Real-world validation scenarios
+
+
+---
+*Promise: `<promise>TEST_2_VALIDATION_VERIX_COMPLIANT</promise>`*

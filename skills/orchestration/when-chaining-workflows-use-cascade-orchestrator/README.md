@@ -1,5 +1,10 @@
 # Cascade Orchestrator - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Chain workflows with sequential, parallel, and conditional execution.
 
 ## Quick Start
@@ -29,6 +34,7 @@ npx claude-flow@alpha cascade optimize --enable-parallelism
 - **memory-coordinator:** State management
 
 ## Success Metrics
-- Completion time: Within ±15%
-- Resource utilization: 70-85%
-- Success rate: >95%
+- [assert|neutral] Completion time: Within ±15% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Resource utilization: 70-85% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Success rate: >95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>README_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

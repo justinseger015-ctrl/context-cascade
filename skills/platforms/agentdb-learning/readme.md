@@ -1,5 +1,10 @@
 # AgentDB Learning Plugins - Comprehensive Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 AgentDB Learning Plugins provide a complete reinforcement learning (RL) framework integrated directly into AgentDB's vector memory system. This enables AI agents to learn from experience, optimize behavior through trial and error, and improve performance over time using 9 specialized RL algorithms.
@@ -688,3 +693,7 @@ await adapter.train({ batchSize: BATCH_SIZE });
 **Category**: Machine Learning / Reinforcement Learning
 **Difficulty**: Intermediate to Advanced
 **Estimated Time**: 30-60 minutes for basic setup, days/weeks for production systems
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

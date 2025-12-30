@@ -1,5 +1,10 @@
 # Test 2: Automated Repair with Connascence-Aware Bundling
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -419,3 +424,7 @@ rm -rf .claude/.artifacts/test-repair
 After passing this test:
 1. Run **test-3-root-cause-analysis.md** to validate cascade detection
 2. Integrate with full pipeline via **recovery_pipeline.sh**
+
+
+---
+*Promise: `<promise>TEST_2_AUTO_REPAIR_VERIX_COMPLIANT</promise>`*

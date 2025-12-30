@@ -1,5 +1,10 @@
 # Terraform Infrastructure as Code Best Practices
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: DEPLOYMENT SAFETY GUARDRAILS
 
 **BEFORE any deployment, validate**:
@@ -781,3 +786,7 @@ terraform apply
 - [Terraform Registry](https://registry.terraform.io/)
 - [Terraform Best Practices](https://www.terraform-best-practices.com/)
 - [HashiCorp Learn](https://learn.hashicorp.com/terraform)
+
+
+---
+*Promise: `<promise>TERRAFORM_IAC_VERIX_COMPLIANT</promise>`*

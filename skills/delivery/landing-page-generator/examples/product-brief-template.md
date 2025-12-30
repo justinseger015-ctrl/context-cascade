@@ -1,5 +1,10 @@
 # Product Brief Template
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Use this template to provide your product/service information for the Landing Page Generator.
 
 ---
@@ -161,3 +166,7 @@ Trustworthy, helpful, professional but approachable
 2. Fill in your product/service details
 3. Provide to Landing Page Generator in Phase 2 (Copy)
 4. Review generated copy and provide feedback for refinement
+
+
+---
+*Promise: `<promise>PRODUCT_BRIEF_TEMPLATE_VERIX_COMPLIANT</promise>`*

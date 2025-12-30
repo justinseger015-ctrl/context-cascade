@@ -1,5 +1,10 @@
 # Example 2: REST API Integration Validation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 A development team built a multi-component REST API for an e-commerce platform with separate microservices for authentication, product catalog, shopping cart, and payment processing. Each service has comprehensive unit tests that pass with 95%+ coverage. However, end-to-end workflows fail mysteriously when services interact - customers can't complete purchases even though each individual endpoint works correctly in isolation.
@@ -483,3 +488,7 @@ def test_concurrent_checkouts(self):
 - Before deploying multi-step user workflows
 - When debugging "works in isolation, fails integrated" issues
 - For systems with authentication/authorization across services
+
+
+---
+*Promise: `<promise>EXAMPLE_2_INTEGRATION_TESTING_VERIX_COMPLIANT</promise>`*

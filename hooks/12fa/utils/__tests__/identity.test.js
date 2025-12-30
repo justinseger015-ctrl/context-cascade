@@ -4,6 +4,8 @@
  * Tests JWT generation/validation, Ed25519 signature verification,
  * agent identity loading from frontmatter, and caching.
  *
+ * Updated for Anthropic-compliant agent format (v2.0.0)
+ *
  * @module hooks/12fa/utils/__tests__/identity.test
  */
 
@@ -105,7 +107,8 @@ describe('Identity Verification System', () => {
       expect(result.errors).toHaveLength(0);
     });
 
-    test('should reject identity with missing agent_id', () => {
+    test('should accept identity without agent_id (auto-generated)', () => {
+      // In Anthropic format, agent_id is optional (can be auto-generated from name)
       const identity = {
         name: 'backend-dev',
         role: 'developer'
@@ -113,8 +116,9 @@ describe('Identity Verification System', () => {
 
       const result = validateAgentIdentity(identity);
 
-      expect(result.valid).toBe(false);
-      expect(result.errors).toContain('Missing agent_id');
+      expect(result.valid).toBe(true);
+      // Warnings for missing description and tools (Anthropic required fields)
+      expect(result.warnings.length).toBeGreaterThan(0);
     });
 
     test('should reject identity with invalid UUID format', () => {
@@ -130,21 +134,22 @@ describe('Identity Verification System', () => {
       expect(result.errors).toContain('Invalid UUID v4 format for agent_id');
     });
 
-    test('should reject identity with invalid role', () => {
+    test('should warn for non-standard role (not error)', () => {
+      // In Anthropic format, non-standard roles produce warnings, not errors
       const identity = {
         agent_id: '550e8400-e29b-41d4-a716-446655440000',
         name: 'backend-dev',
-        role: 'invalid-role'
+        role: 'custom-role'
       };
 
       const result = validateAgentIdentity(identity);
 
-      expect(result.valid).toBe(false);
-      expect(result.errors.length).toBeGreaterThan(0);
-      expect(result.errors[0]).toContain('Invalid role');
+      expect(result.valid).toBe(true); // Valid but with warnings
+      expect(result.warnings.length).toBeGreaterThan(0);
+      expect(result.warnings.some(w => w.includes('Non-standard role'))).toBe(true);
     });
 
-    test('should accept all 10 valid roles', () => {
+    test('should accept all 10 valid roles without role warning', () => {
       const validRoles = [
         'admin', 'developer', 'reviewer', 'security', 'database',
         'frontend', 'backend', 'tester', 'analyst', 'coordinator'
@@ -154,6 +159,8 @@ describe('Identity Verification System', () => {
         const identity = {
           agent_id: '550e8400-e29b-41d4-a716-446655440000',
           name: 'test-agent',
+          description: 'Test agent description',
+          tools: 'Read, Write, Bash',
           role
         };
 
@@ -161,6 +168,8 @@ describe('Identity Verification System', () => {
 
         expect(result.valid).toBe(true);
         expect(result.errors).toHaveLength(0);
+        // Should not have role warning for valid roles
+        expect(result.warnings.some(w => w.includes('Non-standard role'))).toBe(false);
       });
     });
   });

@@ -1,153 +1,221 @@
----
-
-## Command Purpose
-[Define what this command does - the specific action it triggers]
-
-## Input Requirements
-[Parameters and prerequisites needed to execute this command]
-
-## Expected Output
-[What artifacts, results, or state changes this command produces]
-
-## Success Indicators
-[How to verify the command executed successfully]
-
-## Error Handling
-[Common failures and recovery procedures]
-
-## Related Commands
-[Commands that work together with this one in typical workflows]
+/*============================================================================*/
+/* REVIEW-PR COMMAND :: VERILINGUA x VERIX EDITION                   */
+/*============================================================================*/
 
 ---
-
-
-<!-- META-LOOP v2.1 INTEGRATION -->
-## Phase 0: Expertise Loading
-expertise_check:
-  domain: deployment
-  file: .claude/expertise/deployment.yaml
-  fallback: discovery_mode
-
-## Recursive Improvement Integration (v2.1)
-benchmark: review-pr-benchmark-v1
-  tests:
-    - command_execution_success
-    - workflow_validation
-  success_threshold: 0.9
-namespace: "commands/delivery/essential-commands/review-pr/{project}/{timestamp}"
-uncertainty_threshold: 0.85
-coordination:
-  related_skills: [deployment-readiness, cicd-intelligent-recovery]
-  related_agents: [cicd-engineer, tester]
-
-## COMMAND COMPLETION VERIFICATION
-success_metrics:
-  execution_success: ">95%"
-<!-- END META-LOOP -->
-
 name: review-pr
-binding: skill:code-review-assistant
-category: essential
 version: 1.0.0
+binding: skill:review-pr
+category: delivery
 ---
 
-# /review-pr
+/*----------------------------------------------------------------------------*/
+/* S0 COMMAND IDENTITY                                                         */
+/*----------------------------------------------------------------------------*/
 
-Multi-agent comprehensive PR review with specialized reviewers.
+[define|neutral] COMMAND := {
+  name: "review-pr",
+  binding: "skill:review-pr",
+  category: "delivery",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## Usage
-```bash
-/review-pr <pr_number> [focus_areas]
-```
+/*----------------------------------------------------------------------------*/
+/* S1 PURPOSE                                                                  */
+/*----------------------------------------------------------------------------*/
 
-## Parameters
-- `pr_number` - PR number to review (required)
-- `focus_areas` - Comma-separated: security,performance,style,tests,documentation (default: all)
-- `--suggest-fixes` - Generate fix suggestions (default: true)
-- `--auto-merge` - Auto-merge if passing (default: false)
+[assert|neutral] PURPOSE := {
+  action: "[Define what this command does - the specific action it triggers]",
+  outcome: "Workflow completion with quality metrics",
+  use_when: "User invokes /review-pr"
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## What It Does
+/*----------------------------------------------------------------------------*/
+/* S2 USAGE SYNTAX                                                             */
+/*----------------------------------------------------------------------------*/
 
-**Multi-Agent Swarm Review** (5 specialists in parallel):
-1. 🔒 **Security Reviewer** - Vulnerabilities, secrets, unsafe patterns
-2. ⚡ **Performance Analyst** - Bottlenecks, optimization opportunities
-3. 🎨 **Style Reviewer** - Code style, best practices, maintainability
-4. 🧪 **Test Specialist** - Coverage, quality, edge cases
-5. 📝 **Documentation Reviewer** - Comments, API docs, README updates
+[define|neutral] SYNTAX := "/review-pr [args]" [ground:given] [conf:1.0] [state:confirmed]
 
-**Quality Gates** (for merge approval):
-- ✅ All tests passing
-- ✅ Code quality ≥ 80/100
-- ✅ No critical security issues
-- ✅ No high-severity bugs
+[define|neutral] PARAMETERS := {
+  required: {
+    pr_number: { type: "string", description: "PR number to review" }
+  },
+  optional: {
+    focus_areas: { type: "string", description: "Comma-separated: security,performance,style,tests," }
+  },
+  flags: {
+    "--suggest-fixes": { description: "Generate fix suggestions (default: true)", default: "false" },
+    "--auto-merge": { description: "Auto-merge if passing (default: false)", default: "false" }
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## Examples
+/*----------------------------------------------------------------------------*/
+/* S3 EXECUTION FLOW                                                           */
+/*----------------------------------------------------------------------------*/
 
-```bash
-# Review PR with all checks
-/review-pr 123
+[define|neutral] EXECUTION_STAGES := [
+  { stage: 1, action: "🔒 **Security Reviewer** - Vulnerabilities, secrets, unsafe p", model: "Claude" },
+  { stage: 2, action: "⚡ **Performance Analyst** - Bottlenecks, optimization opport", model: "Claude" },
+  { stage: 3, action: "🎨 **Style Reviewer** - Code style, best practices, maintaina", model: "Claude" },
+  { stage: 4, action: "🧪 **Test Specialist** - Coverage, quality, edge cases", model: "Claude" },
+  { stage: 5, action: "📝 **Documentation Reviewer** - Comments, API docs, README up", model: "Claude" }
+] [ground:witnessed:workflow-design] [conf:0.95] [state:confirmed]
 
-# Security-focused review
-/review-pr 123 security
+[define|neutral] MULTI_MODEL_STRATEGY := {
+  gemini_search: "Research and web search tasks",
+  gemini_megacontext: "Large codebase analysis",
+  codex: "Code generation and prototyping",
+  claude: "Architecture and testing"
+} [ground:given] [conf:0.95] [state:confirmed]
 
-# Performance and tests only
-/review-pr 123 performance,tests
+/*----------------------------------------------------------------------------*/
+/* S4 INPUT CONTRACT                                                           */
+/*----------------------------------------------------------------------------*/
 
-# Review with auto-merge
-/review-pr 123 --auto-merge true
+[define|neutral] INPUT_CONTRACT := {
+  required: {
+    command_args: "string - Command arguments"
+  },
+  optional: {
+    flags: "object - Command flags",
+    context: "string - Additional context"
+  },
+  prerequisites: [
+    "Valid project directory",
+    "Required tools installed"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-# Review without fix suggestions
-/review-pr 123 --suggest-fixes false
-```
+/*----------------------------------------------------------------------------*/
+/* S5 OUTPUT CONTRACT                                                          */
+/*----------------------------------------------------------------------------*/
 
-## Output
+[define|neutral] OUTPUT_CONTRACT := {
+  artifacts: [
+    "Execution log",
+    "Quality metrics report"
+  ],
+  metrics: {
+    success_rate: "Percentage of successful executions",
+    quality_score: "Overall quality assessment"
+  },
+  state_changes: [
+    "Workflow state updated"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-```
-🤖 Code Review Complete: PR #123
+/*----------------------------------------------------------------------------*/
+/* S6 SUCCESS INDICATORS                                                       */
+/*----------------------------------------------------------------------------*/
 
-Overall Score: 87/100
-Merge Ready: ✅ Yes
+[define|neutral] SUCCESS_CRITERIA := {
+  pass_conditions: [
+    "Command executes without errors",
+    "Output meets quality thresholds"
+  ],
+  quality_thresholds: {
+    execution_success: ">= 0.95",
+    quality_score: ">= 0.80"
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-Review Summary:
-  🔒 Security: 95/100 ✅
-  ⚡ Performance: 88/100 ✅
-  🎨 Style: 90/100 ✅
-  🧪 Tests: 82/100 ✅
-  📝 Docs: 85/100 ✅
+/*----------------------------------------------------------------------------*/
+/* S7 ERROR HANDLING                                                           */
+/*----------------------------------------------------------------------------*/
 
-Fix Suggestions:
-  1. Add input validation to API endpoint
-  2. Extract duplicated code into helper function
-  3. Add JSDoc comments to public methods
+[define|neutral] ERROR_HANDLERS := {
+  missing_input: {
+    symptom: "Required input not provided",
+    cause: "User omitted required argument",
+    recovery: "Prompt user for missing input"
+  },
+  execution_failure: {
+    symptom: "Command fails to complete",
+    cause: "Underlying tool or service error",
+    recovery: "Retry with verbose logging"
+  }
+} [ground:witnessed:failure-analysis] [conf:0.92] [state:confirmed]
 
-Decision: ✅ APPROVED
+/*----------------------------------------------------------------------------*/
+/* S8 EXAMPLES                                                                 */
+/*----------------------------------------------------------------------------*/
 
-PR comment posted with detailed review.
-```
+[define|neutral] EXAMPLES := [
+  { command: "/review-pr 123", description: "Example usage" },
+  { command: "/review-pr 123 security", description: "Example usage" },
+  { command: "/review-pr 123 performance,tests", description: "Example usage" }
+] [ground:given] [conf:1.0] [state:confirmed]
 
-## Review Process
+/*----------------------------------------------------------------------------*/
+/* S9 CHAIN PATTERNS                                                           */
+/*----------------------------------------------------------------------------*/
 
-1. **Fetch PR**: Get files changed, additions, deletions
-2. **Initialize Swarm**: Spawn 5 specialized review agents
-3. **Parallel Review**: All agents review simultaneously
-4. **Quality Audit**: Run complete audit pipeline
-5. **Aggregate Results**: Combine all findings
-6. **Generate Fixes**: Codex suggests improvements
-7. **Assess Merge Readiness**: Check quality gates
-8. **Post Comment**: Detailed review on GitHub
-9. **Approve/Request Changes**: Based on quality gates
+[define|neutral] CHAINS_WITH := {
+  sequential: [
+    "/review-pr -> /review -> /deploy"
+  ],
+  parallel: [
+    "parallel ::: '/review-pr arg1' '/review-pr arg2'"
+  ]
+} [ground:given] [conf:0.95] [state:confirmed]
 
-## Chains With
+/*----------------------------------------------------------------------------*/
+/* S10 RELATED COMMANDS                                                        */
+/*----------------------------------------------------------------------------*/
 
-```bash
-# Review → fix issues → re-review
-/review-pr 123 || /fix-issues && /review-pr 123
+[define|neutral] RELATED := {
+  complementary: ["/fix-bug", "/audit-pipeline", "/pr-enhance"],
+  alternatives: [],
+  prerequisites: []
+} [ground:given] [conf:0.95] [state:confirmed]
 
-# Review → merge → deploy
-/review-pr 123 --auto-merge && /deploy
-```
+/*----------------------------------------------------------------------------*/
+/* S11 META-LOOP INTEGRATION                                                   */
+/*----------------------------------------------------------------------------*/
 
-## See Also
-- `/pr-enhance` - Improve PR description
-- `/audit-pipeline` - Complete quality audit
-- `/fix-bug` - Fix review findings
+[define|neutral] META_LOOP := {
+  expertise_check: {
+    domain: "delivery",
+    file: ".claude/expertise/delivery.yaml",
+    fallback: "discovery_mode"
+  },
+  benchmark: "review-pr-benchmark-v1",
+  tests: [
+    "command_execution_success",
+    "workflow_validation"
+  ],
+  success_threshold: 0.90,
+  namespace: "commands/delivery/review-pr/{project}/{timestamp}",
+  uncertainty_threshold: 0.85,
+  coordination: {
+    related_skills: ["review-pr"],
+    related_agents: ["coder", "tester"]
+  }
+} [ground:system-policy] [conf:0.98] [state:confirmed]
+
+/*----------------------------------------------------------------------------*/
+/* S12 MEMORY TAGGING                                                          */
+/*----------------------------------------------------------------------------*/
+
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "review-pr-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project-name}",
+  WHY: "command-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+/*----------------------------------------------------------------------------*/
+/* S13 ABSOLUTE RULES                                                          */
+/*----------------------------------------------------------------------------*/
+
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
+
+/*----------------------------------------------------------------------------*/
+/* PROMISE                                                                     */
+/*----------------------------------------------------------------------------*/
+
+[commit|confident] <promise>REVIEW_PR_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

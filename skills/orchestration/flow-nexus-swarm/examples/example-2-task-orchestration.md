@@ -1,5 +1,10 @@
 # Example 2: Task Orchestration - Distributed Microservices Development
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 Continuing from Example 1, you now have a functioning swarm with 6 specialized agents. Your goal is to orchestrate the development of the e-commerce platform's core microservices by delegating tasks to the appropriate agents based on their capabilities and coordinating their work to ensure integration.
@@ -766,3 +771,7 @@ After task orchestration:
 **Flow Nexus Version**: 1.5.0
 **Last Updated**: 2025-11-02
 **Skill**: `flow-nexus-swarm`
+
+
+---
+*Promise: `<promise>EXAMPLE_2_TASK_ORCHESTRATION_VERIX_COMPLIANT</promise>`*

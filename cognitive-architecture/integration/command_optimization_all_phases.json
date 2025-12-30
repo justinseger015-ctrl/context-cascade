@@ -1,0 +1,476 @@
+[
+  {
+    "phase": "Phase 1: Core Cognitive",
+    "category": "cognitive",
+    "groups": [],
+    "iterations": [
+      {
+        "iteration": 1,
+        "groups": [
+          {
+            "name": "cognitive",
+            "commands": 6,
+            "baseline_verix": 0.044444444444444446,
+            "optimized_verix": 1.0,
+            "verix_delta": 0.9555555555555556,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6683333333333333,
+            "frame_delta": 0.6683333333333333
+          }
+        ],
+        "avg_verix_delta": 0.9555555555555556,
+        "avg_frame_delta": 0.6683333333333333
+      },
+      {
+        "iteration": 2,
+        "groups": [
+          {
+            "name": "cognitive",
+            "commands": 6,
+            "baseline_verix": 0.044444444444444446,
+            "optimized_verix": 1.0,
+            "verix_delta": 0.9555555555555556,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6683333333333333,
+            "frame_delta": 0.6683333333333333
+          }
+        ],
+        "avg_verix_delta": 0.9555555555555556,
+        "avg_frame_delta": 0.6683333333333333
+      }
+    ],
+    "converged": true
+  },
+  {
+    "phase": "Phase 2: Delivery",
+    "category": "delivery",
+    "groups": [],
+    "iterations": [
+      {
+        "iteration": 1,
+        "groups": [
+          {
+            "name": "essential",
+            "commands": 10,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6899999999999998,
+            "frame_delta": 0.6899999999999998
+          },
+          {
+            "name": "sparc",
+            "commands": 25,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6899999999999997,
+            "frame_delta": 0.6899999999999997
+          },
+          {
+            "name": "workflows",
+            "commands": 9,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.6899999999999998
+      },
+      {
+        "iteration": 2,
+        "groups": [
+          {
+            "name": "essential",
+            "commands": 10,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6899999999999998,
+            "frame_delta": 0.6899999999999998
+          },
+          {
+            "name": "sparc",
+            "commands": 25,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6899999999999997,
+            "frame_delta": 0.6899999999999997
+          },
+          {
+            "name": "workflows",
+            "commands": 9,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.6899999999999998
+      }
+    ],
+    "converged": true
+  },
+  {
+    "phase": "Phase 3: Operations",
+    "category": "operations",
+    "groups": [],
+    "iterations": [
+      {
+        "iteration": 1,
+        "groups": [
+          {
+            "name": "monitoring",
+            "commands": 10,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6899999999999998,
+            "frame_delta": 0.6899999999999998
+          },
+          {
+            "name": "memory",
+            "commands": 8,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "optimization",
+            "commands": 8,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      },
+      {
+        "iteration": 2,
+        "groups": [
+          {
+            "name": "monitoring",
+            "commands": 10,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6899999999999998,
+            "frame_delta": 0.6899999999999998
+          },
+          {
+            "name": "memory",
+            "commands": 8,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "optimization",
+            "commands": 8,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      }
+    ],
+    "converged": true
+  },
+  {
+    "phase": "Phase 4: Orchestration",
+    "category": "orchestration",
+    "groups": [],
+    "iterations": [
+      {
+        "iteration": 1,
+        "groups": [
+          {
+            "name": "swarm",
+            "commands": 8,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "hive-mind",
+            "commands": 6,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "meta-loop",
+            "commands": 6,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      },
+      {
+        "iteration": 2,
+        "groups": [
+          {
+            "name": "swarm",
+            "commands": 8,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "hive-mind",
+            "commands": 6,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "meta-loop",
+            "commands": 6,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      }
+    ],
+    "converged": true
+  },
+  {
+    "phase": "Phase 5: Quality",
+    "category": "quality",
+    "groups": [],
+    "iterations": [
+      {
+        "iteration": 1,
+        "groups": [
+          {
+            "name": "audit",
+            "commands": 9,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "analysis",
+            "commands": 3,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      },
+      {
+        "iteration": 2,
+        "groups": [
+          {
+            "name": "audit",
+            "commands": 9,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "analysis",
+            "commands": 3,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      }
+    ],
+    "converged": true
+  },
+  {
+    "phase": "Phase 6: Foundry",
+    "category": "foundry",
+    "groups": [],
+    "iterations": [
+      {
+        "iteration": 1,
+        "groups": [
+          {
+            "name": "agent",
+            "commands": 6,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "expertise",
+            "commands": 3,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      },
+      {
+        "iteration": 2,
+        "groups": [
+          {
+            "name": "agent",
+            "commands": 6,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "expertise",
+            "commands": 3,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      }
+    ],
+    "converged": true
+  },
+  {
+    "phase": "Phase 7: Research + Security",
+    "category": "research-security",
+    "groups": [],
+    "iterations": [
+      {
+        "iteration": 1,
+        "groups": [
+          {
+            "name": "commands",
+            "commands": 6,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "reverse-eng",
+            "commands": 10,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6899999999999998,
+            "frame_delta": 0.6899999999999998
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      },
+      {
+        "iteration": 2,
+        "groups": [
+          {
+            "name": "commands",
+            "commands": 6,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.69,
+            "frame_delta": 0.69
+          },
+          {
+            "name": "reverse-eng",
+            "commands": 10,
+            "baseline_verix": 0.0,
+            "optimized_verix": 1.0,
+            "verix_delta": 1.0,
+            "baseline_frame": 0.0,
+            "optimized_frame": 0.6899999999999998,
+            "frame_delta": 0.6899999999999998
+          }
+        ],
+        "avg_verix_delta": 1.0,
+        "avg_frame_delta": 0.69
+      }
+    ],
+    "converged": true
+  }
+]

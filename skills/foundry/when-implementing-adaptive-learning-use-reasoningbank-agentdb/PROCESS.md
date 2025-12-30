@@ -1,5 +1,10 @@
 # ReasoningBank Adaptive Learning - Process Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Phase 1: Initialize ReasoningBank
 
 ```typescript
@@ -71,13 +76,16 @@ const improvement = await reasoningBank.measureImprovement({
 ```
 
 ## Success Criteria
-
-- Trajectories tracked > 95% accuracy
-- Verdicts judged correctly > 90%
-- Patterns learned and applied
-- Decision quality improves
+- [assert|neutral] Trajectories tracked > 95% accuracy [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Verdicts judged correctly > 90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Patterns learned and applied [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Decision quality improves [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Resources
 
 - Full docs: SKILL.md
 - ReasoningBank: https://reasoningbank.dev
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

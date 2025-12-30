@@ -1,5 +1,10 @@
 # GitHub Integration Skills
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Comprehensive suite of 5 rewritten GitHub integration skills using skill-forge methodology with agent mapping, SOP structure, GitHub API scripts, and MCP tool integration.
 
 ## Skills Overview
@@ -443,3 +448,7 @@ These skills follow the same license as the Claude-Flow project.
 ---
 
 **Generated using skill-forge methodology with evidence-based prompting patterns, agent coordination, and comprehensive SOP structure.**
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

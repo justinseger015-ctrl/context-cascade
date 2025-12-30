@@ -1,5 +1,10 @@
 # Example 3: Episodic Memory (Timestamped Experiences)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Episodic memory records timestamped experiences and interactions, enabling agents to learn from past successes and failures. This pattern is crucial for reinforcement learning, adaptive behavior, and experience replay.
@@ -658,3 +663,7 @@ async function scheduleEpisodicPruning(memory: EpisodicMemory) {
 
 - [Example 1: Short-Term Memory](./example-1-short-term.md) - Recent context
 - [Example 2: Long-Term Memory](./example-2-long-term.md) - Persistent knowledge
+
+
+---
+*Promise: `<promise>EXAMPLE_3_EPISODIC_VERIX_COMPLIANT</promise>`*

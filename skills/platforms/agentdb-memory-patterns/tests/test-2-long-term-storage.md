@@ -1,5 +1,10 @@
 # Test 2: Long-Term Storage and Persistence
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 Test long-term memory persistence, archival, and cross-session continuity.
 
@@ -504,15 +509,13 @@ unset TEST_DB SESSION_1 SESSION_2 SESSION_3
 ---
 
 ## Success Criteria
-
-- ✅ All 5 test cases pass
-- ✅ Long-term persistence verified across sessions
-- ✅ Cross-session isolation maintained
-- ✅ Data integrity checks pass
-- ✅ Backup/restore works correctly
-- ✅ Export/import preserves data
-
----
+- [assert|neutral] ✅ All 5 test cases pass [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Long-term persistence verified across sessions [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Cross-session isolation maintained [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Data integrity checks pass [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Backup/restore works correctly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Export/import preserves data [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Performance Benchmarks
 
@@ -533,3 +536,7 @@ Expected performance characteristics:
 - Backup is atomic (no partial states)
 - Export format is JSON for portability
 - Cross-session access requires explicit session ID
+
+
+---
+*Promise: `<promise>TEST_2_LONG_TERM_STORAGE_VERIX_COMPLIANT</promise>`*

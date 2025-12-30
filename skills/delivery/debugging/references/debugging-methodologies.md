@@ -1,5 +1,10 @@
 # Debugging Methodologies
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -721,3 +726,7 @@ Time: 10ms      | Time: 5000ms     | → Performance cliff?
 - [Best Practices](best-practices.md) - Core debugging principles
 - [Troubleshooting Guide](troubleshooting-guide.md) - Common patterns and quick fixes
 - [5-Phase Protocol](../when-debugging-code-use-debugging-assistant/skill.md) - Systematic debugging workflow
+
+
+---
+*Promise: `<promise>DEBUGGING_METHODOLOGIES_VERIX_COMPLIANT</promise>`*

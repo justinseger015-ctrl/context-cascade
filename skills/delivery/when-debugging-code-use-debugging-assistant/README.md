@@ -1,5 +1,10 @@
 # Debugging Assistant - Quick Start Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## What is This?
 
 The Debugging Assistant is an intelligent, systematic approach to finding and fixing bugs in your code. It uses specialized AI agents to analyze symptoms, identify root causes, generate fixes, validate solutions, and prevent recurrence.
@@ -250,21 +255,16 @@ Links to bug tracking system:
 All agents coordinate via Claude Flow hooks and memory system.
 
 ## Success Metrics
-
-- 95%+ first-attempt fix success rate
-- < 30 minutes to root cause for typical bugs
-- < 2% regression rate from fixes
-- 100% of fixes include tests
-
----
-
-**Quick Command Reference:**
-
-```bash
+- [assert|neutral] 95%+ first-attempt fix success rate [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] < 30 minutes to root cause for typical bugs [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] < 2% regression rate from fixes [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 100% of fixes include tests [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Quick Command Reference:** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ```bash [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 /debug-assist "[issue]"              # Start debugging
-/debug-assist --help                 # Show options
-/debug-assist --status               # Check progress
-/debug-assist --report               # Generate report
-```
-
-Start debugging smarter today!
+- [assert|neutral] /debug-assist --help                 # Show options [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] /debug-assist --status               # Check progress [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] /debug-assist --report               # Generate report [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ``` [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Start debugging smarter today! [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>README_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

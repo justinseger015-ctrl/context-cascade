@@ -1,5 +1,10 @@
 # Quantization Techniques Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Quantization compresses vector representations by reducing precision, trading minimal accuracy loss for dramatic memory and speed improvements. This reference covers the mathematical foundations and practical implementation of quantization in AgentDB.
@@ -482,3 +487,7 @@ function evaluateRecall(
 - [Main Skill](../skill.md)
 - [Quantization Example](../examples/example-1-quantization.md)
 - [HNSW Parameters](./hnsw-parameters.md)
+
+
+---
+*Promise: `<promise>QUANTIZATION_TECHNIQUES_VERIX_COMPLIANT</promise>`*

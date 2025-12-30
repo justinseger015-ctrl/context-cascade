@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "orchestration",
+  "tags": [
+    "general"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Use when building a production-ready REST API from requirements through deployment. Orchestrates 8-12 specialist agents across 5 phases using Test-Driven Development methodology. Covers planning",
+    "arch [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-building-backend-api-orchestrate-api-development",
+  "triggers": []
+}

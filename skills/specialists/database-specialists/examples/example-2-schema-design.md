@@ -1,5 +1,10 @@
 # Example 2: Schema Design for Multi-Tenant SaaS Platform
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -597,3 +602,7 @@ USING (
 3. **Set up read replicas** for analytics queries
 4. **Implement soft deletes** (`deleted_at` column for data recovery)
 5. **Add audit triggers** for automated activity logging
+
+
+---
+*Promise: `<promise>EXAMPLE_2_SCHEMA_DESIGN_VERIX_COMPLIANT</promise>`*

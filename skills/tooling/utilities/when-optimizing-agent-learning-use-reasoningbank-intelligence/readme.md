@@ -1,5 +1,10 @@
 # ReasoningBank Intelligence - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Adaptive learning system for pattern recognition, strategy optimization, and continuous agent improvement using ReasoningBank.
 
@@ -47,3 +52,7 @@ await learningSystem.useVectorDB(db);
 - Integration guide
 
 For detailed documentation, see SKILL.md
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

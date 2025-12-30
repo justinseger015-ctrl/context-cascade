@@ -1,5 +1,10 @@
 # Agent Pipeline Chaining - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Chain agent outputs as inputs in sequential or parallel pipelines.
 
 ## Quick Start
@@ -26,6 +31,7 @@ npx claude-flow@alpha pipeline results --output results.json
 - **memory-coordinator:** Data flow management
 
 ## Success Metrics
-- Stage latency: <30s
-- Throughput: ≥10 items/min
-- Error rate: <2%
+- [assert|neutral] Stage latency: <30s [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Throughput: ≥10 items/min [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Error rate: <2% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>README_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

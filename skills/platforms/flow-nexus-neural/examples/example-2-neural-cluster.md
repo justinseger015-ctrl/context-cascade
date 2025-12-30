@@ -1,5 +1,10 @@
 # Example 2: Advanced Neural Cluster Management & Scaling
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 **Objective**: Build a production-grade neural cluster with dynamic scaling, health monitoring, and fault tolerance for continuous model training.
@@ -910,3 +915,7 @@ main "$@"
 - [Example 3: Model Deployment & Serving](./example-3-model-deployment.md)
 - [Flow Nexus Auto-Scaling Guide](https://flow-nexus.ruv.io/docs/auto-scaling)
 - [E2B Sandbox Pricing](https://e2b.dev/pricing)
+
+
+---
+*Promise: `<promise>EXAMPLE_2_NEURAL_CLUSTER_VERIX_COMPLIANT</promise>`*

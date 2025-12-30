@@ -1,5 +1,10 @@
 # Example 1: Basic JSON Config Parser Validation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 A developer created a Python utility function to parse JSON configuration files for a microservices deployment system. The function reads config files, validates schema, and applies default values. Initial testing with simple configs worked perfectly, but production deployments with nested configuration objects began failing mysteriously.
@@ -342,3 +347,7 @@ tests/test_parser_edge_cases.py::TestEdgeCases::test_empty_nested_dict PASSED
 - For code dealing with user input or configuration files
 - Before deploying parsing/transformation logic to production
 - Whenever "it looks right" isn't enough assurance
+
+
+---
+*Promise: `<promise>EXAMPLE_1_BASIC_VALIDATION_VERIX_COMPLIANT</promise>`*

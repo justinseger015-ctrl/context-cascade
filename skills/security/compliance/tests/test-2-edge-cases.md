@@ -1,5 +1,10 @@
 # Test Case 2: Edge Cases and Fault Tolerance
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Metadata
 - **Test ID**: COMPLIANCE-TEST-002
 - **Category**: Edge Cases and Error Handling
@@ -588,11 +593,11 @@ rm -rf ./reports
 ```
 
 ## Success Criteria Summary
-- All edge cases handled gracefully without crashes
-- Appropriate error messages displayed
-- Partial results when possible
-- Correct exit codes for each scenario
-- No data corruption or loss
+- [assert|neutral] All edge cases handled gracefully without crashes [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Appropriate error messages displayed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Partial results when possible [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Correct exit codes for each scenario [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] No data corruption or loss [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Known Issues / Limitations
 - Very large files may cause performance degradation
@@ -603,3 +608,7 @@ rm -rf ./reports
 - Some scenarios require specific system configurations
 - Adjust cleanup commands based on actual test execution
 - Monitor memory usage during large file tests
+
+
+---
+*Promise: `<promise>TEST_2_EDGE_CASES_VERIX_COMPLIANT</promise>`*

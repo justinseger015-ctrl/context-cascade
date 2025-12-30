@@ -1,5 +1,10 @@
 # Flow Nexus Neural - Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Supporting scripts, templates, and assets for distributed neural network training with Flow Nexus.
 
 ## 📁 Directory Structure
@@ -536,3 +541,7 @@ chmod +x resources/scripts/*.js
 ## 📝 License
 
 MIT License - See main skill documentation for details.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Advanced Swarm Coordination - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Advanced swarm patterns with dynamic topology switching and self-organizing behaviors for complex multi-agent coordination.
@@ -49,11 +54,10 @@ npx claude-flow@alpha performance analyze --recommend-optimizations
 - **adaptive-coordinator:** Dynamic topology switching
 
 ## Success Metrics
-
-- Throughput increase: ≥20%
-- Latency reduction: ≥15%
-- Agent utilization: 70-90%
-- Error rate: <2%
+- [assert|neutral] Throughput increase: ≥20% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Latency reduction: ≥15% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Agent utilization: 70-90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Error rate: <2% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Next Steps
 
@@ -67,3 +71,7 @@ npx claude-flow@alpha performance analyze --recommend-optimizations
 
 - GitHub: https://github.com/ruvnet/claude-flow
 - Documentation: Full SOP in SKILL.md
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

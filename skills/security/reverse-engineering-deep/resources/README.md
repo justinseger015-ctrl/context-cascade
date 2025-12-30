@@ -1,5 +1,10 @@
 # Reverse Engineering: Deep Analysis - Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This directory contains production-ready scripts, templates, and references for performing advanced reverse engineering analysis at RE Levels 3-4 (GDB debugging + Angr symbolic execution).
 
 ## Directory Structure
@@ -356,3 +361,7 @@ MIT License - See LICENSE file for details
 **Last Updated**: 2025-11-02
 **Skill Version**: Gold Tier
 **Maintainer**: RE-Deep-Analysis-Team
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

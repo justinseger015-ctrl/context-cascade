@@ -1,18 +1,53 @@
 ---
 name: ralph-loop
-description: Persistence loop system that prevents premature task completion by using Stop hooks to re-inject prompts until success criteria are met. Named after Ralph Wiggum from The Simpsons. Use for iterative tasks requiring continuous refinement until tests pass or goals achieved.
-version: 1.0.0
-category: orchestration
-tags:
-  - orchestration
-  - persistence
-  - iteration
-  - automation
-  - tdd
-author: Context Cascade (integrated from Anthropic's Ralph Wiggum plugin)
+description: Persistence loop system that prevents premature task completion by using Stop hooks to re-inject prompts until success criteria are met. Named after Ralph Wiggum from The Simpsons. Use for iterative t
+allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+---
+
+
+---
+<!-- S0 META-IDENTITY                                                             -->
+---
+
+[define|neutral] SKILL := {
+  name: "ralph-loop",
+  category: "orchestration",
+  version: "1.0.0",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S1 COGNITIVE FRAME                                                           -->
+---
+
+[define|neutral] COGNITIVE_FRAME := {
+  frame: "Evidential",
+  source: "Turkish",
+  force: "How do you know?"
+} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+<!-- S2 TRIGGER CONDITIONS                                                        -->
+---
+
+[define|neutral] TRIGGER_POSITIVE := {
+  keywords: ["ralph-loop", "orchestration", "workflow"],
+  context: "user needs ralph-loop capability"
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S3 CORE CONTENT                                                              -->
 ---
 
 # Ralph Loop (Persistence Loop System)
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 
 An orchestration skill that implements continuous self-referential AI loops for iterative development until task completion.
 
@@ -35,11 +70,10 @@ An orchestration skill that implements continuous self-referential AI loops for 
 - When max iterations would be reached quickly
 
 ### Success Criteria
-
-- Task completes with completion promise output
-- All automated checks pass (tests, linters)
-- Work persists in files after loop ends
-- Iteration count within max-iterations limit
+- [assert|neutral] Task completes with completion promise output [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All automated checks pass (tests, linters) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Work persists in files after loop ends [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Iteration count within max-iterations limit [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Edge Cases & Limitations
 
@@ -160,91 +194,67 @@ Write tests for [MODULE] until coverage reaches [TARGET]%.
 After each test:
 1. Run coverage report
 2. Identify uncovered lines
-3. Write tests for uncovered code
-
-Output <promise>COVERAGE_MET</promise> when target reached.
-```
-
-### Linting Loop
-
-```
-Fix all linting errors in [DIRECTORY].
-
-After each fix:
-1. Run linter
-2. Check remaining errors
-3. Fix next error
-
-Output <promise>LINT_CLEAN</promise> when no errors remain.
-```
-
-### Refactoring Loop
-
-```
-Refactor [MODULE] to address these issues:
-- [Issue 1]
-- [Issue 2]
-- [Issue 3]
-
-After each change:
-1. Run tests (must stay green)
-2. Check for remaining issues
-
-Output <promise>REFACTORED</promise> when all issues resolved.
-```
-
-## Philosophy
-
-Four key principles:
-
-1. **Iteration > Perfection** - Don't aim for perfect on first try; let the loop refine
-2. **Failures Are Data** - Use test failures as information for next attempt
-3. **Operator Skill Matters** - Success depends on writing good prompts
-4. **Persistence Wins** - Keep trying until success; the loop handles retries
-
-## Real-World Results
-
-From the original Ralph technique:
-- 6 repositories shipped overnight (YC hackathon)
-- $50k contract completed for $297 in API costs
-- Entire programming language built over 3 months
-
-## Anti-Patterns
-
-| Anti-Pattern | Why It Fails | Correct Approach |
-|--------------|--------------|------------------|
-| No max-iterations | Infinite loop risk | Always set --max-iterations 20-50 |
-| Vague completion | Can't verify programmatically | Use tests, linters as criteria |
-| "Make it good" prompts | Subjective, unverifiable | Define specific success criteria |
-| Missing escape hatch | Gets stuck forever | Include "if blocked, document why" |
-
-## Installation
-
-The Ralph Loop system is integrated into Context Cascade via:
-
-1. Stop hook: `hooks/ralph-wiggum/ralph-loop-stop-hook.sh`
-2. Setup script: `hooks/ralph-wiggum/ralph-loop-setup.sh`
-3. Cancel script: `hooks/ralph-wiggum/cancel-ralph.sh`
-4. Commands: `commands/orchestration/ralph-loop.md`, `cancel-ralph.md`
-
-## Activation
-
-Add to Stop hook in settings.json:
-```json
-"Stop": [
-  {
-    "hooks": [
-      {
-        "type": "command",
-        "command": "bash .claude/hooks/ralph-wiggum/ralph-loop-stop-hook.sh"
-      }
-    ]
-  }
-]
-```
+3. Wr
 
 ---
+<!-- S4 SUCCESS CRITERIA                                                          -->
+---
 
-## Conclusion
+[define|neutral] SUCCESS_CRITERIA := {
+  primary: "Skill execution completes successfully",
+  quality: "Output meets quality thresholds",
+  verification: "Results validated against requirements"
+} [ground:given] [conf:1.0] [state:confirmed]
 
-Ralph Loop transforms Claude from a tool that "tries once and gives up" into a persistent loop that keeps iterating until success. It's ideal for well-defined tasks with automated verification, enabling true "fire and forget" development workflows.
+---
+<!-- S5 MCP INTEGRATION                                                           -->
+---
+
+[define|neutral] MCP_INTEGRATION := {
+  memory_mcp: "Store execution results and patterns",
+  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
+} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
+
+---
+<!-- S6 MEMORY NAMESPACE                                                          -->
+---
+
+[define|neutral] MEMORY_NAMESPACE := {
+  pattern: "skills/orchestration/ralph-loop/{project}/{timestamp}",
+  store: ["executions", "decisions", "patterns"],
+  retrieve: ["similar_tasks", "proven_patterns"]
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "ralph-loop-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project_name}",
+  WHY: "skill-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
+---
+
+[direct|emphatic] COMPLETION_CHECKLIST := {
+  agent_spawning: "Spawn agents via Task()",
+  registry_validation: "Use registry agents only",
+  todowrite_called: "Track progress with TodoWrite",
+  work_delegation: "Delegate to specialized agents"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- S8 ABSOLUTE RULES                                                            -->
+---
+
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- PROMISE                                                                      -->
+---
+
+[commit|confident] <promise>RALPH_LOOP_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

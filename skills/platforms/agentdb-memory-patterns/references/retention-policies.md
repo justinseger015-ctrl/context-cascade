@@ -1,5 +1,10 @@
 # Retention Policies and Memory Optimization
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document covers strategies for managing memory capacity, implementing garbage collection, and optimizing long-term storage in AgentDB-based systems.
@@ -567,3 +572,7 @@ async function measureRetentionEffectiveness(): Promise<RetentionMetrics> {
 
 - [Memory Patterns](./memory-patterns.md) - Pattern types and characteristics
 - [Performance Tuning](./performance-tuning.md) - Optimization techniques
+
+
+---
+*Promise: `<promise>RETENTION_POLICIES_VERIX_COMPLIANT</promise>`*

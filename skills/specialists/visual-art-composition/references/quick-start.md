@@ -1,5 +1,10 @@
 # Quick-Start Prompt Generation Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Rapid workflow for generating image prompts using the orthogonal framework.
 
 ---
@@ -202,3 +207,7 @@ Horror vacui (dense code everywhere) + single light source (screen)
 
 **Step 5 - Prompt**:
 > A programmer at a desk, rendered with Expressionist angular distortion—figure elongated, posture hunched, face lit only by screen glow. Tenebrism: the room is swallowed in near-black except the monitor's cold light catching face and hands. Horror vacui fills every surface: code scrolls across all walls, streams across desk, reflects in glasses—text everywhere but none legible. The figure's proportions are Kirchner-stretched: too-long fingers on keyboard, shoulders angular, spine curved. Color: cold blue-white from screen against warm blacks everywhere else; no other color. Monitor is the only light source—harsh, unforgiving. The code-covered walls tilt slightly inward (reverse perspective pressure). Emotional register: existential weight—the quiet terror of infinite tasks, the solitude of late-night work. Deliberate absences: no daylight, no other humans, no warm colors, no stability, no completion—the code never ends.
+
+
+---
+*Promise: `<promise>QUICK_START_VERIX_COMPLIANT</promise>`*

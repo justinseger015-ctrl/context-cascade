@@ -1,5 +1,10 @@
 # Dependencies - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Dependency management, analysis, and vulnerability detection.
 
@@ -54,3 +59,7 @@ cargo audit
 - **security**
 - **code-review-assistant**
 - **deployment-readiness**
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

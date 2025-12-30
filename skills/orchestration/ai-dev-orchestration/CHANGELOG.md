@@ -1,5 +1,10 @@
 # AI Dev Orchestration Changelog
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## v2.1.0 (2025-12-15)
 
 **Meta-Loop Enhancement Release**
@@ -21,3 +26,7 @@
 - 5-phase AI development SOP
 - Behavioral guardrails
 - Feature Prompt Framework
+
+
+---
+*Promise: `<promise>CHANGELOG_VERIX_COMPLIANT</promise>`*

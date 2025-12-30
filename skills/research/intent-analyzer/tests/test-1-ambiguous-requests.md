@@ -1,5 +1,10 @@
 # Test 1: Ambiguous Request Analysis
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -365,13 +370,16 @@ For each test scenario, verify:
 **Expected**: Validation warning - "Category probabilities sum to 0.6 (expected ~1.0)"
 
 ## Success Metrics
-
-- **Ambiguity Detection Rate**: 100% for genuinely ambiguous requests
-- **False Positive Rate**: <10% for clear requests incorrectly flagged as ambiguous
-- **Clarification Precision**: Questions address actual ambiguities, not spurious ones
-- **Conflict Detection**: 100% for contradictory signal pairs
-- **Validation Pass Rate**: 100% for well-formed analyses
+- [assert|neutral] *Ambiguity Detection Rate**: 100% for genuinely ambiguous requests [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *False Positive Rate**: <10% for clear requests incorrectly flagged as ambiguous [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Clarification Precision**: Questions address actual ambiguities, not spurious ones [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Conflict Detection**: 100% for contradictory signal pairs [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Validation Pass Rate**: 100% for well-formed analyses [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Notes
 
 This test suite focuses on the most challenging aspect of intent analysis: handling ambiguity. Clear requests should proceed quickly without over-clarification. Ambiguous requests must be detected reliably and clarification questions should be strategic, not interrogatory.
+
+
+---
+*Promise: `<promise>TEST_1_AMBIGUOUS_REQUESTS_VERIX_COMPLIANT</promise>`*

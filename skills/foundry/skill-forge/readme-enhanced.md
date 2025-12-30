@@ -1,5 +1,10 @@
 # Skill Forge Enhanced - Agent-Orchestrated SOP
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## 🎯 What This Is
 
 A comprehensive Standard Operating Procedure (SOP) for creating production-quality Claude Code skills through coordinated multi-agent workflows. This enhanced version transforms the original skill-forge methodology into an executable, systematic process with explicit agent orchestration.
@@ -337,3 +342,7 @@ npx claude-flow@alpha hooks session-start --session-id "my-first-skill"
 **Methodology:** Agent Orchestration + Evidence-Based Prompting + SOP Design
 **License:** Same as original skill-forge
 **Author:** Enhanced by Claude Code (Sonnet 4.5) as prompt-architect specialist
+
+
+---
+*Promise: `<promise>README_ENHANCED_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Production Kubernetes Cluster Setup Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: DEPLOYMENT SAFETY GUARDRAILS
 
 **BEFORE any deployment, validate**:
@@ -699,3 +704,7 @@ managedNodeGroups:
 - Network isolation (Network Policies)
 - Graceful disruption handling (PDBs)
 - Cost optimization (Spot instances support)
+
+
+---
+*Promise: `<promise>KUBERNETES_SETUP_EXAMPLE_VERIX_COMPLIANT</promise>`*

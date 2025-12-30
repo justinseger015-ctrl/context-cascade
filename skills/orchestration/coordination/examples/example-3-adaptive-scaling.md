@@ -1,5 +1,10 @@
 # Example 3: Adaptive Scaling for Dynamic Agent Management
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Description
 
 You're building a SaaS platform with **unpredictable workload spikes**. During normal hours, 3-4 agents handle development tasks. But during critical events (customer demos, production incidents, major releases), you need to **scale up to 15+ agents** rapidly, then **scale back down** when the spike ends.
@@ -409,28 +414,23 @@ npx claude-flow@alpha hooks session-end --export-metrics true
 ## Expected Outcomes
 
 ### Successful Adaptive Scaling Results:
-
-1. **Cost Efficiency**
-   - 87 agent-hours saved per month
-   - $347 monthly savings (vs static 15-agent team)
-   - Average team size: 5.3 agents (vs static 15)
-
-2. **Performance Gains**
-   - Incident resolution: 40% faster (scale-up when needed)
-   - Feature throughput: 2.1x improvement during sprints
-   - Agent utilization: 76% (vs 42% static)
-
-3. **Flexibility**
-   - Scale from 3 → 12 agents in <5 minutes
-   - Auto-scale down after 30 minutes idle
-   - Dynamic response to changing priorities
-
-4. **Auto-Healing**
-   - Replace failed agents automatically
-   - Redistribute tasks to healthy agents
-   - No manual intervention required
-
----
+- [assert|neutral] 1. **Cost Efficiency** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 87 agent-hours saved per month [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] $347 monthly savings (vs static 15-agent team) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Average team size: 5.3 agents (vs static 15) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. **Performance Gains** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Incident resolution: 40% faster (scale-up when needed) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Feature throughput: 2.1x improvement during sprints [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Agent utilization: 76% (vs 42% static) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. **Flexibility** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Scale from 3 → 12 agents in <5 minutes [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Auto-scale down after 30 minutes idle [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Dynamic response to changing priorities [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. **Auto-Healing** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Replace failed agents automatically [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Redistribute tasks to healthy agents [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] No manual intervention required [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Code Examples
 
@@ -703,3 +703,7 @@ After mastering adaptive scaling:
 3. Implement **cost budgets** and auto-alerts for overspending
 4. Use **A/B testing** to optimize scaling thresholds
 5. Apply to **CI/CD pipelines** for dynamic test parallelization
+
+
+---
+*Promise: `<promise>EXAMPLE_3_ADAPTIVE_SCALING_VERIX_COMPLIANT</promise>`*

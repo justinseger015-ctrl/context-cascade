@@ -1,5 +1,10 @@
 # Skill Forge - Expertise System Addendum
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version**: 2.1.0
 **Integrates**: expertise-manager, domain-expert
 
@@ -257,3 +262,7 @@ quality_checks:
 ## Reference
 
 See: `.claude/skills/EXPERTISE-INTEGRATION-MODULE.md` for full integration patterns.
+
+
+---
+*Promise: `<promise>EXPERTISE_ADDENDUM_VERIX_COMPLIANT</promise>`*

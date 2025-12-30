@@ -1,5 +1,10 @@
 # Skill Forge Changelog
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## v2.2.0 (2025-12-15)
 
 **Minor Release: All Supporting Files Updated from Cycle 8**
@@ -111,3 +116,7 @@ All 14 files in skill-forge folder now consistent with v2.0+ methodology
 - Progressive disclosure architecture
 - GraphViz diagram generation
 - Validation and iteration framework
+
+
+---
+*Promise: `<promise>CHANGELOG_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Example 2: Pattern Retrieval Phase - Memory-MCP Vector Search
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 **Context**: You've completed Phase 1 and discovered a **God Object** violation in `memory-manager.js` (34 methods, threshold: 15). You need proven refactoring patterns to fix it efficiently.
@@ -640,3 +645,7 @@ After completing Phase 2 (Pattern Retrieval):
 **Integration**: Works with any Memory-MCP stored pattern, requires Phase 1 analysis as input
 
 **ROI**: 10-30 seconds to find proven fix vs 2-4 hours of trial-and-error refactoring
+
+
+---
+*Promise: `<promise>EXAMPLE_2_PATTERN_RETRIEVAL_VERIX_COMPLIANT</promise>`*

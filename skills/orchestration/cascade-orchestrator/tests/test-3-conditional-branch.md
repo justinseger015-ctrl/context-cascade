@@ -1,5 +1,10 @@
 # Test 3: Conditional Branching with Dynamic Path Selection
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Objective
 Validate conditional workflow branching based on runtime conditions, quality gates, and dynamic path selection.
 
@@ -492,3 +497,7 @@ stages:
 # Test all paths in decision tree
 # Combinations: (small, high), (small, low), (large, high), (large, low)
 ```
+
+
+---
+*Promise: `<promise>TEST_3_CONDITIONAL_BRANCH_VERIX_COMPLIANT</promise>`*

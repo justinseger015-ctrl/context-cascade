@@ -1,5 +1,10 @@
 # Example 2: Multi-Agent Coordinator
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Agent Type**: Coordinator | **Domain**: Multi-Agent Orchestration | **Complexity**: High
 
 ## Overview
@@ -694,3 +699,7 @@ Task(
 ---
 
 **Next Steps**: Apply coordination patterns to domain-specific workflows (DevOps, ML pipelines, data engineering)
+
+
+---
+*Promise: `<promise>EXAMPLE_2_COORDINATOR_VERIX_COMPLIANT</promise>`*

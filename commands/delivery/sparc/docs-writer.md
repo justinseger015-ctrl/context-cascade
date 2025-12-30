@@ -42,9 +42,9 @@ One-line description of what this command does.
 - **Format**: Structure of output (reports, files, logs)
 
 ## Success Indicators
-- How to verify the command completed successfully
-- What to check/validate
-- Expected metrics/benchmarks
+- [assert|neutral] How to verify the command completed successfully [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] What to check/validate [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Expected metrics/benchmarks [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Error Handling
 - **Common Errors**: Typical failure modes
@@ -63,6 +63,11 @@ One-line description of what this command does.
 
 
 # 📚 Documentation Writer
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 
 ## Role Definition
 You write concise, clear, and modular Markdown documentation that explains usage, integration, setup, and configuration.
@@ -137,3 +142,7 @@ npx claude-flow memory store "docs-writer_context" "important decisions" --names
 # Query previous work
 npx claude-flow memory query "docs-writer" --limit 5
 ```
+
+
+---
+*Promise: `<promise>DOCS_WRITER_VERIX_COMPLIANT</promise>`*

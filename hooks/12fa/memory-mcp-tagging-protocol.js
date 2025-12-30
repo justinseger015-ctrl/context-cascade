@@ -1,10 +1,15 @@
 /**
- * Memory MCP Tagging Protocol v2.0 - Agent Reality Map Compliance
+ * Memory MCP Tagging Protocol v3.0 - Anthropic-Compliant Format
  *
  * Automatically injects metadata tags for all Memory MCP write operations.
  * All agents must tag writes with: WHO, WHEN, PROJECT, WHY, IDENTITY, BUDGET, QUALITY, ARTIFACTS, PERFORMANCE
  *
- * NEW in v2.0 (Agent Reality Map Integration):
+ * NEW in v3.0 (Anthropic Format Compliance):
+ * - Custom fields use x- prefix (x-category, x-role, x-capabilities, x-rbac-level)
+ * - Backward compatibility for reading v2.0 format (bare field names)
+ * - All new writes use x- prefixed fields
+ *
+ * v2.0 (Agent Reality Map Integration):
  * - IDENTITY: Agent UUID, role, capabilities, RBAC level
  * - BUDGET: Token usage, cost tracking, remaining budget, budget status
  * - QUALITY: Connascence scores, code quality grades, violations
@@ -16,7 +21,7 @@
  * - All operations batched (Rule #2)
  * - Work only in designated folders (Rule #3)
  *
- * @version 2.0.0
+ * @version 3.0.0
  * @module memory-mcp-tagging-protocol
  */
 
@@ -62,52 +67,63 @@ const MEMORY_NAMESPACES = {
 
 /**
  * Agent Access Control Matrix (from agent-mcp-access-control.js)
+ * Uses x-category for Anthropic-compliant format (v3.0)
  */
 const AGENT_TOOL_ACCESS = {
   // Code Quality Agents (14) - Get Connascence + Memory + Coordination
-  'coder': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'reviewer': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'tester': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'code-analyzer': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'functionality-audit': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'theater-detection-audit': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'production-validator': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'sparc-coder': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'analyst': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'backend-dev': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'mobile-dev': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'ml-developer': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'base-template-generator': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
-  'code-review-swarm': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], category: 'code-quality' },
+  'coder': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'reviewer': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'tester': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'code-analyzer': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'functionality-audit': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'theater-detection-audit': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'production-validator': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'sparc-coder': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'analyst': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'backend-dev': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'mobile-dev': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'ml-developer': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'base-template-generator': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
+  'code-review-swarm': { mcpServers: ['memory-mcp', 'connascence-analyzer', 'claude-flow'], 'x-category': 'code-quality' },
 
   // Planning Agents (23) - Get Memory + Coordination only (NO Connascence)
-  'planner': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'researcher': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'system-architect': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'specification': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'pseudocode': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'architecture': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'refinement': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'hierarchical-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'mesh-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'adaptive-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'collective-intelligence-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'swarm-memory-manager': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'byzantine-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'raft-manager': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'gossip-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'consensus-builder': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'crdt-synchronizer': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'quorum-manager': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'security-manager': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'perf-analyzer': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'performance-benchmarker': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'task-orchestrator': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
-  'memory-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], category: 'planning' },
+  'planner': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'researcher': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'system-architect': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'specification': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'pseudocode': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'architecture': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'refinement': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'hierarchical-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'mesh-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'adaptive-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'collective-intelligence-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'swarm-memory-manager': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'byzantine-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'raft-manager': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'gossip-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'consensus-builder': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'crdt-synchronizer': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'quorum-manager': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'security-manager': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'perf-analyzer': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'performance-benchmarker': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'task-orchestrator': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
+  'memory-coordinator': { mcpServers: ['memory-mcp', 'claude-flow'], 'x-category': 'planning' },
 
   // Default fallback
-  'default': { mcpServers: ['memory-mcp'], category: 'general' }
+  'default': { mcpServers: ['memory-mcp'], 'x-category': 'general' }
 };
+
+/**
+ * Get category from agent access (supports both old and new format)
+ * @param {object} access - Agent access object
+ * @returns {string} Category value
+ */
+function getAgentCategory(access) {
+  // Try new format first (x-category), fall back to old format (category)
+  return access['x-category'] || access.category || 'general';
+}
 
 /**
  * Simple Intent Analyzer
@@ -154,11 +170,13 @@ function detectProject(cwd = process.cwd(), content = '') {
   if (cwdLower.includes('connascence')) return 'connascence-analyzer';
   if (cwdLower.includes('memory-mcp')) return 'memory-mcp-triple-system';
   if (cwdLower.includes('claude-flow')) return 'claude-flow';
+  if (cwdLower.includes('context-cascade') || cwdLower.includes('ruv-sparc')) return 'context-cascade';
 
   // Try to detect from content
   if (typeof content === 'string') {
     if (content.toLowerCase().includes('connascence')) return 'connascence-analyzer';
     if (content.toLowerCase().includes('memory')) return 'memory-mcp-triple-system';
+    if (content.toLowerCase().includes('context-cascade')) return 'context-cascade';
   }
 
   return 'unknown-project';
@@ -166,6 +184,7 @@ function detectProject(cwd = process.cwd(), content = '') {
 
 /**
  * Get agent identity metadata from registry
+ * Returns x- prefixed fields for Anthropic compliance (v3.0)
  * @param {string} agent - Agent name
  * @returns {object|null} Identity metadata or null if not found
  */
@@ -180,11 +199,28 @@ function getAgentIdentity(agent) {
     return null;
   }
 
+  // Return x- prefixed fields (v3.0 format)
   return {
     agent_id: identity.agent_id,
-    role: identity.role,
-    capabilities: identity.capabilities || [],
-    rbac_level: getRBACLevel(identity.role)
+    'x-role': identity.role || identity['x-role'],
+    'x-capabilities': identity.capabilities || identity['x-capabilities'] || [],
+    'x-rbac-level': getRBACLevel(identity.role || identity['x-role'])
+  };
+}
+
+/**
+ * Normalize identity metadata to v3.0 format
+ * @param {object} identity - Identity object (may be v2.0 or v3.0 format)
+ * @returns {object} Normalized identity with x- prefixed fields
+ */
+function normalizeIdentity(identity) {
+  if (!identity) return null;
+
+  return {
+    agent_id: identity.agent_id,
+    'x-role': identity['x-role'] || identity.role || 'developer',
+    'x-capabilities': identity['x-capabilities'] || identity.capabilities || [],
+    'x-rbac-level': identity['x-rbac-level'] || identity.rbac_level || 5
   };
 }
 
@@ -295,12 +331,13 @@ function getPerformanceMetadata(context) {
  * Required fields: who, when, project, why
  */
 function createEnrichedMetadata(agent, content, context = {}) {
+  const agentAccess = AGENT_TOOL_ACCESS[agent] || AGENT_TOOL_ACCESS.default;
   const metadata = {
-    // WHO: Agent information
+    // WHO: Agent information (uses x-category in v3.0)
     agent: {
       name: agent || 'unknown-agent',
-      category: AGENT_TOOL_ACCESS[agent]?.category || 'general',
-      capabilities: AGENT_TOOL_ACCESS[agent]?.mcpServers || ['memory-mcp']
+      'x-category': getAgentCategory(agentAccess),
+      'x-capabilities': agentAccess?.mcpServers || ['memory-mcp']
     },
 
     // WHEN: Timestamp information
@@ -341,15 +378,16 @@ function createEnrichedMetadata(agent, content, context = {}) {
 }
 
 /**
- * Create Agent Reality Map compliant metadata (v2.0 - enhanced)
+ * Create Agent Reality Map compliant metadata (v3.0 - Anthropic format)
  *
  * Extends v1.0 with: IDENTITY, BUDGET, QUALITY, ARTIFACTS, PERFORMANCE
+ * Uses x- prefixed fields for custom metadata
  */
 function createAgentRealityMapMetadata(agent, content, context = {}) {
   // Start with v1.0 metadata for backward compatibility
   const baseMetadata = createEnrichedMetadata(agent, content, context);
 
-  // Add Agent Reality Map extensions
+  // Add Agent Reality Map extensions (v3.0 uses x- prefixed fields)
   const identity = getAgentIdentity(agent);
   const budget = getBudgetMetadata(agent);
   const quality = getQualityMetadata(context);
@@ -359,27 +397,27 @@ function createAgentRealityMapMetadata(agent, content, context = {}) {
   return {
     ...baseMetadata,
 
-    // IDENTITY: Agent UUID, role, capabilities, RBAC level
+    // IDENTITY: Agent UUID, role, capabilities, RBAC level (v3.0 x- prefixed)
     identity: identity || {
       agent_id: null,
-      role: 'developer',
-      capabilities: [],
-      rbac_level: 5
+      'x-role': 'developer',
+      'x-capabilities': [],
+      'x-rbac-level': 5
     },
 
-    // BUDGET: Token usage, cost, remaining budget, status
+    // BUDGET: Token usage, cost, remaining budget, status (v3.0 x- prefixed)
     budget: budget || {
-      tokens_used: 0,
-      cost_usd: 0,
-      remaining_budget: 0,
-      budget_status: 'unknown'
+      'x-tokens-used': 0,
+      'x-cost-usd': 0,
+      'x-remaining-budget': 0,
+      'x-budget-status': 'unknown'
     },
 
-    // QUALITY: Connascence scores, code quality grades, violations
+    // QUALITY: Connascence scores, code quality grades, violations (v3.0 x- prefixed)
     quality: quality || {
-      connascence_score: 0,
-      code_quality_grade: 'N/A',
-      violations: []
+      'x-connascence-score': 0,
+      'x-code-quality-grade': 'N/A',
+      'x-violations': []
     },
 
     // ARTIFACTS: Files created/modified, tools used, APIs called
@@ -411,9 +449,10 @@ function taggedMemoryStore(agent, content, userMetadata = {}) {
 }
 
 /**
- * Wrap Memory MCP store with Agent Reality Map compliance (v2.0 - enhanced)
+ * Wrap Memory MCP store with Agent Reality Map compliance (v3.0 - Anthropic format)
  *
  * Use this for Agent Reality Map integration with full metadata tracking
+ * Uses x- prefixed fields for custom metadata
  */
 function taggedMemoryStoreV2(agent, content, userMetadata = {}) {
   const enrichedMetadata = createAgentRealityMapMetadata(agent, content, userMetadata);
@@ -424,24 +463,80 @@ function taggedMemoryStoreV2(agent, content, userMetadata = {}) {
       ...enrichedMetadata,
       ...userMetadata,  // User metadata can override defaults
 
-      // Core fields (v1.0 compatibility)
+      // Core fields (v1.0 compatibility - standard fields)
       _tagged_at: enrichedMetadata.timestamp.iso,
       _agent: enrichedMetadata.agent.name,
       _project: enrichedMetadata.project,
       _intent: enrichedMetadata.intent.primary,
 
-      // Agent Reality Map fields (v2.0)
+      // Agent Reality Map fields (v3.0 - x- prefixed custom fields)
       _agent_id: enrichedMetadata.identity.agent_id,
-      _role: enrichedMetadata.identity.role,
-      _rbac_level: enrichedMetadata.identity.rbac_level,
-      _budget_status: enrichedMetadata.budget.budget_status,
-      _quality_grade: enrichedMetadata.quality.code_quality_grade,
-      _success: enrichedMetadata.performance.success,
+      '_x-role': enrichedMetadata.identity['x-role'],
+      '_x-rbac-level': enrichedMetadata.identity['x-rbac-level'],
+      '_x-budget-status': enrichedMetadata.budget['x-budget-status'],
+      '_x-quality-grade': enrichedMetadata.quality['x-code-quality-grade'],
+      '_x-success': enrichedMetadata.performance.success,
 
-      // Version tag
-      _schema_version: '2.0'
+      // Version tag (v3.0 for Anthropic-compliant format)
+      _schema_version: '3.0'
     }
   };
+}
+
+/**
+ * Detect schema version from metadata
+ * @param {object} metadata - Metadata object
+ * @returns {string} Schema version ('1.0', '2.0', or '3.0')
+ */
+function detectSchemaVersion(metadata) {
+  if (metadata._schema_version) return metadata._schema_version;
+  if (metadata['_x-role'] || metadata['x-category']) return '3.0';
+  if (metadata._role || metadata.identity?.role) return '2.0';
+  return '1.0';
+}
+
+/**
+ * Normalize metadata from any version to v3.0 format
+ * @param {object} metadata - Metadata object (v1.0, v2.0, or v3.0)
+ * @returns {object} Normalized metadata with x- prefixed fields
+ */
+function normalizeMetadataToV3(metadata) {
+  const version = detectSchemaVersion(metadata);
+  if (version === '3.0') return metadata;
+
+  // Convert v2.0 or v1.0 to v3.0
+  const normalized = { ...metadata };
+
+  // Convert agent category
+  if (normalized.agent) {
+    normalized.agent['x-category'] = normalized.agent['x-category'] || normalized.agent.category || 'general';
+    normalized.agent['x-capabilities'] = normalized.agent['x-capabilities'] || normalized.agent.capabilities || [];
+    delete normalized.agent.category;
+    delete normalized.agent.capabilities;
+  }
+
+  // Convert identity fields
+  if (normalized.identity) {
+    normalized.identity['x-role'] = normalized.identity['x-role'] || normalized.identity.role || 'developer';
+    normalized.identity['x-capabilities'] = normalized.identity['x-capabilities'] || normalized.identity.capabilities || [];
+    normalized.identity['x-rbac-level'] = normalized.identity['x-rbac-level'] || normalized.identity.rbac_level || 5;
+    delete normalized.identity.role;
+    delete normalized.identity.capabilities;
+    delete normalized.identity.rbac_level;
+  }
+
+  // Convert flat fields
+  if (normalized._role) {
+    normalized['_x-role'] = normalized._role;
+    delete normalized._role;
+  }
+  if (normalized._rbac_level) {
+    normalized['_x-rbac-level'] = normalized._rbac_level;
+    delete normalized._rbac_level;
+  }
+
+  normalized._schema_version = '3.0';
+  return normalized;
 }
 
 /**
@@ -519,6 +614,12 @@ module.exports = {
   getArtifactMetadata,
   getPerformanceMetadata,
   getRBACLevel,
+
+  // v3.0 API (Anthropic-compliant format)
+  getAgentCategory,
+  normalizeIdentity,
+  detectSchemaVersion,
+  normalizeMetadataToV3,
 
   // Utilities
   budgetTrackerAvailable,

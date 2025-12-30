@@ -1,5 +1,10 @@
 # Source Classification Example (Step 3 Output)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Research Topic**: Byzantine Empire's Influence on Renaissance Italy
 
 ---
@@ -264,3 +269,7 @@ Final: 4/5
 ---
 
 **Next Step**: Return to Source Discovery (Step 2) to find more primary sources. Target: Manuscript catalogs, contemporary letters, official records from 1440-1500.
+
+
+---
+*Promise: `<promise>SOURCE_CLASSIFICATION_EXAMPLE_VERIX_COMPLIANT</promise>`*

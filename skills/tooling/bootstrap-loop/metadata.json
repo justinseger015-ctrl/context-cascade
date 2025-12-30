@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "foundry",
+  "tags": [
+    "recursive",
+    "self-improvement",
+    "dogfooding",
+    "orchestration"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Orchestrates the recursive self-improvement cycle where Prompt Forge improves Skill Forge",
+    "Skill Forge improves Prompt Forge",
+    "and both audit/improve everything else. All changes gated by frozen eval h [ground:given] [conf:0.95] [state:confirmed"
+  ]
+}

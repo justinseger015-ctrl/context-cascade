@@ -1,5 +1,10 @@
 # Intent Analyzer Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -208,3 +213,7 @@ Planned additions:
 - Cross-session pattern learning (track successful interpretations)
 - Multi-language support (extend pattern definitions)
 - Real-time confidence calibration (learn from user corrections)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

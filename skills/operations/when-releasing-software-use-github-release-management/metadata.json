@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "operations",
+  "tags": [
+    "general"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Comprehensive GitHub release orchestration with AI swarm coordination for automated versioning",
+    "testing",
+    "deployment",
+    "and rollback management. Coordinates release-manager",
+    "cicd-engineer",
+    "tester",
+    "and do [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-releasing-software-use-github-release-management",
+  "triggers": [
+    "releasing software"
+  ]
+}

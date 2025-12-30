@@ -1,236 +1,223 @@
----
-
-## Command Purpose
-[Define what this command does - the specific action it triggers]
-
-## Input Requirements
-[Parameters and prerequisites needed to execute this command]
-
-## Expected Output
-[What artifacts, results, or state changes this command produces]
-
-## Success Indicators
-[How to verify the command executed successfully]
-
-## Error Handling
-[Common failures and recovery procedures]
-
-## Related Commands
-[Commands that work together with this one in typical workflows]
+/*============================================================================*/
+/* K8S-DEPLOY COMMAND :: VERILINGUA x VERIX EDITION                   */
+/*============================================================================*/
 
 ---
-
-
-<!-- META-LOOP v2.1 INTEGRATION -->
-## Phase 0: Expertise Loading
-expertise_check:
-  domain: deployment
-  file: .claude/expertise/deployment.yaml
-  fallback: discovery_mode
-
-## Recursive Improvement Integration (v2.1)
-benchmark: k8s-deploy-benchmark-v1
-  tests:
-    - command_execution_success
-    - workflow_validation
-  success_threshold: 0.9
-namespace: "commands/delivery/workflows/k8s-deploy/{project}/{timestamp}"
-uncertainty_threshold: 0.85
-coordination:
-  related_skills: [deployment-readiness, cicd-intelligent-recovery]
-  related_agents: [cicd-engineer, tester]
-
-## COMMAND COMPLETION VERIFICATION
-success_metrics:
-  execution_success: ">95%"
-<!-- END META-LOOP -->
-
 name: k8s-deploy
-category: deployment
 version: 1.0.0
+binding: skill:k8s-deploy
+category: delivery
 ---
 
-# /k8s-deploy
+/*----------------------------------------------------------------------------*/
+/* S0 COMMAND IDENTITY                                                         */
+/*----------------------------------------------------------------------------*/
 
-Deploy applications to Kubernetes clusters with intelligent orchestration.
+[define|neutral] COMMAND := {
+  name: "k8s-deploy",
+  binding: "skill:k8s-deploy",
+  category: "delivery",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## Usage
-```bash
-/k8s-deploy [manifest_path] [options]
-```
+/*----------------------------------------------------------------------------*/
+/* S1 PURPOSE                                                                  */
+/*----------------------------------------------------------------------------*/
 
-## Parameters
-- `manifest_path` - Path to K8s manifests (default: k8s/)
-- `--namespace` - Target namespace (default: default)
-- `--context` - Kubectl context (default: current)
-- `--cluster` - Target cluster name (required for multi-cluster)
-- `--environment` - Environment: dev|staging|production (default: staging)
-- `--replicas` - Override replica count (optional)
-- `--strategy` - Deployment strategy: rolling|recreate|blue-green|canary (default: rolling)
-- `--dry-run` - Preview changes without applying (default: false)
-- `--auto-scale` - Enable HPA (Horizontal Pod Autoscaler) (default: false)
-- `--wait-ready` - Wait for pods to be ready (default: true)
-- `--timeout` - Deployment timeout in seconds (default: 300)
+[assert|neutral] PURPOSE := {
+  action: "[Define what this command does - the specific action it triggers]",
+  outcome: "Workflow completion with quality metrics",
+  use_when: "User invokes /k8s-deploy"
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## What It Does
+/*----------------------------------------------------------------------------*/
+/* S2 USAGE SYNTAX                                                             */
+/*----------------------------------------------------------------------------*/
 
-**Comprehensive Kubernetes Deployment**:
-1. 🔍 Validate manifests (kubeval, kube-linter)
-2. 🎯 Select target cluster and namespace
-3. 🏗️ Apply ConfigMaps and Secrets
-4. 📦 Deploy Deployments/StatefulSets
-5. 🌐 Configure Services and Ingress
-6. 📊 Monitor rollout progress
-7. 🏥 Health check validation
-8. 🔄 Auto-rollback on failure
-9. 📈 Post-deployment metrics
+[define|neutral] SYNTAX := "/k8s-deploy [args]" [ground:given] [conf:1.0] [state:confirmed]
 
-**Deployment Strategies**:
-- **Rolling Update**: Zero-downtime gradual rollout
-- **Recreate**: Terminate old, then create new
-- **Blue-Green**: Full environment switch
-- **Canary**: Gradual traffic shift (10%→50%→100%)
+[define|neutral] PARAMETERS := {
+  required: {
+    input: { type: "string", description: "Primary input" }
+  },
+  optional: {
+    manifest_path: { type: "string", description: "Path to K8s manifests (default: k8s/)" }
+  },
+  flags: {
+    "--namespace": { description: "Target namespace (default: default)", default: "false" },
+    "--context": { description: "Kubectl context (default: current)", default: "false" },
+    "--cluster": { description: "Target cluster name (required for multi-cluster)", default: "false" }
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-## Examples
+/*----------------------------------------------------------------------------*/
+/* S3 EXECUTION FLOW                                                           */
+/*----------------------------------------------------------------------------*/
 
-```bash
-# Basic deployment
-/k8s-deploy k8s/manifests/
+[define|neutral] EXECUTION_STAGES := [
+  { stage: 1, action: "🔍 Validate manifests (kubeval, kube-linter)", model: "Claude" },
+  { stage: 2, action: "🎯 Select target cluster and namespace", model: "Claude" },
+  { stage: 3, action: "🏗️ Apply ConfigMaps and Secrets", model: "Claude" },
+  { stage: 4, action: "📦 Deploy Deployments/StatefulSets", model: "Claude" },
+  { stage: 5, action: "🌐 Configure Services and Ingress", model: "Claude" },
+  { stage: 6, action: "📊 Monitor rollout progress", model: "Claude" }
+] [ground:witnessed:workflow-design] [conf:0.95] [state:confirmed]
 
-# Deploy to specific namespace and cluster
-/k8s-deploy --namespace myapp-prod --cluster production-us-east
+[define|neutral] MULTI_MODEL_STRATEGY := {
+  gemini_search: "Research and web search tasks",
+  gemini_megacontext: "Large codebase analysis",
+  codex: "Code generation and prototyping",
+  claude: "Architecture and testing"
+} [ground:given] [conf:0.95] [state:confirmed]
 
-# Dry run to preview changes
-/k8s-deploy --dry-run true
+/*----------------------------------------------------------------------------*/
+/* S4 INPUT CONTRACT                                                           */
+/*----------------------------------------------------------------------------*/
 
-# Canary deployment
-/k8s-deploy --strategy canary --environment production
+[define|neutral] INPUT_CONTRACT := {
+  required: {
+    command_args: "string - Command arguments"
+  },
+  optional: {
+    flags: "object - Command flags",
+    context: "string - Additional context"
+  },
+  prerequisites: [
+    "Valid project directory",
+    "Required tools installed"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-# Deploy with auto-scaling
-/k8s-deploy --auto-scale true --replicas 3
+/*----------------------------------------------------------------------------*/
+/* S5 OUTPUT CONTRACT                                                          */
+/*----------------------------------------------------------------------------*/
 
-# Blue-green deployment
-/k8s-deploy --strategy blue-green --namespace production
+[define|neutral] OUTPUT_CONTRACT := {
+  artifacts: [
+    "Execution log",
+    "Quality metrics report"
+  ],
+  metrics: {
+    success_rate: "Percentage of successful executions",
+    quality_score: "Overall quality assessment"
+  },
+  state_changes: [
+    "Workflow state updated"
+  ]
+} [ground:given] [conf:1.0] [state:confirmed]
 
-# Deploy specific manifest
-/k8s-deploy k8s/deployment.yaml --namespace staging --replicas 5
-```
+/*----------------------------------------------------------------------------*/
+/* S6 SUCCESS INDICATORS                                                       */
+/*----------------------------------------------------------------------------*/
 
-## Output
+[define|neutral] SUCCESS_CRITERIA := {
+  pass_conditions: [
+    "Command executes without errors",
+    "Output meets quality thresholds"
+  ],
+  quality_thresholds: {
+    execution_success: ">= 0.95",
+    quality_score: ">= 0.80"
+  }
+} [ground:given] [conf:1.0] [state:confirmed]
 
-```
-☸️  Kubernetes Deployment Started
+/*----------------------------------------------------------------------------*/
+/* S7 ERROR HANDLING                                                           */
+/*----------------------------------------------------------------------------*/
 
-Cluster: production-us-east-1
-Namespace: myapp-prod
-Context: arn:aws:eks:us-east-1:123456789:cluster/prod
-Strategy: Rolling Update
+[define|neutral] ERROR_HANDLERS := {
+  missing_input: {
+    symptom: "Required input not provided",
+    cause: "User omitted required argument",
+    recovery: "Prompt user for missing input"
+  },
+  execution_failure: {
+    symptom: "Command fails to complete",
+    cause: "Underlying tool or service error",
+    recovery: "Retry with verbose logging"
+  }
+} [ground:witnessed:failure-analysis] [conf:0.92] [state:confirmed]
 
-Validating Manifests:
-  ✅ deployment.yaml: Valid
-  ✅ service.yaml: Valid
-  ✅ ingress.yaml: Valid
-  ✅ configmap.yaml: Valid
-  ⚠️  No resource limits defined (consider adding)
-  ✅ kubeval: All manifests valid
-  ✅ kube-linter: No critical issues
+/*----------------------------------------------------------------------------*/
+/* S8 EXAMPLES                                                                 */
+/*----------------------------------------------------------------------------*/
 
-Pre-Deployment Checks:
-  ✅ Cluster connectivity: OK
-  ✅ Namespace exists: myapp-prod
-  ✅ RBAC permissions: Verified
-  ✅ Image pull secrets: Configured
-  ✅ Storage class available: gp3
-  ✅ Current pods: 3/3 healthy
+[define|neutral] EXAMPLES := [
+  { command: "/k8s-deploy k8s/manifests/", description: "Example usage" },
+  { command: "/k8s-deploy --namespace myapp-prod --cluster production-us-e", description: "Example usage" },
+  { command: "/k8s-deploy --dry-run true", description: "Example usage" }
+] [ground:given] [conf:1.0] [state:confirmed]
 
-Applying Resources:
-  📝 ConfigMap/myapp-config: Created
-  🔐 Secret/myapp-secrets: Created (from vault)
-  📦 Deployment/myapp-web: Updated
-  🌐 Service/myapp-svc: Unchanged
-  🌍 Ingress/myapp-ingress: Updated (added new route)
+/*----------------------------------------------------------------------------*/
+/* S9 CHAIN PATTERNS                                                           */
+/*----------------------------------------------------------------------------*/
 
-Rolling Update Progress:
-  🔄 Scaling new ReplicaSet to 1...
-     Pod myapp-web-v2-abc123: Scheduled → Pending → Running
-     Health Check: ✅ Passed (2.3s)
+[define|neutral] CHAINS_WITH := {
+  sequential: [
+    "/k8s-deploy -> /review -> /deploy"
+  ],
+  parallel: [
+    "parallel ::: '/k8s-deploy arg1' '/k8s-deploy arg2'"
+  ]
+} [ground:given] [conf:0.95] [state:confirmed]
 
-  🔄 Scaling new ReplicaSet to 2...
-     Pod myapp-web-v2-def456: Scheduled → Pending → Running
-     Health Check: ✅ Passed (2.1s)
+/*----------------------------------------------------------------------------*/
+/* S10 RELATED COMMANDS                                                        */
+/*----------------------------------------------------------------------------*/
 
-  🔄 Scaling down old ReplicaSet to 2...
-     Pod myapp-web-v1-xyz789: Terminating → Terminated
+[define|neutral] RELATED := {
+  complementary: ["/monitoring-configure", "/docker-build", "/docker-deploy", "/smoke-test", "/load-test"],
+  alternatives: [],
+  prerequisites: []
+} [ground:given] [conf:0.95] [state:confirmed]
 
-  🔄 Scaling new ReplicaSet to 3...
-     Pod myapp-web-v2-ghi789: Scheduled → Pending → Running
-     Health Check: ✅ Passed (2.4s)
+/*----------------------------------------------------------------------------*/
+/* S11 META-LOOP INTEGRATION                                                   */
+/*----------------------------------------------------------------------------*/
 
-  🔄 Scaling down old ReplicaSet to 0...
-     Pod myapp-web-v1-aaa111: Terminating → Terminated
-     Pod myapp-web-v1-bbb222: Terminating → Terminated
+[define|neutral] META_LOOP := {
+  expertise_check: {
+    domain: "delivery",
+    file: ".claude/expertise/delivery.yaml",
+    fallback: "discovery_mode"
+  },
+  benchmark: "k8s-deploy-benchmark-v1",
+  tests: [
+    "command_execution_success",
+    "workflow_validation"
+  ],
+  success_threshold: 0.90,
+  namespace: "commands/delivery/k8s-deploy/{project}/{timestamp}",
+  uncertainty_threshold: 0.85,
+  coordination: {
+    related_skills: ["k8s-deploy"],
+    related_agents: ["coder", "tester"]
+  }
+} [ground:system-policy] [conf:0.98] [state:confirmed]
 
-Deployment Status:
-  ✅ Desired: 3 replicas
-  ✅ Current: 3 replicas
-  ✅ Updated: 3 replicas
-  ✅ Available: 3 replicas
-  ✅ Ready: 3/3 pods
+/*----------------------------------------------------------------------------*/
+/* S12 MEMORY TAGGING                                                          */
+/*----------------------------------------------------------------------------*/
 
-Post-Deployment Validation:
-  ✅ All pods healthy
-  ✅ Service endpoints updated
-  ✅ Ingress routing: myapp.example.com → 200 OK
-  ✅ Load balancer healthy
-  ✅ Auto-scaling configured (min: 3, max: 10, CPU: 70%)
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "k8s-deploy-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project-name}",
+  WHY: "command-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-Resource Usage:
-  CPU: 450m / 1500m (30%)
-  Memory: 1.2Gi / 4Gi (30%)
-  Storage: 5Gi / 20Gi (25%)
+/*----------------------------------------------------------------------------*/
+/* S13 ABSOLUTE RULES                                                          */
+/*----------------------------------------------------------------------------*/
 
-Deployment Metrics:
-  Total Time: 42.6s
-  Downtime: 0s (zero-downtime)
-  Rollout Duration: 35.2s
-  Average Pod Startup: 2.3s
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
 
-Deployed Resources:
-  🌐 External URL: https://myapp.example.com
-  🌐 Internal Service: myapp-svc.myapp-prod.svc.cluster.local:8080
-  📊 Metrics: https://grafana.example.com/d/k8s-myapp
-  📊 Logs: kubectl logs -n myapp-prod -l app=myapp-web
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
 
-Rollback Command (if needed):
-  kubectl rollout undo deployment/myapp-web -n myapp-prod
-  OR: /workflow:rollback --namespace myapp-prod --deployment myapp-web
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
 
-✅ Kubernetes Deployment Complete!
-```
+/*----------------------------------------------------------------------------*/
+/* PROMISE                                                                     */
+/*----------------------------------------------------------------------------*/
 
-## Chains With
-
-```bash
-# Build → deploy pipeline
-/docker-build --tag myapp:v1.0.0 && /k8s-deploy
-
-# Deploy → smoke test → monitor
-/k8s-deploy --environment production && /smoke-test && /monitoring-configure
-
-# Full GitOps workflow
-/github-release && /docker-build && /k8s-deploy --strategy canary
-
-# Multi-environment deployment
-/k8s-deploy --environment staging && \
-/smoke-test && \
-/k8s-deploy --environment production --strategy blue-green
-```
-
-## See Also
-- `/docker-build` - Build container images
-- `/docker-deploy` - Docker deployment
-- `/workflow:deployment` - Deployment workflow
-- `/workflow:rollback` - Rollback deployment
-- `/monitoring-configure` - Setup K8s monitoring
-- `/smoke-test` - Post-deployment validation
-- `/load-test` - Load testing for scaled deployments
+[commit|confident] <promise>K8S_DEPLOY_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

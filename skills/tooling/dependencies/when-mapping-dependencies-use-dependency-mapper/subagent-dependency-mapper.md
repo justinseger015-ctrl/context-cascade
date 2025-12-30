@@ -1,5 +1,10 @@
 # Dependency Mapper Subagent Implementation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Agent Identity
 
 **Name**: Dependency Mapper Agent
@@ -644,3 +649,7 @@ Agent considers task complete when:
 - PROCESS.md - Detailed process flow
 - slash-command-dep-map.sh - Command-line interface
 - mcp-dependency-mapper.json - MCP tool integration
+
+
+---
+*Promise: `<promise>SUBAGENT_DEPENDENCY_MAPPER_VERIX_COMPLIANT</promise>`*

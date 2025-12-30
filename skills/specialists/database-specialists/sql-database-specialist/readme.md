@@ -1,5 +1,10 @@
 # SQL Database Specialist - Gold Tier Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -296,3 +301,7 @@ For issues or enhancements, refer to the main skill documentation in `skill.md`.
 ---
 
 **Gold Tier Validated**: 12 files | 4 scripts | 3 templates | 3 tests | 1 visualization
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

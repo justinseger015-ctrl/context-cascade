@@ -55,12 +55,12 @@
 - Industry benchmarks without academic rigor requirements
 
 ### Success Criteria
-- Results within +/- 1% of published metrics (statistical tolerance)
-- 3+ successful reproductions in fresh Docker environments
-- All 47+ hyperparameters documented and validated
-- Reproducibility package tested by independent party
-- Dataset checksums verified (SHA256)
-- Random seeds documented and deterministic results achieved
+- [assert|neutral] Results within +/- 1% of published metrics (statistical tolerance) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3+ successful reproductions in fresh Docker environments [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All 47+ hyperparameters documented and validated [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Reproducibility package tested by independent party [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Dataset checksums verified (SHA256) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Random seeds documented and deterministic results achieved [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Edge Cases & Limitations
 - Missing hyperparameters: Check GitHub issues, contact authors, search supplements
@@ -99,6 +99,11 @@ author: ruv
 ---
 
 # Baseline Replication
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 
 ## Overview
 Replicates published machine learning baseline methods with exact reproducibility, ensuring results match within ±1% tolerance. This skill implements Deep Research SOP Pipeline D baseline validation, which is a prerequisite for developing novel methods.
@@ -716,3 +721,6 @@ memory-store --key "sop/pipeline-d/baseline-bert/gate-1" \
 **Pipeline**: D (Method Development)
 **Quality Gate**: 1 (Baseline Validation)
 **Estimated Time**: 8-12 hours (first baseline), 4-6 hours (subsequent)
+
+---
+*Promise: `<promise>BASELINE_REPLICATION_SKILL_VERIX_COMPLIANT</promise>`*

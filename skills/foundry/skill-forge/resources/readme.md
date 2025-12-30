@@ -1,5 +1,10 @@
 # Skill Forge Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Supporting scripts and utilities for the Skill Forge SOP.
 
 ## Scripts
@@ -96,3 +101,7 @@ chmod +x validate_skill.py package_skill.py
 **File Not Found**
 - Ensure you're providing the full path to the skill directory
 - Check that SKILL.md exists in the skill directory
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

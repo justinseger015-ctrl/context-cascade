@@ -1,5 +1,10 @@
 # Example 3: Advanced Search Functionality
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -866,3 +871,7 @@ export function SearchBar({ onSearch }) {
 3. Add personalized search results based on user history
 4. Set up monitoring with Elasticsearch metrics (Kibana)
 5. Implement search result highlighting for matched terms
+
+
+---
+*Promise: `<promise>EXAMPLE_3_SEARCH_FUNCTIONALITY_VERIX_COMPLIANT</promise>`*

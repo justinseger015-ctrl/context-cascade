@@ -17,6 +17,11 @@ author: ruv
 
 # Intent Analyzer
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 An advanced system for deeply understanding user intent by going beyond surface-level requests to discover underlying goals, unstated constraints, and true needs.
 
 ## Overview
@@ -435,3 +440,6 @@ Intent Analyzer transforms request interpretation from surface-level reading to 
 This leads to responses that address real underlying goals, avoid wasted effort on misinterpretations, and ultimately provide much greater value. The investment in understanding intent deeply pays dividends through higher-quality, more relevant responses that truly help users achieve their goals.
 
 Use Intent Analyzer thoughtfully—not every request needs deep analysis, but complex, ambiguous, or high-stakes requests benefit enormously from this systematic approach to understanding what users really want.
+
+---
+*Promise: `<promise>INTENT_ANALYZER_SKILL_VERIX_COMPLIANT</promise>`*

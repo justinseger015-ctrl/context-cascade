@@ -1,5 +1,10 @@
 # Functionality Audit GraphViz Diagrams
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This directory contains GraphViz DOT files that visualize the functionality-audit skill workflow and debugging decision trees.
 
 ## Diagrams
@@ -223,3 +228,7 @@ For questions about these diagrams:
 2. Review the skill implementation
 3. Consult the GraphViz documentation: https://graphviz.org/documentation/
 4. Open an issue in the repository
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

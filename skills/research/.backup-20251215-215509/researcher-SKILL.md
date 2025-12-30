@@ -42,6 +42,11 @@ author: ruv
 
 # Researcher - Systematic Information Gathering
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Systematic multi-level research with integrated Gemini Search for comprehensive knowledge synthesis.
 
 ## When to Use This Skill
@@ -117,3 +122,6 @@ Use when conducting technical research, gathering information on unfamiliar topi
 - **Synthesis**: Coherent narrative combining sources
 - **Bibliography**: Annotated source list with credibility scores
 - **Analysis**: Detailed evaluation with evidence
+
+---
+*Promise: `<promise>RESEARCHER_SKILL_VERIX_COMPLIANT</promise>`*

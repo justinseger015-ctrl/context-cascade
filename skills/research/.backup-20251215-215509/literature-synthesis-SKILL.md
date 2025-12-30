@@ -55,12 +55,12 @@
 - Time-constrained projects requiring <1 week turnaround
 
 ### Success Criteria
-- Minimum 50 papers reviewed (Quality Gate 1 requirement)
-- PRISMA flow diagram generated with screening rationale
-- SOTA benchmarks extracted and tabulated
-- Research gaps identified with 3+ supporting citations
-- BibTeX database created with complete metadata
-- All claims cross-referenced with 2+ independent sources
+- [assert|neutral] Minimum 50 papers reviewed (Quality Gate 1 requirement) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] PRISMA flow diagram generated with screening rationale [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] SOTA benchmarks extracted and tabulated [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Research gaps identified with 3+ supporting citations [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] BibTeX database created with complete metadata [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All claims cross-referenced with 2+ independent sources [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Edge Cases & Limitations
 - Paywalled papers: Check institutional access, contact authors, use preprints
@@ -100,6 +100,11 @@ author: ruv
 ---
 
 # Literature Synthesis
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 
 Conduct systematic literature reviews following PRISMA guidelines, synthesizing state-of-the-art research to identify gaps and opportunities for Deep Research SOP Phase 1.
 
@@ -822,3 +827,6 @@ npx claude-flow@alpha memory store \
 ### Reference Management
 - Zotero: https://www.zotero.org/
 - BibTeX format specification
+
+---
+*Promise: `<promise>LITERATURE_SYNTHESIS_SKILL_VERIX_COMPLIANT</promise>`*

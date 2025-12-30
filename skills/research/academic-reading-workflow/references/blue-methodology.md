@@ -1,5 +1,10 @@
 # Blue's Reading & Writing Methodology (OSP)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Source: Overly Sarcastic Productions - "How to Read Books and Write Essays" YouTube video
 
 ## Core Philosophy
@@ -292,3 +297,7 @@ Reading a 300-page book on Byzantine history:
 ---
 
 **Note**: This methodology is optimized for academic reading and essay writing. For general-purpose research methodology (source discovery, credibility evaluation), use `general-research-workflow` which implements Red's (OSP) complementary approach.
+
+
+---
+*Promise: `<promise>BLUE_METHODOLOGY_VERIX_COMPLIANT</promise>`*

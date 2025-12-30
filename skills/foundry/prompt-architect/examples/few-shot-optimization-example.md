@@ -1,5 +1,10 @@
 # Few-Shot Learning Examples for Prompt Optimization
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This document demonstrates how to use few-shot examples to dramatically improve prompt performance through concrete demonstrations of desired behavior.
 
 ## Overview
@@ -715,3 +720,7 @@ Few-shot learning is one of the most powerful prompt engineering techniques. By 
 - **Improve Accuracy**: Models learn exact format and style
 
 Use few-shot prompting whenever you need consistent, structured output that matches specific patterns. The investment in creating quality examples pays dividends in improved results.
+
+
+---
+*Promise: `<promise>FEW_SHOT_OPTIMIZATION_EXAMPLE_VERIX_COMPLIANT</promise>`*

@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "utilities",
+  "tags": [
+    "skill-creation",
+    "templates",
+    "yaml",
+    "documentation"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Create new Claude Code Skills with proper YAML frontmatter",
+    "progressive disclosure structure",
+    "and complete directory organization [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-creating-skill-template-use-skill-builder",
+  "triggers": [
+    "creating skill template"
+  ]
+}

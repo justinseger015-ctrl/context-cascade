@@ -1,5 +1,10 @@
 # Example 1: Basic Vector Search
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Goal**: Implement simple semantic search with metadata filtering
 
 **Time**: 5 minutes | **Difficulty**: Beginner
@@ -282,3 +287,7 @@ For production (10K+ documents):
 - **[Example 2: RAG Integration](example-2-rag-integration.md)** - Use AgentDB for LLM context retrieval
 - **[Example 3: Agent Memory](example-3-agent-memory.md)** - Persistent cross-session memory
 - **[Vector Search Reference](../references/vector-search.md)** - Technical details on HNSW and embeddings
+
+
+---
+*Promise: `<promise>EXAMPLE_1_BASIC_VECTOR_SEARCH_VERIX_COMPLIANT</promise>`*

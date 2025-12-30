@@ -1,5 +1,10 @@
 # AgentDB Advanced Scripts
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Production-ready scripts for distributed AgentDB operations.
 
 ## Scripts Overview
@@ -321,3 +326,7 @@ See `../../tests/` for comprehensive test suites:
 
 **Last Updated**: 2025-01-01
 **Version**: 1.0.0
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

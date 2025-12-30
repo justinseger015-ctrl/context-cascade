@@ -1,5 +1,10 @@
 # Test 3: Skill Optimization
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Objective
 Verify that skill-optimizer.js correctly analyzes and identifies optimization opportunities in micro-skills for clarity, performance, and quality.
 
@@ -309,20 +314,18 @@ Minimum: 0
 - **<50**: Critical, major rework required
 
 ## Success Criteria
-
-**Test passes if**:
-1. Optimal skill (3.1) scores ≥95
-2. All problem scenarios correctly identify issues
-3. Quality scores fall within expected ranges
-4. All 5 analysis phases execute correctly
-5. Suggestions are actionable and clear
-
-**Test fails if**:
-1. False positives (issues flagged in optimal skill)
-2. False negatives (issues missed in problem scenarios)
-3. Quality scores outside expected ranges
-4. Analyzer crashes or hangs
-5. Unclear or unhelpful suggestions
+- [assert|neutral] *Test passes if**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 1. Optimal skill (3.1) scores ≥95 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. All problem scenarios correctly identify issues [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. Quality scores fall within expected ranges [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. All 5 analysis phases execute correctly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. Suggestions are actionable and clear [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Test fails if**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 1. False positives (issues flagged in optimal skill) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. False negatives (issues missed in problem scenarios) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. Quality scores outside expected ranges [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. Analyzer crashes or hangs [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. Unclear or unhelpful suggestions [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Test Results Template
 
@@ -387,3 +390,7 @@ Overall: [ PASS / FAIL ]
 - Test 1: Generation (produces optimizable skills)
 - Test 2: Validation (structural correctness)
 - Example 3: Optimization workflow in practice
+
+
+---
+*Promise: `<promise>TEST_3_OPTIMIZATION_VERIX_COMPLIANT</promise>`*

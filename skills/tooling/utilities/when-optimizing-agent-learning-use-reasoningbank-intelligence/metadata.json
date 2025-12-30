@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "utilities",
+  "tags": [
+    "machine-learning",
+    "adaptive-learning",
+    "pattern-recognition",
+    "optimization"
+  ],
+  "author": "ruv",
+  "verix-description": [
+    "assert|neutral] Implement adaptive learning with ReasoningBank for pattern recognition",
+    "strategy optimization",
+    "and continuous improvement [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-optimizing-agent-learning-use-reasoningbank-intelligence",
+  "triggers": [
+    "optimizing agent learning"
+  ]
+}

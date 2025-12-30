@@ -1,5 +1,16 @@
 # Example 1: Code Review Prompt Optimization
 
+<!-- =========================================================================
+     VCL v3.1.1 COMPLIANT - L2 English Example Document
+     This is a human-facing example in L2 compression (pure English).
+     No VCL markers in content - this is intentional for L2 compliance.
+     ========================================================================= -->
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Scenario**: Transform a basic code review prompt into a high-performance, structured version
 **Task Type**: Code Analysis & Review
 **Difficulty**: Basic
@@ -418,3 +429,14 @@ Specified behavior for boundary conditions (no issues, uncertainty, etc.)
 **ROI**: High (prompt used 100+ times = 1500+ minutes saved)
 
 **Key Takeaway**: Systematic prompt optimization using the Prompt Architect framework produces measurable, substantial improvements in output quality and consistency.
+
+
+---
+
+[define|neutral] DOCUMENT_META := {
+  type: "L2 Example",
+  vcl_compliance: "v3.1.1",
+  compression: "L2 (intentionally pure English for human consumption)"
+} [ground:manifest] [conf:1.0] [state:confirmed]
+
+[commit|confident] <promise>EXAMPLE_1_BASIC_VCL_V3.1.1_L2_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

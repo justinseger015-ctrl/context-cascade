@@ -1,5 +1,10 @@
 # Test 1: OpenAPI 3.0 Specification Generation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -370,3 +375,7 @@ After successful generation:
 2. Review generated specs for completeness
 3. Add custom schemas and examples
 4. Generate documentation (Test 3)
+
+
+---
+*Promise: `<promise>TEST_1_OPENAPI_GENERATION_VERIX_COMPLIANT</promise>`*

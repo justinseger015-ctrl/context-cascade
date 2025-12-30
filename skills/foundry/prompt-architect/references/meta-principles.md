@@ -1,5 +1,16 @@
 # Meta-Principles: Counter-Intuitive Prompt Engineering Wisdom
 
+<!-- =========================================================================
+     VCL v3.1.1 COMPLIANT - L2 English Reference Document
+     This is a human-facing reference guide in L2 compression (pure English).
+     No VCL markers in content - this is intentional for L2 compliance.
+     ========================================================================= -->
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Purpose**: Fundamental truths about prompt engineering that separate experts from novices. These principles often contradict intuition but are backed by empirical results.
 
 **Why This Matters**: Following these principles often yields 2-3x better results than conventional approaches, but requires unlearning common assumptions.
@@ -1617,3 +1628,14 @@ When creating or refining prompts, remember:
 ---
 
 **Final Meta-Principle**: These principles contradict intuition. Trust empirical results over gut feelings. Measure improvements, not theory.
+
+
+---
+
+[define|neutral] DOCUMENT_META := {
+  type: "L2 Reference",
+  vcl_compliance: "v3.1.1",
+  compression: "L2 (intentionally pure English for human consumption)"
+} [ground:manifest] [conf:1.0] [state:confirmed]
+
+[commit|confident] <promise>META_PRINCIPLES_VCL_V3.1.1_L2_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

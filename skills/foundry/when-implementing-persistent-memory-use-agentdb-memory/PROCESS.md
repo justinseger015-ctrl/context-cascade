@@ -1,5 +1,10 @@
 # AgentDB Persistent Memory - Process Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Complete walkthrough for implementing persistent memory patterns with AgentDB.
 
 ## Phase 1: Design Memory Architecture
@@ -76,13 +81,16 @@ await memoryManager.createIndex('hnsw');
 Create usage documentation, examples, and API reference.
 
 ## Success Criteria
-
-- Memory persists across restarts
-- Retrieval < 50ms
-- Patterns learned correctly
-- Context maintained
+- [assert|neutral] Memory persists across restarts [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Retrieval < 50ms [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Patterns learned correctly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Context maintained [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Resources
 
 - Full docs: SKILL.md
 - AgentDB Memory: https://agentdb.dev/docs/memory
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

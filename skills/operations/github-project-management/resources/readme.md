@@ -1,5 +1,10 @@
 # GitHub Project Management Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -124,3 +129,7 @@ Detailed documentation in `../skill.md` covering:
 - Configuration options
 - Best practices
 - Troubleshooting guides
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

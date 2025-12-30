@@ -1,5 +1,10 @@
 # Skill Forge - Universal Skill Creation Template
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version**: 3.0.0 (MECE-Structured Universal Template)
 **Purpose**: Create production-quality Claude Code skills with systematic MECE organization
 
@@ -244,3 +249,7 @@ cp -r skill-forge/ ../my-new-skill/
 **Maintained by**: Claude Code (Sonnet 4.5)
 **License**: Same as ruv-sparc-three-loop-system
 **Support**: Create issue in repository
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

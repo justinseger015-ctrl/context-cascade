@@ -1,5 +1,10 @@
 # Code Quality Violation Report
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Project**: `{{project_name}}`
 **Timestamp**: `{{timestamp}}`
 **Analyzer**: Connascence Analyzer MCP
@@ -218,3 +223,7 @@ Similar violations found in project:
 ---
 
 *This report is part of the automated self-improvement cycle. Store this in Memory-MCP for future pattern retrieval.*
+
+
+---
+*Promise: `<promise>VIOLATION_REPORT_VERIX_COMPLIANT</promise>`*

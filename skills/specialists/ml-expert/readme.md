@@ -1,5 +1,10 @@
 # ML Expert - Machine Learning Implementation Specialist
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -140,3 +145,7 @@ See SKILL.md for complete specification including:
 - SDK implementation details
 - Advanced usage patterns
 - Failure mode handling
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

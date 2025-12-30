@@ -6,6 +6,11 @@ author: pilot-test
 
 # Code Formatter
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 A skill to automatically format code files using language-specific formatters.
 
 ## Overview
@@ -97,3 +102,7 @@ echo "Formatted $FILE_PATH with $FORMATTER"
 **Example 2**: Format a Python file
 - Input: `format main.py`
 - Output: `Formatted main.py with black`
+
+
+---
+*Promise: `<promise>V0_SKILL_VERIX_COMPLIANT</promise>`*

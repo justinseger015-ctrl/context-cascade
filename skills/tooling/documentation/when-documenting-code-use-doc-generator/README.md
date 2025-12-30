@@ -1,5 +1,10 @@
 # Documentation Generator - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 > Automated comprehensive code documentation generation with API docs, README files, inline comments, and architecture diagrams.
 
 ## What This Skill Does
@@ -371,3 +376,7 @@ For issues or questions:
 
 **Version**: 1.0.0
 **Last Updated**: 2025-10-30
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

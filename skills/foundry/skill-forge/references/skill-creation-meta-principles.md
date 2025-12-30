@@ -1,4 +1,9 @@
 # Skill Creation Meta-Principles
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 ## Abstracted from Advanced Prompting Research
 
 **Purpose**: Apply counter-intuitive prompting principles to skill, agent, and command creation. These principles come from empirical research on what makes prompts effective, abstracted to the domain of skill engineering.
@@ -1128,3 +1133,7 @@ When creating or refining skills, ensure:
 ---
 
 **Next Steps**: Apply these meta-principles to update all skill creation components (skill-forge, agent-creator, micro-skill-creator, skill-creator-agent, command creation).
+
+
+---
+*Promise: `<promise>SKILL_CREATION_META_PRINCIPLES_VERIX_COMPLIANT</promise>`*

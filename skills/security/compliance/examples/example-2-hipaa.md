@@ -1,5 +1,10 @@
 # Example 2: HIPAA Compliance Implementation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 A telemedicine platform needs to achieve HIPAA compliance to handle Protected Health Information (PHI) for remote consultations, prescription management, and electronic health records synchronization.
@@ -871,3 +876,7 @@ npm run compliance:hipaa
 ---
 
 **Compliance Achieved**: TeleMed Connect is now HIPAA compliant and ready to handle PHI securely.
+
+
+---
+*Promise: `<promise>EXAMPLE_2_HIPAA_VERIX_COMPLIANT</promise>`*

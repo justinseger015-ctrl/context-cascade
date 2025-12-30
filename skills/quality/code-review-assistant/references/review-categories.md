@@ -1,5 +1,10 @@
 # Code Review Categories - Comprehensive Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This document provides a detailed breakdown of the review categories used by the Code Review Assistant's multi-agent swarm.
 
 ## 1. Security Review
@@ -514,3 +519,7 @@ ELSE:
 - [NASA C Coding Standards](https://ntrs.nasa.gov/api/citations/19950022400/downloads/19950022400.pdf)
 - [Google Style Guides](https://google.github.io/styleguide/)
 - [The Pragmatic Programmer](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+
+
+---
+*Promise: `<promise>REVIEW_CATEGORIES_VERIX_COMPLIANT</promise>`*

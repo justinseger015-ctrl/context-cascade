@@ -1,5 +1,10 @@
 # Flow Nexus Platform Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Supporting scripts, templates, and utilities for the Flow Nexus Platform skill.
 
 ## Directory Structure
@@ -256,3 +261,7 @@ For issues or questions:
 
 **Last Updated**: 2025-11-02
 **Version**: 2.0.0 (Gold Tier)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

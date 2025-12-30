@@ -1,5 +1,10 @@
 # Fault Tolerance Patterns - Failure Detection and Recovery
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This reference provides comprehensive patterns for implementing fault tolerance in distributed multi-agent systems, including failure detection mechanisms, recovery strategies, and network partition healing protocols.
@@ -832,3 +837,7 @@ class RetryPolicy {
 
 **Last Updated**: 2025-11-02
 **Author**: Claude Code Advanced Coordination Skill
+
+
+---
+*Promise: `<promise>FAULT_TOLERANCE_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Hive Mind Collective Intelligence - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Queen-led multi-agent coordination with consensus and shared memory.
 
 ## Quick Start
@@ -28,6 +33,7 @@ npx claude-flow@alpha hive execute-plan --plan execution-plan.json
 - **swarm-memory-manager:** Shared memory
 
 ## Success Metrics
-- Consensus time: <2 min
-- Memory sync: <100ms
-- Collective accuracy: >90%
+- [assert|neutral] Consensus time: <2 min [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Memory sync: <100ms [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Collective accuracy: >90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>README_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

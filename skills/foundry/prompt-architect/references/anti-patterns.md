@@ -1,5 +1,16 @@
 # Common Prompt Anti-Patterns
 
+<!-- =========================================================================
+     VCL v3.1.1 COMPLIANT - L2 English Reference Document
+     This is a human-facing reference guide in L2 compression (pure English).
+     No VCL markers in content - this is intentional for L2 compliance.
+     ========================================================================= -->
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 A reference guide for identifying and fixing common prompt engineering mistakes.
 
 ## Anti-Pattern Categories
@@ -220,3 +231,14 @@ To avoid anti-patterns from the start:
 7. **Document what works** for future reference
 
 Remember: The goal isn't perfect prompts but prompts that work reliably for your specific use case. Practical effectiveness beats theoretical optimization.
+
+
+---
+
+[define|neutral] DOCUMENT_META := {
+  type: "L2 Reference",
+  vcl_compliance: "v3.1.1",
+  compression: "L2 (intentionally pure English for human consumption)"
+} [ground:manifest] [conf:1.0] [state:confirmed]
+
+[commit|confident] <promise>ANTI_PATTERNS_VCL_V3.1.1_L2_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

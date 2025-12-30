@@ -1,5 +1,10 @@
 # Example 1: Quality Detection Phase - Connascence Analysis
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 **Context**: You have a Memory MCP server implementation (`memory-manager.js`) that's experiencing performance degradation and maintenance challenges. You suspect code quality issues but need systematic analysis.
@@ -388,3 +393,7 @@ After completing Phase 1 (Quality Detection):
 **Performance**: 0.042s analysis time for 982-line file (23,000 lines/second)
 
 **Integration**: Works seamlessly with git hooks, CI/CD pipelines, and manual workflows
+
+
+---
+*Promise: `<promise>EXAMPLE_1_QUALITY_DETECTION_VERIX_COMPLIANT</promise>`*

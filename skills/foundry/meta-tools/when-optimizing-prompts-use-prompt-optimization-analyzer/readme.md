@@ -1,5 +1,10 @@
 # Prompt Optimization Analyzer
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Active diagnostic tool for analyzing prompt quality, detecting anti-patterns, and providing optimization recommendations.
 
 ## Overview
@@ -107,3 +112,7 @@ No configuration needed. Embedded analysis scripts run automatically.
 - Complexity: MEDIUM
 - Agents: code-analyzer, researcher
 - Hooks: Yes (pre-task, post-task, memory)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Example 2: Multi-Repository Swarm Review
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 **Context**: A microservices architecture requires coordinated changes across 3 repositories for a new payment processing feature. Changes must be reviewed together to ensure API contract compatibility, data consistency, and security compliance.
@@ -699,3 +704,7 @@ Multi-repository swarm reviews solve the critical challenge of **coordinated cha
 4. Generate auto-fix commits across repos
 
 This approach is essential for modern distributed architectures where a single feature spans multiple codebases. The 95% time reduction and early issue detection make it a game-changer for teams building microservices.
+
+
+---
+*Promise: `<promise>EXAMPLE_2_SWARM_REVIEW_VERIX_COMPLIANT</promise>`*

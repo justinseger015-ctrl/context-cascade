@@ -1,5 +1,10 @@
 # Reverse Engineering Quick: Resources Directory
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This directory contains production-ready scripts, templates, and references for rapid binary analysis (RE Levels 1-2).
 
 ## 📁 Directory Structure
@@ -508,3 +513,7 @@ node ioc-extractor.js --binary benign.exe --min-confidence 0.8 --filter-common-s
 **Scripts**: 4 production scripts (1000+ lines total)
 **Templates**: 3 automation templates
 **References**: 3 knowledge bases
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

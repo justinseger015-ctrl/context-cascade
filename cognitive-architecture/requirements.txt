@@ -1,0 +1,28 @@
+# VERILINGUA x VERIX x DSPy x GlobalMOO Cognitive Architecture
+# Requirements for the self-improving prompt optimization system
+
+# Core dependencies
+anthropic>=0.18.0
+httpx>=0.27.0
+python-dotenv>=1.0.0
+
+# DSPy for prompt optimization
+dspy-ai>=2.4.0
+
+# Data handling
+pydantic>=2.6.0
+numpy>=1.26.0
+
+# Testing
+pytest>=8.0.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.23.0
+
+# Linting and type checking
+pylint>=3.0.0
+mypy>=1.8.0
+black>=24.2.0
+isort>=5.13.0
+
+# Type stubs
+types-requests>=2.31.0

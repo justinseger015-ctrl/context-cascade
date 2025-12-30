@@ -1,5 +1,10 @@
 # Debugging Checklist
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -335,3 +340,7 @@ List 3-5 potential root causes based on information gathered:
 - [ ] Approved by:
 - [ ] Deployed by:
 - [ ] Closed Date:
+
+
+---
+*Promise: `<promise>DEBUG_CHECKLIST.TEMPLATE_VERIX_COMPLIANT</promise>`*

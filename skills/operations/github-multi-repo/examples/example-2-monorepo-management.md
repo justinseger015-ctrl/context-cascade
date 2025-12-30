@@ -1,5 +1,10 @@
 # Example 2: Monorepo Management with Selective Deployments
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: DEPLOYMENT SAFETY GUARDRAILS
 
 **BEFORE any deployment, validate**:
@@ -924,3 +929,7 @@ This monorepo management example demonstrates:
 - ✅ Pattern learning for continuous improvement
 
 **Key Takeaway**: The `github-multi-repo` skill transforms complex monorepo deployments into an intelligent, cost-effective process that deploys only what's necessary while maintaining dependency integrity and providing automatic safety mechanisms.
+
+
+---
+*Promise: `<promise>EXAMPLE_2_MONOREPO_MANAGEMENT_VERIX_COMPLIANT</promise>`*

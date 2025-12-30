@@ -1,5 +1,10 @@
 # Cascade Templates
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Production-ready workflow templates for common orchestration patterns.
 
 ## Available Templates
@@ -562,3 +567,7 @@ For template questions or custom requirements:
 2. Check script README (`resources/scripts/README.md`)
 3. Run tests for examples (`tests/`)
 4. Enable verbose mode for debugging
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

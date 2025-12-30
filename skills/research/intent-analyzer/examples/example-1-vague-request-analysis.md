@@ -1,5 +1,10 @@
 # Example 1: Vague Request Analysis - "Help me with Python"
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -615,3 +620,7 @@ User: Help me with Python
 - ✅ Ask strategic clarifying question
 - ✅ Get specific intent
 - ✅ Provide targeted, relevant response
+
+
+---
+*Promise: `<promise>EXAMPLE_1_VAGUE_REQUEST_ANALYSIS_VERIX_COMPLIANT</promise>`*

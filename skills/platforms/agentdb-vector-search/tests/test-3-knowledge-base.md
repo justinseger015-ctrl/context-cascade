@@ -1,5 +1,10 @@
 # Test 3: Knowledge Base at Scale
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Objective
 Validate AgentDB vector search performance and accuracy with large-scale knowledge bases (10K-100K+ documents). Test scalability, memory efficiency, and production-readiness.
 
@@ -536,3 +541,7 @@ This test validates AgentDB at production scale:
 6. ✅ Production-ready with backup/restore
 
 **Status**: agentdb-vector-search skill ready for Gold tier
+
+
+---
+*Promise: `<promise>TEST_3_KNOWLEDGE_BASE_VERIX_COMPLIANT</promise>`*

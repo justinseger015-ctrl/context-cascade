@@ -1,5 +1,10 @@
 # Example 3: Deployment Failure Recovery with Rollback Strategy
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -723,3 +728,7 @@ Fixed 4 critical deployment issues blocking production release.
 3. **Environment Validation**: Application startup validates required environment variables
 4. **Rollback Safety**: Idempotent operations allow safe retries without rollback risk
 5. **Loop Integration**: Infrastructure patterns fed back to Loop 1 for future architecture planning
+
+
+---
+*Promise: `<promise>EXAMPLE_3_DEPLOYMENT_FAILURE_RECOVERY_VERIX_COMPLIANT</promise>`*

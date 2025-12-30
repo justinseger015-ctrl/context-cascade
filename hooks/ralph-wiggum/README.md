@@ -34,8 +34,68 @@ Instead of Claude trying once and giving up, Ralph creates a loop that keeps try
 |------|---------|
 | `ralph-loop-setup.sh` | Initializes a new Ralph loop, creates state file |
 | `ralph-loop-stop-hook.sh` | Stop hook that blocks exit and re-injects prompt |
+| `ralph-loop-stop-hook-wrapper.sh` | Wrapper that delegates to JS hook when available |
+| `ralph-loop-stop-hook-enhanced.js` | Enhanced stop hook with Memory-MCP integration |
+| `ralph-session-manager.js` | Full session management with cross-context handoff |
 | `cancel-ralph.sh` | Cancels an active Ralph loop |
 | `README.md` | This documentation |
+
+## Enhanced System (v3.0)
+
+The enhanced Ralph system provides additional capabilities:
+
+### Session Manager Features
+
+- **8-Phase Lifecycle**: PREPARE -> AUDIT -> EXECUTE -> TEST -> COMPARE -> COMMIT -> MONITOR -> ROLLBACK
+- **Memory-MCP Integration**: Cross-context session persistence
+- **Checkpoint Protocol**: Automatic checkpoints after each phase
+- **Monitoring Automation**: 7-day monitoring with auto-rollback triggers on >3% regression
+- **Session Discovery**: List and resume paused sessions across contexts
+
+### Phase Definitions
+
+| Phase | Description |
+|-------|-------------|
+| PREPARE | Initial setup, loading expertise |
+| AUDIT | Run 4 parallel auditors (prompt, skill, expertise, output) |
+| EXECUTE | Main foundry skill execution |
+| TEST | Eval harness validation |
+| COMPARE | Baseline vs candidate metrics comparison |
+| COMMIT | Apply changes with versioning |
+| MONITOR | 7-day monitoring period |
+| ROLLBACK | Rollback if regression detected |
+
+### Enhanced State File
+
+Location: `~/.claude/ralph-wiggum/sessions/{session_id}.json`
+
+```json
+{
+  "session_id": "ralph-1735592103458-abc123def",
+  "phase": 2,
+  "phase_name": "EXECUTE",
+  "iteration": 5,
+  "max_iterations": 50,
+  "target_file": "skills/my-skill/SKILL.md",
+  "completion_promise": "SKILL_IMPROVED",
+  "foundry_skill": "skill-forge",
+  "auditor_results": {
+    "prompt": { "status": "passed", "score": 0.92 },
+    "skill": { "status": "passed", "score": 0.88 },
+    "expertise": { "status": "pending", "score": null },
+    "output": { "status": "pending", "score": null }
+  },
+  "metrics": {
+    "baseline": { "accuracy": 0.85 },
+    "candidate": { "accuracy": 0.89 },
+    "delta": 0.04
+  },
+  "status": "running",
+  "context_id": "ctx-1735592103458-12345",
+  "previous_contexts": [],
+  "handoff_notes": [],
+  "x-schema-version": "3.0"
+}
 
 ## State File
 

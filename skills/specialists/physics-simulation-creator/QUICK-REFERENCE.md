@@ -1,5 +1,10 @@
 # Physics Simulation Creator - Quick Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## TL;DR: Optimize Physics Simulations
 
 **Use NNC (k != 0) when:**
@@ -125,3 +130,7 @@ def nnc_inverse(y, k=k):
 - [ ] Got k value from output
 - [ ] Compared accuracy vs k=0 baseline
 - [ ] Documented improvement metrics
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

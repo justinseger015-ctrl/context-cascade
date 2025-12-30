@@ -1,5 +1,10 @@
 # Skill Builder - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Create Claude Code skills with proper structure.
 
@@ -45,3 +50,7 @@ mkdir ~/.claude/skills/my-skill
 - **skill-forge** - Advanced creation
 - **agent-creator** - Agent skills
 - **micro-skill-creator** - Atomic skills
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

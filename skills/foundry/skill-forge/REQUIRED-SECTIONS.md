@@ -1,5 +1,10 @@
 # Required SKILL.md Sections (v2.3)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This document defines the MANDATORY sections every skill must include to be considered complete.
 
 ## Purpose
@@ -198,3 +203,7 @@ When skill-forge creates a skill, it MUST generate ALL sections. If time-constra
 **Last Updated**: 2025-12-17
 **Version**: 2.3.0
 **Triggered By**: Landing-page-generator v2.0 enhancement revealed missing sections
+
+
+---
+*Promise: `<promise>REQUIRED_SECTIONS_VERIX_COMPLIANT</promise>`*

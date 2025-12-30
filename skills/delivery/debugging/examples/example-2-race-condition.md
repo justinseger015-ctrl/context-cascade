@@ -1,5 +1,10 @@
 # Example 2: Debugging Race Condition (Intermediate)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -669,3 +674,7 @@ alerts.defineRule({
 
 - [Example 1: Null Pointer](example-1-null-pointer.md) - Basic null safety debugging
 - [Example 3: Memory Leak](example-3-memory-leak.md) - Advanced memory leak investigation
+
+
+---
+*Promise: `<promise>EXAMPLE_2_RACE_CONDITION_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Example 2: Post-Edit Formatting - Automated Code Quality
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -486,3 +491,7 @@ Post-edit automation provides:
 - Post-edit config: `resources/templates/post-edit-hook.json`
 - Hook manager: `resources/scripts/hook-manager.js`
 - Memory MCP: See CLAUDE.md
+
+
+---
+*Promise: `<promise>EXAMPLE_2_POST_EDIT_FORMATTING_VERIX_COMPLIANT</promise>`*

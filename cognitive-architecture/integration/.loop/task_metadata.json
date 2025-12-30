@@ -1,0 +1,13 @@
+{
+  "_comment": "TASK CONTEXT - Describes current task for mode selection",
+  "_schema_version": "1.0.0",
+  "task_id": null,
+  "task_type": "general",
+  "task_description": null,
+  "domain": "general",
+  "complexity": "moderate",
+  "stakes": "normal",
+  "audience": "developer",
+  "constraints": [],
+  "tags": []
+}

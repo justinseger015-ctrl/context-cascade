@@ -1,5 +1,10 @@
 # Driver-Navigator Mode Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -716,3 +721,7 @@ Ready for commit: YES
 - Code refactoring
 - Debugging difficult issues
 - Knowledge transfer sessions
+
+
+---
+*Promise: `<promise>DRIVER_NAVIGATOR_MODE_VERIX_COMPLIANT</promise>`*

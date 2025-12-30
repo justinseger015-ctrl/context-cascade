@@ -1,5 +1,10 @@
 # Skill Gap Analyzer
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Comprehensive skill library analysis tool for identifying coverage gaps, redundant overlaps, and optimization opportunities.
 
 ## Overview
@@ -130,12 +135,11 @@ Tracks metrics in:
 - Hook integration: pre-task, post-task
 
 ## Success Criteria
-
-- Domain coverage: >85%
-- Redundancy rate: <10%
-- Under-utilization: <5%
-- Core scenario execution: 100%
-- Recommendation adoption: >80%
+- [assert|neutral] Domain coverage: >85% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Redundancy rate: <10% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Under-utilization: <5% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Core scenario execution: 100% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Recommendation adoption: >80% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Support
 
@@ -143,3 +147,7 @@ Tracks metrics in:
 - Complexity: MEDIUM
 - Agents: researcher, code-analyzer
 - Review frequency: Quarterly
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

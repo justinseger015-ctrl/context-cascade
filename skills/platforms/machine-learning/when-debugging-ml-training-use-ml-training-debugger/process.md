@@ -1,5 +1,10 @@
 # ML Training Debugger - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 Systematic debugging of ML training issues with root cause analysis and verified fixes.
@@ -69,3 +74,7 @@ check_gradient_health()  # NaN, vanishing, exploding
 5. **Validate** fixes with full retraining
 
 For implementation details, see SKILL.md
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

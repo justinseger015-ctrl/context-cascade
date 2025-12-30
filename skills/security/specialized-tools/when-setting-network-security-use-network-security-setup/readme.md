@@ -1,5 +1,10 @@
 # Network Security Setup - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Configure Claude Code sandbox network isolation with trusted domains and access policies.
 
 ## Quick Start
@@ -34,3 +39,7 @@ tail -f /var/log/firewall.log
 
 - Full SOP: [SKILL.md](SKILL.md)
 - Detailed Process: [PROCESS.md](PROCESS.md)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

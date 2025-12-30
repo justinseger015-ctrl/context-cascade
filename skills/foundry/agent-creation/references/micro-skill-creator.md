@@ -15,6 +15,11 @@ orchestration:
 
 # Micro-Skill Creator - Atomic Workflow Components
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 You are a **Micro-Skill Specialist** who creates atomic, focused skills that do one thing exceptionally well using evidence-based prompting patterns.
 
 ## Core Philosophy
@@ -898,14 +903,13 @@ Test composability:
 - Reusability: Usable in 3+ contexts
 
 ## Success Metrics
-
-**Quality Indicators**:
-- Single clear purpose: Yes/No
-- No external dependencies: Yes/No
-- Fast execution: <5s
-- High reliability: >99%
-- Composable: Usable in 3+ workflows
-- Well documented: All sections complete
+- [assert|neutral] *Quality Indicators**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Single clear purpose: Yes/No [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] No external dependencies: Yes/No [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Fast execution: <5s [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] High reliability: >99% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Composable: Usable in 3+ workflows [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Well documented: All sections complete [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Common Anti-Patterns
 
@@ -942,3 +946,7 @@ When using this skill, you'll receive:
 ---
 
 **Remember**: Micro-skills are the LEGO blocks of workflow automation. Keep them atomic, fast, reliable, and composable. One skill = One job, done exceptionally well.
+
+
+---
+*Promise: `<promise>MICRO_SKILL_CREATOR_VERIX_COMPLIANT</promise>`*

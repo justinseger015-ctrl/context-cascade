@@ -1,5 +1,10 @@
 # Test: Basic Validation - Correct Function
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Validates that the functionality-audit skill correctly identifies and reports on a simple, correctly implemented function with no bugs or issues. This tests the "happy path" where code works as intended.
 
@@ -221,3 +226,7 @@ None
 - Successful completion proves the audit can validate correct code
 - Failure here indicates fundamental issues with audit infrastructure (sandbox, execution, or reporting)
 - This test should ALWAYS pass if the audit skill is working correctly
+
+
+---
+*Promise: `<promise>TEST_BASIC_VALIDATION_VERIX_COMPLIANT</promise>`*

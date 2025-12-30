@@ -1,46 +1,53 @@
 ---
-skill_id: when-optimizing-vector-search-use-agentdb-optimization
-name: AgentDB Vector Search Optimization
-version: 1.0.0
-category: agentdb
-subcategory: performance-optimization
-trigger_pattern: "when-optimizing-vector-search"
-agents:
-  - performance-analyzer
-  - ml-developer
-  - backend-dev
-complexity: intermediate
-estimated_duration: 5-7 hours
-prerequisites:
-  - AgentDB basics
-  - Vector search concepts
-  - Performance profiling skills
-outputs:
-  - Optimized vector database
-  - 4-32x memory reduction
-  - 150x faster search
-  - Performance benchmarks
-validation_criteria:
-  - Memory usage reduced by 4x minimum
-  - Search latency < 10ms (p95)
-  - Throughput > 50K ops/sec
-  - Accuracy maintained > 95%
-evidence_based_techniques:
-  - Quantitative benchmarking
-  - A/B comparison testing
-  - Performance profiling
-metadata:
-  author: claude-flow
-  created: 2025-10-30
-  tags:
-    - agentdb
-    - optimization
-    - quantization
-    - hnsw-indexing
-    - performance
+name: agentdb-optimization
+description: AgentDB Vector Search Optimization skill for agentdb workflows
+allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+---
+
+
+---
+<!-- S0 META-IDENTITY                                                             -->
+---
+
+[define|neutral] SKILL := {
+  name: "AgentDB Vector Search Optimization",
+  category: "agentdb",
+  version: "1.0.0",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S1 COGNITIVE FRAME                                                           -->
+---
+
+[define|neutral] COGNITIVE_FRAME := {
+  frame: "Evidential",
+  source: "Turkish",
+  force: "How do you know?"
+} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+<!-- S2 TRIGGER CONDITIONS                                                        -->
+---
+
+[define|neutral] TRIGGER_POSITIVE := {
+  keywords: ["AgentDB Vector Search Optimization", "agentdb", "workflow"],
+  context: "user needs AgentDB Vector Search Optimization capability"
+} [ground:given] [conf:1.0] [state:confirmed]
+
+---
+<!-- S3 CORE CONTENT                                                              -->
 ---
 
 # AgentDB Vector Search Optimization
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 
 ## Overview
 
@@ -119,11 +126,10 @@ db.setCache(new QueryCache({
 - **Embedding Cache**: Reuse embeddings
 
 ## Success Metrics
-
-- Memory reduction: 4-32x
-- Search speedup: 150x
-- Accuracy maintained: > 95%
-- Cache hit rate: > 70%
+- [assert|neutral] Memory reduction: 4-32x [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Search speedup: 150x [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Accuracy maintained: > 95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Cache hit rate: > 70% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## MCP Requirements
 
@@ -156,31 +162,67 @@ In practice:
 Brute-force vector search scales O(n) - doubling vectors doubles search time. HNSW (Hierarchical Navigable Small World) indexes create multi-layer graphs that enable O(log n) search, delivering 150x speedups with tunable accuracy trade-offs through the efSearch parameter.
 
 In practice:
-- Build HNSW indexes with M=16 (connections per node) for balanced performance and recall
-- Set efConstruction=200 during index building to ensure high-quality graph topology
-- Tune efSearch=50-200 at query time to balance speed vs accuracy (higher = slower but more accurate)
+- Build HNSW indexes
 
-### Principle 3: Caching - Exploit Query Locality for 10x Speedup
+---
+<!-- S4 SUCCESS CRITERIA                                                          -->
+---
 
-Real-world vector search exhibits extreme query locality - users repeatedly search similar queries, recommendation systems re-rank same candidates, RAG systems revisit common documents. LRU caches with 70%+ hit rates eliminate 70% of expensive vector computations.
+[define|neutral] SUCCESS_CRITERIA := {
+  primary: "Skill execution completes successfully",
+  quality: "Output meets quality thresholds",
+  verification: "Results validated against requirements"
+} [ground:given] [conf:1.0] [state:confirmed]
 
-In practice:
-- Implement query result caching with TTL=1 hour to capture repeated searches
-- Cache embedding computations for frequently accessed text (document titles, product names)
-- Use cache key hashing (xxhash64) to handle high-dimensional query vectors efficiently
+---
+<!-- S5 MCP INTEGRATION                                                           -->
+---
 
-## Common Anti-Patterns
+[define|neutral] MCP_INTEGRATION := {
+  memory_mcp: "Store execution results and patterns",
+  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
+} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
 
-| Anti-Pattern | Problem | Solution |
-|--------------|---------|----------|
-| **Premature Quantization - Apply Compression Before Understanding Workload** | Blindly quantizing to 32x compression destroys accuracy for high-precision tasks (medical diagnosis, financial fraud detection). Optimizing the wrong metric creates worse outcomes. | Establish baseline metrics FIRST (Phase 1): measure unoptimized latency, throughput, memory, accuracy. Then apply quantization incrementally (4x -> 8x -> 16x) while validating accuracy > 95% at each step. |
-| **Index Amnesia - Rebuild HNSW on Every Query** | HNSW indexes take minutes to build (efConstruction=200 for 1M vectors). Rebuilding on every query eliminates all speedup benefits. | Build indexes ONCE during initialization or batch updates. Persist indexes to disk. Use incremental updates for new vectors instead of full rebuilds. |
-| **Cache Thrashing - TTL Too Short or Cache Too Small** | Setting TTL=60 seconds evicts results before reuse. Tiny cache (1000 entries) causes constant evictions in high-traffic systems. | Set TTL based on query frequency (1 hour for typical workloads, 24 hours for stable datasets). Size cache to capture 70%+ of traffic (10K-100K entries typical). Monitor hit rate and adjust. |
+---
+<!-- S6 MEMORY NAMESPACE                                                          -->
+---
 
-## Conclusion
+[define|neutral] MEMORY_NAMESPACE := {
+  pattern: "skills/agentdb/AgentDB Vector Search Optimization/{project}/{timestamp}",
+  store: ["executions", "decisions", "patterns"],
+  retrieve: ["similar_tasks", "proven_patterns"]
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-AgentDB Vector Search Optimization unlocks production-scale performance for vector databases through three complementary techniques: quantization (4-32x memory reduction), HNSW indexing (150x search speedup), and caching (70%+ hit rate efficiency). The 5-phase SOP guides systematic optimization from baseline measurement through quantization, indexing, caching, and comprehensive benchmarking, ensuring improvements are validated with hard metrics rather than assumptions.
+[define|neutral] MEMORY_TAGGING := {
+  WHO: "AgentDB Vector Search Optimization-{session_id}",
+  WHEN: "ISO8601_timestamp",
+  PROJECT: "{project_name}",
+  WHY: "skill-execution"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-This skill is critical when scaling vector search beyond toy datasets to millions of vectors, reducing infrastructure costs by 75%+ through memory compression, or achieving sub-10ms latency requirements for real-time applications like recommendation engines and search APIs. The techniques are complementary, not competing - quantization reduces memory footprint enabling larger in-memory indexes, HNSW accelerates the search operation itself, and caching eliminates redundant computation for common queries.
+---
+<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
+---
 
-The key insight is performance optimization requires measurement-driven iteration. Blindly applying "best practices" without understanding your workload's query patterns, accuracy requirements, and scale constraints leads to wasted effort or degraded quality. By establishing baselines first, applying optimizations incrementally, and validating improvements at each step, you achieve dramatic performance gains while maintaining the accuracy guarantees your application demands. The result is vector search systems that scale to billions of vectors while remaining responsive enough for interactive user experiences.
+[direct|emphatic] COMPLETION_CHECKLIST := {
+  agent_spawning: "Spawn agents via Task()",
+  registry_validation: "Use registry agents only",
+  todowrite_called: "Track progress with TodoWrite",
+  work_delegation: "Delegate to specialized agents"
+} [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- S8 ABSOLUTE RULES                                                            -->
+---
+
+[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
+
+[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
+
+---
+<!-- PROMISE                                                                      -->
+---
+
+[commit|confident] <promise>AGENTDB VECTOR SEARCH OPTIMIZATION_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

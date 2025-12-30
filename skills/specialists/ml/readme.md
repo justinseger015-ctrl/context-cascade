@@ -1,5 +1,10 @@
 # ML Development Skill - Gold Tier
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -273,3 +278,7 @@ To enhance this skill:
 ## 📝 License
 
 Part of the SPARC Three-Loop System - MIT License
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

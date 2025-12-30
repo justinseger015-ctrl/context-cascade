@@ -1,5 +1,10 @@
 # Example 1: Authentication Feature Development
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -703,3 +708,7 @@ Refresh access token using refresh token from cookie.
 2. Implement MFA (TOTP-based)
 3. Add OAuth2 integration (Google, GitHub)
 4. Monitor auth metrics with OpenTelemetry
+
+
+---
+*Promise: `<promise>EXAMPLE_1_AUTH_FEATURE_VERIX_COMPLIANT</promise>`*

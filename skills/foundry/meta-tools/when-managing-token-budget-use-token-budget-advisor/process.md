@@ -1,5 +1,10 @@
 # Token Budget Advisor - Process Flow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Step-by-step process for analyzing token budgets, estimating task complexity, generating chunking strategies, and creating execution plans.
@@ -453,14 +458,13 @@ npx claude-flow@alpha hooks post-task \
 ```
 
 ## Success Criteria
-
-- Budget assessment: Accurate current usage
-- Complexity estimation: ±20% of actual
-- Chunking: All chunks fit in budget
-- Prioritization: Critical path identified
-- Execution plan: Clear, actionable, checkpointed
-- Tracking: Real-time budget monitoring
-- Contingency: Rollback strategies defined
+- [assert|neutral] Budget assessment: Accurate current usage [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Complexity estimation: ±20% of actual [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Chunking: All chunks fit in budget [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Prioritization: Critical path identified [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Execution plan: Clear, actionable, checkpointed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Tracking: Real-time budget monitoring [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Contingency: Rollback strategies defined [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Common Patterns
 
@@ -503,3 +507,7 @@ Store patterns for future improvement.
 - Prompt Optimization (reduce per-chunk cost)
 - Skill Gap Analysis (identify resource-heavy operations)
 - Task Orchestration (coordinate multi-agent execution)
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

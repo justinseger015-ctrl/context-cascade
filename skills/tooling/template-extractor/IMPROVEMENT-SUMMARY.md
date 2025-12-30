@@ -1,5 +1,10 @@
 # Template Extractor Skill - Recursive Improvement Summary
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Meta-Loop Execution Date
 2025-12-17
 
@@ -158,3 +163,7 @@ Expected output:
 **Audit Protocol**: SKILL-AUDIT-PROTOCOL v1.0
 **Skill Version**: v1.0.0 -> v1.1.0
 **Status**: PRODUCTION READY
+
+
+---
+*Promise: `<promise>IMPROVEMENT_SUMMARY_VERIX_COMPLIANT</promise>`*

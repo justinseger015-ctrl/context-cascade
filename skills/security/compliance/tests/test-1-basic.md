@@ -1,5 +1,10 @@
 # Test Case 1: Basic Compliance Scanning
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Metadata
 - **Test ID**: COMPLIANCE-TEST-001
 - **Category**: Basic Functionality
@@ -377,12 +382,12 @@ rm -f multi-framework-report.json
 ```
 
 ## Success Criteria Summary
-- All 5 scenarios pass validation criteria
-- Scripts execute without errors
-- Output formats match expected structure
-- Violations correctly detected and reported
-- Reports contain all required sections
-- Evidence collection functions properly
+- [assert|neutral] All 5 scenarios pass validation criteria [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Scripts execute without errors [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Output formats match expected structure [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Violations correctly detected and reported [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Reports contain all required sections [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Evidence collection functions properly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Known Issues / Limitations
 - HTML/PDF conversion requires pandoc installation
@@ -393,3 +398,7 @@ rm -f multi-framework-report.json
 - Test fixtures should be created before running tests
 - Adjust file paths based on actual directory structure
 - Some output values (timestamps, durations) will vary
+
+
+---
+*Promise: `<promise>TEST_1_BASIC_VERIX_COMPLIANT</promise>`*

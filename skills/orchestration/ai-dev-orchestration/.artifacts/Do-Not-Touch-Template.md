@@ -1,5 +1,10 @@
 # Do Not Touch Template
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Template for creating "do not touch" constraint lists for AI coding prompts.
 
 **Purpose**: Prevent AI from making unintended changes to critical/sensitive code areas.
@@ -293,3 +298,7 @@ For each feature, customize the list:
 **Enforcement**: Review git diffs, rollback violations immediately, strengthen constraints
 
 **Remember**: Constraints are not restrictive—they enable safe AI assistance by preventing expensive mistakes.
+
+
+---
+*Promise: `<promise>DO_NOT_TOUCH_TEMPLATE_VERIX_COMPLIANT</promise>`*

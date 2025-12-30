@@ -1,5 +1,10 @@
 # Interactive Planning Example: Authentication System Architecture
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -518,3 +523,7 @@ Based on decision matrix results and requirements, here's the implementation pla
 **Generated**: 2025-01-15T11:45:00Z
 **Tool Used**: interactive-planner + decision-matrix.sh
 **Decision Confidence**: Very High (quantitative analysis + expert validation)
+
+
+---
+*Promise: `<promise>ARCHITECTURE_DECISIONS_EXAMPLE_VERIX_COMPLIANT</promise>`*

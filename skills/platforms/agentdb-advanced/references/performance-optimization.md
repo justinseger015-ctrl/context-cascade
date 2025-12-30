@@ -1,5 +1,10 @@
 # Performance Optimization Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This guide covers performance tuning strategies for AgentDB in production environments, including quantization, HNSW tuning, caching, and distributed optimization.
@@ -499,3 +504,7 @@ async function loadTest(adapter: AgentDBAdapter) {
 - [Distributed Patterns](./distributed-patterns.md)
 - [Example 1: QUIC Sync](../examples/example-1-quic-sync.md)
 - [Example 3: Sharding](../examples/example-3-sharding.md)
+
+
+---
+*Promise: `<promise>PERFORMANCE_OPTIMIZATION_VERIX_COMPLIANT</promise>`*

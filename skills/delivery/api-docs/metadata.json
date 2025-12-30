@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "delivery",
+  "tags": [
+    "delivery",
+    "development",
+    "workflow"
+  ],
+  "author": "ruv",
+  "verix-description": [
+    "assert|neutral] Generate and maintain comprehensive API documentation using OpenAPI 3.0",
+    "Swagger UI",
+    "and GraphQL Playground. Use when documenting REST APIs",
+    "GraphQL services",
+    "or creating API reference materials. Ensu [ground:given] [conf:0.95] [state:confirmed"
+  ]
+}

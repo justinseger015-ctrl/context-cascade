@@ -1,5 +1,10 @@
 # Test 1: Basic Research (Level 1)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -133,3 +138,7 @@ gradually decaying over the training period.
 - Gemini Search should be primary tool
 - Focus on speed and directness over comprehensiveness
 - Credibility scoring should be automatic
+
+
+---
+*Promise: `<promise>TEST_1_BASIC_RESEARCH_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,5 @@
 /**
- * Budget Analytics Module
+ * Budget Analytics Module v3.0
  *
  * Provides historical analysis and reporting for budget usage across all agents.
  * Queries Memory MCP for historical budget data and generates insights.
@@ -10,8 +10,10 @@
  * - Budget alerts for agents approaching limits
  * - Comprehensive budget reports
  *
+ * v3.0: Uses x- prefixed custom fields for Anthropic compliance
+ *
  * @module budget-analytics
- * @version 1.0.0
+ * @version 3.0.0
  */
 
 'use strict';

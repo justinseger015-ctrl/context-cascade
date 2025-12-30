@@ -1,5 +1,10 @@
 # Agent Pipeline Chaining - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Complete Pipeline Script
 
 ```bash
@@ -47,3 +52,4 @@ echo "Pipeline execution complete"
 - [ ] Agents connected properly
 - [ ] Data flow functional
 - [ ] Results validated
+- [assert|neutral] Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

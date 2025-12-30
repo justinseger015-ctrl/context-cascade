@@ -1,5 +1,10 @@
 # Example 3: Automated Release Workflow with Semantic Versioning
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -886,3 +891,7 @@ npm view my-package@1.2.3 version
 **Related Examples:**
 - [Example 1: Repository Automation](./example-1-repo-automation.md)
 - [Example 2: Webhook Handling](./example-2-webhook-handling.md)
+
+
+---
+*Promise: `<promise>EXAMPLE_3_RELEASE_WORKFLOW_VERIX_COMPLIANT</promise>`*

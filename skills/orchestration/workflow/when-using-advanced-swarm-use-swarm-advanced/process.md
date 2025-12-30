@@ -1,5 +1,10 @@
 # Advanced Swarm Coordination - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 This document provides detailed workflow instructions for implementing advanced swarm coordination patterns with dynamic topology switching.
@@ -494,3 +499,7 @@ cat improvements.json
 3. Integrate with monitoring systems
 4. Build domain-specific templates
 5. Automate optimization triggers
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

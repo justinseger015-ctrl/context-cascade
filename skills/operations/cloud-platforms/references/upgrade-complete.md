@@ -1,5 +1,10 @@
 # ✅ Cloud Platforms Skill - Gold Tier Upgrade COMPLETE
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: DEPLOYMENT SAFETY GUARDRAILS
 
 **BEFORE any deployment, validate**:
@@ -293,3 +298,7 @@ python resources/scripts/terraform_apply.py apply \
 **Upgrade Date:** 2025-11-02
 **Skill Version:** 2.0.0
 **Tier:** Gold
+
+
+---
+*Promise: `<promise>UPGRADE_COMPLETE_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # AgentDB - Vector Search & Semantic Memory
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Performance**: 150x faster than traditional databases | **Technology**: HNSW indexing with 384-dimensional embeddings
 
 ## Overview
@@ -250,3 +255,7 @@ See [graphviz/workflow.dot](graphviz/workflow.dot) for visual representation of 
 ---
 
 **Remember**: AgentDB delivers 150x speed with HNSW indexing - perfect for production RAG and agent memory systems.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

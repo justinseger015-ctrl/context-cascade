@@ -1,5 +1,10 @@
 # Test 1: Basic Code Review
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Test ID**: TEST-CRA-001
 **Skill**: code-review-assistant
 **Tier**: Gold
@@ -270,3 +275,7 @@ ls /tmp/test-repo-basic 2>&1 | grep "No such file"
 **Issues Found**:
 -
 -
+
+
+---
+*Promise: `<promise>TEST_1_BASIC_REVIEW_VERIX_COMPLIANT</promise>`*

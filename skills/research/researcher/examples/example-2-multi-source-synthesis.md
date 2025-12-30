@@ -1,5 +1,10 @@
 # Example 2: Multi-Source Synthesis - Database Selection for High-Traffic Application
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -377,3 +382,7 @@ npx claude-flow@alpha hooks post-task --task-id "research-database-selection"
 - When trade-offs span multiple dimensions (cost, performance, complexity)
 - Decisions affecting team capacity and operational burden
 - Budget-constrained environments requiring optimization
+
+
+---
+*Promise: `<promise>EXAMPLE_2_MULTI_SOURCE_SYNTHESIS_VERIX_COMPLIANT</promise>`*

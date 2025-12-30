@@ -1,5 +1,10 @@
 # Micro-Skills Composition Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Philosophy
 
 **Micro-skills** are atomic, single-purpose operations that serve as building blocks for cascades. They embody the principle of **composable excellence**: complex capabilities emerge from combining simple, well-defined components.
@@ -678,3 +683,7 @@ error: "Something went wrong"
 ---
 
 **Remember**: The best micro-skill is the simplest one that solves a specific problem.
+
+
+---
+*Promise: `<promise>MICRO_SKILLS_VERIX_COMPLIANT</promise>`*

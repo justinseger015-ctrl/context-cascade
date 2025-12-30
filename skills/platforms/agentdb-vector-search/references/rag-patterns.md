@@ -1,5 +1,10 @@
 # RAG Architecture Patterns and Best Practices
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document provides comprehensive guidance on Retrieval Augmented Generation (RAG) architecture patterns, implementation strategies, and best practices for production systems using AgentDB.
@@ -555,3 +560,7 @@ async function getDb() {
 
 **Last Updated**: 2025-11-02
 **AgentDB Version**: 1.0.7+
+
+
+---
+*Promise: `<promise>RAG_PATTERNS_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Performance Profiler - Detailed Process Flow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document describes the complete step-by-step process for comprehensive performance profiling, bottleneck detection, optimization, and validation.
@@ -836,3 +841,7 @@ npx claude-flow@alpha hooks post-task --task-id "profiler-001"
 - README.md - Quick start guide
 - subagent-performance-profiler.md - Agent implementation
 - process-diagram.gv - Visual process flow diagram
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

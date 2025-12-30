@@ -1,5 +1,10 @@
 # Code Review Assistant - Index
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version**: 2.0.0 (Gold Tier)
 **Last Updated**: 2025-11-02
 
@@ -412,3 +417,7 @@ Part of the code-review-assistant skill for Claude Code.
 
 **Last Updated**: 2025-11-02
 **Status**: ✅ Production Ready (Gold Tier)
+
+
+---
+*Promise: `<promise>INDEX_VERIX_COMPLIANT</promise>`*

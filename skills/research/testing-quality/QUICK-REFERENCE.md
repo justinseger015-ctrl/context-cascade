@@ -1,5 +1,10 @@
 # Testing Quality - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Test suite quality assessment and improvement.
 
@@ -48,3 +53,7 @@ critical: 100%
 - **testing**
 - **code-review-assistant**
 - **functionality-audit**
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

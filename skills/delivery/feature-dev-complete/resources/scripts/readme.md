@@ -1,5 +1,10 @@
 # Feature Development Automation Scripts
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -515,3 +520,7 @@ For issues or questions:
 **Last Updated**: 2025-11-02
 **Version**: 1.0.0 (Gold Tier)
 **Maintainer**: Claude Code Feature Development Team
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

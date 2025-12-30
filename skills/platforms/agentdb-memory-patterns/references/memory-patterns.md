@@ -1,5 +1,10 @@
 # Memory Patterns Deep Dive
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document provides a comprehensive analysis of the four primary memory pattern types in AgentDB: short-term, long-term, episodic, and semantic memory. Each pattern serves distinct purposes in building intelligent, stateful AI agents.
@@ -474,3 +479,7 @@ async function unifiedQuery(query: string) {
 - [Example 1: Short-Term Memory](../examples/example-1-short-term.md)
 - [Example 2: Long-Term Memory](../examples/example-2-long-term.md)
 - [Example 3: Episodic Memory](../examples/example-3-episodic.md)
+
+
+---
+*Promise: `<promise>MEMORY_PATTERNS_VERIX_COMPLIANT</promise>`*

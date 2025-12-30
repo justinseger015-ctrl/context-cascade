@@ -1,5 +1,10 @@
 # Advanced Coordination - Large-Scale Multi-Agent System Management
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Tier**: Silver (7+ files)
 **Category**: Distributed Systems & Coordination
 **Complexity**: Advanced
@@ -406,3 +411,7 @@ npx claude-flow@alpha agent spawn --count 3 --type validator
 **Last Updated**: 2025-11-02
 **Skill Version**: 2.0 (Silver Tier)
 **Maintainer**: Claude Code Skill System
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

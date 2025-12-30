@@ -1,5 +1,10 @@
 # Documentation Generator Subagent
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Agent Definition
 
 **Agent Type**: `doc-generator`
@@ -497,3 +502,7 @@ console.log(`Functions documented: ${metrics.functionsDocumented}`);
 **Agent Version**: 1.0.0
 **Last Updated**: 2025-10-30
 **Status**: Production Ready
+
+
+---
+*Promise: `<promise>SUBAGENT_DOC_GENERATOR_VERIX_COMPLIANT</promise>`*

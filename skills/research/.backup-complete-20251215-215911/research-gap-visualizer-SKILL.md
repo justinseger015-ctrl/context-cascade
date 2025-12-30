@@ -47,6 +47,11 @@ mcp_servers:
 
 # Research Gap Visualizer
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 
 Transform literature analysis into visual gap maps that clearly show what has been studied, what is missing, and where research opportunities exist. Provides visual evidence for research motivation in proposals and manuscripts.
@@ -411,3 +416,7 @@ npx claude-flow@alpha memory store \
 **Category**: Research / Gap Analysis
 **Prerequisites**: literature-synthesis output
 **Output Formats**: Mermaid, Markdown, ASCII, GraphViz
+
+
+---
+*Promise: `<promise>RESEARCH_GAP_VISUALIZER_SKILL_VERIX_COMPLIANT</promise>`*

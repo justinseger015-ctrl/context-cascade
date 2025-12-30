@@ -1,5 +1,10 @@
 # Example 3: Zero-Downtime Migration Patterns
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -778,3 +783,7 @@ const migrationProgress = new promClient.Gauge({
 3. **Automate future migrations** with reusable scripts
 4. **Train team on migration patterns**
 5. **Set up automated testing** for future schema changes
+
+
+---
+*Promise: `<promise>EXAMPLE_3_MIGRATION_PATTERNS_VERIX_COMPLIANT</promise>`*

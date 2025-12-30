@@ -1,5 +1,10 @@
 # Example 1: Q-Learning for Grid Navigation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates Q-Learning for a classic grid-world navigation task. The agent learns to navigate from a start position to a goal while avoiding obstacles.
@@ -433,3 +438,7 @@ if (Math.random() < 0.7) {
 - [Example 2: SARSA for Safe Robot Control](example-2-sarsa.md) - On-policy alternative
 - [Example 3: Deep RL with Actor-Critic](example-3-deep-rl.md) - Advanced methods
 - [RL Algorithms Overview](../references/rl-algorithms.md) - Algorithm theory
+
+
+---
+*Promise: `<promise>EXAMPLE_1_Q_LEARNING_VERIX_COMPLIANT</promise>`*

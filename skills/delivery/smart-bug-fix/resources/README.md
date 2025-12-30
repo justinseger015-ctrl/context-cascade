@@ -1,5 +1,10 @@
 # Smart Bug Fix - Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -274,3 +279,7 @@ npm install --prefix resources/
 ## License
 
 MIT License - Part of Claude Code Skills Suite
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

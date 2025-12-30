@@ -23,6 +23,11 @@ mcp_servers:
 
 # Rapid Manuscript Drafter
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 
 Generate structured, scaffolded research manuscript drafts in 10-15 minutes that provide a solid foundation for academic writing. Unlike tools that fabricate content, this skill creates honest drafts with clear placeholders for user-provided data and findings.
@@ -536,3 +541,7 @@ The pharmaceutical industry faces unprecedented challenges...
 **Time**: 10-15 minutes for full draft
 **Output**: Scaffolded manuscript with placeholders
 **Design**: Ethical scaffolding with placeholder-based content
+
+
+---
+*Promise: `<promise>RAPID_MANUSCRIPT_DRAFTER_SKILL_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Tradition Cognitive Sequences
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Complete decision-making workflows for each major tradition.
 
 ---
@@ -454,3 +459,7 @@ Example:
 - Futurist sequence demands motion
 - Wabi-sabi sequence demands stillness
 - Resolution: Motion blur at edges, stillness at center
+
+
+---
+*Promise: `<promise>TRADITION_SEQUENCES_VERIX_COMPLIANT</promise>`*

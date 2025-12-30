@@ -1,5 +1,10 @@
 # Complete Prompt Engineering Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 A comprehensive, practical guide to creating highly effective prompts for AI systems using evidence-based techniques, structural optimization, and systematic refinement.
 
 ## Table of Contents
@@ -818,3 +823,7 @@ Master these fundamentals, then develop domain-specific expertise through practi
 **Version**: 2.0
 **Last Updated**: 2025-11-02
 **Author**: Prompt Architecture Framework
+
+
+---
+*Promise: `<promise>PROMPT_ENGINEERING_COMPLETE_GUIDE_VERIX_COMPLIANT</promise>`*

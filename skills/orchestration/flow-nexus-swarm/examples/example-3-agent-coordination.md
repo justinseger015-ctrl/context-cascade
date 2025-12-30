@@ -1,5 +1,10 @@
 # Example 3: Agent Coordination - Real-Time Collaboration Patterns
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 Your e-commerce platform development is in full swing with 6 agents working on different microservices. However, you're encountering integration challenges:
@@ -786,3 +791,7 @@ After agent coordination:
 **Flow Nexus Version**: 1.5.0
 **Last Updated**: 2025-11-02
 **Skill**: `flow-nexus-swarm`
+
+
+---
+*Promise: `<promise>EXAMPLE_3_AGENT_COORDINATION_VERIX_COMPLIANT</promise>`*

@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "specialists",
+  "tags": [
+    "pipeline",
+    "automation",
+    "metaloop",
+    "dspy",
+    "moo",
+    "verilingua",
+    "verix",
+    "telemetry"
+  ],
+  "triggers": [
+    "create pipeline",
+    "new pipeline",
+    "integrate metaloop",
+    "pipeline from template",
+    "creating pipelines"
+  ],
+  "dependencies": [
+    "metaloop_integration.py",
+    "memory-mcp",
+    "context-cascade"
+  ],
+  "mcp_servers": "required: [memory-mcp]\noptional: [sequential-thinking, flow-nexus]",
+  "agents": [
+    "pipeline-architect-agent",
+    "metaloop-integrator-agent",
+    "pipeline-validator-agent",
+    "telemetry-configurator-agent"
+  ],
+  "original_directory": "when-creating-pipelines-use-pipeline-creator"
+}

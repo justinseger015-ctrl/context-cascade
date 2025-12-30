@@ -1,5 +1,10 @@
 # PPTX Generation - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 Enterprise PowerPoint generation with design consistency, accessibility compliance, and data visualization.
@@ -68,3 +73,7 @@ Enterprise PowerPoint generation with design consistency, accessibility complian
 - Screen reader compatible
 
 For implementation details, see SKILL.md
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Output Template Formats
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Use these templates to structure the two required outputs.
 
 ## Output 1: Code-Level Template Specification
@@ -279,3 +284,7 @@ Save outputs as:
 2. `AI_PROMPT.md` - The replication prompt
 3. Copy any extracted assets to `assets/` folder
 4. Optionally generate a test document to verify accuracy
+
+
+---
+*Promise: `<promise>OUTPUT_TEMPLATE_VERIX_COMPLIANT</promise>`*

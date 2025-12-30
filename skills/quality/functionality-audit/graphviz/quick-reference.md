@@ -1,5 +1,10 @@
 # Functionality Audit GraphViz - Quick Reference Card
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **🎯 Purpose**: Visual documentation for 6-step validation workflow + debugging decision tree
 
 ---
@@ -76,3 +81,7 @@ const workflow = readFileSync('graphviz/workflow.svg', 'utf8');
 ---
 
 **Created**: 2025-11-02 | **Files**: 4 | **Total Size**: ~32KB
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

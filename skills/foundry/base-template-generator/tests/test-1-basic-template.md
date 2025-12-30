@@ -1,5 +1,10 @@
 # Test 1: Basic Template Generation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Objective**: Verify that basic template generation works correctly for all supported project types.
 
 ## Test Cases
@@ -145,9 +150,8 @@ For each template:
 ---
 
 ## Success Criteria
-
-✅ **Pass**: All templates generate successfully and pass validation
-❌ **Fail**: Any template fails to generate or validation fails
+- [assert|neutral] ✅ **Pass**: All templates generate successfully and pass validation [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ❌ **Fail**: Any template fails to generate or validation fails [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Cleanup
 
@@ -163,3 +167,7 @@ rm -rf test-node-app test-python-app test-go-app
 - All generated templates should be production-ready
 - Templates should use modern versions of frameworks
 - Dependencies should be minimal but sufficient
+
+
+---
+*Promise: `<promise>TEST_1_BASIC_TEMPLATE_VERIX_COMPLIANT</promise>`*

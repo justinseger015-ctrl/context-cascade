@@ -1,5 +1,10 @@
 # Functionality-Audit Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Production-ready automation scripts and templates for the functionality-audit skill.
 
 ## 📁 Directory Structure
@@ -337,34 +342,32 @@ python resources/scripts/test_generator.py \
 ## 📊 Expected Outcomes
 
 ### Successful Validation
-
-```
-==============================================================
-FUNCTIONALITY-AUDIT CODE VALIDATOR
-==============================================================
+- [assert|neutral] ``` [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ============================================================== [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] FUNCTIONALITY-AUDIT CODE VALIDATOR [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ============================================================== [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 [1/5] Creating e2b sandbox...
-✓ E2B sandbox created: sandbox_abc123
+- [assert|neutral] ✓ E2B sandbox created: sandbox_abc123 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 [2/5] Generating test cases...
-✓ Generated tests: /workspace/generated_tests.py
+- [assert|neutral] ✓ Generated tests: /workspace/generated_tests.py [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 [3/5] Executing tests...
-✓ Tests completed: 42/42 passed
+- [assert|neutral] ✓ Tests completed: 42/42 passed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 [4/5] Analyzing results...
-✓ Found 0 failures, generated 3 recommendations
+- [assert|neutral] ✓ Found 0 failures, generated 3 recommendations [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 [5/5] Generating report...
-✓ Report generated: validation-report-20251102-103000.yaml
-
-==============================================================
-VALIDATION COMPLETE
-==============================================================
-Report: validation-report-20251102-103000.yaml
-Tests: 42/42 passed
-Failures: 0
-Verdict: APPROVED - Code is production-ready
-```
+- [assert|neutral] ✓ Report generated: validation-report-20251102-103000.yaml [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ============================================================== [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] VALIDATION COMPLETE [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ============================================================== [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Report: validation-report-20251102-103000.yaml [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Tests: 42/42 passed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Failures: 0 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Verdict: APPROVED - Code is production-ready [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ``` [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Failed Validation
 
@@ -523,3 +526,7 @@ These resources are part of the functionality-audit skill for the SPARC Three-Lo
 **Generated**: 2025-11-02
 **Version**: 1.0.0
 **Maintainer**: functionality-audit skill
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

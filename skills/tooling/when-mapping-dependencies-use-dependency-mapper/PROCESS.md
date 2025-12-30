@@ -1,5 +1,10 @@
 # Dependency Mapper - Detailed Process Flow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document describes the complete step-by-step process for dependency mapping, analysis, and visualization.
@@ -500,3 +505,7 @@ npx claude-flow@alpha hooks post-edit --file "dependency-report.json" --memory-k
 - README.md - Quick start guide
 - subagent-dependency-mapper.md - Agent implementation
 - process-diagram.gv - Visual process flow diagram
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

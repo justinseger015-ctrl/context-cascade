@@ -1,5 +1,10 @@
 # Interactive Planning Example: E-Commerce Checkout Feature
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -528,3 +533,7 @@ questions:
 
 **Generated**: 2025-01-15T10:30:00Z
 **Tool Used**: interactive-planner skill v1.0.0
+
+
+---
+*Promise: `<promise>FEATURE_PLANNING_EXAMPLE_VERIX_COMPLIANT</promise>`*

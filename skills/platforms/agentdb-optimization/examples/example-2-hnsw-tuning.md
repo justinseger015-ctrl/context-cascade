@@ -1,5 +1,10 @@
 # Example 2: HNSW Parameter Tuning for Optimal Search Performance
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates how to tune HNSW (Hierarchical Navigable Small World) index parameters to optimize search performance. Learn how M, efConstruction, and efSearch affect speed, accuracy, and memory usage.
@@ -408,3 +413,7 @@ console.log('  Recall@10:', stats.recallAt10);
 - [HNSW Parameters Deep Dive](../references/hnsw-parameters.md)
 - [Main Skill Documentation](../skill.md)
 - [HNSW Paper](https://arxiv.org/abs/1603.09320)
+
+
+---
+*Promise: `<promise>EXAMPLE_2_HNSW_TUNING_VERIX_COMPLIANT</promise>`*

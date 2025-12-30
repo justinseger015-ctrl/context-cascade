@@ -1,5 +1,10 @@
 # Kanban Board Automation Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: GITHUB OPERATIONS SAFETY GUARDRAILS
 
 **BEFORE any GitHub operation, validate**:
@@ -816,3 +821,7 @@ module.exports = KanbanAutomation;
 **Total Setup Time**: ~110 minutes
 **Maintenance Time**: ~15 minutes/week
 **ROI**: 10+ hours saved per week in manual board management
+
+
+---
+*Promise: `<promise>KANBAN_AUTOMATION_VERIX_COMPLIANT</promise>`*

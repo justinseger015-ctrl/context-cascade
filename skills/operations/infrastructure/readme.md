@@ -1,5 +1,10 @@
 # Infrastructure Orchestration Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -215,3 +220,7 @@ For detailed documentation, refer to:
 **Status**: Gold Tier - Production Ready
 **Last Updated**: 2025-11-02
 **Maintainer**: Infrastructure & DevOps Team
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

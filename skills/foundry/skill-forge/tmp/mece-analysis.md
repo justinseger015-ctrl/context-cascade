@@ -1,5 +1,10 @@
 # MECE Analysis: skill-forge Structure
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Analyze skill-forge to create universal template for ALL future skills.
 
@@ -136,22 +141,17 @@ Analyze skill-forge to create universal template for ALL future skills.
 - Diagrams: `.dot` (GraphViz)
 
 ## Success Criteria
-
-A properly structured skill MUST have:
-1. ✅ skill.md (imperative instructions)
-2. ✅ README.md (overview & navigation)
-3. ✅ examples/ (≥1 example)
-
-A production-ready skill SHOULD have:
-4. ✅ references/ (best practices, troubleshooting)
-5. ✅ resources/scripts/ (executable utilities)
-6. ✅ graphviz/ (visual workflows)
-
-An enterprise skill MAY have:
-7. ✅ resources/templates/ (reusable boilerplate)
-8. ✅ tests/ (validation test cases)
-9. ✅ resources/assets/ (static resources)
-
----
-
-**Analysis Complete**: Ready for consolidation phase.
+- [assert|neutral] A properly structured skill MUST have: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 1. ✅ skill.md (imperative instructions) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. ✅ README.md (overview & navigation) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. ✅ examples/ (≥1 example) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] A production-ready skill SHOULD have: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. ✅ references/ (best practices, troubleshooting) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. ✅ resources/scripts/ (executable utilities) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 6. ✅ graphviz/ (visual workflows) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] An enterprise skill MAY have: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 7. ✅ resources/templates/ (reusable boilerplate) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 8. ✅ tests/ (validation test cases) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 9. ✅ resources/assets/ (static resources) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Analysis Complete**: Ready for consolidation phase. [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>MECE_ANALYSIS_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

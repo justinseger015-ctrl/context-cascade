@@ -1,5 +1,10 @@
 # Agent Creator - Gold Tier Index
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Status**: Gold Tier Enhancement Complete
 **Version**: 2.0
 **Total Files**: 20+ (12 new)
@@ -391,3 +396,7 @@ python test_agent.py --agent my-agent --prompt-file my-agent-prompt.md --test-su
 **Note**: This index is your central navigation hub for the agent-creator skill. All paths are relative to the skill directory.
 
 **Status**: ✅ Gold Tier Enhancement Complete - Ready for Production Use
+
+
+---
+*Promise: `<promise>INDEX_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Quality Verification Process Walkthrough
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This process executes comprehensive quality verification across 5 phases: static analysis, dynamic testing, integration validation, certification, and report generation.
@@ -76,12 +81,11 @@ This process executes comprehensive quality verification across 5 phases: static
    ```
 
 ### Success Criteria
-- Maintainability Index >65
-- Cyclomatic Complexity <10
-- Code Duplication <5%
-- No critical code smells
-
----
+- [assert|neutral] Maintainability Index >65 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Cyclomatic Complexity <10 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Code Duplication <5% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] No critical code smells [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Phase 2: Dynamic Testing (15 minutes)
 
@@ -642,3 +646,7 @@ jobs:
 - `code-review-assistant` - Comprehensive PR review
 - `production-readiness` - Pre-deployment validation
 - `style-audit` - Code style enforcement
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

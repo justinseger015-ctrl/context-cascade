@@ -1,5 +1,10 @@
 # Changelog
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -179,3 +184,7 @@ Thanks to the following people for contributing to this release:
 [2.0.0]: https://github.com/org/repo/compare/v1.5.0...v2.0.0
 [1.5.0]: https://github.com/org/repo/compare/v1.0.0...v1.5.0
 [1.0.0]: https://github.com/org/repo/releases/tag/v1.0.0
+
+
+---
+*Promise: `<promise>CHANGELOG_TEMPLATE_VERIX_COMPLIANT</promise>`*

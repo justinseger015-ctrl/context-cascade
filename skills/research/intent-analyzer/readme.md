@@ -1,5 +1,10 @@
 # Intent Analyzer - Advanced Intent Interpretation System
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -314,3 +319,7 @@ For issues, questions, or feature requests:
 ---
 
 **Remember:** Intent Analyzer transforms request interpretation from surface-level reading to deep understanding. Use it thoughtfully—not every request needs deep analysis, but complex, ambiguous, or high-stakes requests benefit enormously from this systematic approach.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

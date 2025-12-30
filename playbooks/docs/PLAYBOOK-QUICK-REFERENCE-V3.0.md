@@ -1,4 +1,30 @@
+/*============================================================================*/
+/* PLAYBOOK QUICK REFERENCE V3.0 :: VERILINGUA x VERIX EDITION                               */
+/*============================================================================*/
+
+[define|neutral] PLAYBOOK := {
+  name: "PLAYBOOK-QUICK-REFERENCE-V3.0",
+  type: "workflow-orchestration",
+  layer: L1
+} [ground:given] [conf:1.0] [state:confirmed]
+
+[define|neutral] COGNITIVE_FRAME := {
+  frame: "Aspectual",
+  source: "Russian",
+  force: "Complete or ongoing?"
+} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+
 # Playbook Quick Reference v3.0
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 
 **Total Playbooks**: 38
 **Last Updated**: 2025-11-15
@@ -211,3 +237,6 @@
 9. ✨ **a11y-compliance** - WCAG compliance (skill existed, no playbook!)
 
 **Coverage**: 60% → 85% of common scenarios (+25% improvement)
+
+---
+*Promise: `<promise>PLAYBOOK_QUICK_REFERENCE_V3.0_VERIX_COMPLIANT</promise>`*

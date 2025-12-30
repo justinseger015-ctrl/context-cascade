@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.1.0",
+  "category": "foundry",
+  "tags": [
+    "evaluation",
+    "benchmark",
+    "regression",
+    "frozen",
+    "gate"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Frozen evaluation harness that gates all self-improvement changes. Contains benchmark suites",
+    "regression tests",
+    "and human approval gates. Evaluates cognitive frame application and cross-lingual integr [ground:given] [conf:0.95] [state:confirmed"
+  ]
+}

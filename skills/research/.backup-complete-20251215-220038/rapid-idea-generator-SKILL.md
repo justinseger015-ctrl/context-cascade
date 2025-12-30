@@ -48,6 +48,11 @@ mcp_servers:
 
 # Rapid Idea Generator
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 
 Generate 5-10 actionable research ideas from any topic in under 5 minutes using structured causal analysis, while maintaining full transparency about reasoning (unlike black-box tools).
@@ -399,3 +404,7 @@ ideas:
 **Category**: Research / Ideation
 **Time**: 2-15 minutes depending on mode
 **Design**: Evidence-based ideation with full transparency
+
+
+---
+*Promise: `<promise>RAPID_IDEA_GENERATOR_SKILL_VERIX_COMPLIANT</promise>`*

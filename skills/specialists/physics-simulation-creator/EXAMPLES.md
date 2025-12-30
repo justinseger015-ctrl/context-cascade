@@ -1,5 +1,10 @@
 # Physics Simulation Creator - Worked Examples
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Complete Examples with Step-by-Step Walkthrough
 
 ---
@@ -771,3 +776,7 @@ Drift = 9.2e-5 (0.0092%)
 | Radiation | 1/r^2 | -2.0 | 83.6% | 12-18x |
 | Quantum (smooth) | none | 0.0 | Use classical | N/A |
 | Black hole | 1/r | -1.0 | Regularizes horizon | 15-22x |
+
+
+---
+*Promise: `<promise>EXAMPLES_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Theater Code Detection
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Quick start guide for detecting non-functional "theater" code.
 
 ## Installation
@@ -153,3 +158,7 @@ docker run -it --rm -v $(pwd):/workspace node:18 \
 - Documentation: [Claude Flow Docs](https://github.com/ruvnet/claude-flow)
 - Issues: [GitHub Issues](https://github.com/ruvnet/claude-flow/issues)
 - Community: [Discussions](https://github.com/ruvnet/claude-flow/discussions)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Compliance Checklist
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Use this checklist before calling a feature "done". Ensures AI-assisted development follows best practices.
 
 ---
@@ -249,3 +254,7 @@ Track these metrics in Memory-MCP or project dashboard:
 ---
 
 **Remember**: Compliance is not bureaucracy—it prevents chaos, rework, and broken deploys.
+
+
+---
+*Promise: `<promise>COMPLIANCE_CHECKLIST_VERIX_COMPLIANT</promise>`*

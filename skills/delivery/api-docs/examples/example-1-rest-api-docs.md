@@ -1,5 +1,10 @@
 # Example 1: REST API Documentation with OpenAPI
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -550,3 +555,7 @@ project/
 
 - **Example 2**: GraphQL schema documentation
 - **Example 3**: API versioning strategies
+
+
+---
+*Promise: `<promise>EXAMPLE_1_REST_API_DOCS_VERIX_COMPLIANT</promise>`*

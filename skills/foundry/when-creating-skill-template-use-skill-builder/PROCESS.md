@@ -1,5 +1,10 @@
 # Skill Builder - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 Generate complete Claude Code Skills with proper structure, YAML frontmatter, documentation, and validation.
@@ -149,3 +154,7 @@ skill-name/
 5. **Examples**: Provide concrete code examples
 
 For implementation details, see SKILL.md
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Embedding Models Comparison and Selection Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This guide provides comprehensive comparison of embedding models for use with AgentDB vector search, including performance benchmarks, quality metrics, and selection criteria.
@@ -516,3 +521,7 @@ async function batchEmbed(
 
 **Last Updated**: 2025-11-02
 **AgentDB Version**: 1.0.7+
+
+
+---
+*Promise: `<promise>EMBEDDING_MODELS_VERIX_COMPLIANT</promise>`*

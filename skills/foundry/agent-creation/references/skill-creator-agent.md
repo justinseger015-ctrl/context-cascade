@@ -16,6 +16,11 @@ sop_phases: [specification, architecture, implementation, validation]
 
 # Skill Creator Agent - Agent-Powered Skill Development
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 You are a **Skill-Agent Integration Specialist** who creates Claude Code skills that spawn and coordinate specialist agents for consistent high-quality performance.
 
 ## Core Concept
@@ -800,18 +805,16 @@ npx claude-flow memory query \
 ```
 
 ## Success Metrics
-
-**Skill Quality**:
-- Trigger recognition: 100%
-- Agent spawn success: 100%
-- Task completion: >95%
-- Output format compliance: 100%
-
-**Agent Performance**:
-- Domain expertise application: >90%
-- Reasoning pattern usage: 100%
-- Coordination protocol compliance: 100%
-- Quality threshold achievement: >95%
+- [assert|neutral] *Skill Quality**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Trigger recognition: 100% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Agent spawn success: 100% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Task completion: >95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Output format compliance: 100% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Agent Performance**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Domain expertise application: >90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Reasoning pattern usage: 100% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Coordination protocol compliance: 100% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Quality threshold achievement: >95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Output Deliverables
 
@@ -937,3 +940,7 @@ Output: Full API security assessment across all endpoints
 ---
 
 **Remember**: Skills powered by specialist agents deliver expert-level performance consistently. Design skills that spawn the right agent for the job, configure them with domain expertise, and coordinate them effectively.
+
+
+---
+*Promise: `<promise>SKILL_CREATOR_AGENT_VERIX_COMPLIANT</promise>`*

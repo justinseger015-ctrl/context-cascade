@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "foundry",
+  "tags": [
+    "meta-tool",
+    "prompt-engineering",
+    "optimization",
+    "analysis",
+    "diagnostics"
+  ],
+  "author": "ruv",
+  "verix-description": [
+    "assert|neutral] Active diagnostic tool for analyzing prompt quality",
+    "detecting anti-patterns",
+    "identifying token waste",
+    "and providing optimization recommendations [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-optimizing-prompts-use-prompt-optimization-analyzer",
+  "triggers": [
+    "optimizing prompts"
+  ]
+}

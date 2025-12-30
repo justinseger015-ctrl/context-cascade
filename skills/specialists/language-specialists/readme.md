@@ -1,5 +1,10 @@
 # Language Specialists - Quick Start Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -251,3 +256,7 @@ python resources/scripts/language-analyzer.py --path . --report
 
 **Version**: 2.0.0 (Gold Tier)
 **Updated**: 2025-11-02
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

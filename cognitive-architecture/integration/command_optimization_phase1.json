@@ -1,0 +1,42 @@
+{
+  "phase": "Phase 1: Core Cognitive Commands",
+  "category": "cognitive",
+  "groups": [],
+  "iterations": [
+    {
+      "iteration": 1,
+      "groups": [
+        {
+          "name": "cognitive",
+          "commands": 6,
+          "baseline_verix": 0.044444444444444446,
+          "optimized_verix": 1.0,
+          "verix_delta": 0.9555555555555556,
+          "baseline_frame": 0.0,
+          "optimized_frame": 0.6683333333333333,
+          "frame_delta": 0.6683333333333333
+        }
+      ],
+      "avg_verix_delta": 0.9555555555555556,
+      "avg_frame_delta": 0.6683333333333333
+    },
+    {
+      "iteration": 2,
+      "groups": [
+        {
+          "name": "cognitive",
+          "commands": 6,
+          "baseline_verix": 0.044444444444444446,
+          "optimized_verix": 1.0,
+          "verix_delta": 0.9555555555555556,
+          "baseline_frame": 0.0,
+          "optimized_frame": 0.6683333333333333,
+          "frame_delta": 0.6683333333333333
+        }
+      ],
+      "avg_verix_delta": 0.9555555555555556,
+      "avg_frame_delta": 0.6683333333333333
+    }
+  ],
+  "converged": true
+}

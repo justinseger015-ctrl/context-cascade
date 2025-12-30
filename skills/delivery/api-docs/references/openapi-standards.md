@@ -1,5 +1,10 @@
 # OpenAPI 3.0 Standards & Best Practices
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -845,3 +850,7 @@ paths:
 **Last Updated**: 2025-01-15
 **Spec Version**: OpenAPI 3.0.3
 **Maintainer**: Claude Code (Sonnet 4.5)
+
+
+---
+*Promise: `<promise>OPENAPI_STANDARDS_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Model Card: [Model Name]
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -293,3 +298,7 @@
 ---
 
 *This model card follows the guidelines from Mitchell et al. (2019) "Model Cards for Model Reporting"*
+
+
+---
+*Promise: `<promise>MODEL_CARD_VERIX_COMPLIANT</promise>`*

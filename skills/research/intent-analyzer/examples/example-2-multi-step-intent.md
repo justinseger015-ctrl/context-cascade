@@ -1,5 +1,10 @@
 # Example 2: Multi-Step Intent - "Research, Recommend, and Implement"
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -744,7 +749,6 @@ Let me know if you need help with any specific part of the implementation!
 ```
 
 ## Success Pattern
-
-✅ **Respect structure** → ✅ **Tailor to context** → ✅ **Complete all phases** → ✅ **Maintain coherence**
-
-This is how multi-step intents should be handled!
+- [assert|neutral] ✅ **Respect structure** → ✅ **Tailor to context** → ✅ **Complete all phases** → ✅ **Maintain coherence** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] This is how multi-step intents should be handled! [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>EXAMPLE_2_MULTI_STEP_INTENT_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

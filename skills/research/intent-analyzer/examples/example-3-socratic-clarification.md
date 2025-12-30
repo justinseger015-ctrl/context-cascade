@@ -1,5 +1,10 @@
 # Example 3: Socratic Clarification - Resolving Contradictory Signals
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -726,7 +731,6 @@ Let me know if you need any section expanded or have specific questions I should
 **Result:** Interrogation, not conversation
 
 ## Success Pattern
-
-✅ **Notice contradiction** → ✅ **Ask strategic question** → ✅ **Discover true need** → ✅ **Adapt structure** → ✅ **Deliver dual-purpose response**
-
-This is masterful Socratic clarification!
+- [assert|neutral] ✅ **Notice contradiction** → ✅ **Ask strategic question** → ✅ **Discover true need** → ✅ **Adapt structure** → ✅ **Deliver dual-purpose response** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] This is masterful Socratic clarification! [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>EXAMPLE_3_SOCRATIC_CLARIFICATION_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

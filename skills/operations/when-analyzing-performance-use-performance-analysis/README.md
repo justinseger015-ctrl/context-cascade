@@ -1,5 +1,10 @@
 # Performance Analysis - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Comprehensive performance analysis and optimization for Claude Flow swarms.
 
 ## Quick Start
@@ -27,6 +32,7 @@ npx claude-flow@alpha performance compare --baseline baseline.json --current opt
 - **perf-analyzer:** Deep profiling
 
 ## Success Metrics
-- Throughput improvement: ≥15%
-- Latency reduction: ≥20%
-- Error rate: <1%
+- [assert|neutral] Throughput improvement: ≥15% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Latency reduction: ≥20% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Error rate: <1% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>README_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

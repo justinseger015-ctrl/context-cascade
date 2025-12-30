@@ -1,5 +1,10 @@
 # Baseline Replication - Silver Tier Documentation Index
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL RESEARCH GUARDRAILS (EVIDENCE-BASED)
 
 **NEVER** claim facts without citations. Every claim MUST include:
@@ -303,14 +308,12 @@ Phase 3: Production Deployment
 | **TOTAL** | **8-12 hours** | **4-6 hours** |
 
 ### Success Metrics
-
-- **Tolerance**: ±1% (0.939 - 0.957 for published 0.948)
-- **Reproducibility**: 3/3 successful Docker reproductions
-- **Statistical**: p > 0.05 (no significant difference)
-- **Effect size**: |Cohen's d| < 0.2 (small effect acceptable)
-- **Approval rate**: ~85% approved, ~10% conditional, ~5% rejected
-
----
+- [assert|neutral] *Tolerance**: ±1% (0.939 - 0.957 for published 0.948) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Reproducibility**: 3/3 successful Docker reproductions [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Statistical**: p > 0.05 (no significant difference) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Effect size**: |Cohen's d| < 0.2 (small effect acceptable) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Approval rate**: ~85% approved, ~10% conditional, ~5% rejected [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Resources
 
@@ -389,3 +392,7 @@ Phase 3: Production Deployment
 **Version**: 1.0.0 (Silver Tier)
 **Last Updated**: 2025-11-02
 **Next Review**: 2025-12-01
+
+
+---
+*Promise: `<promise>INDEX_VERIX_COMPLIANT</promise>`*

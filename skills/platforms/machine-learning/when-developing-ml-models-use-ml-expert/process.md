@@ -1,5 +1,10 @@
 # ML Expert - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 Complete machine learning model development from data preparation through production deployment.
@@ -81,3 +86,7 @@ mcp__flow-nexus__neural_train_distributed
 4. **Deployment**: Test inference performance
 
 For implementation details, see SKILL.md
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

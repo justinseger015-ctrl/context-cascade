@@ -1,5 +1,10 @@
 # Physics Simulation Creator - Mathematical SOP
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Standard Operating Procedure for NNC-Based Simulations
 
 This document provides the exact mathematical formulas and procedures for creating physics simulations with Non-Newtonian Calculus (NNC).
@@ -314,3 +319,7 @@ PHYSICS_TOLERANCE = 0.01       # Maximum relative error for physics preservation
 | Inverse transform | T_k^{-1}(y) = sign(y) * abs(y)^(1/(1-k)) |
 | NNC derivative | D*_k[f] = f^(1-k) * f' |
 | Bigeometric of power | D*_k[x^n] with k=n gives e^n |
+
+
+---
+*Promise: `<promise>SOP_MATHEMATICS_VERIX_COMPLIANT</promise>`*

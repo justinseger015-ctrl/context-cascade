@@ -1,5 +1,10 @@
 # Prompt Architect - Quick Start Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Evidence-based prompt engineering framework for creating and optimizing AI system prompts using proven techniques.
 
@@ -64,3 +69,7 @@ Consistency: +42%
 - **Skill Development**: Optimize skill instructions
 
 For detailed documentation, see SKILL.md
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

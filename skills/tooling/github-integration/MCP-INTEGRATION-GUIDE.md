@@ -1,5 +1,10 @@
 # MCP Tool Integration Guide for GitHub Skills
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This guide documents how to integrate Model Context Protocol (MCP) tools with GitHub integration skills for enhanced coordination and automation.
 
 ## Overview
@@ -596,3 +601,7 @@ mcp__claude-flow__agent_spawn({
 - MCP Protocol Specification: https://modelcontextprotocol.io
 - GitHub REST API: https://docs.github.com/rest
 - GitHub GraphQL API: https://docs.github.com/graphql
+
+
+---
+*Promise: `<promise>MCP_INTEGRATION_GUIDE_VERIX_COMPLIANT</promise>`*

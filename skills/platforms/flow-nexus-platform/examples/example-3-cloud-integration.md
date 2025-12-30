@@ -1,5 +1,10 @@
 # Example 3: Cloud Integration for Distributed Neural Network Training
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 Your AI research team is developing a novel transformer architecture for natural language processing. Training large models requires distributed computing across multiple GPUs with coordination between parameter servers, workers, and aggregators. You'll use Flow Nexus to:
@@ -830,3 +835,7 @@ mcp__flow-nexus__neural_cluster_connect {
 4. **Set Up A/B Testing**: Compare different model versions with real traffic
 5. **Publish to Marketplace**: Share your trained model as a template
 6. **Scale to 100+ Nodes**: Use hierarchical topology for massive-scale training
+
+
+---
+*Promise: `<promise>EXAMPLE_3_CLOUD_INTEGRATION_VERIX_COMPLIANT</promise>`*

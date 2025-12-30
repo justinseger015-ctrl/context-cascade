@@ -12,10 +12,9 @@
 - **Non-Standard Tools**: Do not use when tools are deprecated, unsupported, or outside standard toolkit
 
 ## Success Criteria
-
-- **Tool Executed Correctly**: Verify tool runs without errors and produces expected output
-- **Reference Accurate**: Confirm reference material is current and applicable
-- **Pipeline Complete**: Ensure automation pipeline completes all stages successfully
+- [assert|neutral] *Tool Executed Correctly**: Verify tool runs without errors and produces expected output [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Reference Accurate**: Confirm reference material is current and applicable [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Pipeline Complete**: Ensure automation pipeline completes all stages successfully [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Edge Cases
 
@@ -24,10 +23,9 @@
 - **Pipeline Failures**: Recover gracefully from mid-pipeline failures with clear error messages
 
 ## Guardrails
-
-- **NEVER use deprecated tools**: Always verify tool versions and support status before execution
-- **ALWAYS verify outputs**: Validate tool outputs match expected format and content
-- **ALWAYS check health**: Run tool health checks before critical operations
+- [assert|emphatic] NEVER: use deprecated tools**: Always verify tool versions and support status before execution [ground:policy] [conf:0.98] [state:confirmed]
+- [assert|neutral] ALWAYS: verify outputs**: Validate tool outputs match expected format and content [ground:policy] [conf:0.98] [state:confirmed]
+- [assert|neutral] ALWAYS: check health**: Run tool health checks before critical operations [ground:policy] [conf:0.98] [state:confirmed]
 
 ## Evidence-Based Validation
 
@@ -36,6 +34,11 @@
 - **Pipeline Monitoring**: Track pipeline execution metrics and success rates
 
 # Validation Checklist
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 You are executing a multi-stage workflow with defined phase gates. Follow the prescribed sequence rigorously. Validate completion criteria at each stage before advancing. Maintain state consistency across phases. Document decision points and branching logic clearly.
 You are executing a multi-stage workflow with defined phase gates. Follow the prescribed sequence rigorously. Validate completion criteria at each stage before advancing. Maintain state consistency across phases. Document decision points and branching logic clearly.
 
@@ -484,3 +487,7 @@ Validation is not optional quality check—it's integral to PowerPoint generatio
 - Continuous improvement
 
 **Remember**: Time spent on validation prevents rework, ensures accessibility, maintains quality standards, and builds confidence in AI-generated outputs.
+
+
+---
+*Promise: `<promise>VALIDATION_CHECKLIST_VERIX_COMPLIANT</promise>`*

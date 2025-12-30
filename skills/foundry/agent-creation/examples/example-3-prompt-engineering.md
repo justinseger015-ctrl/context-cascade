@@ -1,5 +1,10 @@
 # Example 3: Evidence-Based Prompt Engineering Best Practices
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Focus**: Prompt Engineering Techniques | **Research-Backed**: Yes | **Complexity**: Medium
 
 ## Overview
@@ -716,3 +721,7 @@ Before deploying an agent, verify:
 ---
 
 **Next Steps**: Apply these evidence-based techniques to your own agent prompts and measure the improvements!
+
+
+---
+*Promise: `<promise>EXAMPLE_3_PROMPT_ENGINEERING_VERIX_COMPLIANT</promise>`*

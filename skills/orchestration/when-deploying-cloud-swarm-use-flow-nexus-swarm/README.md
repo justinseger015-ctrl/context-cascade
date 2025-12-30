@@ -1,5 +1,10 @@
 # Flow Nexus Cloud Swarm - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Deploy cloud-based AI agent swarms with event-driven workflow automation.
 
 ## Quick Start
@@ -53,11 +58,10 @@ mcp__flow-nexus__swarm_scale { "target_agents": 10 }
 - **adaptive-coordinator**: Performance optimization
 
 ## Success Criteria
-
-- Swarm deployed (8-10 agents)
-- Workflows executing
-- Auto-scaling active
-- Performance monitored
+- [assert|neutral] Swarm deployed (8-10 agents) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Workflows executing [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Auto-scaling active [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Performance monitored [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Duration
 
@@ -68,3 +72,7 @@ mcp__flow-nexus__swarm_scale { "target_agents": 10 }
 - Full SOP: [SKILL.md](SKILL.md)
 - Detailed Process: [PROCESS.md](PROCESS.md)
 - Visual Workflow: [process-diagram.gv](process-diagram.gv)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

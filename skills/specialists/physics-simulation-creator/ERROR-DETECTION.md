@@ -1,5 +1,10 @@
 # Physics Simulation Creator - Error Detection Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## How to Identify Wrong Outputs
 
 This document helps you detect when something has gone wrong with your NNC-based physics simulation.
@@ -338,3 +343,7 @@ Escalate to human review if:
 3. **New singularity type** not in database
 4. **Multiple tests fail** after debugging
 5. **Error persists** after applying all fixes in this guide
+
+
+---
+*Promise: `<promise>ERROR_DETECTION_VERIX_COMPLIANT</promise>`*

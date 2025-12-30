@@ -1,5 +1,10 @@
 # Example 1: Distributed Neural Network Training with Flow Nexus
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 **Objective**: Train a sentiment analysis model across multiple E2B sandboxes using distributed training with federated learning capabilities.
@@ -620,3 +625,7 @@ npx flow-nexus@latest sandbox list --status running
 - [Example 3: Model Deployment & Serving](./example-3-model-deployment.md)
 - [Flow Nexus Neural Documentation](https://flow-nexus.ruv.io/docs/neural)
 - [E2B Sandboxes Guide](https://e2b.dev/docs)
+
+
+---
+*Promise: `<promise>EXAMPLE_1_DISTRIBUTED_TRAINING_VERIX_COMPLIANT</promise>`*

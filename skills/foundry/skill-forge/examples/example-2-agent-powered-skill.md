@@ -1,5 +1,10 @@
 # Example 2: Creating an Agent-Powered Analysis Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 You need a skill that analyzes code quality and provides detailed recommendations.
 
@@ -129,3 +134,7 @@ analyze-python-code-quality/
 ```
 
 **Result**: Production-ready agent-powered skill with complete resources.
+
+
+---
+*Promise: `<promise>EXAMPLE_2_AGENT_POWERED_SKILL_VERIX_COMPLIANT</promise>`*

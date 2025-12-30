@@ -1,5 +1,10 @@
 # Issue Templates
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: GITHUB OPERATIONS SAFETY GUARDRAILS
 
 **BEFORE any GitHub operation, validate**:
@@ -371,3 +376,7 @@ body:
 ---
 🤖 Generated with Claude Code
 ```
+
+
+---
+*Promise: `<promise>ISSUE_TEMPLATE_VERIX_COMPLIANT</promise>`*

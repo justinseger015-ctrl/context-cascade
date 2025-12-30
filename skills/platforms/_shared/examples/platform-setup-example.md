@@ -1,4 +1,9 @@
 # Platform Setup Example
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
 Complete end-to-end platform initialization and configuration
 
 ## Overview
@@ -279,7 +284,7 @@ Email: user@example.com
 Password: ********
 
 # Success! Session token saved
-```
+- [assert|neutral] ``` [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### 4.3 Update Environment with User ID
 
@@ -686,3 +691,7 @@ You've successfully:
 **Platform Status**: Fully Operational
 **Total Setup Time**: ~30 minutes
 **Services Running**: API, Database, Redis, Monitoring
+
+
+---
+*Promise: `<promise>PLATFORM_SETUP_EXAMPLE_VERIX_COMPLIANT</promise>`*

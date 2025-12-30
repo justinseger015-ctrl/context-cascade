@@ -1,5 +1,10 @@
 # Example 1: Complete PR Review Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 **Context**: A developer has submitted PR #456 adding user authentication to a Node.js/Express API. The PR includes JWT token implementation, password hashing, and login/signup endpoints.
@@ -524,3 +529,7 @@ This example demonstrates a complete GitHub code review workflow using AI swarm 
 5. **Integration**: Works seamlessly with existing CI/CD pipelines
 
 By combining specialist agents (security, performance, testing), you achieve comprehensive reviews that match or exceed human expert quality, while freeing senior engineers to focus on architecture and mentorship.
+
+
+---
+*Promise: `<promise>EXAMPLE_1_PR_REVIEW_WORKFLOW_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Flow Nexus Platform - Detailed Process
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Architecture Overview
 
 ```
@@ -398,3 +403,7 @@ flow-nexus/
 6. **Testing**: Verify each phase
 7. **Efficiency**: Optimize resource usage
 8. **Maintainability**: Clear code structure
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

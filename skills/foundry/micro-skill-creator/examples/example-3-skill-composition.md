@@ -1,5 +1,10 @@
 # Example 3: Micro-Skill Composition in Cascade Workflows
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 You need to build an end-to-end data processing pipeline that:
@@ -575,3 +580,7 @@ Micro-skill composition via cascades enables:
 - Example 1: Atomic extraction skill (self-consistency)
 - Example 2: Specialized validation skill (program-of-thought)
 - Cascade-orchestrator skill: Advanced workflow patterns
+
+
+---
+*Promise: `<promise>EXAMPLE_3_SKILL_COMPOSITION_VERIX_COMPLIANT</promise>`*

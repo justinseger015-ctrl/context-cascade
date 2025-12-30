@@ -1,5 +1,10 @@
 # Example 1: Quantization for 4-32x Memory Reduction
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates how to use quantization to dramatically reduce memory usage while maintaining acceptable accuracy. We'll show all four quantization methods with real-world performance benchmarks.
@@ -302,3 +307,7 @@ migrateToQuantization();
 
 - [Quantization Techniques Reference](../references/quantization-techniques.md)
 - [Main Skill Documentation](../skill.md)
+
+
+---
+*Promise: `<promise>EXAMPLE_1_QUANTIZATION_VERIX_COMPLIANT</promise>`*

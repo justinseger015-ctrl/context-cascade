@@ -1,0 +1,17 @@
+{
+  "_comment": "EVIDENCE TRUTH - Written ONLY by Frozen Eval Harness. NEVER by model.",
+  "_schema_version": "1.0.0",
+  "iteration": 0,
+  "timestamp": "2025-12-30T00:00:00-05:00",
+  "artifact_path": null,
+  "artifact_hash": null,
+  "metrics": {
+    "task_accuracy": 0.0,
+    "token_efficiency": 0.0,
+    "edge_robustness": 0.0,
+    "epistemic_consistency": 0.0,
+    "overall": 0.0
+  },
+  "harness_version": "1.0.0",
+  "harness_hash": "frozen_eval_harness_v1"
+}

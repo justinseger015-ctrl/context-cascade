@@ -1,5 +1,10 @@
 # Example 1: Sequential Cascade - Data Processing Pipeline
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates a **linear sequential cascade** where each stage processes data and passes results to the next stage. This is the simplest and most common cascade pattern.
@@ -356,3 +361,7 @@ stages:
 ---
 
 **Key Takeaway**: Sequential cascades are simple, predictable, and perfect for data pipelines with ordered stages.
+
+
+---
+*Promise: `<promise>EXAMPLE_1_SEQUENTIAL_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Platform - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Flow Nexus platform services hub.
 
@@ -37,3 +42,7 @@ auth/payment/sandbox -> flow-nexus-platform
 - **flow-nexus-neural**
 - **flow-nexus-platform**
 - **flow-nexus-swarm**
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

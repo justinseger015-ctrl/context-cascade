@@ -1,5 +1,10 @@
 # Example 3: Automated Feedback and Learning System
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 **Context**: A development team wants to improve code quality over time by learning from review patterns. Instead of just reviewing PRs, the AI swarm should:
@@ -795,3 +800,7 @@ Teams achieve **7.6x ROI** through time savings, fewer production bugs, and acce
 - Celebrate wins (e.g., @diana's 91% first-time approval rate!)
 
 This approach scales from small teams (5 developers) to large organizations (500+ developers) with minimal human oversight.
+
+
+---
+*Promise: `<promise>EXAMPLE_3_AUTOMATED_FEEDBACK_VERIX_COMPLIANT</promise>`*

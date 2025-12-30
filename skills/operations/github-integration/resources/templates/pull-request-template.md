@@ -1,5 +1,10 @@
 # Pull Request Template
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: GITHUB OPERATIONS SAFETY GUARDRAILS
 
 **BEFORE any GitHub operation, validate**:
@@ -200,3 +205,7 @@ Template Tips:
 - Highlight risks or concerns
 - Make reviewer's job easier
 -->
+
+
+---
+*Promise: `<promise>PULL_REQUEST_TEMPLATE_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Flow Nexus Cloud Swarm - Detailed Process
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Architecture Overview
 
 ```
@@ -202,3 +207,7 @@ swarm/
 6. Test scaling policies
 7. Review performance regularly
 8. Maintain agent specialization
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

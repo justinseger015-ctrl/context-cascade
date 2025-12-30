@@ -1,5 +1,10 @@
 # Dependency Mapper - Quick Start Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## What is Dependency Mapper?
 
 A comprehensive tool for analyzing, visualizing, and auditing software dependencies across multiple programming languages and package managers.
@@ -289,3 +294,7 @@ Create `.dependency-mapper.json` in project root:
 ## License
 
 MIT - Part of Claude Code Skills Collection
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

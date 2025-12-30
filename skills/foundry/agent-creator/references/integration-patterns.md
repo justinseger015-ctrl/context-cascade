@@ -1,5 +1,10 @@
 # MCP Integration Patterns for Agents
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Model Context Protocol (MCP) enables agents to coordinate, share memory, and access external tools. This document covers common integration patterns for Claude Flow MCP, Memory MCP, and other MCP servers.
@@ -669,3 +674,7 @@ expect(mockMcpTools.memory_retrieve).toHaveBeenCalledWith({
 - **Hybrids**: Moderate MCP usage (memory + occasional delegation)
 
 Use these patterns to build agents with robust MCP integration for production-ready coordination and collaboration.
+
+
+---
+*Promise: `<promise>INTEGRATION_PATTERNS_VERIX_COMPLIANT</promise>`*

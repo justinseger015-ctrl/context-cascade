@@ -17,6 +17,11 @@ mcp_servers:
 
 # Visual Art Composition System
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 The Visual Art Composition System transforms "describe what you want to see" into structured, orthogonal aesthetic frameworks that combine multiple cultural art traditions in novel ways. Rather than treating art styles as monolithic presets ("make it look Japanese"), this system decomposes 29+ art traditions into 13 independently variable dimensions - each representing a distinct cognitive question that artists ask when creating work.
@@ -69,3 +74,7 @@ for (const domain of domains) {
 - Proceed with general knowledge from dimensional taxonomy
 - Flag for expertise creation after successful prompt generation
 
+
+
+---
+*Promise: `<promise>SKILL_V2_VERIX_COMPLIANT</promise>`*

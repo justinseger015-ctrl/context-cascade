@@ -1,5 +1,10 @@
 # Source Credibility Analyzer Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version**: 2.0 (Production-Ready)
 **Created**: 2025-01-06
 **Methodology**: Skill-Forge 7-Phase Process + Prompt-Architect Optimization
@@ -363,3 +368,7 @@ This is **Skill 3 of 3** from Priority 1 of MECE gap analysis.
 **Production Status**: ✅ READY FOR USE
 **Last Updated**: 2025-01-06
 **Version**: 2.0 (Optimized)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

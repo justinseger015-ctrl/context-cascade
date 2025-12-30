@@ -1,5 +1,10 @@
 # Skill Creator Agent Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Supporting production-grade scripts, templates, and utilities for creating Claude Code skills tied to specialist agents using the Claude Agent SDK.
 
 ## Overview
@@ -626,3 +631,7 @@ For issues or questions:
 ---
 
 **Remember**: Skills coordinate detection and context, agents execute with expertise. Use these tools to build that clean separation systematically.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

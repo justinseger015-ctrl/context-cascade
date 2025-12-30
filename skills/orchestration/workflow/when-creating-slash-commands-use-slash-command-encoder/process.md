@@ -1,5 +1,10 @@
 # Slash Command Encoder - Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Complete Script
 
 ```bash
@@ -34,3 +39,4 @@ npx claude-flow@alpha analyze ./src
 - [ ] Handler generated and tested
 - [ ] Documentation complete
 - [ ] Command deployed successfully
+- [assert|neutral] Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

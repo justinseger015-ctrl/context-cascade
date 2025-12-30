@@ -1,5 +1,10 @@
 # Example 1: AWS Lambda Serverless REST API
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CLOUD PLATFORM SAFETY GUARDRAILS
 
 **BEFORE any cloud operation, validate**:
@@ -579,3 +584,7 @@ const AWS = AWSXRay.captureAWS(require('aws-sdk'));
 - [AWS Lambda Best Practices](https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html)
 - [DynamoDB Best Practices](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices.html)
 - [API Gateway Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html)
+
+
+---
+*Promise: `<promise>EXAMPLE_1_AWS_LAMBDA_VERIX_COMPLIANT</promise>`*

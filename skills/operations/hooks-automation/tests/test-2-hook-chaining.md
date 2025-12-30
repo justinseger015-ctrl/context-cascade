@@ -1,5 +1,10 @@
 # Test 2: Hook Chaining and Sequential Execution
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -371,11 +376,10 @@ node resources/scripts/hook-manager.js metrics
 | Conditional | 4 files (3 processed) | ~3 seconds |
 
 ### Success Rate Targets
-
-- **Basic chains**: 100% success
-- **Complex chains**: ≥95% success
-- **Parallel execution**: ≥90% success
-- **Error recovery**: 100% (with continue_on_error)
+- [assert|neutral] *Basic chains**: 100% success [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Complex chains**: ≥95% success [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Parallel execution**: ≥90% success [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Error recovery**: 100% (with continue_on_error) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Cleanup
 
@@ -400,3 +404,7 @@ After chaining tests pass:
 - Hook manager: `resources/scripts/hook-manager.js`
 - Configuration: `resources/templates/`
 - Memory MCP: See CLAUDE.md for integration details
+
+
+---
+*Promise: `<promise>TEST_2_HOOK_CHAINING_VERIX_COMPLIANT</promise>`*

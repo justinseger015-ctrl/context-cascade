@@ -1,5 +1,10 @@
 # Micro-Skill Creator Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This directory contains reusable components, templates, and scripts for creating atomic, evidence-based micro-skills.
 
 ## Directory Structure
@@ -90,3 +95,7 @@ All templates and scripts follow semantic versioning:
 ## Support
 
 For issues, improvements, or new template requests, consult the main micro-skill-creator SKILL.md documentation.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

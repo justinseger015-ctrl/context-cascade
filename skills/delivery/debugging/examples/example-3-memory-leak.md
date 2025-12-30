@@ -1,5 +1,10 @@
 # Example 3: Debugging Memory Leak (Advanced)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -1147,3 +1152,7 @@ if (require.main === module) {
 
 - [Example 1: Null Pointer](example-1-null-pointer.md) - Basic null safety
 - [Example 2: Race Condition](example-2-race-condition.md) - Async debugging
+
+
+---
+*Promise: `<promise>EXAMPLE_3_MEMORY_LEAK_VERIX_COMPLIANT</promise>`*

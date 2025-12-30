@@ -1,5 +1,10 @@
 # Example 2: GCP Cloud Run Container Deployment
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: DEPLOYMENT SAFETY GUARDRAILS
 
 **BEFORE any deployment, validate**:
@@ -687,3 +692,7 @@ gcloud monitoring dashboards create --config-from-file=dashboard.json
 - [Cloud Run Documentation](https://cloud.google.com/run/docs)
 - [Cloud SQL Best Practices](https://cloud.google.com/sql/docs/postgres/best-practices)
 - [Cloud Build CI/CD](https://cloud.google.com/build/docs)
+
+
+---
+*Promise: `<promise>EXAMPLE_2_GCP_CLOUD_RUN_VERIX_COMPLIANT</promise>`*

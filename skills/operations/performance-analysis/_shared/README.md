@@ -1,5 +1,10 @@
 # Performance Skill - Enhanced Tier
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Status**: Enhanced Tier ✅
 **Version**: 2.0.0
 **Last Updated**: 2025-01-02
@@ -371,3 +376,7 @@ MIT - Part of SPARC Three-Loop System
 ## Contributing
 
 See parent skill documentation for contribution guidelines.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

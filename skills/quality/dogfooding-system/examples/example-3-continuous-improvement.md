@@ -1,5 +1,10 @@
 # Example 3: Continuous Improvement Phase - Full Dogfooding Cycle
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Overview
 
 **Context**: You want to run a complete dogfooding improvement cycle on the Memory-MCP server codebase. This includes automated quality detection, pattern-based fixes, sandbox testing, and metrics tracking.
@@ -828,3 +833,7 @@ console.log('Test coverage trend:', coverageTrend);
 **Scalability**: Works on single files, directories, or entire workspaces
 
 **Safety**: Sandbox testing + rollback strategy ensures zero production regressions
+
+
+---
+*Promise: `<promise>EXAMPLE_3_CONTINUOUS_IMPROVEMENT_VERIX_COMPLIANT</promise>`*

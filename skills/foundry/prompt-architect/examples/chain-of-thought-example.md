@@ -1,5 +1,10 @@
 # Chain-of-Thought Prompting Examples
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This document demonstrates effective chain-of-thought (CoT) prompting techniques with before/after comparisons and real-world use cases.
 
 ## Overview
@@ -528,3 +533,7 @@ Chain-of-Thought prompting transforms opaque reasoning into transparent, verifia
 - **Trust**: Build confidence through visible logic
 
 Use CoT whenever the reasoning process is as important as the final answer.
+
+
+---
+*Promise: `<promise>CHAIN_OF_THOUGHT_EXAMPLE_VERIX_COMPLIANT</promise>`*

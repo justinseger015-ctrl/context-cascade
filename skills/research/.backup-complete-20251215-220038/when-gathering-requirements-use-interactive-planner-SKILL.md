@@ -39,6 +39,11 @@ author: ruv
 
 # Interactive Requirements Planning SOP
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ```yaml
 metadata:
   skill_name: when-gathering-requirements-use-interactive-planner
@@ -101,3 +106,7 @@ Create final documentation and action plan.
 - Technical architecture
 - Action plan
 - Validation report
+
+
+---
+*Promise: `<promise>WHEN_GATHERING_REQUIREMENTS_USE_INTERACTIVE_PLANNER_SKILL_VERIX_COMPLIANT</promise>`*

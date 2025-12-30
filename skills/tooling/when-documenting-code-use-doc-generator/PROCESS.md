@@ -1,5 +1,10 @@
 # Documentation Generation Process
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document details the step-by-step process for automated documentation generation, from code analysis to final output validation.
@@ -776,3 +781,7 @@ This process ensures comprehensive, maintainable documentation that stays synchr
 
 **Version**: 1.0.0
 **Last Updated**: 2025-10-30
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

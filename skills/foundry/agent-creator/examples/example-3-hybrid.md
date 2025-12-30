@@ -1,5 +1,10 @@
 # Example 3: Hybrid Multi-Domain Agent Creation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Objective
 
 Create a **Full-Stack Developer Agent** that combines multiple specialist domains (frontend, backend, database, DevOps) with coordinator capabilities for end-to-end feature development.
@@ -757,3 +762,7 @@ Feature complete when:
 - ❌ Security audits, penetration testing → Security Specialist
 - ❌ Advanced performance optimization → Performance Specialist
 - ❌ Mobile app development (React Native) → Mobile Development Specialist
+
+
+---
+*Promise: `<promise>EXAMPLE_3_HYBRID_VERIX_COMPLIANT</promise>`*

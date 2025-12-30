@@ -1,5 +1,10 @@
 # Playbook Architect
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 A foundry skill for creating, analyzing, and optimizing playbooks that orchestrate skill sequences.
 
 ## Quick Start
@@ -74,8 +79,8 @@ mcp_requirements:
 - **Enhanced System**: `docs/ENHANCED-PLAYBOOK-SYSTEM.md`
 
 ## Success Metrics
-
-- Playbook routes correctly >95% of time
-- Execution completes without manual intervention
-- Time estimate within 20% of actual
-- All guardrails enforced
+- [assert|neutral] Playbook routes correctly >95% of time [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Execution completes without manual intervention [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Time estimate within 20% of actual [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All guardrails enforced [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Promise: `<promise>README_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

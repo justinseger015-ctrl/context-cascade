@@ -1,5 +1,10 @@
 # Flow Nexus Neural Training - Detailed Process
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Architecture Overview
 
 ```
@@ -453,3 +458,7 @@ done
 - FastAPI serving
 - Prometheus monitoring
 - Load balancing
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "testing-quality",
+  "tags": [
+    "general"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Comprehensive quality verification and validation through static analysis",
+    "dynamic testing",
+    "integration validation",
+    "and certification gates [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-verifying-quality-use-verification-quality",
+  "triggers": [
+    "verifying quality"
+  ]
+}

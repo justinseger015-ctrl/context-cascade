@@ -1,5 +1,10 @@
 # Distributed Consensus Builder Agents
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This directory contains specialized agents for implementing advanced distributed consensus mechanisms and fault-tolerant coordination protocols. These agents work together to provide robust, scalable consensus capabilities for distributed swarm systems.
@@ -244,3 +249,6 @@ await crdtSynchronizer.synchronize();
 ## Integration Examples
 
 See individual agent files for detailed implementation examples and integration patterns with specific consensus protocols and use cases.
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Example 1: Security-Focused Code Review
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This example demonstrates the Code Review Assistant detecting and fixing a critical SQL injection vulnerability in an authentication API.
 
 ## Scenario
@@ -342,3 +347,7 @@ describe('POST /login', () => {
 ## Conclusion
 
 This PR introduces **3 critical security vulnerabilities** that must be fixed before merge. The Code Review Assistant detected all issues, provided specific fix suggestions, and recommended comprehensive security improvements. After applying fixes, re-run review to verify security posture.
+
+
+---
+*Promise: `<promise>EXAMPLE_1_SECURITY_REVIEW_VERIX_COMPLIANT</promise>`*

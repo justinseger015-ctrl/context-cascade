@@ -1,5 +1,10 @@
 # Pull Request Template with Swarm Configuration
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Description
 
 <!-- Provide a brief description of the changes in this PR -->
@@ -251,3 +256,7 @@ Related to #
 
 Review status will be posted as a comment below.
 -->
+
+
+---
+*Promise: `<promise>PR_TEMPLATE_VERIX_COMPLIANT</promise>`*

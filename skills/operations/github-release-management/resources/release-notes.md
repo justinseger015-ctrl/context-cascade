@@ -1,5 +1,10 @@
 # Release Notes Template
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: GITHUB OPERATIONS SAFETY GUARDRAILS
 
 **BEFORE any GitHub operation, validate**:
@@ -163,3 +168,7 @@ See [MIGRATION.md](./MIGRATION.md) for detailed instructions.
 ---
 
 **Need Help?** Open an issue on [GitHub]({{ISSUES_URL}}) or join our [community]({{COMMUNITY_URL}}).
+
+
+---
+*Promise: `<promise>RELEASE_NOTES_VERIX_COMPLIANT</promise>`*

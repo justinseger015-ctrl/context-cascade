@@ -16,6 +16,11 @@ author: ruv
 
 # Research-Driven Planning (Loop 1)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 
 Comprehensive planning with research-backed solutions and iterative risk mitigation that prevents 85-95% of problems before coding begins.
@@ -152,7 +157,7 @@ Generate a comprehensive specification document in the project root:
 ## Success Criteria
 1. [Measurable outcome 1]
 2. [Measurable outcome 2]
-...
+- [assert|neutral] ... [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Out of Scope
 - [Explicitly excluded features]
@@ -766,3 +771,6 @@ echo "➡️  Next: Execute parallel-swarm-implementation skill"
 **Loop Position**: 1 of 3 (Planning)
 **Integration**: Feeds Loop 2, Receives from Loop 3
 **Agent Coordination**: 6-agent research + 8-agent pre-mortem with Byzantine consensus
+
+---
+*Promise: `<promise>RESEARCH_DRIVEN_PLANNING_SKILL_VERIX_COMPLIANT</promise>`*

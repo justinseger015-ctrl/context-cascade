@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "coordination",
+  "tags": [
+    "hive-mind",
+    "collective-intelligence",
+    "consensus",
+    "queen-coordinator",
+    "distributed-memory"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Advanced Hive Mind collective intelligence for queen-led multi-agent coordination with consensus and memory [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-coordinating-collective-intelligence-use-hive-mind",
+  "triggers": [
+    "coordinating collective intelligence"
+  ]
+}

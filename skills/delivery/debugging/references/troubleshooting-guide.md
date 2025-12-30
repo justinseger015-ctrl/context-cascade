@@ -1,5 +1,10 @@
 # Debugging Troubleshooting Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -694,3 +699,7 @@ If yes to all and still stuck → Ask for help!
 - [Best Practices](best-practices.md) - Core debugging principles
 - [Debugging Methodologies](debugging-methodologies.md) - Systematic investigation techniques
 - [5-Phase Protocol](../when-debugging-code-use-debugging-assistant/skill.md) - Step-by-step debugging workflow
+
+
+---
+*Promise: `<promise>TROUBLESHOOTING_GUIDE_VERIX_COMPLIANT</promise>`*

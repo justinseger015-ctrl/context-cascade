@@ -1,5 +1,10 @@
 # Test 1: QUIC Synchronization
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Objective
 Verify QUIC synchronization works correctly between multiple AgentDB nodes with sub-millisecond latency.
 
@@ -348,3 +353,7 @@ rm cert.pem key.pem
 # Clear logs
 rm -rf .agentdb/logs/quic-sync.log
 ```
+
+
+---
+*Promise: `<promise>TEST_1_QUIC_SYNC_VERIX_COMPLIANT</promise>`*

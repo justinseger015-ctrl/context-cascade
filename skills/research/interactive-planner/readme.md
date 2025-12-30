@@ -1,5 +1,10 @@
 # Interactive Planner - Gold Tier Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -782,3 +787,7 @@ For issues or questions:
 **Generated**: 2025-01-15T14:00:00Z
 **Skill Version**: 1.0.0 (Gold Tier)
 **Documentation Version**: 1.0.0
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

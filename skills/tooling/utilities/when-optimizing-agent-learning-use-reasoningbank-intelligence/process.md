@@ -1,5 +1,10 @@
 # ReasoningBank Intelligence - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 Adaptive learning system that captures agent trajectories, extracts patterns, trains decision models, and optimizes strategies for continuous improvement.
@@ -134,3 +139,7 @@ Export & Deploy
 5. **A/B Testing**: Compare learned vs baseline agents
 
 For implementation details, see SKILL.md
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Functionality-Audit Skill Test Suite
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 This directory contains **meta-tests** for the `functionality-audit` skill itself. These tests validate that the audit skill correctly identifies bugs, validates working code, detects integration issues, and generates comprehensive edge case tests.
 
@@ -87,17 +92,14 @@ This directory contains **meta-tests** for the `functionality-audit` skill itsel
 ---
 
 ## Success Criteria (All 4 Tests)
-
-| Test                        | Key Validation                          | Must Pass? |
-|-----------------------------|-----------------------------------------|------------|
-| test-basic-validation       | Correct code → PASSED                   | ✅ YES     |
-| test-bug-detection          | Off-by-one bug → FAILED at line 11      | ✅ YES     |
-| test-integration-failure    | Type mismatch → INTEGRATION FAILURE     | ✅ YES     |
-| test-edge-case-coverage     | Generates 24+ tests, 100% coverage      | ✅ YES     |
-
-**Overall Pass**: All 4 tests must pass (audit correctly handles all scenarios)
-
----
+- [assert|neutral] | Test                        | Key Validation                          | Must Pass? | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] |-----------------------------|-----------------------------------------|------------| [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | test-basic-validation       | Correct code → PASSED                   | ✅ YES     | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | test-bug-detection          | Off-by-one bug → FAILED at line 11      | ✅ YES     | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | test-integration-failure    | Type mismatch → INTEGRATION FAILURE     | ✅ YES     | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] | test-edge-case-coverage     | Generates 24+ tests, 100% coverage      | ✅ YES     | [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Overall Pass**: All 4 tests must pass (audit correctly handles all scenarios) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Quick Reference
 
@@ -200,3 +202,7 @@ npx claude-code skill invoke functionality-audit \
 **Last Updated**: 2025-11-02
 **Test Suite Version**: 1.0.0
 **Compatible with**: functionality-audit skill v1.0.0+
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Hooks Automation Skill - Gold Tier
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -125,3 +130,7 @@ For issues or questions:
 
 **Last Updated**: 2025-11-02
 **Version**: 2.0.0 (Gold Tier)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

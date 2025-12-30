@@ -49,6 +49,11 @@ mcp_servers:
 
 # Visual Asset Generator
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 
 Automatically generate publication-ready visual assets (diagrams, charts, tables) from data or descriptions in seconds, filling the gap between text-based research and visual communication.
@@ -518,3 +523,7 @@ Proposed & \textbf{0.891} & \textbf{0.887} & \textbf{1.8M} \\
 **Category**: Research / Visualization
 **Formats**: Mermaid, GraphViz, Markdown, ASCII, LaTeX
 **Design**: Ethical visualization with placeholder-based data insertion
+
+
+---
+*Promise: `<promise>VISUAL_ASSET_GENERATOR_SKILL_VERIX_COMPLIANT</promise>`*

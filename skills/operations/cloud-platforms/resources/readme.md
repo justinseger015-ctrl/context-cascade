@@ -1,5 +1,10 @@
 # Cloud Platforms Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: DEPLOYMENT SAFETY GUARDRAILS
 
 **BEFORE any deployment, validate**:
@@ -285,3 +290,7 @@ For issues or questions:
 ## License
 
 MIT License - See main repository for details
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Researcher Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This directory contains production-grade scripts, templates, and utilities for systematic research workflows. All components integrate with the 3-level research methodology (Basic, Multi-Source, Deep Dive) defined in the main researcher skill.
@@ -170,3 +175,7 @@ See `examples/` directory for complete workflow examples demonstrating:
 - Competitive analysis (example-3)
 
 Each example shows end-to-end research process using scripts and templates.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

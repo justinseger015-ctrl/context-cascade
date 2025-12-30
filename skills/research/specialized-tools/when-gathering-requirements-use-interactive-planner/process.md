@@ -1,5 +1,10 @@
 # Interactive Requirements Planning - Detailed Process
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Question Flow Architecture
 
 ```
@@ -52,3 +57,7 @@ Initial Questions → Detailed Follow-up → Structure Specs → Validate → Do
 4. Follow-up questions
 5. Stakeholder validation
 6. Comprehensive documentation
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

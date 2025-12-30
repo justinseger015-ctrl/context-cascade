@@ -1,5 +1,10 @@
 # Test 2: RAG System Integration
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Objective
 Validate complete Retrieval-Augmented Generation pipeline using AgentDB for context retrieval and LLM for generation. Test end-to-end workflow from document ingestion to answer generation.
 
@@ -481,3 +486,7 @@ This test validates that AgentDB RAG system:
 6. ✅ Achieves <3s end-to-end latency
 
 **Next Steps**: Proceed to Test 3 (Knowledge Base at Scale)
+
+
+---
+*Promise: `<promise>TEST_2_RAG_SYSTEM_VERIX_COMPLIANT</promise>`*

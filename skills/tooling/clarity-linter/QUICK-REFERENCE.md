@@ -1,5 +1,10 @@
 # Clarity Linter - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Machine-readable code clarity auditing with cognitive load optimization.
 
@@ -128,3 +133,7 @@ Rating:
 - **connascence-analyzer** - Coupling analysis (complementary)
 - **code-review-assistant** - PR review with clarity checks
 - **style-audit** - Style consistency (separate concern)
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

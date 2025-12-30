@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "2.0.1",
+  "category": "foundry",
+  "tags": [
+    "meta-prompt",
+    "self-improvement",
+    "recursive",
+    "dogfooding",
+    "cognitive-frames"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Meta-prompt that generates improved prompts and templates. Can improve other prompts including Skill Forge and even itself. All improvements are gated by frozen eval harness. Use when optimizing promp [ground:given] [conf:0.95] [state:confirmed"
+  ]
+}

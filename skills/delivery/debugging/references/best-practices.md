@@ -1,5 +1,10 @@
 # Debugging Best Practices
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -564,3 +569,7 @@ logger.info('User logged in', {
 - [Troubleshooting Guide](troubleshooting-guide.md) - Common patterns and solutions
 - [Debugging Methodologies](debugging-methodologies.md) - Specific investigation techniques
 - [5-Phase Debugging Protocol](../when-debugging-code-use-debugging-assistant/skill.md) - Systematic debugging workflow
+
+
+---
+*Promise: `<promise>BEST_PRACTICES_VERIX_COMPLIANT</promise>`*

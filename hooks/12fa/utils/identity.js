@@ -10,9 +10,10 @@
  * - Agent identity extraction from frontmatter (.md files)
  * - Identity caching with 5-minute TTL
  * - Windows compatible (no Unicode)
+ * - Anthropic-compliant format support (x- prefixed custom fields)
  *
  * @module hooks/12fa/utils/identity
- * @version 1.0.0
+ * @version 2.0.0
  */
 
 const fs = require('fs');
@@ -140,6 +141,22 @@ function verifyEd25519Signature(message, signature, publicKey) {
 
 /**
  * Load agent identity from agent .md file frontmatter
+ * Supports both Anthropic-compliant format (x- prefixed) and legacy format
+ *
+ * Anthropic Official Fields:
+ * - name (required)
+ * - description (required)
+ * - tools (required, comma-separated)
+ * - model (optional: opus, sonnet, haiku)
+ *
+ * Custom Extensions (x- prefixed):
+ * - x-agent_id (UUID v4)
+ * - x-role (admin, developer, reviewer, etc.)
+ * - x-capabilities (array)
+ * - x-rbac (object with denied_tools, path_scopes, api_access)
+ * - x-budget (object with max_tokens_per_session, max_cost_per_day)
+ * - x-metadata (object with category, tags, version)
+ *
  * @param {string} agentFilePath - Absolute path to agent .md file
  * @returns {Object|null} Agent identity object or null if invalid
  */
@@ -149,7 +166,7 @@ function loadAgentIdentity(agentFilePath) {
     const fileContents = fs.readFileSync(agentFilePath, 'utf8');
 
     // Extract frontmatter (YAML between --- delimiters)
-    const frontmatterMatch = fileContents.match(/^---\n([\s\S]*?)\n---/);
+    const frontmatterMatch = fileContents.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     if (!frontmatterMatch) {
       console.error(`No frontmatter found in ${agentFilePath}`);
       return null;
@@ -157,39 +174,78 @@ function loadAgentIdentity(agentFilePath) {
 
     const frontmatter = yaml.load(frontmatterMatch[1]);
 
-    // Validate required fields
-    if (!frontmatter.identity || !frontmatter.identity.agent_id) {
-      console.error(`Missing identity.agent_id in ${agentFilePath}`);
-      return null;
-    }
+    // Check for Anthropic-compliant format (x- prefixed fields)
+    const isAnthropicFormat = frontmatter['x-agent_id'] || frontmatter['x-role'];
 
+    // Extract agent_id (new format: x-agent_id, old format: identity.agent_id)
+    const agentId = isAnthropicFormat
+      ? frontmatter['x-agent_id']
+      : (frontmatter.identity && frontmatter.identity.agent_id);
+
+    // Extract role (new format: x-role, old format: identity.role)
+    const role = isAnthropicFormat
+      ? frontmatter['x-role']
+      : (frontmatter.identity && frontmatter.identity.role);
+
+    // Validate required Anthropic official fields
     if (!frontmatter.name) {
       console.error(`Missing name in ${agentFilePath}`);
       return null;
     }
 
-    if (!frontmatter.identity.role) {
-      console.error(`Missing identity.role in ${agentFilePath}`);
-      return null;
+    // agent_id and role are optional in Anthropic format but required for RBAC
+    // Generate a deterministic ID from name if not provided
+    let finalAgentId = agentId;
+    if (!finalAgentId) {
+      // Generate deterministic UUID from name for backward compatibility
+      const hash = crypto.createHash('md5').update(frontmatter.name).digest('hex');
+      finalAgentId = `${hash.slice(0,8)}-${hash.slice(8,12)}-4${hash.slice(13,16)}-8${hash.slice(17,20)}-${hash.slice(20,32)}`;
     }
 
-    // Validate agent_id format (UUID v4)
+    // Validate agent_id format (UUID v4) if provided
     const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-    if (!uuidRegex.test(frontmatter.identity.agent_id)) {
+    if (agentId && !uuidRegex.test(agentId)) {
       console.error(`Invalid UUID v4 format for agent_id in ${agentFilePath}`);
       return null;
     }
 
+    // Default role if not specified
+    const finalRole = role || 'developer';
+
+    // Extract capabilities (new format: x-capabilities, old format: capabilities)
+    const capabilities = isAnthropicFormat
+      ? (frontmatter['x-capabilities'] || [])
+      : (frontmatter.capabilities || []);
+
+    // Extract RBAC (new format: x-rbac, old format: rbac)
+    const rbac = isAnthropicFormat
+      ? (frontmatter['x-rbac'] || {})
+      : (frontmatter.rbac || {});
+
+    // Extract budget (new format: x-budget, old format: budget)
+    const budget = isAnthropicFormat
+      ? (frontmatter['x-budget'] || {})
+      : (frontmatter.budget || {});
+
+    // Extract metadata (new format: x-metadata, old format: metadata)
+    const metadata = isAnthropicFormat
+      ? (frontmatter['x-metadata'] || {})
+      : (frontmatter.metadata || {});
+
     // Construct identity object
     const identity = {
-      agent_id: frontmatter.identity.agent_id,
+      agent_id: finalAgentId,
       name: frontmatter.name,
-      role: frontmatter.identity.role,
-      capabilities: frontmatter.capabilities || [],
-      rbac: frontmatter.rbac || {},
-      budget: frontmatter.budget || {},
-      metadata: frontmatter.metadata || {},
-      file_path: agentFilePath
+      description: frontmatter.description || '',
+      tools: frontmatter.tools || '',
+      model: frontmatter.model || 'sonnet',
+      role: finalRole,
+      capabilities: capabilities,
+      rbac: rbac,
+      budget: budget,
+      metadata: metadata,
+      file_path: agentFilePath,
+      format: isAnthropicFormat ? 'anthropic' : 'legacy'
     };
 
     return identity;
@@ -240,27 +296,30 @@ function loadAgentIdentityByName(agentName, agentsDir = null) {
 }
 
 /**
- * Validate agent identity against schema
+ * Validate agent identity against Anthropic-compliant schema
  * @param {Object} identity - Agent identity object
- * @returns {Object} Validation result {valid: boolean, errors: string[]}
+ * @returns {Object} Validation result {valid: boolean, errors: string[], warnings: string[]}
  */
 function validateAgentIdentity(identity) {
   const errors = [];
+  const warnings = [];
 
-  // Required fields
-  if (!identity.agent_id) {
-    errors.push('Missing agent_id');
-  }
-
+  // Required Anthropic official fields
   if (!identity.name) {
-    errors.push('Missing name');
+    errors.push('Missing name (Anthropic required field)');
   }
 
-  if (!identity.role) {
-    errors.push('Missing role');
+  // Description is required in Anthropic format but we'll warn if missing
+  if (!identity.description) {
+    warnings.push('Missing description (Anthropic required field)');
   }
 
-  // Validate agent_id format (UUID v4)
+  // Tools is required in Anthropic format but we'll warn if missing
+  if (!identity.tools) {
+    warnings.push('Missing tools (Anthropic required field)');
+  }
+
+  // agent_id can be auto-generated, so only validate format if provided
   const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
   if (identity.agent_id && !uuidRegex.test(identity.agent_id)) {
     errors.push('Invalid UUID v4 format for agent_id');
@@ -272,12 +331,19 @@ function validateAgentIdentity(identity) {
     'frontend', 'backend', 'tester', 'analyst', 'coordinator'
   ];
   if (identity.role && !validRoles.includes(identity.role)) {
-    errors.push(`Invalid role: ${identity.role}. Must be one of: ${validRoles.join(', ')}`);
+    warnings.push(`Non-standard role: ${identity.role}. Standard roles: ${validRoles.join(', ')}`);
+  }
+
+  // Validate model if provided
+  const validModels = ['opus', 'sonnet', 'haiku'];
+  if (identity.model && !validModels.includes(identity.model)) {
+    warnings.push(`Non-standard model: ${identity.model}. Valid models: ${validModels.join(', ')}`);
   }
 
   return {
     valid: errors.length === 0,
-    errors
+    errors,
+    warnings
   };
 }
 

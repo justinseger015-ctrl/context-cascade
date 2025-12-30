@@ -1,5 +1,10 @@
 # Detailed Process for Theater Code Detection
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 Theater Code Detection identifies non-functional code through a systematic 5-phase workflow:
@@ -605,3 +610,7 @@ jobs:
           name: theater-report
           path: theater-detection-report.md
 ```
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

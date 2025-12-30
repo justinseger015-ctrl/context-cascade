@@ -1,0 +1,1334 @@
+[
+  {
+    "phase": "phase_a",
+    "iterations": 1,
+    "pareto_points": [
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      }
+    ],
+    "impact_factors": {
+      "task_accuracy": {
+        "0": 0.3,
+        "1": 0.2,
+        "7": 0.25
+      },
+      "token_efficiency": {
+        "8": 0.4,
+        "7": 0.2
+      },
+      "edge_robustness": {
+        "0": 0.2,
+        "9": 0.3
+      },
+      "epistemic_consistency": {
+        "7": 0.4,
+        "9": 0.25,
+        "10": 0.2
+      }
+    },
+    "best_config_vector": [
+      0.95,
+      0.05,
+      0.0,
+      0.05,
+      0.0,
+      0.05,
+      0.0,
+      0.05,
+      1.0,
+      0.05,
+      0.0,
+      0.05,
+      0.0,
+      0.05
+    ],
+    "best_outcomes": {
+      "task_accuracy": 1.0,
+      "token_efficiency": 0.8944444444444445,
+      "edge_robustness": 0.8,
+      "epistemic_consistency": 0.7222222222222222
+    },
+    "duration_seconds": 0.007100582122802734,
+    "metadata": {
+      "corpus_size": 5
+    }
+  },
+  {
+    "phase": "phase_b",
+    "iterations": 3,
+    "pareto_points": [
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      }
+    ],
+    "impact_factors": {
+      "task_accuracy": {
+        "0": 0.3,
+        "1": 0.2,
+        "7": 0.25
+      },
+      "token_efficiency": {
+        "8": 0.4,
+        "7": 0.2
+      },
+      "edge_robustness": {
+        "0": 0.2,
+        "9": 0.3
+      },
+      "epistemic_consistency": {
+        "7": 0.4,
+        "9": 0.25,
+        "10": 0.2
+      }
+    },
+    "best_config_vector": [
+      0.95,
+      0.05,
+      0.0,
+      0.05,
+      0.0,
+      0.05,
+      0.0,
+      0.05,
+      1.0,
+      0.05,
+      0.0,
+      0.05,
+      0.0,
+      0.05
+    ],
+    "best_outcomes": {
+      "task_accuracy": 0.0,
+      "token_efficiency": 0.0,
+      "edge_robustness": 0.0,
+      "epistemic_consistency": 0.0
+    },
+    "duration_seconds": 0.005015134811401367,
+    "metadata": {
+      "edge_corpus_size": 0
+    }
+  },
+  {
+    "phase": "phase_c",
+    "iterations": 3,
+    "pareto_points": [
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8499999999999999,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.8999999999999999,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8499999999999999,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.8999999999999999,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.95,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05,
+          1.0,
+          0.05,
+          0.0,
+          0.05,
+          0.0,
+          0.05
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8999999999999999,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.95,
+          0.1,
+          0.0,
+          0.1,
+          0.0,
+          0.1
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      },
+      {
+        "config": [
+          0.8499999999999999,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.8999999999999999,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002,
+          0.0,
+          0.15000000000000002
+        ],
+        "outcomes": {
+          "task_accuracy": 1.0,
+          "token_efficiency": 0.8944444444444445,
+          "edge_robustness": 0.8,
+          "epistemic_consistency": 0.7222222222222222
+        }
+      }
+    ],
+    "impact_factors": {
+      "task_accuracy": {
+        "0": 0.3,
+        "1": 0.2,
+        "7": 0.25
+      },
+      "token_efficiency": {
+        "8": 0.4,
+        "7": 0.2
+      },
+      "edge_robustness": {
+        "0": 0.2,
+        "9": 0.3
+      },
+      "epistemic_consistency": {
+        "7": 0.4,
+        "9": 0.25,
+        "10": 0.2
+      }
+    },
+    "best_config_vector": [
+      0.95,
+      0.05,
+      0.0,
+      0.05,
+      0.0,
+      0.05,
+      0.0,
+      0.05,
+      1.0,
+      0.05,
+      0.0,
+      0.05,
+      0.0,
+      0.05
+    ],
+    "best_outcomes": {
+      "task_accuracy": 1.0,
+      "token_efficiency": 0.8944444444444445,
+      "edge_robustness": 0.8,
+      "epistemic_consistency": 0.7222222222222222
+    },
+    "duration_seconds": 0.01611781120300293,
+    "metadata": {
+      "combined_corpus_size": 5
+    }
+  }
+]

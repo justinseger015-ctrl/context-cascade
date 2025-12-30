@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "performance",
+  "tags": [
+    "performance",
+    "profiling",
+    "optimization",
+    "benchmarking",
+    "mece"
+  ],
+  "author": "Claude Code",
+  "verix-description": [
+    "assert|neutral] Comprehensive performance profiling",
+    "bottleneck detection",
+    "and optimization system [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-profiling-performance-use-performance-profiler",
+  "triggers": [
+    "profiling performance"
+  ]
+}

@@ -1,5 +1,10 @@
 # Prompt Architect Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Comprehensive toolkit for analyzing, optimizing, and testing prompts for AI systems.
 
 ## Overview
@@ -490,3 +495,7 @@ For issues or questions:
 2. Review examples in `../examples/`
 3. Consult pattern library for technique details
 4. Test with small examples first
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

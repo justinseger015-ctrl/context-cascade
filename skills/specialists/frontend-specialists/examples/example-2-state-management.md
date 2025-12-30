@@ -1,5 +1,10 @@
 # Example 2: Advanced State Management with Zustand and React Query
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -737,3 +742,7 @@ export const useCrossTabSync = () => {
 10. **Testing**: Mock Zustand stores and React Query with MSW for integration tests
 11. **Performance**: Use shallow equality checks in Zustand selectors
 12. **DevTools**: Enable Redux DevTools for Zustand and React Query DevTools for debugging
+
+
+---
+*Promise: `<promise>EXAMPLE_2_STATE_MANAGEMENT_VERIX_COMPLIANT</promise>`*

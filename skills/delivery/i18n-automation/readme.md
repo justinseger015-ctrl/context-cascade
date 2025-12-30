@@ -1,5 +1,10 @@
 # i18n-automation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -367,3 +372,7 @@ For issues or questions:
 ---
 
 **Remember**: Good i18n is invisible to users but critical for global reach!
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

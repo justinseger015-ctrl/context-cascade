@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "coordination",
+  "tags": [
+    "cascade",
+    "workflows",
+    "orchestration",
+    "conditional",
+    "branching"
+  ],
+  "author": "system",
+  "verix-description": [
+    "assert|neutral] Create sophisticated workflow cascades with sequential pipelines",
+    "parallel execution",
+    "and conditional branching [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-chaining-workflows-use-cascade-orchestrator",
+  "triggers": [
+    "chaining workflows"
+  ]
+}

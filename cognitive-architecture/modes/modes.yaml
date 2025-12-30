@@ -1,0 +1,222 @@
+generated_at: 1766954055.9192555
+modes:
+  default:
+    category: balanced
+    config:
+      framework:
+        aspectual: true
+        classifier: false
+        compositional: false
+        evidential: true
+        honorific: false
+        morphological: false
+        spatial: false
+      prompt:
+        compression_level: 1
+        require_confidence: true
+        require_ground: true
+        verix_strictness: 1
+    config_vector:
+    - 1.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    created_at: 1766954055.9192555
+    description: Default balanced configuration
+    expected_outcomes:
+      edge_robustness: 0.7
+      epistemic_consistency: 0.8
+      task_accuracy: 0.8
+      token_efficiency: 0.75
+    name: default
+    use_cases:
+    - General-purpose tasks
+    - Starting point for optimization
+    version: 1
+  efficient:
+    category: efficient
+    config:
+      framework:
+        aspectual: true
+        classifier: false
+        compositional: false
+        evidential: true
+        honorific: false
+        morphological: false
+        spatial: false
+      prompt:
+        compression_level: 0
+        require_confidence: true
+        require_ground: true
+        verix_strictness: 1
+    config_vector:
+    - 1.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 1.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    created_at: 1766954055.9192555
+    description: Optimized for token efficiency with L0 compression
+    expected_outcomes:
+      edge_robustness: 0.65
+      epistemic_consistency: 0.75
+      task_accuracy: 0.75
+      token_efficiency: 0.9
+    name: efficient
+    use_cases:
+    - High-throughput systems
+    - Real-time chat
+    - Cost-sensitive
+    version: 1
+  minimal:
+    category: minimal
+    config:
+      framework:
+        aspectual: false
+        classifier: false
+        compositional: false
+        evidential: true
+        honorific: false
+        morphological: false
+        spatial: false
+      prompt:
+        compression_level: 2
+        require_confidence: false
+        require_ground: false
+        verix_strictness: 0
+    config_vector:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 2.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    created_at: 1766954055.9192555
+    description: Lightweight with minimal frames and relaxed VERIX
+    expected_outcomes:
+      edge_robustness: 0.6
+      epistemic_consistency: 0.6
+      task_accuracy: 0.7
+      token_efficiency: 0.95
+    name: minimal
+    use_cases:
+    - Quick tasks
+    - High-volume APIs
+    - Cost optimization
+    version: 1
+  robust:
+    category: robust
+    config:
+      framework:
+        aspectual: true
+        classifier: false
+        compositional: true
+        evidential: true
+        honorific: false
+        morphological: false
+        spatial: false
+      prompt:
+        compression_level: 1
+        require_confidence: true
+        require_ground: true
+        verix_strictness: 1
+    config_vector:
+    - 1.0
+    - 1.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    created_at: 1766954055.9192555
+    description: Optimized for edge case handling
+    expected_outcomes:
+      edge_robustness: 0.9
+      epistemic_consistency: 0.85
+      task_accuracy: 0.8
+      token_efficiency: 0.7
+    name: robust
+    use_cases:
+    - User-facing apps
+    - Security contexts
+    - Adversarial inputs
+    version: 1
+  strict:
+    category: strict
+    config:
+      framework:
+        aspectual: true
+        classifier: true
+        compositional: true
+        evidential: true
+        honorific: true
+        morphological: true
+        spatial: true
+      prompt:
+        compression_level: 0
+        require_confidence: true
+        require_ground: true
+        verix_strictness: 2
+    config_vector:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 2.0
+    - 0.0
+    - 1.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    created_at: 1766954055.9192555
+    description: Maximum epistemic rigor with all frames and strict VERIX
+    expected_outcomes:
+      edge_robustness: 0.8
+      epistemic_consistency: 0.95
+      task_accuracy: 0.85
+      token_efficiency: 0.6
+    name: strict
+    use_cases:
+    - Academic research
+    - Legal analysis
+    - Medical support
+    version: 1
+version: '1.0'

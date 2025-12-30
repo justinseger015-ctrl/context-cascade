@@ -1,5 +1,10 @@
 # Test 2: Complex Project Template with Features
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Objective**: Verify that complex template generation with additional features (Docker, CI/CD, testing) works correctly.
 
 ## Test Cases
@@ -316,13 +321,11 @@ docker stop $(docker ps -q --filter ancestor=test:latest)
 ---
 
 ## Success Criteria
-
-✅ **Pass**: All complex templates generate successfully with all features
-✅ **Pass**: Docker builds complete within time limits
-✅ **Pass**: All validation scripts pass
-✅ **Pass**: Git repository properly initialized
-
-❌ **Fail**: Any feature fails to generate or validate
+- [assert|neutral] ✅ **Pass**: All complex templates generate successfully with all features [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ **Pass**: Docker builds complete within time limits [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ **Pass**: All validation scripts pass [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ **Pass**: Git repository properly initialized [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ❌ **Fail**: Any feature fails to generate or validate [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Cleanup
 
@@ -339,3 +342,7 @@ docker system prune -af
 - Docker builds may take longer on first run (downloads)
 - CI/CD workflows can be tested locally with `act`
 - All generated projects should be immediately usable
+
+
+---
+*Promise: `<promise>TEST_2_COMPLEX_PROJECT_VERIX_COMPLIANT</promise>`*

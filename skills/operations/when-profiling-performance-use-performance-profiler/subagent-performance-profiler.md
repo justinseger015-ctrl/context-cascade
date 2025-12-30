@@ -1,5 +1,10 @@
 # Performance Profiler Subagent Implementation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Agent Identity
 
 **Name**: Performance Profiler Agent
@@ -797,3 +802,7 @@ Agent considers task complete when:
 - PROCESS.md - Detailed process flow
 - slash-command-profile.sh - Command-line interface
 - mcp-performance-profiler.json - MCP tool integration
+
+
+---
+*Promise: `<promise>SUBAGENT_PERFORMANCE_PROFILER_VERIX_COMPLIANT</promise>`*

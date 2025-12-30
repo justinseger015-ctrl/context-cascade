@@ -1,5 +1,10 @@
 # Flow Nexus Neural Network Training - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Train and deploy neural networks using Flow Nexus platform with distributed E2B sandboxes.
 
 ## Quick Start
@@ -45,11 +50,10 @@ mcp__flow-nexus__neural_cluster_init {
 - **cicd-engineer**: Deploy and monitor in production
 
 ## Success Criteria
-
-- Model accuracy ≥85%
-- Inference latency <100ms
-- Successful deployment
-- Monitoring active
+- [assert|neutral] Model accuracy ≥85% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Inference latency <100ms [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Successful deployment [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Monitoring active [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Duration
 
@@ -60,3 +64,7 @@ mcp__flow-nexus__neural_cluster_init {
 - Full SOP: [SKILL.md](SKILL.md)
 - Detailed Process: [PROCESS.md](PROCESS.md)
 - Visual Workflow: [process-diagram.gv](process-diagram.gv)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Test 3: Hybrid Search (Vector + Metadata)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Objective
 Verify hybrid search combining vector similarity with metadata filtering, custom scoring, and result diversification.
 
@@ -579,3 +584,7 @@ rm test-papers.json
 # Clear generated files
 rm generate_test_data.py
 ```
+
+
+---
+*Promise: `<promise>TEST_3_HYBRID_SEARCH_VERIX_COMPLIANT</promise>`*

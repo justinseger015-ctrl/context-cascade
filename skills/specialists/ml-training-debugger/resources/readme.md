@@ -1,5 +1,10 @@
 # ML Training Debugger Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -201,3 +206,7 @@ These resources are used automatically by the ML debugging agent when spawned vi
 ## Updates
 
 Resources are version-controlled and tested against real ML training scenarios. Submit feedback or contributions via the skill repository.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

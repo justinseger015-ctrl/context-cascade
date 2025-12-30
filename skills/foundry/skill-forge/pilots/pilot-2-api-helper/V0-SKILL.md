@@ -6,6 +6,11 @@ author: pilot-test
 
 # API Integration Helper
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Generate production-ready code for integrating with REST APIs.
 
 ## Overview
@@ -108,3 +113,7 @@ console.log(userData);
 **Example 2**: Generate code for OpenAI API
 - Input: Base URL: https://api.openai.com/v1, Auth: API key, Language: Python
 - Output: Python module with retry logic and error handling
+
+
+---
+*Promise: `<promise>V0_SKILL_VERIX_COMPLIANT</promise>`*

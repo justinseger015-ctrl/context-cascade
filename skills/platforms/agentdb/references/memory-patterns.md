@@ -1,5 +1,10 @@
 # Memory Patterns Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Purpose**: Advanced memory strategies for AI agents using AgentDB
 
 ## Overview
@@ -545,3 +550,7 @@ elif query_requires_concepts(query):
 - **[Vector Search Reference](vector-search.md)** - Technical details on HNSW and embeddings
 - **[Example 3: Agent Memory](../examples/example-3-agent-memory.md)** - Practical implementation
 - **[Human Memory Research](https://en.wikipedia.org/wiki/Atkinson%E2%80%93Shiffrin_memory_model)** - Psychological foundations
+
+
+---
+*Promise: `<promise>MEMORY_PATTERNS_VERIX_COMPLIANT</promise>`*

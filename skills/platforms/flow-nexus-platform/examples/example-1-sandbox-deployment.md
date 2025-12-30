@@ -1,5 +1,10 @@
 # Example 1: Sandbox Deployment for Multi-Agent Code Execution
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 Your team needs to build and test a distributed microservices architecture with multiple agents working in parallel. Each agent needs an isolated execution environment to develop, test, and deploy their services without interfering with other agents' work. You'll use Flow Nexus sandboxes to create isolated environments for:
@@ -523,3 +528,7 @@ mcp__flow-nexus__sandbox_status { sandbox_id: "sb_001" }
 3. **Set Up CI/CD**: Integrate sandbox deployment into GitHub Actions workflows
 4. **Monitor Costs**: Track usage with `mcp__flow-nexus__get_payment_history`
 5. **Scale Horizontally**: Create multiple sandboxes for load testing and performance benchmarking
+
+
+---
+*Promise: `<promise>EXAMPLE_1_SANDBOX_DEPLOYMENT_VERIX_COMPLIANT</promise>`*

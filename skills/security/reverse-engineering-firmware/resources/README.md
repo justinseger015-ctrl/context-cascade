@@ -1,5 +1,10 @@
 # Reverse Engineering: Firmware Analysis - Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This directory contains production-grade scripts, templates, and references for comprehensive IoT firmware analysis (RE Level 5). All tools are designed for automated firmware extraction, emulation, and vulnerability detection on routers, IoT devices, and embedded systems.
@@ -263,3 +268,7 @@ For issues or feature requests, see main skill documentation in `../skill.md`
 **Version**: 1.0.0
 **Skill**: reverse-engineering-firmware
 **Tier**: Gold
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

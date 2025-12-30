@@ -1,5 +1,10 @@
 # Network Security Setup - Enhanced Tier
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 The **network-security-setup** skill provides comprehensive network isolation and security configuration for Claude Code sandboxes. This Enhanced tier implementation includes production-ready scripts, templates, tests, and examples for enterprise-grade network security.
@@ -527,3 +532,7 @@ This skill is part of the SPARC Three-Loop System and follows the project's lice
 ---
 
 **Security Principle**: Deny by default, allow explicitly, verify continuously.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

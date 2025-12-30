@@ -1,5 +1,10 @@
 # Hive Mind Advanced - Gold Tier Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Category**: Coordination | **Version**: 1.0.0 | **Tier**: Gold
 
 ## Quick Start
@@ -203,3 +208,7 @@ npx claude-flow hive-mind spawn "..." --consensus weighted
 ---
 
 **Skill Tier**: Gold | **Last Updated**: 2025-11-02 | **Maintained By**: Claude Flow Team
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

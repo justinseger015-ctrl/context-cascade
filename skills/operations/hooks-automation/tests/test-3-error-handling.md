@@ -1,5 +1,10 @@
 # Test 3: Error Handling and Recovery
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -476,13 +481,12 @@ node resources/scripts/hook-manager.js metrics
 | MCP connection | 100% | Fallback mode |
 
 ### Success Criteria Summary
-
-- ✅ All errors detected and logged
-- ✅ No crashes or hangs
-- ✅ Graceful degradation works
-- ✅ Retry mechanism succeeds
-- ✅ Clear error messages
-- ✅ Recovery possible
+- [assert|neutral] ✅ All errors detected and logged [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ No crashes or hangs [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Graceful degradation works [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Retry mechanism succeeds [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Clear error messages [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Recovery possible [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Cleanup
 
@@ -515,3 +519,7 @@ After error handling tests pass:
 - Retry config: `resources/templates/*/execution.retry`
 - Logging: `resources/templates/*/logging`
 - Hook validator: `resources/scripts/hook-validator.py`
+
+
+---
+*Promise: `<promise>TEST_3_ERROR_HANDLING_VERIX_COMPLIANT</promise>`*

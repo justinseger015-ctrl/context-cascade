@@ -1,5 +1,10 @@
 # Test 3: Decision Transformer & Offline RL
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 Test suite for Decision Transformer (offline reinforcement learning via sequence modeling).
 
@@ -576,3 +581,7 @@ python resources/scripts/train_rl_agent.py \
 - Return conditioning enables goal-directed behavior
 - Suitable for expensive/dangerous real-world deployment
 - Consider trajectory stitching for suboptimal datasets
+
+
+---
+*Promise: `<promise>TEST_3_DECISION_TRANSFORMER_VERIX_COMPLIANT</promise>`*

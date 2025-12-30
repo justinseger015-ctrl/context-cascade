@@ -1,5 +1,10 @@
 # Skill Forge Quick Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This document provides a condensed reference for the seven-phase Skill Forge methodology. Consult the main SKILL.md for comprehensive guidance.
 
 ## Phase 1: Intent Archaeology
@@ -166,3 +171,7 @@ After deployment:
 - Iterate continuously
 
 Remember: Skill creation is iterative. Initial designs improve through use and refinement.
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

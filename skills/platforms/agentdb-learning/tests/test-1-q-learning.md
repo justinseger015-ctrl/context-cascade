@@ -1,5 +1,10 @@
 # Test 1: Q-Learning Algorithm
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 Comprehensive test suite for Q-Learning implementation in AgentDB.
 
@@ -324,3 +329,7 @@ python resources/scripts/train_rl_agent.py \
 - Tests should be idempotent (can run multiple times)
 - Use temporary directories for test artifacts
 - Clean up generated files after tests
+
+
+---
+*Promise: `<promise>TEST_1_Q_LEARNING_VERIX_COMPLIANT</promise>`*

@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schemas/skill-metadata.schema.json",
+  "migrated_from": "SKILL.md frontmatter",
+  "migration_date": "2025-12-30",
+  "version": "1.0.0",
+  "category": "security",
+  "tags": [
+    "security",
+    "compliance",
+    "safety"
+  ],
+  "author": "ruv",
+  "verix-description": [
+    "assert|neutral] ```yaml [ground:given] [conf:0.95] [state:confirmed"
+  ],
+  "original_directory": "when-setting-network-security-use-network-security-setup",
+  "triggers": [
+    "setting network security"
+  ]
+}

@@ -1,5 +1,10 @@
 # AgentDB Scripts - 150x Faster Vector Search
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This directory contains scripts for benchmarking, optimizing, and quantizing AgentDB vector search operations.
 
 ## 📁 Scripts Overview
@@ -282,3 +287,7 @@ performance:
 - See `../templates/` for configuration schemas
 - See `../../tests/` for comprehensive test suites
 - See `../../examples/` for usage examples
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

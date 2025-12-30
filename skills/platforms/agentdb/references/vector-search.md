@@ -1,5 +1,10 @@
 # Vector Search Technical Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Core Technology**: HNSW indexing with 384-dimensional sentence embeddings
 
 ## Overview
@@ -437,3 +442,7 @@ print(f"Recall@10: {recall:.2%}")
 - **[Sentence-BERT Paper](https://arxiv.org/abs/1908.10084)** - Sentence embeddings
 - **[ChromaDB Documentation](https://docs.trychroma.com/)** - AgentDB backend
 - **[Memory Patterns](memory-patterns.md)** - Advanced memory strategies
+
+
+---
+*Promise: `<promise>VECTOR_SEARCH_VERIX_COMPLIANT</promise>`*

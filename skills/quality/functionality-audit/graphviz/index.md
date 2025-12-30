@@ -1,5 +1,10 @@
 # Functionality Audit GraphViz Diagrams - Index
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Created**: 2025-11-02
 **Location**: `C:\Users\17175\claude-code-plugins\ruv-sparc-three-loop-system\skills\functionality-audit\graphviz\`
 **Purpose**: Visual process documentation for the functionality-audit skill
@@ -366,3 +371,7 @@ dot -Tpng -Gnodesep=1.0 -Granksep=2.0 workflow.dot -o workflow.png
 **Last Updated**: 2025-11-02
 **Maintained By**: Claude Code (Functionality Audit Skill Team)
 **Review Schedule**: Quarterly or on major skill updates
+
+
+---
+*Promise: `<promise>INDEX_VERIX_COMPLIANT</promise>`*

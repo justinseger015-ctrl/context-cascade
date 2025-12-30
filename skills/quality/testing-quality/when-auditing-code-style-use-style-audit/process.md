@@ -1,5 +1,10 @@
 # Code Style Audit Process Walkthrough
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This process executes comprehensive code style audit across 5 phases: scan codebase, compare to standards, report violations, auto-fix issues, and validate compliance.
@@ -76,12 +81,11 @@ This process executes comprehensive code style audit across 5 phases: scan codeb
    ```
 
 ### Success Criteria
-- Complete codebase scanned
-- All violation types identified
-- Auto-fixable issues flagged
-- Report generated
-
----
+- [assert|neutral] Complete codebase scanned [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All violation types identified [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Auto-fixable issues flagged [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Report generated [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Phase 2: Compare to Standards (5 minutes)
 
@@ -612,3 +616,7 @@ jobs:
 - `code-review-assistant` - Comprehensive PR review
 - `verification-quality` - Quality verification
 - `production-readiness` - Deployment validation
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

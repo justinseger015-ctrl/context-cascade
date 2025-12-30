@@ -1,5 +1,10 @@
 # ReasoningBank Adaptive Learning - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Implement adaptive learning with ReasoningBank and AgentDB for trajectory tracking, verdict judgment, memory distillation, and pattern recognition.
 
 ## When to Use
@@ -32,11 +37,10 @@ npx ts-node setup-reasoningbank.ts
 - **Pattern Application**: Enhanced reasoning
 
 ## Success Metrics
-
-- Tracking accuracy > 95%
-- Verdict accuracy > 90%
-- Decision quality improves
-- 150x faster processing
+- [assert|neutral] Tracking accuracy > 95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Verdict accuracy > 90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Decision quality improves [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 150x faster processing [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Agents
 
@@ -47,3 +51,7 @@ npx ts-node setup-reasoningbank.ts
 ## Duration
 
 8-10 hours
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

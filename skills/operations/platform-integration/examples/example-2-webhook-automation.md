@@ -1,5 +1,10 @@
 # Example 2: Multi-Platform Webhook Automation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: AUTOMATION SAFETY GUARDRAILS
 
 **BEFORE any automation hook, validate**:
@@ -677,3 +682,7 @@ app.get('/metrics', async (req, res) => {
 ---
 
 **Generated with Platform Integration Skill v2.0.0**
+
+
+---
+*Promise: `<promise>EXAMPLE_2_WEBHOOK_AUTOMATION_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Code Review Assistant - Multi-Agent Swarm Review System
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Comprehensive automated code review using specialized multi-agent swarm architecture for pull requests. Provides security analysis, performance optimization, style consistency, test coverage validation, and documentation review with automated fix suggestions.
 
 ## Quick Start
@@ -308,3 +313,7 @@ gh pr list --json number --jq '.[].number' | xargs -I {} code-review-assistant {
 - GitHub: https://github.com/ruvnet/claude-flow/issues
 - Documentation: https://claude-flow.ruv.io/skills/code-review-assistant
 - Examples: See `/examples` directory
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

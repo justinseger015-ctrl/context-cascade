@@ -1,5 +1,10 @@
 # Annotation Example - Academic Paper Page
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Source**: "Byzantium and the Renaissance: Greek Scholars in Venice" by N.G. Wilson (1992)
 **Page**: 45
 **Context**: Chapter 3 discussing Greek migration to Italy after Constantinople's fall
@@ -194,3 +199,7 @@ Bessarion donated hundreds of Greek manuscripts to Venice, which became the Marc
 ---
 
 **Remember**: Annotation is NOT transcription. It's UNDERSTANDING captured for future retrieval.
+
+
+---
+*Promise: `<promise>ANNOTATION_EXAMPLE_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # AI Dev Orchestration - Quick Reference v2.1.0
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## 5-Phase SOP at a Glance
 
 ```
@@ -88,3 +93,7 @@ Use ai-dev-orchestration to fix: [bug description]
 - **parallel-swarm-implementation** - Loop 2 execution
 - **cicd-intelligent-recovery** - Loop 3 deployment
 - **research-driven-planning** - Loop 1 planning
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

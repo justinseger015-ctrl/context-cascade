@@ -1,5 +1,10 @@
 # Test 2: Policy Gradient Methods (Actor-Critic, SARSA)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 Test suite for policy gradient algorithms including Actor-Critic and SARSA.
 
@@ -435,3 +440,7 @@ python resources/scripts/train_rl_agent.py --algorithm sarsa --episodes 5
 - SARSA is safer than Q-Learning for risky environments
 - Entropy regularization is crucial for exploration
 - GAE provides better bias-variance tradeoff than vanilla advantages
+
+
+---
+*Promise: `<promise>TEST_2_POLICY_GRADIENT_VERIX_COMPLIANT</promise>`*

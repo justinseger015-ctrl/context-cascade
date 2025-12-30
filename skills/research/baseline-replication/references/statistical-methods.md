@@ -1,5 +1,10 @@
 # Statistical Methods for Baseline Validation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL RESEARCH GUARDRAILS (EVIDENCE-BASED)
 
 **NEVER** claim facts without citations. Every claim MUST include:
@@ -618,3 +623,7 @@ print(f"Reason: {validation['reason']}")
 **Version**: 1.0.0
 **Last Updated**: 2025-11-02
 **Maintained By**: Deep Research SOP Team
+
+
+---
+*Promise: `<promise>STATISTICAL_METHODS_VERIX_COMPLIANT</promise>`*

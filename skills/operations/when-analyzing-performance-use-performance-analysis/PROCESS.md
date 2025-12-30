@@ -1,5 +1,10 @@
 # Performance Analysis - Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Complete Script
 
 ```bash
@@ -41,3 +46,4 @@ cat improvements.json | jq '.improvements'
 - [ ] Optimizations applied
 - [ ] ≥15% throughput improvement
 - [ ] ≥20% latency reduction
+- [assert|neutral] Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

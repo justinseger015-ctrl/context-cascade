@@ -1,5 +1,10 @@
 # Sandbox Configurator Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 Production-ready resources for configuring E2B sandboxes, Docker containers, and VM environments with comprehensive security isolation.
 
@@ -270,3 +275,7 @@ MIT License - See project root LICENSE file
 - Documentation: This README and inline code comments
 - Issues: Report via project issue tracker
 - Security: Report vulnerabilities privately to security team
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

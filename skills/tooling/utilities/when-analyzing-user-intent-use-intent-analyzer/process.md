@@ -1,5 +1,10 @@
 # Intent Analyzer - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 The Intent Analyzer uses a 5-phase cognitive science-based approach to transform ambiguous user requests into clear, actionable plans.
@@ -330,3 +335,7 @@ interface IntentAnalysisResult {
 ```
 
 For implementation details, see SKILL.md
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

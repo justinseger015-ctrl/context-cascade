@@ -1,5 +1,10 @@
 # Example 3: Dependency Version Management and Upgrade Strategy
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -1080,3 +1085,7 @@ This example demonstrated a complete dependency version management and upgrade s
 - Developer velocity: 33% faster dev builds
 
 **Key Lesson:** Incremental, well-tested upgrades > big bang rewrites
+
+
+---
+*Promise: `<promise>EXAMPLE_3_VERSION_MANAGEMENT_VERIX_COMPLIANT</promise>`*

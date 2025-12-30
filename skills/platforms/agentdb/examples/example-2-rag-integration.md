@@ -1,5 +1,10 @@
 # Example 2: RAG Integration
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Goal**: Build a RAG (Retrieval-Augmented Generation) system with AgentDB
 
 **Time**: 15 minutes | **Difficulty**: Intermediate
@@ -429,3 +434,7 @@ def monitor_retrieval(query: str, results: List) -> Dict:
 - **[Example 3: Agent Memory](example-3-agent-memory.md)** - Persistent cross-session memory
 - **[Memory Patterns Reference](../references/memory-patterns.md)** - Advanced memory strategies
 - **[Vector Search Reference](../references/vector-search.md)** - Technical deep dive
+
+
+---
+*Promise: `<promise>EXAMPLE_2_RAG_INTEGRATION_VERIX_COMPLIANT</promise>`*

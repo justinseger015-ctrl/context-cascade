@@ -1,5 +1,10 @@
 # Example 1: Pre-Task Automation - Intelligent Agent Assignment
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -774,3 +779,7 @@ By automating routine decisions, developers can focus on creative problem-solvin
 - Hook installer: `resources/scripts/hook-installer.sh`
 - Hook manager: `resources/scripts/hook-manager.js`
 - Main skill: `skill.md`
+
+
+---
+*Promise: `<promise>EXAMPLE_1_PRE_TASK_AUTOMATION_VERIX_COMPLIANT</promise>`*

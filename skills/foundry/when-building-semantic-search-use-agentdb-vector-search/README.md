@@ -1,5 +1,10 @@
 # AgentDB Semantic Search - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Build semantic vector search for intelligent document retrieval, RAG systems, and knowledge bases.
 
 ## When to Use
@@ -33,10 +38,9 @@ npx ts-node setup-search.ts
 - RAG integration
 
 ## Success Metrics
-
-- Accuracy > 90%
-- Latency < 100ms
-- Top-10 relevance > 95%
+- [assert|neutral] Accuracy > 90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Latency < 100ms [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Top-10 relevance > 95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Agents
 
@@ -47,3 +51,7 @@ npx ts-node setup-search.ts
 ## Duration
 
 6-8 hours
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

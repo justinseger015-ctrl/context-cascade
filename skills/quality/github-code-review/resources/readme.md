@@ -1,5 +1,10 @@
 # GitHub Code Review - Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Supporting scripts, templates, and tests for the GitHub Code Review skill.
 
 ## 📂 Directory Structure
@@ -380,3 +385,7 @@ npx ruv-swarm --version
 
 **Last Updated:** 2025-11-02
 **Version:** 1.0.0 (Gold Tier)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

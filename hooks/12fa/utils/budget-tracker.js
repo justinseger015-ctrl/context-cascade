@@ -9,8 +9,10 @@
  * - Automatic daily reset at midnight UTC
  * - Performance: <5ms Memory MCP overhead, <20ms total per budget check
  *
+ * v3.0: Uses x- prefixed custom fields for Anthropic-compliant format
+ *
  * @module budget-tracker
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 'use strict';
@@ -109,27 +111,28 @@ async function saveBudgetState(agentId) {
       return false;
     }
 
-    // Prepare budget data for storage
+    // Prepare budget data for storage (v3.0 uses x- prefixed custom fields)
     const budgetData = {
       agent_id: budget.agent_id,
-      role: budget.role,
-      session_tokens_used: budget.session_tokens_used,
-      session_token_limit: budget.session_token_limit,
-      daily_cost_used: budget.daily_cost_used,
-      daily_cost_limit: budget.daily_cost_limit,
-      last_reset: budget.last_reset,
-      operations_blocked: budget.operations_blocked,
-      created_at: budget.created_at,
-      updated_at: Date.now()
+      'x-role': budget.role,
+      'x-session-tokens-used': budget.session_tokens_used,
+      'x-session-token-limit': budget.session_token_limit,
+      'x-daily-cost-used': budget.daily_cost_used,
+      'x-daily-cost-limit': budget.daily_cost_limit,
+      'x-last-reset': budget.last_reset,
+      'x-operations-blocked': budget.operations_blocked,
+      'x-created-at': budget.created_at,
+      'x-updated-at': Date.now(),
+      'x-schema-version': '3.0'
     };
 
-    // Tag for Memory MCP with metadata
+    // Tag for Memory MCP with metadata (v3.0 x- prefixed)
     const tagged = taggedMemoryStore('backend-dev', JSON.stringify(budgetData), {
       project: 'agent-reality-map',
-      intent: 'budget-persistence',
-      namespace: BUDGET_NAMESPACE,
-      key: agentId,
-      task_id: `BUDGET-SAVE-${agentId}`
+      'x-intent': 'budget-persistence',
+      'x-namespace': BUDGET_NAMESPACE,
+      'x-key': agentId,
+      'x-task-id': `BUDGET-SAVE-${agentId}`
     });
 
     // Note: In production, this would call mcp__memory-mcp__memory_store

@@ -1,5 +1,10 @@
 # Example 2: Creating a Specialized Validation Micro-Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 Your API testing workflow requires validating API responses against OpenAPI 3.0 schemas with detailed violation reporting. The validation needs to:
@@ -582,3 +587,7 @@ Based on systematic violation reporting, fix the service:
 **Related Examples**:
 - Example 1: Extraction micro-skill (self-consistency)
 - Example 3: Generation micro-skill (plan-and-solve)
+
+
+---
+*Promise: `<promise>EXAMPLE_2_SPECIALIZED_MICRO_SKILL_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Example 2: Statistical Tests and Validation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL RESEARCH GUARDRAILS (EVIDENCE-BASED)
 
 **NEVER** claim facts without citations. Every claim MUST include:
@@ -613,3 +618,7 @@ Results:
 ---
 
 **Key Takeaway**: Statistical rigor ensures baseline replication is not just "close enough" but scientifically validated with quantified uncertainty.
+
+
+---
+*Promise: `<promise>EXAMPLE_2_STATISTICAL_TESTS_VERIX_COMPLIANT</promise>`*

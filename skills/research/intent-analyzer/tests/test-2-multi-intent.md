@@ -1,5 +1,10 @@
 # Test 2: Multi-Intent Request Handling
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -382,12 +387,11 @@ For each multi-intent scenario:
 - [ ] intent-validator.sh validates multi-intent analyses
 
 ## Success Metrics
-
-- **Multi-Intent Detection**: 100% for requests with 2+ genuine intents
-- **False Positive Rate**: <5% for single-intent requests incorrectly flagged as multi-intent
-- **Response Completeness**: 100% of identified intents addressed in response
-- **Structural Coherence**: Intents organized logically (sequential, priority-based, etc.)
-- **Clarification Precision**: Only ask about intent priorities when genuinely ambiguous
+- [assert|neutral] *Multi-Intent Detection**: 100% for requests with 2+ genuine intents [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *False Positive Rate**: <5% for single-intent requests incorrectly flagged as multi-intent [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Response Completeness**: 100% of identified intents addressed in response [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Structural Coherence**: Intents organized logically (sequential, priority-based, etc.) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Clarification Precision**: Only ask about intent priorities when genuinely ambiguous [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Edge Cases
 
@@ -414,3 +418,7 @@ Multi-intent requests are common in real-world usage. The key is distinguishing 
 3. **Sequential intent**: Multiple phases of a single larger goal
 
 Successful handling requires understanding these relationships and structuring responses accordingly.
+
+
+---
+*Promise: `<promise>TEST_2_MULTI_INTENT_VERIX_COMPLIANT</promise>`*

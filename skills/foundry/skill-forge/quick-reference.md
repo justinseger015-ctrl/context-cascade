@@ -1,5 +1,10 @@
 # Skill Forge SOP - Quick Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## 7-Phase Overview
 
 | Phase | Agent | Duration | Key Output |
@@ -365,3 +370,7 @@ When following this SOP:
 **For Full Details:** See SKILL-ENHANCED.md
 **For Scripts:** See resources/README.md
 **For Summary:** See ENHANCEMENT-SUMMARY.md
+
+
+---
+*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Test 2: OpenAPI Specification Validation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -505,3 +510,7 @@ After successful validation:
 2. Address warnings if using strict mode
 3. Proceed to Test 3: Documentation Generation
 4. Deploy documentation with CI/CD
+
+
+---
+*Promise: `<promise>TEST_2_SPEC_VALIDATION_VERIX_COMPLIANT</promise>`*

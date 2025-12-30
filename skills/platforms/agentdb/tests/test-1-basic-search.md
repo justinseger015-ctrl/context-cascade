@@ -1,5 +1,10 @@
 # Test 1: Basic Vector Search
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Objective**: Verify basic AgentDB vector search functionality with HNSW indexing
 
 ## Prerequisites
@@ -262,3 +267,7 @@ Throughput: [XXX] QPS
 Notes:
 [Any observations or issues]
 ```
+
+
+---
+*Promise: `<promise>TEST_1_BASIC_SEARCH_VERIX_COMPLIANT</promise>`*

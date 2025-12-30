@@ -1,23 +1,48 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Agent Identity Schema",
-  "description": "Comprehensive identity schema for Agent Reality Map compliance - transforms agents into first-class identities with roles, permissions, and budgets",
-  "version": "1.0.0",
+  "description": "Anthropic-compliant agent identity schema with x- prefixed custom extensions for Agent Reality Map compliance",
+  "version": "2.0.0",
   "type": "object",
-  "required": ["agent_id", "name", "role", "capabilities", "rbac", "budget", "metadata"],
+  "required": ["name", "description", "tools"],
   "properties": {
-    "agent_id": {
-      "type": "string",
-      "format": "uuid",
-      "description": "Unique identifier for the agent (UUIDv4)"
-    },
     "name": {
       "type": "string",
-      "description": "Agent name as defined in agent YAML frontmatter",
+      "description": "Agent name (Anthropic official field)",
       "pattern": "^[a-z0-9-]+$",
       "examples": ["backend-dev", "coder", "security-manager"]
     },
-    "role": {
+    "description": {
+      "type": "string",
+      "description": "Plain text description of what this agent does (Anthropic official field - NO VERIX notation)"
+    },
+    "tools": {
+      "type": "string",
+      "description": "Comma-separated list of allowed tools (Anthropic official field)",
+      "examples": ["Read, Write, Edit, Bash, Glob, Grep", "Read, Grep, Glob, WebSearch, Task"]
+    },
+    "model": {
+      "type": "string",
+      "enum": ["opus", "sonnet", "haiku"],
+      "description": "Model to use for this agent (Anthropic official field)",
+      "default": "sonnet"
+    },
+    "permissionMode": {
+      "type": "string",
+      "enum": ["default", "restricted"],
+      "description": "Permission mode (Anthropic optional official field)",
+      "default": "default"
+    },
+    "skills": {
+      "type": "string",
+      "description": "Comma-separated list of skills this agent can invoke (Anthropic optional official field)"
+    },
+    "x-agent_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the agent (UUIDv4) - custom extension"
+    },
+    "x-role": {
       "type": "string",
       "enum": [
         "admin",
@@ -31,53 +56,29 @@
         "analyst",
         "coordinator"
       ],
-      "description": "Primary RBAC role determining permissions and access"
+      "description": "Primary RBAC role determining permissions and access - custom extension"
     },
-    "capabilities": {
+    "x-capabilities": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "List of capabilities this agent possesses",
+      "description": "List of capabilities this agent possesses - custom extension",
       "examples": [
         ["coding", "api-design", "database"],
         ["security-audit", "vulnerability-scanning"],
         ["ui-design", "react", "accessibility"]
       ]
     },
-    "rbac": {
+    "x-rbac": {
       "type": "object",
-      "required": ["allowed_tools", "path_scopes"],
       "properties": {
-        "allowed_tools": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Read",
-              "Write",
-              "Edit",
-              "MultiEdit",
-              "Bash",
-              "Grep",
-              "Glob",
-              "Task",
-              "TodoWrite",
-              "WebSearch",
-              "WebFetch",
-              "KillShell",
-              "BashOutput",
-              "NotebookEdit"
-            ]
-          },
-          "description": "Tools this agent is permitted to use"
-        },
         "denied_tools": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "description": "Tools explicitly denied (overrides allowed_tools)",
+          "description": "Tools explicitly denied (overrides tools field)",
           "default": []
         },
         "path_scopes": {
@@ -121,11 +122,12 @@
           "minimum": 0,
           "default": 10.0
         }
-      }
+      },
+      "description": "Additional RBAC settings beyond the official tools field - custom extension"
     },
-    "budget": {
+    "x-budget": {
       "type": "object",
-      "required": ["max_tokens_per_session", "max_cost_per_day", "currency"],
+      "description": "Token and cost budget settings - custom extension",
       "properties": {
         "max_tokens_per_session": {
           "type": "integer",
@@ -165,9 +167,9 @@
         }
       }
     },
-    "metadata": {
+    "x-metadata": {
       "type": "object",
-      "required": ["category", "specialist"],
+      "description": "Additional metadata for organization and discovery - custom extension",
       "properties": {
         "category": {
           "type": "string",
@@ -221,7 +223,7 @@
         }
       }
     },
-    "performance": {
+    "x-performance": {
       "type": "object",
       "description": "Performance metrics and quality scores (optional, tracked at runtime)",
       "properties": {
@@ -250,26 +252,46 @@
       }
     }
   },
+  "field_mappings": {
+    "description": "Migration guide from old format to Anthropic-compliant format",
+    "old_to_new": {
+      "agent_id": "x-agent_id",
+      "role": "x-role",
+      "capabilities": "x-capabilities",
+      "rbac.allowed_tools": "tools (as comma-separated string)",
+      "rbac.denied_tools": "x-rbac.denied_tools",
+      "rbac.path_scopes": "x-rbac.path_scopes",
+      "rbac.api_access": "x-rbac.api_access",
+      "budget": "x-budget",
+      "metadata": "x-metadata",
+      "metadata.category": "x-metadata.category",
+      "performance": "x-performance"
+    },
+    "required_fields": ["name", "description", "tools"],
+    "official_optional": ["model", "permissionMode", "skills"]
+  },
   "examples": [
     {
-      "agent_id": "550e8400-e29b-41d4-a716-446655440000",
       "name": "backend-dev",
-      "role": "developer",
-      "capabilities": ["coding", "api-design", "database", "testing"],
-      "rbac": {
-        "allowed_tools": ["Read", "Write", "Edit", "Bash", "Task"],
+      "description": "Backend development specialist for Python/Node.js APIs, database design, and server-side implementation",
+      "tools": "Read, Write, Edit, Bash, Task, Glob, Grep",
+      "model": "sonnet",
+      "x-agent_id": "550e8400-e29b-41d4-a716-446655440000",
+      "x-role": "developer",
+      "x-capabilities": ["coding", "api-design", "database", "testing"],
+      "x-rbac": {
         "denied_tools": ["KillShell"],
         "path_scopes": ["src/**", "backend/**", "tests/**"],
         "api_access": ["github", "memory-mcp"],
         "requires_approval": false,
         "approval_threshold": 10.0
       },
-      "budget": {
+      "x-budget": {
         "max_tokens_per_session": 150000,
         "max_cost_per_day": 20.0,
         "currency": "USD"
       },
-      "metadata": {
+      "x-metadata": {
         "category": "delivery",
         "specialist": true,
         "requires_approval": false,

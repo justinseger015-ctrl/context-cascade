@@ -1,5 +1,10 @@
 # Evidence-Based Prompting Principles for Agent Creation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Comprehensive guide to prompt engineering principles that maximize agent effectiveness.
 
 ---
@@ -309,10 +314,10 @@ integration:
 ## Quality Metrics
 
 ### Success Criteria
-- Functional correctness > 95%
-- Output completeness > 90%
-- Response time < 30 seconds
-- Test coverage > 80%
+- [assert|neutral] Functional correctness > 95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Output completeness > 90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Response time < 30 seconds [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Test coverage > 80% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Failure Modes
 1. Incomplete requirement analysis
@@ -340,3 +345,7 @@ integration:
 5. **Integrate Memory**: Persistent context across sessions
 6. **Measure Quality**: Track success criteria
 7. **Iterate Based on Results**: Continuous improvement
+
+
+---
+*Promise: `<promise>PROMPTING_PRINCIPLES_VERIX_COMPLIANT</promise>`*

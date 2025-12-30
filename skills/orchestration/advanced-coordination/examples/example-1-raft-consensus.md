@@ -1,5 +1,10 @@
 # Example 1: RAFT Consensus - Leader Election for 5+ Agents
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates how to implement RAFT consensus for a distributed task processing system with 5 agents. RAFT provides strong consistency guarantees through leader-based coordination, making it ideal for workflows requiring ordered operations and state machine replication.
@@ -397,3 +402,7 @@ npx claude-flow@alpha task orchestrate \
 - **Example 2**: [Gossip Protocol](./example-2-gossip-protocol.md) for high scalability (100+ agents)
 - **Example 3**: [Byzantine Fault Tolerance](./example-3-byzantine-fault-tolerance.md) for malicious agent detection
 - **Reference**: [Coordination Strategies](../references/coordination-strategies.md) for in-depth RAFT analysis
+
+
+---
+*Promise: `<promise>EXAMPLE_1_RAFT_CONSENSUS_VERIX_COMPLIANT</promise>`*

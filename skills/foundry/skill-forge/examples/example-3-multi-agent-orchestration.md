@@ -1,5 +1,10 @@
 # Example 3: Creating Multi-Agent Orchestration Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 You need a complex skill that coordinates multiple agents for full-stack feature development.
 
@@ -142,12 +147,12 @@ api-dev/{endpoint}/
 ```
 
 ## Success Criteria
-- OpenAPI 3.0 spec complete
-- Implementation follows best practices
-- Test coverage ≥90%
-- Security review passed
-- Documentation complete
-```
+- [assert|neutral] OpenAPI 3.0 spec complete [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Implementation follows best practices [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Test coverage ≥90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Security review passed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Documentation complete [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ``` [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ### Phase 5: Create Templates
 ```yaml
@@ -253,3 +258,7 @@ build-api-endpoint-complete/
 - Phase 8 (Testing): 25 minutes
 
 **Total**: ~2.5 hours for production-ready orchestration skill
+
+
+---
+*Promise: `<promise>EXAMPLE_3_MULTI_AGENT_ORCHESTRATION_VERIX_COMPLIANT</promise>`*

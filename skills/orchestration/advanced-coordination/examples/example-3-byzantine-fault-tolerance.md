@@ -1,5 +1,10 @@
 # Example 3: Byzantine Fault Tolerance - Malicious Agent Detection with 3F+1 Redundancy
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates how to implement Byzantine Fault Tolerance (BFT) for a security-critical transaction processing system with 7 agents. BFT provides protection against malicious or faulty agents through cryptographic verification and quorum-based consensus, making it essential for untrusted distributed environments.
@@ -546,3 +551,7 @@ npx claude-flow@alpha network latency --all-agents
 - **Reference**: [Coordination Strategies](../references/coordination-strategies.md) for Byzantine deep dive
 - **Reference**: [Fault Tolerance](../references/fault-tolerance.md) for malicious detection patterns
 - **Reference**: [Workflow Diagram](../graphviz/workflow.dot) for Byzantine message flow visualization
+
+
+---
+*Promise: `<promise>EXAMPLE_3_BYZANTINE_FAULT_TOLERANCE_VERIX_COMPLIANT</promise>`*

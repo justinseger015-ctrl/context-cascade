@@ -1,5 +1,10 @@
 # Example 3: Code Documentation Generation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -756,3 +761,7 @@ npx typedoc --validation.invalidLink
 ---
 
 **Documentation generated with ❤️ by the Claude Flow documentation skill**
+
+
+---
+*Promise: `<promise>EXAMPLE_3_CODE_DOCUMENTATION_VERIX_COMPLIANT</promise>`*

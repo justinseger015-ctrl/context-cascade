@@ -1,5 +1,10 @@
 # Example: Automated Changelog Generation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: GITHUB OPERATIONS SAFETY GUARDRAILS
 
 **BEFORE any GitHub operation, validate**:
@@ -650,3 +655,7 @@ This example demonstrates:
 - ✅ Contributor statistics
 - ✅ GitHub integration
 - ✅ Multi-format output
+
+
+---
+*Promise: `<promise>AUTOMATED_CHANGELOGS_VERIX_COMPLIANT</promise>`*

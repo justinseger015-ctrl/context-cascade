@@ -1,5 +1,10 @@
 # Test 2: HNSW Index Tuning (150x-12,500x Search Speedup)
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Objective
 Validate HNSW index tuning achieves 150x faster search on 10K vectors and scales to 12,500x on 1M vectors.
 
@@ -317,12 +322,11 @@ testBuildTime();
 - ✅ 100K vectors: < 30 seconds build time
 
 ## Success Criteria
-
-All test cases must pass:
-1. ✅ Small dataset (10K): ≥ 100x speedup, < 200µs search
-2. ✅ Medium dataset (100K): ≥ 1,000x speedup, < 300µs search
-3. ✅ Parameter tuning behaves as expected
-4. ✅ Build times within acceptable ranges
+- [assert|neutral] All test cases must pass: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 1. ✅ Small dataset (10K): ≥ 100x speedup, < 200µs search [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. ✅ Medium dataset (100K): ≥ 1,000x speedup, < 300µs search [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. ✅ Parameter tuning behaves as expected [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. ✅ Build times within acceptable ranges [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Cleanup
 
@@ -338,3 +342,7 @@ rm -rf tests/hnsw-tuning
 - efConstruction affects build quality (higher = better quality, slower build)
 - efSearch affects search accuracy (higher = better recall, slower search)
 - Combine with quantization for maximum performance
+
+
+---
+*Promise: `<promise>TEST_2_HNSW_TUNING_VERIX_COMPLIANT</promise>`*

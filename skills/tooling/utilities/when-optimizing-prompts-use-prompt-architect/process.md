@@ -1,5 +1,10 @@
 # Prompt Architect - Detailed Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Process Overview
 
 Transform prompts using evidence-based prompt engineering through systematic analysis, optimization, and validation.
@@ -319,3 +324,7 @@ interface PromptOptimizationResult {
 ```
 
 For implementation details, see SKILL.md
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

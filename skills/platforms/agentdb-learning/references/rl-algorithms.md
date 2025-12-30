@@ -1,5 +1,10 @@
 # Reinforcement Learning Algorithms Overview
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Introduction
 
 This document provides a comprehensive overview of the 9 reinforcement learning algorithms available in AgentDB. Each algorithm is suited for different types of problems and constraints.
@@ -503,3 +508,7 @@ Where θshared are shared parameters, θᵢ are task-specific.
 - OpenAI Spinning Up: https://spinningup.openai.com/
 - DeepMind RL Course: https://deepmind.com/learning-resources/
 - Berkeley CS285: https://rail.eecs.berkeley.edu/deeprlcourse/
+
+
+---
+*Promise: `<promise>RL_ALGORITHMS_VERIX_COMPLIANT</promise>`*

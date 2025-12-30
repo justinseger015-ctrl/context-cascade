@@ -1,5 +1,10 @@
 # Test Case 3: Integration and Automation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Test Metadata
 - **Test ID**: COMPLIANCE-TEST-003
 - **Category**: Integration Testing
@@ -782,12 +787,12 @@ docker rmi compliance-scanner
 ```
 
 ## Success Criteria Summary
-- All integration scenarios pass successfully
-- CI/CD pipelines execute without errors
-- Hooks prevent non-compliant commits
-- Automated reports generate correctly
-- Notifications sent successfully
-- Docker containerization works properly
+- [assert|neutral] All integration scenarios pass successfully [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] CI/CD pipelines execute without errors [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Hooks prevent non-compliant commits [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Automated reports generate correctly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Notifications sent successfully [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Docker containerization works properly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Known Issues / Limitations
 - Webhook URLs must be configured for notification tests
@@ -800,3 +805,7 @@ docker rmi compliance-scanner
 - Test cron jobs with near-term schedules first
 - Monitor Docker resource usage during container tests
 - Ensure proper cleanup to avoid accumulating test artifacts
+
+
+---
+*Promise: `<promise>TEST_3_INTEGRATION_VERIX_COMPLIANT</promise>`*

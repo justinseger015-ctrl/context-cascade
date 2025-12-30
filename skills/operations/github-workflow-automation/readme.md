@@ -1,5 +1,10 @@
 # GitHub Workflow Automation - Gold Tier Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -507,3 +512,7 @@ Part of the ruv-sparc-three-loop-system skill collection.
 **Tier**: Gold
 **Status**: Production Ready
 **Last Updated**: 2025-01-19
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Intent Analyzer - Quick Start Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Advanced intent interpretation system that disambiguates user requests using cognitive science principles and probabilistic reasoning.
 
@@ -44,10 +49,10 @@ npx claude-flow@alpha skill-run intent-analyzer \
 ```
 
 ## Success Criteria
-- Confidence score > 0.8
-- User confirmation obtained
-- Clear action plan generated
-- Ready for execution handoff
+- [assert|neutral] Confidence score > 0.8 [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] User confirmation obtained [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Clear action plan generated [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Ready for execution handoff [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Common Use Cases
 - **Before SPARC**: Clarify requirements before specification phase
@@ -73,3 +78,7 @@ intent-analyzer → manual execution
 - Update if understanding changes
 
 For detailed documentation, see SKILL.md
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

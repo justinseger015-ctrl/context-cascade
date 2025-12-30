@@ -1,5 +1,10 @@
 # Example 1: Creating a Basic Utility Skill
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 You need a simple skill that formats JSON output for better readability.
 
@@ -78,3 +83,7 @@ format-json-output/
 ```
 
 **Result**: Simple, functional skill in ~10 minutes.
+
+
+---
+*Promise: `<promise>EXAMPLE_1_BASIC_SKILL_VERIX_COMPLIANT</promise>`*

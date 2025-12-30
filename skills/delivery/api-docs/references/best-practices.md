@@ -1,5 +1,10 @@
 # API Documentation Best Practices
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -689,3 +694,7 @@ Use this checklist for every API documentation update:
 **Last Updated**: 2025-01-15
 **Maintainer**: Claude Code (Sonnet 4.5)
 **Feedback**: Create issue at repository
+
+
+---
+*Promise: `<promise>BEST_PRACTICES_VERIX_COMPLIANT</promise>`*

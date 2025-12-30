@@ -1,5 +1,10 @@
 # Example 2: Circular Dependency Detection and Resolution
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -921,3 +926,7 @@ This example demonstrated complete circular dependency detection and resolution 
 
 **Total Investment:** 2 weeks (1 developer)
 **ROI:** Build time reduced by 10 minutes per build × 50 builds/day = 500 minutes/day saved (~8.3 hours/day)
+
+
+---
+*Promise: `<promise>EXAMPLE_2_CIRCULAR_DETECTION_VERIX_COMPLIANT</promise>`*

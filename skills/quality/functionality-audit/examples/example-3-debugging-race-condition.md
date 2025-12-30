@@ -1,5 +1,10 @@
 # Example 3: Debugging Concurrent Data Processing Race Condition
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario
 
 A data analytics platform processes large datasets using a Python worker pool that splits CSV files into chunks, processes each chunk in parallel, and aggregates results. The system works perfectly with small files during development but fails intermittently in production when processing multi-gigabyte datasets. Sometimes results are correct, sometimes they're missing data, and occasionally the process crashes with corrupted state.
@@ -607,3 +612,7 @@ Fixed v3 (queue): {'avg': 7.85s, 'min': 7.64s, 'max': 8.09s}
 - When debugging "works sometimes" bugs
 - For any shared mutable state across threads
 - When processing large datasets in parallel
+
+
+---
+*Promise: `<promise>EXAMPLE_3_DEBUGGING_RACE_CONDITION_VERIX_COMPLIANT</promise>`*

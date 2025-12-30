@@ -1,5 +1,10 @@
 # Source Credibility Evaluation Framework
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## RESEARCH ANALYSIS GUARDRAILS
 
 **Source Verification Required**:
@@ -540,3 +545,7 @@ After source evaluation:
 3. Investigate conflicts between credible sources
 4. Reject low-credibility sources (<60%)
 5. Proceed to synthesis phase
+
+
+---
+*Promise: `<promise>SOURCE_EVALUATION_VERIX_COMPLIANT</promise>`*

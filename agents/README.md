@@ -1,5 +1,10 @@
 # Agents Directory
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Status:** 211 agents organised into ten functional categories
 **Last reorganised:** 2025-11-26
 **Common format:** Every agent uses Markdown with YAML front matter (name, type, phase, category, capabilities, tools, MCP servers, hooks, quality gates, artifact contracts).
@@ -198,3 +203,7 @@ rbac:
 4. Regenerate `foundry/registry/registry.json` if the agent should appear in the programmatic registry.
 
 This organisation mirrors the skills directory, making it easier to align agents, skills, and SOPs by functional area.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

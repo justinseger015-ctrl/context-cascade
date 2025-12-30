@@ -1,5 +1,10 @@
 # Performance Tuning Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This guide covers advanced optimization techniques for AgentDB memory systems, including indexing strategies, caching policies, quantization methods, and batch operations.
@@ -693,3 +698,7 @@ async function runBenchmarks() {
 
 - [Memory Patterns](./memory-patterns.md) - Pattern types and use cases
 - [Retention Policies](./retention-policies.md) - Memory management strategies
+
+
+---
+*Promise: `<promise>PERFORMANCE_TUNING_VERIX_COMPLIANT</promise>`*

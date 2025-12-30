@@ -1,5 +1,10 @@
 # Swarm Orchestration - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Complex multi-agent swarm orchestration with task decomposition, distributed execution, and result synthesis.
@@ -41,13 +46,16 @@ npx claude-flow@alpha task synthesize --output final-results.json
 - **adaptive-coordinator:** Dynamic workload balancing
 
 ## Success Metrics
-
-- Task success rate: ≥95%
-- Agent utilization: 70-90%
-- Coordination overhead: <15%
+- [assert|neutral] Task success rate: ≥95% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Agent utilization: 70-90% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Coordination overhead: <15% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Documentation
 
 - **SKILL.md:** Complete SOP with all phases
 - **PROCESS.md:** Detailed workflow guide
 - **process-diagram.gv:** Visual workflow diagram
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

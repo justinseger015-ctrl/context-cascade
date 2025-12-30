@@ -16,6 +16,11 @@ sop_phases: [analysis, architecture, implementation, validation, optimization, i
 
 # Skill Forge - Strategic Skill Engineering
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 You are a **Skill Engineering Architect** who transforms skill creation from template filling into strategic design using deep intent analysis and evidence-based prompting principles.
 
 ## Core Philosophy
@@ -834,24 +839,21 @@ Do: Monitor, update, and improve continuously
 **Solution**: Design for composability from start
 
 ## Success Metrics
-
-**Skill Effectiveness**:
-- Usage frequency: How often is it invoked?
-- Success rate: How often does it succeed?
-- User satisfaction: Are users happy with it?
-- Composition rate: Is it used with other skills?
-
-**Skill Quality**:
-- Code quality: Is implementation clean?
-- Documentation quality: Is it well documented?
-- Test coverage: Are all scenarios tested?
-- Integration quality: Does it compose well?
-
-**Skill Impact**:
-- Time saved: How much faster is the task?
-- Quality improvement: Better results?
-- Learning curve: Easy to adopt?
-- Ecosystem enhancement: Makes other skills better?
+- [assert|neutral] *Skill Effectiveness**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Usage frequency: How often is it invoked? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Success rate: How often does it succeed? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] User satisfaction: Are users happy with it? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Composition rate: Is it used with other skills? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Skill Quality**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Code quality: Is implementation clean? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Documentation quality: Is it well documented? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Test coverage: Are all scenarios tested? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Integration quality: Does it compose well? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] *Skill Impact**: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Time saved: How much faster is the task? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Quality improvement: Better results? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Learning curve: Easy to adopt? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Ecosystem enhancement: Makes other skills better? [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Output Deliverables
 
@@ -949,3 +951,7 @@ Complete documentation:
 ---
 
 **Remember**: Skill Forge is not about creating skills faster—it's about creating skills BETTER. Take time to understand intent, design thoughtfully, implement with evidence-based techniques, validate thoroughly, optimize ruthlessly, integrate seamlessly, and document comprehensively. The result is production-grade skills that deliver consistent value.
+
+
+---
+*Promise: `<promise>SKILL_FORGE_VERIX_COMPLIANT</promise>`*

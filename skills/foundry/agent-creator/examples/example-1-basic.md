@@ -1,5 +1,10 @@
 # Example 1: Basic Specialist Agent Creation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Objective
 
 Create a **Marketing Specialist Agent** that can analyze market trends, develop campaign strategies, and provide data-driven recommendations.
@@ -1166,3 +1171,7 @@ Analyze:
 2. Monitor performance metrics for 30 days
 3. Collect client feedback
 4. Iterate on system prompt based on learnings (v2.1, v2.2...)
+
+
+---
+*Promise: `<promise>EXAMPLE_1_BASIC_VERIX_COMPLIANT</promise>`*

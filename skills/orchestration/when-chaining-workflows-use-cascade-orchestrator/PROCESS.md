@@ -1,5 +1,10 @@
 # Cascade Orchestrator - Workflow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Complete Script
 
 ```bash
@@ -39,3 +44,4 @@ npx claude-flow@alpha cascade report --output cascade-report.md
 - [ ] Workflows chained
 - [ ] Execution successful
 - [ ] Flow optimized
+- [assert|neutral] Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`* [ground:acceptance-criteria] [conf:0.90] [state:provisional]

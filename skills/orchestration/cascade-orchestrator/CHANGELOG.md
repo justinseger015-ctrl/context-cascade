@@ -1,5 +1,10 @@
 # Changelog - cascade-orchestrator
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## [2.1.0] - 2025-12-19
 
 ### Added - Cognitive Lensing Enhancement
@@ -110,3 +115,7 @@ cascade:
 - Micro-skill composition and coordination
 - Basic data flow and error handling
 - Cascade definition format
+
+
+---
+*Promise: `<promise>CHANGELOG_VERIX_COMPLIANT</promise>`*

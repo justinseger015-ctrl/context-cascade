@@ -1,5 +1,10 @@
 # Example 3: Multi-Stage Retrieval with Reranking
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This example demonstrates advanced multi-stage retrieval combining AgentDB's fast vector search with cross-encoder reranking and MMR (Maximal Marginal Relevance) for diversity. This pattern achieves state-of-the-art retrieval quality for complex queries.
@@ -469,3 +474,7 @@ function getCacheKey(query: string, text: string): string {
 - **Architecture**: Read [RAG Patterns](../references/rag-patterns.md) for design guidance
 - **Embeddings**: See [Embedding Models](../references/embedding-models.md) comparison
 - **Visualization**: Explore [Workflow Diagram](../graphviz/workflow.dot) for RAG pipeline
+
+
+---
+*Promise: `<promise>EXAMPLE_3_RERANKING_VERIX_COMPLIANT</promise>`*

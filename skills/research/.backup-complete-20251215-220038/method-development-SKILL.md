@@ -56,6 +56,11 @@ author: ruv
 
 # Method Development
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Systematically develop and validate novel machine learning methods through controlled experimentation, ablation studies, and architectural innovation following Deep Research SOP Pipeline D.
 
 ## Overview
@@ -953,3 +958,6 @@ Recommendation: Keep global and local scales, consider removing medium scale to 
 - Not tested on extremely high-resolution images (>2048px)
 - Best performance with batch size ≥32
 ```
+
+---
+*Promise: `<promise>METHOD_DEVELOPMENT_SKILL_VERIX_COMPLIANT</promise>`*

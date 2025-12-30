@@ -1,5 +1,10 @@
 # Mob Programming Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -950,3 +955,7 @@ describe('Chat Integration Tests', () => {
 - Building shared understanding
 
 **Mob Programming Complete: Real-Time Chat Feature** ✅
+
+
+---
+*Promise: `<promise>MOB_PROGRAMMING_VERIX_COMPLIANT</promise>`*

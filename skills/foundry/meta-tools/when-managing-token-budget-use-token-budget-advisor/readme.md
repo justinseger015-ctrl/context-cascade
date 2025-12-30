@@ -1,5 +1,10 @@
 # Token Budget Advisor
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Proactive token budget management tool for assessing usage, estimating task complexity, and creating execution plans that stay within budget limits.
 
 ## Overview
@@ -135,12 +140,11 @@ Works seamlessly with:
 - Low: Generic estimate
 
 ## Success Criteria
-
-- Budget adherence: 95%+ accuracy
-- Planning precision: ±20% estimation error
-- Zero overruns: No token exhaustion failures
-- Optimal chunking: 40-60% utilization per chunk
-- Efficient execution: <15% unused budget
+- [assert|neutral] Budget adherence: 95%+ accuracy [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Planning precision: ±20% estimation error [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Zero overruns: No token exhaustion failures [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Optimal chunking: 40-60% utilization per chunk [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Efficient execution: <15% unused budget [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Contingency Strategies
 
@@ -161,3 +165,7 @@ Works seamlessly with:
 - Complexity: MEDIUM
 - Agents: planner, code-analyzer
 - Hooks: Yes (pre-task, post-task, checkpoints)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

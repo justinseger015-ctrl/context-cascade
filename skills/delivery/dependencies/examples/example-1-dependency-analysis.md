@@ -1,5 +1,10 @@
 # Example 1: Comprehensive Dependency Analysis
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 
 ## When to Use This Skill
 
@@ -841,3 +846,7 @@ This example demonstrated a complete dependency analysis workflow for a monorepo
 
 **Time Investment:** 2-3 hours for initial analysis
 **ROI:** Prevented 3 critical security vulnerabilities, reduced bundle size by 24%, improved CI/CD performance by 25%
+
+
+---
+*Promise: `<promise>EXAMPLE_1_DEPENDENCY_ANALYSIS_VERIX_COMPLIANT</promise>`*

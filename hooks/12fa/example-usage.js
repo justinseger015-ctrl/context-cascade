@@ -1,6 +1,8 @@
 /**
- * Example Usage: Identity & RBAC Pipeline
+ * Example Usage: Identity & RBAC Pipeline v3.0
  * Demonstrates complete workflow for securing agent operations
+ *
+ * v3.0: Uses x- prefixed custom fields for Anthropic compliance
  */
 
 const pipeline = require('./identity-rbac-pipeline');
@@ -10,27 +12,29 @@ const budgetTracker = require('./budget-tracker');
 
 async function demonstrateSecurityPipeline() {
   console.log('='.repeat(60));
-  console.log('Identity & RBAC Pipeline - Example Usage');
+  console.log('Identity & RBAC Pipeline - Example Usage (v3.0)');
   console.log('='.repeat(60));
   console.log();
 
-  // Step 1: Register agents with identities
-  console.log('Step 1: Registering Agents');
+  // Step 1: Register agents with identities (v3.0 x- prefixed fields)
+  console.log('Step 1: Registering Agents (v3.0 format)');
   console.log('-'.repeat(60));
 
+  // v3.0: Custom metadata fields use x- prefix
   identity.register('coder-001', 'public-key-coder', {
-    category: 'development',
-    team: 'backend'
+    'x-category': 'development',
+    'x-team': 'backend'
   });
 
   identity.register('reviewer-001', 'public-key-reviewer', {
-    category: 'quality-assurance',
-    team: 'qa'
+    'x-category': 'quality-assurance',
+    'x-team': 'qa'
   });
 
   console.log('Registered agents:');
   identity.listAgents().forEach(agent => {
-    console.log(`  - ${agent.agentId} (${agent.metadata.category})`);
+    // v3.0: Access x-prefixed field
+    console.log(`  - ${agent.agentId} (${agent.metadata['x-category'] || agent.metadata.category})`);
   });
   console.log();
 

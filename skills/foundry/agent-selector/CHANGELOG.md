@@ -1,5 +1,10 @@
 # Agent Selector Changelog
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## v2.1.0 (2025-12-15)
 
 **Meta-Loop Enhancement Release**
@@ -21,3 +26,7 @@
 - Semantic agent matching
 - 203-agent registry support
 - Memory MCP integration
+
+
+---
+*Promise: `<promise>CHANGELOG_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Test: Integration Failure Detection
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Purpose
 Validates that the functionality-audit skill can detect integration issues between components that work correctly in isolation but fail when combined. This tests the audit's ability to trace execution across component boundaries and identify interface mismatches, state corruption, or data flow issues.
 
@@ -464,3 +469,7 @@ return checker.has_permission(permissions_str, action)
 - Successful detection proves audit can perform cross-component analysis, not just single-file validation
 - The fix suggestions demonstrate architectural thinking (adapter pattern vs. type flexibility)
 - This test should ALWAYS detect the integration failure and provide actionable fixes
+
+
+---
+*Promise: `<promise>TEST_INTEGRATION_FAILURE_VERIX_COMPLIANT</promise>`*

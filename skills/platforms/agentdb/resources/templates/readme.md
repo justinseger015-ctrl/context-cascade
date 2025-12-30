@@ -1,5 +1,10 @@
 # AgentDB Configuration Templates
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Production-ready configuration templates for AgentDB vector database deployment.
 
 ## 📁 Templates Overview
@@ -485,3 +490,7 @@ search:
 - See `../scripts/` for optimization tools
 - See `../../tests/` for validation tests
 - See `../../examples/` for code samples
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

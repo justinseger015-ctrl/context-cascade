@@ -1,5 +1,10 @@
 # Research-Driven Planning - Resources
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 This directory contains production-ready scripts, templates, and utilities for executing the Research-Driven Planning workflow (Loop 1 of the Three-Loop Integrated Development System).
 
 ## Directory Structure
@@ -241,3 +246,7 @@ When adding new scripts or templates:
 **Status**: Production-Ready
 **Tier**: Gold (12+ files)
 **Maintenance**: Active
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Skill Gap Analyzer - Process Flow
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Comprehensive process for analyzing skill library gaps, redundancies, and optimization opportunities.
@@ -481,12 +486,11 @@ npx claude-flow@alpha hooks post-task \
 ```
 
 ## Success Criteria
-
-- Complete inventory: 100% of skills catalogued
-- Gap detection: All domains analyzed
-- Redundancy detection: >70% overlap threshold
-- Recommendations: Actionable, prioritized, measurable
-- Report: Comprehensive, clear, decision-ready
+- [assert|neutral] Complete inventory: 100% of skills catalogued [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Gap detection: All domains analyzed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Redundancy detection: >70% overlap threshold [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Recommendations: Actionable, prioritized, measurable [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Report: Comprehensive, clear, decision-ready [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Follow-Up Actions
 
@@ -502,3 +506,7 @@ npx claude-flow@alpha hooks post-task \
 - Prompt Optimization (optimize individual skills)
 - Token Budget Management (estimate resource impact)
 - Skill Creation (implement gap recommendations)
+
+
+---
+*Promise: `<promise>PROCESS_VERIX_COMPLIANT</promise>`*

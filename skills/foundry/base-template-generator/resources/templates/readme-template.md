@@ -1,5 +1,10 @@
 # {{PROJECT_NAME}}
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 {{PROJECT_DESCRIPTION}}
 
 ## Features
@@ -399,3 +404,7 @@ For issues and questions:
 ---
 
 Generated with [base-template-generator](https://github.com/ruvnet/claude-flow)
+
+
+---
+*Promise: `<promise>README_TEMPLATE_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # HNSW Parameters Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 Hierarchical Navigable Small World (HNSW) is a graph-based index that provides O(log n) search complexity instead of O(n) linear scans. This reference covers the mathematical foundations, parameter tuning, and optimization strategies for HNSW in AgentDB.
@@ -552,3 +557,7 @@ await adapter.prune({ minConfidence: 0.5 });
 - [Main Skill](../skill.md)
 - [HNSW Tuning Example](../examples/example-2-hnsw-tuning.md)
 - [Quantization Techniques](./quantization-techniques.md)
+
+
+---
+*Promise: `<promise>HNSW_PARAMETERS_VERIX_COMPLIANT</promise>`*

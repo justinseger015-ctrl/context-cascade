@@ -1,5 +1,10 @@
 # Test 3: 5-Agent Swarm Coordination
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Test ID**: TEST-CRA-003
 **Skill**: code-review-assistant
 **Tier**: Gold
@@ -501,3 +506,7 @@ rm -rf /tmp/test-repo-swarm
 **Issues Found**:
 -
 -
+
+
+---
+*Promise: `<promise>TEST_3_5AGENT_SWARM_VERIX_COMPLIANT</promise>`*

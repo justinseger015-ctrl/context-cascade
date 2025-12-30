@@ -1,5 +1,10 @@
 # Example 2: Mesh Topology for Peer-to-Peer Coordination
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Description
 
 You're working on an open-source data science project with 6 agents collaborating on feature engineering, model training, and evaluation. Unlike hierarchical projects with clear command chains, this requires **peer-to-peer collaboration** where agents share insights, iterate rapidly, and make collective decisions.
@@ -281,33 +286,27 @@ npx claude-flow@alpha agent metrics --metric performance
 ## Expected Outcomes
 
 ### Successful Mesh Coordination Results:
-
-1. **Rapid Knowledge Sharing**
-   - Average insight propagation: 2-5 minutes
-   - All agents have access to collective knowledge
-   - No bottlenecks from coordinator review
-
-2. **Democratic Decision-Making**
-   - Voting protocols for major decisions
-   - Dissenting opinions recorded
-   - Consensus-based model selection
-
-3. **High Iteration Speed**
-   - 3-5 experiment iterations per hour (vs 1-2 in hierarchical)
-   - Parallel hyperparameter searches
-   - Real-time collaboration on features
-
-4. **Quality Metrics**
-   - Final model AUC: 0.89 (vs 0.85 baseline)
-   - 15+ feature engineering iterations
-   - 200+ hyperparameter trials across 3 models
-
-5. **Team Autonomy**
-   - Agents self-organize tasks
-   - No waiting for coordinator approval
-   - Peer accountability via shared memory
-
----
+- [assert|neutral] 1. **Rapid Knowledge Sharing** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Average insight propagation: 2-5 minutes [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] All agents have access to collective knowledge [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] No bottlenecks from coordinator review [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. **Democratic Decision-Making** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Voting protocols for major decisions [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Dissenting opinions recorded [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Consensus-based model selection [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. **High Iteration Speed** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3-5 experiment iterations per hour (vs 1-2 in hierarchical) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Parallel hyperparameter searches [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Real-time collaboration on features [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. **Quality Metrics** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Final model AUC: 0.89 (vs 0.85 baseline) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 15+ feature engineering iterations [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 200+ hyperparameter trials across 3 models [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. **Team Autonomy** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Agents self-organize tasks [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] No waiting for coordinator approval [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Peer accountability via shared memory [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Code Examples
 
@@ -579,3 +578,7 @@ After mastering mesh coordination:
 2. Combine mesh for research phase + hierarchical for production deployment
 3. Experiment with **hybrid topologies** (mesh within domains, hierarchical across domains)
 4. Integrate with **Deep Research SOP** for scientific rigor
+
+
+---
+*Promise: `<promise>EXAMPLE_2_MESH_TOPOLOGY_VERIX_COMPLIANT</promise>`*

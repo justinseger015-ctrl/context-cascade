@@ -1,5 +1,10 @@
 # Example 1: Hierarchical Swarm Coordination
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Scenario Description
 
 You need to build a full-stack e-commerce application with multiple microservices. The project requires coordinating 12 agents across frontend, backend, database, testing, and DevOps domains. A hierarchical swarm topology is ideal for this complex, multi-layered architecture.
@@ -273,33 +278,27 @@ npx claude-flow@alpha hooks session-end --export-metrics true
 ## Expected Outcomes
 
 ### Successful Hierarchical Coordination Results:
-
-1. **Clear Chain of Command**
-   - Each agent knows their coordinator
-   - Coordinators manage 3-4 specialists each
-   - Root coordinator has global visibility
-
-2. **Efficient Blockage Resolution**
-   - Average resolution time: 15-30 minutes
-   - Cross-domain dependencies tracked in memory
-   - Escalation path defined and followed
-
-3. **Parallel Execution**
-   - 12 agents work concurrently
-   - Domain coordinators prevent conflicts
-   - 2.8-4.4x speed improvement vs sequential
-
-4. **Quality Metrics**
-   - 90%+ test coverage (enforced by testing team)
-   - 0 critical security vulnerabilities (analyst reviews)
-   - WCAG AA compliance (accessibility specialist)
-
-5. **Deployment Success**
-   - CI/CD pipeline fully automated
-   - K8s manifests production-ready
-   - Docker images optimized (<200MB)
-
----
+- [assert|neutral] 1. **Clear Chain of Command** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Each agent knows their coordinator [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Coordinators manage 3-4 specialists each [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Root coordinator has global visibility [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2. **Efficient Blockage Resolution** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Average resolution time: 15-30 minutes [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Cross-domain dependencies tracked in memory [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Escalation path defined and followed [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 3. **Parallel Execution** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 12 agents work concurrently [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Domain coordinators prevent conflicts [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 2.8-4.4x speed improvement vs sequential [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 4. **Quality Metrics** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 90%+ test coverage (enforced by testing team) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 0 critical security vulnerabilities (analyst reviews) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] WCAG AA compliance (accessibility specialist) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] 5. **Deployment Success** [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] CI/CD pipeline fully automated [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] K8s manifests production-ready [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Docker images optimized (<200MB) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Code Examples
 
@@ -473,3 +472,7 @@ After mastering hierarchical coordination:
 2. Explore **adaptive scaling** for dynamic agent management (Example 3)
 3. Combine topologies (hierarchical for planning, mesh for execution)
 4. Integrate with **audit-pipeline** for continuous quality monitoring
+
+
+---
+*Promise: `<promise>EXAMPLE_1_HIERARCHICAL_SWARM_VERIX_COMPLIANT</promise>`*

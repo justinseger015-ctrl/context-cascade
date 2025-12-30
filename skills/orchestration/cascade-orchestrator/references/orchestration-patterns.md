@@ -1,5 +1,10 @@
 # Orchestration Patterns Reference
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This document catalogs advanced orchestration patterns for building sophisticated cascades. Each pattern addresses specific workflow requirements and coordination challenges.
@@ -579,3 +584,7 @@ cascade:
 ---
 
 **Remember**: The best pattern is the simplest one that meets your requirements.
+
+
+---
+*Promise: `<promise>ORCHESTRATION_PATTERNS_VERIX_COMPLIANT</promise>`*

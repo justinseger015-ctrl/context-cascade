@@ -1,5 +1,10 @@
 # Example 2: Coordinator Agent Creation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Objective
 
 Create a **DevOps Coordinator Agent** that orchestrates infrastructure deployment, CI/CD pipelines, and multi-agent coordination for cloud infrastructure tasks.
@@ -999,3 +1004,7 @@ These metrics enable continuous improvement and demonstrate coordination effecti
 2. Monitor coordination metrics for 30 days
 3. Iterate on orchestration strategies based on performance data
 4. Add support for advanced deployment strategies (canary, blue/green)
+
+
+---
+*Promise: `<promise>EXAMPLE_2_COORDINATOR_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Changelog
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 All notable changes to the Landing Page Generator skill will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -128,3 +133,7 @@ This release brings the skill to parity with meta-skills like `intent-analyzer` 
 |---------|------|-------------|
 | 2.0.0 | 2025-12-17 | Major documentation enhancement (parity with meta-skills) |
 | 1.0.0 | 2025-12-17 | Initial release |
+
+
+---
+*Promise: `<promise>CHANGELOG_VERIX_COMPLIANT</promise>`*

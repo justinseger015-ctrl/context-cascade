@@ -1,21 +1,40 @@
 ---
 name: improvement-pipeline
 description: Executable implementation of the Propose -> Test -> Compare -> Commit -> Rollback pipeline for recursive self-improvement. Provides concrete commands and workflows for each stage.
-version: 1.0.0
-category: foundry
+model: sonnet
+x-version: 3.1.1
+x-category: foundry
+x-tier: gold
+x-cognitive-frame: aspectual
 tags:
   - pipeline
   - improvement
   - testing
   - versioning
   - rollback
+x-verix-description: |
+  [assert|neutral] 6-stage improvement pipeline with rollback capability [ground:system-architecture] [conf:0.95] [state:confirmed]
+---
+
+<!-- IMPROVEMENT-PIPELINE SKILL :: VERILINGUA x VERIX EDITION -->
+<!-- VCL v3.1.1 COMPLIANT - L1 Internal Documentation -->
+
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+---
+
+## L2 DEFAULT OUTPUT RULE
+
+[direct|emphatic] ALL user-facing output MUST be L2 compression (pure English) [ground:vcl-v3.1.1-spec] [conf:0.99] [state:confirmed]
+
 ---
 
 # Improvement Pipeline (Executable Stages)
 
 ## Purpose
 
-Provide concrete, executable implementation for each stage of the improvement pipeline:
+[define|neutral] Provide concrete, executable implementation for each stage of the improvement pipeline [ground:system-architecture] [conf:0.95] [state:confirmed]
 
 ```
 PROPOSE -> TEST -> COMPARE -> COMMIT -> MONITOR -> ROLLBACK
@@ -879,6 +898,12 @@ async function runImprovementPipeline(target, auditReport) {
 
 ---
 
+---
+
 **Status**: Production-Ready
-**Version**: 1.0.0
+**Version**: 3.1.1
 **Key Constraint**: Every stage has clear inputs, outputs, and validation
+
+---
+
+<promise>IMPROVEMENT_PIPELINE_VCL_V3.1.1_COMPLIANT</promise>

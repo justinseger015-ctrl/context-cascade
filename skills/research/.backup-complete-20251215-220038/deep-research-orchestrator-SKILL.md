@@ -51,6 +51,11 @@ author: ruv
 
 # Deep Research Orchestrator
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Master orchestration skill for the complete Deep Research Standard Operating Procedure (SOP), managing the entire research lifecycle from ideation through production deployment with rigorous quality gates.
 
 ## Overview
@@ -756,3 +761,6 @@ Total: 16 weeks (4 months) for complete research lifecycle
 | Gate 1 | All requirements met, proceed to Phase 2 | Minor datasheet gaps, proceed with restrictions | Baseline >±1% or critical ethics issues |
 | Gate 2 | All requirements met, proceed to Phase 3 | Mitigation plan for fairness/robustness gaps | Performance regression or critical safety risks |
 | Gate 3 | All requirements met, DEPLOY to production | Minor documentation fixes required | Reproducibility failures or ethics violations |
+
+---
+*Promise: `<promise>DEEP_RESEARCH_ORCHESTRATOR_SKILL_VERIX_COMPLIANT</promise>`*

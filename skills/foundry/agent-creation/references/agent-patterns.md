@@ -1,5 +1,10 @@
 # Agent Patterns: Specialist, Coordinator, and Hybrid
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Purpose**: Catalog common agent architectural patterns with use cases, strengths, weaknesses, and implementation guidance.
 
 ## Overview
@@ -540,3 +545,7 @@ Output: [Integrated multi-domain result]
 ---
 
 **Next Steps**: Use this pattern catalog to select the right agent architecture for your task!
+
+
+---
+*Promise: `<promise>AGENT_PATTERNS_VERIX_COMPLIANT</promise>`*

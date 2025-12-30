@@ -1,5 +1,10 @@
 # Root Cause Analysis Techniques
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -502,3 +507,7 @@ If followers disagree:
 - [Recovery Strategies](./recovery-strategies.md) - Automated repair patterns
 - [Example 1: Test Failure Recovery](../examples/example-1-test-failure-recovery.md) - Complete analysis walkthrough
 - [Example 2: Build Failure Recovery](../examples/example-2-build-failure-recovery.md) - TypeScript error analysis
+
+
+---
+*Promise: `<promise>ROOT_CAUSE_ANALYSIS_VERIX_COMPLIANT</promise>`*

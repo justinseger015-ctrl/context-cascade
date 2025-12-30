@@ -1,5 +1,10 @@
 # Testing Framework Skill - Quick Start Guide
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 This skill provides a comprehensive testing framework implementation following industry best practices. It covers unit testing, integration testing, E2E testing, coverage analysis, and CI/CD integration.
@@ -244,3 +249,7 @@ For issues or questions:
 2. Review test examples in skill directory
 3. Consult testing framework documentation
 4. Open issue in project repository
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

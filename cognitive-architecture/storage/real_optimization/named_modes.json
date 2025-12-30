@@ -1,0 +1,134 @@
+{
+  "audit": {
+    "config_vector": [
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      2.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cluster_key": "frames:aspectual+classifier+evidential+morphological|strict:2|compress:1",
+    "summary": "Frames: [evidential, aspectual, morphological, classifier] | VERIX: STRICT | Compression: L1_AI_HUMAN",
+    "active_frames": [
+      "evidential",
+      "aspectual",
+      "morphological",
+      "classifier"
+    ],
+    "verix_strictness": "STRICT"
+  },
+  "speed": {
+    "config_vector": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cluster_key": "frames:evidential|strict:0|compress:1",
+    "summary": "Frames: [evidential] | VERIX: RELAXED | Compression: L1_AI_HUMAN",
+    "active_frames": [
+      "evidential"
+    ],
+    "verix_strictness": "RELAXED"
+  },
+  "research": {
+    "config_vector": [
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      2.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cluster_key": "frames:aspectual+classifier+evidential+morphological|strict:2|compress:1",
+    "summary": "Frames: [evidential, aspectual, morphological, classifier] | VERIX: STRICT | Compression: L1_AI_HUMAN",
+    "active_frames": [
+      "evidential",
+      "aspectual",
+      "morphological",
+      "classifier"
+    ],
+    "verix_strictness": "STRICT"
+  },
+  "robust": {
+    "config_vector": [
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      2.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cluster_key": "frames:aspectual+classifier+evidential+morphological|strict:2|compress:1",
+    "summary": "Frames: [evidential, aspectual, morphological, classifier] | VERIX: STRICT | Compression: L1_AI_HUMAN",
+    "active_frames": [
+      "evidential",
+      "aspectual",
+      "morphological",
+      "classifier"
+    ],
+    "verix_strictness": "STRICT"
+  },
+  "standard": {
+    "config_vector": [
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      2.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cluster_key": "frames:aspectual+classifier+evidential+morphological|strict:2|compress:1",
+    "summary": "Frames: [evidential, aspectual, morphological, classifier] | VERIX: STRICT | Compression: L1_AI_HUMAN",
+    "active_frames": [
+      "evidential",
+      "aspectual",
+      "morphological",
+      "classifier"
+    ],
+    "verix_strictness": "STRICT"
+  }
+}

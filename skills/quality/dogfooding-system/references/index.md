@@ -1,5 +1,10 @@
 # Dogfooding System - Self-Improvement Skills Index
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 **Version**: 1.0
 **Created**: 2025-11-02
 **Status**: PRODUCTION READY ✅
@@ -475,3 +480,7 @@ Since implementation:
 **Agents**: hierarchical-coordinator, code-analyzer, coder, reviewer
 **MCP Tools**: connascence-analyzer, memory-mcp, claude-flow
 **Safety**: Sandbox testing + automated rollback + verification
+
+
+---
+*Promise: `<promise>INDEX_VERIX_COMPLIANT</promise>`*

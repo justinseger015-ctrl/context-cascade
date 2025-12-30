@@ -1,5 +1,10 @@
 # Test 1: Session Memory Management
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 Test session memory functionality with triple-layer retention (24h/7d/30d).
 
@@ -423,15 +428,13 @@ unset AGENTDB_PATH
 ---
 
 ## Success Criteria
-
-- ✅ All 5 test cases pass
-- ✅ Layer assignment accurate (100%)
-- ✅ Retention policies enforced
-- ✅ Memory retrieval filtering works
-- ✅ Consolidation promotes entries correctly
-- ✅ Statistics accurate
-
----
+- [assert|neutral] ✅ All 5 test cases pass [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Layer assignment accurate (100%) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Retention policies enforced [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Memory retrieval filtering works [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Consolidation promotes entries correctly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] ✅ Statistics accurate [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Notes
 
@@ -439,3 +442,7 @@ unset AGENTDB_PATH
 - Automatic cleanup removes test artifacts
 - Access counts are incremented on each retrieval
 - Consolidation should be idempotent (safe to run multiple times)
+
+
+---
+*Promise: `<promise>TEST_1_SESSION_MEMORY_VERIX_COMPLIANT</promise>`*

@@ -1,5 +1,10 @@
 # Terraform Multi-Cloud Infrastructure Example
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## CRITICAL: CI/CD SAFETY GUARDRAILS
 
 **BEFORE any CI/CD operation, validate**:
@@ -901,3 +906,7 @@ terraform state rm module.azure_network.azurerm_resource_group.main
 - GitOps workflow
 - Compliance validation
 - Cost tagging
+
+
+---
+*Promise: `<promise>TERRAFORM_INFRASTRUCTURE_EXAMPLE_VERIX_COMPLIANT</promise>`*

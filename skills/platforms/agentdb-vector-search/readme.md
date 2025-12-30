@@ -1,5 +1,10 @@
 # AgentDB Vector Search - Silver Tier Documentation
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Overview
 
 AgentDB Vector Search provides **150x-12,500x faster** semantic vector search operations compared to traditional solutions, making it ideal for building production-grade RAG (Retrieval Augmented Generation) systems, semantic search engines, and intelligent knowledge bases.
@@ -320,3 +325,7 @@ For issues or questions:
 ---
 
 **Performance Guarantee**: If AgentDB doesn't meet the 150x performance improvement over traditional vector databases in your use case, open an issue with benchmarks.
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

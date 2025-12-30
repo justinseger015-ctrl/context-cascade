@@ -1,5 +1,10 @@
 # Sandbox Security Configuration - Quick Start
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Configure Claude Code sandbox security with file system and network isolation.
 
 ## Quick Start
@@ -43,11 +48,10 @@ Review sandbox-security/docs/REQUIREMENTS.md
 - **cicd-engineer**: Implementation and deployment
 
 ## Success Criteria
-
-- All security tests passing
-- File/network isolation active
-- Monitoring operational
-- Documentation complete
+- [assert|neutral] All security tests passing [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] File/network isolation active [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Monitoring operational [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Documentation complete [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ## Duration
 
@@ -58,3 +62,7 @@ Review sandbox-security/docs/REQUIREMENTS.md
 - Full SOP: [SKILL.md](SKILL.md)
 - Detailed Process: [PROCESS.md](PROCESS.md)
 - Visual Workflow: [process-diagram.gv](process-diagram.gv)
+
+
+---
+*Promise: `<promise>README_VERIX_COMPLIANT</promise>`*

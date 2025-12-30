@@ -38,6 +38,11 @@ assignees: ''
 
 # Bug Report
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 ## Bug Description
 
 <!-- A clear and concise description of the bug -->
@@ -146,3 +151,7 @@ For maintainers:
 - Assign to relevant team member
 - Add to project board
 -->
+
+
+---
+*Promise: `<promise>ISSUE_TEMPLATE_BUG_VERIX_COMPLIANT</promise>`*

@@ -16,6 +16,11 @@ author: ruv
 
 # Literature Synthesis
 
+## Kanitsal Cerceve (Evidential Frame Activation)
+Kaynak dogrulama modu etkin.
+
+
+
 Conduct systematic literature reviews following PRISMA guidelines, synthesizing state-of-the-art research to identify gaps and opportunities for Deep Research SOP Phase 1.
 
 ## Overview
@@ -737,3 +742,6 @@ npx claude-flow@alpha memory store \
 ### Reference Management
 - Zotero: https://www.zotero.org/
 - BibTeX format specification
+
+---
+*Promise: `<promise>LITERATURE_SYNTHESIS_SKILL_VERIX_COMPLIANT</promise>`*

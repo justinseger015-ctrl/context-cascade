@@ -1,0 +1,198 @@
+{
+  "audit": {
+    "config_vector": [
+      0.9999413713454152,
+      0.9956139901148139,
+      0.7999530970763322,
+      0.3,
+      0.1,
+      0.6969297930803697,
+      0.2,
+      1.999921601928892,
+      1.85943216244507,
+      0.4477539275250506,
+      0.4029785347725456,
+      0.7,
+      0.6,
+      0.7
+    ],
+    "outcomes": {
+      "task_accuracy": 0.9598159426127205,
+      "token_efficiency": 0.763241422357484,
+      "edge_robustness": 0.8895351398705378,
+      "epistemic_consistency": 0.95
+    },
+    "source": "stage1_globalmoo",
+    "summary": "Frames: [evidential, aspectual, morphological, classifier] | VERIX: STRICT | Compression: L2_HUMAN",
+    "active_frames": [
+      "evidential",
+      "aspectual",
+      "morphological",
+      "classifier"
+    ],
+    "verix_strictness": "STRICT"
+  },
+  "speed": {
+    "config_vector": [
+      0.29703727716626777,
+      0.0008866684374899299,
+      0.23762982173301422,
+      0.3,
+      0.1,
+      0.0006206679062429509,
+      0.2,
+      0.019943815106621132,
+      1.9975719394491775,
+      0.9992706857322083,
+      0.8993436171589875,
+      0.7,
+      0.6,
+      0.7
+    ],
+    "outcomes": {
+      "task_accuracy": 0.7335124630326799,
+      "token_efficiency": 0.95,
+      "edge_robustness": 0.7602587833350263,
+      "epistemic_consistency": 0.5835830935977823
+    },
+    "source": "stage1_globalmoo",
+    "summary": "Frames: [none] | VERIX: RELAXED | Compression: L2_HUMAN",
+    "active_frames": [],
+    "verix_strictness": "RELAXED"
+  },
+  "research": {
+    "config_vector": [
+      0.9980712682176345,
+      0.15575846898680817,
+      0.010950394594372763,
+      0.003092060989974353,
+      0.7350941306395253,
+      0.9923816170810492,
+      0.8341699526881771,
+      1.9995735915932582,
+      1.9998202260125133,
+      0.9072227888073567,
+      0.118098874274211,
+      0.9805009493312475,
+      0.9333659260969633,
+      0.9975724360220399
+    ],
+    "outcomes": {
+      "task_accuracy": 0.98,
+      "token_efficiency": 0.8242695327818257,
+      "edge_robustness": 0.95,
+      "epistemic_consistency": 0.95
+    },
+    "source": "stage2_pymoo",
+    "summary": "Frames: [evidential, honorific, classifier, spatial] | VERIX: STRICT | Compression: L2_HUMAN",
+    "active_frames": [
+      "evidential",
+      "honorific",
+      "classifier",
+      "spatial"
+    ],
+    "verix_strictness": "STRICT"
+  },
+  "robust": {
+    "config_vector": [
+      0.9999034477461781,
+      0.9956139901148139,
+      0.7999227581969426,
+      0.3,
+      0.1,
+      0.6969297930803697,
+      0.2,
+      1.999921601928892,
+      1.9650698639891286,
+      0.8089239150900336,
+      0.7280315235810303,
+      0.7,
+      0.6,
+      0.7
+    ],
+    "outcomes": {
+      "task_accuracy": 0.959814425668751,
+      "token_efficiency": 0.7685255828506412,
+      "edge_robustness": 0.95,
+      "epistemic_consistency": 0.95
+    },
+    "source": "stage1_globalmoo",
+    "summary": "Frames: [evidential, aspectual, morphological, classifier] | VERIX: STRICT | Compression: L2_HUMAN",
+    "active_frames": [
+      "evidential",
+      "aspectual",
+      "morphological",
+      "classifier"
+    ],
+    "verix_strictness": "STRICT"
+  },
+  "balanced": {
+    "config_vector": [
+      0.917238584854649,
+      0.0027359093853656295,
+      0.011274989886663443,
+      0.00014343173060817494,
+      0.004955166313928741,
+      0.007722357207883241,
+      0.9123155047077108,
+      1.967399054690156,
+      1.9935735036231939,
+      0.9883266265394876,
+      0.005153897089719186,
+      0.9984070355781596,
+      0.9882994302059933,
+      0.9995372227149238
+    ],
+    "outcomes": {
+      "task_accuracy": 0.8815568715549711,
+      "token_efficiency": 0.9282338525657423,
+      "edge_robustness": 0.95,
+      "epistemic_consistency": 0.95
+    },
+    "source": "stage2_pymoo",
+    "summary": "Frames: [evidential, spatial] | VERIX: STRICT | Compression: L2_HUMAN",
+    "active_frames": [
+      "evidential",
+      "spatial"
+    ],
+    "verix_strictness": "STRICT"
+  },
+  "meta-loop": {
+    "config_vector": [
+      0.99,
+      0.95,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      1.95,
+      1.9,
+      0.85,
+      0.5,
+      0.9,
+      0.85,
+      0.9
+    ],
+    "outcomes": {
+      "task_accuracy": 0.97,
+      "token_efficiency": 0.78,
+      "edge_robustness": 0.92,
+      "epistemic_consistency": 0.98
+    },
+    "source": "meta_loop_bootstrap_2025-12-28",
+    "summary": "Frames: [evidential, aspectual] | VERIX: STRICT | Phase0: expertise_mandatory",
+    "active_frames": [
+      "evidential",
+      "aspectual"
+    ],
+    "verix_strictness": "STRICT",
+    "special_requirements": {
+      "phase_0_expertise": true,
+      "cognitive_frame_selection": true,
+      "sop_verification_checklist": true,
+      "eval_harness_gate": true
+    },
+    "derived_from": "Meta-loop bootstrap execution (Track A + Track B convergence)"
+  }
+}
