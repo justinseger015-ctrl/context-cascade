@@ -1,26 +1,42 @@
 {
-  "version": "2.0.0",
-  "description": "Complete 86+ AI agent registry for Three-Loop System with explicit SOPs and evidence-based prompting",
+  "version": "3.0.0",
+  "description": "Complete 86+ AI agent registry for Three-Loop System - updated for Anthropic-compliant format",
+  "format": "anthropic-compliant",
+  "anthropic_field_mappings": {
+    "description": "This registry uses Anthropic official fields with x- prefixed custom extensions",
+    "official_fields": ["name", "description", "tools", "model"],
+    "custom_extensions": {
+      "type": "x-type (agent category type)",
+      "subagent_type": "DEPRECATED - use 'name' field instead",
+      "capabilities": "x-capabilities",
+      "skills": "x-skills",
+      "prompting_techniques": "x-prompting_techniques",
+      "mcp_servers": "x-mcp_servers"
+    },
+    "tools_derivation": "Derive 'tools' field from capabilities: web-research -> WebSearch, WebFetch; coding -> Read, Write, Edit, Bash; etc."
+  },
   "agents": {
     "researcher": {
-      "type": "core-development",
-      "subagent_type": "researcher",
-      "capabilities": [
+      "name": "researcher",
+      "description": "Research specialist for gathering and synthesizing information from web sources and GitHub repositories. Uses self-consistency validation across multiple sources.",
+      "tools": "Read, Grep, Glob, WebSearch, WebFetch, Task, TodoWrite",
+      "model": "sonnet",
+      "x-type": "core-development",
+      "x-capabilities": [
         "web-research",
         "github-analysis",
         "synthesis",
         "evidence-collection"
       ],
-      "description": "Research specialist for gathering and synthesizing information from web sources and GitHub repositories. Uses self-consistency validation across multiple sources.",
-      "skills": [
+      "x-skills": [
         "research-patterns",
         "evidence-collection"
       ],
-      "prompting_techniques": [
+      "x-prompting_techniques": [
         "self-consistency",
         "program-of-thought"
       ],
-      "mcp_servers": {
+      "x-mcp_servers": {
         "required": [
           "memory-mcp"
         ],
@@ -65,23 +81,25 @@
       }
     },
     "coder": {
-      "type": "core-development",
-      "subagent_type": "coder",
-      "capabilities": [
+      "name": "coder",
+      "description": "Implementation specialist for writing clean, efficient code based on specifications and architecture",
+      "tools": "Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite",
+      "model": "sonnet",
+      "x-type": "core-development",
+      "x-capabilities": [
         "code-generation",
         "implementation",
         "refactoring"
       ],
-      "description": "Implementation specialist for writing clean, efficient code based on specifications and architecture",
-      "skills": [
+      "x-skills": [
         "sparc-coder",
         "functionality-audit"
       ],
-      "prompting_techniques": [
+      "x-prompting_techniques": [
         "plan-and-solve",
         "program-of-thought"
       ],
-      "mcp_servers": {
+      "x-mcp_servers": {
         "required": [
           "memory-mcp",
           "connascence-analyzer",

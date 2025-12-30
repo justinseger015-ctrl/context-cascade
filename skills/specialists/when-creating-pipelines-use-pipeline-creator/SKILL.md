@@ -1,11 +1,38 @@
-# SKILL: Pipeline Creator
+---
+name: pipeline-creator
+description: Create automated pipelines that integrate with DSPy x MOO x VERILINGUA x VERIX optimization stack. Use when creating new content, monitoring, trading, or research pipelines with meta-loop integration, Memory MCP telemetry, and bi-weekly MOO optimization participation.
+allowed-tools: Read, Write, Edit, Bash, Task, TodoWrite, Glob, Grep
+x-version: 1.0.0
+x-category: specialists
+x-tags:
+  - pipeline
+  - automation
+  - metaloop
+  - dspy
+  - moo
+  - verilingua
+  - verix
+  - telemetry
+x-triggers:
+  - create pipeline
+  - new pipeline
+  - integrate metaloop
+  - pipeline from template
+x-dependencies:
+  - metaloop_integration.py
+  - memory-mcp
+  - context-cascade
+x-mcp_servers:
+  required: [memory-mcp]
+  optional: [sequential-thinking, flow-nexus]
+x-agents:
+  - pipeline-architect-agent
+  - metaloop-integrator-agent
+  - pipeline-validator-agent
+  - telemetry-configurator-agent
+---
 
-## Metadata
-- **ID**: pipeline-creator
-- **Version**: 1.0.0
-- **Category**: specialists/meta
-- **Trigger**: "create pipeline", "new pipeline", "integrate metaloop", "pipeline from template"
-- **Dependencies**: metaloop_integration.py, Memory MCP, Context Cascade
+# SKILL: Pipeline Creator
 
 ## Purpose
 

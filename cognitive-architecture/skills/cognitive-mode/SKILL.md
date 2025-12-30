@@ -1,22 +1,19 @@
 ---
 name: cognitive-mode
-description: Comprehensive cognitive mode management skill for the VERILINGUA x VERIX
-  x DSPy x GlobalMOO integration. Enables automatic mode selection, frame configuration,
-  VERIX epistemic notation, and GlobalMOO optimization. Use this skill when configuring
-  AI behavior for specific task types, optimizing prompt engineering, or ensuring
-  epistemic consistency in responses.
-version: 2.0.0
-category: orchestration
-tags:
-- verilingua
-- verix
-- globalmoo
-- dspy
-- optimization
-- cognitive-frames
-- epistemic-notation
-author: ruv
-mcp_servers:
+description: Comprehensive cognitive mode management skill for the VERILINGUA x VERIX x DSPy x GlobalMOO integration. Enables automatic mode selection, frame configuration, VERIX epistemic notation, and GlobalMOO optimization. Use this skill when configuring AI behavior for specific task types, optimizing prompt engineering, or ensuring epistemic consistency in responses.
+allowed-tools: Read, Bash, Task, TodoWrite, Glob, Grep
+x-version: 2.0.0
+x-category: orchestration
+x-tags:
+  - verilingua
+  - verix
+  - globalmoo
+  - dspy
+  - optimization
+  - cognitive-frames
+  - epistemic-notation
+x-author: ruv
+x-mcp_servers:
   required: [memory-mcp, sequential-thinking]
   optional: [flow-nexus]
   auto_enable: true

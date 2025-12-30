@@ -108,6 +108,21 @@ function parseYamlFrontmatter(content) {
   return result;
 }
 
+// Official fields that don't need x- prefix
+const OFFICIAL_SKILL_FIELDS = ['name', 'description', 'allowed-tools'];
+const OFFICIAL_AGENT_FIELDS = ['name', 'description', 'tools', 'model', 'permissionMode', 'skills'];
+
+// Validate custom field has x- prefix
+function validateCustomFieldPrefix(frontmatter, officialFields) {
+  const warnings = [];
+  for (const key of Object.keys(frontmatter)) {
+    if (!officialFields.includes(key) && !key.startsWith('x-')) {
+      warnings.push(`WARNING: Custom field "${key}" should be prefixed with "x-" (use "x-${key}")`);
+    }
+  }
+  return warnings;
+}
+
 // Validate a skill file
 function validateSkill(filePath) {
   const content = fs.readFileSync(filePath, 'utf-8');
@@ -123,10 +138,17 @@ function validateSkill(filePath) {
     if (!frontmatter.description) {
       errors.push('Missing required field: description');
     }
+    // Check for allowed-tools (required in Anthropic format)
+    if (!frontmatter['allowed-tools']) {
+      errors.push('WARNING: Missing recommended field: allowed-tools');
+    }
     // Check if description contains VERIX notation (warning, not error)
     if (frontmatter.description && frontmatter.description.includes('[assert|')) {
       errors.push('WARNING: description contains VERIX notation (should be plain text)');
     }
+    // Check for x- prefix on custom fields
+    const prefixWarnings = validateCustomFieldPrefix(frontmatter, OFFICIAL_SKILL_FIELDS);
+    errors.push(...prefixWarnings);
   }
 
   return errors;
@@ -151,10 +173,17 @@ function validateAgent(filePath) {
     if (!frontmatter.tools) {
       errors.push('Missing official field: tools (should replace rbac.allowed_tools)');
     }
+    // Check for official 'model' field (optional but recommended)
+    if (!frontmatter.model) {
+      errors.push('WARNING: Missing recommended field: model (sonnet, opus, haiku)');
+    }
     // Check if description contains VERIX notation (warning)
     if (frontmatter.description && frontmatter.description.includes('[assert|')) {
       errors.push('WARNING: description contains VERIX notation');
     }
+    // Check for x- prefix on custom fields
+    const prefixWarnings = validateCustomFieldPrefix(frontmatter, OFFICIAL_AGENT_FIELDS);
+    errors.push(...prefixWarnings);
   }
 
   return errors;

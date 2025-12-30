@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Memory-MCP Agent Configuration",
-  "description": "Configuration for memory-mcp integration with agent registry",
-  "version": "1.0.0",
+  "description": "Configuration for memory-mcp integration with agent registry - updated for Anthropic-compliant format",
+  "version": "2.0.0",
 
   "mcp_server": {
     "name": "memory-mcp",
@@ -48,12 +48,14 @@
   },
 
   "tagging_protocol": {
-    "description": "Required metadata for all memory writes",
+    "description": "Required metadata for all memory writes - uses Anthropic official 'name' field",
     "required_tags": {
       "WHO": {
-        "description": "Agent identifier",
-        "format": "{agent-type}:{agent-id}",
-        "example": "code-analyzer:601c545c"
+        "description": "Agent identifier using official 'name' field",
+        "format": "{name}:{x-agent_id}",
+        "format_legacy": "{agent-type}:{agent-id}",
+        "example": "code-analyzer:601c545c",
+        "note": "Uses 'name' from Anthropic official format, x-agent_id for UUID"
       },
       "WHEN": {
         "description": "Timestamp",
@@ -72,11 +74,21 @@
   },
 
   "memory_namespaces": {
-    "agents": "agents/{category}/{agent-type}/{project}/{timestamp}",
+    "description": "Namespace patterns using Anthropic official fields",
+    "agents": "agents/{x-metadata.category}/{name}/{project}/{timestamp}",
+    "agents_legacy": "agents/{category}/{agent-type}/{project}/{timestamp}",
     "swarm": "swarm/{coordination-type}/{task-id}",
     "expertise": "expertise/{domain}",
-    "findings": "findings/{agent-type}/{severity}",
-    "decisions": "decisions/{project}/{decision-id}"
+    "findings": "findings/{name}/{severity}",
+    "findings_legacy": "findings/{agent-type}/{severity}",
+    "decisions": "decisions/{project}/{decision-id}",
+    "field_source_mapping": {
+      "name": "Anthropic official 'name' field (replaces agent-type)",
+      "category": "x-metadata.category (custom extension)",
+      "severity": "unchanged",
+      "project": "unchanged",
+      "timestamp": "unchanged"
+    }
   },
 
   "agent_access_levels": {
@@ -129,6 +141,18 @@
   "integration_with_agents": {
     "rbac_api_access": "memory-mcp",
     "mcp_servers_required": ["memory-mcp"],
-    "memory_namespace_pattern": "agents/{category}/{agent-type}/{project}/{timestamp}"
+    "memory_namespace_pattern": "agents/{x-metadata.category}/{name}/{project}/{timestamp}",
+    "memory_namespace_pattern_legacy": "agents/{category}/{agent-type}/{project}/{timestamp}",
+    "anthropic_format_fields": {
+      "required": ["name", "description", "tools"],
+      "optional": ["model", "permissionMode", "skills"],
+      "custom_extensions": ["x-agent_id", "x-role", "x-capabilities", "x-rbac", "x-budget", "x-metadata", "x-performance"]
+    },
+    "field_extraction": {
+      "agent_name": "Use 'name' field (Anthropic official)",
+      "agent_category": "Use 'x-metadata.category' (custom extension)",
+      "agent_tools": "Use 'tools' field (Anthropic official, comma-separated string)",
+      "agent_type_deprecated": "Do NOT use 'type' or 'agent-type' - use 'name' instead"
+    }
   }
 }
