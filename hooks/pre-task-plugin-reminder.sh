@@ -1,0 +1,27 @@
+#!/bin/bash
+# Pre-Task Hook: Remind about ruv-sparc plugin and agent registry
+# This hook fires BEFORE any Task tool invocation
+
+echo "=================================================="
+echo "!! RUV-SPARC PLUGIN REMINDER !!"
+echo "=================================================="
+echo ""
+echo "BEFORE spawning this agent, verify:"
+echo "  1. Agent exists in registry: claude-code-plugins/context-cascade/agents/"
+echo "  2. Agent name matches registry (not invented)"
+echo "  3. You invoked a Skill() before this Task()"
+echo ""
+echo "Agent Categories Available:"
+echo "  - delivery (18): backend, frontend, architecture"
+echo "  - foundry (19): agent creation, templates"
+echo "  - operations (28): DevOps, infrastructure"
+echo "  - orchestration (21): swarm coordinators"
+echo "  - platforms (44): AI/ML, neural, data"
+echo "  - quality (18): analysis, testing"
+echo "  - research (11): research, reasoning"
+echo "  - security (5): compliance, pentest"
+echo "  - specialists (15): business, domain"
+echo "  - tooling (24): docs, GitHub"
+echo ""
+echo "If agent not in registry, use fallback: coder, researcher, tester, reviewer"
+echo "=================================================="

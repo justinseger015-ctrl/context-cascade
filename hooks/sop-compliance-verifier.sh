@@ -32,7 +32,7 @@ MANDATORY POST-SKILL REQUIREMENTS:
    - Agent types MUST be from registry (206 agents available)
 
 2. AGENTS FROM REGISTRY ONLY
-   - Registry: claude-code-plugins/ruv-sparc-three-loop-system/agents/
+   - Registry: claude-code-plugins/context-cascade/agents/
    - Categories: delivery, foundry, operations, orchestration, platforms,
                  quality, research, security, specialists, tooling
    - If unsure: Use fallback types (coder, researcher, tester, reviewer)

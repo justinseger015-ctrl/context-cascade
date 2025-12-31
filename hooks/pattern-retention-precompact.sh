@@ -32,7 +32,7 @@ DO NOT skip phases. DO NOT jump to execution.
 ================================================================
 
 ONLY spawn agents from the registry:
-  Path: claude-code-plugins/ruv-sparc-three-loop-system/agents/
+  Path: claude-code-plugins/context-cascade/agents/
   Count: 206 agents in 10 categories
 
 Categories:
@@ -105,7 +105,32 @@ Example:
 }
 
 ================================================================
-7. RECURSIVE IMPROVEMENT SYSTEM (META-SKILLS)
+7. MEMORY-MCP INTEGRATION (PERSIST ACROSS SESSIONS)
+================================================================
+
+Agent memory survives sessions via Memory-MCP:
+
+BEFORE TASKS - Check memory:
+  kv.list_keys("findings:{domain}:")     -> Prior issues
+  kv.list_keys("fixes:*:")               -> Proven solutions
+  graph.get_subgraph("{pattern}", 2)     -> Fix patterns
+  kv.get_json("expertise:{domain}:*")    -> Domain knowledge
+
+AFTER TASKS - Store results:
+  findings:{agent}:{severity}:{id}       -> Issues found
+  fixes:{agent}:{finding-id}             -> Bugs fixed
+  decisions:{project}:{id}               -> Decisions made
+  expertise:{domain}:{topic}             -> Knowledge gained
+
+Data location: C:\Users\17175\.claude\memory-mcp-data\
+  - agent_kv.db: Key-value memories
+  - graph.json: Knowledge graph
+  - agent_events.db: Event log
+
+Agents SHARE memory. Your work helps other agents!
+
+================================================================
+8. RECURSIVE IMPROVEMENT SYSTEM (META-SKILLS)
 ================================================================
 
 The system can improve itself via:
@@ -137,9 +162,12 @@ After compaction, verify you remember:
   [ ] Pattern: Skill -> Task -> TodoWrite
   [ ] 1 message = all parallel operations
   [ ] Load expertise before domain work
-  [ ] Tag all memory writes
+  [ ] Tag all memory writes (WHO/WHEN/PROJECT/WHY)
   [ ] Meta-skills gated by frozen eval harness
   [ ] Agent Creator creates auditors for the loop
+  [ ] MEMORY-MCP: Check memory BEFORE tasks
+  [ ] MEMORY-MCP: Store results AFTER tasks
+  [ ] Agents SHARE memory - coordinate via KV/Graph
 
 If you've forgotten anything: RE-READ THIS REMINDER.
 
