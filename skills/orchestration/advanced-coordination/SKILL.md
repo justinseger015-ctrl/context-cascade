@@ -2,6 +2,13 @@
 name: advanced-coordination
 description: Advanced multi-agent coordination patterns for complex distributed systems. Use when coordinating 5+ agents with dynamic task dependencies, implementing Byzantine fault tolerance, or managing distribu
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+x-terminology-disclaimer: |
+  IMPORTANT CLARIFICATION: The terms "RAFT", "Byzantine", and "Gossip" in this skill
+  refer to CONCEPTUAL coordination patterns inspired by these protocols, NOT actual
+  implementations. There is no cryptographic message authentication, no formal
+  consensus protocols, and no academic-grade fault tolerance. The "consensus" is
+  achieved through LLM response aggregation, not protocol-level guarantees.
+  See docs/TERMINOLOGY-CLARIFICATIONS.md for full details.
 ---
 
 

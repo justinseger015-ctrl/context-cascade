@@ -1,6 +1,12 @@
 ---
 name: byzantine-coordinator
 description: byzantine-coordinator agent for agent tasks
+x-terminology-disclaimer: |
+  IMPORTANT: This agent implements CONCEPTUAL coordination patterns inspired by
+  Byzantine fault tolerance principles. It does NOT implement actual BFT protocols
+  (PBFT, HotStuff, etc.) with cryptographic verification. The "Byzantine" terminology
+  refers to redundant agent coordination with majority voting, not formal BFT.
+  See docs/TERMINOLOGY-CLARIFICATIONS.md for details.
 tools: Read, Write, Edit, Bash
 model: sonnet
 x-type: general

@@ -1,5 +1,27 @@
 """
-VERIX epistemic notation parser and validator.
+VERIX Epistemic Notation Parser and Validator
+
+==============================================================================
+IMPORTANT DISCLAIMER (Added per Cross-Model Architecture Audit 2025-12-31)
+==============================================================================
+This module provides STRUCTURED EPISTEMIC NOTATION, not formal verification.
+
+What this IS:
+- A notation system for expressing claims with confidence levels
+- A parser for structured epistemic statements
+- A validator for claim consistency and grounding
+- Useful for forcing explicit reasoning and evidence tracking
+
+What this is NOT:
+- Formal verification using SMT solvers (Z3, Marabou, etc.)
+- Mathematical proof generation
+- The academic "VeriX" framework from NeurIPS 2023
+
+The naming similarity to the academic VeriX paper is coincidental. This module
+does not implement Satisfiability Modulo Theories (SMT) constraint solving.
+For actual formal verification of neural networks, use proper verification
+tools like Marabou, alpha-beta-CROWN, or Z3.
+==============================================================================
 
 VERIX provides a structured way to express epistemic claims with:
 - AGENT: Who makes the claim (model, user, system, doc, process)

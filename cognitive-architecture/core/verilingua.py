@@ -1,5 +1,19 @@
 """
-VERILINGUA cognitive frames from natural language distinctions.
+VERILINGUA Cognitive Frames from Natural Language Distinctions
+
+==============================================================================
+CLARIFICATION (Added per Cross-Model Architecture Audit 2025-12-31)
+==============================================================================
+VeriLingua is a PROMPTING FRAMEWORK that uses linguistic concepts to force
+more careful reasoning. It does NOT provide:
+- Runtime enforcement of constraints
+- Formal language processing
+- Guaranteed compliance
+
+The frames are prompt injections that encourage (but cannot enforce) certain
+reasoning patterns. Compliance is measured by pattern matching, not by
+deterministic verification.
+==============================================================================
 
 Each frame adds specific cognitive constraints derived from how
 different natural languages force speakers to make distinctions:

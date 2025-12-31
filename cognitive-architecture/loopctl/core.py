@@ -23,6 +23,44 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, Any, Optional, Tuple
 
+
+# =============================================================================
+# EMERGENCY KILL SWITCH (Phase 0 Security Fix)
+# =============================================================================
+# This kill switch can be triggered by:
+# 1. Creating a file named '.meta-loop-stop' in the current directory
+# 2. Creating a file named '.meta-loop-stop' in the user's home directory
+# 3. Setting environment variable META_LOOP_EMERGENCY_STOP=true
+# =============================================================================
+
+def check_emergency_stop() -> tuple:
+    """
+    Check for emergency stop signals.
+
+    Returns:
+        tuple: (should_stop: bool, reason: str)
+    """
+    # File-based kill switch - current directory
+    if Path('.meta-loop-stop').exists():
+        return True, "EMERGENCY_HALT: Kill switch file found in current directory"
+
+    # File-based kill switch - home directory
+    home_stop = Path(os.path.expanduser('~/.meta-loop-stop'))
+    if home_stop.exists():
+        return True, f"EMERGENCY_HALT: Kill switch file found at {home_stop}"
+
+    # File-based kill switch - plugin directory
+    plugin_stop = Path(__file__).parent.parent.parent / '.meta-loop-stop'
+    if plugin_stop.exists():
+        return True, f"EMERGENCY_HALT: Kill switch file found at {plugin_stop}"
+
+    # Environment variable kill switch
+    env_stop = os.environ.get('META_LOOP_EMERGENCY_STOP', '').lower()
+    if env_stop in ('true', '1', 'yes', 'halt', 'stop'):
+        return True, "EMERGENCY_HALT: Environment variable META_LOOP_EMERGENCY_STOP is set"
+
+    return False, ""
+
 # Add parent paths for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -193,6 +231,7 @@ def ralph_iteration_complete(
     SINGLE AUTHORITY for Ralph loop decisions.
 
     This function:
+    0. CHECK EMERGENCY KILL SWITCH FIRST
     1. Finds the artifact produced
     2. Grades with FROZEN harness (authoritative)
     3. Writes authoritative eval_report.json
@@ -210,6 +249,15 @@ def ralph_iteration_complete(
     Returns:
         Decision JSON: {"decision": "block|allow", "reason": "..."}
     """
+    # STEP 0: CHECK EMERGENCY KILL SWITCH BEFORE ANYTHING ELSE
+    should_stop, stop_reason = check_emergency_stop()
+    if should_stop:
+        return {
+            "decision": "allow",  # allow = stop the loop
+            "reason": stop_reason,
+            "emergency_halt": True,
+        }
+
     loop_dir = Path(loop_dir)
     bridge = UnifiedBridge(loop_dir)
 

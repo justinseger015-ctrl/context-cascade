@@ -2,28 +2,143 @@
   "mcpServers": {
     "memory-mcp": {
       "command": "C:\\Users\\17175\\Desktop\\memory-mcp-triple-system\\venv-memory\\Scripts\\python.exe",
-      "args": ["-X", "utf8", "-m", "src.mcp.stdio_server"],
+      "args": [
+        "-u",
+        "-m",
+        "src.mcp.stdio_server"
+      ],
       "cwd": "C:\\Users\\17175\\Desktop\\memory-mcp-triple-system",
       "env": {
-        "PYTHONIOENCODING": "utf-8",
-        "CHROMA_PERSIST_DIR": "C:\\Users\\17175\\Desktop\\memory-mcp-triple-system\\chroma_data"
-      }
+        "PYTHONPATH": "C:\\Users\\17175\\Desktop\\memory-mcp-triple-system",
+        "PYTHONIOENCODING": "utf-8"
+      },
+      "category": "core",
+      "description": "Triple-system memory with semantic search",
+      "contextCost": 2000
     },
     "connascence-analyzer": {
-      "command": "C:\\Users\\17175\\Desktop\\connascence\\venv-connascence\\Scripts\\python.exe",
-      "args": ["-m", "connascence_analyzer.main", "--mcp"],
+      "command": "cmd",
+      "args": [
+        "/c",
+        "python",
+        "C:\\Users\\17175\\Desktop\\connascence\\mcp\\cli.py",
+        "mcp-server"
+      ],
       "cwd": "C:\\Users\\17175\\Desktop\\connascence",
       "env": {
+        "PYTHONPATH": "C:\\Users\\17175\\Desktop\\connascence",
         "PYTHONIOENCODING": "utf-8"
-      }
+      },
+      "category": "code-quality",
+      "description": "Code coupling analysis",
+      "contextCost": 1500
     },
-    "claude-flow": {
-      "command": "cmd",
-      "args": ["/c", "npx", "claude-flow@alpha", "mcp", "start"]
+    "fetch": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-fetch"
+      ],
+      "category": "core",
+      "description": "Web page fetching",
+      "contextCost": 500
     },
     "sequential-thinking": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "category": "core",
+      "description": "Step-by-step reasoning",
+      "contextCost": 800
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Users\\17175"
+      ],
+      "category": "core",
+      "description": "File system access",
+      "contextCost": 1000
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@executeautomation/playwright-mcp-server"
+      ],
+      "category": "automation",
+      "description": "Browser automation",
+      "contextCost": 2000
+    },
+    "agentic-payments": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "agentic-payments@latest",
+        "mcp"
+      ],
+      "category": "payments",
+      "description": "Financial operations",
+      "contextCost": 1000
+    },
+    "focused-changes": {
+      "command": "npx",
+      "args": [
+        "focused-changes-mcp",
+        "server"
+      ],
+      "category": "code-quality",
+      "description": "Focused code diffs",
+      "contextCost": 800
+    },
+    "toc": {
+      "command": "npx",
+      "args": [
+        "@ruvnet/toc-server"
+      ],
+      "category": "documentation",
+      "description": "Table of contents generation",
+      "contextCost": 500
+    },
+    "flow-nexus": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "flow-nexus@latest",
+        "mcp",
+        "start"
+      ],
+      "category": "orchestration",
+      "description": "Multi-agent workflow orchestration",
+      "contextCost": 2500
+    },
+    "ruv-swarm": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "ruv-swarm",
+        "mcp",
+        "start"
+      ],
+      "category": "orchestration",
+      "description": "Agent swarm coordination",
+      "contextCost": 2000
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic-ai/context7-mcp"
+      ],
+      "category": "research",
+      "description": "Library documentation lookup",
+      "contextCost": 1500
     }
   }
 }

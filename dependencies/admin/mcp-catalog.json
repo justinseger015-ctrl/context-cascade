@@ -1,0 +1,222 @@
+{
+  "version": "1.0.0",
+  "description": "Complete MCP Server Catalog for Session Manager",
+  "mcpServers": {
+    "memory-mcp": {
+      "command": "C:\\Users\\17175\\Desktop\\memory-mcp-triple-system\\venv-memory\\Scripts\\python.exe",
+      "args": ["-u", "-m", "src.mcp.stdio_server"],
+      "cwd": "C:\\Users\\17175\\Desktop\\memory-mcp-triple-system",
+      "env": {
+        "PYTHONPATH": "C:\\Users\\17175\\Desktop\\memory-mcp-triple-system",
+        "PYTHONIOENCODING": "utf-8"
+      },
+      "category": "core",
+      "description": "Triple-system memory with semantic search",
+      "contextCost": 2000
+    },
+    "connascence-analyzer": {
+      "command": "cmd",
+      "args": ["/c", "python", "C:\\Users\\17175\\Desktop\\connascence\\mcp\\cli.py", "mcp-server"],
+      "cwd": "C:\\Users\\17175\\Desktop\\connascence",
+      "env": {
+        "PYTHONPATH": "C:\\Users\\17175\\Desktop\\connascence",
+        "PYTHONIOENCODING": "utf-8"
+      },
+      "category": "code-quality",
+      "description": "Code coupling analysis",
+      "contextCost": 1500
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-fetch"],
+      "category": "core",
+      "description": "Web page fetching",
+      "contextCost": 500
+    },
+    "sequential-thinking": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "category": "core",
+      "description": "Step-by-step reasoning",
+      "contextCost": 800
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "C:\\Users\\17175"],
+      "category": "core",
+      "description": "File system access",
+      "contextCost": 1000
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@executeautomation/playwright-mcp-server"],
+      "category": "automation",
+      "description": "Browser automation",
+      "contextCost": 2000
+    },
+    "agentic-payments": {
+      "command": "cmd",
+      "args": ["/c", "npx", "agentic-payments@latest", "mcp"],
+      "category": "payments",
+      "description": "Financial operations",
+      "contextCost": 1000
+    },
+    "focused-changes": {
+      "command": "npx",
+      "args": ["focused-changes-mcp", "server"],
+      "category": "code-quality",
+      "description": "Focused code diffs",
+      "contextCost": 800
+    },
+    "toc": {
+      "command": "npx",
+      "args": ["@ruvnet/toc-server"],
+      "category": "documentation",
+      "description": "Table of contents generation",
+      "contextCost": 500
+    },
+    "flow-nexus": {
+      "command": "cmd",
+      "args": ["/c", "npx", "flow-nexus@latest", "mcp", "start"],
+      "category": "orchestration",
+      "description": "Multi-agent workflow orchestration",
+      "contextCost": 2500
+    },
+    "ruv-swarm": {
+      "command": "cmd",
+      "args": ["/c", "npx", "ruv-swarm", "mcp", "start"],
+      "category": "orchestration",
+      "description": "Agent swarm coordination",
+      "contextCost": 2000
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/context7-mcp"],
+      "category": "research",
+      "description": "Library documentation lookup",
+      "contextCost": 1500
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/brave-search-mcp"],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      },
+      "category": "research",
+      "description": "Web search via Brave",
+      "contextCost": 800
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/github-mcp"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "category": "development",
+      "description": "GitHub API access",
+      "contextCost": 1200
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/postgres-mcp"],
+      "env": {
+        "DATABASE_URL": "${DATABASE_URL}"
+      },
+      "category": "database",
+      "description": "PostgreSQL database access",
+      "contextCost": 1000
+    },
+    "sqlite": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/sqlite-mcp"],
+      "category": "database",
+      "description": "SQLite database access",
+      "contextCost": 800
+    },
+    "puppeteer": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/puppeteer-mcp"],
+      "category": "automation",
+      "description": "Headless browser automation",
+      "contextCost": 1800
+    },
+    "slack": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/slack-mcp"],
+      "env": {
+        "SLACK_TOKEN": "${SLACK_TOKEN}"
+      },
+      "category": "communication",
+      "description": "Slack messaging",
+      "contextCost": 600
+    },
+    "time": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/time-mcp"],
+      "category": "utility",
+      "description": "Time and timezone utilities",
+      "contextCost": 200
+    }
+  },
+  "profiles": {
+    "minimal": {
+      "name": "Minimal",
+      "description": "No MCPs - fastest startup, maximum context",
+      "mcps": [],
+      "estimatedTokens": 0
+    },
+    "core": {
+      "name": "Core",
+      "description": "Essential MCPs for daily work",
+      "mcps": ["memory-mcp", "sequential-thinking"],
+      "estimatedTokens": 2800
+    },
+    "research": {
+      "name": "Research",
+      "description": "Web research and documentation",
+      "mcps": ["memory-mcp", "fetch", "context7", "sequential-thinking"],
+      "estimatedTokens": 4800
+    },
+    "code-review": {
+      "name": "Code Review",
+      "description": "Code quality analysis",
+      "mcps": ["memory-mcp", "connascence-analyzer", "focused-changes", "sequential-thinking"],
+      "estimatedTokens": 5100
+    },
+    "automation": {
+      "name": "Automation",
+      "description": "Browser and workflow automation",
+      "mcps": ["memory-mcp", "playwright", "sequential-thinking"],
+      "estimatedTokens": 4800
+    },
+    "orchestration": {
+      "name": "Orchestration",
+      "description": "Multi-agent workflows",
+      "mcps": ["memory-mcp", "flow-nexus", "ruv-swarm", "sequential-thinking"],
+      "estimatedTokens": 7300
+    },
+    "full-power": {
+      "name": "Full Power",
+      "description": "All MCPs enabled (high context cost)",
+      "mcps": [
+        "memory-mcp", "connascence-analyzer", "fetch", "sequential-thinking",
+        "filesystem", "playwright", "agentic-payments", "focused-changes",
+        "toc", "flow-nexus", "ruv-swarm", "context7"
+      ],
+      "estimatedTokens": 16100
+    }
+  },
+  "categories": {
+    "core": { "name": "Core", "color": "#4fc3f7" },
+    "code-quality": { "name": "Code Quality", "color": "#81c784" },
+    "research": { "name": "Research", "color": "#ffb74d" },
+    "automation": { "name": "Automation", "color": "#ba68c8" },
+    "orchestration": { "name": "Orchestration", "color": "#f06292" },
+    "documentation": { "name": "Documentation", "color": "#4dd0e1" },
+    "payments": { "name": "Payments", "color": "#aed581" },
+    "database": { "name": "Database", "color": "#ff8a65" },
+    "development": { "name": "Development", "color": "#90a4ae" },
+    "communication": { "name": "Communication", "color": "#9575cd" },
+    "utility": { "name": "Utility", "color": "#78909c" }
+  }
+}

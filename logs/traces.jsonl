@@ -1,0 +1,1 @@
+{"traceId":"b1c5b78c28997f1515bd26a3f1baf3a8","spanId":"b016bb30a271a3cf","parentSpanId":null,"name":"gateway.register","startTime":1767193128910,"endTime":1767193128910,"duration":0,"status":"OK","attributes":{"service.name":"integration-test","server.id":"traced-server"},"events":[]}

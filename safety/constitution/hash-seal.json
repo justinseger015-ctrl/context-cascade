@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-12-31T14:06:43.720Z",
+  "generatedBy": "safety-guardian",
+  "files": {
+    "safety/constitution/SYSTEM-SAFETY.md": {
+      "hash": "776d0febf38fa1508a9389340c0872ca6af51721624ab85f395e017f1216933d",
+      "size": 6279,
+      "sealedAt": "2025-12-31T14:06:43.721Z"
+    },
+    "safety/guardian/safety-guardian.cjs": {
+      "hash": "74160ec4a44c0efa835bd4b4de01607fc2193e9eb46b18e5b46efceac77e642a",
+      "size": 13086,
+      "sealedAt": "2025-12-31T14:06:43.722Z"
+    }
+  },
+  "directories": {},
+  "constitutionHash": "776d0febf38fa1508a9389340c0872ca6af51721624ab85f395e017f1216933d",
+  "lastUpdated": "2025-12-31T14:06:43.722Z"
+}

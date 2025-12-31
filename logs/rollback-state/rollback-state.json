@@ -1,0 +1,41 @@
+{
+  "failureCounts": {
+    "test-component": 0,
+    "failure-test": 0
+  },
+  "lastKnownGood": "2a3673d078367c554c1e64460d7c99b8ec2cbcad",
+  "inRecoveryMode": false,
+  "recentResults": [
+    {
+      "component": "failure-test",
+      "passed": true,
+      "timestamp": "2025-12-31T14:06:43.834Z",
+      "commit": "2a3673d078367c554c1e64460d7c99b8ec2cbcad",
+      "details": {}
+    },
+    {
+      "component": "failure-test",
+      "passed": false,
+      "timestamp": "2025-12-31T14:06:43.810Z",
+      "commit": "2a3673d078367c554c1e64460d7c99b8ec2cbcad",
+      "details": {}
+    },
+    {
+      "component": "failure-test",
+      "passed": false,
+      "timestamp": "2025-12-31T14:06:43.786Z",
+      "commit": "2a3673d078367c554c1e64460d7c99b8ec2cbcad",
+      "details": {}
+    },
+    {
+      "component": "test-component",
+      "passed": true,
+      "timestamp": "2025-12-31T14:06:43.761Z",
+      "commit": "2a3673d078367c554c1e64460d7c99b8ec2cbcad",
+      "details": {
+        "test": "data"
+      }
+    }
+  ],
+  "lastUpdated": "2025-12-31T14:06:43.835Z"
+}

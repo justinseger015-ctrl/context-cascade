@@ -1,0 +1,200 @@
+{
+  "timestamp": "2025-12-31T14:58:48.911Z",
+  "passed": 48,
+  "failed": 0,
+  "total": 48,
+  "results": [
+    {
+      "name": "6.1.1 loadLockfile returns object",
+      "status": "PASS"
+    },
+    {
+      "name": "6.1.2 loadMCPConfig returns object",
+      "status": "PASS"
+    },
+    {
+      "name": "6.1.3 calculateConfigChecksum returns string",
+      "status": "PASS"
+    },
+    {
+      "name": "6.1.4 verifyLockfile returns verification result",
+      "status": "PASS"
+    },
+    {
+      "name": "6.1.5 getUnpinnedPackages returns array",
+      "status": "PASS"
+    },
+    {
+      "name": "6.1.6 generatePinnedConfig returns config object",
+      "status": "PASS"
+    },
+    {
+      "name": "6.1.7 generateLockfileReport returns markdown",
+      "status": "PASS"
+    },
+    {
+      "name": "6.1.8 LOCKFILE_PATH is exported",
+      "status": "PASS"
+    },
+    {
+      "name": "6.2.1 MCPGateway class exists",
+      "status": "PASS"
+    },
+    {
+      "name": "6.2.2 MCPServerConnection class exists",
+      "status": "PASS"
+    },
+    {
+      "name": "6.2.3 ConnectionState enum has all states",
+      "status": "PASS"
+    },
+    {
+      "name": "6.2.4 createGateway factory function works",
+      "status": "PASS"
+    },
+    {
+      "name": "6.2.5 Gateway registerServer method",
+      "status": "PASS"
+    },
+    {
+      "name": "6.2.6 Gateway unregisterServer method",
+      "status": "PASS"
+    },
+    {
+      "name": "6.2.7 Gateway getStatus returns full status",
+      "status": "PASS"
+    },
+    {
+      "name": "6.2.8 GATEWAY_CONFIG has required settings",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.1 Span class exists",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.2 SpanStatus enum has all statuses",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.3 Tracer class creates spans",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.4 MetricsCollector tracks counters",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.5 MetricsCollector tracks gauges",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.6 MetricsCollector tracks histograms",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.7 StructuredLogger logs messages",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.8 createTelemetry factory returns complete object",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.9 generateTraceId returns valid format",
+      "status": "PASS"
+    },
+    {
+      "name": "6.3.10 generateSpanId returns valid format",
+      "status": "PASS"
+    },
+    {
+      "name": "6.4.1 HealthMonitor class exists",
+      "status": "PASS"
+    },
+    {
+      "name": "6.4.2 HealthStatus enum has all statuses",
+      "status": "PASS"
+    },
+    {
+      "name": "6.4.3 ServerHealthState tracks state",
+      "status": "PASS"
+    },
+    {
+      "name": "6.4.4 ServerHealthState tracks failures",
+      "status": "PASS"
+    },
+    {
+      "name": "6.4.5 createHealthMonitor factory works",
+      "status": "PASS"
+    },
+    {
+      "name": "6.4.6 HealthMonitor registerServer method",
+      "status": "PASS"
+    },
+    {
+      "name": "6.4.7 HealthMonitor getSummary method",
+      "status": "PASS"
+    },
+    {
+      "name": "6.4.8 HealthMonitor generateReport returns markdown",
+      "status": "PASS"
+    },
+    {
+      "name": "6.4.9 HEALTH_CONFIG has required settings",
+      "status": "PASS"
+    },
+    {
+      "name": "6.5.1 AdminDashboard class exists",
+      "status": "PASS"
+    },
+    {
+      "name": "6.5.2 HTMLGenerator generates dashboard HTML",
+      "status": "PASS"
+    },
+    {
+      "name": "6.5.3 HTMLGenerator generates JSON",
+      "status": "PASS"
+    },
+    {
+      "name": "6.5.4 HTMLGenerator generates error page",
+      "status": "PASS"
+    },
+    {
+      "name": "6.5.5 createAdminDashboard factory works",
+      "status": "PASS"
+    },
+    {
+      "name": "6.5.6 Dashboard setHealthMonitor method",
+      "status": "PASS"
+    },
+    {
+      "name": "6.5.7 Dashboard setGateway method",
+      "status": "PASS"
+    },
+    {
+      "name": "6.5.8 Dashboard getURL method",
+      "status": "PASS"
+    },
+    {
+      "name": "6.5.9 DASHBOARD_CONFIG has required settings",
+      "status": "PASS"
+    },
+    {
+      "name": "6.I.1 All modules have consistent exports",
+      "status": "PASS"
+    },
+    {
+      "name": "6.I.2 Dashboard can integrate with health monitor",
+      "status": "PASS"
+    },
+    {
+      "name": "6.I.3 Gateway and health monitor can share config",
+      "status": "PASS"
+    },
+    {
+      "name": "6.I.4 Telemetry can trace gateway operations",
+      "status": "PASS"
+    }
+  ]
+}

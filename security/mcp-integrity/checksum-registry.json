@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2025-12-31T00:00:00.000Z",
+  "description": "Registry of known-good MCP server checksums for integrity validation",
+  "servers": {
+    "memory-mcp": {
+      "name": "memory-mcp",
+      "version": "1.0.0",
+      "path": null,
+      "sha256": null,
+      "sha384": null,
+      "type": "pending-registration",
+      "addedAt": "2025-12-31T00:00:00.000Z",
+      "addedBy": "system",
+      "trusted": true,
+      "description": "Triple-layer memory system (hot/warm/cold)"
+    },
+    "connascence-analyzer": {
+      "name": "connascence-analyzer",
+      "version": "1.0.0",
+      "path": null,
+      "sha256": null,
+      "sha384": null,
+      "type": "pending-registration",
+      "addedAt": "2025-12-31T00:00:00.000Z",
+      "addedBy": "system",
+      "trusted": true,
+      "description": "Code coupling and connascence analysis"
+    },
+    "sequential-thinking": {
+      "name": "sequential-thinking",
+      "version": "1.0.0",
+      "path": null,
+      "sha256": null,
+      "sha384": null,
+      "type": "pending-registration",
+      "addedAt": "2025-12-31T00:00:00.000Z",
+      "addedBy": "system",
+      "trusted": true,
+      "description": "Sequential reasoning MCP server"
+    },
+    "filesystem": {
+      "name": "filesystem",
+      "version": "1.0.0",
+      "path": null,
+      "sha256": null,
+      "sha384": null,
+      "type": "pending-registration",
+      "addedAt": "2025-12-31T00:00:00.000Z",
+      "addedBy": "system",
+      "trusted": true,
+      "description": "Official MCP filesystem server"
+    },
+    "github": {
+      "name": "github",
+      "version": "1.0.0",
+      "path": null,
+      "sha256": null,
+      "sha384": null,
+      "type": "pending-registration",
+      "addedAt": "2025-12-31T00:00:00.000Z",
+      "addedBy": "system",
+      "trusted": true,
+      "description": "Official MCP GitHub server"
+    }
+  },
+  "blocklist": [],
+  "allowlist_patterns": [
+    "@modelcontextprotocol/*",
+    "@anthropic/*"
+  ]
+}
