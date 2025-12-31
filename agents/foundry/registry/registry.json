@@ -5435,6 +5435,58 @@
           }
         }
       }
+    },
+    "gemini-discovery-agent": {
+      "name": "gemini-discovery-agent",
+      "type": "platforms",
+      "subagent_type": "researcher",
+      "capabilities": [
+        "gemini-cli-invocation",
+        "google-search-grounding",
+        "megacontext-analysis",
+        "solution-discovery",
+        "library-evaluation"
+      ],
+      "description": "Delegates research and discovery tasks to Gemini CLI for finding existing solutions before building from scratch",
+      "skills": [
+        "multi-model-discovery",
+        "gemini-codebase-onboard"
+      ],
+      "prompting_techniques": [
+        "self-consistency",
+        "program-of-thought"
+      ],
+      "mcp_servers": {
+        "required": ["memory-mcp"],
+        "recommended": [],
+        "usage": "Store discovered solutions and build-vs-buy decisions with WHO/WHEN/PROJECT/WHY tagging"
+      }
+    },
+    "codex-autonomous-agent": {
+      "name": "codex-autonomous-agent",
+      "type": "platforms",
+      "subagent_type": "coder",
+      "capabilities": [
+        "codex-cli-invocation",
+        "autonomous-iteration",
+        "test-fixing",
+        "sandbox-experimentation",
+        "code-generation"
+      ],
+      "description": "Delegates coding and debugging tasks to Codex CLI for autonomous iteration until tests pass",
+      "skills": [
+        "codex-iterative-fix",
+        "codex-safe-experiment"
+      ],
+      "prompting_techniques": [
+        "plan-and-solve",
+        "program-of-thought"
+      ],
+      "mcp_servers": {
+        "required": ["memory-mcp"],
+        "recommended": [],
+        "usage": "Store iteration results and fix patterns with WHO/WHEN/PROJECT/WHY tagging"
+      }
     }
   },
   "categories": {
@@ -5509,6 +5561,14 @@
         "dependency-conflict-detector",
         "error-message-analyzer",
         "code-context-investigator"
+      ]
+    },
+    "multi-model-integration": {
+      "count": 2,
+      "description": "Agents for delegating tasks to external AI CLIs (Codex, Gemini)",
+      "agents": [
+        "gemini-discovery-agent",
+        "codex-autonomous-agent"
       ]
     },
     "github-integration": {
@@ -5608,7 +5668,7 @@
     }
   },
   "metadata": {
-    "total_agents": 87,
+    "total_agents": 217,
     "version": "3.1.0",
     "last_updated": "2025-12-30",
     "three_loop_integration": true,

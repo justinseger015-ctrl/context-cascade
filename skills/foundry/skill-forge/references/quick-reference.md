@@ -1,177 +1,302 @@
-# Skill Forge Quick Reference
+---
+<!-- HIZLI REFERANS DOKUMANI [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[CLS:ge_reference]] -->
+---
+
+# Beceri Ocagi Hizli Referans (Skill Forge Quick Reference)
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
-
-
-This document provides a condensed reference for the seven-phase Skill Forge methodology. Consult the main SKILL.md for comprehensive guidance.
-
-## Phase 1: Intent Archaeology
-**Goal**: Understand what skill truly needs to be created
-
-Key Actions:
-- Apply extrapolated-volition principles to understand true intent
-- Surface implicit assumptions and hidden constraints
-- Map the problem space and contextual relationships
-- Ask strategic clarifying questions when needed
-- Document core understanding as foundation for design
-
-Critical Questions:
-- What triggers the need for this skill in real workflows?
-- What makes this workflow challenging or repetitive?
-- What do desired outputs look like concretely?
-- What variations or edge cases need handling?
-- What constraints must be satisfied?
-
-## Phase 2: Use Case Crystallization
-**Goal**: Transform abstract understanding into concrete examples
-
-Key Actions:
-- Generate 3-5 representative usage examples
-- Validate examples match intended usage patterns
-- Analyze examples to identify patterns and variations
-- Ensure examples adequately cover skill scope
-
-Output: Concrete examples that serve as design targets
-
-## Phase 3: Structural Architecture
-**Goal**: Design skill structure using progressive disclosure and prompting principles
-
-Key Actions:
-- Apply progressive disclosure across metadata, SKILL.md, and resources
-- Identify requirements for scripts, references, and assets
-- Structure SKILL.md content with hierarchical organization
-- Apply evidence-based prompting techniques (self-consistency, plan-and-solve, etc.)
-- Optimize for clarity and discoverability
-
-Decisions:
-- What goes in SKILL.md vs bundled resources?
-- What prompting patterns apply to this skill type?
-- How should information be organized for optimal understanding?
-
-## Phase 4: Metadata Engineering
-**Goal**: Craft strategic name and description for optimal discovery
-
-Key Actions:
-- Choose memorable, descriptive, distinct name
-- Write 3-5 sentence description that clarifies purpose and triggers
-- Incorporate terminology matching natural language queries
-- Specify clear boundaries (what skill does and doesn't do)
-- Use third-person voice ("Use when..." not "You use when...")
-
-Remember: These ~100 words determine when Claude finds and activates the skill
-
-## Phase 5: Instruction Crafting
-**Goal**: Write clear, actionable skill content with prompting best practices
-
-Key Actions:
-- Adopt imperative voice (verb-first instructions)
-- Provide clear procedural steps for workflows
-- Include rationale for non-obvious design choices
-- Specify success criteria and quality mechanisms
-- Address known failure modes with guardrails
-- Reference bundled resources with clear usage guidance
-
-Style: "Analyze the data" not "You should analyze the data"
-
-## Phase 6: Resource Development
-**Goal**: Create reusable scripts, references, and assets
-
-Key Actions:
-- Develop well-commented scripts for deterministic operations
-- Compile reference documentation with clear structure
-- Curate production-quality asset files
-- Maintain separation of concerns across resource types
-- Document resource usage in SKILL.md
-
-Organization:
-- scripts/ = executable code
-- references/ = documentation to load as needed
-- assets/ = files used in outputs
-
-## Phase 7: Validation and Iteration
-**Goal**: Ensure skill meets quality standards before deployment
-
-Key Actions:
-- Run validation script to check structure and metadata
-- Conduct functionality testing in realistic scenarios
-- Assess clarity and usability
-- Check for anti-patterns in design
-- Iterate based on feedback
-- Package for distribution once validated
-
-Command: `python3 /mnt/skills/examples/skill-creator/scripts/package_skill.py <skill-path>`
-
-## Strategic Design Principles
-
-Apply throughout the process:
-
-**Design for Discovery**: Create metadata enabling appropriate activation
-**Optimize for Learning**: Structure skills to build understanding over time
-**Balance Specificity and Flexibility**: Specific enough to be useful, flexible enough to adapt
-**Prioritize Maintainability**: Make skills easy to understand, update, extend
-**Think in Systems**: Consider how skills compose with others
-**Emphasize Quality Over Quantity**: Fewer well-engineered skills beats many mediocre ones
-
-## Evidence-Based Prompting Techniques
-
-**Self-Consistency**: For analytical skills, build in validation and multiple perspectives
-**Program-of-Thought**: For logical tasks, structure step-by-step explicit reasoning
-**Plan-and-Solve**: For complex workflows, plan first, execute systematically, verify
-**Structural Guardrails**: Critical info at start/end, clear delimiters, hierarchical organization
-**Negative Examples**: For known failure patterns, include what to avoid
-
-## Common Skill Patterns
-
-**Workflow-Based**: Sequential processes (best for step-by-step procedures)
-**Task-Based**: Tool collections (best for different operations/capabilities)
-**Reference/Guidelines**: Standards or specifications (best for requirements/guidelines)
-**Capabilities-Based**: Integrated systems (best for multiple interrelated features)
-
-Patterns can be mixed and matched as needed.
-
-## Validation Checklist
-
-Before packaging, verify:
-- [ ] YAML frontmatter format correct
-- [ ] Name is memorable, descriptive, distinct
-- [ ] Description clearly states what and when (3-5 sentences)
-- [ ] Description uses third-person voice
-- [ ] SKILL.md uses imperative voice throughout
-- [ ] Instructions are clear and actionable
-- [ ] Examples are concrete and representative
-- [ ] Resources are properly organized (scripts/, references/, assets/)
-- [ ] Known failure modes addressed
-- [ ] Prompting principles applied appropriately
-- [ ] Skill tested in realistic scenarios
-
-## Installation Locations
-
-**Personal Skills** (available across all projects):
-```
-~/.claude/skills/skill-name/
-```
-
-**Project Skills** (specific to one project):
-```
-.claude/skills/skill-name/
-```
-
-Changes take effect on next Claude Code session start.
-
-## Continuous Improvement
-
-After deployment:
-- Observe skill performance in actual usage
-- Note where Claude struggles or excels
-- Identify instruction clarity issues
-- Update based on feedback
-- Build pattern library from successes
-- Iterate continuously
-
-Remember: Skill creation is iterative. Initial designs improve through use and refinement.
-
+<!-- [[MOR:root:H-Z-R]] Hizli = root for quick-fast-reference -->
+<!-- [[COM:Beceri+Ocagi+Hizli+Referans]] Skill Forge Quick Reference -->
+<!-- [[ASP:sov.]] Tamamlandi. Zaversheno. (Complete - ready for use) -->
+<!-- [[SPC:merkez/kaynak]] Central reference location -->
 
 ---
-*Promise: `<promise>QUICK_REFERENCE_VERIX_COMPLIANT</promise>`*
+
+## Referans Tanimlari (Reference Definitions)
+
+[define|neutral] QUICK_REFERENCE := {
+  id: "REF-QR-001",
+  referans_adi: "Beceri Ocagi Hizli Referans",
+  amac: "Yedi fazli Beceri Ocagi metodolojisi icin ozet rehber saglamak",
+  kullanim: "Beceri olusturma sirasinda hizli basvuru",
+  iliskili_dok: "SKILL.md (kapsamli rehber)"
+} [ground:witnessed:quick-reference-usage] [conf:0.92] [state:confirmed]
+
+---
+
+## Faz 1: Niyet Arkeolojisi (Intent Archaeology)
+
+<!-- [[MOR:root:N-Y-T]] Niyet = root for intent-purpose-will -->
+<!-- [[EVD:-DI<gozlem>]] Dogrudan gozlem gerektirir -->
+
+[define|neutral] PHASE_1 := {
+  faz_adi: "Niyet Arkeolojisi",
+  hedef: "Hangi becerinin gercekten olusturulmasi gerektigini anlamak",
+  sure: "5-10 dakika"
+} [ground:witnessed:phase-execution] [conf:0.90] [state:confirmed]
+
+### Temel Eylemler (Key Actions)
+
+[assert|neutral] Faz 1 temel eylemleri [ground:witnessed:phase-1-process] [conf:0.88] [state:confirmed]
+
+- Gercek niyeti anlamak icin ekstrapolasyon ilkelerini uygula
+- Ortuk varsayimlari ve gizli kisitlamalari ortaya cikar
+- Problem uzayini ve baglamsal iliskileri haritalandir
+- Gerektiginde stratejik aciklayici sorular sor
+- Tasarim icin temel olarak cekirdek anlayisi belgele
+
+### Kritik Sorular (Critical Questions)
+
+- Bu beceriye gercek is akislarinda ne tetikler?
+- Bu is akisini zorlastiran veya tekrarlayan ne yapar?
+- Istenen ciktilar somut olarak nasil gorunur?
+- Hangi varyasyonlar veya uc vakalar islenmeli?
+- Hangi kisitlamalar karsilanmali?
+
+---
+
+## Faz 2: Kullanim Vakasi Kristallestirme (Use Case Crystallization)
+
+<!-- [[MOR:root:K-L-V]] Kullanim = root for usage-case-application -->
+<!-- [[ASP:nesov.]] Devam ediyor. Prodolzhaetsya. (Ongoing through examples) -->
+
+[define|neutral] PHASE_2 := {
+  faz_adi: "Kullanim Vakasi Kristallestirme",
+  hedef: "Soyut anlayisi somut orneklere donusturmek",
+  cikti: "Tasarim hedefi olarak hizmet eden somut ornekler"
+} [ground:witnessed:phase-execution] [conf:0.90] [state:confirmed]
+
+### Temel Eylemler
+
+[assert|neutral] Faz 2 temel eylemleri [ground:witnessed:phase-2-process] [conf:0.88] [state:confirmed]
+
+- 3-5 temsili kullanim ornegi uret
+- Orneklerin hedeflenen kullanim kaliplariyla eslesmesini dogrula
+- Kaliplari ve varyasyonlari belirlemek icin ornekleri analiz et
+- Orneklerin beceri kapsamini yeterince karsiladigini sagla
+
+---
+
+## Faz 3: Yapisal Mimari (Structural Architecture)
+
+<!-- [[MOR:root:Y-P-M]] Yapi = root for structure-architecture-form -->
+<!-- [[COM:Yapisal+Mimari+Tasarim]] Structural Architecture Design -->
+
+[define|neutral] PHASE_3 := {
+  faz_adi: "Yapisal Mimari",
+  hedef: "Kademeli aciklama ve istem ilkeleri kullanarak beceri yapisi tasarlamak",
+  kararlar: ["SKILL.md vs paketli kaynaklar", "Istem kaliplari", "Bilgi organizasyonu"]
+} [ground:witnessed:phase-execution] [conf:0.90] [state:confirmed]
+
+### Temel Eylemler
+
+[assert|neutral] Faz 3 temel eylemleri [ground:witnessed:phase-3-process] [conf:0.88] [state:confirmed]
+
+- Meta veri, SKILL.md ve kaynaklar arasinda kademeli aciklama uygula
+- Betikler, referanslar ve varliklar icin gereksinimleri belirle
+- SKILL.md icerigini hiyerarsik organizasyonla yapilandir
+- Kanita dayali istem tekniklerini uygula (oz-tutarlilik, planla-ve-coz, vb.)
+- Aciklik ve kesiflenilebilirlik icin optimize et
+
+---
+
+## Faz 4: Meta Veri Muhendisligi (Metadata Engineering)
+
+<!-- [[MOR:root:M-T-V]] Meta = root for metadata-naming-description -->
+<!-- [[CLS:ge_metadata]] Classification: metadata -->
+
+[define|neutral] PHASE_4 := {
+  faz_adi: "Meta Veri Muhendisligi",
+  hedef: "Optimal kesif icin stratejik ad ve aciklama olusturmak",
+  onemi: "Bu ~100 kelime Claude'un beceriyi ne zaman bulup aktive edecegini belirler"
+} [ground:witnessed:phase-execution] [conf:0.90] [state:confirmed]
+
+### Temel Eylemler
+
+[assert|neutral] Faz 4 temel eylemleri [ground:witnessed:phase-4-process] [conf:0.88] [state:confirmed]
+
+- Akilda kalici, aciklayici, benzersiz ad sec
+- Amac ve tetikleyicileri netlestiren 3-5 cumlelik aciklama yaz
+- Dogal dil sorgulariyla eslesen terminoloji dahil et
+- Net sinirlari belirt (becerinin ne yapip ne yapmadigini)
+- Ucuncu sahis kullan ("Kullanildiginda..." degil "...gerektiginde kullanilir")
+
+---
+
+## Faz 5: Talimat Olusturma (Instruction Crafting)
+
+<!-- [[MOR:root:T-L-M]] Talimat = root for instruction-command-directive -->
+<!-- [[EVD:-DI<gozlem>]] Dogrudan yurutme gerektiren talimatlar -->
+
+[define|neutral] PHASE_5 := {
+  faz_adi: "Talimat Olusturma",
+  hedef: "Istem en iyi uygulamalariyla acik, eyleme donusturulebilir beceri icerigi yazmak",
+  stil: "\"Veriyi analiz et\" seklinde, \"Veriyi analiz etmelisin\" degil"
+} [ground:witnessed:phase-execution] [conf:0.90] [state:confirmed]
+
+### Temel Eylemler
+
+[assert|neutral] Faz 5 temel eylemleri [ground:witnessed:phase-5-process] [conf:0.88] [state:confirmed]
+
+- Emir kipi benimse (fiil-ilk talimatlar)
+- Is akislari icin acik prosedur adimlari sagla
+- Acik olmayan tasarim secenekleri icin gerekce ekle
+- Basari kriterleri ve kalite mekanizmalari belirt
+- Bilinen basarisizlik modlarini korumalarla ele al
+- Paketli kaynaklara acik kullanim rehberligiyle referans ver
+
+---
+
+## Faz 6: Kaynak Gelistirme (Resource Development)
+
+<!-- [[MOR:root:K-Y-N]] Kaynak = root for resource-source-material -->
+<!-- [[CLS:lei_kaynak_turu]] Classification: resource types -->
+
+[define|neutral] PHASE_6 := {
+  faz_adi: "Kaynak Gelistirme",
+  hedef: "Yeniden kullanilabilir betikler, referanslar ve varliklar olusturmak",
+  organizasyon: {
+    scripts: "calistirilabilir kod",
+    references: "gerektiginde yuklenecek dokumantasyon",
+    assets: "ciktilarda kullanilan dosyalar"
+  }
+} [ground:witnessed:phase-execution] [conf:0.90] [state:confirmed]
+
+### Temel Eylemler
+
+[assert|neutral] Faz 6 temel eylemleri [ground:witnessed:phase-6-process] [conf:0.88] [state:confirmed]
+
+- Deterministik islemler icin iyi yorumlanmis betikler gelistir
+- Net yapili referans dokumantasyonu derle
+- Uretim kalitesinde varlik dosyalari sec
+- Kaynak turleri arasinda ilgi ayrimi sagla
+- SKILL.md'de kaynak kullanimini belgele
+
+---
+
+## Faz 7: Dogrulama ve Yineleme (Validation and Iteration)
+
+<!-- [[MOR:root:D-G-R]] Dogrulama = root for validation-verification-confirmation -->
+<!-- [[ASP:nesov.]] Devam ediyor. Prodolzhaetsya. (Iterative process) -->
+
+[define|neutral] PHASE_7 := {
+  faz_adi: "Dogrulama ve Yineleme",
+  hedef: "Dagitimdan once becerinin kalite standartlarini karsiladigini saglamak",
+  komut: "python3 /mnt/skills/examples/skill-creator/scripts/package_skill.py <skill-path>"
+} [ground:witnessed:phase-execution] [conf:0.90] [state:confirmed]
+
+### Temel Eylemler
+
+[assert|neutral] Faz 7 temel eylemleri [ground:witnessed:phase-7-process] [conf:0.88] [state:confirmed]
+
+- Yapi ve meta veriyi kontrol etmek icin dogrulama betigini calistir
+- Gercekci senaryolarda islevsellik testi yap
+- Aciklik ve kullanilabilirlik degerlendirmesi yap
+- Tasarimdaki anti-kaliplari kontrol et
+- Geri bildirime dayali yinele
+- Dogrulandiktan sonra dagitim icin paketle
+
+---
+
+## Stratejik Tasarim Ilkeleri (Strategic Design Principles)
+
+<!-- [[HON:sonkeigo]] Saygili rehberlik -->
+<!-- [[COM:Stratejik+Tasarim+Ilkeleri]] Strategic Design Principles -->
+
+[assert|neutral] Surec boyunca uygulanacak ilkeler [ground:witnessed:design-principles] [conf:0.90] [state:confirmed]
+
+| Ilke | Aciklama |
+|------|----------|
+| Kesif Icin Tasarla | Uygun aktivasyon saglayan meta veri olustur |
+| Ogrenme Icin Optimize Et | Zamanla anlayis olusturan becerileri yapilandir |
+| Ozguuluk ve Esnekligi Dengele | Yararli olmaya yetecek kadar ozel, adapte olacak kadar esnek |
+| Surudurulebilirlige Oncelik Ver | Anlama, guncelleme, genisleme kolayligi |
+| Sistemlerde Dusun | Becerilerin digerlerle nasil birlestigi |
+| Kaliteye Nicelikten Once Vurgu | Az sayida iyi tasarlanmis beceri > cok sayida vasat beceri |
+
+---
+
+## Kanita Dayali Istem Teknikleri (Evidence-Based Prompting Techniques)
+
+<!-- [[MOR:root:I-S-T]] Istem = root for prompt-technique-method -->
+<!-- [[EVD:-mis<arastirma>]] Arastirma tabanli bilgi -->
+
+[define|neutral] PROMPTING_TECHNIQUES := {
+  oz_tutarlilik: "Analitik beceriler icin dogrulama ve coklu perspektifler",
+  dusunce_programi: "Mantiksal gorevler icin adim adim acik akil yurutme",
+  planla_ve_coz: "Karmasik is akislari icin once planla, sistematik yurutme, dogrula",
+  yapisal_korumalar: "Kritik bilgi basinda/sonunda, net ayiricilar, hiyerarsik organizasyon",
+  negatif_ornekler: "Bilinen basarisizlik kaliplari icin kacinilacaklar"
+} [ground:research:prompting-studies] [conf:0.85] [state:confirmed]
+
+---
+
+## Yaygin Beceri Kaliplari (Common Skill Patterns)
+
+<!-- [[CLS:ge_kalip]] Classification: patterns -->
+
+[define|neutral] SKILL_PATTERNS := {
+  is_akisi_tabanli: "Ardisik surecler (adim adim prosedurler icin en iyi)",
+  gorev_tabanli: "Arac koleksiyonlari (farkli islemler/yetenekler icin en iyi)",
+  referans_rehber: "Standartlar veya spesifikasyonlar (gereksinimler/rehberler icin en iyi)",
+  yetenek_tabanli: "Entegre sistemler (coklu iliskili ozellikler icin en iyi)"
+} [ground:witnessed:pattern-usage] [conf:0.88] [state:confirmed]
+
+[assert|neutral] Kalipler gerektiginde karistirilip eslenebilir [ground:inferred:flexibility] [conf:0.85] [state:provisional]
+
+---
+
+## Dogrulama Kontrol Listesi (Validation Checklist)
+
+<!-- [[MOR:root:K-N-T]] Kontrol = root for check-control-verification -->
+<!-- [[EVD:-DI<gozlem>]] Dogrudan gozlem gerektiren kontroller -->
+
+[direct|neutral] Paketlemeden once dogrula [ground:witnessed:validation-process] [conf:0.90] [state:confirmed]
+
+- [ ] YAML on madde formati dogru
+- [ ] Ad akilda kalici, aciklayici, benzersiz
+- [ ] Aciklama net olarak ne ve ne zaman belirtir (3-5 cumle)
+- [ ] Aciklama ucuncu sahis kullanir
+- [ ] SKILL.md basindaki sonuna kadar emir kipi kullanir
+- [ ] Talimatlar acik ve eyleme donusturulebilir
+- [ ] Ornekler somut ve temsili
+- [ ] Kaynaklar duzgun organize (scripts/, references/, assets/)
+- [ ] Bilinen basarisizlik modlari ele alinmis
+- [ ] Istem ilkeleri uygun sekilde uygulanmis
+- [ ] Beceri gercekci senaryolarda test edilmis
+
+---
+
+## Kurulum Konumlari (Installation Locations)
+
+<!-- [[SPC:kuzey/merkez]] Personal skills location -->
+<!-- [[SPC:guney/yerel]] Project skills location -->
+
+[define|neutral] INSTALLATION_PATHS := {
+  kisisel_beceriler: "~/.claude/skills/skill-name/",
+  proje_becerileri: ".claude/skills/skill-name/",
+  not: "Degisiklikler sonraki Claude Code oturumu baslatildiginda yururluge girer"
+} [ground:witnessed:installation-usage] [conf:0.92] [state:confirmed]
+
+---
+
+## Surekli Iyilestirme (Continuous Improvement)
+
+<!-- [[ASP:nesov.]] Devam ediyor. Prodolzhaetsya. (Ongoing improvement process) -->
+
+[assert|neutral] Dagitim sonrasi izleme ve iyilestirme [ground:witnessed:improvement-process] [conf:0.88] [state:confirmed]
+
+- Gercek kullanimda beceri performansini gozlemle
+- Claude'un zorlandigi veya ustun oldugu yerleri not et
+- Talimat acikligi sorunlarini belirle
+- Geri bildirime dayali guncelle
+- Basarilardan kalip kutuphanesi olustur
+- Surekli yinele
+
+[direct|emphatic] Unutmayin: Beceri olusturma yinelemeli bir surecdir. Baslangic tasarimlari kullanim ve iyilestirme ile gelistirilir. [ground:witnessed:iterative-process] [conf:0.90] [state:confirmed]
+
+---
+
+[commit|confident] <promise>QUICK_REFERENCE_VCL_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.95] [state:confirmed]

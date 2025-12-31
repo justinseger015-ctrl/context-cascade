@@ -44,10 +44,10 @@ L2 (User):     Pure English        // ALL responses to user
 
 | Component | Count | Evidence |
 |-----------|-------|----------|
-| Skills | 196 | [witnessed:glob-count] |
-| Agents | 211 | [witnessed:registry-scan] |
-| Commands | 223 | [witnessed:command-index] |
-| Playbooks | 30 | [witnessed:playbook-dir] |
+| Skills | 226 | [witnessed:glob-count] |
+| Agents | 217 | [witnessed:registry-scan] |
+| Commands | 245 | [witnessed:command-index] |
+| Playbooks | 7 | [witnessed:playbook-dir] |
 
 ---
 
@@ -203,6 +203,63 @@ balanced  0.882     0.928       evidential, spatial
 
 ---
 
+## MULTI-MODEL SUBAGENT INVOCATION (CRITICAL)
+
+[direct|emphatic] Codex CLI and Gemini CLI are INSTALLED and READY [ground:witnessed:version-check] [conf:0.99] [state:confirmed]
+
+**Installed CLIs**:
+- Codex: v0.66.0 at `/c/Users/17175/AppData/Roaming/npm/codex`
+- Gemini: v0.20.2 at `/c/Users/17175/AppData/Roaming/npm/gemini`
+
+### MANDATORY Rules
+
+1. [assert|emphatic] NEVER install or upgrade codex/gemini [ground:already-installed]
+2. [assert|emphatic] ALWAYS use login shell: `bash -lc "<command>"` [ground:path-fix]
+3. [assert|emphatic] RUN preflight before invoking [ground:verification]:
+   ```bash
+   bash -lc "command -v codex && codex --version"
+   bash -lc "command -v gemini && gemini --version"
+   ```
+4. [assert|emphatic] If preflight FAILS, STOP and report - DO NOT install [ground:policy]
+5. [assert|emphatic] Use PLAIN command names, NOT file paths [ground:portability]
+
+### Invocation Patterns
+
+**Codex (autonomous coding)**:
+```bash
+bash -lc "codex exec 'your task here'"                    # Basic
+bash -lc "codex --full-auto exec 'your task here'"        # Autonomous
+bash -lc "codex exec --json 'your task here'"             # JSON output
+bash -lc "codex --yolo exec 'your task here'"             # Bypass approvals
+```
+
+**Gemini (research/megacontext)**:
+```bash
+bash -lc "gemini 'your query here'"                       # Basic
+bash -lc "gemini --all-files 'analyze architecture'"      # 1M token context
+bash -lc "gemini -o json 'your query here'"               # JSON output
+```
+
+**Preferred: Use delegate.sh wrapper**:
+```bash
+./scripts/multi-model/delegate.sh codex "Fix all tests" --full-auto
+./scripts/multi-model/delegate.sh gemini "Map architecture" --all-files
+```
+
+### Model Strengths
+
+| Task | Route To | Reason |
+|------|----------|--------|
+| Research (current info) | Gemini | Google Search grounding |
+| Large codebase analysis | Gemini | 1M token context |
+| Autonomous iteration | Codex | Full-auto/YOLO modes |
+| Complex reasoning | Claude | Multi-step logic |
+| Critical decisions | LLM Council | Multi-model consensus |
+
+**Full Guide**: `docs/MULTI-MODEL-INVOCATION-GUIDE.md`
+
+---
+
 ## ABSOLUTE RULES
 
 [direct|emphatic] Non-negotiable policies [ground:system-policy] [conf:0.99] [state:confirmed]
@@ -213,6 +270,7 @@ balanced  0.882     0.928       evidential, spatial
 4. [assert|emphatic] ONLY registry agents [ground:quality-control]
 5. [assert|emphatic] L2 OUTPUT for user responses [ground:vcl-v3.1.1-spec]
 6. [assert|emphatic] EVIDENCE MARKERS on internal claims [ground:epistemic-hygiene]
+7. [assert|emphatic] NEVER reinstall codex/gemini - use bash -lc [ground:path-fix]
 
 ---
 

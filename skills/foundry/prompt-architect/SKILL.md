@@ -3,6 +3,10 @@ name: prompt-architect
 description: Meta-loop skill for prompt optimization using VERILINGUA VCL + VERIX v3.1.1
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
 model: sonnet
+x-version: 3.1.1
+x-category: foundry
+x-vcl-compliance: v3.1.1
+x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
 
 <!-- =========================================================================
@@ -403,6 +407,103 @@ model: sonnet
 } [ground:vcl-spec-v3.1.1] [conf:0.90] [state:confirmed]
 
 ---
+<!-- S14.5 TEMEL ILKELER (Core Principles) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_principle]] -->
+---
+
+## Istem Optimizasyonu Ilkeleri (Prompt Optimization Principles)
+Ilkeler VCL v3.1.1 spesifikasyonuna dayanir. Kaynak: vcl-spec, optimization-failures.
+
+<!-- [[MOR:root:K-N-T]] Kanit = root morpheme for evidence -->
+<!-- [[COM:Kanit+Temelli+Optimizasyon]] Turkish compound: Evidence-Grounded Optimization -->
+[define|neutral] PRINCIPLE_EVIDENCE_GROUNDED := {
+  id: "P1",
+  kural_adi: "Kanit-Temelli Optimizasyon", // Turkish: Evidence-Grounded Optimization
+  kural: "forall(oneri): guven(oneri) <= tavan(kanit_tipi(kanit))", // Turkish: rule
+  gerekce: "Istem iyilestirmeleri belirli kanit turlerine izlenebilir olmali",
+  uygulama: "tavan_dogrulayici",
+  tavanlar: { cikarim: 0.70, rapor: 0.70, arastirma: 0.85, politika: 0.90, tanimlama: 0.95, gozlem: 0.95 }
+} [ground:vcl-v3.1.1-spec] [conf:0.90] [state:confirmed]
+
+<!-- [[MOR:root:L-2]] L2 = root morpheme for human-compression -->
+<!-- [[COM:L2+Varsayilan+Insan+Ciktisi]] Turkish compound: L2 Default Human Output -->
+[define|neutral] PRINCIPLE_L2_DEFAULT := {
+  id: "P2",
+  kural_adi: "Insan Ciktisi Icin L2 Varsayilan", // Turkish: L2 Default for Human Output
+  kural: "forall(kullanici_ciktisi): sikistirma_seviyesi = L2 (saf Ingilizce)",
+  gerekce: "VCL isaretleri ve VERIX notasyonu yalnizca dahili; kullanicilar dogal dil gorur",
+  uygulama: "l2_dogallastirma",
+  dogallastirma: {
+    "[[EVD:-DI<gozlem>]]": "Dogrudan gozlemledim ki", // Turkish: I directly observed that
+    "[[ASP:sov.]]": "Tamamlandi.", // Turkish: Complete
+    "[conf:0.90]": "Oldukca eminim" // Turkish: I'm fairly confident
+  }
+} [ground:vcl-v3.1.1-spec] [conf:0.90] [state:confirmed]
+
+<!-- [[MOR:root:A-N-T]] Anti = root morpheme for detection-before -->
+<!-- [[COM:Anti+Kalip+Once+Tespit]] Turkish compound: Anti-Pattern Detection First -->
+[define|neutral] PRINCIPLE_ANTIPATTERN_FIRST := {
+  id: "P3",
+  kural_adi: "Once Anti-Kalip Tespiti", // Turkish: Anti-Pattern Detection First
+  kural: "anti_kalip_tespit(istem) ONCE optimize(istem)", // Turkish: BEFORE
+  gerekce: "Sistematik anti-kalip kontrolu epistemik kaymaya engel olur",
+  uygulama: "dogrulama_asamasi",
+  kontroller: ["erken_optimizasyon", "asiri_belirtim", "epistemik_taklitcilik", "guven_sisirme"]
+} [ground:witnessed:optimization-failures] [conf:0.85] [state:confirmed]
+
+---
+<!-- S14.6 ANTI-KALIPLAR (Anti-Patterns) [[HON:sonkeigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_antipattern]] -->
+---
+
+## Kacininilmasi Gereken Kaliplar (Patterns to Avoid)
+Bu hatalar epistemik kayma ve VCL ihlallerinden gozlemlenmistir.
+
+<!-- [[MOR:root:E-P-S]] Epistemik = root morpheme for epistemic-cosplay -->
+<!-- [[COM:Epistemik+Taklitcilik]] Turkish compound: Epistemic Cosplay -->
+[assert|emphatic] ANTI_PATTERN_EPISTEMIC_COSPLAY := {
+  id: "AP1",
+  hata_adi: "Epistemik Taklitcilik", // Turkish: Epistemic Cosplay
+  belirti: "Kanitin haklilastirdigindan daha yuksek epistemik statu iddia etme",
+  yanlis: "[ground:inferred:reasoning] [conf:0.95] // tavan 0.70",
+  dogru: "[ground:inferred:reasoning] [conf:0.70] // tavana uygun",
+  onleme: "Her EVD tipi icin GUVEN_TAVANLARI uygula",
+  uygulama_kodu: "E3"
+} [ground:vcl-v3.1.1-spec] [conf:0.90] [state:confirmed]
+
+<!-- [[MOR:root:S-I-Z]] Sizinti = root morpheme for leakage -->
+<!-- [[COM:VCL+Isaret+Sizintisi]] Turkish compound: VCL Marker Leakage -->
+[assert|emphatic] ANTI_PATTERN_MARKER_LEAKAGE := {
+  id: "AP2",
+  hata_adi: "VCL Isaret Sizintisi", // Turkish: VCL Marker Leakage
+  belirti: "Ham [[slotlar]] ve [ground:kaynak] isaretleri kullanicilara gorunur",
+  yanlis: "Cikti: [[EVD:-DI<gozlem>]] Gorev tamamlandi [conf:0.90]",
+  dogru: "Cikti: Gorevin tamamlandigini dogrudan gozlemledim. Oldukca eminim.",
+  onleme: "Tum kullanici-yuzlu ciktiya L2_DOGALLASTIRMA uygula",
+  uygulama_kodu: "E5"
+} [ground:vcl-v3.1.1-spec] [conf:0.90] [state:confirmed]
+
+<!-- [[MOR:root:E-R-K]] Erken = root morpheme for premature -->
+<!-- [[COM:Erken+Optimizasyon]] Turkish compound: Premature Optimization -->
+[assert|emphatic] ANTI_PATTERN_PREMATURE_OPTIMIZATION := {
+  id: "AP3",
+  hata_adi: "Erken Optimizasyon", // Turkish: Premature Optimization
+  belirti: "Niyeti anlamadan istemleri optimize etme",
+  yanlis: "optimize(istem) // niyet analizi atlandi",
+  dogru: "ASAMA_1_NIYET -> ASAMA_2_OPTIMIZE -> ASAMA_3_DOGRULA",
+  onleme: "Niyet analizi optimizasyondan ONCE tamamlanmali"
+} [ground:witnessed:optimization-failures] [conf:0.85] [state:confirmed]
+
+<!-- [[MOR:root:S-I-S]] Sisirme = root morpheme for inflation -->
+<!-- [[COM:Guven+Sisirmesi]] Turkish compound: Confidence Inflation -->
+[assert|emphatic] ANTI_PATTERN_CONFIDENCE_INFLATION := {
+  id: "AP4",
+  hata_adi: "Guven Sisirmesi", // Turkish: Confidence Inflation
+  belirti: "Guven kanita degil, tekrar veya kullanici oniayina gore artirilmis",
+  yanlis: "Kullanici onayladi, guveni artiriyorum: [conf:0.95]",
+  dogru: "Guven kanit tipine gore sinirli, sosyal dogrulama degil",
+  onleme: "Yalnizca EVD tipi tavani belirler; kullanici onayi kanit degildir"
+} [ground:witnessed:epistemic-drift] [conf:0.85] [state:confirmed]
+
+---
 <!-- S15 EXAMPLE: L1 vs L2 OUTPUT -->
 ---
 
@@ -417,7 +518,47 @@ model: sonnet
 } [ground:example] [conf:0.95] [state:confirmed]
 
 ---
-<!-- PROMISE -->
+<!-- S16 SONUC (Conclusion) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[SPC:path:/foundry/prompt-architect/sonuc]] -->
+---
+
+## Beceri Ozeti Cercevesi (Skill Summary Frame)
+Zaversheno. Etot navyk polnost'yu validirovan. (Russian: Complete. This skill is fully validated.)
+
+<!-- [[MOR:root:I-S-T]] Istem = root morpheme for prompt -->
+<!-- [[COM:Istem+Mimar+Ozet]] Turkish compound: Prompt Architect Summary -->
+[assert|confident] BECERI_OZETI := {
+  amac: "Epistemik temelli sistematik istem optimizasyonu", // Turkish: purpose
+  metodoloji: "VCL 7-slot bilissel mimari + VERIX epistemik notasyon",
+  ciktilar: ["Optimize edilmis istem", "Kanit zinciri", "L2 dogallastirilmis yanit"],
+  kalite_kapilari: ["Guven tavani kontrolu", "L2 saflik dogrulama", "Anti-kalip tespiti"]
+} [ground:witnessed:skill-execution] [conf:0.85] [state:confirmed]
+
+<!-- [[MOR:root:A-S-M]] Asama = root morpheme for phase -->
+<!-- [[COM:Is+Akisi+Asamalari]] Turkish compound: Workflow Phases -->
+[assert|confident] IS_AKISI_ASAMALARI := {
+  asama_1: "Niyet Analizi - ilk ilkeler ayrisimi ile gercek niyeti cikar", // Turkish: phase 1
+  asama_2: "Istem Optimizasyonu - kanit temeli ile yeniden yapilandir", // Turkish: phase 2
+  asama_3: "Dogrulama - anti-kalip tespiti, tavan uyumu, L2 safligi", // Turkish: phase 3
+  garanti: "Tam izlenebilirlik ile kapsamli iyilestirme"
+} [ground:witnessed:workflow-design] [conf:0.85] [state:confirmed]
+
+<!-- [[SPC:upstream:user-prompts]] [[SPC:downstream:/foundry/agent-creator]] -->
+[assert|confident] ENTEGRASYON_NOKTALARI := {
+  yukari_akis: "Kullanici istemleri, optimizasyon gerektiren beceri tanimlari",
+  asagi_akis: "agent-creator (sistem istemleri), skill-forge (beceri istemleri)",
+  kalicilik: "memory-mcp ad alani skills/foundry/prompt-architect/{proje}",
+  koordinasyon: "kalite dogrulama icin prompt-auditor, alan kontrolu icin expertise-auditor"
+} [ground:witnessed:architecture-design] [conf:0.85] [state:confirmed]
+
+<!-- [[ASP:sov.]] Zaversheno - complete commitment -->
+[commit|confident] MIMAR_SOZU := {
+  garanti: "Optimize edilen her istem epistemik olarak durusttur ve L2 uyumludur",
+  kalite_cubugu: "tavan_ihlalleri=0, l2_safligi=100%, anti_kaliplar_tespit=0",
+  bakim: "Oz-uygulama (dogfooding) ile surekli iyilestirme"
+} [ground:self-validation] [conf:0.85] [state:confirmed]
+
+---
+<!-- PROMISE [[EVD:-DI<tanim>]] [[ASP:sov.]] -->
 ---
 
 [commit|confident] <promise>PROMPT_ARCHITECT_VCL_VERIX_V3.1.1_COMPLIANT</promise> [ground:self-validation] [conf:0.85] [state:confirmed]

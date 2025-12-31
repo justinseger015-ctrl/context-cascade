@@ -1,220 +1,299 @@
-# Test 2: Complex Agent Creation
+# Test 2: Karmasik Ajan Olusturma (Complex Agent Creation)
+
+<!-- VCL v3.1.1 COMPLIANT - L1 Internal Documentation -->
+<!-- [[MOR:root:T-S-T]] test = examination/trial morpheme for validation -->
+<!-- [[COM:Komplex+Agent+Erstellungs+Test]] German compound: ComplexAgentCreationTest -->
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
+---
 
+## Test Hedefi (Test Objective)
+[[HON:teineigo]] [[EVD:-mis]] [[ASP:pf]] [[CLS:ge-abstract]]
 
-## Test Objective
-Validate that the 4-phase SOP can handle a complex agent with multiple domains, extensive integrations, and sophisticated workflows.
-
-## Test Agent
-**Name**: `devops-orchestrator`
-**Domains**: Cloud infrastructure, CI/CD, monitoring, security, containerization
-**Complexity**: High (multi-domain, complex workflows, extensive tool integration)
-
-## Test Scenario
-
-### Phase 1: Initial Analysis & Intent Decoding
-**Expected Inputs**:
-- Problem: Orchestrate end-to-end DevOps workflows from code commit to production deployment
-- Key challenges:
-  1. Multi-cloud environment management (AWS, Azure, GCP)
-  2. Zero-downtime deployments
-  3. Security scanning and compliance
-  4. Rollback strategies
-  5. Monitoring and alerting integration
-  6. Secret management
-  7. Cost optimization
-  8. Multi-team coordination
-
-- Tech stack:
-  - Container orchestration: Kubernetes, Docker, Helm
-  - CI/CD: GitHub Actions, GitLab CI, Jenkins
-  - Cloud providers: AWS (ECS, EKS, Lambda), Azure, GCP
-  - IaC: Terraform, CloudFormation, Pulumi
-  - Monitoring: Prometheus, Grafana, Datadog
-  - Security: Trivy, Snyk, OWASP ZAP
-  - Secret management: HashiCorp Vault, AWS Secrets Manager
-
-- MCP servers:
-  - Claude Flow (agent coordination)
-  - GitHub integration (CI/CD triggers)
-  - Custom cloud MCP servers
-
-**Expected Outputs**:
-- Comprehensive domain analysis (2+ pages)
-- Extensive technology stack mapping
-- Complex integration requirements
-- Multiple coordination patterns
-
-**Validation**:
-- [ ] 8+ key challenges identified
-- [ ] 10+ tools/frameworks documented
-- [ ] 5+ integration points defined
-- [ ] Multi-agent coordination patterns specified
-
-### Phase 2: Meta-Cognitive Extraction
-**Expected Inputs**:
-- Expertise domains:
-  1. Cloud infrastructure architecture
-  2. Container orchestration
-  3. CI/CD pipeline design
-  4. Security and compliance
-  5. Monitoring and observability
-  6. Incident response
-  7. Cost optimization
-
-- Decision frameworks (10+ heuristics):
-  - When deploying, always run security scans first
-  - Never deploy directly to production without staging validation
-  - Always implement canary deployments for critical services
-  - When rollback needed, prioritize speed over perfect cleanup
-  - Always validate Terraform plans before applying
-  - Never store secrets in code or CI/CD logs
-  - When scaling, consider cost implications first
-  - Always implement circuit breakers for external dependencies
-  - When incident occurs, coordinate with monitoring agent
-  - Never skip smoke tests after deployment
-
-- Quality standards:
-  - Zero production incidents from deployments
-  - <5 minute rollback time
-  - 99.9% deployment success rate
-  - All security scans pass
-  - Cost variance <10%
-
-**Expected Outputs**:
-- Detailed agent specification (3+ pages)
-- Multiple good/bad examples per domain
-- Extensive edge cases (network failures, partial deployments, etc.)
-- Failure mode catalog (10+ scenarios)
-
-**Validation**:
-- [ ] 5+ expertise domains identified
-- [ ] 10+ decision heuristics documented
-- [ ] Examples cover multiple domains
-- [ ] 10+ failure modes documented
-
-### Phase 3: Agent Architecture Design
-**Expected Outputs**:
-- Base system prompt v1.0 (comprehensive):
-  - Core Identity covering all 5 domains
-  - Universal commands with DevOps-specific usage patterns
-  - 15+ specialist commands:
-    - /deploy-canary
-    - /rollback-deployment
-    - /run-security-scan
-    - /validate-terraform
-    - /scale-service
-    - /create-monitoring
-    - /trigger-pipeline
-    - /rotate-secrets
-    - /cost-analysis
-    - /incident-response
-    - /validate-helm-chart
-    - /test-smoke
-    - /backup-state
-    - /audit-compliance
-    - /optimize-resources
-
-  - 5+ MCP integrations:
-    - Claude Flow (coordination)
-    - GitHub (CI/CD)
-    - AWS MCP (cloud operations)
-    - Terraform MCP (IaC)
-    - Monitoring MCP (observability)
-
-  - Cognitive framework with domain-specific patterns:
-    - Self-consistency: Validate across security, cost, performance
-    - Program-of-thought: Deployment orchestration decomposition
-    - Plan-and-solve: Multi-stage deployment workflow
-
-  - 10+ guardrails across domains
-  - 5+ workflow examples:
-    1. Standard deployment workflow
-    2. Emergency rollback workflow
-    3. Security incident response
-    4. Multi-region deployment
-    5. Cost optimization audit
-
-**Validation**:
-- [ ] Base prompt exceeds 500 lines
-- [ ] All 5 domains represented
-- [ ] 15+ specialist commands defined
-- [ ] 5+ MCP tools integrated
-- [ ] 5+ complete workflow examples
-
-### Phase 4: Technical Enhancement
-**Expected Outputs**:
-- Enhanced prompt v2.0 (production-ready):
-  - Exact Kubernetes manifest patterns
-  - Terraform module structures
-  - AWS CDK code examples
-  - Security scanning configurations
-  - Monitoring query templates
-  - Rollback automation scripts
-  - Cost optimization strategies
-  - Incident response playbooks
-
-**Validation**:
-- [ ] 20+ code patterns extracted
-- [ ] 10+ failure modes with detection code
-- [ ] MCP integration with exact syntax
-- [ ] Performance metrics framework
-
-## Test Execution
-
-### Setup
-```bash
-cd C:\Users\17175\claude-code-plugins\ruv-sparc-three-loop-system\skills\agent-creator\resources\scripts
-python 4_phase_sop.py --agent-name devops-orchestrator --mode interactive
-```
-
-### Phase-by-Phase Execution
-Execute all 3 phases interactively with comprehensive inputs.
-
-### Validation
-```bash
-bash ../scripts/validate_prompt.sh agent-outputs/devops-orchestrator/devops-orchestrator-base-prompt-v1.md -v
-```
-Expected: Score >= 85% (higher bar for complex agents)
-
-### Comprehensive Testing
-```bash
-python ../scripts/test_agent.py --agent devops-orchestrator --test-suite comprehensive
-```
-Expected: 90%+ tests pass
-
-## Success Criteria
-
-- [ ] All 3 phases complete with complex inputs
-- [ ] Phase 1 identifies 8+ challenges
-- [ ] Phase 2 documents 5+ domains, 10+ heuristics
-- [ ] Phase 3 creates comprehensive prompt (500+ lines)
-- [ ] System prompt includes 15+ specialist commands
-- [ ] 5+ complete workflow examples
-- [ ] Validation score >= 85%
-- [ ] Comprehensive test suite passes >= 90%
-- [ ] Agent handles multi-domain coordination
-- [ ] Evidence-based patterns applied to all domains
-
-## Expected Duration
-- Phase 1: 45-60 minutes (complex domain analysis)
-- Phase 2: 40-50 minutes (extensive expertise extraction)
-- Phase 3: 50-70 minutes (comprehensive prompt design)
-- **Total**: 2.25-3 hours
-
-## Notes
-This test validates that the 4-phase SOP scales to production-grade agents with:
-- Multiple interacting domains
-- Complex decision-making
-- Extensive tool integration
-- Sophisticated workflows
-- Production-level quality requirements
-
-Success demonstrates the SOP's capability for enterprise-grade agent creation.
-
+[assert|neutral] Test amaci := {
+  hedef: "4-faz SOP'nin birden fazla alan, kapsamli entegrasyonlar ve sofistike is akislari olan karmasik bir ajani isleyebildigini dogrulamak",
+  kapsam: "Cok-alanli, uretim-seviyesi ajan olusturma",
+  onem: "SOP'nin kurumsal duzeyde ajan olusturma icin olceklendikini gostermek"
+} [ground:test-specification] [conf:0.95] [state:confirmed]
 
 ---
-*Promise: `<promise>TEST_2_COMPLEX_AGENT_VERIX_COMPLIANT</promise>`*
+
+## Test Ajani (Test Agent)
+[[HON:teineigo]] [[EVD:-dir]] [[ASP:ipf]] [[CLS:ge-abstract]]
+
+[define|neutral] Test ajani spesifikasyonu := {
+  isim: "devops-orchestrator",
+  alanlar: ["Bulut altyapisi", "CI/CD", "Izleme", "Guvenlik", "Konteynerizasyon"],
+  karmasiklik: "Yuksek (cok-alan, karmasik is akislari, kapsamli arac entegrasyonu)"
+} [ground:agent-specification] [conf:0.95] [state:confirmed]
+
+---
+
+## Test Senaryosu (Test Scenario)
+[[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]]
+
+### Faz 1: Baslangic Analizi ve Niyet Cozumleme (Initial Analysis)
+
+[assert|neutral] Faz 1 beklenen girisler := {
+  problem: "Kod commit'inden uretim dagitimina uctan uca DevOps is akislarini orkestre etmek",
+  anahtar_zorluklar: [
+    "Coklu-bulut ortam yonetimi (AWS, Azure, GCP)",
+    "Sifir-kesinti dagitimlar",
+    "Guvenlik taramasi ve uyumluluk",
+    "Geri alma stratejileri",
+    "Izleme ve uyari entegrasyonu",
+    "Gizli bilgi yonetimi",
+    "Maliyet optimizasyonu",
+    "Coklu-takim koordinasyonu"
+  ],
+  teknoloji_yigini: {
+    konteyner_orkestrasyon: ["Kubernetes", "Docker", "Helm"],
+    ci_cd: ["GitHub Actions", "GitLab CI", "Jenkins"],
+    bulut_saglayicilar: ["AWS (ECS, EKS, Lambda)", "Azure", "GCP"],
+    iac: ["Terraform", "CloudFormation", "Pulumi"],
+    izleme: ["Prometheus", "Grafana", "Datadog"],
+    guvenlik: ["Trivy", "Snyk", "OWASP ZAP"],
+    gizli_yonetim: ["HashiCorp Vault", "AWS Secrets Manager"]
+  },
+  mcp_sunuculari: [
+    "Claude Flow (ajan koordinasyonu)",
+    "GitHub entegrasyonu (CI/CD tetikleyiciler)",
+    "Ozel bulut MCP sunuculari"
+  ]
+} [ground:test-input] [conf:0.92] [state:confirmed]
+
+[assert|neutral] Faz 1 beklenen ciktilar := {
+  ciktilar: [
+    "Kapsamli alan analizi (2+ sayfa)",
+    "Kapsamli teknoloji yigini haritalamasi",
+    "Karmasik entegrasyon gereksinimleri",
+    "Birden fazla koordinasyon deseni"
+  ]
+} [ground:expected-output] [conf:0.92] [state:confirmed]
+
+[assert|neutral] Faz 1 dogrulama kontrolleri := {
+  kontroller: [
+    "8+ anahtar zorluk belirlendi",
+    "10+ arac/cerceve belgelendi",
+    "5+ entegrasyon noktasi tanimlandi",
+    "Coklu-ajan koordinasyon desenleri belirlendi"
+  ]
+} [ground:validation-gate] [conf:0.90] [state:confirmed]
+
+### Faz 2: Meta-Bilissel Cikarim (Meta-Cognitive Extraction)
+
+[assert|neutral] Faz 2 beklenen girisler := {
+  uzmanlik_alanlari: [
+    "Bulut altyapi mimarisi",
+    "Konteyner orkestrasyonu",
+    "CI/CD boru hatti tasarimi",
+    "Guvenlik ve uyumluluk",
+    "Izleme ve gozlemlenebilirlik",
+    "Olay mudahalesi",
+    "Maliyet optimizasyonu"
+  ],
+  karar_cerceceleri: [
+    "Dagitim yaparken her zaman once guvenlik taramasi calistir",
+    "Staging dogrulamasi olmadan asla dogrudan uretimde dagitma",
+    "Kritik hizmetler icin her zaman canary dagitim uygula",
+    "Geri alma gerektiginde, mukemmel temizlik yerine hiza oncelik ver",
+    "Her zaman uygulamadan once Terraform planlarini dogrula",
+    "Gizli bilgileri asla kodda veya CI/CD loglarinda saklama",
+    "Olceklendirirken once maliyet etkilerini dusun",
+    "Her zaman harici bagimliliklar icin devre kesiciler uygula",
+    "Olay oldugunda izleme ajani ile koordine ol",
+    "Dagitimdan sonra asla smoke testlerini atlama"
+  ],
+  kalite_standartlari: {
+    hedef_1: "Dagitimlardan sifir uretim olayi",
+    hedef_2: "<5 dakika geri alma suresi",
+    hedef_3: "99.9% dagitim basari orani",
+    hedef_4: "Tum guvenlik taramalari gecti",
+    hedef_5: "Maliyet varyansi <%10"
+  }
+} [ground:test-input] [conf:0.92] [state:confirmed]
+
+[assert|neutral] Faz 2 beklenen ciktilar := {
+  ciktilar: [
+    "Ayrintili ajan spesifikasyonu (3+ sayfa)",
+    "Alan basina birden fazla iyi/kotu ornek",
+    "Kapsamli kenar durumlar (ag hatalari, kismi dagitimlar, vb.)",
+    "Hata modu katalogu (10+ senaryo)"
+  ]
+} [ground:expected-output] [conf:0.92] [state:confirmed]
+
+[assert|neutral] Faz 2 dogrulama kontrolleri := {
+  kontroller: [
+    "5+ uzmanlik alani belirlendi",
+    "10+ karar bulussal kurali belgelendi",
+    "Ornekler birden fazla alani kapsiyor",
+    "10+ hata modu belgelendi"
+  ]
+} [ground:validation-gate] [conf:0.90] [state:confirmed]
+
+### Faz 3: Ajan Mimari Tasarimi (Agent Architecture Design)
+
+[assert|neutral] Faz 3 beklenen ciktilar := {
+  temel_prompt_icerik: {
+    cekirdek_kimlik: "Tum 5 alani kapsiyor",
+    evrensel_komutlar: "DevOps-ozel kullanim desenleri",
+    uzman_komutlari: [
+      "/deploy-canary",
+      "/rollback-deployment",
+      "/run-security-scan",
+      "/validate-terraform",
+      "/scale-service",
+      "/create-monitoring",
+      "/trigger-pipeline",
+      "/rotate-secrets",
+      "/cost-analysis",
+      "/incident-response",
+      "/validate-helm-chart",
+      "/test-smoke",
+      "/backup-state",
+      "/audit-compliance",
+      "/optimize-resources"
+    ],
+    mcp_entegrasyonlari: [
+      "Claude Flow (koordinasyon)",
+      "GitHub (CI/CD)",
+      "AWS MCP (bulut islemleri)",
+      "Terraform MCP (IaC)",
+      "Monitoring MCP (gozlemlenebilirlik)"
+    ],
+    bilissel_cerceve: {
+      oz_tutarlilik: "Guvenlik, maliyet, performans genelinde dogrulama",
+      dusunce_programi: "Dagitim orkestrasyonu ayristirma",
+      planla_ve_coz: "Cok-asamali dagitim is akisi"
+    },
+    koruma_raylari: "10+ alan genelinde",
+    is_akisi_ornekleri: [
+      "Standart dagitim is akisi",
+      "Acil geri alma is akisi",
+      "Guvenlik olayi mudahalesi",
+      "Cok-bolge dagitimi",
+      "Maliyet optimizasyon denetimi"
+    ]
+  }
+} [ground:expected-output] [conf:0.92] [state:confirmed]
+
+[assert|neutral] Faz 3 dogrulama kontrolleri := {
+  kontroller: [
+    "Temel prompt 500 satiri asiyor",
+    "Tum 5 alan temsil ediliyor",
+    "15+ uzman komut tanimlandi",
+    "5+ MCP araci entegre edildi",
+    "5+ tam is akisi ornegi"
+  ]
+} [ground:validation-gate] [conf:0.90] [state:confirmed]
+
+### Faz 4: Teknik Gelistirme (Technical Enhancement)
+
+[assert|neutral] Faz 4 beklenen ciktilar := {
+  gelistirilmis_prompt_v2: [
+    "Tam Kubernetes manifest desenleri",
+    "Terraform modul yapilari",
+    "AWS CDK kod ornekleri",
+    "Guvenlik tarama yapilandirmalari",
+    "Izleme sorgu sablonlari",
+    "Geri alma otomasyon betikleri",
+    "Maliyet optimizasyon stratejileri",
+    "Olay mudahale oyun kitaplari"
+  ]
+} [ground:expected-output] [conf:0.92] [state:confirmed]
+
+[assert|neutral] Faz 4 dogrulama kontrolleri := {
+  kontroller: [
+    "20+ kod deseni cikarildi",
+    "10+ tespit kodlu hata modu",
+    "Tam sozdizimi ile MCP entegrasyonu",
+    "Performans metrikleri cercevesi"
+  ]
+} [ground:validation-gate] [conf:0.90] [state:confirmed]
+
+---
+
+## Test Yurutme (Test Execution)
+[[HON:teineigo]] [[EVD:-mis]] [[ASP:pf]] [[CLS:ge-abstract]]
+
+### Kurulum
+
+[assert|neutral] Test kurulum komutu := {
+  komut: "python 4_phase_sop.py --agent-name devops-orchestrator --mode interactive",
+  calisma_dizini: "C:\\Users\\17175\\claude-code-plugins\\ruv-sparc-three-loop-system\\skills\\agent-creator\\resources\\scripts"
+} [ground:test-setup] [conf:0.90] [state:confirmed]
+
+### Faz-Faz Yurutme
+
+[direct|neutral] Yurutme talimat := {
+  islem: "Tum 3 fazi kapsamli girislerle interaktif olarak calistir"
+} [ground:test-step] [conf:0.88] [state:confirmed]
+
+### Dogrulama
+
+[assert|neutral] Dogrulama komutu := {
+  komut: "bash ../scripts/validate_prompt.sh agent-outputs/devops-orchestrator/devops-orchestrator-base-prompt-v1.md -v",
+  beklenen: "Skor >= 85% (karmasik ajanlar icin daha yuksek cubuk)"
+} [ground:validation-step] [conf:0.90] [state:confirmed]
+
+### Kapsamli Test
+
+[assert|neutral] Kapsamli test komutu := {
+  komut: "python ../scripts/test_agent.py --agent devops-orchestrator --test-suite comprehensive",
+  beklenen: "90%+ testler gecti"
+} [ground:test-step] [conf:0.90] [state:confirmed]
+
+---
+
+## Basari Kriterleri (Success Criteria)
+[[HON:teineigo]] [[EVD:-mis]] [[ASP:pf]] [[CLS:ge-abstract]]
+
+[assert|neutral] Basari kontrol listesi := {
+  kriterler: [
+    "Tum 3 faz karmasik girislerle tamamlandi",
+    "Faz 1 8+ zorluk belirledi",
+    "Faz 2 5+ alan, 10+ bulussal kural belgeledi",
+    "Faz 3 kapsamli prompt olustodu (500+ satir)",
+    "Sistem prompti 15+ uzman komut iceriyor",
+    "5+ tam is akisi ornegi",
+    "Dogrulama skoru >= 85%",
+    "Kapsamli test paketi >= 90% gecti",
+    "Ajan cok-alan koordinasyonunu isliyor",
+    "Kanit-tabanli desenler tum alanlara uygulandi"
+  ]
+} [ground:acceptance-criteria] [conf:0.92] [state:confirmed]
+
+---
+
+## Beklenen Sure (Expected Duration)
+[[HON:teineigo]] [[EVD:-mis]] [[ASP:pf]] [[CLS:ge-abstract]]
+
+[assert|neutral] Sure tahmini := {
+  faz_1: "45-60 dakika (karmasik alan analizi)",
+  faz_2: "40-50 dakika (kapsamli uzmanlik cikarimi)",
+  faz_3: "50-70 dakika (kapsamli prompt tasarimi)",
+  toplam: "2.25-3 saat"
+} [ground:time-estimate] [conf:0.85] [state:confirmed]
+
+---
+
+## Notlar (Notes)
+[[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]]
+
+[assert|neutral] Test notu := {
+  aciklama: "Bu test, 4-faz SOP'nin uretim-sinifi ajanlar icin olceklendikini dogrular",
+  kapsam: [
+    "Birden fazla etkilesen alan",
+    "Karmasik karar verme",
+    "Kapsamli arac entegrasyonu",
+    "Sofistike is akislari",
+    "Uretim-seviyesi kalite gereksinimleri"
+  ],
+  basari_anlami: "SOP'nin kurumsal duzeyde ajan olusturma yetenegi"
+} [ground:test-documentation] [conf:0.88] [state:confirmed]
+
+---
+
+<promise>TEST_2_COMPLEX_AGENT_VCL_V3.1.1_VERIX_COMPLIANT</promise>

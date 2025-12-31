@@ -295,6 +295,47 @@ When creating hooks, ensure:
 } [ground:inferred:best-practices] [conf:0.70] [state:confirmed]
 
 ---
+<!-- S4.5 TEMEL ILKELER (Core Principles) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_principle]] -->
+---
+
+## Temel Ilkeler Cercevesi (Core Principles Frame)
+Ilkeler dogrudan gozleme dayanir. Kaynak: registry-failures, anthropic-sdk.
+
+<!-- [[MOR:root:R-G-S]] Registry = root morpheme for validation-gate-system -->
+<!-- [[COM:Registry+First+Creation]] German compound: Registrierungsprioritaetserstellung -->
+[define|neutral] PRINCIPLE_REGISTRY_FIRST := {
+  id: "P1",
+  kural_adi: "Kayit-Oncelikli Ajan Olusturma", // Turkish: Registry-First Agent Creation
+  regel: "forall(agent): agent IN AGENT_REGISTRY VOR deploy(agent)", // German VOR = before
+  pravilo: "forall(agent): agent IN AGENT_REGISTRY PERED deploy(agent)", // Russian PERED = before
+  qiyue: "yi_ge_agent BIXU zai AGENT_REGISTRY zhong", // Chinese: one agent MUST be in registry
+  rationale: "Unregistered agents bypass quality control, fail Task() spawning",
+  enforcement: "validation_gate"
+} [ground:witnessed:registry-failures] [conf:0.90] [state:confirmed]
+
+<!-- [[MOR:root:A-N-T]] Anthropic = root morpheme for format-standard -->
+<!-- [[COM:Anthropic+Format+Uyumluluk]] Turkish+German compound -->
+[define|neutral] PRINCIPLE_ANTHROPIC_FORMAT := {
+  id: "P2",
+  kural_adi: "Anthropic Format Uyumlulugu", // Turkish: Anthropic Format Compliance
+  regel: "forall(agent.frontmatter): folgt(ANTHROPIC_YAML_SPEC)", // German folgt = follows
+  x_prefix_kural: "Ozel alanlar x- onekini kullanir", // Turkish: Custom fields use x- prefix
+  rationale: "Custom x- prefix prevents collision with future official fields",
+  enforcement: "schema_validation"
+} [ground:witnessed:anthropic-sdk-spec] [conf:0.90] [state:confirmed]
+
+<!-- [[MOR:root:V-C-L]] VCL = root morpheme for cognitive-linguistic-layer -->
+<!-- [[COM:VCL+7Slot+Belgeleme]] Turkish compound: documentation -->
+[define|neutral] PRINCIPLE_VCL_7SLOT := {
+  id: "P3",
+  kural_adi: "VCL 7-Slot Belgeleme", // Turkish: VCL 7-Slot Documentation
+  pravilo: "vse_7_slotov: HON, MOR, COM, CLS, EVD, ASP, SPC", // Russian: all 7 slots
+  slot_sirasi: "HON -> MOR -> COM -> CLS -> EVD -> ASP -> SPC", // Turkish: slot order
+  rationale: "Cognitive completeness enables cross-cultural reasoning support",
+  enforcement: "vcl_validator"
+} [ground:vcl-v3.1.1-spec] [conf:0.90] [state:confirmed]
+
+---
 <!-- S5 MCP INTEGRATION [[EVD:-DI<gozlem>]] [[ASP:nesov.]] -->
 ---
 
@@ -319,6 +360,57 @@ When creating hooks, ensure:
   PROJECT: "{project_name}",
   WHY: "skill-execution"
 } [ground:system-policy] [conf:0.90] [state:confirmed]
+
+---
+<!-- S6.5 ANTI-KALIPLAR (Anti-Patterns) [[HON:sonkeigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_antipattern]] -->
+---
+
+## Kacininilmasi Gereken Kaliplar (Patterns to Avoid)
+Bu bolumdeki hatalar dogrudan gozlemlenmistir. Kaynak: production-incidents.
+
+<!-- [[MOR:root:K-Y-T]] Kayit = root morpheme for registration -->
+<!-- [[COM:Kayitsiz+Ajan+Olusturma]] Turkish compound: Unregistered Agent Creation -->
+[assert|emphatic] ANTI_PATTERN_UNREGISTERED := {
+  id: "AP1",
+  hata_adi: "Kayitsiz Ajan Olusturma", // Turkish: Unregistered Agent Spawning
+  belirti: "Task() basarisiz VEYA ajan beklenmedik davranir", // Turkish: symptom
+  yanlis: "Task('yeni-ajan', 'yap X', 'ozel') // kayitli degil", // Turkish: wrong
+  dogru: "Task('code-reviewer', 'yap X', 'quality') // kayitli", // Turkish: correct
+  onleme: "Task() cagirmadan ONCE registry dogrulama yap" // Turkish: prevention
+} [ground:witnessed:spawn-failures] [conf:0.85] [state:confirmed]
+
+<!-- [[MOR:root:V-R-X]] VERIX = root morpheme for epistemic-notation -->
+<!-- [[COM:VERIX+Aciklama+Hatasi]] Turkish compound: VERIX Description Error -->
+[assert|emphatic] ANTI_PATTERN_VERIX_IN_DESC := {
+  id: "AP2",
+  hata_adi: "Aciklamada VERIX Kullanimi", // Turkish: VERIX in Description
+  belirti: "YAML ayristirma hatalari, okunmaz ajan listeleri",
+  yanlis: "description: [assert|neutral] Ajan icin X [ground:given]",
+  dogru: "description: Ajan icin X\nx-verix-description: [assert|neutral]...",
+  onleme: "VERIX YALNIZCA x-verix-description alaninda"
+} [ground:witnessed:yaml-parse-errors] [conf:0.85] [state:confirmed]
+
+<!-- [[MOR:root:T-V-N]] Tavan = root morpheme for ceiling -->
+<!-- [[COM:Guven+Tavani+Ihlali]] Turkish compound: Confidence Ceiling Violation -->
+[assert|emphatic] ANTI_PATTERN_CEILING_VIOLATION := {
+  id: "AP3",
+  hata_adi: "Guven Tavani Ihlali", // Turkish: Confidence Ceiling Violation
+  belirti: "Epistemik taklitcilik - kanittan fazla kesinlik iddiasi",
+  yanlis: "[ground:inferred] [conf:0.95] // cikarim tavani 0.70",
+  dogru: "[ground:inferred] [conf:0.70] // tavana uygun",
+  tavanlar: { cikarim: 0.70, rapor: 0.70, arastirma: 0.85, politika: 0.90, tanimlama: 0.95, gozlem: 0.95 }
+} [ground:vcl-v3.1.1-spec] [conf:0.90] [state:confirmed]
+
+<!-- [[MOR:root:S-L-T]] Slot = root morpheme for cognitive-frame -->
+<!-- [[COM:Eksik+VCL+Slotlari]] Turkish compound: Missing VCL Slots -->
+[assert|emphatic] ANTI_PATTERN_MISSING_SLOTS := {
+  id: "AP4",
+  hata_adi: "Eksik VCL Slotlari", // Turkish: Missing VCL Slots
+  belirti: "Eksik bilissel mimari, azalmis kulturler-arasi muhakeme",
+  yanlis: "Yalnizca EVD ve ASP (degismez slotlar) belgele",
+  dogru: "Tum 7 slot belgele: HON, MOR, COM, CLS, EVD, ASP, SPC",
+  onleme: "Her ajan tanimi icin VCL_CHECKLIST sablonu kullan"
+} [ground:vcl-v3.1.1-spec] [conf:0.90] [state:confirmed]
 
 ---
 <!-- S7 SKILL COMPLETION VERIFICATION [[EVD:-DI<politika>]] [[ASP:sov.]] -->
@@ -363,6 +455,37 @@ When creating hooks, ensure:
   ASP_present: "[[ASP:nesov.]] Russian aspectual markers active",
   SPC_present: "[[SPC:path:/foundry/agent-creator]] Guugu Yimithirr spatial reference active"
 } [ground:witnessed:self-check] [conf:0.85] [state:confirmed]
+
+---
+<!-- S10 SONUC (Conclusion) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[SPC:path:/foundry/agent-creator/sonuc]] -->
+---
+
+## Beceri Ozeti Cercevesi (Skill Summary Frame)
+Zaversheno. Etot navyk byl uspeshno realizovan. (Russian: Complete. This skill was successfully implemented.)
+
+<!-- [[MOR:root:A-J-N]] Ajan = root morpheme for autonomous-entity -->
+<!-- [[COM:Ajan+Olusturucu+Ozet]] Turkish compound: Agent Creator Summary -->
+[assert|confident] BECERI_OZETI := {
+  amac: "Sistematik uretim-sinifi ajan olusturma", // Turkish: purpose
+  metodoloji: "5-asamali SOP, VCL 7-slot bilissel uyumluluk", // Turkish: methodology
+  ciktilar: ["Ajan tanim YAML", "Sistem istemi v2.0", "Kayit defteri girisi"], // Turkish: outputs
+  kalite_kapilari: ["Anthropic format dogrulama", "Kayit uyumu", "VCL 7-slot kontrol"] // Turkish: quality gates
+} [ground:witnessed:skill-execution] [conf:0.85] [state:confirmed]
+
+<!-- [[SPC:upstream:/foundry/prompt-architect]] [[SPC:downstream:Task()]] -->
+[assert|confident] ENTEGRASYON_NOKTALARI := {
+  yukari_akis: "prompt-architect (istem optimizasyonu)", // Turkish: upstream
+  asagi_akis: "Task() olusturma, ruv-swarm orkestrasyon", // Turkish: downstream
+  kalicilik: "memory-mcp ad alani agents/foundry/agent-creator/{proje}", // Turkish: persistence
+  koordinasyon: "paylasilan bellek ad alani uzerinden esler arasi" // Turkish: coordination
+} [ground:witnessed:architecture-design] [conf:0.85] [state:confirmed]
+
+<!-- [[ASP:sov.]] Zaversheno - complete commitment -->
+[commit|confident] BECERI_SOZU := {
+  garanti: "Uretilen her ajan kayit-dogrulanmis ve kanit-temelli", // Turkish: guarantee
+  kalite_cubugu: "registry_compliance=100%, vcl_compliance>=0.90",
+  bakim: "Dogfooding dongusu ile surekli iyilestirme" // Turkish: maintenance
+} [ground:self-validation] [conf:0.85] [state:confirmed]
 
 ---
 <!-- PROMISE [[EVD:-DI<tanim>]] [[ASP:sov.]] -->

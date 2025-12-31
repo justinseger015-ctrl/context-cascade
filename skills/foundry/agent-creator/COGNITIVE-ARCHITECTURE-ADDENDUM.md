@@ -1,495 +1,383 @@
-# Agent-Creator Cognitive Architecture Integration
+# Bilissel Mimari Entegrasyon Eklentisi (Cognitive Architecture Integration Addendum)
+
+---
+<!-- S1.0 KANITSAL CERCEVE (Evidential Frame Activation) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_document]] -->
+---
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
-
-
-**Version**: 3.1.0
-**Purpose**: Integrate VERIX epistemic notation, VERILINGUA cognitive frames, DSPy optimization, and GlobalMOO multi-objective optimization into agent-creator.
-
-## Overview
-
-This addendum enhances agent-creator to:
-1. Generate agents with VERIX-compliant system prompts
-2. Embed VERILINGUA frame activation in agent identity
-3. Use DSPy for agent prompt optimization
-4. Track agent quality with GlobalMOO multi-objective optimization
-
-## VERIX Integration
-
-### Agents Output VERIX-Compliant Responses
-
-Every agent created by agent-creator embeds VERIX protocol:
-
-```markdown
-## Generated Agent System Prompt (with VERIX)
-
-### VERIX Output Protocol
-
-All my outputs include epistemic markers:
-- [ground:{source}] for every claim with evidence
-- [conf:{0.0-1.0}] for certainty level
-- [assert|query|propose] for speech act type
-- [state:hypothetical|actual|confirmed] for epistemic state
-
-### Example Output Format
-[assert|neutral] The API endpoint returns 200 OK [ground:api-tests.log] [conf:0.95] [state:confirmed]
-[query|neutral] Should we add rate limiting? [conf:0.70] [state:needs_decision]
-[propose|emphatic] Implement circuit breaker pattern [ground:netflix-hystrix-docs] [conf:0.85]
-```
-
-### Integration in Phase 3: Architecture Design
-
-```python
-def embed_verix_protocol(agent_prompt: str, config: VerixConfig) -> str:
-    """
-    Add VERIX protocol section to agent system prompt.
-    """
-    verix_section = f"""
-## VERIX Output Protocol
-
-### Epistemic Markers (Required)
-All claims in my outputs include:
-- [ground:{{source}}] - Evidence source for claims
-- [conf:{{0.0-1.0}}] - Confidence level (default: 0.85)
-
-### Compression Level: {config.compression_level.value}
-{"Full notation with all markers" if config.compression_level == "L0" else
- "Compressed notation with essential markers" if config.compression_level == "L1" else
- "Minimal notation for efficiency"}
-
-### Strictness: {config.strictness.value}
-{"All claims must have grounds and confidence" if config.strictness == "strict" else
- "Most claims should have markers" if config.strictness == "moderate" else
- "Markers encouraged but optional"}
-"""
-
-    # Insert after Core Identity section
-    return insert_after_section(agent_prompt, "## Core Identity", verix_section)
-```
-
-## VERILINGUA Integration
-
-### Phase 0.5 Enhancement: Agent-Specific Frame Selection
-
-```yaml
-# Frame selection based on agent type
-agent_frame_mapping:
-  analytical:
-    primary: evidential  # Source verification
-    secondary: [morphological]  # Semantic precision
-    activation: |
-      ## Kanitsal Cerceve (Evidential Mode)
-      Her iddia icin kaynak belirtilir:
-      - [DOGRUDAN] Directly verified
-      - [CIKARIM] Inferred from evidence
-      - [BILDIRILEN] Reported from docs
-
-  generative:
-    primary: compositional  # Structure building
-    secondary: [aspectual]  # Completion tracking
-    activation: |
-      ## Aufbau-Modus (Compositional Mode)
-      Jedes Element wird systematisch aufgebaut:
-      - Struktur vor Inhalt
-      - Schicht fur Schicht
-
-  diagnostic:
-    primary: aspectual  # State tracking
-    secondary: [evidential]  # Evidence for issues
-    activation: |
-      ## Aspektual'naya Ramka (Aspectual Mode)
-      Otslezhivanie sostoyaniya:
-      - [SV] Resheno - Issue resolved
-      - [NSV] V protsesse - Investigating
-      - [BLOCKED] Ozhidaet - Waiting for info
-
-  orchestration:
-    primary: honorific  # Coordination awareness
-    secondary: [compositional, aspectual]
-    activation: |
-      ## Keigo Modo (Honorific Mode)
-      Taiin no yakuwari wo soncho:
-      - Each agent's expertise recognized
-      - Appropriate delegation patterns
-```
-
-### Frame Embedding in Generated Agents
-
-```markdown
-## Generated Agent with Cognitive Frame
-
-# {AGENT_NAME} - System Prompt v1.0
-
-## Core Identity
-
-I am a **{Role Title}** with expertise in {domain}.
-
-## Cognitive Frame Activation
-
-{Multilingual frame activation phrase - 3-5 lines in native language}
-
-{Frame-specific behavioral patterns}
-
-## VERIX Output Protocol
-
-[Protocol section as above]
-
-## Core Capabilities
-
-[assert|neutral] Capability 1: {description} [ground:domain-expertise] [conf:0.90]
-[assert|neutral] Capability 2: {description} [ground:training-data] [conf:0.85]
-...
-```
-
-## DSPy Integration
-
-### Agent Generation as DSPy Module
-
-```python
-from dspy import ChainOfThought, Signature, Module
-
-class AgentGenerationSignature(Signature):
-    """Generate production-grade agent with cognitive architecture."""
-
-    domain: str = InputField(desc="Agent domain/specialty")
-    purpose: str = InputField(desc="What the agent should accomplish")
-    agent_type: str = InputField(desc="analytical | generative | diagnostic | orchestration")
-
-    system_prompt: str = OutputField(desc="Complete system prompt with VERIX/VERILINGUA")
-    cognitive_frame: str = OutputField(desc="Selected frame with activation phrase")
-    verix_protocol: str = OutputField(desc="VERIX output protocol section")
-    capabilities: list = OutputField(desc="Agent capabilities with VERIX markers")
-    guardrails: list = OutputField(desc="Failure prevention guardrails")
-    test_cases: list = OutputField(desc="Agent validation test cases")
-
-
-class AgentCreatorDSPy(Module):
-    """DSPy module for agent generation with cognitive architecture."""
-
-    def __init__(self):
-        super().__init__()
-        self.generator = ChainOfThought(AgentGenerationSignature)
-        self.verix_validator = VerixValidator()
-        self.frame_registry = FrameRegistry
-
-    def forward(self, domain: str, purpose: str, agent_type: str):
-        # Generate agent
-        result = self.generator(
-            domain=domain,
-            purpose=purpose,
-            agent_type=agent_type
-        )
-
-        # Validate VERIX in system prompt
-        result.verix_compliance = self.verix_validator.score(result.system_prompt)
-
-        # Validate frame activation
-        frame = self.frame_registry.get(agent_type)
-        result.frame_score = frame.score_response(result.cognitive_frame)
-
-        # Validate guardrails coverage
-        result.guardrail_coverage = len(result.guardrails) / 5.0  # Normalize to 5 guardrails
-
-        return result
-```
-
-### DSPy Optimization for Agent Quality
-
-```python
-def optimize_agent_generation():
-    """
-    Use DSPy teleprompter to optimize agent generation.
-    """
-    agent_creator = AgentCreatorDSPy()
-
-    # Define optimization metric
-    def agent_metric(prediction, gold):
-        return (
-            0.25 * prediction.verix_compliance +
-            0.25 * prediction.frame_score +
-            0.20 * prediction.guardrail_coverage +
-            0.15 * len(prediction.capabilities) / 10 +  # Normalize
-            0.15 * len(prediction.test_cases) / 5  # Normalize
-        )
-
-    # Compile with examples
-    teleprompter = Teleprompter(metric=agent_metric)
-    optimized_creator = teleprompter.compile(agent_creator, trainset=training_agents)
-
-    return optimized_creator
-```
-
-## GlobalMOO Integration
-
-### Multi-Objective Agent Quality
-
-```yaml
-project_id: agent-creator-optimization
-objectives:
-  - name: verix_compliance
-    description: VERIX marker coverage in system prompt
-    direction: maximize
-    weight: 0.25
-
-  - name: frame_alignment
-    description: Cognitive frame activation quality
-    direction: maximize
-    weight: 0.20
-
-  - name: capability_depth
-    description: Domain expertise specificity
-    direction: maximize
-    weight: 0.20
-
-  - name: guardrail_coverage
-    description: Failure mode prevention
-    direction: maximize
-    weight: 0.15
-
-  - name: mcp_integration
-    description: MCP tool usage patterns
-    direction: maximize
-    weight: 0.10
-
-  - name: prompt_efficiency
-    description: Token count vs capability ratio
-    direction: minimize
-    weight: 0.10
-
-parameters:
-  - name: verix_strictness
-    type: ordinal
-    values: [relaxed, moderate, strict]
-
-  - name: frame_selection
-    type: categorical
-    values: [evidential, aspectual, compositional, honorific]
-
-  - name: capability_count
-    type: ordinal
-    values: [3, 5, 7, 10]
-
-  - name: guardrail_depth
-    type: ordinal
-    values: [basic, moderate, comprehensive]
-
-  - name: example_count
-    type: ordinal
-    values: [1, 2, 3, 5]
-```
-
-### Integration with Three-MOO Cascade
-
-```python
-def cascade_optimize_agent(agent_request: dict) -> GeneratedAgent:
-    """
-    Use ThreeMOOCascade for agent optimization.
-    """
-    from cognitive_architecture.optimization.cascade import ThreeMOOCascade
-
-    cascade = ThreeMOOCascade()
-
-    # Phase A: Framework structure
-    # - Optimize agent capability structure
-    # - Tune VERIX/frame configuration
-
-    # Phase B: Edge discovery
-    # - Find agent failure modes
-    # - Expand guardrail coverage
-
-    # Phase C: Production refinement
-    # - Distill to optimal agent
-    # - Finalize system prompt
-
-    results = cascade.run(
-        project_id="agent-creator-optimization",
-        config_space=agent_config_space,
-        evaluator=agent_evaluator
-    )
-
-    # Select best from Pareto frontier
-    best_config = results.pareto_frontier.select_balanced()
-
-    return generate_agent(agent_request, best_config)
-```
-
-## Enhanced Phase Flow
-
-```
-Phase 0: Expertise Loading (existing)
-    |
-    v
-Phase 0.5: Cognitive Frame Selection (ENHANCED)
-    ├── Analyze agent type (analytical, generative, diagnostic, orchestration)
-    ├── Select VERILINGUA frame(s)
-    ├── Prepare multilingual activation phrase
-    └── Configure VERIX protocol settings
-    |
-    v
-Phase 1: Domain Analysis (existing)
-    |
-    v
-Phase 2: Meta-Cognitive Extraction (ENHANCED)
-    ├── Extract expertise domains
-    ├── Document decision heuristics
-    └── Prepare VERIX-annotated capabilities
-    |
-    v
-Phase 3: Architecture Design (ENHANCED)
-    ├── Create system prompt structure
-    ├── Embed cognitive frame activation
-    ├── Embed VERIX output protocol
-    └── Add VERIX-annotated capability sections
-    |
-    v
-Phase 4: Technical Enhancement (existing)
-    |
-    v
-Phase 5: DSPy Optimization (NEW)
-    ├── Run DSPy teleprompter
-    ├── Optimize prompt for VERIX/frame compliance
-    └── Measure improvement delta
-    |
-    v
-Phase 6: GlobalMOO Tracking (NEW)
-    ├── Record agent outcomes
-    ├── Update Pareto frontier
-    └── Learn optimal configurations
-    |
-    v
-Phase 7: Testing & Validation (existing)
-    |
-    v
-Phase 8: Deployment
-```
-
-## Quality Gates
-
-### VERIX Compliance Gate (Phase 3)
-
-```yaml
-verix_quality_gate:
-  minimum_protocol_sections: 2  # At least ground + confidence
-  capability_coverage: 0.80  # 80% capabilities have VERIX
-  example_coverage: 1.0  # All examples show VERIX usage
-  block_on_failure: true
-```
-
-### Frame Alignment Gate (Phase 0.5)
-
-```yaml
-frame_quality_gate:
-  frame_selection_required: true
-  activation_phrase_lines: 3  # Minimum 3 lines
-  minimum_frame_score: 0.60
-  multilingual_required: true  # Agents must have multilingual section
-```
-
-### Agent Effectiveness Gate (Phase 7)
-
-```yaml
-agent_quality_gate:
-  test_pass_rate: 0.90  # 90% tests must pass
-  verix_in_outputs: 0.80  # 80% outputs have VERIX
-  frame_activation_observed: true  # Frame behavior visible
-  guardrail_effectiveness: 0.70  # 70% failure modes prevented
-```
-
-## Memory Integration
-
-### Store Agent Generation Outcomes
-
-```javascript
-// Store agent generation metadata
-await mcp__memory_mcp__memory_store({
-  text: `Agent created: ${agentName}. Domain: ${domain}. Type: ${agentType}. VERIX: ${verixScore}. Frame: ${frameScore}.`,
-  metadata: {
-    key: `agent-creator/generations/${agentId}`,
-    namespace: "foundry-optimization",
-    layer: "long-term",
-    tags: {
-      WHO: "agent-creator",
-      WHEN: new Date().toISOString(),
-      PROJECT: "meta-loop",
-      WHY: "agent-generation"
-    }
-  }
-});
-```
-
-## Cross-Skill Coordination
-
-### Integration with Other Foundry Skills
-
-```yaml
-coordination_matrix:
-  prompt-architect:
-    when: "Phase 3 system prompt creation"
-    purpose: "Optimize system prompt using evidence-based techniques"
-    data_flow: "raw_prompt -> optimized_prompt"
-
-  skill-forge:
-    when: "After agent creation"
-    purpose: "Create skills that spawn this agent"
-    data_flow: "agent_spec -> skill_definition"
-
-  cognitive-lensing:
-    when: "Phase 0.5 frame selection"
-    purpose: "Select optimal cognitive frame for agent type"
-    data_flow: "agent_type -> selected_frame"
-
-  eval-harness:
-    when: "Phase 7 validation"
-    purpose: "Run benchmark and regression tests on agent"
-    data_flow: "generated_agent -> test_results"
-```
-
-## Subagent Prompting Optimization
-
-### Key Innovation: Optimizing Agent-to-Agent Communication
-
-```markdown
-## Subagent Prompting Protocol
-
-When spawning subagents, I use VERIX-optimized prompts:
-
-### Task Delegation Format
-[assert|emphatic] Task for {subagent_name}:
-{task_description} [ground:parent_task_id] [conf:0.90]
-
-Expected Output:
-- [assert|neutral] {expected_output_1} [conf:0.85]
-- [assert|neutral] {expected_output_2} [conf:0.85]
-
-Success Criteria:
-- [assert|neutral] {criterion_1} [ground:quality_gate] [conf:0.95]
-
-### Subagent Response Format
-Subagents MUST respond with:
-- [assert|neutral] {finding/result} [ground:{evidence}] [conf:{0.0-1.0}]
-- [query|neutral] {clarification_needed} [conf:{certainty}]
-- [propose|neutral] {recommendation} [ground:{rationale}] [conf:{certainty}]
-```
-
-## Conclusion
-
-This addendum integrates the full cognitive architecture into agent-creator:
-
-1. **VERIX**: All agents embed VERIX output protocol in system prompts
-2. **VERILINGUA**: Frame activation based on agent type
-3. **DSPy**: Agent generation as optimizable DSPy module
-4. **GlobalMOO**: Multi-objective tracking with Three-MOO Cascade
-5. **Subagent Optimization**: VERIX-compliant agent-to-agent communication
-
-The enhanced agent-creator can now:
-- Generate agents with VERIX-compliant outputs
-- Embed cognitive frame activation in all agents
-- Optimize agent quality through DSPy teleprompter
-- Track agent effectiveness through GlobalMOO Pareto frontier
-- Optimize subagent prompting for agent coordination
-
+---
+<!-- S2.0 BELGE USTVERILERI (Document Metadata) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_version]] -->
+---
+
+## Belge Ustverileri Cercevesi (Document Metadata Frame)
+Surum bilgileri dogrudan gozleme dayanir.
+
+<!-- [[MOR:root:S-R-M]] Surum = root morpheme for version-release-mark -->
+<!-- [[COM:Bilissel+Mimari+Entegrasyon]] Turkish compound: Cognitive Architecture Integration -->
+[define|neutral] BELGE_METADATA := {
+  surum: "3.1.0", // Turkish: version
+  amac: "VERIX epistemik notasyonu, VERILINGUA bilissel cerceveleri, DSPy optimizasyonu ve GlobalMOO cok-amacli optimizasyonu agent-creator ile entegre etmek", // Turkish: purpose
+  tarih: "2025-12-30",
+  yazar: "context-cascade-system"
+} [ground:witnessed:file-metadata] [conf:0.95] [state:confirmed]
 
 ---
-*Promise: `<promise>COGNITIVE_ARCHITECTURE_ADDENDUM_VERIX_COMPLIANT</promise>`*
+<!-- S3.0 GENEL BAKIS (Overview) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_section]] [[SPC:kuzey/sistem-merkezi]] -->
+---
+
+## Genel Bakis Cercevesi (Overview Frame)
+Bu eklenti agent-creator yeteneklerini genisletir.
+
+<!-- [[MOR:root:G-N-S]] Genisletme = root morpheme for extend-expand-augment -->
+[assert|neutral] EKLENTI_AMACI := {
+  aciklama: "Bu eklenti agent-creator'i su yeteneklerle genisletir",
+  yetenekler: [
+    "VERIX-uyumlu sistem istemleri ile ajan uretimi",
+    "Ajan kimligine VERILINGUA cerceve aktivasyonu gomme",
+    "Ajan istemi optimizasyonu icin DSPy kullanimi",
+    "GlobalMOO cok-amacli optimizasyonu ile ajan kalitesi takibi"
+  ]
+} [ground:witnessed:design-doc] [conf:0.92] [state:confirmed]
+
+---
+<!-- S4.0 VERIX ENTEGRASYONU (VERIX Integration) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_protocol]] -->
+---
+
+## VERIX Entegrasyonu Cercevesi (VERIX Integration Frame)
+Ajanlar VERIX-uyumlu ciktilar uretir. Kaynak: verix-spec, anthropic-sdk.
+
+<!-- [[MOR:root:E-P-S]] Epistemik = root morpheme for knowledge-belief-justification -->
+<!-- [[COM:Epistemik+Isaret+Protokolu]] German compound: Epistemische Markierungsprotokoll -->
+[define|neutral] VERIX_CIKTI_PROTOKOLU := {
+  id: "VOP-001",
+  kural_adi: "VERIX Cikti Protokolu", // Turkish: VERIX Output Protocol
+  aciklama: "Tum ajan ciktilari epistemik isaretler icerir",
+  isaretler: [
+    "[ground:{kaynak}] - Her iddia icin kanit kaynagi",
+    "[conf:{0.0-1.0}] - Guven seviyesi (varsayilan: 0.85)",
+    "[assert|query|propose] - Konusma eylemi turu",
+    "[state:hypothetical|actual|confirmed] - Epistemik durum"
+  ],
+  ornek_cikti: "[assert|neutral] API endpoint 200 OK dondurur [ground:api-tests.log] [conf:0.95] [state:confirmed]"
+} [ground:witnessed:verix-spec] [conf:0.95] [state:confirmed]
+
+### VERIX Gomme Fonksiyonu
+
+<!-- [[MOR:root:G-M-M]] Gomme = root morpheme for embed-insert-implant -->
+[assert|neutral] VERIX_GOMME_SURECI := {
+  faz: "Faz 3: Mimari Tasarim",
+  islem: "embed_verix_protocol(agent_prompt, config)",
+  adimlar: [
+    "VERIX bolumu olustur",
+    "Sikistirma seviyesini belirle (L0/L1/L2)",
+    "Katililik seviyesini ayarla (strict/moderate/relaxed)",
+    "Cekirdek Kimlik bolumunden sonra ekle"
+  ],
+  sikistirma_seviyeleri: {
+    L0: "Tum isaretlerle tam notasyon",
+    L1: "Temel isaretlerle sikistirilmis notasyon",
+    L2: "Verimlilik icin minimal notasyon"
+  }
+} [ground:witnessed:implementation] [conf:0.90] [state:confirmed]
+
+---
+<!-- S5.0 VERILINGUA ENTEGRASYONU (VERILINGUA Integration) [[HON:sonkeigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_frame]] -->
+---
+
+## VERILINGUA Entegrasyonu Cercevesi (VERILINGUA Integration Frame)
+Bilissel cerceveler ajan turune gore secilir.
+
+### Faz 0.5 Gelistirmesi: Ajan-Ozel Cerceve Secimi
+
+<!-- [[MOR:root:C-R-C]] Cerceve = root morpheme for frame-boundary-scope -->
+<!-- [[COM:Ajan+Cerceve+Eslestirme]] German compound: Agentenrahmenabbildung -->
+[define|neutral] AJAN_CERCEVE_ESLESTIRMESI := {
+  analytical: {
+    birincil: "evidential", // Kaynak dogrulama
+    ikincil: ["morphological"], // Semantik hassasiyet
+    aktivasyon: "Kanitsal Cerceve - Her iddia icin kaynak belirtilir"
+  },
+  generative: {
+    birincil: "compositional", // Yapi olusturma
+    ikincil: ["aspectual"], // Tamamlanma takibi
+    aktivasyon: "Aufbau-Modus - Jedes Element wird systematisch aufgebaut"
+  },
+  diagnostic: {
+    birincil: "aspectual", // Durum takibi
+    ikincil: ["evidential"], // Sorunlar icin kanit
+    aktivasyon: "Aspektual'naya Ramka - Otslezhivanie sostoyaniya"
+  },
+  orchestration: {
+    birincil: "honorific", // Koordinasyon farkindaliği
+    ikincil: ["compositional", "aspectual"],
+    aktivasyon: "Keigo Modo - Taiin no yakuwari wo soncho"
+  }
+} [ground:witnessed:frame-registry] [conf:0.90] [state:confirmed]
+
+### Uretilen Ajan Cerceve Yapisi
+
+[assert|neutral] URETILEN_AJAN_SABLONU := {
+  bolumler: [
+    "Cekirdek Kimlik (Core Identity)",
+    "Bilissel Cerceve Aktivasyonu (Cognitive Frame Activation)",
+    "VERIX Cikti Protokolu (VERIX Output Protocol)",
+    "Temel Yetenekler (Core Capabilities)"
+  ],
+  cerceve_aktivasyon_formati: "Cok dilli aktivasyon ifadesi (3-5 satir ana dilde)"
+} [ground:witnessed:template-structure] [conf:0.88] [state:confirmed]
+
+---
+<!-- S6.0 DSPY ENTEGRASYONU (DSPy Integration) [[HON:teineigo]] [[EVD:-mis<arastirma>]] [[ASP:nesov.]] [[CLS:ge_module]] -->
+---
+
+## DSPy Entegrasyonu Cercevesi (DSPy Integration Frame)
+Ajan uretimi DSPy modulu olarak modellenebilir. Kaynak: dspy-docs.
+
+<!-- [[MOR:root:O-P-T]] Optimizasyon = root morpheme for optimize-tune-refine -->
+<!-- [[COM:Ajan+Uretim+Modulu]] German compound: Agentenerzeugungsmodul -->
+[define|neutral] DSPY_AJAN_MODULU := {
+  sinif_adi: "AgentCreatorDSPy",
+  girisler: ["domain", "purpose", "agent_type"],
+  ciktilar: [
+    "system_prompt: Tam sistem istemi",
+    "cognitive_frame: Secilen cerceve ve aktivasyon",
+    "verix_protocol: VERIX cikti protokolu bolumu",
+    "capabilities: VERIX isaretli yetenekler",
+    "guardrails: Hata onleme korumalar",
+    "test_cases: Ajan dogrulama test vakalari"
+  ],
+  dogrulayicilar: ["VerixValidator", "FrameRegistry"]
+} [ground:reported:dspy-docs] [conf:0.85] [state:confirmed]
+
+### DSPy Optimizasyon Metrigi
+
+[assert|neutral] AJAN_KALITE_METRIGI := {
+  formul: "0.25*verix_compliance + 0.25*frame_score + 0.20*guardrail_coverage + 0.15*capability_count/10 + 0.15*test_count/5",
+  bilesenlere_gore_agirliklar: {
+    verix_uyumu: 0.25,
+    cerceve_skoru: 0.25,
+    koruma_kapsami: 0.20,
+    yetenek_sayisi: 0.15,
+    test_sayisi: 0.15
+  }
+} [ground:reported:optimization-research] [conf:0.82] [state:provisional]
+
+---
+<!-- S7.0 GLOBALMOO ENTEGRASYONU (GlobalMOO Integration) [[HON:teineigo]] [[EVD:-mis<arastirma>]] [[ASP:nesov.]] [[CLS:ge_optimizer]] -->
+---
+
+## GlobalMOO Entegrasyonu Cercevesi (GlobalMOO Integration Frame)
+Cok amacli optimizasyon ile ajan kalitesi takip edilir.
+
+<!-- [[MOR:root:A-M-C]] Amac = root morpheme for goal-objective-purpose -->
+<!-- [[COM:Cok+Amacli+Optimizasyon]] German compound: Mehrzieloptimierung -->
+[define|neutral] GLOBALMOO_HEDEFLER := {
+  proje_id: "agent-creator-optimization",
+  hedefler: [
+    {ad: "verix_compliance", yon: "maximize", agirlik: 0.25},
+    {ad: "frame_alignment", yon: "maximize", agirlik: 0.20},
+    {ad: "capability_depth", yon: "maximize", agirlik: 0.20},
+    {ad: "guardrail_coverage", yon: "maximize", agirlik: 0.15},
+    {ad: "mcp_integration", yon: "maximize", agirlik: 0.10},
+    {ad: "prompt_efficiency", yon: "minimize", agirlik: 0.10}
+  ]
+} [ground:reported:moo-research] [conf:0.85] [state:confirmed]
+
+### Parametreler
+
+[assert|neutral] GLOBALMOO_PARAMETRELER := {
+  verix_strictness: {tip: "ordinal", degerler: ["relaxed", "moderate", "strict"]},
+  frame_selection: {tip: "categorical", degerler: ["evidential", "aspectual", "compositional", "honorific"]},
+  capability_count: {tip: "ordinal", degerler: [3, 5, 7, 10]},
+  guardrail_depth: {tip: "ordinal", degerler: ["basic", "moderate", "comprehensive"]},
+  example_count: {tip: "ordinal", degerler: [1, 2, 3, 5]}
+} [ground:reported:moo-config] [conf:0.85] [state:confirmed]
+
+---
+<!-- S8.0 GELISTIRILMIS FAZ AKISI (Enhanced Phase Flow) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_workflow]] [[SPC:kuzey/akis-yonu]] -->
+---
+
+## Gelistirilmis Faz Akisi Cercevesi (Enhanced Phase Flow Frame)
+Faz yapisi bilissel mimari ile genisletilmistir.
+
+<!-- [[MOR:root:F-Z-A]] Faz = root morpheme for phase-stage-step -->
+[define|neutral] GELISTIRILMIS_FAZ_AKISI := {
+  faz_0: {ad: "Uzmanlik Yukleme", durum: "mevcut"},
+  faz_0_5: {
+    ad: "Bilissel Cerceve Secimi",
+    durum: "GELISTIRILMIS",
+    adimlar: [
+      "Ajan turunu analiz et (analytical, generative, diagnostic, orchestration)",
+      "VERILINGUA cercevelerini sec",
+      "Cok dilli aktivasyon ifadesi hazirla",
+      "VERIX protokol ayarlarini yapilandir"
+    ]
+  },
+  faz_1: {ad: "Alan Analizi", durum: "mevcut"},
+  faz_2: {
+    ad: "Meta-Bilissel Cikartma",
+    durum: "GELISTIRILMIS",
+    adimlar: [
+      "Uzmanlik alanlarini cikar",
+      "Karar bulussal yontemlerini belgele",
+      "VERIX-isaretli yetenekler hazirla"
+    ]
+  },
+  faz_3: {
+    ad: "Mimari Tasarim",
+    durum: "GELISTIRILMIS",
+    adimlar: [
+      "Sistem istemi yapisi olustur",
+      "Bilissel cerceve aktivasyonu gom",
+      "VERIX cikti protokolu gom",
+      "VERIX-isaretli yetenek bolumleri ekle"
+    ]
+  },
+  faz_4: {ad: "Teknik Gelistirme", durum: "mevcut"},
+  faz_5: {
+    ad: "DSPy Optimizasyonu",
+    durum: "YENI",
+    adimlar: [
+      "DSPy teleprompter calistir",
+      "VERIX/cerceve uyumu icin istemi optimize et",
+      "Iyilestirme deltasini olc"
+    ]
+  },
+  faz_6: {
+    ad: "GlobalMOO Takibi",
+    durum: "YENI",
+    adimlar: [
+      "Ajan sonuclarini kaydet",
+      "Pareto sinirini guncelle",
+      "Optimal yapilandirmalari ogren"
+    ]
+  },
+  faz_7: {ad: "Test ve Dogrulama", durum: "mevcut"},
+  faz_8: {ad: "Dagitim", durum: "mevcut"}
+} [ground:witnessed:workflow-design] [conf:0.92] [state:confirmed]
+
+---
+<!-- S9.0 KALITE KAPILARI (Quality Gates) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_gate]] -->
+---
+
+## Kalite Kapilari Cercevesi (Quality Gates Frame)
+Her faz icin dogrulama kriterleri. Zaversheno (Tamamlandi).
+
+<!-- [[MOR:root:K-L-T]] Kalite = root morpheme for quality-standard-criterion -->
+<!-- [[COM:Kalite+Kapi+Sistemi]] German compound: Qualitaetstorsystem -->
+[define|neutral] VERIX_UYUM_KAPISI := {
+  faz: "Faz 3",
+  minimum_protokol_bolumleri: 2,
+  yetenek_kapsami: 0.80,
+  ornek_kapsami: 1.0,
+  basarisizlikta_engelle: true
+} [ground:witnessed:gate-config] [conf:0.90] [state:confirmed]
+
+[define|neutral] CERCEVE_HIZALAMA_KAPISI := {
+  faz: "Faz 0.5",
+  cerceve_secimi_zorunlu: true,
+  aktivasyon_ifadesi_satir_sayisi: 3,
+  minimum_cerceve_skoru: 0.60,
+  cok_dilli_zorunlu: true
+} [ground:witnessed:gate-config] [conf:0.90] [state:confirmed]
+
+[define|neutral] AJAN_ETKILILIK_KAPISI := {
+  faz: "Faz 7",
+  test_gecme_orani: 0.90,
+  ciktilarda_verix: 0.80,
+  cerceve_aktivasyonu_gozlemlendi: true,
+  koruma_etkililiği: 0.70
+} [ground:witnessed:gate-config] [conf:0.90] [state:confirmed]
+
+---
+<!-- S10.0 BELLEK ENTEGRASYONU (Memory Integration) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_storage]] -->
+---
+
+## Bellek Entegrasyonu Cercevesi (Memory Integration Frame)
+Ajan uretim sonuclari memory-mcp ile saklanir.
+
+<!-- [[MOR:root:B-L-K]] Bellek = root morpheme for memory-storage-retention -->
+[assert|neutral] BELLEK_SAKLAMA_DESENI := {
+  anahtar_formati: "agent-creator/generations/{ajanId}",
+  namespace: "foundry-optimization",
+  katman: "long-term",
+  etiketler: ["WHO", "WHEN", "PROJECT", "WHY"],
+  ornek_metin: "Ajan olusturuldu: {ajanAdi}. Alan: {alan}. Tur: {tur}. VERIX: {verixSkoru}. Cerceve: {cerceveSkoru}."
+} [ground:witnessed:memory-mcp-docs] [conf:0.88] [state:confirmed]
+
+---
+<!-- S11.0 CAPRAZ BECERI KOORDINASYONU (Cross-Skill Coordination) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_coordination]] -->
+---
+
+## Capraz Beceri Koordinasyonu Cercevesi (Cross-Skill Coordination Frame)
+Diger dokumcu becerileriyle entegrasyon.
+
+<!-- [[MOR:root:K-R-D]] Koordinasyon = root morpheme for coordinate-synchronize-align -->
+[define|neutral] KOORDINASYON_MATRISI := {
+  prompt_architect: {
+    zaman: "Faz 3 sistem istemi olusturma",
+    amac: "Kanita dayali teknikler kullanarak sistem istemini optimize et",
+    veri_akisi: "ham_istem -> optimize_istem"
+  },
+  skill_forge: {
+    zaman: "Ajan olusturulduktan sonra",
+    amac: "Bu ajani calistiran beceriler olustur",
+    veri_akisi: "ajan_spec -> beceri_tanimi"
+  },
+  cognitive_lensing: {
+    zaman: "Faz 0.5 cerceve secimi",
+    amac: "Ajan turu icin optimal bilissel cerceve sec",
+    veri_akisi: "ajan_turu -> secilen_cerceve"
+  },
+  eval_harness: {
+    zaman: "Faz 7 dogrulama",
+    amac: "Ajan uzerinde kiyaslama ve regresyon testleri calistir",
+    veri_akisi: "uretilen_ajan -> test_sonuclari"
+  }
+} [ground:witnessed:skill-registry] [conf:0.88] [state:confirmed]
+
+---
+<!-- S12.0 ALT-AJAN ISTEM OPTIMIZASYONU (Subagent Prompting Optimization) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_protocol]] -->
+---
+
+## Alt-Ajan Istem Optimizasyonu Cercevesi (Subagent Prompting Optimization Frame)
+Ajan-ajan iletisimi VERIX ile optimize edilir.
+
+<!-- [[MOR:root:A-L-T]] Alt = root morpheme for sub-under-below -->
+[define|neutral] ALTAJAN_ISTEM_PROTOKOLU := {
+  gorev_delegasyon_formati: "[assert|emphatic] {altajan_adi} icin Gorev: {gorev_aciklamasi} [ground:ust_gorev_id] [conf:0.90]",
+  beklenen_cikti_formati: "[assert|neutral] {beklenen_cikti} [conf:0.85]",
+  basari_kriteri_formati: "[assert|neutral] {kriter} [ground:kalite_kapisi] [conf:0.95]",
+  altajan_yanit_isaretleri: ["[assert|neutral]", "[query|neutral]", "[propose|neutral]"]
+} [ground:witnessed:protocol-spec] [conf:0.88] [state:confirmed]
+
+---
+<!-- S13.0 SONUC (Conclusion) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_summary]] -->
+---
+
+## Beceri Ozeti Cercevesi (Skill Summary Frame)
+Zaversheno. Etot addendum byl uspeshno realizovan. (Rusca: Tamamlandi. Bu eklenti basariyla uygulanmistir.)
+
+<!-- [[MOR:root:S-N-C]] Sonuc = root morpheme for conclusion-result-outcome -->
+<!-- [[COM:Bilissel+Mimari+Entegrasyon+Ozeti]] German compound: Kognitivearchitekturintegrierungszusammenfassung -->
+[assert|confident] EKLENTI_OZETI := {
+  amac: "Tam bilissel mimariyi agent-creator ile entegre etme", // Turkish: purpose
+  metodoloji: "VERIX epistemik notasyon, VERILINGUA cerceveler, DSPy optimizasyon, GlobalMOO takip", // Turkish: methodology
+  ciktilar: [
+    "VERIX-uyumlu ciktilar ureten ajanlar",
+    "Tum ajanlara gomulu bilissel cerceve aktivasyonu",
+    "DSPy teleprompter ile ajan kalitesi optimizasyonu",
+    "GlobalMOO Pareto siniri ile ajan etkililiği takibi",
+    "Ajan koordinasyonu icin optimize edilmis alt-ajan istemleri"
+  ],
+  kalite_kapilari: [
+    "VERIX uyum kapisi",
+    "Cerceve hizalama kapisi",
+    "Ajan etkililik kapisi"
+  ]
+} [ground:witnessed:addendum-execution] [conf:0.90] [state:confirmed]
+
+---
+*Soz (Promise): `<promise>COGNITIVE_ARCHITECTURE_ADDENDUM_VCL_V3.1.1_VERIX_COMPLIANT</promise>`*

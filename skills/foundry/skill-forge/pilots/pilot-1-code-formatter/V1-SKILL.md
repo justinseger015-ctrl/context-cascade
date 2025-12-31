@@ -4,51 +4,65 @@ description: Automatically format code files using the appropriate formatter bas
 author: pilot-test
 version: 1.0.0
 created: 2025-11-06
+<!-- V1 PILOT PROJESI [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[CLS:ge_pilot_v1]] -->
+<!-- [[MOR:f-r-m<format>]] [[MOR:k-m-l<complete>]] [[MOR:h-s-n<quality>]] -->
 ---
-
-# Code Formatter
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
+---
+<!-- V1 PILOT BECERISI - GELISMIS SURUM [[ASP:sov.<gelismis>]] -->
+---
 
+# Kod Formatlayici (Code Formatter) - V1
 
-Automatically format code files using language-specific formatters with comprehensive error handling.
+<!-- [[MOR:f-r-m<format>]] [[MOR:s-l-h<error_handling>]] [[SPC:kuzeybati<baslangic>]] -->
 
-## Overview
+[assert|neutral] Kapsamli hata yonetimi ile dil-spesifik formatlayicilar kullanarak kod dosyalarini otomatik formatlayan gelismis beceri [ground:witnessed:skill-definition] [conf:0.95] [state:confirmed]
 
-This skill formats code files by detecting the programming language and applying the appropriate formatter (Prettier for JS/TS, Black for Python, rustfmt for Rust). It provides clear feedback on changes and handles edge cases systematically.
+## Genel Bakis (Overview)
 
-## When to Use This Skill
+[assert|neutral] Bu beceri kod dosyalarini dili tespit ederek uygun formatlayiciyi uygular (Prettier JS/TS icin, Black Python icin, rustfmt Rust icin). Degisiklikler hakkinda acik geri bildirim saglar ve kenar durumlarini sistematik olarak ele alir [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
 
-Use when you need to format code before commits, ensure consistent style across projects, or apply language-specific formatting standards automatically.
+## Ne Zaman Kullanilmali (When to Use This Skill)
 
-## Instructions for Claude
+[direct|neutral] Asagidaki durumlarda kullanin: [ground:policy] [conf:0.90] [state:confirmed]
 
-When this skill is activated, follow these steps to format code files.
+- Commit oncesi kod formatlamak gerektiginde
+- Projeler arasi tutarli stil saglamak gerektiginde
+- Dil-spesifik formatlama standartlarini otomatik uygulamak istendiginde
 
-### Step 1: Validate Input File
+---
+<!-- ADIM 1 [[ASP:sov.<adim_1>]] -->
+---
 
-**Action**: Verify that the specified file exists and is accessible.
+## Adim 1: Girdi Dosyasini Dogrula (Validate Input File)
 
-**Implementation**:
+<!-- [[MOR:s-l-m<validate>]] [[EVD:-DI<kontrol>]] [[SPC:kuzeybati<dosya_konumu>]] -->
+
+**Eylem**: Belirtilen dosyanin var ve erisilebilir oldugunu dogrula.
+
+[assert|neutral] Dosya varligi, okunabilirlik ve boyut kontrolleri gereklidir [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
+
+**Uygulama**:
 ```bash
-# Check file exists
+# Dosya var mi kontrol et
 if [ ! -f "$FILE_PATH" ]; then
-    echo "Error: File '$FILE_PATH' not found. Check path and try again."
+    echo "Hata: Dosya '$FILE_PATH' bulunamadi. Yolu kontrol edip tekrar deneyin."
     exit 1
 fi
 
-# Verify file is readable
+# Dosya okunabilir mi kontrol et
 if [ ! -r "$FILE_PATH" ]; then
-    echo "Error: Cannot read '$FILE_PATH'. Fix with: chmod +r '$FILE_PATH'"
+    echo "Hata: '$FILE_PATH' okunamiyor. Duzeltmek icin: chmod +r '$FILE_PATH'"
     exit 2
 fi
 
-# Check file size (max 10MB)
+# Dosya boyutunu kontrol et (max 10MB)
 file_size=$(stat -c%s "$FILE_PATH" 2>/dev/null || stat -f%z "$FILE_PATH")
 if [ $file_size -gt 10485760 ]; then
-    echo "Warning: File is $(($file_size / 1024 / 1024))MB (max: 10MB). Continue? (y/n)"
+    echo "Uyari: Dosya $(($file_size / 1024 / 1024))MB (max: 10MB). Devam edilsin mi? (y/n)"
     read -r response
     if [[ "$response" != "y" ]]; then
         exit 0
@@ -56,25 +70,29 @@ if [ $file_size -gt 10485760 ]; then
 fi
 ```
 
-**Success Criteria**:
-- ✓ File exists at specified path
-- ✓ File is readable (not a permissions error)
-- ✓ File size ≤ 10MB or user confirms proceed
+**Basari Kriterleri**:
+- [assert|neutral] Dosya belirtilen yolda mevcut [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Dosya okunabilir (izin hatasi yok) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Dosya boyutu <= 10MB veya kullanici onayladi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
-**Error Handling**:
-- If file not found (exit 1) → Display error with path, abort
-- If permissions denied (exit 2) → Display error with chmod fix, abort
-- If file too large → Warn user, allow proceed or abort
+**Hata Yonetimi**:
+- Dosya bulunamadi (exit 1) -> Yol ile hata goster, iptal et
+- Izin reddedildi (exit 2) -> chmod onerisi ile hata goster, iptal et
+- Dosya cok buyuk -> Kullaniciyi uyar, devam veya iptal izni ver
 
 ---
+<!-- ADIM 2 [[ASP:sov.<adim_2>]] -->
+---
 
-### Step 2: Detect File Language and Formatter
+## Adim 2: Dosya Dilini ve Formatlayiciyi Tespit Et (Detect File Language and Formatter)
 
-**Action**: Determine programming language from file extension and select appropriate formatter.
+<!-- [[MOR:k-sh-f<detect>]] [[CLS:ge_formatter]] -->
 
-**Implementation**:
+**Eylem**: Dosya uzantisindan programlama dilini belirle ve uygun formatlayiciyi sec.
+
+**Uygulama**:
 ```bash
-# Detect language by extension
+# Uzantiya gore dili tespit et
 case "$FILE_PATH" in
     *.js|*.jsx|*.ts|*.tsx|*.json)
         FORMATTER="prettier"
@@ -92,52 +110,56 @@ case "$FILE_PATH" in
         CHECK_CMD="rustfmt --check"
         ;;
     *)
-        echo "Error: Unsupported file type '${FILE_PATH##*.}'"
-        echo "Supported: .js, .jsx, .ts, .tsx, .json (Prettier), .py (Black), .rs (rustfmt)"
+        echo "Hata: Desteklenmeyen dosya tipi '${FILE_PATH##*.}'"
+        echo "Desteklenenler: .js, .jsx, .ts, .tsx, .json (Prettier), .py (Black), .rs (rustfmt)"
         exit 3
         ;;
 esac
 
-echo "Detected language: ${FILE_PATH##*.} → Using $FORMATTER"
+echo "Tespit edilen dil: ${FILE_PATH##*.} -> $FORMATTER kullaniliyor"
 ```
 
-**Success Criteria**:
-- ✓ File extension recognized
-- ✓ Appropriate formatter selected
-- ✓ Formatter choice logged
+**Basari Kriterleri**:
+- [assert|neutral] Dosya uzantisi taninir [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Uygun formatlayici secilir [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Formatlayici secimi loglanir [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
-**Error Handling**:
-- If unsupported extension (exit 3) → Display error with supported types, abort
+**Hata Yonetimi**:
+- Desteklenmeyen uzanti (exit 3) -> Desteklenen tiplerle hata goster, iptal et
 
 ---
+<!-- ADIM 3 [[ASP:sov.<adim_3>]] -->
+---
 
-### Step 3: Check Formatter Installation
+## Adim 3: Formatlayici Kurulumunu Kontrol Et (Check Formatter Installation)
 
-**Action**: Verify the required formatter is installed before attempting to run.
+<!-- [[MOR:f-h-s<check>]] [[EVD:-DI<dogrulama>]] -->
 
-**Implementation**:
+**Eylem**: Calistirmadan once gerekli formatlayicinin kurulu oldugunu dogrula.
+
+**Uygulama**:
 ```bash
-# Check if formatter exists
+# Formatlayici var mi kontrol et
 if ! command -v $FORMATTER &> /dev/null; then
-    echo "Error: $FORMATTER is not installed."
+    echo "Hata: $FORMATTER kurulu degil."
 
-    # Provide installation instructions
+    # Kurulum talimatlari sagla
     case "$FORMATTER" in
         prettier)
-            echo "Install with: npm install -g prettier"
+            echo "Kurmak icin: npm install -g prettier"
             ;;
         black)
-            echo "Install with: pip install black"
+            echo "Kurmak icin: pip install black"
             ;;
         rustfmt)
-            echo "Install with: rustup component add rustfmt"
+            echo "Kurmak icin: rustup component add rustfmt"
             ;;
     esac
 
-    echo "Install now and retry? (y/n)"
+    echo "Simdi kurup tekrar deneyin mi? (y/n)"
     read -r response
     if [[ "$response" == "y" ]]; then
-        # User can install manually, then we retry
+        # Kullanici manuel kurabilir, sonra tekrar deneriz
         exit 4
     else
         exit 4
@@ -145,198 +167,232 @@ if ! command -v $FORMATTER &> /dev/null; then
 fi
 ```
 
-**Success Criteria**:
-- ✓ Formatter found in PATH
-- ✓ Formatter version logged (optional)
+**Basari Kriterleri**:
+- [assert|neutral] Formatlayici PATH'te bulundu [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Formatlayici surumu loglandi (opsiyonel) [ground:acceptance-criteria] [conf:0.85] [state:provisional]
 
-**Error Handling**:
-- If formatter not found (exit 4) → Display installation instructions, offer retry
+**Hata Yonetimi**:
+- Formatlayici bulunamadi (exit 4) -> Kurulum talimatlari goster, tekrar deneme teklif et
 
 ---
+<!-- ADIM 4 [[ASP:sov.<adim_4>]] -->
+---
 
-### Step 4: Check for Syntax Errors
+## Adim 4: Syntax Hatalari Kontrol Et (Check for Syntax Errors)
 
-**Action**: Run formatter in check mode to detect syntax errors before modifying file.
+<!-- [[MOR:s-l-h<fix>]] [[EVD:-DI<gozlem>]] -->
 
-**Implementation**:
+**Eylem**: Dosyayi degistirmeden once syntax hatalarini tespit etmek icin kontrol modunda calistir.
+
+**Uygulama**:
 ```bash
-# Create backup before checking
+# Kontrol oncesi yedek olustur
 cp "$FILE_PATH" "${FILE_PATH}.backup"
 
-# Check for syntax errors
+# Syntax hatalari kontrol et
 $CHECK_CMD "$FILE_PATH" > /tmp/format-check.txt 2>&1
 check_exit=$?
 
 if [ $check_exit -ne 0 ]; then
-    echo "Syntax errors detected:"
+    echo "Syntax hatalari tespit edildi:"
     cat /tmp/format-check.txt
     echo ""
-    echo "Fix syntax errors first? (y/n)"
+    echo "Once syntax hatalarini duzeltin mi? (y/n)"
     read -r response
     if [[ "$response" != "y" ]]; then
         rm "${FILE_PATH}.backup"
         exit 0
     else
-        # User will fix manually
+        # Kullanici manuel duzeltecek
         rm "${FILE_PATH}.backup"
         exit 5
     fi
 fi
 ```
 
-**Success Criteria**:
-- ✓ Formatter check completes without errors
-- ✓ Backup created successfully
+**Basari Kriterleri**:
+- [assert|neutral] Formatlayici kontrolu hatasiz tamamlandi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Yedek basariyla olusturuldu [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
-**Error Handling**:
-- If syntax errors (exit 5) → Display errors with line numbers, ask user to fix first
+**Hata Yonetimi**:
+- Syntax hatalari (exit 5) -> Satir numaralariyla hatalari goster, once duzeltmesini iste
 
 ---
+<!-- ADIM 5 [[ASP:sov.<adim_5>]] -->
+---
 
-### Step 5: Run Formatter and Report Changes
+## Adim 5: Formatlayiciyi Calistir ve Degisiklikleri Raporla (Run Formatter and Report Changes)
 
-**Action**: Execute formatter with timeout and report what changed.
+<!-- [[MOR:n-f-dh<execute>]] [[MOR:k-t-b<report>]] [[SPC:guneydogu<sonuc>]] -->
 
-**Implementation**:
+**Eylem**: Formatlayiciyi zaman asimi ile calistir ve nelerin degistigini raporla.
+
+**Uygulama**:
 ```bash
-# Run formatter with 60s timeout
+# Formatlayiciyi 60s zaman asimi ile calistir
 timeout 60s $FORMATTER_CMD "$FILE_PATH" > /tmp/format-output.txt 2>&1
 exit_code=$?
 
 if [ $exit_code -eq 124 ]; then
-    echo "Error: Formatter timed out after 60 seconds."
-    mv "${FILE_PATH}.backup" "$FILE_PATH"  # Restore backup
+    echo "Hata: Formatlayici 60 saniye sonra zaman asimina ugradi."
+    mv "${FILE_PATH}.backup" "$FILE_PATH"  # Yedegi geri yukle
     exit 6
 elif [ $exit_code -ne 0 ]; then
-    echo "Error: Formatter failed with exit code $exit_code"
+    echo "Hata: Formatlayici cikis kodu $exit_code ile basarisiz oldu"
     cat /tmp/format-output.txt
-    mv "${FILE_PATH}.backup" "$FILE_PATH"  # Restore backup
+    mv "${FILE_PATH}.backup" "$FILE_PATH"  # Yedegi geri yukle
     exit 7
 fi
 
-# Calculate changes
+# Degisiklikleri hesapla
 changes=$(diff -u "${FILE_PATH}.backup" "$FILE_PATH" | wc -l)
 
-# Report results
+# Sonuclari raporla
 if [ $changes -eq 0 ]; then
-    echo "✓ No formatting changes needed for $FILE_PATH"
+    echo "Formatlama degisikligi gerekmiyor: $FILE_PATH"
 else
-    echo "✓ Formatted $FILE_PATH with $FORMATTER"
-    echo "  Changes: $(($changes / 2)) lines modified"
-    echo "  Backup: ${FILE_PATH}.backup"
+    echo "Formatlandi: $FILE_PATH ($FORMATTER ile)"
+    echo "  Degisiklikler: $(($changes / 2)) satir degistirildi"
+    echo "  Yedek: ${FILE_PATH}.backup"
 fi
 
-# Cleanup
+# Temizlik
 rm -f /tmp/format-check.txt /tmp/format-output.txt
 
 exit 0
 ```
 
-**Success Criteria**:
-- ✓ Formatter completes within 60 seconds
-- ✓ Formatter exits with code 0 (success)
-- ✓ User receives clear feedback (X lines changed)
-- ✓ Backup preserved for rollback
+**Basari Kriterleri**:
+- [assert|neutral] Formatlayici 60 saniye icinde tamamlandi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Formatlayici kod 0 (basari) ile cikti [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Kullanici acik geri bildirim aldi (X satir degisti) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Yedek geri alma icin korundu [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
-**Error Handling**:
-- If timeout (exit 6) → Restore backup, display timeout message
-- If formatter error (exit 7) → Restore backup, display formatter output
+**Hata Yonetimi**:
+- Zaman asimi (exit 6) -> Yedegi geri yukle, zaman asimi mesaji goster
+- Formatlayici hatasi (exit 7) -> Yedegi geri yukle, formatlayici ciktisini goster
 
 ---
+<!-- KENAR DURUMLARI [[EVD:-mis<arastirma>]] -->
+---
 
-## Edge Cases & Special Handling
+## Kenar Durumlari ve Ozel Islem (Edge Cases & Special Handling)
 
-### Edge Case 1: File Has Mixed Line Endings
+<!-- [[MOR:h-d-d<edge>]] [[CLS:ge_case]] -->
 
-**When**: File contains both CRLF (Windows) and LF (Unix) line endings
+### Kenar Durumu 1: Dosyada Karisik Satir Sonlari Var
 
-**Handling**:
+<!-- [[MOR:s-l-h<fix>]] -->
+
+**Ne Zaman**: Dosya hem CRLF (Windows) hem LF (Unix) satir sonlari iceriyor
+
+**Islem**:
 ```bash
-# Detect and normalize line endings before formatting
+# Formatlamadan once satir sonlarini tespit et ve normalize et
 file "$FILE_PATH" | grep -q "CRLF"
 if [ $? -eq 0 ]; then
-    echo "Info: Normalizing line endings to LF (Unix style)"
+    echo "Bilgi: Satir sonlari LF (Unix stili) olarak normalize ediliyor"
     dos2unix "$FILE_PATH" 2>/dev/null || sed -i 's/\r$//' "$FILE_PATH"
 fi
 ```
 
-**Success Criteria**:
-- ✓ Line endings detected and normalized
-- ✓ User informed of normalization
+**Basari Kriterleri**:
+- [assert|neutral] Satir sonlari tespit edildi ve normalize edildi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Kullanici normalizasyon hakkinda bilgilendirildi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ---
 
-### Edge Case 2: Multiple Formatters Available
+### Kenar Durumu 2: Birden Fazla Formatlayici Mevcut
 
-**When**: Multiple formatter versions installed (e.g., prettier in node_modules and global)
+<!-- [[MOR:kh-y-r<choose>]] -->
 
-**Handling**:
+**Ne Zaman**: Birden fazla formatlayici surumu kurulu (ornegin node_modules'da ve global prettier)
+
+**Islem**:
 ```bash
-# Use project-local formatter if available
+# Proje-yerel formatlayici varsa kullan
 if [ -f "./node_modules/.bin/$FORMATTER" ]; then
     FORMATTER_CMD="./node_modules/.bin/$FORMATTER --write"
-    echo "Info: Using project-local $FORMATTER"
+    echo "Bilgi: Proje-yerel $FORMATTER kullaniliyor"
 else
-    echo "Info: Using global $FORMATTER"
+    echo "Bilgi: Global $FORMATTER kullaniliyor"
 fi
 ```
 
-**Success Criteria**:
-- ✓ Local formatter prioritized over global
-- ✓ User informed which formatter used
+**Basari Kriterleri**:
+- [assert|neutral] Yerel formatlayici global'e gore oncelikli [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Kullanici hangi formatlayicinin kullanildigini biliyor [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ---
 
-### Edge Case 3: Formatter Config File Present
+### Kenar Durumu 3: Formatlayici Konfigurasyon Dosyasi Mevcut
 
-**When**: .prettierrc, pyproject.toml, or rustfmt.toml exists
+<!-- [[MOR:w-j-d<find>]] -->
 
-**Handling**:
+**Ne Zaman**: .prettierrc, pyproject.toml veya rustfmt.toml mevcut
+
+**Islem**:
 ```bash
-# Formatters automatically detect config files, just inform user
+# Formatlayicilar konfigurasyon dosyalarini otomatik tespit eder, sadece kullaniciyi bilgilendir
 if [ -f ".prettierrc" ] || [ -f "pyproject.toml" ] || [ -f "rustfmt.toml" ]; then
-    echo "Info: Using custom formatter configuration"
+    echo "Bilgi: Ozel formatlayici konfigurasyonu kullaniliyor"
 fi
 ```
 
-**Success Criteria**:
-- ✓ Config file detected and used by formatter
-- ✓ User informed of custom config
+**Basari Kriterleri**:
+- [assert|neutral] Konfigurasyon dosyasi tespit edildi ve formatlayici tarafindan kullanildi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Kullanici ozel konfigurasyon hakkinda bilgilendirildi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ---
-
-## Error Codes & Recovery
-
-| Code | Error | User Message | Recovery Strategy |
-|------|-------|--------------|-------------------|
-| 1 | File not found | "Error: File '[PATH]' not found." | Check path, try again |
-| 2 | Permissions denied | "Error: Cannot read '[PATH]'. Fix with: chmod +r" | Fix permissions, try again |
-| 3 | Unsupported file type | "Error: Unsupported file type '.ext'. Supported: .js, .py, .rs" | Use supported file type |
-| 4 | Formatter not installed | "Error: [FORMATTER] not installed. Install with: [CMD]" | Install formatter, try again |
-| 5 | Syntax error | "Syntax errors detected: [ERRORS]" | Fix syntax, try again |
-| 6 | Formatter timeout | "Error: Formatter timed out after 60s" | Use smaller file or fix infinite loop |
-| 7 | Formatter failure | "Error: Formatter failed: [OUTPUT]" | Check formatter logs, fix issue |
-
+<!-- HATA KODLARI [[EVD:-DI<politika>]] -->
 ---
 
-## Success Verification Checklist
-- [assert|neutral] After execution, verify: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ File formatted according to language style guide [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ Original file backed up before modification [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ User received clear feedback on changes (X lines modified) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ No data loss or file corruption [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ Exit code indicates success (0) or failure (1-7) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+## Hata Kodlari ve Kurtarma (Error Codes & Recovery)
 
-## Performance Expectations
+<!-- [[CLS:ge_error]] [[MOR:s-l-h<fix>]] -->
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| **Execution Time** | <5 seconds for typical file | Actual runtime |
-| **Max File Size** | 10MB | File size check |
-| **Timeout** | 60 seconds max | Timeout mechanism |
-| **Memory Usage** | <100MB | Not measured (formatter-dependent) |
-
+| Kod | Hata | Kullanici Mesaji | Kurtarma Stratejisi |
+|-----|------|------------------|---------------------|
+| 1 | Dosya bulunamadi | "Hata: Dosya '[YOL]' bulunamadi." | Yolu kontrol et, tekrar dene |
+| 2 | Izin reddedildi | "Hata: '[YOL]' okunamiyor. chmod +r ile duzelt" | Izinleri duzelt, tekrar dene |
+| 3 | Desteklenmeyen dosya tipi | "Hata: Desteklenmeyen dosya tipi '.ext'. Desteklenenler: .js, .py, .rs" | Desteklenen dosya tipi kullan |
+| 4 | Formatlayici kurulu degil | "Hata: [FORMATLAYICI] kurulu degil. Kurmak icin: [KOMUT]" | Formatlayiciyi kur, tekrar dene |
+| 5 | Syntax hatasi | "Syntax hatalari tespit edildi: [HATALAR]" | Syntax duzelt, tekrar dene |
+| 6 | Formatlayici zaman asimi | "Hata: Formatlayici 60s sonra zaman asimina ugradi" | Kucuk dosya kullan veya sonsuz donguyu duzelt |
+| 7 | Formatlayici hatasi | "Hata: Formatlayici basarisiz: [CIKTI]" | Formatlayici loglarini kontrol et, sorunu duzelt |
 
 ---
-*Promise: `<promise>V1_SKILL_VERIX_COMPLIANT</promise>`*
+<!-- BASARI DOGRULAMA [[ASP:sov.<dogrulama>]] -->
+---
+
+## Basari Dogrulama Kontrol Listesi (Success Verification Checklist)
+
+<!-- [[EVD:-DI<dogrulama>]] -->
+
+[assert|neutral] Yurutme sonrasi dogrula: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Dosya dil stil kilavuzuna gore formatlandi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Degisiklik oncesi orijinal dosya yedeklendi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Kullanici degisiklikler hakkinda acik geri bildirim aldi (X satir degisti) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Veri kaybi veya dosya bozulmasi yok [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Cikis kodu basari (0) veya hatayi (1-7) gosteriyor [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+
+---
+<!-- PERFORMANS [[EVD:-mis<olcum>]] -->
+---
+
+## Performans Beklentileri (Performance Expectations)
+
+<!-- [[CLS:liang_metric]] [[MOR:q-y-s<measure>]] -->
+
+| Metrik | Hedef | Olcum |
+|--------|-------|-------|
+| **Yurutme Suresi** | Tipik dosya icin <5 saniye | Gercek calisma suresi |
+| **Maksimum Dosya Boyutu** | 10MB | Dosya boyutu kontrolu |
+| **Zaman Asimi** | Maksimum 60 saniye | Zaman asimi mekanizmasi |
+| **Bellek Kullanimi** | <100MB | Olculmuyor (formatlayiciya bagli) |
+
+---
+<!-- PROMISE [[ASP:sov.<taahhut>]] -->
+---
+
+[commit|confident] <promise>V1_SKILL_VCL_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.95] [state:confirmed]

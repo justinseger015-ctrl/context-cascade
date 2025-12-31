@@ -1,466 +1,341 @@
-# Agent Types & Patterns
+# Ajan Turleri ve Kaliplari (Agent Types & Patterns)
+
+<!-- VCL v3.1.1 COMPLIANT - L1 Internal Documentation -->
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
+---
 
+<!-- S1 GENEL_BAKIS (Overview) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Genel Bakis (Overview)
 
-## Overview
-
-Agents can be categorized into three primary types based on their scope and capabilities:
-
-1. **Specialist Agents**: Deep expertise in single domain
-2. **Coordinator Agents**: Multi-agent orchestration, workflow management
-3. **Hybrid Agents**: Multi-domain expertise + coordination capabilities
+<!-- [[MOR:root:A-J-N]] Ajan = root morpheme for agent-actor-executor -->
+<!-- [[COM:Ajan+Turleri+Referansi]] German compound: Agententypenreferenz -->
+[assert|neutral] AJAN_KATEGORILERI := {
+  uzman_ajanlar: "Tek alanda derin uzmanlik",
+  koordinator_ajanlar: "Coklu ajan orkestrasyonu, is akisi yonetimi",
+  hibrit_ajanlar: "Cok alanli uzmanlik + koordinasyon yetenekleri"
+} [ground:witnessed:classification] [conf:0.95] [state:confirmed]
 
 ---
 
-## Type 1: Specialist Agents
+<!-- S2 UZMAN_AJANLAR (Specialist Agents) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Tur 1: Uzman Ajanlar (Type 1: Specialist Agents)
 
-### Characteristics
+### Karakteristikler (Characteristics)
 
-- **Single Domain Focus**: Expert in one specific area (marketing, frontend dev, data analysis)
-- **Deep Knowledge**: Comprehensive understanding of domain tools, patterns, best practices
-- **Autonomous Execution**: Can complete domain-specific tasks independently
-- **Limited Coordination**: Rarely spawns sub-agents (self-sufficient within domain)
+[assert|neutral] UZMAN_KARAKTERISTIKLERI := {
+  tek_alan_odagi: "Tek spesifik alanda uzman (pazarlama, frontend gelistirme, veri analizi)",
+  derin_bilgi: "Alan araclari, kaliplari, en iyi uygulamalar konusunda kapsamli anlayis",
+  ozerk_yurutme: "Alana ozgu gorevleri bagimsiz olarak tamamlayabilir",
+  sinirli_koordinasyon: "Nadiren alt-ajan olusturur (alan icinde kendine yeterli)"
+} [ground:witnessed:specialist-definition] [conf:0.92] [state:confirmed]
 
-### When to Use
+### Ne Zaman Kullanilir (When to Use)
 
-Use specialist agents for:
-- ✅ Tasks requiring deep domain expertise
-- ✅ Recurring workflows within single domain
-- ✅ When speed matters (no coordination overhead)
-- ✅ When consistency is critical (domain-specific best practices)
+[assert|emphatic] UZMAN_KULLANIM_DURUMLARI := [
+  "Derin alan uzmanligi gerektiren gorevler",
+  "Tek alan icindeki yinelenen is akislari",
+  "Hizin onemli oldugu durumlar (koordinasyon yuku yok)",
+  "Tutarlilik kritik oldugunda (alana ozgu en iyi uygulamalar)"
+] [ground:witnessed:use-cases] [conf:0.90] [state:confirmed]
 
-### Agent Structure
+### Ornekler (Examples)
 
-```markdown
-# [SPECIALIST NAME] AGENT - SYSTEM PROMPT
+[assert|neutral] UZMAN_ORNEKLERI := [
+  {
+    ajan: "Pazarlama Uzmani",
+    alan: "Pazarlama stratejisi, kampanya optimizasyonu, hedef kitle analitiyi",
+    araclar: ["Google Analytics", "SEMrush", "HubSpot"],
+    komutlar: ["/campaign-analyze", "/audience-segment", "/ab-test-design", "/roi-calculate"],
+    koordinasyon: "Minimal (sadece karmasik istatistikler icin Veri Analistine devreder)"
+  },
+  {
+    ajan: "Frontend Gelistirici Uzmani",
+    alan: "React, TypeScript, UI/UX, erisilebilirlik",
+    araclar: ["React 18", "Vite", "TailwindCSS", "Vitest"],
+    komutlar: ["/react-component", "/frontend-optimize", "/accessibility-audit"],
+    koordinasyon: "Yok (frontend alaninda tamamen ozerk)"
+  },
+  {
+    ajan: "Veritabani Uzmani",
+    alan: "PostgreSQL, sorgu optimizasyonu, sema tasarimi",
+    araclar: ["PostgreSQL 15", "Prisma", "pgAdmin", "EXPLAIN ANALYZE"],
+    komutlar: ["/db-schema", "/db-migration", "/db-optimize-query", "/db-backup"],
+    koordinasyon: "Minimal (API kontratlari icin Backend Gelistiriciyle koordinasyon)"
+  }
+] [ground:witnessed:examples] [conf:0.88] [state:confirmed]
 
-## 🎭 CORE IDENTITY
-I am a **[Specialist Title]** with deep expertise in [domain].
-- [Expertise Area 1]
-- [Expertise Area 2]
-- [Expertise Area 3]
+### Olusturma Suresi (Creation Time)
 
-## 📋 UNIVERSAL COMMANDS
-[Standard file, git, memory operations]
-
-## 🎯 MY SPECIALIST COMMANDS
-[Domain-specific commands, 5-10 commands]
-
-## 🧠 COGNITIVE FRAMEWORK
-[Evidence-based techniques: self-consistency, PoT, plan-and-solve]
-
-## 🚧 GUARDRAILS
-[Domain-specific failure modes, 3-5 guardrails]
-
-## ✅ SUCCESS CRITERIA
-[Domain-specific completion criteria]
-
-## 📖 WORKFLOW EXAMPLES
-[2-3 complete workflows with exact commands]
-```
-
-### Examples
-
-**Marketing Specialist**:
-- Domain: Marketing strategy, campaign optimization, audience analytics
-- Tools: Google Analytics, SEMrush, HubSpot
-- Commands: `/campaign-analyze`, `/audience-segment`, `/ab-test-design`, `/roi-calculate`
-- Coordination: Minimal (delegates to Data Analyst for complex stats only)
-
-**Frontend Developer Specialist**:
-- Domain: React, TypeScript, UI/UX, accessibility
-- Tools: React 18, Vite, TailwindCSS, Vitest
-- Commands: `/react-component`, `/frontend-optimize`, `/accessibility-audit`
-- Coordination: None (fully autonomous within frontend domain)
-
-**Database Specialist**:
-- Domain: PostgreSQL, query optimization, schema design
-- Tools: PostgreSQL 15, Prisma, pgAdmin, EXPLAIN ANALYZE
-- Commands: `/db-schema`, `/db-migration`, `/db-optimize-query`, `/db-backup`
-- Coordination: Minimal (coordinates with Backend Developer for API contracts)
-
-### Creation Time
-
-- **First-time**: 3-4 hours (Phase 1-4 complete)
-- **Speed-run**: 1.5-2 hours (experienced creators with templates)
+[assert|neutral] UZMAN_SURE := {
+  ilk_kez: "3-4 saat (Faz 1-4 tam)",
+  hizli_kosma: "1.5-2 saat (sablonlarla deneyimli olusturucular)"
+} [ground:witnessed:timing] [conf:0.90] [state:confirmed]
 
 ---
 
-## Type 2: Coordinator Agents
+<!-- S3 KOORDINATOR_AJANLAR (Coordinator Agents) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Tur 2: Koordinator Ajanlar (Type 2: Coordinator Agents)
 
-### Characteristics
+### Karakteristikler (Characteristics)
 
-- **Orchestration Focus**: Manages workflows, spawns/coordinates multiple specialist agents
-- **Broad Knowledge**: Understanding of multiple domains (not deep expertise in any)
-- **Dependency Management**: Resolves task dependencies, builds execution DAGs
-- **Error Recovery**: Handles failures, rollbacks, escalations
-- **State Management**: Tracks deployment state, resource inventories
+[assert|neutral] KOORDINATOR_KARAKTERISTIKLERI := {
+  orkestrasyon_odagi: "Is akislarini yonetir, birden fazla uzman ajani olusturur/koordine eder",
+  genis_bilgi: "Birden fazla alanin anlasilmasi (hicbirinde derin uzmanlik degil)",
+  bagimlilik_yonetimi: "Gorev bagimliliklarini cozer, yurutme DAG'lari olusturur",
+  hata_kurtarma: "Basarisizliklari, geri almalari, yuksealtmeleri yonetir",
+  durum_yonetimi: "Dagitim durumunu, kaynak envanterlerini izler"
+} [ground:witnessed:coordinator-definition] [conf:0.92] [state:confirmed]
 
-### When to Use
+### Ne Zaman Kullanilir (When to Use)
 
-Use coordinator agents for:
-- ✅ Multi-agent workflows (5+ agents)
-- ✅ Complex dependencies (sequential, parallel, conditional execution)
-- ✅ Infrastructure orchestration (DevOps, CI/CD)
-- ✅ When error recovery is critical (rollback capabilities)
+[assert|emphatic] KOORDINATOR_KULLANIM_DURUMLARI := [
+  "Coklu ajan is akislari (5+ ajan)",
+  "Karmasik bagimlíliklar (sirasal, paralel, kosullu yurutme)",
+  "Altyapi orkestrasyonu (DevOps, CI/CD)",
+  "Hata kurtarmanin kritik oldugu durumlar (geri alma yetenekleri)"
+] [ground:witnessed:use-cases] [conf:0.90] [state:confirmed]
 
-### Agent Structure
+### Ornekler (Examples)
 
-```markdown
-# [COORDINATOR NAME] AGENT - SYSTEM PROMPT
+[assert|neutral] KOORDINATOR_ORNEKLERI := [
+  {
+    ajan: "DevOps Koordinatoru",
+    orkestra_eder: ["Terraform", "Kubernetes", "Docker", "Monitoring ajanlar"],
+    is_akislari: ["Altyapi dagitimi", "Geri alma", "Saglik izleme"],
+    temel_kalilar: ["DAG cozumleme", "Paralel yurutme", "Hata kurtarma"],
+    durum: ["Dagitim manifestleri", "Kaynak ID'leri", "Geri alma durumu"]
+  },
+  {
+    ajan: "Proje Yonetici Koordinatoru",
+    orkestra_eder: ["Gelistirici", "Tasarimci", "Testci", "Inceleyici ajanlar"],
+    is_akislari: ["Ozellik gelistirme", "Sprint planlama", "Surum yonetimi"],
+    temel_kalilar: ["Gorev ayristirma", "Bagimlilik izleme", "Ilerleme izleme"],
+    durum: ["Proje zaman cizelgesi", "Gorev atamalari", "Tamamlanma durumu"]
+  },
+  {
+    ajan: "CI/CD Boru Hatti Koordinatoru",
+    orkestra_eder: ["Build", "Test", "Guvenlik Tarama", "Dagitim ajanlar"],
+    is_akislari: ["Surekli entegrasyon", "Surekli dagitim", "Geri alma"],
+    temel_kalilar: ["Boru hatti asamalari", "Basarisizlik isleme", "Artifact yonetimi"],
+    durum: ["Build artifactlari", "Test sonuclari", "Dagitim gecmisi"]
+  }
+] [ground:witnessed:examples] [conf:0.88] [state:confirmed]
 
-## 🎭 CORE IDENTITY
-I am a **[Coordinator Title]** specializing in multi-agent orchestration for [workflow type].
+### Olusturma Suresi (Creation Time)
 
-**Coordination Expertise**:
-- [Orchestration Pattern 1]
-- [Orchestration Pattern 2]
-- [Error Recovery]
-- [State Management]
-
-## 📋 UNIVERSAL COMMANDS
-[Standard file, git, memory, AGENT COORDINATION]
-
-## 🎯 MY COORDINATOR COMMANDS
-[Orchestration-specific commands]
-- /orchestrate-[workflow]
-- /build-dag
-- /spawn-agents-wave
-- /check-agent-health
-- /rollback-[workflow]
-
-## 🔧 MCP SERVER TOOLS I USE
-[Claude Flow MCP emphasis - swarm_init, agent_spawn, task_orchestrate]
-
-## 🧠 COGNITIVE FRAMEWORK
-### Dependency Resolution
-[DAG construction, cycle detection]
-
-### Error Propagation
-[Detect, classify, retry/rollback, notify]
-
-### Parallel Execution
-[Wave-based execution, rate limiting]
-
-## 🚧 GUARDRAILS
-[Coordinator-specific failure modes]
-- Never deploy without rollback manifest
-- Never proceed with DAG cycles
-- Never spawn unlimited agents
-
-## ✅ SUCCESS CRITERIA
-[Coordination-specific completion criteria]
-- All agents completed successfully
-- No orphaned resources
-- Rollback tested
-
-## 📖 WORKFLOW EXAMPLES
-[2-3 orchestration workflows with agent spawning]
-```
-
-### Examples
-
-**DevOps Coordinator**:
-- Orchestrates: Terraform, Kubernetes, Docker, Monitoring agents
-- Workflows: Infrastructure deployment, rollback, health monitoring
-- Key Patterns: DAG resolution, parallel execution, error recovery
-- State: Deployment manifests, resource IDs, rollback state
-
-**Project Manager Coordinator**:
-- Orchestrates: Developer, Designer, Tester, Reviewer agents
-- Workflows: Feature development, sprint planning, release management
-- Key Patterns: Task decomposition, dependency tracking, progress monitoring
-- State: Project timeline, task assignments, completion status
-
-**CI/CD Pipeline Coordinator**:
-- Orchestrates: Build, Test, Security Scan, Deploy agents
-- Workflows: Continuous integration, continuous deployment, rollback
-- Key Patterns: Pipeline stages, failure handling, artifact management
-- State: Build artifacts, test results, deployment history
-
-### Creation Time
-
-- **First-time**: 4-5 hours (orchestration logic complex)
-- **Speed-run**: 2.5-3 hours (with DAG templates)
+[assert|neutral] KOORDINATOR_SURE := {
+  ilk_kez: "4-5 saat (orkestrasyon mantigi karmasik)",
+  hizli_kosma: "2.5-3 saat (DAG sablonlariyla)"
+} [ground:witnessed:timing] [conf:0.90] [state:confirmed]
 
 ---
 
-## Type 3: Hybrid Agents
+<!-- S4 HIBRIT_AJANLAR (Hybrid Agents) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Tur 3: Hibrit Ajanlar (Type 3: Hybrid Agents)
 
-### Characteristics
+### Karakteristikler (Characteristics)
 
-- **Multi-Domain Expertise**: Deep knowledge in 2-4 related domains
-- **Coordinator Capabilities**: Can spawn sub-agents for complex sub-tasks
-- **Context Switching**: Efficiently transitions between domains
-- **End-to-End Ownership**: Completes features spanning multiple domains
-- **Intelligent Delegation**: Knows when to delegate vs. implement directly
+[assert|neutral] HIBRIT_KARAKTERISTIKLERI := {
+  cok_alanli_uzmanlik: "2-4 iliskili alanda derin bilgi",
+  koordinator_yetenekleri: "Karmasik alt-gorevler icin alt-ajanlar olusturabilir",
+  baglam_degistirme: "Alanlar arasinda verimli gecis",
+  uctan_uca_sahiplik: "Birden fazla alani kapsayan ozellikleri tamamlar",
+  akilli_delegasyon: "Ne zaman devrетme vs. dogrudan uygulama bilir"
+} [ground:witnessed:hybrid-definition] [conf:0.92] [state:confirmed]
 
-### When to Use
+### Ne Zaman Kullanilir (When to Use)
 
-Use hybrid agents for:
-- ✅ Full-stack features (frontend + backend + database)
-- ✅ Features with moderate complexity (standard auth, CRUD, forms)
-- ✅ When end-to-end ownership needed (one agent, complete delivery)
-- ✅ Projects with related technology stacks (React + Node.js, for example)
+[assert|emphatic] HIBRIT_KULLANIM_DURUMLARI := [
+  "Tam-yigin ozellikler (frontend + backend + veritabani)",
+  "Orta karmasiklikta ozellikler (standart auth, CRUD, formlar)",
+  "Uctan uca sahiplik gerektiginde (tek ajan, tam teslimat)",
+  "Iliskili teknoloji yiginlarina sahip projeler (React + Node.js)"
+] [ground:witnessed:use-cases] [conf:0.90] [state:confirmed]
 
-### Agent Structure
+### Ornekler (Examples)
 
-```markdown
-# [HYBRID NAME] AGENT - SYSTEM PROMPT
+[assert|neutral] HIBRIT_ORNEKLERI := [
+  {
+    ajan: "Tam-Yigin Gelistirici",
+    alanlar: ["Frontend (React/TS)", "Backend (Node.js)", "Veritabani (PostgreSQL)", "DevOps (Docker)"],
+    koordinasyon: "Karmasik alt-gorevler icin Algoritma, Guvenlik, Performans uzmanlari olusturur",
+    is_akisi: "API-ilk tasarim -> Backend -> Frontend -> Testler -> Dagitim",
+    delegasyon: "Karmasiklik >2 saat VEYA 4 cekirdek alan disinda olunca devreder"
+  },
+  {
+    ajan: "Veri Bilimci + ML Muhendisi",
+    alanlar: ["Veri analizi (Python/pandas)", "ML modelleme (scikit-learn/PyTorch)", "ML ops (MLflow)", "Dagitim (FastAPI)"],
+    koordinasyon: "ETL boru hatlari icin Veri Muhendisi, Kubernetes dagitimi icin DevOps olusturur",
+    is_akisi: "Veri kesfetme -> Ozellik muhendisligi -> Model egitimi -> Dagitim -> Izleme",
+    delegasyon: "Altyapi, karmasik ETL devreder"
+  },
+  {
+    ajan: "Mobil + Backend Gelistirici",
+    alanlar: ["Mobil (React Native)", "Backend (Node.js)", "Veritabani (PostgreSQL)", "API tasarimi"],
+    koordinasyon: "Karmasik animasyonlar icin UI Tasarimci, auth icin Guvenlik Uzmani olusturur",
+    is_akisi: "API tasarimi -> Backend -> Mobil UI -> Entegrasyon testleri -> App store dagitimi",
+    delegasyon: "UI cilalama, guvenlik denetimleri devreder"
+  }
+] [ground:witnessed:examples] [conf:0.88] [state:confirmed]
 
-## 🎭 CORE IDENTITY
-I am a **[Hybrid Title]** with deep expertise across [domains] and coordinator capabilities.
+### Olusturma Suresi (Creation Time)
 
-**Specialist Expertise**:
-- [Domain 1] - [specific skills]
-- [Domain 2] - [specific skills]
-- [Domain 3] - [specific skills]
-- [Domain 4] - [specific skills]
-
-**Coordinator Capabilities**:
-- [Orchestration capability 1]
-- [Agent delegation]
-- [Quality assurance]
-
-## 📋 UNIVERSAL COMMANDS
-[Standard file, git, memory, agent coordination]
-
-## 🎯 MY SPECIALIST COMMANDS (Multi-Domain)
-### [Domain 1] Commands
-[Domain 1 specific commands]
-
-### [Domain 2] Commands
-[Domain 2 specific commands]
-
-### [Domain 3] Commands
-[Domain 3 specific commands]
-
-### Coordinator Commands
-[Orchestration commands]
-
-## 🧠 COGNITIVE FRAMEWORK (Hybrid-Specific)
-### Domain Switching Protocol
-[How to transition between domains]
-
-### Delegation Decision Framework
-[When to delegate vs. implement]
-
-### [Domain]-First Workflow
-[Standard end-to-end workflow]
-
-## 🚧 GUARDRAILS (Hybrid-Specific)
-[Hybrid failure modes]
-- Never implement [Domain A] before [Domain B]
-- Never delegate standard tasks
-- Never skip [integration step]
-
-## ✅ SUCCESS CRITERIA (Hybrid Agent)
-[Multi-domain completion criteria]
-- [Domain 1] complete
-- [Domain 2] complete
-- [Domain 3] complete
-- Integration tests pass
-- Deployment successful
-
-## 📖 WORKFLOW EXAMPLES
-### Workflow 1: Standard Feature (Hybrid Solo)
-[End-to-end implementation without delegation]
-
-### Workflow 2: Complex Feature (Hybrid + Delegation)
-[Hybrid coordinates specialists for complex sub-tasks]
-```
-
-### Examples
-
-**Full-Stack Developer**:
-- Domains: Frontend (React/TS), Backend (Node.js), Database (PostgreSQL), DevOps (Docker)
-- Coordination: Spawns Algorithm, Security, Performance specialists for complex sub-tasks
-- Workflow: API-first design → Backend → Frontend → Tests → Deploy
-- Delegation: Delegates when complexity >2 hours OR outside 4 core domains
-
-**Data Scientist + ML Engineer**:
-- Domains: Data analysis (Python/pandas), ML modeling (scikit-learn/PyTorch), ML ops (MLflow), Deployment (FastAPI)
-- Coordination: Spawns Data Engineer for ETL pipelines, DevOps for Kubernetes deployment
-- Workflow: Data exploration → Feature engineering → Model training → Deployment → Monitoring
-- Delegation: Delegates infrastructure, complex ETL
-
-**Mobile + Backend Developer**:
-- Domains: Mobile (React Native), Backend (Node.js), Database (PostgreSQL), API design
-- Coordination: Spawns UI Designer for complex animations, Security Specialist for auth
-- Workflow: API design → Backend → Mobile UI → Integration tests → App store deployment
-- Delegation: Delegates UI polish, security audits
-
-### Creation Time
-
-- **First-time**: 5-6 hours (multiple domains + coordination logic)
-- **Speed-run**: 3-3.5 hours (with multi-domain templates)
+[assert|neutral] HIBRIT_SURE := {
+  ilk_kez: "5-6 saat (birden fazla alan + koordinasyon mantigi)",
+  hizli_kosma: "3-3.5 saat (cok alanli sablonlarla)"
+} [ground:witnessed:timing] [conf:0.90] [state:confirmed]
 
 ---
 
-## Decision Matrix: Which Agent Type?
+<!-- S5 KARAR_MATRISI (Decision Matrix) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Karar Matrisi: Hangi Ajan Turu? (Decision Matrix: Which Agent Type?)
 
-### Use Specialist When:
-
-| Criteria | Specialist | Coordinator | Hybrid |
-|----------|-----------|-------------|--------|
-| **Task Scope** | Single domain | Multi-agent workflow | Multi-domain feature |
-| **Depth Needed** | Expert-level | Broad understanding | Expert in 2-4 domains |
-| **Coordination** | Minimal | High | Moderate |
-| **Speed** | Fastest (no coordination overhead) | Slower (coordination) | Medium |
-| **Complexity** | Domain-specific | Orchestration logic | Multi-domain + delegation |
-| **Example Tasks** | "Optimize PostgreSQL queries" | "Deploy full-stack app" | "Build auth feature (frontend + backend)" |
-
-### Use Coordinator When:
-
-| Criteria | Value |
-|----------|-------|
-| **Number of Agents** | 5+ specialist agents |
-| **Dependencies** | Complex (DAG, sequential, parallel) |
-| **Error Recovery** | Critical (rollback required) |
-| **State Management** | Complex (resource tracking, inventory) |
-| **Example Tasks** | "Orchestrate infrastructure deployment", "Manage CI/CD pipeline", "Coordinate sprint workflow" |
-
-### Use Hybrid When:
-
-| Criteria | Value |
-|----------|-------|
-| **Number of Domains** | 2-4 related domains |
-| **Feature Scope** | End-to-end (crosses domains) |
-| **Ownership Model** | Single agent, complete delivery |
-| **Delegation Frequency** | Occasional (10-20% of tasks) |
-| **Example Tasks** | "Build user authentication (frontend + backend + DB)", "Create recommendation engine (data + ML + API)" |
+[assert|emphatic] KARAR_MATRISI := {
+  gorev_kapsami: {
+    tek_alan: "Uzman",
+    coklu_ajan_is_akisi: "Koordinator",
+    cok_alanli_ozellik: "Hibrit"
+  },
+  gereken_derinlik: {
+    uzman_duzeyinde: "Uzman",
+    genis_anlayis: "Koordinator",
+    iki_dort_alanda_uzman: "Hibrit"
+  },
+  koordinasyon: {
+    minimal: "Uzman",
+    yuksek: "Koordinator",
+    orta: "Hibrit"
+  },
+  hiz: {
+    en_hizli: "Uzman (koordinasyon yuku yok)",
+    daha_yavas: "Koordinator (koordinasyon)",
+    orta: "Hibrit"
+  },
+  ornek_gorevler: {
+    uzman: "PostgreSQL sorgularini optimize et",
+    koordinator: "Tam-yigin uygulamayi dagit",
+    hibrit: "Auth ozelligi olustur (frontend + backend)"
+  }
+} [ground:witnessed:decision-framework] [conf:0.92] [state:confirmed]
 
 ---
 
-## Specialization Patterns by Domain
+<!-- S6 UZMANLIK_KALIPLARI (Specialization Patterns) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Alana Gore Uzmanlik Kaliplari (Specialization Patterns by Domain)
 
-### Analytical Agents (Specialist)
+### Analitik Ajanlar (Uzman) (Analytical Agents - Specialist)
 
-**Focus**: Data analysis, evidence evaluation, validation
+[assert|neutral] ANALITIK_KALIP := {
+  odak: "Veri analizi, kanit degerlendirme, dogrulama",
+  temel_karakteristikler: [
+    "Oz-tutarlilik dogrulamasi (cok acili kontroller)",
+    "Istatistiksel titizlik (anlam testleri, guven araliklari)",
+    "Veri kalitesi standartlari (tamliligi, dogruluk)"
+  ],
+  ornekler: ["Veri Analisti", "Arastirma Analisti", "Kalite Denetcisi", "A/B Test Analisti"]
+} [ground:witnessed:pattern-analytical] [conf:0.88] [state:confirmed]
 
-**Key Characteristics**:
-- Self-consistency validation (multi-angle checks)
-- Statistical rigor (significance tests, confidence intervals)
-- Data quality standards (completeness, accuracy)
+### Uretici Ajanlar (Uzman) (Generative Agents - Specialist)
 
-**Examples**: Data Analyst, Research Analyst, Quality Auditor, A/B Test Analyst
+[assert|neutral] URETICI_KALIP := {
+  odak: "Icerik olusturma, tasarim, sentez",
+  temel_karakteristikler: [
+    "Plan-ve-coz yurutme (anahat -> taslak -> cilalama)",
+    "Kalite kriterleri (okunabilirlik, etkilesim, dogruluk)",
+    "Iyilestirme donguler (yinelemeli iyilestirme)"
+  ],
+  ornekler: ["Icerik Yazari", "Pazarlama Metin Yazari", "UI Tasarimci", "Dokumantasyon Uzmani"]
+} [ground:witnessed:pattern-generative] [conf:0.88] [state:confirmed]
 
-### Generative Agents (Specialist)
+### Teshis Ajanlari (Uzman) (Diagnostic Agents - Specialist)
 
-**Focus**: Content creation, design, synthesis
+[assert|neutral] TESHIS_KALIBI := {
+  odak: "Problem tanimlama, hata ayiklama, kok neden analizi",
+  temel_karakteristikler: [
+    "Dusunce programi ayristirmasi (problemi alt-problemlere bol)",
+    "Hipotez uretme ve test etme",
+    "Sistematik sorun giderme"
+  ],
+  ornekler: ["Hata Ayiklama Uzmani", "Performans Analizcisi", "Guvenlik Denetcisi", "Olay Yanit"]
+} [ground:witnessed:pattern-diagnostic] [conf:0.88] [state:confirmed]
 
-**Key Characteristics**:
-- Plan-and-solve execution (outline → draft → polish)
-- Quality criteria (readability, engagement, accuracy)
-- Refinement cycles (iterative improvement)
+### Orkestrasyon Ajanlari (Koordinator) (Orchestration Agents - Coordinator)
 
-**Examples**: Content Writer, Marketing Copywriter, UI Designer, Documentation Specialist
+[assert|neutral] ORKESTRASYON_KALIBI := {
+  odak: "Is akisi koordinasyonu, ajan yonetimi, bagimlilik cozumleme",
+  temel_karakteristikler: [
+    "DAG insa etme ve cevrim tespiti",
+    "Hiz sinirlamasiyla paralel yurutme",
+    "Hata yayilimi ve geri alma"
+  ],
+  ornekler: ["DevOps Koordinatoru", "Proje Yonetici", "CI/CD Boru Hatti Koordinatoru", "Is Akisi Orkestratoru"]
+} [ground:witnessed:pattern-orchestration] [conf:0.88] [state:confirmed]
 
-### Diagnostic Agents (Specialist)
+### Cok-Alanli Ajanlar (Hibrit) (Multi-Domain Agents - Hybrid)
 
-**Focus**: Problem identification, debugging, root cause analysis
-
-**Key Characteristics**:
-- Program-of-thought decomposition (break problem into sub-problems)
-- Hypothesis generation and testing
-- Systematic troubleshooting
-
-**Examples**: Debugging Specialist, Performance Analyzer, Security Auditor, Incident Responder
-
-### Orchestration Agents (Coordinator)
-
-**Focus**: Workflow coordination, agent management, dependency resolution
-
-**Key Characteristics**:
-- DAG construction and cycle detection
-- Parallel execution with rate limiting
-- Error propagation and rollback
-
-**Examples**: DevOps Coordinator, Project Manager, CI/CD Pipeline Coordinator, Workflow Orchestrator
-
-### Multi-Domain Agents (Hybrid)
-
-**Focus**: End-to-end feature delivery across multiple domains
-
-**Key Characteristics**:
-- Context switching protocol
-- Delegation decision framework
-- Integration-first workflows
-
-**Examples**: Full-Stack Developer, Data Scientist + ML Engineer, Mobile + Backend Developer
-
----
-
-## Mixing Patterns: When to Combine
-
-### Specialist + Coordinator
-
-**Scenario**: Specialist agent occasionally coordinates with other specialists
-
-**Example**: Security Specialist agent that:
-- Performs security audits (specialist)
-- Spawns Penetration Testing agent for advanced testing (coordinator)
-
-**Implementation**:
-```markdown
-## When to Coordinate
-I spawn sub-agents when:
-- Penetration testing required (delegate to Penetration Testing Specialist)
-- Complex cryptographic analysis (delegate to Cryptography Specialist)
-
-Otherwise, I work autonomously within security domain.
-```
-
-### Hybrid + Extensive Coordination
-
-**Scenario**: Hybrid agent frequently delegates, acts more like coordinator
-
-**Example**: Technical Lead agent that:
-- Has expertise in architecture, backend, frontend (hybrid)
-- Frequently spawns Developer agents for implementation (coordinator)
-- Focuses on high-level design, code review, delegation
-
-**Implementation**:
-```markdown
-## Delegation Strategy
-I delegate most implementation tasks:
-- Backend implementation → Backend Developer
-- Frontend implementation → Frontend Developer
-- Database design → Database Specialist
-
-I focus on:
-- Architecture design
-- API contract definition
-- Code review
-- Integration oversight
-```
-
-**Note**: This is close to pure coordinator with domain expertise (useful for tech leads, architects)
+[assert|neutral] COK_ALANLI_KALIP := {
+  odak: "Birden fazla alanda uctan uca ozellik teslimati",
+  temel_karakteristikler: [
+    "Baglam degistirme protokolu",
+    "Delegasyon karar cercevesi",
+    "Entegrasyon-ilk is akislari"
+  ],
+  ornekler: ["Tam-Yigin Gelistirici", "Veri Bilimci + ML Muhendisi", "Mobil + Backend Gelistirici"]
+} [ground:witnessed:pattern-multi-domain] [conf:0.88] [state:confirmed]
 
 ---
 
-## Summary
+<!-- S7 KARISIK_KALIPLAR (Mixing Patterns) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Karisik Kaliplar: Ne Zaman Birlestirmeli (Mixing Patterns: When to Combine)
 
-**Agent Types**:
-1. **Specialist**: Deep single-domain expertise, autonomous, minimal coordination
-2. **Coordinator**: Multi-agent orchestration, broad knowledge, error recovery
-3. **Hybrid**: Multi-domain expertise + coordination, end-to-end ownership
+### Uzman + Koordinator (Specialist + Coordinator)
 
-**Decision Criteria**:
-- **Task scope**: Single domain → Specialist | Multi-agent → Coordinator | Multi-domain feature → Hybrid
-- **Depth needed**: Expert-level → Specialist | Broad understanding → Coordinator | Expert in 2-4 domains → Hybrid
-- **Coordination**: Minimal → Specialist | High → Coordinator | Moderate → Hybrid
+[assert|neutral] UZMAN_KOORDINATOR_KARISIMI := {
+  senaryo: "Uzman ajan bazen diger uzmanlarla koordine eder",
+  ornek: "Guvenlik Uzmani ajani: Guvenlik denetimleri yapar (uzman), Gelismis testler icin Penetrasyon Testi ajani olusturur (koordinator)",
+  uygulama: "Penetrasyon testi gerektiginde Penetrasyon Testi Uzmanina devret, Karmasik kriptografik analiz icin Kriptografi Uzmanina devret, Aksi halde guvenlik alaninda ozerk calis"
+} [ground:witnessed:mixing-patterns] [conf:0.88] [state:confirmed]
 
-**Creation Complexity**:
-- Specialist: 3-4 hours (simplest)
-- Coordinator: 4-5 hours (orchestration logic)
-- Hybrid: 5-6 hours (most complex - multiple domains + coordination)
+### Hibrit + Yogun Koordinasyon (Hybrid + Extensive Coordination)
 
-**Choose wisely**: Match agent type to task requirements for optimal performance.
-
+[assert|neutral] HIBRIT_YOGUN_KOORDINASYON := {
+  senaryo: "Hibrit ajan sik sik devretir, koordinator gibi davranir",
+  ornek: "Teknik Lider ajani: Mimari, backend, frontend uzmanligi var (hibrit), Uygulama icin sik sik Gelistirici ajanlar olusturur (koordinator), Ust duzey tasarim, kod inceleme, delegasyona odaklanir",
+  uygulama: {
+    devreder: ["Backend uygulamasi -> Backend Gelistirici", "Frontend uygulamasi -> Frontend Gelistirici", "Veritabani tasarimi -> Veritabani Uzmani"],
+    odaklanir: ["Mimari tasarim", "API kontrat tanimi", "Kod inceleme", "Entegrasyon gozetimi"]
+  },
+  not: "Bu, alan uzmanligiyla saf koordinatore yakin (teknik liderler, mimarlar icin faydali)"
+} [ground:witnessed:mixing-patterns] [conf:0.88] [state:confirmed]
 
 ---
-*Promise: `<promise>AGENT_TYPES_VERIX_COMPLIANT</promise>`*
+
+<!-- S8 SONUC (Summary) [[HON:teineigo]] [[EVD:-dis]] [[ASP:sov.]] [[CLS:ge-abstract]] -->
+## Sonuc (Summary)
+
+<!-- [[MOR:root:S-N-C]] Sonuc = root morpheme for conclusion-result -->
+[assert|confident] OZET := {
+  ajan_turleri: {
+    uzman: "Derin tek-alan uzmanligi, ozerk, minimal koordinasyon",
+    koordinator: "Coklu ajan orkestrasyonu, genis bilgi, hata kurtarma",
+    hibrit: "Cok-alanli uzmanlik + koordinasyon, uctan uca sahiplik"
+  },
+  karar_kriterleri: {
+    gorev_kapsami: "Tek alan -> Uzman | Coklu ajan -> Koordinator | Cok alanli ozellik -> Hibrit",
+    gereken_derinlik: "Uzman duzeyinde -> Uzman | Genis anlayis -> Koordinator | 2-4 alanda uzman -> Hibrit",
+    koordinasyon: "Minimal -> Uzman | Yuksek -> Koordinator | Orta -> Hibrit"
+  },
+  olusturma_karmasikligi: {
+    uzman: "3-4 saat (en basit)",
+    koordinator: "4-5 saat (orkestrasyon mantigi)",
+    hibrit: "5-6 saat (en karmasik - birden fazla alan + koordinasyon)"
+  },
+  tavsiye: "Optimal performans icin ajan turunu gorev gereksinimlerine uygun sec"
+} [ground:witnessed:summary] [conf:0.95] [state:confirmed]
+
+---
+
+<promise>AGENT_TYPES_VCL_VERIX_COMPLIANT</promise>

@@ -1,0 +1,11 @@
+Loaded cached credentials.
+[STARTUP] StartupProfiler.flush() called with 9 phases
+[STARTUP] Recording metric for phase: cli_startup duration: 944.1992
+[STARTUP] Recording metric for phase: load_settings duration: 3.246399999999994
+[STARTUP] Recording metric for phase: migrate_settings duration: 2.184900000000198
+[STARTUP] Recording metric for phase: parse_arguments duration: 20.79030000000057
+[STARTUP] Recording metric for phase: load_cli_config duration: 29.27180000000044
+[STARTUP] Recording metric for phase: initialize_app duration: 880.4778999999999
+[STARTUP] Recording metric for phase: authenticate duration: 874.3759
+[STARTUP] Recording metric for phase: discover_tools duration: 6.490399999999681
+[STARTUP] Recording metric for phase: initialize_mcp_clients duration: 0.2238999999999578

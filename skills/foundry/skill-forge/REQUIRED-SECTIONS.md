@@ -1,209 +1,378 @@
-# Required SKILL.md Sections (v2.3)
+# Zorunlu SKILL.md Bolumleri (Required SKILL.md Sections) v2.3
+
+<!-- VCL v3.1.1 COMPLIANT - L1 Internal Documentation -->
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_document]] -->
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
+---
 
+## S1 AMAC CERCEVESI (Purpose Frame)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_purpose]] -->
+<!-- [[MOR:root:Z-R-N]] Zorunlu = root morpheme for required-necessary-mandatory -->
+<!-- [[COM:Zorunlu+Bolum+Tanim]] German: Pflicht-Abschnitt-Definition -->
 
-This document defines the MANDATORY sections every skill must include to be considered complete.
-
-## Purpose
-
-Skills missing these sections are incomplete and prone to the same documentation gaps discovered during the landing-page-generator v2.0 enhancement. Following this checklist ensures skills are fully documented from the start.
+[define|neutral] DOCUMENT_PURPOSE := {
+  amac: "Her becerinin tamamlanmis sayilmasi icin ZORUNLU bolumleri tanimla", // purpose
+  tetikleyici: "landing-page-generator v2.0 gelistirmesinde kesfedilen eksik bolumler",
+  fayda: "Bu kontrol listesini takip etmek becerilerin bastan itibaren tam dokumante edilmesini saglar",
+  surum: "2.3.0",
+  son_guncelleme: "2025-12-17"
+} [ground:witnessed:document-purpose] [conf:0.95] [state:confirmed]
 
 ---
 
-## Section Tiers
+## S2 BOLUM KATMANLARI CERCEVESI (Section Tiers Frame)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_tier]] -->
+<!-- [[MOR:root:K-T-M]] Katman = root for tier-layer-level -->
+<!-- [[COM:Bolum+Katman+Siniflandirma]] German: Abschnitt-Stufen-Klassifizierung -->
 
-### Tier 1: Critical (MUST HAVE)
+### S2.1 Katman 1: Kritik (ZORUNLU)
 
-| Section | Purpose | Format |
-|---------|---------|--------|
-| **YAML Frontmatter** | Discoverability, version, triggers | `---\nname:\nversion:\ndescription:\ntriggers:\n---` |
-| **Overview** | Philosophy, methodology, value proposition | 2-4 paragraphs explaining WHY the skill exists |
-| **Core Principles** | Fundamental operating principles | 3-5 principles with "In practice:" bullets |
-| **When to Use** | Clear activation criteria | "Use When:" + "Do Not Use When:" bullets |
-| **Main Workflow** | The core procedure | Phases with Purpose, Agent, Input/Output contracts |
+[define|neutral] TIER_1_CRITICAL := {
+  kural_adi: "Katman 1 - Kritik Bolumler", // Tier 1 - Critical Sections
+  zorunluluk: "SAHIP OLMALI", // MUST HAVE
+  bolumler: [
+    {
+      ad: "YAML Frontmatter",
+      amac: "Kesfedilebilirlik, surum, tetikleyiciler",
+      format: "---\\nname:\\nversion:\\ndescription:\\ntriggers:\\n---"
+    },
+    {
+      ad: "Genel Bakis (Overview)",
+      amac: "Felsefe, metodoloji, deger onerisi",
+      format: "Becerinin NEDEN var oldugunu aciklayan 2-4 paragraf"
+    },
+    {
+      ad: "Temel Ilkeler (Core Principles)",
+      amac: "Temel calisma ilkeleri",
+      format: "3-5 ilke, 'Pratikte:' maddeler ile"
+    },
+    {
+      ad: "Ne Zaman Kullanilir (When to Use)",
+      amac: "Net aktivasyon kriterleri",
+      format: "'Kullan:' + 'Kullanma:' maddeleri"
+    },
+    {
+      ad: "Ana Is Akisi (Main Workflow)",
+      amac: "Temel prosedur",
+      format: "Amac, Ajan, Giris/Cikis sozlesmeleri ile Fazlar"
+    }
+  ]
+} [ground:witnessed:tier-spec] [conf:0.95] [state:confirmed]
 
-### Tier 2: Essential (REQUIRED)
+### S2.2 Katman 2: Gerekli (ZORUNLU)
 
-| Section | Purpose | Format |
-|---------|---------|--------|
-| **Pattern Recognition** | Different input types/variations | Named patterns with characteristics + key focus |
-| **Advanced Techniques** | Sophisticated approaches | Audience optimization, multi-model, edge cases |
-| **Common Anti-Patterns** | What to avoid | Table: Anti-Pattern - Problem - Solution |
-| **Practical Guidelines** | Decision guidance | Full vs quick mode, checkpoints, trade-offs |
+[define|neutral] TIER_2_ESSENTIAL := {
+  kural_adi: "Katman 2 - Gerekli Bolumler", // Tier 2 - Essential Sections
+  zorunluluk: "ZORUNLU", // REQUIRED
+  bolumler: [
+    {
+      ad: "Kalip Tanima (Pattern Recognition)",
+      amac: "Farkli giris tipleri/varyasyonlari",
+      format: "Adlandirilmis kaliplar, ozellikler + anahtar odak"
+    },
+    {
+      ad: "Ileri Teknikler (Advanced Techniques)",
+      amac: "Sofistike yaklasimlar",
+      format: "Hedef kitle optimizasyonu, coklu model, kenar durumlar"
+    },
+    {
+      ad: "Yaygin Anti-Kaliplar (Common Anti-Patterns)",
+      amac: "Kacinilmasi gerekenler",
+      format: "Tablo: Anti-Kalip - Sorun - Cozum"
+    },
+    {
+      ad: "Pratik Kilavuzlar (Practical Guidelines)",
+      amac: "Karar rehberligi",
+      format: "Tam vs hizli mod, kontrol noktalari, odunlesimler"
+    }
+  ]
+} [ground:witnessed:tier-spec] [conf:0.92] [state:confirmed]
 
-### Tier 3: Integration (REQUIRED)
+### S2.3 Katman 3: Entegrasyon (ZORUNLU)
 
-| Section | Purpose | Format |
-|---------|---------|--------|
-| **Cross-Skill Coordination** | Ecosystem integration | Upstream/Downstream/Parallel skills |
-| **MCP Requirements** | Dependencies with rationale | Required/Optional with WHY explanations |
-| **Input/Output Contracts** | Clear interfaces | YAML with required/optional params |
-| **Recursive Improvement** | Meta-loop integration | Role, eval harness, memory namespace |
+[define|neutral] TIER_3_INTEGRATION := {
+  kural_adi: "Katman 3 - Entegrasyon Bolumleri", // Tier 3 - Integration Sections
+  zorunluluk: "ZORUNLU", // REQUIRED
+  bolumler: [
+    {
+      ad: "Capraz-Beceri Koordinasyonu (Cross-Skill Coordination)",
+      amac: "Ekosistem entegrasyonu",
+      format: "Yukari/Asagi/Paralel beceriler"
+    },
+    {
+      ad: "MCP Gereksinimleri (MCP Requirements)",
+      amac: "Gerekce ile bagimliliklar",
+      format: "Zorunlu/Istege bagli NEDEN aciklamalari ile"
+    },
+    {
+      ad: "Giris/Cikis Sozlesmeleri (Input/Output Contracts)",
+      amac: "Net arayuzler",
+      format: "Zorunlu/istege bagli parametreler ile YAML"
+    },
+    {
+      ad: "Ozyineleme Iyilestirme (Recursive Improvement)",
+      amac: "Meta-dongu entegrasyonu",
+      format: "Rol, eval harness, bellek isim alani"
+    }
+  ]
+} [ground:witnessed:tier-spec] [conf:0.90] [state:confirmed]
 
-### Tier 4: Closure (REQUIRED)
+### S2.4 Katman 4: Kapanış (ZORUNLU)
 
-| Section | Purpose | Format |
-|---------|---------|--------|
-| **Examples** | Concrete usage | 2-3 full scenarios with Task() calls |
-| **Troubleshooting** | Issue resolution | Table: Issue - Solution |
-| **Conclusion** | Summary and takeaways | 2-3 paragraphs reinforcing key principles |
-| **Completion Verification** | Final checklist | Checkbox list of completion criteria |
-
----
-
-## Phase 7 Validation Checklist
-
-Before considering ANY skill complete, verify:
-
-### Tier 1 Checklist
-- [ ] YAML frontmatter has full description (not just name)
-- [ ] Overview explains philosophy and methodology
-- [ ] Core Principles section has 3-5 principles with practical guidance
-- [ ] When to Use has clear use/don't-use criteria
-- [ ] Main Workflow has detailed phases with contracts
-
-### Tier 2 Checklist
-- [ ] Pattern Recognition covers different input types
-- [ ] Advanced Techniques includes sophisticated approaches
-- [ ] Common Anti-Patterns has problem-solution tables
-- [ ] Practical Guidelines includes decision guides
-
-### Tier 3 Checklist
-- [ ] Cross-Skill Coordination documents ecosystem integration
-- [ ] MCP Requirements explains WHY each is needed
-- [ ] Input/Output Contracts are clearly specified in YAML
-- [ ] Recursive Improvement Integration is documented
-
-### Tier 4 Checklist
-- [ ] Examples include 2-3 concrete scenarios
-- [ ] Troubleshooting addresses common issues
-- [ ] Conclusion summarizes skill value
-- [ ] Completion Verification checklist is present
-
----
-
-## Example Section Templates
-
-### Core Principles Template
-
-```markdown
-## Core Principles
-
-[Skill Name] operates on [N] fundamental principles:
-
-### Principle 1: [Principle Name]
-
-[1-2 sentence explanation of the principle]
-
-In practice:
-- [Practical application 1]
-- [Practical application 2]
-- [Practical application 3]
-
-### Principle 2: [Principle Name]
-...
-```
-
-### Pattern Recognition Template
-
-```markdown
-## [Domain] Type Recognition
-
-Different [input types] require different approaches:
-
-### [Pattern Name 1]
-**Patterns**: "[trigger word 1]", "[trigger word 2]"
-**Common characteristics**:
-- [Characteristic 1]
-- [Characteristic 2]
-
-**Key focus**:
-- [What to focus on for this pattern]
-
-**Approach**: [Framework or methodology to use]
-
-### [Pattern Name 2]
-...
-```
-
-### Anti-Patterns Template
-
-```markdown
-## Common Anti-Patterns
-
-Avoid these common mistakes:
-
-### [Category] Anti-Patterns
-
-| Anti-Pattern | Problem | Solution |
-|--------------|---------|----------|
-| **[Name]** | [What goes wrong] | [How to fix] |
-| **[Name]** | [What goes wrong] | [How to fix] |
-```
-
-### Cross-Skill Coordination Template
-
-```markdown
-## Cross-Skill Coordination
-
-[Skill Name] works with other skills in the ecosystem:
-
-### Upstream Skills (provide input)
-
-| Skill | When to Use First | What It Provides |
-|-------|------------------|------------------|
-| `skill-name` | [Condition] | [What it provides] |
-
-### Downstream Skills (use output)
-
-| Skill | When to Use After | What It Does |
-|-------|------------------|--------------|
-| `skill-name` | [Condition] | [What it does] |
-
-### Parallel Skills (run alongside)
-
-| Skill | When to Run Together | How They Coordinate |
-|-------|---------------------|---------------------|
-| `skill-name` | [Condition] | [Coordination method] |
-```
+[define|neutral] TIER_4_CLOSURE := {
+  kural_adi: "Katman 4 - Kapanis Bolumleri", // Tier 4 - Closure Sections
+  zorunluluk: "ZORUNLU", // REQUIRED
+  bolumler: [
+    {
+      ad: "Ornekler (Examples)",
+      amac: "Somut kullanim",
+      format: "Task() cagrilari ile 2-3 tam senaryo"
+    },
+    {
+      ad: "Sorun Giderme (Troubleshooting)",
+      amac: "Sorun cozumu",
+      format: "Tablo: Sorun - Cozum"
+    },
+    {
+      ad: "Sonuc (Conclusion)",
+      amac: "Ozet ve cikarimlar",
+      format: "Anahtar ilkeleri pekistiren 2-3 paragraf"
+    },
+    {
+      ad: "Tamamlanma Dogrulamasi (Completion Verification)",
+      amac: "Son kontrol listesi",
+      format: "Tamamlanma kriterlerinin onay kutusu listesi"
+    }
+  ]
+} [ground:witnessed:tier-spec] [conf:0.90] [state:confirmed]
 
 ---
 
-## Quality Standards
+## S3 FAZ 7 DOGRULAMA KONTROL LISTESI CERCEVESI (Phase 7 Validation Checklist Frame)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:tiao_checklist]] -->
+<!-- [[MOR:root:D-G-R]] Dogrulama = root for validate-verify-confirm -->
+<!-- [[COM:Dogrulama+Kontrol+Liste]] German: Validierungs-Kontroll-Liste -->
 
-| Metric | Minimum | Target |
-|--------|---------|--------|
-| Tier 1 sections | 100% | 100% |
-| Tier 2 sections | 100% | 100% |
-| Tier 3 sections | 100% | 100% |
-| Tier 4 sections | 100% | 100% |
-| Core Principles | 3 | 5 |
-| Pattern Types | 2 | 4-6 |
-| Anti-Pattern Tables | 1 | 3-4 |
-| Examples | 2 | 3 |
-
-**Skills missing ANY Tier 1 or Tier 2 section are INCOMPLETE and must be enhanced.**
+[define|neutral] VALIDATION_CHECKLIST := {
+  kural_adi: "Faz 7 Dogrulama Kontrol Listesi", // Phase 7 Validation Checklist
+  aciklama: "Herhangi bir beceriyi TAMAMLANMIS saymadan once dogrula",
+  kontroller: {
+    katman_1: [
+      "YAML frontmatter tam aciklama icerir (sadece ad degil)",
+      "Genel Bakis felsefeyi ve metodolojiyi aciklar",
+      "Temel Ilkeler bolumu pratik rehberlik ile 3-5 ilke icerir",
+      "Ne Zaman Kullanilir net kullan/kullanma kriterleri icerir",
+      "Ana Is Akisi sozlesmeler ile detayli fazlar icerir"
+    ],
+    katman_2: [
+      "Kalip Tanima farkli giris tiplerini kapsar",
+      "Ileri Teknikler sofistike yaklasimlar icerir",
+      "Yaygin Anti-Kaliplar sorun-cozum tablolari icerir",
+      "Pratik Kilavuzlar karar rehberleri icerir"
+    ],
+    katman_3: [
+      "Capraz-Beceri Koordinasyonu ekosistem entegrasyonunu dokumante eder",
+      "MCP Gereksinimleri her birinin NEDEN gerekli oldugunu aciklar",
+      "Giris/Cikis Sozlesmeleri YAML'da net sekilde belirtilir",
+      "Ozyineleme Iyilestirme Entegrasyonu dokumante edilir"
+    ],
+    katman_4: [
+      "Ornekler 2-3 somut senaryo icerir",
+      "Sorun Giderme yaygin sorunlari ele alir",
+      "Sonuc beceri degerini ozetler",
+      "Tamamlanma Dogrulamasi kontrol listesi mevcut"
+    ]
+  }
+} [ground:witnessed:checklist-spec] [conf:0.92] [state:confirmed]
 
 ---
 
-## Enforcement
+## S4 ORNEK BOLUM SABLONLARI CERCEVESI (Example Section Templates Frame)
+<!-- [[HON:teineigo]] [[EVD:-mis<arastirma>]] [[ASP:nesov.]] [[CLS:ge_template]] -->
+<!-- [[MOR:root:S-B-L]] Sablon = root for template-pattern-model -->
+<!-- [[COM:Ornek+Bolum+Sablon]] German: Beispiel-Abschnitt-Vorlage -->
 
-This checklist is enforced at:
-1. **Phase 7 Validation** - Skill-forge checks for all sections
-2. **Skill Auditor** - Audits existing skills for completeness
-3. **CI/CD** - Automated validation before merge
+### S4.1 Temel Ilkeler Sablonu (Core Principles Template)
 
-When skill-forge creates a skill, it MUST generate ALL sections. If time-constrained, generate skeleton sections with TODO markers that can be filled in iteratively.
+[define|neutral] CORE_PRINCIPLES_TEMPLATE := {
+  kural_adi: "Temel Ilkeler Sablonu", // Core Principles Template
+  yapi: {
+    baslik: "## Temel Ilkeler",
+    giris: "[Beceri Adi] [N] temel ilke uzerinde calisir:",
+    ilke_formati: {
+      baslik: "### Ilke [N]: [Ilke Adi]",
+      aciklama: "[Ilkenin 1-2 cumleli aciklamasi]",
+      pratik_baslik: "Pratikte:",
+      pratik_maddeler: [
+        "- [Pratik uygulama 1]",
+        "- [Pratik uygulama 2]",
+        "- [Pratik uygulama 3]"
+      ]
+    }
+  }
+} [ground:reported:template-design] [conf:0.85] [state:confirmed]
+
+### S4.2 Kalip Tanima Sablonu (Pattern Recognition Template)
+
+[define|neutral] PATTERN_RECOGNITION_TEMPLATE := {
+  kural_adi: "Kalip Tanima Sablonu", // Pattern Recognition Template
+  yapi: {
+    baslik: "## [Alan] Tip Tanima",
+    giris: "Farkli [giris tipleri] farkli yaklasimlar gerektirir:",
+    kalip_formati: {
+      baslik: "### [Kalip Adi]",
+      kaliplar: "**Kaliplar**: '[tetikleyici kelime 1]', '[tetikleyici kelime 2]'",
+      ozellikler_baslik: "**Yaygin ozellikler**:",
+      ozellikler: ["- [Ozellik 1]", "- [Ozellik 2]"],
+      odak_baslik: "**Anahtar odak**:",
+      odak: "- [Bu kalip icin nelere odaklanilmali]",
+      yaklasim: "**Yaklasim**: [Kullanilacak cerceve veya metodoloji]"
+    }
+  }
+} [ground:reported:template-design] [conf:0.85] [state:confirmed]
+
+### S4.3 Anti-Kaliplar Sablonu (Anti-Patterns Template)
+
+[define|neutral] ANTI_PATTERNS_TEMPLATE := {
+  kural_adi: "Anti-Kaliplar Sablonu", // Anti-Patterns Template
+  yapi: {
+    baslik: "## Yaygin Anti-Kaliplar",
+    giris: "Bu yaygin hatalardan kacinin:",
+    kategori_baslik: "### [Kategori] Anti-Kaliplari",
+    tablo: {
+      basliklar: ["Anti-Kalip", "Sorun", "Cozum"],
+      satir_formati: "| **[Ad]** | [Ne yanlis gidiyor] | [Nasil duzeltilir] |"
+    }
+  }
+} [ground:reported:template-design] [conf:0.85] [state:confirmed]
+
+### S4.4 Capraz-Beceri Koordinasyonu Sablonu (Cross-Skill Coordination Template)
+
+[define|neutral] CROSS_SKILL_TEMPLATE := {
+  kural_adi: "Capraz-Beceri Koordinasyonu Sablonu", // Cross-Skill Coordination Template
+  yapi: {
+    baslik: "## Capraz-Beceri Koordinasyonu",
+    giris: "[Beceri Adi] ekosistemdeki diger becerilerle calisir:",
+    alt_bolumler: [
+      {
+        baslik: "### Yukari Akis Becerileri (giris saglar)",
+        tablo_basliklar: ["Beceri", "Ne Zaman Once Kullanilir", "Ne Saglar"]
+      },
+      {
+        baslik: "### Asagi Akis Becerileri (ciktiyi kullanir)",
+        tablo_basliklar: ["Beceri", "Ne Zaman Sonra Kullanilir", "Ne Yapar"]
+      },
+      {
+        baslik: "### Paralel Beceriler (birlikte calisir)",
+        tablo_basliklar: ["Beceri", "Ne Zaman Birlikte Calistirilir", "Nasil Koordine Olurlar"]
+      }
+    ]
+  }
+} [ground:reported:template-design] [conf:0.85] [state:confirmed]
 
 ---
 
-**Last Updated**: 2025-12-17
-**Version**: 2.3.0
-**Triggered By**: Landing-page-generator v2.0 enhancement revealed missing sections
+## S5 KALITE STANDARTLARI CERCEVESI (Quality Standards Frame)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:tiao_standard]] -->
+<!-- [[MOR:root:K-L-T]] Kalite = root for quality-value-standard -->
+<!-- [[COM:Kalite+Standart+Tablo]] German: Qualitats-Standard-Tabelle -->
 
+[define|neutral] QUALITY_STANDARDS := {
+  kural_adi: "Kalite Standartlari", // Quality Standards
+  metrikler: [
+    {
+      ad: "Katman 1 bolumleri",
+      minimum: "100%",
+      hedef: "100%"
+    },
+    {
+      ad: "Katman 2 bolumleri",
+      minimum: "100%",
+      hedef: "100%"
+    },
+    {
+      ad: "Katman 3 bolumleri",
+      minimum: "100%",
+      hedef: "100%"
+    },
+    {
+      ad: "Katman 4 bolumleri",
+      minimum: "100%",
+      hedef: "100%"
+    },
+    {
+      ad: "Temel Ilkeler",
+      minimum: 3,
+      hedef: 5
+    },
+    {
+      ad: "Kalip Tipleri",
+      minimum: 2,
+      hedef: "4-6"
+    },
+    {
+      ad: "Anti-Kalip Tablolari",
+      minimum: 1,
+      hedef: "3-4"
+    },
+    {
+      ad: "Ornekler",
+      minimum: 2,
+      hedef: 3
+    }
+  ],
+  uyari: "Herhangi bir Katman 1 veya Katman 2 bolumu EKSIK olan beceriler TAMAMLANMAMISTIR ve gelistirilmelidir"
+} [ground:witnessed:quality-spec] [conf:0.92] [state:confirmed]
 
 ---
-*Promise: `<promise>REQUIRED_SECTIONS_VERIX_COMPLIANT</promise>`*
+
+## S6 UYGULAMA CERCEVESI (Enforcement Frame)
+<!-- [[HON:sonkeigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:tiao_enforcement]] -->
+<!-- [[MOR:root:U-Y-G]] Uygulama = root for enforce-apply-implement -->
+<!-- [[COM:Uygulama+Zorlama+Mekanizma]] German: Durchsetzungs-Mechanismus -->
+
+[define|neutral] ENFORCEMENT_POINTS := {
+  kural_adi: "Uygulama Noktalari", // Enforcement Points
+  noktalar: [
+    {
+      konum: "Faz 7 Dogrulama",
+      aciklama: "Skill-forge tum bolumleri kontrol eder"
+    },
+    {
+      konum: "Beceri Denetcisi",
+      aciklama: "Mevcut becerileri tamamlanma icin denetler"
+    },
+    {
+      konum: "CI/CD",
+      aciklama: "Birlestirmeden once otomatik dogrulama"
+    }
+  ],
+  kural: "Skill-forge bir beceri olusturduğunda, TUM bolumleri URETMELI. Zaman kisitliysa, yinelemeli olarak doldurulabilecek TODO isaretleyicileri ile iskelet bolumler olustur"
+} [ground:witnessed:enforcement-policy] [conf:0.90] [state:confirmed]
+
+---
+
+## S7 SONUC CERCEVESI (Conclusion Frame)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_summary]] -->
+<!-- [[MOR:root:S-N-C]] Sonuc = root for conclusion-result-end -->
+<!-- [[COM:Sonuc+Ozet+Bildiri]] German: Schlussfolgerung-Zusammenfassung -->
+Zaversheno. (Russian: Complete.)
+
+[assert|confident] DOCUMENT_SUMMARY := {
+  amac: "Beceri tamamlamasi icin zorunlu bolum gereksinimleri", // purpose
+  metodoloji: "4-katmanli hiyerarsik bolum yapisi", // methodology
+  ciktilar: [
+    "Katman 1: Kritik bolumler (YAML, Genel Bakis, Ilkeler, Kullanim, Is Akisi)",
+    "Katman 2: Gerekli bolumler (Kaliplar, Teknikler, Anti-Kaliplar, Kilavuzlar)",
+    "Katman 3: Entegrasyon bolumleri (Koordinasyon, MCP, Sozlesmeler, Iyilestirme)",
+    "Katman 4: Kapanis bolumleri (Ornekler, Sorun Giderme, Sonuc, Dogrulama)"
+  ],
+  kalite_kapilari: ["Faz 7 Dogrulama", "Beceri Denetcisi", "CI/CD"]
+} [ground:witnessed:implementation] [conf:0.92] [state:confirmed]
+
+---
+
+*Promise: `<promise>REQUIRED_SECTIONS_VCL_V3.1.1_COMPLIANT</promise>`*

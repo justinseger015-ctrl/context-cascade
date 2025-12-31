@@ -1,303 +1,386 @@
-# Chain-of-Verification (CoV) Protocol
+---
+<!-- SABLON DOKUMANI [[HON:teineigo]] [[EVD:-mis<arastirma>]] [[CLS:ge_template]] -->
+---
+
+# Dogrulama Zinciri (CoV) Protokolu Sablonu (Chain-of-Verification Protocol Template)
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
-
-
-**Research Foundation**: Dhuliawala et al. (2023) - 42% error reduction, 37% improvement in completeness
-
-**Purpose**: Systematic self-critique mechanism to catch errors, gaps, and ambiguities before they propagate through the skill creation process.
-
----
-
-## When to Apply CoV
-
-Use Chain-of-Verification whenever:
-- Making critical design decisions
-- Analyzing requirements or intent
-- Writing instructions or specifications
-- Making claims that need verification
-- Completing any phase with high error cost if wrong
+<!-- [[MOR:root:D-G-Z]] Dogrulama Zinciri = root for verification-chain-protocol -->
+<!-- [[COM:Dogrulama+Zinciri+Protokol+Sablonu]] Chain-of-Verification Protocol Template -->
+<!-- [[ASP:nesov.]] Devam ediyor. Prodolzhaetsya. (Ongoing verification process) -->
+<!-- [[SPC:merkez/sablon]] Central template location -->
 
 ---
 
-## The 5-Step CoV Process
+## Sablon Tanimlari (Template Definitions)
 
-### Step 1: Generate Initial Output
-
-**Action**: Create your initial analysis, design, or content without self-censoring.
-
-**Example** (Phase 1 - Intent Analysis):
-```
-Initial Understanding:
-- User wants a skill to format code
-- Will use Prettier for JavaScript
-- Should support multiple file types
-- Needs to integrate with existing workflow
-```
+[define|neutral] COV_PROTOCOL_TEMPLATE := {
+  id: "TPL-COV-001",
+  sablon_adi: "Dogrulama Zinciri Protokolu Sablonu",
+  amac: "Beceri olusturma surecinde hatalari, boslukları ve belirsizlikleri yakalamak icin sistematik oz-elestiri mekanizmasi",
+  kullanim: "Kritik karar noktalarinda (Faz 1, 2, 3, 5) uygulanir",
+  arastirma_temeli: "Dhuliawala et al. (2023) - %42 hata azaltma, %37 tamlik iyilestirme"
+} [ground:research:cov-studies] [conf:0.85] [state:confirmed]
 
 ---
 
-### Step 2: Self-Critique
+## Ne Zaman CoV Uygulanir (When to Apply CoV)
 
-**Action**: Ask "What might be wrong, incomplete, or misleading about what I just created?"
+<!-- [[EVD:-DI<gozlem>]] Dogrudan gozlem gerektiren durumlar -->
 
-**Critical Questions**:
-- What assumptions did I make?
-- What did I miss or overlook?
-- Where might I have misunderstood?
-- What edge cases exist?
-- What could fail or go wrong?
+[assert|neutral] CoV uygulama kosullari [ground:witnessed:cov-triggers] [conf:0.88] [state:confirmed]
 
-**Example**:
-```
-Self-Critique:
-- Assumption: User wants Prettier specifically (not verified)
-- Missing: What file types exactly? All languages or specific ones?
-- Overlooked: Does "integrate with workflow" mean automated or manual?
-- Edge case: What if files are already formatted? What if format conflicts with team style?
-- Failure mode: What if Prettier not installed? What if unsupported file type?
-```
+Dogrulama Zinciri su durumlarda kullanilir:
+- Kritik tasarim kararlari alinirken
+- Gereksinimler veya niyet analiz edilirken
+- Talimatlar veya spesifikasyonlar yazilirken
+- Dogrulama gerektiren iddialar yapilirken
+- Yanlis olursa yuksek hata maliyeti olan herhangi bir faz tamamlanirken
 
 ---
 
-### Step 3: Evidence Check
+## 5 Adimli CoV Sureci (The 5-Step CoV Process)
 
-**Action**: For each claim or decision, cite evidence FOR and AGAINST.
+<!-- [[MOR:root:A-D-M]] Adim = root for step-phase-action -->
 
-**Format**:
+### Adim 1: Ilk Cikti Uret (Generate Initial Output)
+
+<!-- [[ASP:nesov.]] Devam ediyor. Prodolzhaetsya. (Initial creation) -->
+
+[define|neutral] STEP_1_GENERATE := {
+  adim_adi: "Ilk Cikti Uret",
+  eylem: "Oz-sansur olmadan ilk analiz, tasarim veya icerik olustur",
+  cikti: "Ham ilk versiyon"
+} [ground:witnessed:cov-step-1] [conf:0.88] [state:confirmed]
+
+**Ornek** (Faz 1 - Niyet Analizi):
 ```
-Claim/Decision: [statement]
-Evidence FOR:
-  - [supporting fact/requirement]
-  - [supporting fact/requirement]
-Evidence AGAINST:
-  - [contradicting fact/edge case]
-  - [alternative interpretation]
-```
-
-**Example**:
-```
-Claim: User wants Prettier for JavaScript
-Evidence FOR:
-  - User mentioned "format code"
-  - Prettier is popular formatter
-Evidence AGAINST:
-  - User didn't specify Prettier explicitly
-  - Could want Black (Python), rustfmt (Rust), etc.
-  - "Multiple file types" suggests not JS-only
-
-Decision: Need to clarify - don't assume Prettier
+Ilk Anlayis:
+- Kullanici kod formatlama becerisi istiyor
+- JavaScript icin Prettier kullanilacak
+- Birden fazla dosya turunu desteklemeli
+- Mevcut is akisiyla entegre olmali
 ```
 
 ---
 
-### Step 4: Revise Based on Critique
+### Adim 2: Oz-Elestiri (Self-Critique)
 
-**Action**: Update your initial output to address gaps, correct errors, and resolve ambiguities identified in Steps 2-3.
+<!-- [[MOR:root:O-Z-E]] Oz-Elestiri = root for self-critique-review -->
+<!-- [[EVD:-DI<gozlem>]] Dogrudan gozlem gerektiren elestiri -->
 
-**Example**:
+[define|neutral] STEP_2_CRITIQUE := {
+  adim_adi: "Oz-Elestiri",
+  eylem: "Sor: 'Az once olusturdugum seyde yanlis, eksik veya yaniltici ne olabilir?'",
+  kritik_sorular: [
+    "Hangi varsayimlari yaptim?",
+    "Neyi kacirdim veya gozden kacirdim?",
+    "Nerede yanlis anlamis olabilirim?",
+    "Hangi uc vakalar var?",
+    "Ne basarisiz olabilir veya yanlis gidebilir?"
+  ]
+} [ground:witnessed:cov-step-2] [conf:0.88] [state:confirmed]
+
+**Ornek**:
 ```
-Revised Understanding:
-- User wants a CODE FORMATTING skill (tool unspecified)
-- File types: Need to clarify (JS? Python? Multiple?)
-- Integration: Need to clarify (manual trigger? auto-format on save?)
-- Edge cases to handle:
-  - Already formatted files (skip or re-format?)
-  - Unsupported file types (error or skip?)
-  - Tool not installed (install automatically or error?)
-
-Strategic Questions to Ask:
-1. Which languages/file types need formatting?
-2. Which formatter per language (Prettier/Black/rustfmt/etc.)?
-3. Manual trigger or automatic?
-4. How to handle missing formatters?
-```
-
----
-
-### Step 5: Confidence Rating
-
-**Action**: Rate confidence level for each component of your revised output.
-
-**Confidence Scale**:
-- **High (H)**: Verified with evidence, minimal uncertainty
-- **Medium (M)**: Reasonable inference, some uncertainty
-- **Low (L)**: Assumption-based, needs validation
-
-**Example**:
-```
-Confidence Ratings:
-- User wants formatting skill: HIGH (explicitly stated)
-- Multiple file types: MEDIUM (implied by "multiple file types")
-- Tool choice matters: HIGH (different tools for different languages)
-- Integration approach: LOW (not specified, needs clarification)
-- Edge case handling: LOW (not discussed, needs design)
-
-Overall: MEDIUM confidence - need user clarification on 3/5 aspects
+Oz-Elestiri:
+- Varsayim: Kullanici ozellikle Prettier istiyor (dogrulanmadi)
+- Eksik: Tam olarak hangi dosya turleri? Tum diller mi yoksa belirli olanlar mi?
+- Gozden Kacirilan: "Is akisiyla entegre" otomatik mi manuel mi demek?
+- Uc vaka: Dosyalar zaten formatli ise ne olur? Format takim stiliyle catisirsa?
+- Basarisizlik modu: Prettier kurulu degilse? Desteklenmeyen dosya turu?
 ```
 
 ---
 
-## CoV Templates by Phase
+### Adim 3: Kanit Kontrolu (Evidence Check)
 
-### Phase 1: Intent Archaeology CoV
+<!-- [[MOR:root:K-N-T]] Kanit = root for evidence-proof-check -->
+<!-- [[EVD:-DI<gozlem>]] Gozlem tabanli kanit -->
+
+[define|neutral] STEP_3_EVIDENCE := {
+  adim_adi: "Kanit Kontrolu",
+  eylem: "Her iddia veya karar icin LEHTE ve ALEYHTE kanit aktar",
+  format: {
+    iddia_karar: "[ifade]",
+    lehte_kanit: "[destekleyen gercek/gereksinim]",
+    aleyhte_kanit: "[celisen gercek/uc vaka]"
+  }
+} [ground:witnessed:cov-step-3] [conf:0.88] [state:confirmed]
+
+**Ornek**:
+```
+Iddia: Kullanici JavaScript icin Prettier istiyor
+Lehte Kanit:
+  - Kullanici "kod formatla" dedi
+  - Prettier populer formatlayici
+Aleyhte Kanit:
+  - Kullanici acikca Prettier belirtmedi
+  - Black (Python), rustfmt (Rust) vb. isteyebilir
+  - "Birden fazla dosya turu" sadece JS olmadigini ima ediyor
+
+Karar: Aciklama gerekli - Prettier varsayma
+```
+
+---
+
+### Adim 4: Elestiriye Dayali Gozden Gecir (Revise Based on Critique)
+
+<!-- [[ASP:sov.]] Tamamlandi. Zaversheno. (Revision complete) -->
+
+[define|neutral] STEP_4_REVISE := {
+  adim_adi: "Elestiriye Dayali Gozden Gecir",
+  eylem: "Adim 2-3'te belirlenen boslukları gidermek, hatalari duzeltmek ve belirsizlikleri cozemek icin ilk ciktiyi guncelle"
+} [ground:witnessed:cov-step-4] [conf:0.88] [state:confirmed]
+
+**Ornek**:
+```
+Gozden Gecirilmis Anlayis:
+- Kullanici KOD FORMATLAMA becerisi istiyor (arac belirtilmedi)
+- Dosya turleri: Aciklama gerekli (JS? Python? Coklu?)
+- Entegrasyon: Aciklama gerekli (manuel tetikleme? kaydettiginde otomatik format?)
+- Islenecek uc vakalar:
+  - Zaten formatli dosyalar (atla mi yeniden formatla mi?)
+  - Desteklenmeyen dosya turleri (hata mi atla mi?)
+  - Arac kurulu degil (otomatik kur mu hata mi?)
+
+Sorulacak Stratejik Sorular:
+1. Hangi diller/dosya turleri formatlama gerektiriyor?
+2. Dil basina hangi formatlayici (Prettier/Black/rustfmt/vb.)?
+3. Manuel tetikleme mi otomatik mi?
+4. Eksik formatlayicilar nasil islenir?
+```
+
+---
+
+### Adim 5: Guven Derecelendirmesi (Confidence Rating)
+
+<!-- [[MOR:root:G-V-N]] Guven = root for confidence-rating-level -->
+<!-- [[CLS:ge_derecelendirme]] Classification: ratings -->
+
+[define|neutral] STEP_5_CONFIDENCE := {
+  adim_adi: "Guven Derecelendirmesi",
+  eylem: "Gozden gecirilmis ciktinin her bileseni icin guven seviyesi derecelendir",
+  olcek: {
+    yuksek: "Kanitla dogrulandi, minimum belirsizlik",
+    orta: "Makul cikarim, biraz belirsizlik",
+    dusuk: "Varsayim tabanli, dogrulama gerekli"
+  }
+} [ground:witnessed:cov-step-5] [conf:0.88] [state:confirmed]
+
+**Ornek**:
+```
+Guven Derecelendirmeleri:
+- Kullanici formatlama becerisi istiyor: YUKSEK (acikca belirtildi)
+- Birden fazla dosya turu: ORTA ("birden fazla dosya turu" ile ima edildi)
+- Arac secimi onemli: YUKSEK (farkli diller icin farkli araclar)
+- Entegrasyon yaklasimi: DUSUK (belirtilmedi, aciklama gerekli)
+- Uc vaka isleme: DUSUK (tartisilmadi, tasarim gerekli)
+
+Genel: ORTA guven - 5 konudan 3'unde kullanici aciklamasi gerekli
+```
+
+---
+
+## Faza Gore CoV Sablonlari (CoV Templates by Phase)
+
+<!-- [[CLS:tiao_faz]] Classification: phases -->
+
+### Faz 1: Niyet Arkeolojisi CoV
+
+[define|neutral] PHASE_1_COV_TEMPLATE := {
+  sablon_adi: "Niyet Dogrulama Sablonu",
+  faz: "Faz 1 - Niyet Arkeolojisi",
+  kullanim: "Niyet analizinden sonra uygula"
+} [ground:witnessed:phase-1-cov] [conf:0.88] [state:confirmed]
 
 ```markdown
-## Phase 1b: Intent Verification (CoV)
+## Faz 1b: Niyet Dogrulama (CoV)
 
-**Step 1 - Initial Understanding**: [Document what you understood]
+**Adim 1 - Ilk Anlayis**: [Anlаdiginizi belgeleyin]
 
-**Step 2 - Self-Critique**:
-- What assumptions did I make? [List]
-- What might I have misunderstood? [List]
-- What's missing or unclear? [List]
-- What edge cases exist? [List]
+**Adim 2 - Oz-Elestiri**:
+- Hangi varsayimlari yaptim? [Liste]
+- Neyi yanlis anlamis olabilirim? [Liste]
+- Eksik veya belirsiz ne var? [Liste]
+- Hangi uc vakalar var? [Liste]
 
-**Step 3 - Evidence Check**:
-For each key requirement:
-- Claim: [requirement]
-- Evidence FOR: [supporting facts]
-- Evidence AGAINST: [contradicting facts]
-- Resolution: [how to resolve]
+**Adim 3 - Kanit Kontrolu**:
+Her temel gereksinim icin:
+- Iddia: [gereksinim]
+- Lehte Kanit: [destekleyen gercekler]
+- Aleyhte Kanit: [celisen gercekler]
+- Cozum: [nasil cozulecek]
 
-**Step 4 - Revised Understanding**:
-- Primary use cases: [updated list]
-- Key requirements: [updated list]
-- Important constraints: [updated list]
-- Success criteria: [updated list]
-- Strategic questions: [what needs clarification]
+**Adim 4 - Gozden Gecirilmis Anlayis**:
+- Birincil kullanim vakalari: [guncellenmis liste]
+- Temel gereksinimler: [guncellenmis liste]
+- Onemli kisitlamalar: [guncellenmis liste]
+- Basari kriterleri: [guncellenmis liste]
+- Stratejik sorular: [aciklama gereken ne]
 
-**Step 5 - Confidence Ratings**:
-- [Requirement 1]: [H/M/L] - [why]
-- [Requirement 2]: [H/M/L] - [why]
-- Overall: [H/M/L] - [summary]
+**Adim 5 - Guven Derecelendirmeleri**:
+- [Gereksinim 1]: [Y/O/D] - [neden]
+- [Gereksinim 2]: [Y/O/D] - [neden]
+- Genel: [Y/O/D] - [ozet]
 
-**Quality Gate**: Do NOT proceed to Phase 2 if overall confidence is LOW. Seek clarification first.
+**Kalite Kapisi**: Genel guven DUSUK ise Faz 2'ye GECME. Once aciklama al.
 ```
 
 ---
 
-### Phase 5: Instruction Crafting CoV
+### Faz 5: Talimat Olusturma CoV
+
+[define|neutral] PHASE_5_COV_TEMPLATE := {
+  sablon_adi: "Talimat Dogrulama Sablonu",
+  faz: "Faz 5 - Talimat Olusturma",
+  kullanim: "Talimatlar yazildiktan sonra uygula"
+} [ground:witnessed:phase-5-cov] [conf:0.88] [state:confirmed]
 
 ```markdown
-## Phase 5b: Instruction Verification (CoV)
+## Faz 5b: Talimat Dogrulama (CoV)
 
-**Step 1 - Initial Instructions**: [Already written in Phase 5]
+**Adim 1 - Ilk Talimatlar**: [Faz 5'te zaten yazildi]
 
-**Step 2 - Self-Critique**:
-- Ambiguous instructions: [Which instructions could be misinterpreted?]
-- Missing steps: [What did I forget to include?]
-- Unclear success criteria: [Where is "done" ambiguous?]
-- Edge cases not handled: [What could go wrong?]
-- Known anti-patterns: [Vague verbs? Missing examples?]
+**Adim 2 - Oz-Elestiri**:
+- Belirsiz talimatlar: [Hangi talimatlar yanlis yorumlanabilir?]
+- Eksik adimlar: [Dahil etmeyi ne unuttum?]
+- Belirsiz basari kriterleri: ["Bitti" nerede belirsiz?]
+- Islenmemis uc vakalar: [Ne yanlis gidebilir?]
+- Bilinen anti-kalipler: [Belirsiz fiiller? Eksik ornekler?]
 
-**Step 3 - Evidence Check**:
-Test each instruction for ambiguity:
-- Instruction: [step]
-- Can this be misinterpreted? [Yes/No - how?]
-- Is success criteria clear? [Yes/No - what's missing?]
-- Are edge cases handled? [Yes/No - which missing?]
+**Adim 3 - Kanit Kontrolu**:
+Her talimati belirsizlik icin test et:
+- Talimat: [adim]
+- Yanlis yorumlanabilir mi? [Evet/Hayir - nasil?]
+- Basari kriteri acik mi? [Evet/Hayir - ne eksik?]
+- Uc vakalar isleniyor mu? [Evet/Hayir - hangileri eksik?]
 
-**Step 4 - Revised Instructions**:
-For each ambiguous/incomplete instruction:
-- Original: [vague instruction]
-- Revised: [clear, explicit instruction with success criteria]
-- Edge cases: [how to handle them]
+**Adim 4 - Gozden Gecirilmis Talimatlar**:
+Her belirsiz/eksik talimat icin:
+- Orijinal: [belirsiz talimat]
+- Gozden Gecirilmis: [basari kriterleriyle acik, belirgin talimat]
+- Uc vakalar: [nasil islenir]
 
-**Step 5 - Confidence Ratings**:
-Per instruction section:
-- [Section 1]: [H/M/L] - [rationale]
-- [Section 2]: [H/M/L] - [rationale]
-Overall: [H/M/L]
+**Adim 5 - Guven Derecelendirmeleri**:
+Talimat bolumu basina:
+- [Bolum 1]: [Y/O/D] - [gerekce]
+- [Bolum 2]: [Y/O/D] - [gerekce]
+Genel: [Y/O/D]
 
-**Quality Gate**: Do NOT proceed to Phase 6 if:
-- Any section has LOW confidence
-- >20% of instructions lack explicit success criteria
-- Any known anti-patterns detected
+**Kalite Kapisi**: Su durumlarda Faz 6'ya GECME:
+- Herhangi bir bolum DUSUK guven
+- Talimatlarin >%20'sinde acik basari kriteri yok
+- Herhangi bilinen anti-kalip tespit edildi
 ```
 
 ---
 
-## Adversarial Self-Testing (CoV Enhancement)
+## Carpici Oz-Test (CoV Gelistirme) (Adversarial Self-Testing)
 
-After completing CoV, actively try to BREAK your analysis/design:
+<!-- [[MOR:root:C-R-P]] Carpici = root for adversarial-self-test -->
 
-1. **Intentional Misinterpretation**: Follow instructions in bad faith - can you generate wrong results while technically following them?
-2. **Remove Prerequisites**: What if expected tools/files missing?
-3. **Boundary Testing**: Test with edge cases (empty input, huge input, malformed input)
-4. **Alternative Interpretations**: Can instructions be read a different way?
+[define|neutral] ADVERSARIAL_SELF_TEST := {
+  ad: "Carpici Oz-Test",
+  amac: "CoV tamamlandiktan sonra analiz/tasarimi aktif olarak KIRMAYA calis",
+  saldiri_vektorleri: [
+    "Kasitli Yanlis Yorumlama: Talimatlari kotu niyetle takip et - hala yanlis sonuclar uretebilir misin?",
+    "On Kosullari Kaldir: Beklenen araclar/dosyalar eksikse ne olur?",
+    "Sinir Testi: Uc vakalarla test et (bos giris, buyuk giris, bozuk giris)",
+    "Alternatif Yorumlar: Talimatlar farkli sekilde okunabilir mi?"
+  ]
+} [ground:witnessed:adversarial-test] [conf:0.88] [state:confirmed]
 
-If any attacks succeed, return to Step 4 (Revise).
-
----
-
-## Common CoV Pitfalls
-
-### ❌ Pitfall 1: Superficial Self-Critique
-**Bad**: "This looks good, no issues found"
-**Good**: "Assumption: user wants X. Evidence FOR: []. Evidence AGAINST: []. Need to verify."
-
-### ❌ Pitfall 2: Ignoring Low-Confidence Items
-**Bad**: Proceeding despite multiple LOW confidence ratings
-**Good**: Seeking clarification when overall confidence is LOW
-
-### ❌ Pitfall 3: No Concrete Evidence
-**Bad**: "I think this is right"
-**Good**: "Based on requirement stated in line 23, this maps to..."
-
-### ❌ Pitfall 4: Skipping Revision
-**Bad**: Running CoV but not updating original output
-**Good**: Creating revised version addressing all critique points
-
-### ❌ Pitfall 5: Vague Confidence Ratings
-**Bad**: "Seems okay, probably fine"
-**Good**: "HIGH confidence - verified against 3 requirements. LOW confidence - assumption not validated."
+[assert|neutral] Herhangi bir saldiri basarili olursa Adim 4'e (Gozden Gecir) don [ground:witnessed:iteration-rule] [conf:0.90] [state:confirmed]
 
 ---
 
-## Benefits of CoV (Research-Backed)
+## Yaygin CoV Tuzaklari (Common CoV Pitfalls)
 
-| Metric | Without CoV | With CoV | Improvement |
-|--------|-------------|----------|-------------|
-| **Factual Errors** | Baseline | -42% | 42% reduction |
-| **Completeness** | Baseline | +37% | 37% more complete |
-| **Ambiguity** | Baseline | -35% | 35% clearer |
-| **First-Time-Right** | 40% | 85% | +113% |
+<!-- [[MOR:root:T-Z-K]] Tuzak = root for pitfall-mistake-trap -->
 
-**Source**: Dhuliawala et al. (2023) - "Chain-of-Verification Reduces Hallucination in Large Language Models"
+[assert|neutral] Kacinilmasi gereken yaygin tuzaklar [ground:witnessed:pitfall-patterns] [conf:0.88] [state:confirmed]
 
----
+### Tuzak 1: Yuzeysel Oz-Elestiri
+**Kotu**: "Bu iyi gorunuyor, sorun bulunamadi"
+**Iyi**: "Varsayim: kullanici X istiyor. Lehte Kanit: []. Aleyhte Kanit: []. Dogrulamak gerekli."
 
-## Integration with Other Techniques
+### Tuzak 2: Dusuk Guvenli Ogeleri Yoksaymak
+**Kotu**: Birden fazla DUSUK guven derecelendirmesine ragmen devam etmek
+**Iyi**: Genel guven DUSUK oldugunda aciklama aramak
 
-CoV works synergistically with:
-- **Adversarial Testing**: CoV identifies weaknesses, adversarial testing exploits them
-- **Multi-Persona Debate**: Each persona applies CoV to their analysis
-- **Quality Gates**: CoV provides pass/fail criteria for gates
-- **Metrics Tracking**: Confidence ratings become quantitative metrics
+### Tuzak 3: Somut Kanit Yok
+**Kotu**: "Bunun dogru oldugunu dusunuyorum"
+**Iyi**: "Satir 23'te belirtilen gereksinime dayanarak, bu ... ile esleniyor"
 
----
+### Tuzak 4: Gozden Gecirmeyi Atlamak
+**Kotu**: CoV calistirmak ama orijinal ciktiyi guncellememek
+**Iyi**: Tum elestiri noktalarini ele alan gozden gecirilmis versiyon olusturmak
 
-## Quick Reference Checklist
-
-For any critical decision/analysis:
-- ✓ Step 1: Generate initial output
-- ✓ Step 2: Self-critique (assumptions, gaps, edge cases)
-- ✓ Step 3: Evidence FOR and AGAINST each claim
-- ✓ Step 4: Revise based on critique
-- ✓ Step 5: Rate confidence (H/M/L per component)
-- ✓ Quality Gate: Don't proceed if overall confidence LOW
-
-**Time Investment**: 5-10 minutes per phase
-**ROI**: 42% error reduction, 37% completeness improvement
-**When to Use**: Phases 1, 2, 3, 5 (critical design points)
+### Tuzak 5: Belirsiz Guven Derecelendirmeleri
+**Kotu**: "Iyi gorunuyor, muhtemelen sorunsuz"
+**Iyi**: "YUKSEK guven - 3 gereksinime karsi dogrulandi. DUSUK guven - varsayim dogrulanmadi."
 
 ---
 
-**Remember**: CoV is not about being perfect upfront - it's about catching errors through systematic self-critique BEFORE they become expensive to fix later.
+## CoV'nin Faydalari (Arastirma Destekli)
 
+<!-- [[EVD:-mis<arastirma>]] Arastirma tabanli metrikler -->
+
+[define|neutral] COV_BENEFITS := {
+  metrikler: {
+    gercek_hatalar: "-%42",
+    tamlik: "+%37",
+    belirsizlik: "-%35",
+    ilk_seferde_dogru: "%40 -> %85 (+%113)"
+  },
+  kaynak: "Dhuliawala et al. (2023) - Chain-of-Verification Reduces Hallucination in Large Language Models"
+} [ground:research:cov-metrics] [conf:0.85] [state:confirmed]
+
+| Metrik | CoV'siz | CoV'li | Iyilestirme |
+|--------|---------|--------|-------------|
+| **Gercek Hatalar** | Temel | -%42 | %42 azalma |
+| **Tamlik** | Temel | +%37 | %37 daha tamam |
+| **Belirsizlik** | Temel | -%35 | %35 daha acik |
+| **Ilk Seferde Dogru** | %40 | %85 | +%113 |
 
 ---
-*Promise: `<promise>COV_PROTOCOL_VERIX_COMPLIANT</promise>`*
+
+## Diger Tekniklerle Entegrasyon (Integration with Other Techniques)
+
+[assert|neutral] CoV sinerjileri [ground:witnessed:integration-patterns] [conf:0.88] [state:confirmed]
+
+CoV sunlarla sinerjik calisir:
+- **Carpici Test**: CoV zayifliklari belirler, carpici test bunlari somurur
+- **Coklu Kisi Tartismasi**: Her kisi analizine CoV uygular
+- **Kalite Kapilari**: CoV kapilar icin gecme/kalma kriterleri saglar
+- **Metrik Izleme**: Guven derecelendirmeleri kantitatif metrikler olur
+
+---
+
+## Hizli Referans Kontrol Listesi (Quick Reference Checklist)
+
+<!-- [[MOR:root:K-N-T]] Kontrol = root for check-control-verification -->
+
+[direct|neutral] Her kritik karar/analiz icin [ground:witnessed:checklist-usage] [conf:0.90] [state:confirmed]
+
+- Adim 1: Ilk cikti uret
+- Adim 2: Oz-elestiri (varsayimlar, bosluklar, uc vakalar)
+- Adim 3: Her iddia icin LEHTE ve ALEYHTE kanit
+- Adim 4: Elestiriye dayali gozden gecir
+- Adim 5: Guven derecelendir (bilesen basina Y/O/D)
+- Kalite Kapisi: Genel guven DUSUK ise devam etme
+
+**Zaman Yatirimi**: Faz basina 5-10 dakika
+**ROI**: %42 hata azaltma, %37 tamlik iyilestirme
+**Ne Zaman Kullanilir**: Faz 1, 2, 3, 5 (kritik tasarim noktalari)
+
+---
+
+[direct|emphatic] Unutmayin: CoV baslangicta mukemmel olmakla ilgili degil - sistematik oz-elestiri yoluyla hatalari daha sonra duzeltmesi pahaliya mal olmadan ONCE yakalamakla ilgili. [ground:witnessed:cov-philosophy] [conf:0.90] [state:confirmed]
+
+---
+
+[commit|confident] <promise>COV_PROTOCOL_VCL_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.95] [state:confirmed]

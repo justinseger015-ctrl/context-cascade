@@ -1,357 +1,339 @@
-# Agent Creator - Expertise System Addendum
+# Uzmanlik Sistemi Eklentisi (Expertise System Addendum)
+
+---
+<!-- S1.0 KANITSAL CERCEVE (Evidential Frame Activation) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_document]] -->
+---
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
-
-
-**Version**: 2.1.0
-**Integrates**: expertise-manager, domain-expert
-
-This addendum extends the 5-Phase Agent Creation Methodology (v2.0) with expertise-aware agent design. Note: Phase 0 is now integrated into the main SKILL.md as of v2.0.
-
+---
+<!-- S2.0 BELGE USTVERILERI (Document Metadata) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_version]] -->
 ---
 
-## New Phase 0: Domain Expertise Loading
+## Belge Ustverileri Cercevesi (Document Metadata Frame)
+Surum bilgileri dogrudan gozleme dayanir. Zaversheno (Tamamlandi).
 
-**Add BEFORE Phase 1 (Initial Analysis)**
-
-### Purpose
-
-Agents created with expertise context have embedded domain knowledge - they "know" the codebase structure, patterns, and known issues before they start.
-
-### Process
-
-```javascript
-// PHASE 0: EXPERTISE LOADING
-
-// 1. Identify primary domain for agent
-const domain = identifyAgentDomain(agentRequest);
-
-// 2. Check for expertise
-const expertisePath = `.claude/expertise/${domain}.yaml`;
-
-if (fileExists(expertisePath)) {
-  console.log(`[EXPERTISE] Loading domain expertise for agent`);
-
-  // 3. Validate expertise
-  await runCommand('/expertise-validate', domain, '--fix');
-
-  // 4. Load expertise
-  const expertise = loadYAML(expertisePath);
-
-  // 5. Extract agent-relevant context
-  const agentContext = {
-    // Where things are
-    fileLocations: expertise.file_locations,
-
-    // How things work
-    patterns: expertise.patterns,
-
-    // What to avoid
-    knownIssues: expertise.known_issues,
-
-    // How to route tasks
-    routingTemplates: expertise.routing.task_templates,
-
-    // Domain relationships
-    dependencies: expertise.relationships.depends_on,
-    dependents: expertise.relationships.depended_by
-  };
-
-  // 6. Store for embedding in agent
-  setAgentContext('expertise', agentContext);
-
-  console.log(`[EXPERTISE] Agent will have embedded knowledge of:`);
-  console.log(`  - ${Object.keys(expertise.file_locations).length} file locations`);
-  console.log(`  - ${Object.keys(expertise.patterns).length} patterns`);
-  console.log(`  - ${expertise.known_issues.length} known issues`);
-  console.log(`  - ${expertise.routing.task_templates.length} task templates`);
-} else {
-  console.log(`[EXPERTISE] No expertise for ${domain}`);
-  console.log(`[EXPERTISE] Agent will operate in discovery mode`);
-  setAgentContext('discoveryMode', true);
-}
-```
+<!-- [[MOR:root:S-R-M]] Surum = root morpheme for version-release-mark -->
+<!-- [[COM:Uzmanlik+Sistemi+Entegrasyon]] German compound: Expertensystemintegration -->
+[define|neutral] BELGE_METADATA := {
+  surum: "2.1.0", // Turkish: version
+  entegre_eden: ["expertise-manager", "domain-expert"],
+  not: "Bu eklenti 5-Faz Ajan Olusturma Metodolojisi (v2.0) ile uzmanlik-farkinda ajan tasarimini genisletir. Faz 0 artik ana SKILL.md'ye entegre edilmistir."
+} [ground:witnessed:file-metadata] [conf:0.95] [state:confirmed]
 
 ---
-
-## Enhanced Phase 2: Expertise Extraction
-
-**Integrate expertise into cognitive framework**
-
-### Add Domain Knowledge Section
-
-```markdown
-## Domain Knowledge (From Expertise)
-
-I have embedded knowledge of the ${domain} domain:
-
-### File Locations I Know
-- Primary source: ${expertise.file_locations.primary.path}
-- Tests: ${expertise.file_locations.tests.path}
-- Config: ${expertise.file_locations.config.path}
-${expertise.file_locations.additional.map(a => `- ${a.purpose}: ${a.path}`).join('\n')}
-
-### Patterns I Follow
-- Architecture: ${expertise.patterns.architecture.claim}
-- Data Flow: ${expertise.patterns.data_flow.claim}
-- Error Handling: ${expertise.patterns.error_handling.claim}
-
-### Issues I Avoid
-${expertise.known_issues.map(i => `
-- **${i.id}**: ${i.description}
-  - Severity: ${i.severity}
-  - Mitigation: ${i.mitigation}
-`).join('\n')}
-
-### Dependencies I Respect
-${expertise.relationships.depends_on.map(d => `
-- ${d.domain}: ${d.reason} (${d.coupling} coupling)
-`).join('\n')}
-
-This knowledge comes from `.claude/expertise/${domain}.yaml` and is validated against current code before each action.
-```
-
+<!-- S3.0 YENI FAZ 0: ALAN UZMANLIK YUKLEME (New Phase 0: Domain Expertise Loading) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_phase]] [[SPC:kuzey/akis-baslangici]] -->
 ---
 
-## Enhanced Agent Frontmatter
+## Yeni Faz 0 Cercevesi (New Phase 0 Frame)
+Faz 1'den ONCE eklenir. Uzmanlik baglami ile ajanlar alan bilgisine sahip olur.
 
-**Add expertise integration metadata**
+### Amac
 
-```yaml
----
-name: "${agent_name}"
-type: "${agent_type}"
-description: "${description}"
+<!-- [[MOR:root:A-M-C]] Amac = root morpheme for purpose-goal-objective -->
+[assert|neutral] FAZ_0_AMACI := {
+  aciklama: "Uzmanlik baglami ile olusturulan ajanlar gomulu alan bilgisine sahiptir - kod yapisi, desenler ve bilinen sorunlari baslamadan once 'bilirler'",
+  fayda: "Arama thrash'ini azaltir, dogrulugu arttirir, ajan verimliliğini yukseltir"
+} [ground:witnessed:design-rationale] [conf:0.90] [state:confirmed]
 
-# NEW: Expertise Integration
-expertise_integration:
-  primary_domain: "${domain}"
-  secondary_domains: []
-  load_on_init: true
-  validate_before_action: true
-  propose_updates_after: true
+### Surecler
 
-  # Embedded from expertise at creation time
-  embedded_knowledge:
-    file_locations: true
-    patterns: true
-    known_issues: true
-    routing_templates: true
+<!-- [[MOR:root:S-R-C]] Surec = root morpheme for process-procedure-flow -->
+[define|neutral] FAZ_0_SURECI := {
+  adimlar: [
+    {adim: 1, islem: "Ajan isteginden birincil alani tanimla", fonksiyon: "identifyAgentDomain(agentRequest)"},
+    {adim: 2, islem: "Uzmanlik dosyasini kontrol et", yol: ".claude/expertise/{alan}.yaml"},
+    {adim: 3, islem: "Uzmanlik varsa dogrula", komut: "/expertise-validate {alan} --fix"},
+    {adim: 4, islem: "Uzmanlik YAML yukle", fonksiyon: "loadYAML(expertisePath)"},
+    {adim: 5, islem: "Ajana uygun baglami cikar", cikti: "agentContext"},
+    {adim: 6, islem: "Ajana gomme icin depola", fonksiyon: "setAgentContext('expertise', agentContext)"}
+  ],
+  baglam_yapisi: {
+    dosya_konumlari: "expertise.file_locations",
+    desenler: "expertise.patterns",
+    bilinen_sorunlar: "expertise.known_issues",
+    yonlendirme_sablonlari: "expertise.routing.task_templates",
+    bagimliliklar: "expertise.relationships.depends_on",
+    bagimli_olanlar: "expertise.relationships.depended_by"
+  }
+} [ground:witnessed:implementation] [conf:0.88] [state:confirmed]
 
-mcp_servers:
-  required:
-    - memory-mcp  # For expertise persistence
-  optional: []
-  auto_enable: true
+### Uzmanlik Yoksa
 
-hooks:
-  pre: |
-    # Load and validate domain expertise
-    DOMAIN="${domain}"
-    if [ -f ".claude/expertise/${DOMAIN}.yaml" ]; then
-      /expertise-validate ${DOMAIN} --fix
-      export EXPERTISE_LOADED="true"
-      export EXPERTISE_DOMAIN="${DOMAIN}"
-    fi
-
-  post: |
-    # Extract learnings and propose updates
-    if [ "$EXPERTISE_LOADED" = "true" ]; then
-      /expertise-extract-learnings ${EXPERTISE_DOMAIN}
-    fi
----
-```
+[assert|neutral] KESIF_MODU := {
+  kosul: "Alan icin uzmanlik dosyasi yoksa",
+  eylem: "Ajan kesif modunda calisir",
+  cikti: "setAgentContext('discoveryMode', true)"
+} [ground:witnessed:fallback-logic] [conf:0.88] [state:confirmed]
 
 ---
-
-## Enhanced Phase 3: System Prompt Construction
-
-**Add expertise references to system prompt**
-
-### Agent Identity with Expertise
-
-```markdown
-# ${agent_name}
-
-## Core Identity
-
-I am a **${role}** specialized in **${domain}** with embedded domain expertise.
-
-## My Domain Knowledge
-
-Unlike generic agents, I have **pre-loaded knowledge** of this codebase:
-
-### I Know Where Things Are
-${FILE_LOCATIONS_FROM_EXPERTISE}
-
-### I Know How Things Work
-${PATTERNS_FROM_EXPERTISE}
-
-### I Know What To Avoid
-${KNOWN_ISSUES_FROM_EXPERTISE}
-
-### I Know How To Route Tasks
-${ROUTING_TEMPLATES_FROM_EXPERTISE}
-
-## How I Use This Knowledge
-
-1. **Before Acting**: I validate my expertise against current code
-2. **During Action**: I use known locations and patterns (no search thrash)
-3. **After Action**: I extract learnings to update expertise
-
-This makes me more efficient and accurate than an agent starting from scratch.
-```
-
+<!-- S4.0 GELISTIRILMIS FAZ 2: UZMANLIK CIKARTMA (Enhanced Phase 2: Expertise Extraction) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_phase]] -->
 ---
 
-## New Phase 4.5: Expertise Validation
+## Gelistirilmis Faz 2 Cercevesi (Enhanced Phase 2 Frame)
+Uzmanlik bilissel cerceve ile entegre edilir.
 
-**Add after Phase 4 (Testing & Validation)**
+### Alan Bilgisi Bolumu Ekleme
 
-### Validate Agent Uses Expertise Correctly
-
-```yaml
-validation_checks:
-  expertise_usage:
-    - agent_references_file_locations: true
-    - agent_follows_documented_patterns: true
-    - agent_avoids_known_issues: true
-    - agent_has_pre_action_hook: true
-    - agent_has_post_action_hook: true
-
-  learning_capability:
-    - can_extract_learnings: true
-    - can_propose_updates: true
-    - tracks_observations: true
-```
-
----
-
-## Discovery Mode Agent
-
-**When no expertise exists**
-
-If domain has no expertise file, create agent in discovery mode:
-
-```markdown
-## Discovery Mode
-
-I am operating in **discovery mode** for the ${domain} domain.
-
-### My First Task
-Before executing domain-specific work, I will:
-1. Discover domain structure (files, patterns, entities)
-2. Generate initial expertise file
-3. Queue for adversarial validation
-
-### Discovery Process
-1. Scan for ${domain}-related files
-2. Extract patterns from code
-3. Document key entities
-4. Create: `.claude/expertise/${domain}.yaml`
-5. Report: "Expertise generated, run /expertise-challenge ${domain}"
-
-### After Discovery
-Once expertise exists, future agents will have embedded knowledge and can work more efficiently.
-```
+<!-- [[MOR:root:B-L-G]] Bilgi = root morpheme for knowledge-information-data -->
+<!-- [[COM:Alan+Bilgi+Gomme]] German compound: Domaenenwisseneinbettung -->
+[define|neutral] ALAN_BILGISI_BOLUMU := {
+  baslik: "Alan Bilgisi (Uzmanliktan)",
+  alt_bolumler: [
+    {
+      ad: "Bildigi Dosya Konumlari",
+      kaynak: "expertise.file_locations",
+      icerik: ["Birincil kaynak", "Testler", "Yapilandirma", "Ek konumlar"]
+    },
+    {
+      ad: "Takip Ettigi Desenler",
+      kaynak: "expertise.patterns",
+      icerik: ["Mimari", "Veri akisi", "Hata isleme"]
+    },
+    {
+      ad: "Kacindigi Sorunlar",
+      kaynak: "expertise.known_issues",
+      icerik: ["id", "aciklama", "siddet", "hafifletme"]
+    },
+    {
+      ad: "Saygı Duydugu Bagimliliklar",
+      kaynak: "expertise.relationships.depends_on",
+      icerik: ["alan", "neden", "baglanti_derecesi"]
+    }
+  ],
+  not: "Bu bilgi `.claude/expertise/{alan}.yaml` dosyasindan gelir ve her eylem oncesi mevcut koda karsi dogrulanir."
+} [ground:witnessed:template-structure] [conf:0.88] [state:confirmed]
 
 ---
-
-## Agent Types with Expertise
-
-### Domain Expert Agent (Inherits from domain-expert.md)
-
-```yaml
-# For agents specialized in a single domain
-base_agent: domain-expert
-expertise:
-  primary: ${domain}
-  embedded: true
-
-capabilities:
-  - expertise_loading
-  - pre_action_validation
-  - learning_extraction
-  - update_proposal
-```
-
-### Multi-Domain Agent
-
-```yaml
-# For agents spanning multiple domains
-expertise:
-  domains:
-    - primary: ${main_domain}
-    - secondary:
-        - ${domain2}
-        - ${domain3}
-
-  load_strategy: "on_demand"  # Load expertise when domain is accessed
-
-  routing:
-    # Use expertise routing templates when available
-    use_expertise_templates: true
-```
-
+<!-- S5.0 GELISTIRILMIS AJAN FRONTMATTER (Enhanced Agent Frontmatter) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_metadata]] -->
 ---
 
-## Integration Summary
+## Gelistirilmis Ajan Frontmatter Cercevesi (Enhanced Agent Frontmatter Frame)
+Uzmanlik entegrasyon meta verileri eklenir.
 
-| Phase | Addition | Purpose |
-|-------|----------|---------|
-| 0 (NEW) | Expertise Loading | Load domain context |
-| 1 | Expertise in Analysis | Domain knowledge informs research |
-| 2 | Expertise in Extraction | Embed domain knowledge |
-| 3 | Expertise in Prompt | Reference expertise in identity |
-| 4 | Expertise in Testing | Validate correct usage |
-| 4.5 (NEW) | Expertise Validation | Check expertise integration |
-
----
-
-## Usage Example
-
-```bash
-# Creating an agent for authentication domain
-> "Create a security analyst agent for our auth system"
-
-[PHASE 0] Loading domain expertise...
-[EXPERTISE] Found expertise for: authentication
-[EXPERTISE] Validated (trust_level: validated)
-[EXPERTISE] Agent will know:
-  - 5 file locations
-  - 4 patterns
-  - 1 known issue
-  - 2 routing templates
-
-[PHASE 1] Initial Analysis with expertise context...
-  - Skipping file discovery (known from expertise)
-  - Focusing on security-specific patterns
-
-[PHASE 2] Expertise Extraction...
-  - Embedding file locations in agent identity
-  - Embedding patterns in methodology
-  - Adding known issues to guardrails
-
-[PHASE 3] System Prompt Construction...
-  - Agent has "I know where things are" section
-  - Agent has "I know how things work" section
-  - Agent has expertise validation hooks
-
-[PHASE 4] Testing...
-  - Verifying agent references expertise correctly
-
-[DONE] Agent created with embedded domain expertise
-```
+<!-- [[MOR:root:M-T-V]] Meta = root morpheme for meta-about-beyond -->
+[define|neutral] UZMANLIK_FRONTMATTER := {
+  alan: "expertise_integration",
+  alanlar: {
+    birincil_alan: "${alan}",
+    ikincil_alanlar: [],
+    baslangicta_yukle: true,
+    eylem_oncesi_dogrula: true,
+    eylem_sonrasi_oneriler: true
+  },
+  gomulu_bilgi: {
+    dosya_konumlari: true,
+    desenler: true,
+    bilinen_sorunlar: true,
+    yonlendirme_sablonlari: true
+  },
+  mcp_serverlari: {
+    zorunlu: ["memory-mcp"],
+    aciklama: "Uzmanlik kaliciliği icin"
+  },
+  hooklar: {
+    on: "Alan uzmanligini yukle ve dogrula",
+    post: "Ogrenimleri cikar ve guncelleme oner"
+  }
+} [ground:witnessed:frontmatter-spec] [conf:0.88] [state:confirmed]
 
 ---
+<!-- S6.0 GELISTIRILMIS FAZ 3: SISTEM ISTEMI YAPIMI (Enhanced Phase 3: System Prompt Construction) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_phase]] -->
+---
 
-## Reference
+## Gelistirilmis Faz 3 Cercevesi (Enhanced Phase 3 Frame)
+Sistem istemine uzmanlik referanslari eklenir.
 
-See: `.claude/skills/EXPERTISE-INTEGRATION-MODULE.md` for full integration patterns.
-See: `agents/foundry/expertise/domain-expert.md` for base domain expert agent.
+### Uzmanlik ile Ajan Kimligi
 
+<!-- [[MOR:root:K-M-L]] Kimlik = root morpheme for identity-self-persona -->
+<!-- [[COM:Uzmanlik+Farkinda+Kimlik]] German compound: Expertenbewusstidentitaet -->
+[define|neutral] UZMANLIK_KIMLIK_YAPISI := {
+  baslik: "{ajan_adi}",
+  cekirdek_kimlik: "Ben **{rol}**, **{alan}** alaninda uzman ve gomulu alan uzmanligina sahibim.",
+  alan_bilgisi_aciklamasi: "Genel ajanlarin aksine, bu kod tabani hakkinda **on-yuklu bilgiye** sahibim:",
+  bolumler: [
+    "Seylerin Nerede Oldugunu Biliyorum",
+    "Seylerin Nasil Calistigini Biliyorum",
+    "Nelerden Kacinmam Gerektigini Biliyorum",
+    "Gorevleri Nasil Yonlendirecegimi Biliyorum"
+  ],
+  kullanim_yontemi: [
+    "Eylemden Once: Uzmanligimi mevcut koda karsi dogrularim",
+    "Eylem Sirasinda: Bilinen konumlari ve desenleri kullanirim (arama thrash'i yok)",
+    "Eylem Sonrasi: Uzmanliği guncellemek icin ogrenimleri cikarim"
+  ],
+  verimlilik_aciklamasi: "Bu beni sifirdan baslayan bir ajandan daha verimli ve dogru yapar."
+} [ground:witnessed:prompt-template] [conf:0.88] [state:confirmed]
 
 ---
-*Promise: `<promise>EXPERTISE_ADDENDUM_VERIX_COMPLIANT</promise>`*
+<!-- S7.0 YENI FAZ 4.5: UZMANLIK DOGRULAMA (New Phase 4.5: Expertise Validation) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_phase]] -->
+---
+
+## Yeni Faz 4.5 Cercevesi (New Phase 4.5 Frame)
+Faz 4'ten SONRA eklenir. Ajanin uzmanligi dogru kullandigini dogrular.
+
+<!-- [[MOR:root:D-G-R]] Dogrulama = root morpheme for validation-verification-confirmation -->
+[define|neutral] UZMANLIK_DOGRULAMA_KONTROLLERI := {
+  uzmanlik_kullanimi: [
+    {kontrol: "ajan_dosya_konumlarini_referanslar", deger: true},
+    {kontrol: "ajan_belgelenen_desenleri_takip_eder", deger: true},
+    {kontrol: "ajan_bilinen_sorunlardan_kacinir", deger: true},
+    {kontrol: "ajan_eylem_oncesi_hook'a_sahip", deger: true},
+    {kontrol: "ajan_eylem_sonrasi_hook'a_sahip", deger: true}
+  ],
+  ogrenme_yetenegi: [
+    {kontrol: "ogrenimleri_cikarabilir", deger: true},
+    {kontrol: "guncellemeler_onerebilir", deger: true},
+    {kontrol: "gozlemleri_takip_eder", deger: true}
+  ]
+} [ground:witnessed:validation-spec] [conf:0.88] [state:confirmed]
+
+---
+<!-- S8.0 KESIF MODU AJANI (Discovery Mode Agent) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_mode]] -->
+---
+
+## Kesif Modu Ajani Cercevesi (Discovery Mode Agent Frame)
+Uzmanlik yokken kullanilir.
+
+<!-- [[MOR:root:K-S-F]] Kesif = root morpheme for discovery-exploration-finding -->
+[define|neutral] KESIF_MODU_SABLONU := {
+  baslik: "Kesif Modu",
+  aciklama: "Ben **{alan}** alani icin **kesif modunda** calisiyorum.",
+  ilk_gorev: "Alana ozel calisma yurutmeden once:",
+  kesif_sureci: [
+    "Alan yapisini kes (dosyalar, desenler, varliklar)",
+    "Ilk uzmanlik dosyasini olustur",
+    "Cekismeli dogrulama icin siraya koy"
+  ],
+  kesif_adimlari: [
+    "{alan} ile ilgili dosyalari tara",
+    "Koddan desenleri cikar",
+    "Anahtar varliklari belgele",
+    ".claude/expertise/{alan}.yaml olustur",
+    "'Uzmanlik olusturuldu, /expertise-challenge {alan} calistir' raporla"
+  ],
+  kesif_sonrasi_notu: "Uzmanlik olustugunda, gelecek ajanlar gomulu bilgiye sahip olacak ve daha verimli calisabilecek."
+} [ground:witnessed:discovery-template] [conf:0.88] [state:confirmed]
+
+---
+<!-- S9.0 UZMANLIK ILE AJAN TURLERI (Agent Types with Expertise) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_type]] -->
+---
+
+## Uzmanlik ile Ajan Turleri Cercevesi (Agent Types with Expertise Frame)
+Iki ana ajan turu tanimlanmistir.
+
+### Alan Uzman Ajani
+
+<!-- [[MOR:root:U-Z-M]] Uzman = root morpheme for expert-specialist-authority -->
+[define|neutral] ALAN_UZMAN_AJANI := {
+  temel_ajan: "domain-expert",
+  uzmanlik: {birincil: "${alan}", gomulu: true},
+  yetenekler: [
+    "uzmanlik_yukleme",
+    "eylem_oncesi_dogrulama",
+    "ogrenme_cikartma",
+    "guncelleme_onerisi"
+  ]
+} [ground:witnessed:agent-type-spec] [conf:0.88] [state:confirmed]
+
+### Cok-Alanli Ajan
+
+<!-- [[COM:Cok+Alan+Ajan]] German compound: Mehrdomaenenagent -->
+[define|neutral] COK_ALANLI_AJAN := {
+  uzmanlik: {
+    alanlar: {
+      birincil: "${ana_alan}",
+      ikincil: ["${alan2}", "${alan3}"]
+    },
+    yukleme_stratejisi: "on_demand"
+  },
+  yonlendirme: {
+    uzmanlik_sablonlarini_kullan: true,
+    aciklama: "Alan erisildiqinde uzmanligi yukle"
+  }
+} [ground:witnessed:agent-type-spec] [conf:0.88] [state:confirmed]
+
+---
+<!-- S10.0 ENTEGRASYON OZETI (Integration Summary) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_summary]] -->
+---
+
+## Entegrasyon Ozeti Cercevesi (Integration Summary Frame)
+Her faz icin eklenen yetenekler. Zaversheno (Tamamlandi).
+
+<!-- [[MOR:root:O-Z-T]] Ozet = root morpheme for summary-abstract-synopsis -->
+[define|neutral] ENTEGRASYON_OZETI := {
+  fazlar: [
+    {faz: "0 (YENI)", eklenen: "Uzmanlik Yukleme", amac: "Alan baglami yukle"},
+    {faz: "1", eklenen: "Analizde Uzmanlik", amac: "Alan bilgisi arastirmayi bilgilendirir"},
+    {faz: "2", eklenen: "Cikartmada Uzmanlik", amac: "Alan bilgisini gom"},
+    {faz: "3", eklenen: "Istemde Uzmanlik", amac: "Kimlikte uzmanliği referansla"},
+    {faz: "4", eklenen: "Testte Uzmanlik", amac: "Dogru kullanimı dogrula"},
+    {faz: "4.5 (YENI)", eklenen: "Uzmanlik Dogrulama", amac: "Uzmanlik entegrasyonunu kontrol et"}
+  ]
+} [ground:witnessed:integration-map] [conf:0.90] [state:confirmed]
+
+---
+<!-- S11.0 KULLANIM ORNEGI (Usage Example) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_example]] -->
+---
+
+## Kullanim Ornegi Cercevesi (Usage Example Frame)
+Uzmanlik-farkinda ajan olusturma sureci.
+
+<!-- [[MOR:root:O-R-N]] Ornek = root morpheme for example-sample-instance -->
+[assert|neutral] KULLANIM_ORNEGI := {
+  giris: "'Auth sistemimiz icin guvenlik analisti ajani olustur'",
+  cikti_akisi: [
+    {faz: "[FAZ 0]", islem: "Alan uzmanligi yukleniyor...", sonuc: "authentication icin uzmanlik bulundu"},
+    {faz: "[UZMANLIK]", islem: "Dogrulandi (guven_seviyesi: validated)", sonuc: "Ajan bilecek: 5 dosya konumu, 4 desen, 1 bilinen sorun, 2 yonlendirme sablonu"},
+    {faz: "[FAZ 1]", islem: "Uzmanlik baglami ile ilk analiz...", sonuc: "Dosya kesfi atlanir (uzmanliktan biliniyor), guvenlige ozel desenlere odaklaniyor"},
+    {faz: "[FAZ 2]", islem: "Uzmanlik cikartma...", sonuc: "Dosya konumlari ajan kimligine gomulur, desenler metodolojiyle, bilinen sorunlar korumalarla"},
+    {faz: "[FAZ 3]", islem: "Sistem istemi yapimi...", sonuc: "Ajan 'Seylerin nerede oldugunu biliyorum' bolumune sahip"},
+    {faz: "[FAZ 4]", islem: "Test...", sonuc: "Ajanin uzmanligi dogru referansladigi dogrulaniyor"},
+    {faz: "[TAMAMLANDI]", islem: "Ajan gomulu alan uzmanligi ile olusturuldu", sonuc: "Uretim hazir"}
+  ]
+} [ground:witnessed:usage-trace] [conf:0.88] [state:confirmed]
+
+---
+<!-- S12.0 REFERANSLAR (References) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_reference]] -->
+---
+
+## Referanslar Cercevesi (References Frame)
+Ilgili dokumantasyon.
+
+<!-- [[MOR:root:R-F-R]] Referans = root morpheme for reference-source-citation -->
+[assert|neutral] REFERANSLAR := {
+  ilgili_belgeler: [
+    {yol: ".claude/skills/EXPERTISE-INTEGRATION-MODULE.md", aciklama: "Tam entegrasyon desenleri"},
+    {yol: "agents/foundry/expertise/domain-expert.md", aciklama: "Temel alan uzman ajani"}
+  ]
+} [ground:witnessed:documentation] [conf:0.95] [state:confirmed]
+
+---
+<!-- S13.0 SONUC (Conclusion) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_summary]] -->
+---
+
+## Beceri Ozeti Cercevesi (Skill Summary Frame)
+Zaversheno. Etot addendum byl uspeshno realizovan. (Rusca: Tamamlandi. Bu eklenti basariyla uygulanmistir.)
+
+<!-- [[MOR:root:S-N-C]] Sonuc = root morpheme for conclusion-result-outcome -->
+<!-- [[COM:Uzmanlik+Sistemi+Entegrasyon+Ozeti]] German compound: Expertensystemintegrierungszusammenfassung -->
+[assert|confident] EKLENTI_OZETI := {
+  amac: "5-Faz Ajan Olusturma Metodolojisini uzmanlik-farkinda ajan tasarimi ile genisletme", // Turkish: purpose
+  metodoloji: "Faz 0 uzmanlik yukleme, Faz 4.5 uzmanlik dogrulama, kesif modu fallback", // Turkish: methodology
+  ciktilar: [
+    "Alan uzman ajan sablonu",
+    "Cok-alanli ajan sablonu",
+    "Kesif modu is akisi",
+    "Uzmanlik entegrasyon kontrolleri"
+  ],
+  kalite_kapilari: [
+    "Uzmanlik yukleme dogrulamasi",
+    "Uzmanlik referans kontrolu",
+    "Ogrenme cikartma yetenegi"
+  ]
+} [ground:witnessed:addendum-execution] [conf:0.90] [state:confirmed]
+
+---
+*Soz (Promise): `<promise>EXPERTISE_ADDENDUM_VCL_V3.1.1_VERIX_COMPLIANT</promise>`*

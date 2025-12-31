@@ -1,509 +1,346 @@
-# Agent Creator Best Practices
+# Ajan Olusturucu En Iyi Uygulamalar (Agent Creator Best Practices)
+
+<!-- VCL v3.1.1 COMPLIANT - L1 Internal Documentation -->
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
+---
 
+<!-- S1 KANIT_TABANLI_ILKELER (Evidence-Based Principles) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Kanit-Tabanli Prompting Ilkeleri (Evidence-Based Prompting Principles)
 
-## Evidence-Based Prompting Principles
+### 1. Oz-Tutarlilik Dogrulamasi (Self-Consistency Validation)
 
-### 1. Self-Consistency Validation
+<!-- [[MOR:root:T-T-R]] Tutarlilik = root morpheme for consistency-coherence -->
+[assert|neutral] OZ_TUTARLILIK_ILKESI := {
+  ilke: "Birden fazla muhakeme yolu olustur ve en tutarli cevabi sec",
+  uygulama_sablonu: "Ciktilari sonlandirmadan once birden fazla acidan dogrula: [Alana ozgu dogrulama 1], [Alana ozgu dogrulama 2], [Standartlarla capraz kontrol]",
+  faydalar: [
+    "Muhakemeyi capraz kontrol ederek halusinasyonlari azaltir",
+    "%15-30 dogruluk iyilestirmesi (arastirmada kanitlanmis)",
+    "Ajan guven kalibrasyonu olusturur"
+  ]
+} [ground:research:evidence-based-prompting] [conf:0.85] [state:confirmed]
 
-**Principle**: Generate multiple reasoning paths and select the most consistent answer.
+[assert|neutral] OZ_TUTARLILIK_ORNEGI := {
+  ajan: "Pazarlama Uzmani",
+  dogrulama_adimlari: [
+    "Veri Dogrulamasi: ROI hesaplamalari tarihi karsilastirmalarla uyusuyor mu?",
+    "Segment Dogrulamasi: Tum hedef kitle segmentlerinde performans analiz ettim mi?",
+    "Istatistiksel Dogrulama: A/B test sonuclari istatistiksel olarak anlamli mi (p<0.05)?",
+    "Butce Dogrulamasi: Toplam dagitim butceye esit mi (+/-%5 test rezervi icin)?"
+  ]
+} [ground:witnessed:example] [conf:0.88] [state:confirmed]
 
-**Implementation in Agents**:
-```markdown
-### Self-Consistency Validation
-Before finalizing deliverables, I validate from multiple angles:
-1. [Domain-specific validation 1]
-2. [Domain-specific validation 2]
-3. [Cross-check with standards]
-```
+### 2. Dusunce Programi (PoT) Ayristirmasi (Program-of-Thought Decomposition)
 
-**Example (Marketing Specialist)**:
-```markdown
-### Self-Consistency Validation
-Before finalizing campaign strategy, I validate:
-1. **Data Validation**: Do ROI calculations match historical benchmarks?
-2. **Segment Validation**: Did I analyze performance across all audience segments?
-3. **Statistical Validation**: Are A/B test conclusions statistically significant (p<0.05)?
-4. **Budget Validation**: Does total allocation equal budget (±5% for testing reserve)?
-```
+[assert|neutral] POT_ILKESI := {
+  ilke: "Karmasik gorevleri yurutmeden ONCE ara adimlara ayristir",
+  faydalar: [
+    "Erken basarisizligi onler (hizli basarisiz ol)",
+    "%20-40 planlama kalitesi iyilestirmesi",
+    "Daha iyi hata kurtarma saglar (net geri alma noktalari)"
+  ]
+} [ground:research:evidence-based-prompting] [conf:0.85] [state:confirmed]
 
-**Benefits**:
-- Reduces hallucinations by cross-checking reasoning
-- Improves accuracy by 15-30% (proven in research)
-- Builds agent confidence calibration
+[assert|neutral] POT_ORNEGI := {
+  ajan: "DevOps Koordinatoru",
+  ayristirma: {
+    ayristir: "Manifesti yukle -> Semayi dogrula -> Hizmetler + bagimliliklari cikar",
+    planla: "DAG insa et -> Yurutme dalgalarini belirle -> Sureyi tahmin et -> Kapasiteyi kontrol et",
+    hazirla: "Geri alma manifesti depola -> Izlemeyi baslat -> Kaynaklari rezerve et",
+    yurutme: "Dalga dalga ajan olustur -> Sagligi izle -> Hatalari isle",
+    dogrula: "Saglik kontrollerini calistir -> Endpoint'leri dogrula -> Metrikleri onayla",
+    sonlandir: "Dagitim durumunu depola -> Gecici kaynaklari temizle -> Paydaşlari bilgilendir"
+  }
+} [ground:witnessed:example] [conf:0.88] [state:confirmed]
+
+### 3. Plan-ve-Coz Yurutme (Plan-and-Solve Execution)
+
+[assert|neutral] PLAN_VE_COZ_ILKESI := {
+  ilke: "Yurutmeden once acik planlama fazı, her adimda dogrulama",
+  is_akisi: ["PLANLA", "DOGRULA", "YURUTME", "DOGRULA", "BELGELE"],
+  faydalar: [
+    "%25-35 hata azaltma (dogrulama hatalari erken yakalar)",
+    "Tutarlilik iyilestirmesi (tekrarlanabilir is akisi)",
+    "Daha iyi isbirligi saglar (net fazlar)"
+  ]
+} [ground:research:evidence-based-prompting] [conf:0.85] [state:confirmed]
 
 ---
 
-### 2. Program-of-Thought (PoT) Decomposition
+<!-- S2 SISTEM_PROMPT_OPTIMIZASYONU (System Prompt Optimization) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Sistem Prompt Optimizasyon Teknikleri (System Prompt Optimization Techniques)
 
-**Principle**: Decompose complex tasks into intermediate steps BEFORE execution.
+### 1. Spesifik Uzmanlik ile Rol Netligi (Role Clarity with Specific Expertise)
 
-**Implementation in Agents**:
-```markdown
-### Program-of-Thought Decomposition
-For complex tasks, I decompose BEFORE execution:
-1. [Domain-specific decomposition pattern]
-2. [Dependency analysis]
-3. [Risk assessment]
-```
+[assert|emphatic] ROL_NETLIGI := {
+  yanlis: "Uygulama olusturabilen bir gelistiriciyim.",
+  dogru: "Frontend (React/TypeScript), backend (Node.js/Express), veritabani (PostgreSQL/Prisma) ve DevOps (Docker/CI-CD) alanlarinda derin uzmanliga sahip bir Tam-Yigin Gelistirici Ajaniyim. Sistematik alan analizi yoluyla, su alanlarda hassasiyet duzeyinde anlayisa sahibim: Frontend Gelistirme - React 18, hooks, TypeScript generics, TailwindCSS, erisilebilirlik; Backend Gelistirme - RESTful API'ler, JWT kimlik dogrulama, Zod dogrulama, middleware kaliplari...",
+  neden_daha_iyi: [
+    "Spesifik bilgi alanlarini etkinlestirir",
+    "Net kapsam sinirlari belirler",
+    "Daha iyi gorev yonlendirmesi saglar (ajan ne yapip yapamayacagini bilir)"
+  ]
+} [ground:witnessed:optimization-technique] [conf:0.92] [state:confirmed]
 
-**Example (DevOps Coordinator)**:
-```markdown
-### Program-of-Thought Decomposition
-For deployment orchestration, I decompose BEFORE spawning agents:
-1. **Parse**: Load manifest → Validate schema → Extract services + dependencies
-2. **Plan**: Build DAG → Identify execution waves → Estimate duration → Check capacity
-3. **Prepare**: Store rollback manifest → Initialize monitoring → Reserve resources
-4. **Execute**: Spawn agents wave-by-wave → Monitor health → Handle errors
-5. **Verify**: Run health checks → Validate endpoints → Confirm metrics
-6. **Finalize**: Store deployment state → Clean up temp resources → Notify stakeholders
-```
+### 2. NE ZAMAN ve NASIL ile Komut Spesifikasyonlari (Command Specifications with WHEN and HOW)
 
-**Benefits**:
-- Prevents premature execution (failing fast)
-- Improves planning quality by 20-40%
-- Enables better error recovery (clear rollback points)
+[assert|emphatic] KOMUT_SPESIFIKASYONU := {
+  yanlis: "/file-read - Dosyalari oku",
+  dogru: "/file-read, /file-write, /glob-search, /grep-search; NE ZAMAN: Kampanya performans CSV'lerini okurken, strateji belgeleri yazarken, tarihi veri ararken; NASIL: /file-read campaigns/q3-performance.csv -> metrikleri ayristir -> trendleri analiz et",
+  neden_daha_iyi: [
+    "Komut kullanimi icin baglam saglar (sadece soz dizimi degil)",
+    "Tam kaliplari gosterir (NASIL ornekleri)",
+    "Komut yanlis kullanimini azaltir"
+  ]
+} [ground:witnessed:optimization-technique] [conf:0.92] [state:confirmed]
 
----
+### 3. YANLIS vs. DOGRU Ornekleriyle Korumalar (Guardrails with WRONG vs. CORRECT Examples)
 
-### 3. Plan-and-Solve Execution
+[assert|emphatic] KORUMA_SPESIFIKASYONU := {
+  yanlis: "Asla testler olmadan dagitma.",
+  dogru: {
+    kural: "ASLA: CI/CD boru hatti gecmeden dagitma",
+    neden: "Basarisiz testler = bozuk uretim",
+    yanlis_ornek: "Testleri atla, dogrudan dagit: git push origin main",
+    dogru_ornek: "CI/CD boru hatti testleri otomatik calistirir: git push origin main -> GitHub Actions bekle: Tum testler gecti -> SONRA dagit"
+  },
+  neden_daha_iyi: [
+    "Somut ornekler (soyut kurallar degil)",
+    "Sonuclari gosterir (NEDEN aciklamalari)",
+    "%40-60 ihlal azaltmasi"
+  ]
+} [ground:witnessed:optimization-technique] [conf:0.92] [state:confirmed]
 
-**Principle**: Explicit planning phase before execution, with validation at each step.
+### 4. Tam Komutlarla Is Akisi Ornekleri (Workflow Examples with Exact Commands)
 
-**Implementation in Agents**:
-```markdown
-### Plan-and-Solve Execution
-My standard workflow:
-1. **PLAN**: [Domain-specific planning]
-2. **VALIDATE**: [Domain-specific validation]
-3. **EXECUTE**: [Domain-specific execution]
-4. **VERIFY**: [Domain-specific verification]
-5. **DOCUMENT**: [Memory storage patterns]
-```
-
-**Example (Full-Stack Developer)**:
-```markdown
-### Plan-and-Solve Execution
-My standard full-stack workflow:
-1. **PLAN**: API contract design → Define types → Estimate complexity
-2. **VALIDATE**: Types consistent → No circular dependencies → Feasibility confirmed
-3. **EXECUTE**: Backend first → Frontend next → Integration tests
-4. **VERIFY**: All tests pass → CI/CD green → Performance meets SLA
-5. **DOCUMENT**: Store API contract in memory → Tag with metadata → Notify stakeholders
-```
-
-**Benefits**:
-- Reduces errors by 25-35% (validation catches mistakes early)
-- Improves consistency (repeatable workflow)
-- Enables better collaboration (clear phases)
-
----
-
-## System Prompt Optimization Techniques
-
-### 1. Role Clarity with Specific Expertise
-
-**Bad** (vague):
-```markdown
-I am a developer who can build applications.
-```
-
-**Good** (specific):
-```markdown
-I am a **Full-Stack Developer Agent** with deep expertise across frontend (React/TypeScript), backend (Node.js/Express), database (PostgreSQL/Prisma), and DevOps (Docker/CI-CD). Through systematic domain analysis, I possess precision-level understanding of:
-- **Frontend Development** - React 18, hooks, TypeScript generics, TailwindCSS, accessibility
-- **Backend Development** - RESTful APIs, JWT authentication, Zod validation, middleware patterns
-...
-```
-
-**Why Better**:
-- Activates specific knowledge domains
-- Sets clear scope boundaries
-- Enables better task routing (agent knows what it can/can't do)
+[assert|emphatic] IS_AKISI_ORNEGI := {
+  yanlis: "1. Veri analiz et 2. Strateji olustur 3. Dagit",
+  dogru: {
+    adim_1: {
+      isim: "Tarihi Veri Topla",
+      komutlar: ["/file-read campaigns/q3-2024-performance.csv", "/memory-retrieve --key marketing/audience-personas"],
+      cikti: "Segment basina tarihi ROAS, CAC, donusum oranlari",
+      dogrulama: "Yeterli veri (3+ ay), tutarli izleme"
+    },
+    adim_2: {
+      isim: "Hedef Kitle Segmentasyonu",
+      komutlar: ["/audience-segment --criteria repeat-purchaser,high-ltv"],
+      cikti: "LTV, CAC ile 3-5 hedef kitle segmenti",
+      dogrulama: "Segmentler hedef kitlenin %80+'ini kapsiyor"
+    }
+  },
+  neden_daha_iyi: [
+    "Yurutulebilir (ajan komutlari kopyala-yapistir yapabilir)",
+    "Test edilebilir (is akisi dogrulanabilir)",
+    "%30-50 tutarlilik iyilestirmesi"
+  ]
+} [ground:witnessed:optimization-technique] [conf:0.92] [state:confirmed]
 
 ---
 
-### 2. Command Specifications with WHEN and HOW
+<!-- S3 UZMANLIK_KALIPLARI (Specialization Patterns) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Ajan Uzmanlik Kaliplari (Agent Specialization Patterns)
 
-**Bad** (incomplete):
-```markdown
-- /file-read - Read files
-```
+### Kalip 1: Analitik Ajanlar (Pattern 1: Analytical Agents)
 
-**Good** (complete):
-```markdown
-- `/file-read`, `/file-write`, `/glob-search`, `/grep-search`
-- **WHEN**: Reading campaign performance CSVs, writing strategy documents, searching for historical data
-- **HOW**: `/file-read campaigns/q3-performance.csv` → parse metrics → analyze trends
-```
+[assert|neutral] ANALITIK_KALIP := {
+  odak: "Kanit degerlendirme, veri kalitesi, dogrulama",
+  faz_vurgulari: {
+    faz_1: "Istatistiksel metodlar (A/B testi, anlam testleri), Veri kalitesi standartlari (tamliligi, dogruluk), Kanit hiyerarsisi",
+    faz_2: "Analitik sezgisel kurallar ('Sonuclara varmadan once her zaman orneklem boyutunu dogrula'), Dogrulama cerceveleri (kontrol listesi tabanli)",
+    faz_3: "Oz-tutarlilik kontrolu (cok acili dogrulama), Guven kalibrasyonu (belirsizligi nicelle)",
+    faz_4: "Istatistiksel dogrulama kodu (anlam testleri, guc analizi), Hata tespit kaliplari (aykiri degerler, eksik veri)"
+  },
+  ornek_ajanlar: ["Veri Analisti", "Arastirma Analisti", "Kalite Denetcisi"]
+} [ground:witnessed:pattern] [conf:0.88] [state:confirmed]
 
-**Why Better**:
-- Provides context for command usage (not just syntax)
-- Shows exact patterns (HOW examples)
-- Reduces command misuse
+### Kalip 2: Uretici Ajanlar (Pattern 2: Generative Agents)
 
----
+[assert|neutral] URETICI_KALIP := {
+  odak: "Icerik olusturma, tasarim, sentez",
+  faz_vurgulari: {
+    faz_1: "Kalite kriterleri (okunabilirlik, etkilesim, dogruluk), Sablon kaliplari (kanitlanmis yapilar), Hedef kitle anlayisi",
+    faz_2: "Yaratici sezgisel kurallar ('Anlatma, goster', 'Acamasizca duzenle'), Iyilestirme donguler (taslak -> inceleme -> revizyon)",
+    faz_3: "Plan-ve-coz cerceveleri (anahat -> taslak -> cilalama), Gereksinim izleme (olmazsa olmazlar kontrol listesi)",
+    faz_4: "Uretim kaliplari (sablonlar, ornekler), Kalite dogrulama kodu (okunabilirlik puanlari, intihal kontrolleri)"
+  },
+  ornek_ajanlar: ["Icerik Yazari", "Pazarlama Metin Yazari", "UI Tasarimci"]
+} [ground:witnessed:pattern] [conf:0.88] [state:confirmed]
 
-### 3. Guardrails with WRONG vs. CORRECT Examples
+### Kalip 3: Teshis Ajanlari (Pattern 3: Diagnostic Agents)
 
-**Bad** (only states rule):
-```markdown
-Never deploy without tests.
-```
+[assert|neutral] TESHIS_KALIBI := {
+  odak: "Problem tanimlama, hata ayiklama, kok neden analizi",
+  faz_vurgulari: {
+    faz_1: "Problem kaliplari (yaygin basarisizliklar), Hata ayiklama is akislari (sistematik sorun giderme), Teshis araclari (loglar, profiler'lar, debugger'lar)",
+    faz_2: "Hipotez uretme ('X bozuksa, Y belirtileri gorulur'), Sistematik test (degiskenleri izole et)",
+    faz_3: "Dusunce programi ayristirmasi (problemi alt-problemlere bol), Kanit izleme (ne elendi, ne onaylandi)",
+    faz_4: "Tespit scriptleri (log ayristirma, hata kalip eslestirme), Kok neden analiz kaliplari (5 Neden, Balik Kilcigi diyagramlari)"
+  },
+  ornek_ajanlar: ["Hata Ayiklama Uzmani", "Performans Analizcisi", "Guvenlik Denetcisi"]
+} [ground:witnessed:pattern] [conf:0.88] [state:confirmed]
 
-**Good** (shows contrast):
-```markdown
-### ❌ NEVER: Deploy without CI/CD pipeline passing
-**WHY**: Broken tests = broken production
+### Kalip 4: Orkestrasyon Ajanlari (Pattern 4: Orchestration Agents)
 
-**WRONG**:
-```bash
-# Skip tests, deploy directly
-git push origin main
-```
-
-**CORRECT**:
-```bash
-# CI/CD pipeline runs tests automatically
-git push origin main
-# Wait for GitHub Actions: ✅ All tests pass
-# THEN deploy
-```
-```
-
-**Why Better**:
-- Concrete examples (not abstract rules)
-- Shows consequences (WHY explanations)
-- Reduces violations by 40-60%
-
----
-
-### 4. Workflow Examples with Exact Commands
-
-**Bad** (high-level):
-```markdown
-1. Analyze data
-2. Create strategy
-3. Deploy
-```
-
-**Good** (exact commands):
-```markdown
-**Step-by-Step Commands**:
-```yaml
-Step 1: Gather Historical Data
-  COMMANDS:
-    - /file-read campaigns/q3-2024-performance.csv
-    - /memory-retrieve --key "marketing/audience-personas"
-  OUTPUT: Historical ROAS, CAC, conversion rates by segment
-  VALIDATION: Sufficient data (3+ months), consistent tracking
-
-Step 2: Audience Segmentation
-  COMMANDS:
-    - /audience-segment --criteria "repeat-purchaser,high-ltv"
-  OUTPUT: 3-5 audience segments with LTV, CAC
-  VALIDATION: Segments cover 80%+ of target audience
-```
-```
-
-**Why Better**:
-- Executable (agent can copy-paste commands)
-- Testable (can verify workflow)
-- Improves consistency by 30-50%
+[assert|neutral] ORKESTRASYON_KALIBI := {
+  odak: "Is akisi koordinasyonu, ajan yonetimi, bagimlilik cozumleme",
+  faz_vurgulari: {
+    faz_1: "Is akisi kaliplari (sirasal, paralel, kosullu), Bagimlilik yonetimi (DAG'lar, kritik yollar), Hata kurtarma (yeniden dene, geri al, yukselt)",
+    faz_2: "Koordinasyon sezgisel kurallari ('Bagimsiz gorevleri paralellestir'), Hata kurtarma cerceveleri (siniflandir -> yeniden dene/geri al)",
+    faz_3: "Bagimlíliklarla plan-ve-coz (PERT grafikleri), Ilerleme izleme (kilometre taslari, saglik kontrolleri)",
+    faz_4: "Orkestrasyon kodu (is akisi motorlari, DAG kutuphaneleri), Yeniden deneme mantigi (ustel geri cekilme, devre kesiciler), Yukseltme yollari (ne zaman insanlari dahil etmeli)"
+  },
+  ornek_ajanlar: ["DevOps Koordinatoru", "Proje Yonetici", "Is Akisi Orkestratoru"]
+} [ground:witnessed:pattern] [conf:0.88] [state:confirmed]
 
 ---
 
-## Agent Specialization Patterns
+<!-- S4 TEST_VE_DOGRULAMA (Testing & Validation) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Test ve Dogrulama En Iyi Uygulamalari (Testing & Validation Best Practices)
 
-### Pattern 1: Analytical Agents
+### Dogrulama Kontrol Listesi (Validation Checklist)
 
-**Focus**: Evidence evaluation, data quality, validation
+[assert|emphatic] DOGRULAMA_KONTROL_LISTESI := [
+  "Kimlik: Ajan etkilesimler arasinda tutarli rolu suruyor",
+  "Komutlar: Evrensel komutlari dogru kullaniyor (dosya islemleri, git, hafiza)",
+  "Uzman Becerileri: Alan uzmanligi gosteriyor (genel yanitlar degil)",
+  "MCP Entegrasyonu: Hafiza araciligiyla koordine ediyor, gerektiginde alt-ajanlar olusturuyor",
+  "Korumalar: Tanimlanan basarisizlik modlarini onluyor (ornekler beklendig gibi calisiyor)",
+  "Is Akislari: Is akisi orneklerini basariyla yurutuyor (kopyala-yapistir komutlari calisiyor)",
+  "Metrikler: Performans verilerini izliyor (gorev tamamlama, kalite, verimlilik)",
+  "Kod Kaliplari: Faz 4'ten tam kaliplari uyguluyor (kod parcalari calisiyor)",
+  "Hata Isleme: Uygun sekilde yukseltiyor (ne zaman takildigini biliyor)",
+  "Tutarlilik: Tekrarda kararli ciktilar uretiyor (rastgele degil)"
+] [ground:witnessed:validation] [conf:0.95] [state:confirmed]
 
-**Phase 1 Emphasis**:
-- Statistical methods (A/B testing, significance tests)
-- Data quality standards (completeness, accuracy)
-- Evidence hierarchy (peer-reviewed > blog posts)
+### Test Paketi Yapisi (Test Suite Structure)
 
-**Phase 2 Emphasis**:
-- Analytical heuristics ("Always validate sample size before conclusions")
-- Validation frameworks (checklist-based)
+[assert|neutral] TEST_PAKETI := {
+  tipik_vakalar: {
+    yuzde: "%80 kullanim",
+    tanim: "Standart is akislari, yaygin girdiler, normal veri uzerinde beklenen davranis"
+  },
+  kenar_vakalari: {
+    yuzde: "%15 kullanim",
+    tanim: "Sinir kosullari, olagan disi girdiler, Bos veri, cok buyuk veri, bozuk veri"
+  },
+  hata_vakalari: {
+    yuzde: "%5 kullanim",
+    tanim: "Nazik basarisizlik, kurtarma, Eksik bagimlíliklar, gecersiz yapilandirmalar"
+  },
+  entegrasyon_vakalari: {
+    tanim: "Diger ajanlarla uctan uca is akislari, Hafiza koordinasyonu, olay yayilimi"
+  },
+  performans_vakalari: {
+    tanim: "Hiz (gecikme, verim), Verimlilik (token kullanimi, API cagrilari), Kaynak kullanimi (bellek, CPU)"
+  }
+} [ground:witnessed:test-structure] [conf:0.90] [state:confirmed]
 
-**Phase 3 Emphasis**:
-- Self-consistency checking (multi-angle validation)
-- Confidence calibration (quantify uncertainty)
+### Izlenecek Metrikler (Metrics to Track)
 
-**Phase 4 Emphasis**:
-- Statistical validation code (significance tests, power analysis)
-- Error detection patterns (outliers, missing data)
-
-**Example Agents**: Data Analyst, Research Analyst, Quality Auditor
-
----
-
-### Pattern 2: Generative Agents
-
-**Focus**: Content creation, design, synthesis
-
-**Phase 1 Emphasis**:
-- Quality criteria (readability, engagement, accuracy)
-- Template patterns (proven structures)
-- Audience understanding (who, what, why)
-
-**Phase 2 Emphasis**:
-- Creative heuristics ("Show, don't tell", "Edit ruthlessly")
-- Refinement cycles (draft → review → revise)
-
-**Phase 3 Emphasis**:
-- Plan-and-solve frameworks (outline → draft → polish)
-- Requirement tracking (checklist of must-haves)
-
-**Phase 4 Emphasis**:
-- Generation patterns (templates, examples)
-- Quality validation code (readability scores, plagiarism checks)
-
-**Example Agents**: Content Writer, Marketing Copywriter, UI Designer
-
----
-
-### Pattern 3: Diagnostic Agents
-
-**Focus**: Problem identification, debugging, root cause analysis
-
-**Phase 1 Emphasis**:
-- Problem patterns (common failures)
-- Debugging workflows (systematic troubleshooting)
-- Diagnostic tools (logs, profilers, debuggers)
-
-**Phase 2 Emphasis**:
-- Hypothesis generation ("If X is broken, Y symptoms appear")
-- Systematic testing (isolate variables)
-
-**Phase 3 Emphasis**:
-- Program-of-thought decomposition (break problem into sub-problems)
-- Evidence tracking (what's ruled out, what's confirmed)
-
-**Phase 4 Emphasis**:
-- Detection scripts (log parsing, error pattern matching)
-- Root cause analysis patterns (5 Whys, Fishbone diagrams)
-
-**Example Agents**: Debugging Specialist, Performance Analyzer, Security Auditor
+[assert|neutral] IZLENECEK_METRIKLER := {
+  gorev_tamamlama: ["Gun/hafta basina tamamlanan gorevler", "Gorev suresi (ort, p50, p95)", "Basari orani (tamamlanan / denenen)"],
+  kalite: ["Dogrulama gecisleri (kontrol listesi ogeleri)", "Yukseltmeler (diger ajanlardan yardim gereken)", "Hata orani (basarisizliklar / denemeler)", "Oneri benimseme (kullanicilar/musteriler tarafindan)"],
+  verimlilik: ["Gorev basina komut (ort)", "MCP arac kullanimi (siklik)", "Token kullanimi (gorev basina)", "API cagrilari (gorev basina)"],
+  is_etkisi: ["Etkilenen gelir (pazarlama/satis ajanlari icin)", "Maliyet tasarrufu (optimizasyon ajanlari icin)", "Zaman tasarrufu (manuel ise karsi)", "Musteri memnuniyeti (NPS, CSAT puanlari)"]
+} [ground:witnessed:metrics] [conf:0.88] [state:confirmed]
 
 ---
 
-### Pattern 4: Orchestration Agents
+<!-- S5 SUREKLI_IYILESTIRME (Continuous Improvement) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Surekli Iyilestirme Dongusu (Continuous Improvement Cycle)
 
-**Focus**: Workflow coordination, agent management, dependency resolution
+### 1. Haftalik Inceleme (Weekly Review)
 
-**Phase 1 Emphasis**:
-- Workflow patterns (sequential, parallel, conditional)
-- Dependency management (DAGs, critical paths)
-- Error recovery (retry, rollback, escalation)
+[assert|neutral] HAFTALIK_INCELEME := {
+  ne_incelenir: ["Performans metrikleri (gorev tamamlama, kalite, verimlilik)", "Basarisizlik vakalari (hatalar, yukseltmeler)", "Kullanici geri bildirimi (memnuniyet puanlari, sikayetler)"],
+  eylemler: ["En onemli 3 basarisizlik modunu belirle", "Onlemek icin korumalari guncelle", "Yeni kod kaliplari ekle (kesfedilirse)"]
+} [ground:witnessed:improvement-cycle] [conf:0.88] [state:confirmed]
 
-**Phase 2 Emphasis**:
-- Coordination heuristics ("Parallelize independent tasks")
-- Error recovery frameworks (classify → retry/rollback)
+### 2. Aylik Yineleme (Monthly Iteration)
 
-**Phase 3 Emphasis**:
-- Plan-and-solve with dependencies (PERT charts)
-- Progress tracking (milestones, health checks)
+[assert|neutral] AYLIK_YINELEME := {
+  ne_guncellenir: ["Sistem prompt iyilestirmeleri (v2.1, v2.2, ...)", "Yeni is akisi ornekleri (basarili gorevlerden)", "Guncellenmis teknoloji yigini (yeni araclar, cerceveler)"],
+  versiyon_kontrolu: {
+    v1_0: "Faz 3'ten temel prompt",
+    v1_x: "Testlerden kucuk iyilestirmeler",
+    v2_0: "Faz 4 kaliplariyla gelistirilmis",
+    v2_x: "Uretim yinelemeleri"
+  }
+} [ground:witnessed:improvement-cycle] [conf:0.88] [state:confirmed]
 
-**Phase 4 Emphasis**:
-- Orchestration code (workflow engines, DAG libraries)
-- Retry logic (exponential backoff, circuit breakers)
-- Escalation paths (when to involve humans)
+### 3. Ucaylik Buyuk Guncellemeler (Quarterly Major Updates)
 
-**Example Agents**: DevOps Coordinator, Project Manager, Workflow Orchestrator
-
----
-
-## Testing & Validation Best Practices
-
-### 1. Validation Checklist (Complete)
-
-Use this checklist for EVERY agent before production deployment:
-
-- [ ] **Identity**: Agent maintains consistent role across interactions
-- [ ] **Commands**: Uses universal commands correctly (file ops, git, memory)
-- [ ] **Specialist Skills**: Demonstrates domain expertise (not generic responses)
-- [ ] **MCP Integration**: Coordinates via memory, spawns sub-agents when needed
-- [ ] **Guardrails**: Prevents identified failure modes (examples work as expected)
-- [ ] **Workflows**: Executes workflow examples successfully (copy-paste commands work)
-- [ ] **Metrics**: Tracks performance data (task completion, quality, efficiency)
-- [ ] **Code Patterns**: Applies exact patterns from Phase 4 (code snippets work)
-- [ ] **Error Handling**: Escalates appropriately (knows when stuck)
-- [ ] **Consistency**: Produces stable outputs on repeat (not random)
-
-### 2. Test Suite Structure
-
-**Typical Cases** (80% of usage):
-- Standard workflows, common inputs
-- Expected behavior on normal data
-
-**Edge Cases** (15% of usage):
-- Boundary conditions, unusual inputs
-- Empty data, very large data, malformed data
-
-**Error Cases** (5% of usage):
-- Graceful failure, recovery
-- Missing dependencies, invalid configurations
-
-**Integration Cases** (cross-agent):
-- End-to-end workflows with other agents
-- Memory coordination, event propagation
-
-**Performance Cases**:
-- Speed (latency, throughput)
-- Efficiency (token usage, API calls)
-- Resource usage (memory, CPU)
-
-### 3. Metrics to Track
-
-**Task Completion**:
-- Tasks completed per day/week
-- Task duration (avg, p50, p95)
-- Success rate (completed / attempted)
-
-**Quality**:
-- Validation passes (checklist items ✅)
-- Escalations (needed help from other agents)
-- Error rate (failures / attempts)
-- Recommendation adoption (by users/clients)
-
-**Efficiency**:
-- Commands per task (avg)
-- MCP tool usage (frequency)
-- Token usage (per task)
-- API calls (per task)
-
-**Business Impact** (if applicable):
-- Revenue influenced (for marketing/sales agents)
-- Cost savings (for optimization agents)
-- Time savings (vs. manual work)
-- Customer satisfaction (NPS, CSAT scores)
+[assert|neutral] UCAYLIK_GUNCELLEMELER := {
+  ne_eklenir: ["Yeni yetenekler (alan kapsamini genislet)", "Yeni MCP sunuculariyla entegrasyon", "Gelismis koordinasyon kaliplari"],
+  yeniden_dogrulama: ["Tam test paketini yeniden calistir", "Tum is akisi orneklerinin hala calistigini dogrula", "Dokumantasyonu guncelle"]
+} [ground:witnessed:improvement-cycle] [conf:0.88] [state:confirmed]
 
 ---
 
-## Continuous Improvement Cycle
+<!-- S6 YAYGIN_TUZAKLAR (Common Pitfalls) [[HON:teineigo]] [[EVD:-mis]] [[ASP:nesov.]] [[CLS:ge-abstract]] -->
+## Yaygin Tuzaklar ve Nasil Kacinilir (Common Pitfalls & How to Avoid)
 
-### 1. Weekly Review
-
-**What to Review**:
-- Performance metrics (task completion, quality, efficiency)
-- Failure cases (errors, escalations)
-- User feedback (satisfaction scores, complaints)
-
-**Actions**:
-- Identify top 3 failure modes
-- Update guardrails to prevent
-- Add new code patterns (if discovered)
-
-### 2. Monthly Iteration
-
-**What to Update**:
-- System prompt refinements (v2.1, v2.2, ...)
-- New workflow examples (from successful tasks)
-- Updated technology stack (new tools, frameworks)
-
-**Version Control**:
-- v1.0: Base prompt from Phase 3
-- v1.x: Minor refinements from testing
-- v2.0: Enhanced with Phase 4 patterns
-- v2.x: Production iterations
-
-### 3. Quarterly Major Updates
-
-**What to Add**:
-- New capabilities (expand domain coverage)
-- Integration with new MCP servers
-- Advanced coordination patterns
-
-**Re-validation**:
-- Re-run complete test suite
-- Validate all workflow examples still work
-- Update documentation
+[assert|emphatic] TUZAKLAR := [
+  {
+    tuzak: "Yuzeysel Uzmanlik (Her Ise Kosar)",
+    belirti: "Ajan genel tavsiyeler veriyor, alana ozgu icgorulardan yoksun",
+    neden: "Faz 1 analizi cok genis, Faz 2 uzmanlik cikarimi eksik",
+    duzeltme: "Faz 1 alan arastirmasina daha fazla zaman ayir (uzman bloglari, dokumantasyon oku), Faz 2'de 3-5 spesifik uzmanlik alani belirle (genel 'gelistirme' degil), 10+ alana ozgu sezgisel kural ekle (genel 'iyi kod yaz' degil)"
+  },
+  {
+    tuzak: "Eksik Korumalar",
+    belirti: "Ajan prompt'taki uyarilara ragmen hatalar yapiyor",
+    neden: "Korumalar kurallar olarak belirtilmis (soyut) ornekler degil (somut)",
+    duzeltme: "Her korumayi YANLIS vs. DOGRU ornegine donustur, NEDEN aciklamalari ekle (ihlalin sonuclari), Korumalari acikca test et (ihlali tetiklemeye calis)"
+  },
+  {
+    tuzak: "Eksik Kod Kaliplari (Faz 4)",
+    belirti: "Ajan dogru mantik uretiyor ama verimsiz/buglu kod",
+    neden: "Faz 4 atlandi veya aceleci yapildi, tam kod kaliplari yok",
+    duzeltme: "Kod tabanindan 3-5 kod kalibi cikar (dosya:satir referanslariyla), Kaliplara kenar vaka isleme dahil et, 'X gorursem, Y biliyorum' aciklamali yorumlar ekle"
+  },
+  {
+    tuzak: "Zayif MCP Entegrasyonu",
+    belirti: "Ajan diger ajanlarla koordine etmiyor, hafiza kullanmiyor",
+    neden: "MCP entegrasyon kaliplari belirtilmemis, ad alani konvansiyonlari belirsiz",
+    duzeltme: "Tam MCP arac kullanim kaliplari tanimla (kod ornekleriyle), Ad alani konvansiyonlarini belirt (orn. {ajan-rolu}/{gorev-id}/{veri-turu}), Hafiza depolama/alma gosteren is akisi ornekleri ekle"
+  },
+  {
+    tuzak: "Performans Izleme Yok",
+    belirti: "Ajan iyilestirmesi zaman icinde olculemiyor",
+    neden: "Faz 4'te metrikler tanimlanmamis",
+    duzeltme: "5-10 anahtar metrik tanimla (gorev tamamlama, kalite, verimlilik), Nasil izlenecegini belirt (hafiza depolama anahtarlari), Haftalik inceleme sureci kur"
+  }
+] [ground:witnessed:pitfalls] [conf:0.92] [state:confirmed]
 
 ---
 
-## Common Pitfalls & How to Avoid
+<!-- S7 SONUC (Summary) [[HON:teineigo]] [[EVD:-dis]] [[ASP:sov.]] [[CLS:ge-abstract]] -->
+## Sonuc (Summary)
 
-### Pitfall 1: Shallow Expertise (Jack-of-All-Trades)
+<!-- [[MOR:root:S-N-C]] Sonuc = root morpheme for conclusion-result -->
+[assert|confident] TEMEL_CIKARIMLAR := [
+  "Tum ajanlarda kanit-tabanli teknikler kullan (oz-tutarlilik, PoT, plan-ve-coz)",
+  "Sistem promptlarini spesifik uzmanlik, tam komutlar, somut orneklerle optimize et",
+  "Ajan kalibini alana esle (analitik, uretici, teshis, orkestrasyon)",
+  "Uretimden once tam kontrol listesiyle kapsamli dogrula",
+  "Metrikleri izle ve surekli yinele (haftalik incelemeler, aylik guncellemeler)"
+] [ground:witnessed:summary] [conf:0.95] [state:confirmed]
 
-**Symptom**: Agent provides generic advice, lacks domain-specific insights
+[assert|emphatic] KACINILACAK_TUZAKLAR := [
+  "Yuzeysel uzmanlik (Faz 1+2 alan analizine zaman ayir)",
+  "Soyut korumalar (YANLIS vs. DOGRU ornekleri kullan)",
+  "Eksik kod kaliplari (Faz 4'te tam kaliplari cikar)",
+  "Zayif MCP entegrasyonu (tam arac kullanimini belirt)",
+  "Metrik yok (performansi tanimla ve izle)"
+] [ground:witnessed:summary] [conf:0.95] [state:confirmed]
 
-**Cause**: Phase 1 analysis too broad, Phase 2 expertise extraction incomplete
-
-**Fix**:
-- Spend more time on Phase 1 domain research (read expert blogs, documentation)
-- In Phase 2, identify 3-5 specific expertise domains (not generic "development")
-- Add 10+ domain-specific heuristics (not generic "write good code")
-
-### Pitfall 2: Incomplete Guardrails
-
-**Symptom**: Agent makes mistakes despite warnings in prompt
-
-**Cause**: Guardrails stated as rules (abstract) not examples (concrete)
-
-**Fix**:
-- Convert every guardrail to WRONG vs. CORRECT example
-- Add WHY explanations (consequences of violation)
-- Test guardrails explicitly (try to trigger violation)
-
-### Pitfall 3: Missing Code Patterns (Phase 4)
-
-**Symptom**: Agent produces correct logic but inefficient/buggy code
-
-**Cause**: Phase 4 skipped or rushed, no exact code patterns
-
-**Fix**:
-- Extract 3-5 code patterns from codebase (with file:line references)
-- Include edge case handling in patterns
-- Add comments explaining "When I see X, I know Y"
-
-### Pitfall 4: Poor MCP Integration
-
-**Symptom**: Agent doesn't coordinate with other agents, doesn't use memory
-
-**Cause**: MCP integration patterns not specified, namespace conventions unclear
-
-**Fix**:
-- Define exact MCP tool usage patterns (with code examples)
-- Specify namespace conventions (e.g., `{agent-role}/{task-id}/{data-type}`)
-- Add workflow examples showing memory storage/retrieval
-
-### Pitfall 5: No Performance Tracking
-
-**Symptom**: Can't measure agent improvement over time
-
-**Cause**: Metrics not defined in Phase 4
-
-**Fix**:
-- Define 5-10 key metrics (task completion, quality, efficiency)
-- Specify how to track (memory storage keys)
-- Set up weekly review process
+[assert|confident] SONUC := "Derinlemesine gomulu uzmanlik, saglam korumalar ve olculebilir performansli uretime hazir ajanlar" [ground:witnessed:summary] [conf:0.95] [state:confirmed]
 
 ---
 
-## Summary
-
-**Key Takeaways**:
-1. ✅ Use evidence-based techniques (self-consistency, PoT, plan-and-solve) in all agents
-2. ✅ Optimize system prompts with specific expertise, exact commands, concrete examples
-3. ✅ Match agent pattern to domain (analytical, generative, diagnostic, orchestration)
-4. ✅ Validate thoroughly with complete checklist before production
-5. ✅ Track metrics and iterate continuously (weekly reviews, monthly updates)
-
-**Avoid Common Pitfalls**:
-- ❌ Shallow expertise (spend time on Phase 1+2 domain analysis)
-- ❌ Abstract guardrails (use WRONG vs. CORRECT examples)
-- ❌ Missing code patterns (extract exact patterns in Phase 4)
-- ❌ Poor MCP integration (specify exact tool usage)
-- ❌ No metrics (define and track performance)
-
-**Result**: Production-ready agents with deeply embedded expertise, robust guardrails, and measurable performance.
-
-
----
-*Promise: `<promise>BEST_PRACTICES_VERIX_COMPLIANT</promise>`*
+<promise>BEST_PRACTICES_VCL_VERIX_COMPLIANT</promise>

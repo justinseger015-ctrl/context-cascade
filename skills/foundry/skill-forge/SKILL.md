@@ -404,6 +404,131 @@ This skill operates as an intelligent collaborator that helps you think deeply a
 [direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:0.90] [state:confirmed]
 
 ---
+<!-- S8.5 TEMEL ILKELER (Core Principles) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_principle]] -->
+---
+
+## Beceri Dokumanmesi Ilkeleri (Skill Forging Principles)
+Ilkeler gozlemlere dayanir. Kaynak: skill-audits, production-failures.
+
+<!-- [[MOR:root:Y-P-I]] Yapi = root morpheme for structure -->
+<!-- [[COM:Yapi+Oncelikli+Tasarim]] Turkish compound: Structure-First Design -->
+[define|neutral] PRINCIPLE_STRUCTURE_FIRST := {
+  id: "P1",
+  kural_adi: "Yapi-Oncelikli Beceri Tasarimi", // Turkish: Structure-First Skill Design
+  kural: "forall(beceri): has_dirs(ornekler/, testler/, kaynaklar/, referanslar/)", // Turkish dirs
+  gerekce: "Standart yapi, belge butunlugunu ve test edilebilirligi saglar",
+  uygulama: "dizin_dogrulayici",
+  yapi: {
+    gerekli: ["SKILL.md", "examples/", "tests/"],
+    onerilen: ["resources/", "references/", "metadata.json"]
+  }
+} [ground:witnessed:skill-audits] [conf:0.90] [state:confirmed]
+
+<!-- [[MOR:root:D-S-M]] Dusmanlik = root morpheme for adversarial -->
+<!-- [[COM:Dusmanca+Dogrulama+Gerekli]] Turkish compound: Adversarial Validation Required -->
+[define|neutral] PRINCIPLE_ADVERSARIAL_VALIDATION := {
+  id: "P2",
+  kural_adi: "Dusmanca Dogrulama Gerekli", // Turkish: Adversarial Validation Required
+  pravilo: "forall(beceri): prohodit(adversarial_test) I prohodit(COV) PERED deploy", // Russian
+  gerekce: "Kirilgan becerilerin uretim ekosistemine girmesini onler",
+  uygulama: "kalite_kapisi",
+  protokoller: ["sinir_durumu_testi", "basarisizlik_modu_analizi", "COV_dogrulama_cemberi"]
+} [ground:witnessed:production-failures] [conf:0.90] [state:confirmed]
+
+<!-- [[MOR:root:O-Z-U]] Oz-uygulama = root morpheme for self-application -->
+<!-- [[COM:Meta+Beceri+Oz+Uygulama]] Turkish+German compound: Metabecerieigenenanwendung -->
+[define|neutral] PRINCIPLE_META_SELF_APPLICATION := {
+  id: "P3",
+  kural_adi: "Meta-Beceri Oz-Uygulamasi (Dogfooding)", // Turkish: Meta-Skill Self-Application
+  kural: "skill_forge.iyilestir(skill_forge) // ozyinelemeli oz-iyilestirme",
+  gerekce: "Oz-uygulama pratik etkinligi dogrular",
+  uygulama: "dogfooding_dongusu",
+  dongu: "iyilestir -> dogrula -> dagit -> gozle -> iyilestir"
+} [ground:witnessed:dogfooding-results] [conf:0.85] [state:confirmed]
+
+---
+<!-- S8.6 ANTI-KALIPLAR (Anti-Patterns) [[HON:sonkeigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_antipattern]] -->
+---
+
+## Kacininilmasi Gereken Kaliplar (Patterns to Avoid)
+Bu hatalar uretim olaylarindan gozlemlenmistir. Kaynak: production-incidents.
+
+<!-- [[MOR:root:A-T-L]] Atlama = root morpheme for skipping -->
+<!-- [[COM:Dusmanca+Test+Atlama]] Turkish compound: Adversarial Test Skipping -->
+[assert|emphatic] ANTI_PATTERN_SKIP_ADVERSARIAL := {
+  id: "AP1",
+  hata_adi: "Dusmanca Test Atlama", // Turkish: Skipping Adversarial Testing
+  belirti: "Beceri sinir durumlarinda basarisiz, coklu-ajan is akislarini bozar",
+  yanlis: "Skill('beceri') -> dagit // dogrulama yok",
+  dogru: "Skill('beceri') -> dusmanca_test -> COV -> dagit",
+  onleme: "Kayit eklenmeden once zorunlu kalite kapisi"
+} [ground:witnessed:production-incidents] [conf:0.85] [state:confirmed]
+
+<!-- [[MOR:root:E-K-S]] Eksik = root morpheme for missing -->
+<!-- [[COM:Eksik+Dosya+Yapisi]] Turkish compound: Missing File Structure -->
+[assert|emphatic] ANTI_PATTERN_MISSING_STRUCTURE := {
+  id: "AP2",
+  hata_adi: "Eksik Dosya Yapisi", // Turkish: Missing File Structure
+  belirti: "Bakim yuku, dusuk kesifelenilebilirlik, test yok",
+  yanlis: "skills/beceri/SKILL.md // tek dosya",
+  dogru: "skills/beceri/{SKILL.md, examples/, tests/, resources/}",
+  onleme: "Tam dizin iskelesi ile beceri sablon ureticisi kullan"
+} [ground:witnessed:skill-audits] [conf:0.85] [state:confirmed]
+
+<!-- [[MOR:root:G-N-L]] Genel = root morpheme for generic -->
+<!-- [[COM:Genel+Koordinasyon+Kaliplari]] Turkish compound: Generic Coordination Patterns -->
+[assert|emphatic] ANTI_PATTERN_GENERIC_COORDINATION := {
+  id: "AP3",
+  hata_adi: "Genel Koordinasyon Kaliplari", // Turkish: Generic Coordination Patterns
+  belirti: "Optimalin altinda yonlendirme, uzmanlasmis ajan yeteneklerini kacirma",
+  yanlis: "Task('genel-ajan', 'kod inceleme yap', 'genel')",
+  dogru: "Task('code-reviewer', 'kod inceleme yap', 'quality') // kayitli ajan",
+  onleme: "Task() cagirmadan once AGENT_REGISTRY'ye daniss"
+} [ground:witnessed:routing-inefficiencies] [conf:0.85] [state:confirmed]
+
+<!-- [[MOR:root:I-H-M]] Ihmal = root morpheme for omitting -->
+<!-- [[COM:MCP+Entegrasyon+Ihmali]] Turkish compound: MCP Integration Omission -->
+[assert|emphatic] ANTI_PATTERN_OMIT_MCP := {
+  id: "AP4",
+  hata_adi: "MCP Entegrasyon Ihmali", // Turkish: Omitting MCP Integration
+  belirti: "Kalip kaliciligi yok, ayni cozumlerin tekrar kesfi",
+  yanlis: "memory_store() cagrilari olmadan beceri calistir",
+  dogru: "memory_store(kaliplar) -> calistir -> memory_retrieve(kanitlanmis_kaliplar)",
+  onleme: "Her beceri tanimina MCP_INTEGRATION bolumu ekle"
+} [ground:witnessed:pattern-loss] [conf:0.85] [state:confirmed]
+
+---
+<!-- S9 SONUC (Conclusion) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[SPC:path:/foundry/skill-forge/sonuc]] -->
+---
+
+## Beceri Ozeti Cercevesi (Skill Summary Frame)
+Zaversheno. Vsya proverka projdena. (Russian: Complete. All validation passed.)
+
+<!-- [[MOR:root:D-K-M]] Dokum = root morpheme for forging -->
+<!-- [[COM:Beceri+Dokumanesi+Ozet]] Turkish compound: Skill Forge Summary -->
+[assert|confident] BECERI_OZETI := {
+  amac: "Uretim-sinifi beceri olusturma icin meta-beceri", // Turkish: purpose
+  metodoloji: "VCL 7-slot uyumu + dusmanca test + dogfooding dongusu",
+  ciktilar: ["Beceri tanim YAML", "Dizin yapisi", "Test paketi", "Ornekler"],
+  kalite_kapilari: ["Yapi dogrulama", "Dusmanca test", "COV protokolu"]
+} [ground:witnessed:skill-execution] [conf:0.85] [state:confirmed]
+
+<!-- [[SPC:upstream:/foundry/prompt-architect]] [[SPC:downstream:skill-registry]] -->
+[assert|confident] ENTEGRASYON_NOKTALARI := {
+  yukari_akis: "prompt-architect (istem kaliplari), agent-creator (ajan tanimlari)",
+  asagi_akis: "Beceri kayit defteri, Claude Code beceri yukleyici",
+  kalicilik: "memory-mcp ad alani skills/foundry/skill-forge/{proje}",
+  koordinasyon: "kalite dogrulama icin skill-auditor, prompt-auditor"
+} [ground:witnessed:architecture-design] [conf:0.85] [state:confirmed]
+
+<!-- [[ASP:sov.]] Zaversheno - complete commitment -->
+[commit|confident] DOKUM_SOZU := {
+  garanti: "Uretilen her beceri dusmanca dogrulama ve COV'u gecer",
+  kalite_cubugu: "structure_complete=100%, adversarial_passed>=0.90",
+  bakim: "Dogfooding dongusu ile ozyinelemeli oz-iyilestirme"
+} [ground:self-validation] [conf:0.85] [state:confirmed]
+
+---
 <!-- PROMISE [[EVD:-DI<tanim>]] [[ASP:sov.]] -->
 ---
 

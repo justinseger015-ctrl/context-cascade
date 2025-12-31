@@ -1,0 +1,43 @@
+I am a non-interactive CLI agent specializing in software engineering tasks. I can help you with a variety of tasks, including fixing bugs, adding features, refactoring code, explaining code, and building new applications.
+
+Here's a quick guide on how to interact with me:
+
+**Primary Workflows:**
+
+1.  **Software Engineering Tasks (Bugs, Features, Refactoring, Explanations):**
+    *   Clearly describe the task you want me to perform.
+    *   Provide any relevant context, such as file paths, code snippets, or expected behavior.
+    *   I will analyze the codebase, propose a plan, implement the changes, and verify them with tests and project-specific checks.
+
+    *Example:* "Fix the bug in `src/main.py` where the application crashes when given an empty input."
+
+2.  **New Applications:**
+    *   Describe the application you want me to build, including core features, desired user experience (UX), visual aesthetic, and any constraints.
+    *   I will propose a plan, implement the application, and ensure it's a functional and visually appealing prototype.
+
+    *Example:* "Create a simple web application using React that displays a list of tasks and allows users to add new tasks."
+
+**General Tips:**
+
+*   **Be Specific:** The more details you provide, the better I can understand and fulfill your request.
+*   **Provide Context:** If your request involves specific files or code, mention their paths or provide the code directly.
+*   **Review My Plan:** For complex tasks, I will often propose a plan. You can review it and provide feedback before I start implementation.
+*   **Safety First:** I will always explain critical commands that modify your file system before executing them.
+
+**Available Tools:**
+
+I have a range of tools at my disposal, including:
+
+*   `list_directory`: To list contents of a directory.
+*   `read_file`: To read file content.
+*   `write_file`: To create or update files.
+*   `replace`: To perform find and replace operations in files.
+*   `search_file_content`: To search for patterns within files.
+*   `glob`: To find files matching a pattern.
+*   `run_shell_command`: To execute shell commands (e.g., `git`, `npm`, `python`).
+*   `codebase_investigator`: For complex codebase analysis.
+*   `write_todos`: To create and manage a list of subtasks.
+*   `save_memory`: To remember user-specific facts.
+*   `google_web_search`: To perform web searches for information.
+
+Please provide your first command or task, and I'll do my best to assist you!

@@ -1,423 +1,437 @@
-# Adversarial Testing Protocol
+---
+<!-- SABLON DOKUMANI [[HON:teineigo]] [[EVD:-mis<arastirma>]] [[CLS:ge_template]] -->
+---
+
+# Carpici Test Protokolu Sablonu (Adversarial Testing Protocol Template)
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
-
-
-**Research Foundation**: Perez et al. (2022) - Red teaming reduces vulnerabilities by 58%, post-deployment issues by 67%
-
-**Purpose**: Systematic vulnerability discovery through adversarial attacks before skills reach production, catching edge cases, failure modes, and hidden assumptions.
-
----
-
-## When to Apply Adversarial Testing
-
-Use adversarial testing whenever:
-- Completing skill validation (Phase 7)
-- High-stakes skills with potential for misuse
-- Complex workflows with many decision points
-- Skills handling edge cases or untrusted input
-- After major skill revisions
+<!-- [[MOR:root:C-R-P]] Carpici = root for adversarial-attack-test -->
+<!-- [[COM:Carpici+Test+Protokol+Sablonu]] Adversarial Testing Protocol Template -->
+<!-- [[ASP:nesov.]] Devam ediyor. Prodolzhaetsya. (Ongoing through testing) -->
+<!-- [[SPC:merkez/sablon]] Central template location -->
 
 ---
 
-## The 4-Step Adversarial Protocol
+## Sablon Tanimlari (Template Definitions)
 
-### Step 1: Brainstorm Failure Modes (5 min)
-
-**Action**: Generate 10+ ways the skill could fail, produce wrong results, or be misused.
-
-**Brainstorming Techniques**:
-- **Intentional Misinterpretation**: Follow instructions literally but maliciously
-- **Missing Prerequisites**: What if expected files/tools don't exist?
-- **Boundary Testing**: Empty input, huge input, malformed input
-- **Timing Attacks**: What if operations execute out of order?
-- **Permission Failures**: What if file/network access denied?
-- **Resource Exhaustion**: What if system resources (memory/disk) limited?
-- **Integration Failures**: What if dependencies unavailable?
-- **User Error**: What if user provides wrong information?
-- **Edge Cases**: Unusual but valid scenarios
-- **Adversarial Input**: Deliberately crafted to break skill
-
-**Example** (code-formatter skill):
-```
-Failure Mode Brainstorm:
-1. File doesn't exist at specified path
-2. File is binary, not text (e.g., .exe, .jpg)
-3. File is too large (>100MB) - causes timeout
-4. File has no file extension (can't detect language)
-5. Multiple formatters installed (which one to use?)
-6. Formatter binary not in PATH
-7. File has syntax errors (formatter crashes)
-8. File is read-only (can't write formatted output)
-9. User cancels mid-format (leaves file corrupted)
-10. Format conflicts with .editorconfig rules
-11. Network drive timeout during file read
-12. Concurrent edits by another process
-13. Symbolic link points to sensitive file
-14. File encoding is non-UTF-8 (corrupts content)
-15. Formatter version incompatible with syntax
-```
+[define|neutral] ADVERSARIAL_TESTING_TEMPLATE := {
+  id: "TPL-ATP-001",
+  sablon_adi: "Carpici Test Protokolu Sablonu",
+  amac: "Beceriler uretime ulasmadan once sistematik acik kesfii",
+  kullanim: "Faz 7 dogrulama sirasinda uygulanir",
+  arastirma_temeli: "Perez et al. (2022) - Red teaming aciklari %58 azaltir, dagitim sonrasi sorunlari %67 azaltir"
+} [ground:research:red-teaming-studies] [conf:0.85] [state:confirmed]
 
 ---
 
-### Step 2: Risk Scoring Matrix (5 min)
+## Ne Zaman Carpici Test Uygulanir (When to Apply Adversarial Testing)
 
-**Action**: Score each failure mode using: **Risk = Likelihood × Impact**
+<!-- [[EVD:-DI<gozlem>]] Dogrudan gozlem gerektiren durumlar -->
 
-**Likelihood Scale (1-5)**:
-- **1 - Rare**: Theoretical edge case, unlikely to occur
-- **2 - Unlikely**: Possible but uncommon scenario
-- **3 - Possible**: Might happen occasionally
-- **4 - Likely**: Happens regularly in normal use
-- **5 - Very Likely**: Happens frequently or by default
+[assert|neutral] Carpici test uygulama kosullari [ground:witnessed:testing-triggers] [conf:0.88] [state:confirmed]
 
-**Impact Scale (1-5)**:
-- **1 - Trivial**: Minor inconvenience, easy to recover
-- **2 - Low**: Small disruption, user can work around
-- **3 - Medium**: Moderate disruption, requires intervention
-- **4 - High**: Major disruption, data loss possible
-- **5 - Critical**: Catastrophic failure, data corruption, security breach
-
-**Risk Priority**:
-- **Score ≥12**: CRITICAL - Must fix before deployment
-- **Score 8-11**: HIGH - Should fix if feasible
-- **Score 4-7**: MEDIUM - Fix if time permits
-- **Score 1-3**: LOW - Document as known limitation
-
-**Example Risk Matrix** (code-formatter skill):
-```
-| ID | Failure Mode                          | Likelihood | Impact | Risk Score | Priority  |
-|----|---------------------------------------|------------|--------|------------|-----------|
-| 1  | File doesn't exist                    | 4          | 2      | 8          | HIGH      |
-| 2  | File is binary                        | 3          | 3      | 9          | HIGH      |
-| 3  | File too large (>100MB)               | 2          | 4      | 8          | HIGH      |
-| 4  | No file extension                     | 3          | 3      | 9          | HIGH      |
-| 5  | Multiple formatters                   | 2          | 3      | 6          | MEDIUM    |
-| 6  | Formatter not in PATH                 | 4          | 4      | 16         | CRITICAL  |
-| 7  | File has syntax errors                | 4          | 3      | 12         | CRITICAL  |
-| 8  | File is read-only                     | 3          | 3      | 9          | HIGH      |
-| 9  | User cancels mid-format               | 2          | 5      | 10         | HIGH      |
-| 10 | Conflicts with .editorconfig          | 3          | 2      | 6          | MEDIUM    |
-| 11 | Network drive timeout                 | 2          | 3      | 6          | MEDIUM    |
-| 12 | Concurrent edits                      | 2          | 4      | 8          | HIGH      |
-| 13 | Symlink to sensitive file             | 1          | 5      | 5          | MEDIUM    |
-| 14 | Non-UTF-8 encoding                    | 3          | 4      | 12         | CRITICAL  |
-| 15 | Formatter version incompatible        | 3          | 3      | 9          | HIGH      |
-```
-
-**Summary**:
-- CRITICAL (score ≥12): 3 issues
-- HIGH (score 8-11): 6 issues
-- MEDIUM (score 4-7): 6 issues
-- LOW (score 1-3): 0 issues
+Carpici test su durumlarda kullanilir:
+- Beceri dogrulama tamamlanirken (Faz 7)
+- Yuksek riskli, potansiyel kotuye kullanim iceren beceriler
+- Cok sayida karar noktasi olan karmasik is akislari
+- Uc vakalari veya guvenilmeyen girisleri isleyen beceriler
+- Buyuk beceri revizyonlarindan sonra
 
 ---
 
-### Step 3: Fix Top Vulnerabilities (10-20 min)
+## 4 Adimli Carpici Protokol (The 4-Step Adversarial Protocol)
 
-**Action**: Address all CRITICAL and HIGH priority issues (score ≥8). Update skill instructions, add validation checks, improve error handling.
+<!-- [[MOR:root:A-D-M]] Adim = root for step-phase-action -->
 
-**Fix Strategies**:
+### Adim 1: Basarisizlik Modlari Beyin Firtinasi (5 dk)
 
-#### **Validation & Prerequisites**
-- Add input validation at skill entry
-- Check file existence before operations
-- Verify tool availability (which/where commands)
-- Validate file types and extensions
-- Check permissions before write operations
+<!-- [[ASP:nesov.]] Devam ediyor. Prodolzhaetsya. (Creative brainstorming) -->
 
-#### **Error Handling**
-- Wrap risky operations in try-catch equivalents
-- Provide clear error messages with recovery steps
-- Graceful degradation when dependencies missing
-- Timeout mechanisms for long-running operations
-- Rollback mechanisms for partially completed work
+[define|neutral] STEP_1_BRAINSTORM := {
+  adim_adi: "Basarisizlik Modlari Beyin Firtinasi",
+  eylem: "Becerinin basarisiz olabilecegi, yanlis sonuc uretebilecegi veya kotuye kullanilabilecegi 10+ yol uret",
+  sure: "5 dakika"
+} [ground:witnessed:brainstorm-process] [conf:0.88] [state:confirmed]
 
-#### **Edge Case Handling**
-- Handle empty/null inputs explicitly
-- Set reasonable limits (file size, timeout, iterations)
-- Support multiple valid scenarios (multiple formatters → ask user)
-- Document known limitations clearly
+**Beyin Firtinasi Teknikleri**:
+- **Kasitli Yanlis Yorumlama**: Talimatlari birebir ama kotune niyetle takip et
+- **Eksik On Kosullar**: Beklenen dosyalar/araclar yoksa ne olur?
+- **Sinir Testi**: Bos giris, buyuk giris, bozuk giris
+- **Zamanlama Saldirilari**: Islemler sira disi yurutulurse ne olur?
+- **Izin Basarisizliklari**: Dosya/ag erisimi reddedilirse ne olur?
+- **Kaynak Tukenmesi**: Sistem kaynaklari (bellek/disk) sinirli ise ne olur?
+- **Entegrasyon Basarisizliklari**: Bagimliliklar kulanilamazsa ne olur?
+- **Kullanici Hatasi**: Kullanici yanlis bilgi saglasa ne olur?
+- **Uc Vakalar**: Olagandisi ama gecerli senaryolar
+- **Carpici Giris**: Beceriyi kirmak icin kasitli olusturulmus giris
 
-#### **User Guidance**
-- Provide clear success/failure feedback
-- Offer actionable next steps on error
-- Include troubleshooting guide in skill
-- Add "What to do if..." section
-
-**Example Fixes** (code-formatter skill):
-```markdown
-## Fixes Applied:
-
-### CRITICAL Issue #6: Formatter not in PATH (Score: 16)
-**Original**: Assume formatter exists, run `prettier file.js`
-**Fixed**:
-1. Before formatting, run: `which prettier || where prettier`
-2. If not found, provide installation instructions
-3. Ask user: "Prettier not found. Install now? (Yes/No)"
-4. If Yes: `npm install -g prettier`, then retry
-5. If No: Abort with clear message
-
-### CRITICAL Issue #7: File has syntax errors (Score: 12)
-**Original**: Run formatter, crash on syntax error
-**Fixed**:
-1. Add `--check` flag first: `prettier --check file.js`
-2. If syntax errors found, display error location
-3. Ask user: "Fix syntax errors first or format anyway? (Fix/Force)"
-4. If Fix: Abort with error location highlighted
-5. If Force: Use `--write` with `--no-semi` fallback
-
-### CRITICAL Issue #14: Non-UTF-8 encoding (Score: 12)
-**Original**: Assume UTF-8, corrupt file on write
-**Fixed**:
-1. Detect file encoding: `file -i file.js`
-2. If non-UTF-8, warn user: "File is [encoding]. Convert to UTF-8? (Yes/No)"
-3. If Yes: Convert with `iconv` before formatting
-4. If No: Abort with explanation
-5. Always backup original file before write
+**Ornek** (kod-formatlayici becerisi):
+```
+Basarisizlik Modu Beyin Firtinasi:
+1. Dosya belirtilen yolda yok
+2. Dosya ikili, metin degil (orn. .exe, .jpg)
+3. Dosya cok buyuk (>100MB) - zaman asimi
+4. Dosya uzantisi yok (dil tespit edilemiyor)
+5. Birden fazla formatlayici kurulu (hangisini kullan?)
+6. Formatlayici PATH'te degil
+7. Dosyada sozdizimi hatalari (formatlayici coker)
+8. Dosya salt okunur (formatli cikti yazilamaz)
+9. Kullanici format sirasinda iptal ediyor (dosya bozuk kalir)
+10. Format .editorconfig kurallariyla catisiyor
+11. Ag surucusu zaman asimi
+12. Baska surecten eszamanli duzenlemeler
+13. Sembolik baglanti hassas dosyaya isaret ediyor
+14. Dosya kodlamasi UTF-8 degil (icerik bozuluyor)
+15. Formatlayici surumu soz dizimiyle uyumsuz
 ```
 
 ---
 
-### Step 4: Reattack Until Clean (5-10 min)
+### Adim 2: Risk Puanlama Matrisi (5 dk)
 
-**Action**: Repeat Steps 1-3 on the FIXED version. Continue until no CRITICAL or HIGH issues remain.
+<!-- [[MOR:root:R-S-K]] Risk = root for risk-score-matrix -->
+<!-- [[CLS:ge_matris]] Classification: matrix -->
 
-**Reattack Process**:
-1. **Treat the skill as adversary**: Assume it's hiding vulnerabilities
-2. **Focus on fixes**: Do the fixes introduce new issues?
-3. **Test edge cases of fixes**: What if installation fails? What if iconv missing?
-4. **Combine failure modes**: What if multiple issues occur simultaneously?
-5. **Stress test boundaries**: Push limits harder (10GB file? 1000 concurrent edits?)
+[define|neutral] STEP_2_RISK_SCORING := {
+  adim_adi: "Risk Puanlama Matrisi",
+  eylem: "Her basarisizlik modunu puanla: Risk = Olasilik x Etki",
+  sure: "5 dakika"
+} [ground:witnessed:scoring-process] [conf:0.88] [state:confirmed]
 
-**Example Reattack** (code-formatter skill):
-```
-Round 2 Brainstorm (attacking the fixes):
-1. NEW: `which prettier` succeeds but prettier is a broken symlink
-2. NEW: User says "Install now" but npm not installed
-3. NEW: Network down during `npm install -g prettier`
-4. NEW: `iconv` not available on system for encoding conversion
-5. NEW: Backup file creation fails (disk full)
-6. NEW: User interrupts during encoding conversion (corrupts original)
-7. EXISTING: File changes between --check and --write (race condition)
+**Olasilik Olcegi (1-5)**:
+- **1 - Nadir**: Teorik uc vaka, gerceklesmesi olasi degil
+- **2 - Olasi Degil**: Mumkun ama yaygin olmayan senaryo
+- **3 - Mumkun**: Ara sira gerceklesebilir
+- **4 - Olasi**: Normal kullanimda duzenli gerceklesir
+- **5 - Cok Olasi**: Sik gerceklesir veya varsayilan
 
-Round 2 Risk Scoring:
-| ID | Failure Mode                     | Likelihood | Impact | Risk Score | Priority  |
-|----|----------------------------------|------------|--------|------------|-----------|
-| 1  | Broken symlink                   | 2          | 3      | 6          | MEDIUM    |
-| 2  | npm not installed                | 3          | 3      | 9          | HIGH      |
-| 3  | Network down during install      | 2          | 3      | 6          | MEDIUM    |
-| 4  | iconv unavailable                | 3          | 4      | 12         | CRITICAL  |
-| 5  | Backup fails (disk full)         | 2          | 5      | 10         | HIGH      |
-| 6  | Interrupt during conversion      | 2          | 5      | 10         | HIGH      |
-| 7  | Race condition (check → write)   | 2          | 4      | 8          | HIGH      |
+**Etki Olcegi (1-5)**:
+- **1 - Onemsiz**: Kucuk rahatsizlik, kolay kurtarma
+- **2 - Dusuk**: Kucuk kesinti, kullanici atlayabilir
+- **3 - Orta**: Orta kesinti, mudahale gerektirir
+- **4 - Yuksek**: Buyuk kesinti, veri kaybi olasi
+- **5 - Kritik**: Felaket basarisizlik, veri bozulmasi, guvenlik ihlali
 
-Round 2 Fixes:
-- #2 (HIGH): Check `which npm` before `npm install`, offer manual install URL
-- #4 (CRITICAL): Check `which iconv`, fall back to Python `codecs` or abort
-- #5 (HIGH): Check disk space before backup (`df -h`), warn if <100MB free
-- #6 (HIGH): Use atomic operations (write to temp file, then rename)
-- #7 (HIGH): Add file hash check between --check and --write, retry if changed
-```
+**Risk Onceligi**:
 
-**Completion Criteria**:
-- ✓ Zero CRITICAL issues remain
-- ✓ HIGH issues reduced to MEDIUM (or documented as known limitations)
-- ✓ All fixes tested with adversarial inputs
-- ✓ Skill includes comprehensive error handling section
-- ✓ Troubleshooting guide added to skill
+[define|neutral] RISK_PRIORITY := {
+  kritik: {esik: ">= 12", eylem: "Dagitimdan once MUTLAKA duzelt"},
+  yuksek: {esik: "8-11", eylem: "Mumkunse duzelt"},
+  orta: {esik: "4-7", eylem: "Zaman izin verirse duzelt"},
+  dusuk: {esik: "1-3", eylem: "Bilinen sinirlama olarak belgele"}
+} [ground:witnessed:priority-thresholds] [conf:0.90] [state:confirmed]
 
----
+**Ornek Risk Matrisi** (kod-formatlayici becerisi):
 
-## Risk Scoring Reference Card
-
-### Quick Matrix
-
-| Likelihood / Impact | Trivial (1) | Low (2) | Medium (3) | High (4) | Critical (5) |
-|---------------------|-------------|---------|------------|----------|--------------|
-| **Very Likely (5)** | 5 (MED)     | 10 (HI) | 15 (CRIT)  | 20 (CRIT)| 25 (CRIT)    |
-| **Likely (4)**      | 4 (MED)     | 8 (HI)  | 12 (CRIT)  | 16 (CRIT)| 20 (CRIT)    |
-| **Possible (3)**    | 3 (LOW)     | 6 (MED) | 9 (HI)     | 12 (CRIT)| 15 (CRIT)    |
-| **Unlikely (2)**    | 2 (LOW)     | 4 (MED) | 6 (MED)    | 8 (HI)   | 10 (HI)      |
-| **Rare (1)**        | 1 (LOW)     | 2 (LOW) | 3 (LOW)    | 4 (MED)  | 5 (MED)      |
-
-**Priority Actions**:
-- **CRITICAL (12+)**: MUST fix before deployment
-- **HIGH (8-11)**: Should fix if feasible, document if not
-- **MEDIUM (4-7)**: Fix if time permits, or document limitation
-- **LOW (1-3)**: Document as known edge case
+| ID | Basarisizlik Modu | Olasilik | Etki | Risk Puani | Oncelik |
+|----|-------------------|----------|------|------------|---------|
+| 1 | Dosya yok | 4 | 2 | 8 | YUKSEK |
+| 2 | Dosya ikili | 3 | 3 | 9 | YUKSEK |
+| 3 | Dosya cok buyuk (>100MB) | 2 | 4 | 8 | YUKSEK |
+| 4 | Dosya uzantisi yok | 3 | 3 | 9 | YUKSEK |
+| 5 | Birden fazla formatlayici | 2 | 3 | 6 | ORTA |
+| 6 | Formatlayici PATH'te degil | 4 | 4 | 16 | KRITIK |
+| 7 | Dosyada sozdizimi hatalari | 4 | 3 | 12 | KRITIK |
+| 8 | Dosya salt okunur | 3 | 3 | 9 | YUKSEK |
+| 9 | Kullanici format sirasinda iptal | 2 | 5 | 10 | YUKSEK |
+| 10 | .editorconfig ile catisma | 3 | 2 | 6 | ORTA |
+| 11 | Ag surucusu zaman asimi | 2 | 3 | 6 | ORTA |
+| 12 | Eszamanli duzenlemeler | 2 | 4 | 8 | YUKSEK |
+| 13 | Hassas dosyaya sembolik baglanti | 1 | 5 | 5 | ORTA |
+| 14 | UTF-8 olmayan kodlama | 3 | 4 | 12 | KRITIK |
+| 15 | Formatlayici surum uyumsuzlugu | 3 | 3 | 9 | YUKSEK |
 
 ---
 
-## Adversarial Testing Template (Use in Phase 7)
+### Adim 3: En Yuksek Aciklari Duzelt (10-20 dk)
+
+<!-- [[MOR:root:D-Z-T]] Duzelt = root for fix-repair-remediate -->
+<!-- [[ASP:sov.]] Tamamlandi. Zaversheno. (Fixes applied) -->
+
+[define|neutral] STEP_3_FIX := {
+  adim_adi: "En Yuksek Aciklari Duzelt",
+  eylem: "Tum KRITIK ve YUKSEK oncelikli sorunlari (puan >= 8) ele al. Beceri talimatlarini guncelle, dogrulama kontrolleri ekle, hata islemeyi iyilestir",
+  sure: "10-20 dakika"
+} [ground:witnessed:fix-process] [conf:0.88] [state:confirmed]
+
+**Duzeltme Stratejileri**:
+
+#### Dogrulama ve On Kosullar
+- Beceri girisinde giris dogrulama ekle
+- Islemlerden once dosya varligini kontrol et
+- Arac kullanilabilirligini dogrula (which/where komutlari)
+- Dosya turleri ve uzantilarini dogrula
+- Yazma islemlerinden once izinleri kontrol et
+
+#### Hata Isleme
+- Riskli islemleri try-catch es degerleriyle sar
+- Kurtarma adimlariyla net hata mesajlari sagla
+- Bagimliliklar eksik oldugunda yumusak bozulma
+- Uzun sureli islemler icin zaman asimi mekanizmalari
+- Kismi tamamlanmis is icin geri alma mekanizmalari
+
+#### Uc Vaka Isleme
+- Bos/null girisleri acikca isle
+- Makul limitler koy (dosya boyutu, zaman asimi, yineleme)
+- Birden fazla gecerli senaryoyu destekle (coklu formatlayici -> kullaniciya sor)
+- Bilinen sinilamalari acikca belgele
+
+#### Kullanici Rehberligi
+- Net basari/basarisizlik geri bildirimi sagla
+- Hatada eyleme donusturulebilir sonraki adimlar sun
+- Beceriye sorun giderme rehberi ekle
+- "Eger... ne yapilir" bolumu ekle
+
+---
+
+### Adim 4: Temizlenene Kadar Yeniden Saldir (5-10 dk)
+
+<!-- [[ASP:nesov.]] Devam ediyor. Prodolzhaetsya. (Iterative process) -->
+
+[define|neutral] STEP_4_REATTACK := {
+  adim_adi: "Temizlenene Kadar Yeniden Saldir",
+  eylem: "DUZELTILMIS surumde Adim 1-3'u tekrarla. KRITIK veya YUKSEK sorun kalmayana kadar devam et",
+  sure: "5-10 dakika"
+} [ground:witnessed:reattack-process] [conf:0.88] [state:confirmed]
+
+**Yeniden Saldiri Sureci**:
+1. **Beceriyi rakip olarak ele al**: Acik sakliyor varsay
+2. **Duzeltmelere odaklan**: Duzeltmeler yeni sorunlar mi ortaya cikartiyor?
+3. **Duzeltmelerin uc vakalarini test et**: Kurulum basarisiz olursa? iconv eksikse?
+4. **Basarisizlik modlarini birlestir**: Birden fazla sorun eszamanli olursa?
+5. **Sinirlari zorlayarak test et**: Daha fazla zorla (10GB dosya? 1000 eszamanli duzenleme?)
+
+**Tamamlama Kriterleri**:
+
+[assert|neutral] Tamamlama kriterleri [ground:witnessed:completion-criteria] [conf:0.90] [state:confirmed]
+
+- KRITIK sorun kalmadi
+- YUKSEK sorunlar ORTA'ya dusuruldu (veya bilinen sinirlama olarak belgelendi)
+- Tum duzeltmeler carpici girislerle test edildi
+- Beceri kapsamli hata isleme bolumu iceriyor
+- Sorun giderme rehberi eklendi
+
+---
+
+## Risk Puanlama Hizli Referans Karti (Risk Scoring Reference Card)
+
+<!-- [[CLS:ge_matris]] Classification: matrix -->
+
+[define|neutral] QUICK_REFERENCE_MATRIX := {
+  sablon_adi: "Hizli Risk Matrisi",
+  amac: "Hizli risk puanlama icin referans"
+} [ground:witnessed:matrix-usage] [conf:0.90] [state:confirmed]
+
+| Olasilik / Etki | Onemsiz (1) | Dusuk (2) | Orta (3) | Yuksek (4) | Kritik (5) |
+|-----------------|-------------|-----------|----------|------------|------------|
+| **Cok Olasi (5)** | 5 (ORTA) | 10 (YUKSEK) | 15 (KRITIK) | 20 (KRITIK) | 25 (KRITIK) |
+| **Olasi (4)** | 4 (ORTA) | 8 (YUKSEK) | 12 (KRITIK) | 16 (KRITIK) | 20 (KRITIK) |
+| **Mumkun (3)** | 3 (DUSUK) | 6 (ORTA) | 9 (YUKSEK) | 12 (KRITIK) | 15 (KRITIK) |
+| **Olasi Degil (2)** | 2 (DUSUK) | 4 (ORTA) | 6 (ORTA) | 8 (YUKSEK) | 10 (YUKSEK) |
+| **Nadir (1)** | 1 (DUSUK) | 2 (DUSUK) | 3 (DUSUK) | 4 (ORTA) | 5 (ORTA) |
+
+---
+
+## Carpici Test Sablonu (Faz 7'de Kullanilacak)
+
+<!-- [[MOR:root:S-B-L]] Sablon = root for template-form-model -->
 
 ```markdown
-## Phase 7a: Adversarial Testing
+## Faz 7a: Carpici Test
 
-### Step 1 - Brainstorm Failure Modes (Target: 10+)
+### Adim 1 - Basarisizlik Modlari Beyin Firtinasi (Hedef: 10+)
 
-**Failure Modes Identified**:
-1. [What if file doesn't exist?]
-2. [What if tool not installed?]
-3. [What if input malformed?]
-4. [What if timeout occurs?]
-5. [What if permissions denied?]
-6. [What if resource exhausted?]
-7. [What if dependency unavailable?]
-8. [What if user provides wrong info?]
-9. [What if edge case occurs?]
-10. [What if adversarial input?]
-... (Continue to 10-15 total)
+**Belirlenen Basarisizlik Modlari**:
+1. [Dosya yoksa ne olur?]
+2. [Arac kurulu degilse ne olur?]
+3. [Giris bozuksa ne olur?]
+4. [Zaman asimi olursa ne olur?]
+5. [Izin reddedilirse ne olur?]
+6. [Kaynak tukenirse ne olur?]
+7. [Bagimlilik kullanilamazsa ne olur?]
+8. [Kullanici yanlis bilgi verirse ne olur?]
+9. [Uc vaka olusursa ne olur?]
+10. [Carpici giris verilirse ne olur?]
+... (Toplam 10-15'e kadar devam et)
 
-### Step 2 - Risk Scoring
+### Adim 2 - Risk Puanlama
 
-| ID | Failure Mode | Likelihood (1-5) | Impact (1-5) | Risk Score | Priority |
-|----|--------------|------------------|--------------|------------|----------|
-| 1  | [mode]       | [L]              | [I]          | [L×I]      | [CRIT/HI/MED/LOW] |
-| 2  | [mode]       | [L]              | [I]          | [L×I]      | [CRIT/HI/MED/LOW] |
+| ID | Basarisizlik Modu | Olasilik (1-5) | Etki (1-5) | Risk Puani | Oncelik |
+|----|-------------------|----------------|------------|------------|---------|
+| 1 | [mod] | [O] | [E] | [OxE] | [KRITIK/YUKSEK/ORTA/DUSUK] |
+| 2 | [mod] | [O] | [E] | [OxE] | [KRITIK/YUKSEK/ORTA/DUSUK] |
 ...
 
-**Summary**:
-- CRITICAL (≥12): [count] issues
-- HIGH (8-11): [count] issues
-- MEDIUM (4-7): [count] issues
-- LOW (1-3): [count] issues
+**Ozet**:
+- KRITIK (>=12): [sayi] sorun
+- YUKSEK (8-11): [sayi] sorun
+- ORTA (4-7): [sayi] sorun
+- DUSUK (1-3): [sayi] sorun
 
-### Step 3 - Fixes Applied
+### Adim 3 - Uygulanan Duzeltmeler
 
-#### CRITICAL Issue #[X]: [Name] (Score: [N])
-**Original Behavior**: [What skill did before]
-**Fix Applied**:
-1. [Step 1 of fix]
-2. [Step 2 of fix]
-3. [Step 3 of fix]
-**Verification**: [How to test fix works]
+#### KRITIK Sorun #[X]: [Ad] (Puan: [N])
+**Orijinal Davranis**: [Beceri onceden ne yapiyordu]
+**Uygulanan Duzeltme**:
+1. [Duzeltme adim 1]
+2. [Duzeltme adim 2]
+3. [Duzeltme adim 3]
+**Dogrulama**: [Duzeltmenin calistigini nasil test et]
 
-[Repeat for all CRITICAL issues]
+[Tum KRITIK sorunlar icin tekrarla]
 
-#### HIGH Issue #[X]: [Name] (Score: [N])
-[Same structure as CRITICAL]
+#### YUKSEK Sorun #[X]: [Ad] (Puan: [N])
+[KRITIK ile ayni yapi]
 
-[Repeat for top 5 HIGH issues or all if feasible]
+[En yuksek 5 YUKSEK sorun veya mumkunse tamami icin tekrarla]
 
-### Step 4 - Reattack Results
+### Adim 4 - Yeniden Saldiri Sonuclari
 
-**Round 2 Brainstorm**: [New failure modes discovered after fixes]
-**Round 2 Risk Scores**: [Risk matrix for new issues]
-**Round 2 Fixes**: [Fixes applied to new issues]
-**Final Status**:
-- ✓ Zero CRITICAL issues remain
-- ✓ [X] HIGH issues remain (documented below)
-- ✓ Comprehensive error handling added
-- ✓ Troubleshooting guide included
+**Tur 2 Beyin Firtinasi**: [Duzeltmelerden sonra kesfedilen yeni basarisizlik modlari]
+**Tur 2 Risk Puanlari**: [Yeni sorunlar icin risk matrisi]
+**Tur 2 Duzeltmeleri**: [Yeni sorunlara uygulanan duzeltmeler]
+**Son Durum**:
+- KRITIK sorun kalmadi
+- [X] YUKSEK sorun kaldi (asagida belgelendi)
+- Kapsamli hata isleme eklendi
+- Sorun giderme rehberi dahil edildi
 
-**Known Limitations** (documented HIGH/MEDIUM issues):
-1. [Issue]: [Why not fixed] - Workaround: [User action]
-2. [Issue]: [Why not fixed] - Workaround: [User action]
+**Bilinen Sinirlamalar** (belgelenmis YUKSEK/ORTA sorunlar):
+1. [Sorun]: [Neden duzeltilmedi] - Gecici cozum: [Kullanici eylemi]
+2. [Sorun]: [Neden duzeltilmedi] - Gecici cozum: [Kullanici eylemi]
 
-### Quality Gate: Adversarial Testing Passed
-- ✓ 10+ failure modes brainstormed
-- ✓ All modes scored by risk matrix
-- ✓ All CRITICAL (≥12) issues fixed
-- ✓ Top 5 HIGH (8-11) issues addressed or documented
-- ✓ Reattack performed until clean
-- ✓ Error handling comprehensive
-- ✓ Troubleshooting guide included
+### Kalite Kapisi: Carpici Test Gecti
+- 10+ basarisizlik modu beyin firtinasi yapildi
+- Tum modlar risk matrisine gore puanlandi
+- Tum KRITIK (>=12) sorunlar duzeltildi
+- En yuksek 5 YUKSEK (8-11) sorun ele alindi veya belgelendi
+- Temizlenene kadar yeniden saldiri yapildi
+- Hata isleme kapsamli
+- Sorun giderme rehberi dahil edildi
 ```
 
 ---
 
-## Common Adversarial Patterns by Skill Type
+## Beceri Turune Gore Yaygin Carpici Kalipler (Common Adversarial Patterns by Skill Type)
 
-### File Operations Skills
-- File doesn't exist
-- File is wrong type (binary vs text)
-- File too large/small
-- Permissions denied (read/write)
-- File locked by another process
-- Symbolic link edge cases
-- Encoding issues (non-UTF-8)
-- Disk full during write
-- Network drive timeout
+<!-- [[CLS:tiao_kalip]] Classification: patterns by type -->
 
-### API Integration Skills
-- Network unavailable
-- Timeout during request
-- API returns 4xx/5xx error
-- Rate limit exceeded
-- Authentication expired
-- Response malformed/unexpected
-- Partial response (network interruption)
-- API version mismatch
-- SSL certificate issues
+### Dosya Islemleri Becerileri
 
-### Data Processing Skills
-- Empty input
-- Null/undefined values
-- Input exceeds size limits
-- Malformed data structure
-- Type mismatches
-- Character encoding issues
-- Infinite loops on circular data
-- Numeric overflow
-- Division by zero
+[assert|neutral] Dosya islemleri icin yaygin saldiri vektorleri [ground:witnessed:file-patterns] [conf:0.88] [state:confirmed]
 
-### Code Generation Skills
-- Ambiguous requirements
-- Contradictory constraints
-- Syntax errors in generated code
-- Incompatible dependencies
-- Security vulnerabilities (injection)
-- Generated code doesn't compile
-- Generated code compiles but fails tests
-- Performance issues in generated code
+- Dosya yok
+- Dosya yanlis tur (ikili vs metin)
+- Dosya cok buyuk/kucuk
+- Izinler reddedildi (okuma/yazma)
+- Dosya baska surec tarafindan kilitli
+- Sembolik baglanti uc vakalari
+- Kodlama sorunlari (UTF-8 degil)
+- Yazma sirasinda disk dolu
+- Ag surucusu zaman asimi
 
----
+### API Entegrasyon Becerileri
 
-## Benefits of Adversarial Testing (Research-Backed)
+[assert|neutral] API entegrasyonu icin yaygin saldiri vektorleri [ground:witnessed:api-patterns] [conf:0.88] [state:confirmed]
 
-| Metric | Without Adversarial Testing | With Adversarial Testing | Improvement |
-|--------|----------------------------|--------------------------|-------------|
-| **Vulnerabilities Found** | Baseline | +58% | 58% more issues caught |
-| **Post-Deployment Issues** | Baseline | -67% | 67% fewer production bugs |
-| **User-Reported Errors** | Baseline | -54% | 54% fewer support tickets |
-| **Skill Robustness** | 60% | 92% | +53% more robust |
+- Ag kulanilamaz
+- Istek sirasinda zaman asimi
+- API 4xx/5xx hatasi dondurur
+- Oran limiti asildi
+- Kimlik dogrulama suresi doldu
+- Yanit bozuk/beklenmedik
+- Kismi yanit (ag kesintisi)
+- API surum uyumsuzlugu
+- SSL sertifika sorunlari
 
-**Source**: Perez et al. (2022) - "Red Teaming Language Models to Reduce Harms"
+### Veri Isleme Becerileri
 
----
+[assert|neutral] Veri isleme icin yaygin saldiri vektorleri [ground:witnessed:data-patterns] [conf:0.88] [state:confirmed]
 
-## Integration with Other Techniques
+- Bos giris
+- Null/undefined degerler
+- Giris boyut limitlerini asar
+- Bozuk veri yapisi
+- Tur uyumsuzluklari
+- Karakter kodlama sorunlari
+- Dongusal veride sonsuz dongu
+- Sayisal tasma
+- Sifira bolme
 
-Adversarial Testing works synergistically with:
-- **Chain-of-Verification (CoV)**: CoV catches errors in design, adversarial testing catches errors in execution
-- **Quality Gates**: Adversarial testing provides pass/fail criteria for Phase 7
-- **Metrics Tracking**: Risk scores become quantitative metrics
-- **Multi-Persona Debate**: Different personas identify different failure modes
+### Kod Uretimi Becerileri
+
+[assert|neutral] Kod uretimi icin yaygin saldiri vektorleri [ground:witnessed:codegen-patterns] [conf:0.88] [state:confirmed]
+
+- Belirsiz gereksinimler
+- Celisen kisitlamalar
+- Uretilen kodda sozdizimi hatalari
+- Uyumsuz bagimliliklar
+- Guvenlik aciklari (enjeksiyon)
+- Uretilen kod derlenmez
+- Uretilen kod derlenir ama testler basarisiz
+- Uretilen kodda performans sorunlari
 
 ---
 
-## Quick Reference Checklist
+## Carpici Testin Faydalari (Arastirma Destekli)
 
-For Phase 7 validation:
-- ✓ Step 1: Brainstorm 10+ failure modes (5 min)
-- ✓ Step 2: Score all modes by risk matrix (5 min)
-- ✓ Step 3: Fix all CRITICAL (≥12) and top HIGH (8-11) issues (10-20 min)
-- ✓ Step 4: Reattack until no CRITICAL issues remain (5-10 min)
-- ✓ Quality Gate: Zero CRITICAL, documented HIGH/MEDIUM
-- ✓ Add error handling section to skill
-- ✓ Add troubleshooting guide
+<!-- [[EVD:-mis<arastirma>]] Arastirma tabanli metrikler -->
 
-**Time Investment**: 25-40 minutes per skill
-**ROI**: 58% more vulnerabilities caught, 67% fewer production issues
-**When to Use**: ALWAYS in Phase 7, ESPECIALLY for high-stakes skills
+[define|neutral] ADVERSARIAL_TESTING_BENEFITS := {
+  metrikler: {
+    bulunan_aciklar: "+%58 (carpici testle)",
+    dagitim_sonrasi_sorunlar: "-%67",
+    kullanici_raporlu_hatalar: "-%54",
+    beceri_saglaligi: "%60 -> %92 (+%53)"
+  },
+  kaynak: "Perez et al. (2022) - Red Teaming Language Models to Reduce Harms"
+} [ground:research:adversarial-metrics] [conf:0.85] [state:confirmed]
+
+| Metrik | Carpici Testsiz | Carpici Testle | Iyilestirme |
+|--------|-----------------|----------------|-------------|
+| **Bulunan Aciklar** | Temel | +%58 | %58 daha fazla sorun yakalandi |
+| **Dagitim Sonrasi Sorunlar** | Temel | -%67 | %67 daha az uretim hatasi |
+| **Kullanici Raporlu Hatalar** | Temel | -%54 | %54 daha az destek talebi |
+| **Beceri Saglaligi** | %60 | %92 | +%53 daha sagalam |
 
 ---
 
-**Remember**: Adversarial testing is not about being paranoid - it's about catching real-world failures BEFORE users encounter them. The best skills are battle-tested against worst-case scenarios.
+## Diger Tekniklerle Entegrasyon (Integration with Other Techniques)
 
+[assert|neutral] Carpici test sinerjileri [ground:witnessed:integration-patterns] [conf:0.88] [state:confirmed]
+
+Carpici Test sunlarla sinerjik calisir:
+- **Dogrulama Zinciri (CoV)**: CoV tasarimdaki hatalari yakalar, carpici test yurutmedeki hatalari yakalar
+- **Kalite Kapilari**: Carpici test Faz 7 icin gecme/kalma kriterleri saglar
+- **Metrik Izleme**: Risk puanlari kantitatif metrikler olur
+- **Coklu Kisi Tartismasi**: Farkli kisiler farkli basarisizlik modlarini belirler
 
 ---
-*Promise: `<promise>ADVERSARIAL_TESTING_PROTOCOL_VERIX_COMPLIANT</promise>`*
+
+## Hizli Referans Kontrol Listesi (Quick Reference Checklist)
+
+<!-- [[MOR:root:K-N-T]] Kontrol = root for check-control-verification -->
+
+[direct|neutral] Faz 7 dogrulama icin [ground:witnessed:checklist-usage] [conf:0.90] [state:confirmed]
+
+- Adim 1: 10+ basarisizlik modu beyin firtinasi yap (5 dk)
+- Adim 2: Tum modlari risk matrisine gore puanla (5 dk)
+- Adim 3: Tum KRITIK (>=12) ve en yuksek YUKSEK (8-11) sorunlari duzelt (10-20 dk)
+- Adim 4: KRITIK sorun kalmayana kadar yeniden saldir (5-10 dk)
+- Kalite Kapisi: Sifir KRITIK, belgelenmis YUKSEK/ORTA
+- Beceriye hata isleme bolumu ekle
+- Sorun giderme rehberi ekle
+
+**Zaman Yatirimi**: Beceri basina 25-40 dakika
+**ROI**: %58 daha fazla acik yakalandi, %67 daha az uretim sorunu
+**Ne Zaman Kullanilir**: FAZ 7'de HER ZAMAN, OZELLIKLE yuksek riskli beceriler icin
+
+---
+
+[direct|emphatic] Unutmayin: Carpici test paranoyak olmakla ilgili degil - gercek dunya basarisizliklarini kullanicilar karsilasmadan ONCE yakalamakla ilgili. En iyi beceriler en kotu durum senaryolarina karsi savas-testli olanlardir. [ground:witnessed:testing-philosophy] [conf:0.90] [state:confirmed]
+
+---
+
+[commit|confident] <promise>ADVERSARIAL_TESTING_PROTOCOL_VCL_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.95] [state:confirmed]

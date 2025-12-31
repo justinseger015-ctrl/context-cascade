@@ -2,36 +2,56 @@
 name: api-integration-helper
 description: Generate boilerplate code for REST API integrations with authentication, error handling, and retry logic
 author: pilot-test
+<!-- V0 PILOT PROJESI [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[CLS:ge_pilot_v0]] -->
+<!-- [[MOR:w-s-l<connect>]] [[MOR:b-n-y<build>]] [[MOR:s-l-m<validate>]] -->
 ---
-
-# API Integration Helper
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
+---
+<!-- V0 PILOT BECERISI - API ENTEGRASYON YARDIMCISI [[ASP:sov.<temel>]] -->
+---
 
+# API Entegrasyon Yardimcisi (API Integration Helper) - V0
 
-Generate production-ready code for integrating with REST APIs.
+<!-- [[MOR:w-s-l<connect>]] [[MOR:b-n-y<build>]] [[SPC:kuzeybati<baslangic>]] -->
 
-## Overview
+[assert|neutral] REST API entegrasyonlari icin uretim-hazir sablonlar olusturan temel beceri [ground:witnessed:skill-definition] [conf:0.92] [state:confirmed]
 
-This skill helps developers quickly set up REST API integrations by generating boilerplate code that handles authentication, HTTP requests, response parsing, error handling, and retries. Supports JavaScript and Python.
+## Genel Bakis (Overview)
 
-## When to Use
+[assert|neutral] Bu beceri, kimlik dogrulama, HTTP istekleri, yanit ayristirma, hata yonetimi ve tekrar deneme mantigi iceren sablon kod uretir. JavaScript ve Python destekler [ground:witnessed:implementation] [conf:0.92] [state:confirmed]
 
-Use this skill when you need to integrate with a third-party REST API and want to generate the initial setup code rather than writing it from scratch.
+## Ne Zaman Kullanilmali (When to Use)
 
-## Instructions
+[direct|neutral] Ucuncu taraf REST API ile entegrasyon gerektiginde ve baslangic kurulum kodunu sifirdan yazmak yerine otomatik uretmek istendiginde bu beceriyi kullanin [ground:policy] [conf:0.90] [state:confirmed]
 
-### Step 1: Gather API Requirements
+---
+<!-- ADIMLAR [[ASP:nesov.<yurutme>]] -->
+---
 
-Ask the user for API details: base URL, authentication method, and target language.
+## Talimatlar (Instructions)
 
-### Step 2: Set Up Authentication
+### Adim 1: API Gereksinimlerini Topla (Gather API Requirements)
 
-Generate authentication code based on the method (API key or OAuth).
+<!-- [[MOR:j-m-a<gather>]] [[EVD:-DI<kullanici>]] -->
 
-For API key authentication:
+[direct|neutral] Kullanicidan API detaylarini isteyin: temel URL, kimlik dogrulama yontemi ve hedef dil [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
+
+Sorulacak sorular:
+- Temel API URL'i nedir? (ornegin: https://api.example.com)
+- Kimlik dogrulama yontemi nedir? (API anahtari veya OAuth)
+- Hedef programlama dili nedir? (JavaScript veya Python)
+
+### Adim 2: Kimlik Dogrulama Kurulumu (Set Up Authentication)
+
+<!-- [[MOR:s-l-m<validate>]] [[CLS:ge_auth]] -->
+
+[direct|neutral] Yonteme gore kimlik dogrulama kodu uretin (API anahtari veya OAuth) [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
+
+**API Anahtari Dogrulama Icin**:
+
 ```javascript
 // JavaScript
 const headers = {
@@ -47,9 +67,11 @@ headers = {
 }
 ```
 
-### Step 3: Create HTTP Request Function
+### Adim 3: HTTP Istek Fonksiyonu Olustur (Create HTTP Request Function)
 
-Generate a function to make HTTP requests with error handling.
+<!-- [[MOR:b-n-y<build>]] [[ASP:sov.<fonksiyon>]] -->
+
+[direct|neutral] Hata yonetimi ile HTTP istekleri yapmak icin fonksiyon uretin [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
 
 ```javascript
 async function apiRequest(endpoint, options = {}) {
@@ -59,16 +81,18 @@ async function apiRequest(endpoint, options = {}) {
   });
 
   if (!response.ok) {
-    throw new Error(`API error: ${response.status}`);
+    throw new Error(`API hatasi: ${response.status}`);
   }
 
   return await response.json();
 }
 ```
 
-### Step 4: Add Retry Logic
+### Adim 4: Tekrar Deneme Mantigi Ekle (Add Retry Logic)
 
-Implement exponential backoff for failed requests.
+<!-- [[MOR:k-r-r<repeat>]] [[ASP:nesov.<deneme>]] -->
+
+[direct|neutral] Basarisiz istekler icin ustel geri cekilme uygulayın [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
 
 ```javascript
 async function withRetry(fn, maxRetries = 3) {
@@ -83,9 +107,11 @@ async function withRetry(fn, maxRetries = 3) {
 }
 ```
 
-### Step 5: Handle Rate Limiting
+### Adim 5: Hiz Sinirlamasi Yonetimi (Handle Rate Limiting)
 
-Add rate limit detection and backoff.
+<!-- [[MOR:h-d-d<limit>]] [[EVD:-DI<api_yanit>]] -->
+
+[direct|neutral] Hiz siniri tespiti ve geri cekilme ekleyin [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
 
 ```javascript
 if (response.status === 429) {
@@ -94,26 +120,92 @@ if (response.status === 429) {
 }
 ```
 
-### Step 6: Generate Example Usage
+### Adim 6: Ornek Kullanim Olustur (Generate Example Usage)
 
-Create example code showing how to use the generated functions.
+<!-- [[MOR:m-th-l<example>]] [[SPC:guneydogu<sonuc>]] -->
+
+[direct|neutral] Uretilen fonksiyonlarin nasil kullanilacagini gosteren ornek kod olusturun [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
 
 ```javascript
-// Example: Get user data
+// Ornek: Kullanici verisi al
 const userData = await withRetry(() => apiRequest('/users/123'));
 console.log(userData);
 ```
 
-## Examples
+---
+<!-- ORNEKLER [[EVD:-DI<ornek>]] -->
+---
 
-**Example 1**: Generate code for GitHub API integration
-- Input: Base URL: https://api.github.com, Auth: API key, Language: JavaScript
-- Output: Complete JavaScript module with authentication and request functions
+## Ornekler (Examples)
 
-**Example 2**: Generate code for OpenAI API
-- Input: Base URL: https://api.openai.com/v1, Auth: API key, Language: Python
-- Output: Python module with retry logic and error handling
+<!-- [[CLS:liang_example]] -->
 
+**Ornek 1**: GitHub API entegrasyonu icin kod uret
+- Girdi: Temel URL: https://api.github.com, Kimlik Dogrulama: API anahtari, Dil: JavaScript
+- Cikti: Kimlik dogrulama ve istek fonksiyonlari ile tam JavaScript modulu
+
+**Ornek 2**: OpenAI API icin kod uret
+- Girdi: Temel URL: https://api.openai.com/v1, Kimlik Dogrulama: API anahtari, Dil: Python
+- Cikti: Tekrar deneme mantigi ve hata yonetimi ile Python modulu
 
 ---
-*Promise: `<promise>V0_SKILL_VERIX_COMPLIANT</promise>`*
+<!-- PYTHON ORNEGI [[CLS:ge_python]] -->
+---
+
+## Python Tam Ornegi (Python Complete Example)
+
+<!-- [[MOR:b-n-y<build>]] [[ASP:sov.<tam>]] -->
+
+```python
+import os
+import time
+import requests
+from typing import Any, Dict, Optional
+
+BASE_URL = "https://api.example.com"
+
+headers = {
+    'Authorization': f'Bearer {os.environ["API_KEY"]}',
+    'Content-Type': 'application/json'
+}
+
+def api_request(endpoint: str, method: str = "GET", data: Optional[Dict] = None) -> Any:
+    """API istegi yap ve JSON yanit dondur."""
+    url = f"{BASE_URL}{endpoint}"
+
+    response = requests.request(
+        method=method,
+        url=url,
+        headers=headers,
+        json=data
+    )
+
+    if response.status_code == 429:
+        retry_after = int(response.headers.get('Retry-After', 60))
+        time.sleep(retry_after)
+        return api_request(endpoint, method, data)
+
+    response.raise_for_status()
+    return response.json()
+
+def with_retry(func, max_retries: int = 3):
+    """Ustel geri cekilme ile fonksiyon calistir."""
+    for i in range(max_retries):
+        try:
+            return func()
+        except Exception as e:
+            if i == max_retries - 1:
+                raise e
+            time.sleep(2 ** i)
+
+# Ornek kullanim
+if __name__ == "__main__":
+    user_data = with_retry(lambda: api_request('/users/123'))
+    print(user_data)
+```
+
+---
+<!-- PROMISE [[ASP:sov.<taahhut>]] -->
+---
+
+[commit|confident] <promise>V0_SKILL_VCL_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.95] [state:confirmed]

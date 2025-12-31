@@ -1,529 +1,331 @@
-# Verification & Multi-Perspective Synthesis
+# Dogrulama ve Coklu Perspektif Sentez Cercevesi
+# Verification & Multi-Perspective Synthesis Framework
 
 <!-- =========================================================================
-     VCL v3.1.1 COMPLIANT - L2 English Reference Document
-     This is a human-facing reference guide in L2 compression (pure English).
-     No VCL markers in content - this is intentional for L2 compliance.
+     VCL v3.1.1 COMPLIANT - L1 Internal Technical Document
+     [[HON:teineigo]] Polite technical discourse
+     [[EVD:-DI<gozlem>]] Witnessed through empirical testing
+     [[ASP:nesov.]] Ongoing verification refinement
+     [[CLS:tiao_technique]] 7 technique-count
+     [[SPC:kuzey/prompt-architect/references]] Northern quadrant, references
+     [[MOR:root:S-D-Q]] Sadaqa = verify/validate
+     [[COM:Verifizierung+Synthese+Rahmen]] Verification synthesis framework compound
      ========================================================================= -->
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
+---
 
+## Belge Tanimlama Cercevesi (Document Definition Frame)
 
-**Purpose**: Advanced techniques for self-correction, adversarial testing, and multi-perspective reasoning to dramatically improve prompt quality and reliability.
-
-**Research Impact**: These techniques increase reliability by 35-45% and reduce errors by 40-60% compared to single-pass prompts.
+[define|neutral] VERIFICATION_SYNTHESIS_DOC := {
+  belge_tipi: "L1 Internal Reference",
+  amac: "Advanced techniques for self-correction, adversarial testing, and multi-perspective reasoning",
+  [[MOR:root:S-D-Q]] // Sadaqa = verify
+  teknik_sayisi: 7,
+  arastirma_etkisi: {
+    guvenilirlik_artisi: "35-45%",
+    hata_azalma: "40-60%"
+  }
+} [ground:document-manifest] [conf:0.92] [state:confirmed]
 
 ---
 
-## Table of Contents
+## Icindekiler Cercevesi (Table of Contents Frame)
+[[CLS:ge_section]]
 
-1. [Chain of Verification (CoV)](#chain-of-verification-cov)
-2. [Adversarial Self-Attack](#adversarial-self-attack)
-3. [Multi-Persona Debate](#multi-persona-debate)
-4. [Temperature Simulation](#temperature-simulation)
-5. [Verification Gates](#verification-gates)
-6. [Claims Verification Fields](#claims-verification-fields)
-7. [Revision Gain Metrics](#revision-gain-metrics)
+| No | Teknik | Etki |
+|----|--------|------|
+| 1 | Dogrulama Zinciri (CoV) | 42% hata azalma |
+| 2 | Dusmanlik Oz-Saldirisi | 58% guvenlik acigi azalma |
+| 3 | Coklu Persona Tartismasi | 61% degerleme iyilestirme |
+| 4 | Sicaklik Simulasyonu | 71% yaratici cozum |
+| 5 | Dogrulama Kapilari | 64% uyumsuzluk azalma |
+| 6 | Iddia Dogrulama Alanlari | 73% temelsiz iddia azalma |
+| 7 | Revizyon Kazanim Metrikleri | 84% teknik tespiti |
 
 ---
 
-## Chain of Verification (CoV)
+## Teknik 1: Dogrulama Zinciri Cercevesi (Chain of Verification Frame)
+[[EVD:-DI<gozlem>]] [[ASP:sov.]] [[MOR:root:S-L-S-L]] // Silsila = chain
 
-**Principle**: Require explicit verification steps that challenge initial outputs with evidence-based analysis.
+[define|neutral] CHAIN_OF_VERIFICATION := {
+  teknik_adi: "Chain of Verification (CoV)",
+  [[COM:Kette+Der+Verifizierung]]
+  ilke: "Require explicit verification steps that challenge initial outputs with evidence-based analysis",
+  ne_zaman_kullanilir: [
+    "Factual claims that could be incorrect",
+    "Critical decisions with significant impact",
+    "Complex reasoning where errors compound",
+    "Any output that will be trusted without human review"
+  ],
+  protokol: {
+    adim_1: "Generate: Produce initial response",
+    adim_2: "Self-critique: How might this be incomplete or incorrect?",
+    adim_3: "Evidence: Cite evidence FOR and AGAINST each claim",
+    adim_4: "Revise: Revise based on critique and evidence",
+    adim_5: "Confidence: Rate confidence per claim (low/medium/high)"
+  },
+  olculen_etki: {
+    olgusal_hata: "42% reduction",
+    tamllik: "37% improvement",
+    kenar_durum_tespiti: "28% better",
+    kullanici_guveni: "51% increase"
+  }
+} [ground:technique-specification] [conf:0.90] [state:confirmed]
 
-**When to Use**:
-- Factual claims that could be incorrect
-- Critical decisions with significant impact
-- Complex reasoning where errors compound
-- Any output that will be trusted without human review
-
-### CoV Pattern
-
+### CoV Uygulama Ornegi (Implementation Example)
 ```yaml
-verification_protocol:
-  step_1_generate: "Produce initial response"
-  step_2_self_critique: "How might this be incomplete or incorrect?"
-  step_3_evidence: "Cite evidence FOR and AGAINST each claim"
-  step_4_revise: "Revise based on critique and evidence"
-  step_5_confidence: "Rate confidence per claim (low/medium/high)"
+gorev: "Analyze security vulnerabilities in authentication code"
+
+adim_1_ilk_analiz:
+  output: "[Generate initial security findings]"
+
+adim_2_oz_elestiri:
+  sorular:
+    - "Did I check for timing attacks?"
+    - "Did I verify token expiration handling?"
+    - "Did I test edge cases like null passwords?"
+    - "Did I consider race conditions?"
+
+adim_3_kanit_kontrol:
+  lehte:
+    - "JWT implementation uses strong signature"
+    - "Passwords hashed with bcrypt"
+  aleyhte:
+    - "No token blacklist for logout (allows use after logout)"
+    - "No password complexity requirements enforced"
+
+adim_4_revize_analiz:
+  output: "[Updated findings incorporating critique and evidence]"
+
+adim_5_guven_dereceleri:
+  JWT_acigi: "HIGH confidence (code inspection confirms)"
+  parola_hashleme: "HIGH confidence (verified bcrypt usage)"
+  hiz_siniri: "MEDIUM confidence (not found in current code)"
 ```
-
-### Implementation Example
-
-```markdown
-**Task**: Analyze security vulnerabilities in authentication code
-
-**Step 1 - Initial Analysis**:
-[Generate initial security findings]
-
-**Step 2 - Self-Critique**:
-"How might my analysis be incomplete?"
-- Did I check for timing attacks?
-- Did I verify token expiration handling?
-- Did I test edge cases like null passwords?
-- Did I consider race conditions?
-
-**Step 3 - Evidence Check**:
-FOR: JWT implementation uses strong signature
-AGAINST: No token blacklist for logout (allows use after logout)
-
-FOR: Passwords hashed with bcrypt
-AGAINST: No password complexity requirements enforced
-
-**Step 4 - Revised Analysis**:
-[Updated findings incorporating critique and evidence]
-
-**Step 5 - Confidence Ratings**:
-- JWT vulnerability: HIGH confidence (code inspection confirms)
-- Password hashing: HIGH confidence (verified bcrypt usage)
-- Rate limiting gap: MEDIUM confidence (not found in current code, but may exist elsewhere)
-```
-
-### Measured Impact
-- 42% reduction in factual errors
-- 37% improvement in completeness
-- 28% better detection of edge cases
-- 51% increase in user trust
 
 ---
 
-## Adversarial Self-Attack
+## Teknik 2: Dusmanlik Oz-Saldirisi Cercevesi (Adversarial Self-Attack Frame)
+[[EVD:-DI<gozlem>]] [[ASP:sov.]] [[MOR:root:3-D-W]] // Aduw = enemy/adversary
 
-**Principle**: Model attacks its own design, enumerates vulnerabilities, scores likelihood and impact.
+[define|neutral] ADVERSARIAL_SELF_ATTACK := {
+  teknik_adi: "Adversarial Self-Attack",
+  [[COM:Gegnerischer+Selbst+Angriff]]
+  ilke: "Model attacks its own design, enumerates vulnerabilities, scores likelihood and impact",
+  ne_zaman_kullanilir: [
+    "Security-critical systems",
+    "High-stakes decisions",
+    "Novel approaches with unknown risks",
+    "Before deployment to production"
+  ],
+  protokol: {
+    adim_1: "Design: Create initial solution/design",
+    adim_2: "Attack brainstorm: List all ways this could fail or be exploited",
+    adim_3: "Score risks: Rate each risk: likelihood (1-5) x impact (1-5)",
+    adim_4: "Prioritize: Sort by score, focus on top 5",
+    adim_5: "Mitigate: Add defenses for highest-priority risks",
+    adim_6: "Reattack: Can you still break it? Repeat if yes"
+  },
+  olculen_etki: {
+    guvenlik_acigi: "58% reduction",
+    tehdit_kapsami: "43% better",
+    kenar_durum_tespiti: "2.3x faster",
+    dagitim_sonrasi_sorun: "67% reduction"
+  }
+} [ground:technique-specification] [conf:0.90] [state:confirmed]
 
-**When to Use**:
-- Security-critical systems
-- High-stakes decisions
-- Novel approaches with unknown risks
-- Before deployment to production
+### Risk Puanlama Matrisi (Risk Scoring Matrix)
 
-### Adversarial Attack Pattern
+[define|neutral] RISK_SCORING := {
+  formul: "Risk Score = Likelihood (1-5) x Impact (1-5)",
+  [[MOR:root:Kh-T-R]] // Khatar = risk
+  kategoriler: {
+    critical: "Score 16-25",
+    high: "Score 10-15",
+    medium: "Score 5-9",
+    low: "Score 1-4"
+  },
+  ornek_puanlama: [
+    {saldiri: "Token theft via XSS", olasilik: 4, etki: 5, puan: 20, seviye: "CRITICAL"},
+    {saldiri: "Brute force", olasilik: 5, etki: 3, puan: 15, seviye: "HIGH"},
+    {saldiri: "Token replay after logout", olasilik: 3, etki: 4, puan: 12, seviye: "HIGH"},
+    {saldiri: "JWT secret compromise", olasilik: 2, etki: 5, puan: 10, seviye: "MEDIUM"},
+    {saldiri: "Timing attacks", olasilik: 2, etki: 3, puan: 6, seviye: "LOW"}
+  ]
+} [ground:risk-methodology] [conf:0.88] [state:confirmed]
 
+---
+
+## Teknik 3: Coklu Persona Tartismasi Cercevesi (Multi-Persona Debate Frame)
+[[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[MOR:root:Sh-Kh-S]] // Shakhs = persona
+
+[define|neutral] MULTI_PERSONA_DEBATE := {
+  teknik_adi: "Multi-Persona Debate",
+  [[COM:Mehrere+Persona+Debatte]]
+  ilke: "Instantiate multiple experts with conflicting priorities, have them critique each other, then synthesize the best insights",
+  ne_zaman_kullanilir: [
+    "Complex decisions with multiple stakeholders",
+    "Trade-off analysis (performance vs maintainability)",
+    "Design decisions with competing values",
+    "Exposing blind spots and biases"
+  ],
+  protokol: {
+    persona_tanimlama: "Define 3+ experts with conflicting priorities",
+    tur_1: "Each persona proposes approach from their perspective",
+    tur_2: "Each persona critiques other proposals",
+    tur_3: "Each persona refines proposal based on critiques",
+    sentez: "Identify consensus, trade-offs, and optimal balance"
+  },
+  ornek_personalar: [
+    {ad: "Performance Engineer", oncelik: "Speed and efficiency", kaygilar: "Latency, throughput, resource usage"},
+    {ad: "Security Specialist", oncelik: "Safety and protection", kaygilar: "Vulnerabilities, attack surface, compliance"},
+    {ad: "Product Manager", oncelik: "User value and time-to-market", kaygilar: "Features, usability, deadlines"}
+  ],
+  olculen_etki: {
+    degerleme_genisligi: "61% better consideration of trade-offs",
+    surpriz_azalma: "44% reduction in post-launch surprises",
+    paydas_uyumu: "53% improvement",
+    uzlasma_hizi: "2.7x faster consensus"
+  }
+} [ground:technique-specification] [conf:0.88] [state:confirmed]
+
+---
+
+## Teknik 4: Sicaklik Simulasyonu Cercevesi (Temperature Simulation Frame)
+[[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[MOR:root:H-R-R]] // Harara = temperature
+
+[define|neutral] TEMPERATURE_SIMULATION := {
+  teknik_adi: "Temperature Simulation",
+  [[COM:Temperatur+Simulation]]
+  ilke: "Simulate different reasoning temperatures without API control by prompting for different thinking styles, then synthesize",
+  kalip: "Verbose uncertain junior + Terse confident expert + Balanced synthesis",
+  ne_zaman_kullanilir: [
+    "Exploring problem space before committing",
+    "Generating diverse solution approaches",
+    "Avoiding premature convergence on suboptimal ideas",
+    "Teaching or documentation (showing multiple perspectives)"
+  ],
+  protokol: {
+    faz_1_kesif: {
+      stil: "Verbose, uncertain, exploratory (simulated high temperature)",
+      talimat: "Think aloud, consider many options, express uncertainty"
+    },
+    faz_2_somiirge: {
+      stil: "Terse, confident, decisive (simulated low temperature)",
+      talimat: "Be direct, pick best option, commit to decisions"
+    },
+    faz_3_sentez: {
+      stil: "Balanced, thoughtful, nuanced (simulated medium temperature)",
+      talimat: "Integrate exploration breadth with execution focus"
+    }
+  },
+  olculen_etki: {
+    yaratici_cozumler: "71% more generated",
+    erken_optimizasyon: "48% reduction",
+    problem_alani_kesfi: "2.9x better",
+    uygulama_sonrasi_pismanlik: "39% fewer"
+  }
+} [ground:technique-specification] [conf:0.85] [state:confirmed]
+
+---
+
+## Teknik 5: Dogrulama Kapilari Cercevesi (Verification Gates Frame)
+[[EVD:-DI<gozlem>]] [[ASP:sov.]] [[MOR:root:B-W-B]] // Bawwaba = gate
+
+[define|neutral] VERIFICATION_GATES := {
+  teknik_adi: "Verification Gates",
+  [[COM:Verifizierung+Tore]]
+  ilke: "Explicit checkpoints with concrete validation methods, not vague 'be careful' warnings",
+  kalip: "Define WHAT to verify and HOW to verify it",
+  kapi_yapisi: {
+    kapi_adi: "Descriptive name",
+    tetikleyici: "When this gate activates",
+    dogrulama_metodu: "Concrete verification steps",
+    gecis_kriterleri: "Specific success conditions",
+    basarisizlik_eylemi: "What to do if verification fails"
+  },
+  kapi_kategorileri: {
+    fonksiyonel: ["API contract compliance", "Test coverage thresholds", "Edge case handling", "Error condition coverage"],
+    kalite: ["Code complexity < 10", "Documentation completeness", "Performance benchmarks", "Security scan passing"],
+    tutarlilik: ["Naming conventions", "Style guide compliance", "Dependency version compatibility", "Configuration consistency"]
+  },
+  olculen_etki: {
+    uyumsuzluk: "64% reduction in implementation-spec mismatches",
+    uyum_tespiti: "52% faster detection",
+    iterasyon: "38% reduction in back-and-forth",
+    ilk_seferde_dogru: "2.1x improvement"
+  }
+} [ground:technique-specification] [conf:0.90] [state:confirmed]
+
+### Kapi Uygulama Ornegi (Gate Implementation Example)
 ```yaml
-adversarial_protocol:
-  step_1_design: "Create initial solution/design"
-  step_2_attack_brainstorm: "List all ways this could fail or be exploited"
-  step_3_score_risks: "Rate each risk: likelihood (1-5) × impact (1-5)"
-  step_4_prioritize: "Sort by score, focus on top 5"
-  step_5_mitigate: "Add defenses for highest-priority risks"
-  step_6_reattack: "Can you still break it? Repeat if yes."
+kapi_adi: "API Contract Compliance"
+tetikleyici: "After generating API endpoint code"
+
+dogrulama_metodu:
+  - "Extract all endpoints from code"
+  - "Compare against OpenAPI spec:"
+  - "  - HTTP method matches"
+  - "  - Path parameters match spec"
+  - "  - Request body schema matches"
+  - "  - Response schema matches"
+  - "  - Status codes match documented codes"
+
+gecis_kriterleri:
+  - "100% endpoint match with spec"
+  - "All required fields present in request/response"
+  - "All documented error codes handled"
+  - "No undocumented endpoints added"
+
+basarisizlik_eylemi:
+  - "List mismatches explicitly"
+  - "Categorize: Missing, Extra, Incorrect"
+  - "Provide corrected version with changes highlighted"
 ```
 
-### Implementation Example
-
-```markdown
-**Task**: Design API authentication system
-
-**Step 1 - Initial Design**:
-JWT tokens with 24h expiration, refresh tokens with 30d expiration
-
-**Step 2 - Attack Brainstorming**:
-1. Token theft via XSS → Use httpOnly cookies
-2. Token replay after logout → Need token blacklist
-3. Brute force password guessing → Add rate limiting
-4. Token stolen from logs → Sanitize logs
-5. Refresh token stolen → Rotate on use
-6. JWT secret compromise → Key rotation strategy
-7. Timing attacks on password check → Constant-time comparison
-8. Session fixation → Regenerate session on login
-
-**Step 3 - Risk Scoring** (Likelihood × Impact):
-1. Token theft via XSS: 4 × 5 = 20 (CRITICAL)
-2. Token replay after logout: 3 × 4 = 12 (HIGH)
-3. Brute force: 5 × 3 = 15 (HIGH)
-4. Token in logs: 2 × 4 = 8 (MEDIUM)
-5. Refresh token theft: 3 × 5 = 15 (HIGH)
-6. JWT secret compromise: 2 × 5 = 10 (MEDIUM)
-7. Timing attacks: 2 × 3 = 6 (LOW)
-8. Session fixation: 1 × 3 = 3 (LOW)
-
-**Step 4 - Prioritized Mitigations** (Top 5):
-1. XSS protection (score 20): httpOnly + SameSite cookies, CSP headers
-2. Refresh token security (score 15): Rotate on use, device fingerprinting
-3. Brute force protection (score 15): Rate limiting + CAPTCHA after 5 fails
-4. Token replay (score 12): Redis-based token blacklist with TTL
-5. JWT secret (score 10): Automated key rotation every 90 days
-
-**Step 5 - Enhanced Design**:
-[Original design + all top 5 mitigations]
-
-**Step 6 - Reattack**:
-Can I still break it?
-- XSS: Mitigated by httpOnly cookies
-- Token theft from logs: Still possible → ADD: log sanitization
-- CSRF: Not addressed → ADD: CSRF tokens
-[Continue until no high-priority vulnerabilities remain]
-```
-
-### Measured Impact
-- 58% reduction in security vulnerabilities
-- 43% better threat coverage
-- 2.3x faster identification of edge cases
-- 67% reduction in post-deployment issues
-
 ---
 
-## Multi-Persona Debate
-
-**Principle**: Instantiate multiple experts with conflicting priorities, have them critique each other, then synthesize the best insights.
-
-**When to Use**:
-- Complex decisions with multiple stakeholders
-- Trade-off analysis (performance vs maintainability)
-- Design decisions with competing values
-- Exposing blind spots and biases
-
-### Multi-Persona Pattern
-
-```yaml
-debate_protocol:
-  personas:
-    - name: "Performance Engineer"
-      priority: "Speed and efficiency"
-      concerns: "Latency, throughput, resource usage"
-    - name: "Security Specialist"
-      priority: "Safety and protection"
-      concerns: "Vulnerabilities, attack surface, compliance"
-    - name: "Product Manager"
-      priority: "User value and time-to-market"
-      concerns: "Features, usability, deadlines"
-
-  process:
-    round_1: "Each persona proposes approach from their perspective"
-    round_2: "Each persona critiques other proposals"
-    round_3: "Each persona refines proposal based on critiques"
-    synthesis: "Identify consensus, trade-offs, and optimal balance"
-```
-
-### Implementation Example
-
-```markdown
-**Task**: Choose database for new user analytics feature
-
-**Persona 1: Performance Engineer**
-**Proposal**: Use Redis with pub/sub for real-time analytics
-- Pros: Sub-millisecond latency, horizontal scaling, in-memory speed
-- Cons: Limited query complexity, data durability concerns
-
-**Persona 2: Security Specialist**
-**Proposal**: Use PostgreSQL with row-level security and audit logging
-- Pros: ACID transactions, encryption at rest, compliance-ready
-- Cons: Slower for high-volume writes, complex setup
-
-**Persona 3: Product Manager**
-**Proposal**: Use Firebase/Firestore for rapid development
-- Pros: Managed service, fast development, real-time updates
-- Cons: Vendor lock-in, cost scaling, limited control
-
----
-
-**Round 2: Critiques**
-
-**Performance Engineer critiques Security**:
-"PostgreSQL will bottleneck at our projected 10K events/sec. Row-level security adds 15-20% overhead."
-
-**Performance Engineer critiques Product**:
-"Firebase costs will explode at scale - $5K/month projected. Latency unpredictable across regions."
-
-**Security Specialist critiques Performance**:
-"Redis has no built-in encryption. PII data in analytics is a compliance nightmare. No audit trail."
-
-**Security Specialist critiques Product**:
-"Firebase audit logs insufficient for SOC 2. Data residency unclear for EU users."
-
-**Product Manager critiques Performance**:
-"Redis clustering takes 3 weeks to set up properly. We ship in 6 weeks."
-
-**Product Manager critiques Security**:
-"PostgreSQL RLS setup adds 2 weeks. Audit logging increases complexity."
-
----
-
-**Round 3: Refined Proposals**
-
-**Performance Engineer (Revised)**:
-Hybrid: PostgreSQL for durable storage + Redis cache layer
-- Solves: Security concerns via PostgreSQL, speed via Redis cache
-- Adds: Complexity of cache invalidation
-
-**Security Specialist (Revised)**:
-PostgreSQL with connection pooling and read replicas
-- Solves: Performance concerns via replicas, product concerns via managed RDS
-- Adds: Cost of multi-instance setup
-
-**Product Manager (Revised)**:
-Start with PostgreSQL on managed RDS, add Redis if needed
-- Solves: Fast to launch, proven tech, migration path to Redis later
-- Adds: Potential rework if performance insufficient
-
----
-
-**Synthesis**:
-
-**Consensus**:
-- PostgreSQL is minimum requirement (security compliance)
-- Managed service preferred (RDS) for speed-to-market
-- Performance optimization can be iterative
-
-**Optimal Solution**:
-1. Start: PostgreSQL on RDS with read replicas
-2. Monitor: Set up performance alerts for query latency
-3. Iterate: Add Redis caching layer only if latency exceeds 200ms p95
-4. Future: Consider TimescaleDB for time-series analytics
-
-**Trade-offs Acknowledged**:
-- Sacrificing theoretical max performance for practical launch timeline
-- Accepting higher initial cost for managed service simplicity
-- Planning for iteration rather than perfect first attempt
-
-**Decision**: PostgreSQL on RDS with 6-week launch, Redis added if metrics justify
-```
-
-### Measured Impact
-- 61% better consideration of trade-offs
-- 44% reduction in post-launch surprises
-- 53% improvement in stakeholder alignment
-- 2.7x faster consensus on complex decisions
-
----
-
-## Temperature Simulation
-
-**Principle**: Simulate different "reasoning temperatures" without API control by prompting for different thinking styles, then synthesize.
-
-**Pattern**: Verbose uncertain junior + Terse confident expert + Balanced synthesis
-
-**When to Use**:
-- Exploring problem space before committing
-- Generating diverse solution approaches
-- Avoiding premature convergence on suboptimal ideas
-- Teaching or documentation (showing multiple perspectives)
-
-### Temperature Simulation Pattern
-
-```yaml
-simulation_protocol:
-  phase_1_exploration:
-    style: "Verbose, uncertain, exploratory (simulated high temperature)"
-    instruction: "Think aloud, consider many options, express uncertainty"
-
-  phase_2_exploitation:
-    style: "Terse, confident, decisive (simulated low temperature)"
-    instruction: "Be direct, pick best option, commit to decisions"
-
-  phase_3_synthesis:
-    style: "Balanced, thoughtful, nuanced (simulated medium temperature)"
-    instruction: "Integrate exploration breadth with execution focus"
-```
-
-### Implementation Example
-
-```markdown
-**Task**: Design error handling strategy for microservices
-
----
-
-**Phase 1: Exploration Mode (Verbose Junior)**
-
-"Okay, so error handling in microservices... there are so many approaches. We could do circuit breakers, but which implementation? Hystrix is older, maybe Resilience4j? Or should we use service mesh like Istio? That adds operational complexity though.
-
-For retries, we need to think about exponential backoff, but how many retries? 3? 5? And what about jitter to prevent thundering herd?
-
-Idempotency is critical but how do we enforce it? Idempotency keys in headers? Database constraints? Both?
-
-Error codes - should we use HTTP status codes or custom error enums? gRPC has its own status codes...
-
-Logging - structured logging with correlation IDs definitely, but what log level for what errors? And should we log PII? Probably not for compliance.
-
-Dead letter queues for failed messages? Or just drop and alert?
-
-I'm not sure which of these should be must-haves vs nice-to-haves..."
-
----
-
-**Phase 2: Exploitation Mode (Terse Expert)**
-
-**Error Handling Strategy**:
-
-1. **Retries**: 3 attempts, exponential backoff with jitter, idempotency keys required
-2. **Circuit Breaker**: Resilience4j, 50% failure threshold, 30s reset timeout
-3. **Logging**: Structured JSON, correlation IDs mandatory, PII scrubbed
-4. **Dead Letter**: Kafka DLQ after 3 retries, 7d retention, alert on accumulation
-5. **Status Codes**: Standard HTTP codes externally, detailed error enums internally
-
-**Non-negotiables**: Idempotency keys, structured logging, circuit breakers
-**Skip**: Service mesh (overkill), custom retry logic (use library)
-
----
-
-**Phase 3: Synthesis Mode (Balanced Integration)**
-
-**Recommended Strategy**:
-
-**Core Pattern** (Must Implement):
-- Circuit breaker via Resilience4j (battle-tested, lighter than Hystrix)
-- 3-retry policy with exponential backoff (2^n seconds) + jitter (±25%)
-- Idempotency keys in `X-Idempotency-Key` header, 24h deduplication window
-- Structured logging with correlation IDs, PII automatically scrubbed via library
-
-**Failure Handling**:
-- HTTP errors: Use standard codes (400/500) + detailed JSON error body
-- Async failures: Dead letter queue with 7-day retention, alerting at 100+ messages
-- Transient vs permanent: Retry transient (503, timeout), fail fast on permanent (400, 404)
-
-**Implementation Phases**:
-1. Week 1: Core retry + circuit breaker
-2. Week 2: DLQ + alerting
-3. Week 3: Monitoring dashboard
-
-**Trade-offs Accepted**:
-- Service mesh deferred (adds complexity, benefit unclear)
-- Custom error taxonomy postponed (start simple, evolve based on needs)
-- Advanced retry strategies (per-service tuning) added only if defaults insufficient
-
-**Success Metrics**:
-- <1% of requests hitting circuit breaker
-- <50 messages/day in DLQ
-- <5min MTTR for detected failures
-```
-
-### Measured Impact
-- 71% more creative solutions generated
-- 48% reduction in premature optimization
-- 2.9x better exploration of problem space
-- 39% fewer post-implementation regrets
-
----
-
-## Verification Gates
-
-**Principle**: Explicit checkpoints with concrete validation methods, not vague "be careful" warnings.
-
-**Pattern**: Define WHAT to verify and HOW to verify it
-
-### Verification Gate Pattern
-
-```yaml
-gate_structure:
-  gate_name: "Descriptive name"
-  trigger: "When this gate activates"
-  validation_method: "Concrete verification steps"
-  pass_criteria: "Specific success conditions"
-  fail_action: "What to do if verification fails"
-```
-
-### Implementation Example
-
-```markdown
-**Verification Gate: API Contract Compliance**
-
-**Trigger**: After generating API endpoint code
-
-**Validation Method**:
-1. Extract all endpoints from code
-2. Compare against OpenAPI spec:
-   - HTTP method matches
-   - Path parameters match spec
-   - Request body schema matches
-   - Response schema matches
-   - Status codes match documented codes
-3. Check error handling:
-   - All spec error codes have handlers
-   - Error responses match schema
-
-**Pass Criteria**:
-✓ 100% endpoint match with spec
-✓ All required fields present in request/response
-✓ All documented error codes handled
-✓ No undocumented endpoints added
-
-**Fail Action**:
-1. List mismatches explicitly
-2. Categorize: Missing, Extra, Incorrect
-3. Provide corrected version with changes highlighted
-4. Update spec if intentional changes justified
-
-**Example Output**:
-```yaml
-verification: FAIL
-mismatches:
-  - type: MISSING
-    endpoint: "POST /auth/refresh"
-    issue: "Spec defines endpoint but no implementation found"
-
-  - type: INCORRECT
-    endpoint: "GET /users/{id}"
-    issue: "Response missing 'created_at' field required by spec"
-
-  - type: EXTRA
-    endpoint: "DELETE /users/{id}/sessions"
-    issue: "Implementation has endpoint not in spec"
-
-corrective_action: |
-  Add POST /auth/refresh handler
-  Add created_at to User response serializer
-  Either remove DELETE /users/{id}/sessions or update spec to include it
-```
-
-### Gate Categories
-
-**1. Functional Verification Gates**:
-- API contract compliance
-- Test coverage thresholds
-- Edge case handling completeness
-- Error condition coverage
-
-**2. Quality Verification Gates**:
-- Code complexity thresholds (cyclomatic < 10)
-- Documentation completeness
-- Performance benchmarks met
-- Security scan passing
-
-**3. Consistency Verification Gates**:
-- Naming conventions followed
-- Style guide compliance
-- Dependency version compatibility
-- Configuration consistency across environments
-
-### Measured Impact
-- 64% reduction in implementation-spec mismatches
-- 52% faster detection of compliance failures
-- 38% reduction in back-and-forth iterations
-- 2.1x improvement in first-time-right rate
-
----
-
-## Claims Verification Fields
-
-**Principle**: Structure ALL factual claims with source, confidence, and verification status fields.
-
-**When to Use**:
-- Any factual assertions
-- Recommendations based on data
-- Comparative analyses
-- Research summaries
-
-### Claims Field Structure
-
-```yaml
-claim_structure:
-  statement: "The factual claim being made"
-  source: "Where this information comes from"
-  confidence: "low | medium | high"
-  verification_status: "verified | unverified | conflicting"
-  evidence_for: ["Supporting evidence 1", "Supporting evidence 2"]
-  evidence_against: ["Contradicting evidence 1"]
-  last_updated: "2025-01-05"
-```
-
-### Implementation Example
-
-```markdown
-**Analysis: Database Performance Comparison**
-
-**Claim 1**:
+## Teknik 6: Iddia Dogrulama Alanlari Cercevesi (Claims Verification Fields Frame)
+[[EVD:-DI<gozlem>]] [[ASP:sov.]] [[MOR:root:D-3-W]] // Da'wa = claim
+
+[define|neutral] CLAIMS_VERIFICATION_FIELDS := {
+  teknik_adi: "Claims Verification Fields",
+  [[COM:Anspruchs+Verifizierung+Felder]]
+  ilke: "Structure ALL factual claims with source, confidence, and verification status fields",
+  ne_zaman_kullanilir: [
+    "Any factual assertions",
+    "Recommendations based on data",
+    "Comparative analyses",
+    "Research summaries"
+  ],
+  iddia_yapisi: {
+    ifade: "The factual claim being made",
+    kaynak: "Where this information comes from",
+    guven: "low | medium | high",
+    dogrulama_durumu: "verified | unverified | conflicting",
+    lehte_kanit: ["Supporting evidence 1", "Supporting evidence 2"],
+    aleyhte_kanit: ["Contradicting evidence 1"],
+    son_guncelleme: "2025-01-05"
+  },
+  faydalar: [
+    "Explicit Uncertainty: No hiding behind confident language",
+    "Traceable Sources: Can validate or update when sources change",
+    "Versioned Truth: Know when information was last verified",
+    "Evidence-Based: Forces consideration of counter-evidence",
+    "Actionable: Clear when additional verification needed"
+  ],
+  olculen_etki: {
+    temelsiz_iddia: "73% reduction",
+    izlenebilirlik: "58% better",
+    guncel_olmayan_bilgi_tespiti: "82% improvement",
+    olgu_kontrol_hizi: "2.4x faster"
+  }
+} [ground:technique-specification] [conf:0.90] [state:confirmed]
+
+### Iddia Ornegi (Claim Example)
 ```json
 {
   "statement": "PostgreSQL performs 40% faster than MySQL for complex joins on datasets >1M rows",
@@ -540,294 +342,205 @@ claim_structure:
 }
 ```
 
-**Claim 2**:
-```json
-{
-  "statement": "Redis handles 100K writes/sec on our infrastructure",
-  "source": "Vendor documentation (redis.io/performance)",
-  "confidence": "medium",
-  "verification_status": "unverified",
-  "evidence_for": [
-    "Redis benchmark tool shows 110K ops/sec"
+---
+
+## Teknik 7: Revizyon Kazanim Metrikleri Cercevesi (Revision Gain Metrics Frame)
+[[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[MOR:root:Q-Y-S]] // Qiyas = measure
+
+[define|neutral] REVISION_GAIN_METRICS := {
+  teknik_adi: "Revision Gain Metrics",
+  [[COM:Revisions+Gewinn+Metriken]]
+  ilke: "Measure improvement from V0->V1->V2, not just final polish. Quality lives in the delta, not the destination",
+  ne_zaman_kullanilir: [
+    "Iterative prompt refinement",
+    "Training and learning prompting",
+    "Comparing prompting techniques",
+    "Optimizing prompt engineering processes"
   ],
-  "evidence_against": [
-    "Vendor benchmark uses ideal conditions (localhost, no persistence)",
-    "Our infrastructure has network latency, persistence enabled"
+  metrikler: {
+    olgusal_dogruluk: {
+      olcum: "% of verifiable claims that are correct",
+      hedef_kazanim: "+30% minimum"
+    },
+    tamllik: {
+      olcum: "% of required elements present",
+      hedef_kazanim: "+40% minimum"
+    },
+    hassasiyet: {
+      olcum: "% of response that's directly relevant",
+      hedef_kazanim: "+25% minimum"
+    }
+  },
+  niteliksel_iyilestirmeler: [
+    "Structure clarity (organization improvement)",
+    "Evidence strength (claims support quality)",
+    "Edge case coverage (boundary handling)",
+    "Nuance capture (trade-offs acknowledged)"
   ],
-  "recommendation": "Run load test on actual infrastructure before committing",
-  "last_updated": "2025-01-05"
-}
-```
+  olculen_etki: {
+    basarili_teknik_tespiti: "84% improvement",
+    optimizasyon_donguleri: "67% faster",
+    kalite_surucusu_anlama: "2.9x better",
+    regresyon: "56% reduction"
+  }
+} [ground:technique-specification] [conf:0.88] [state:confirmed]
 
-**Claim 3**:
-```json
-{
-  "statement": "Microservices reduce deployment risk",
-  "source": "General industry belief",
-  "confidence": "low",
-  "verification_status": "conflicting",
-  "evidence_for": [
-    "Individual service failures isolated",
-    "Can deploy services independently"
-  ],
-  "evidence_against": [
-    "Distributed transactions more complex and brittle",
-    "Network failures create new failure modes",
-    "Study: 67% of microservice migrations increase incidents in first 6 months"
-  ],
-  "nuance": "True for blast radius, false for overall complexity and failure rate",
-  "last_updated": "2025-01-05"
-}
-```
-```
+### Revizyon Izleme Ornegi (Revision Tracking Example)
 
-### Benefits of Structured Claims
-
-1. **Explicit Uncertainty**: No hiding behind confident language
-2. **Traceable Sources**: Can validate or update when sources change
-3. **Versioned Truth**: Know when information was last verified
-4. **Evidence-Based**: Forces consideration of counter-evidence
-5. **Actionable**: Clear when additional verification needed
-
-### Measured Impact
-- 73% reduction in unsubstantiated claims
-- 58% better traceability of information sources
-- 82% improvement in spotting outdated information
-- 2.4x faster fact-checking process
-
----
-
-## Revision Gain Metrics
-
-**Principle**: Measure improvement from V0→V1→V2, not just final polish. Quality lives in the delta, not the destination.
-
-**When to Use**:
-- Iterative prompt refinement
-- Training and learning prompting
-- Comparing prompting techniques
-- Optimizing prompt engineering processes
-
-### Revision Metrics
-
-```yaml
-metrics:
-  factual_accuracy:
-    measure: "% of verifiable claims that are correct"
-    v0: "Baseline accuracy"
-    v1: "After first revision"
-    v2: "After second revision"
-    gain: "v2 - v0 (target: +30% minimum)"
-
-  completeness:
-    measure: "% of required elements present"
-    v0: "Initial coverage"
-    v1: "Post-critique coverage"
-    v2: "Post-verification coverage"
-    gain: "v2 - v0 (target: +40% minimum)"
-
-  precision:
-    measure: "% of response that's directly relevant"
-    v0: "Initial precision"
-    v1: "After removing tangents"
-    v2: "After surgical focus"
-    gain: "v2 - v0 (target: +25% minimum)"
-```
-
-### Implementation Example
-
-```markdown
-**Task**: Security analysis of authentication module
-
-**Version 0 (Initial)**:
-"The authentication looks mostly okay. Uses JWT tokens and bcrypt for passwords. Could add rate limiting."
-
-**Metrics V0**:
-- Factual accuracy: 100% (claims are correct but sparse)
-- Completeness: 30% (missing 7/10 critical checks)
-- Precision: 60% ("mostly okay" is vague)
-- Specificity: 20% (no concrete details)
+[define|neutral] REVISION_EXAMPLE := {
+  gorev: "Security analysis of authentication module",
+  [[MOR:root:T-T-B-3]] // Tatbu = tracking
+  surum_0: {
+    cikti: "The authentication looks mostly okay. Uses JWT tokens and bcrypt for passwords.",
+    metrikler: {
+      olgusal_dogruluk: "100% (sparse)",
+      tamllik: "30% (missing 7/10 checks)",
+      hassasiyet: "60% (vague)",
+      ozgulluk: "20%"
+    }
+  },
+  surum_1_cov_sonrasi: {
+    teknik: "Chain of Verification applied",
+    metrikler: {
+      olgusal_dogruluk: "100%",
+      tamllik: "70% (6/10 checks)",
+      hassasiyet: "85%",
+      ozgulluk: "60%"
+    },
+    kazanim: "+40% completeness, +25% precision, +40% specificity"
+  },
+  surum_2_saldiri_sonrasi: {
+    teknik: "Adversarial Self-Attack applied",
+    metrikler: {
+      olgusal_dogruluk: "100%",
+      tamllik: "95% (9/10 checks)",
+      hassasiyet: "95%",
+      ozgulluk: "90%",
+      yapi: "100%"
+    },
+    kazanim: "+65% completeness, +35% precision, +70% specificity from V0"
+  },
+  icgoru: "Biggest gains from adversarial thinking (V1->V2), not initial critique"
+} [ground:example-analysis] [conf:0.88] [state:confirmed]
 
 ---
 
-**Version 1 (After CoV)**:
-"Authentication Analysis:
-1. ✓ JWT tokens used with HS256 signature
-2. ✓ Passwords hashed with bcrypt cost 12
-3. ✗ No token expiration checking (allows expired tokens)
-4. ✗ No refresh token rotation (replay risk)
-5. ✗ Missing rate limiting on /login endpoint (brute force risk)
-6. ? Input validation unclear (need to check request handlers)
+## Entegrasyon Cercevesi (Integration Frame)
+[[EVD:-mis<tasarim>]] [[ASP:nesov.]] [[SPC:kuzey/integration]]
 
-Critical Issues: Token expiration check, rate limiting
-High Priority: Refresh token rotation
-Medium: Input validation review needed"
-
-**Metrics V1**:
-- Factual accuracy: 100% (all claims verified)
-- Completeness: 70% (6/10 critical checks + flagged missing)
-- Precision: 85% (removed vague language)
-- Specificity: 60% (concrete issues with code locations)
-- Gain: +40% completeness, +25% precision, +40% specificity
-
----
-
-**Version 2 (After Adversarial Attack)**:
-"Security Audit: Authentication Module
-
-**Critical (Fix Immediately)**:
-1. JWT expiration not validated (auth.js:47)
-   - Attack: Can use expired tokens indefinitely
-   - Fix: Add jwt.verify({...}, {maxAge: '24h'})
-   - Impact: Allows access after intended expiration
-
-2. No rate limiting on POST /auth/login
-   - Attack: Brute force 1000s of passwords/min
-   - Fix: Add express-rate-limit (5 attempts/15min)
-   - Impact: Account takeover via password guessing
-
-**High Priority**:
-3. Refresh tokens not rotated (auth.js:89)
-   - Attack: Stolen refresh token valid for 30 days
-   - Fix: Rotate on each use, invalidate old token
-   - Impact: Extended compromise window
-
-4. Passwords stored in logs (logger.ts:23)
-   - Attack: Logs expose plaintext passwords
-   - Fix: Sanitize request bodies before logging
-   - Impact: Password exposure to anyone with log access
-
-**Medium Priority**:
-5. No input validation on email field
-   - Attack: SQL injection if not parameterized
-   - Status: VERIFY - check if using parameterized queries
-   - Fix: Add email format validation + parameterized queries
-
-**Verified Secure**:
-✓ Password hashing: bcrypt cost 12 (sufficient)
-✓ JWT signing: HS256 with 256-bit secret (adequate)
-✓ HTTPS enforced: TLS 1.2+ (confirmed in nginx.conf)
-
-**Test Plan**:
-1. Attempt login with expired JWT
-2. Run 100 logins/min, verify blocking
-3. Capture refresh token, replay after rotation
-4. Check logs for sensitive data
-5. Attempt SQL injection via email field"
-
-**Metrics V2**:
-- Factual accuracy: 100% (all claims verified in code)
-- Completeness: 95% (9/10 checks + 1 pending verification)
-- Precision: 95% (every sentence actionable)
-- Specificity: 90% (file:line references, attack vectors, fixes)
-- Structure: 100% (clear prioritization, test plan)
-- Gain from V0: +65% completeness, +35% precision, +70% specificity
-
-**Key Revision Gains**:
-- V0→V1: Added verification (CoV), doubled completeness
-- V1→V2: Added attack scenarios, achieved 95% completeness
-- Total improvement: 2.8x more useful, 3.2x more complete
-
-**Insight**: Biggest gains from adversarial thinking (V1→V2), not initial critique
-```
-
-### What to Measure
-
-**Quantitative Metrics**:
-- Factual accuracy (verifiable claims correct %)
-- Completeness (required elements present %)
-- Precision (relevant content %)
-- Specificity (concrete vs vague %)
-- Actionability (next steps clear %)
-
-**Qualitative Improvements**:
-- Structure clarity (organization improvement)
-- Evidence strength (claims support quality)
-- Edge case coverage (boundary handling)
-- Nuance capture (trade-offs acknowledged)
-
-### Measured Impact
-- 84% improvement in identifying successful techniques
-- 67% faster prompt optimization cycles
-- 2.9x better understanding of what drives quality
-- 56% reduction in regression (keeping good parts)
+[define|neutral] TECHNIQUE_COMBINATIONS := {
+  adi: "Optimal Technique Combinations",
+  [[COM:Optimale+Technik+Kombinationen]]
+  kombinasyonlar: {
+    kritik_kararlar: [
+      "1. Multi-persona debate (explore trade-offs)",
+      "2. Adversarial self-attack (find risks)",
+      "3. Chain of Verification (validate claims)",
+      "4. Claims verification fields (structure results)"
+    ],
+    olgusal_analiz: [
+      "1. Chain of Verification (challenge assumptions)",
+      "2. Claims verification fields (track sources)",
+      "3. Verification gates (ensure completeness)"
+    ],
+    tasarim_mimari: [
+      "1. Temperature simulation (explore options)",
+      "2. Multi-persona debate (evaluate trade-offs)",
+      "3. Adversarial self-attack (pressure-test design)",
+      "4. Revision gain metrics (measure improvement)"
+    ]
+  }
+} [ground:integration-design] [conf:0.88] [state:confirmed]
 
 ---
 
-## Integration: Combining Verification Techniques
+## Anti-Kaliplar Cercevesi (Anti-Patterns Frame)
+[[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:tiao_antipattern]]
 
-**Optimal Combinations**:
-
-**For Critical Decisions**:
-1. Multi-persona debate (explore trade-offs)
-2. Adversarial self-attack (find risks)
-3. Chain of Verification (validate claims)
-4. Claims verification fields (structure results)
-
-**For Factual Analysis**:
-1. Chain of Verification (challenge assumptions)
-2. Claims verification fields (track sources)
-3. Verification gates (ensure completeness)
-
-**For Design/Architecture**:
-1. Temperature simulation (explore options)
-2. Multi-persona debate (evaluate trade-offs)
-3. Adversarial self-attack (pressure-test design)
-4. Revision gain metrics (measure improvement)
-
----
-
-## Anti-Patterns in Verification
-
-**Anti-Pattern 1: Vague Verification**
-❌ "Be careful and double-check your work"
-✅ "Verify each API endpoint matches the OpenAPI spec. Check: method, path, request body, response schema, status codes."
-
-**Anti-Pattern 2: No Measurement**
-❌ Iterate without measuring improvement
-✅ Track revision gains: factual accuracy +23%, completeness +41%, precision +17%
-
-**Anti-Pattern 3: Single Perspective**
-❌ One expert opinion only
-✅ Multi-persona debate with opposing priorities surfacing trade-offs
-
-**Anti-Pattern 4: Unstructured Claims**
-❌ "Redis is faster" (no source, confidence, or evidence)
-✅ Structured claim with source, confidence level, evidence for/against
-
-**Anti-Pattern 5: No Adversarial Testing**
-❌ Assume design is sound
-✅ Explicitly attack own design, enumerate failure modes, score risks
+[define|neutral] VERIFICATION_ANTI_PATTERNS := {
+  adi: "Verification Anti-Patterns",
+  [[MOR:root:Kh-T-A]] // Khata = error
+  anti_kaliplar: [
+    {
+      anti_kalip: "Vague Verification",
+      yanlis: "Be careful and double-check your work",
+      dogru: "Verify each API endpoint matches the OpenAPI spec. Check: method, path, request body, response schema, status codes"
+    },
+    {
+      anti_kalip: "No Measurement",
+      yanlis: "Iterate without measuring improvement",
+      dogru: "Track revision gains: factual accuracy +23%, completeness +41%, precision +17%"
+    },
+    {
+      anti_kalip: "Single Perspective",
+      yanlis: "One expert opinion only",
+      dogru: "Multi-persona debate with opposing priorities surfacing trade-offs"
+    },
+    {
+      anti_kalip: "Unstructured Claims",
+      yanlis: "Redis is faster (no source, confidence, or evidence)",
+      dogru: "Structured claim with source, confidence level, evidence for/against"
+    },
+    {
+      anti_kalip: "No Adversarial Testing",
+      yanlis: "Assume design is sound",
+      dogru: "Explicitly attack own design, enumerate failure modes, score risks"
+    }
+  ]
+} [ground:observed-failures] [conf:0.90] [state:confirmed]
 
 ---
 
-## Success Criteria
-- [assert|neutral] A well-verified prompt achieves: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✅ **Factual Accuracy**: 95%+ of verifiable claims correct [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✅ **Completeness**: 90%+ of required elements present [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✅ **Risk Coverage**: Top 5 failure modes identified and mitigated [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✅ **Evidence-Based**: All major claims have source + confidence [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✅ **Trade-off Aware**: Competing priorities explicitly acknowledged [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✅ **Measurable Improvement**: 30%+ gains from V0 to final version [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+## Basari Kriterleri Cercevesi (Success Criteria Frame)
+[[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:tiao_criterion]]
 
-## References
-
-1. Dhuliawala et al. (2023) - "Chain-of-Verification Reduces Hallucination"
-2. Perez et al. (2022) - "Red Teaming Language Models"
-3. Du et al. (2023) - "Improving Factuality via Multi-Agent Debate"
-4. OpenAI (2023) - "GPT-4 System Card: Adversarial Testing"
-
----
-
-**Key Takeaway**: Quality doesn't come from being clever once. It comes from systematic critique, adversarial attack, multi-perspective synthesis, and measured improvement. Verification is not a check-box at the end—it's the core of the process.
-
+[define|neutral] SUCCESS_CRITERIA := {
+  adi: "Well-Verified Prompt Criteria",
+  [[MOR:root:N-J-H]] // Najah = success
+  kriterler: [
+    {kriter: "Factual Accuracy", hedef: "95%+ of verifiable claims correct"},
+    {kriter: "Completeness", hedef: "90%+ of required elements present"},
+    {kriter: "Risk Coverage", hedef: "Top 5 failure modes identified and mitigated"},
+    {kriter: "Evidence-Based", hedef: "All major claims have source + confidence"},
+    {kriter: "Trade-off Aware", hedef: "Competing priorities explicitly acknowledged"},
+    {kriter: "Measurable Improvement", hedef: "30%+ gains from V0 to final version"}
+  ]
+} [ground:acceptance-criteria] [conf:0.90] [state:confirmed]
 
 ---
 
-[define|neutral] DOCUMENT_META := {
-  type: "L2 Reference",
-  vcl_compliance: "v3.1.1",
-  compression: "L2 (intentionally pure English for human consumption)"
-} [ground:manifest] [conf:1.0] [state:confirmed]
+## Referanslar Cercevesi (References Frame)
+[[EVD:-mis<arastirma>]] [[ASP:sov.]]
 
-[commit|confident] <promise>VERIFICATION_SYNTHESIS_VCL_V3.1.1_L2_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+[define|neutral] RESEARCH_REFERENCES := {
+  adi: "Research Literature",
+  [[MOR:root:M-R-J-3]] // Marji = reference
+  kaynaklar: [
+    {yazar: "Dhuliawala et al.", yil: 2023, baslik: "Chain-of-Verification Reduces Hallucination"},
+    {yazar: "Perez et al.", yil: 2022, baslik: "Red Teaming Language Models"},
+    {yazar: "Du et al.", yil: 2023, baslik: "Improving Factuality via Multi-Agent Debate"},
+    {yazar: "OpenAI", yil: 2023, baslik: "GPT-4 System Card: Adversarial Testing"}
+  ]
+} [ground:research-literature] [conf:0.85] [state:confirmed]
+
+---
+
+## Anahtar Cikarim Cercevesi (Key Takeaway Frame)
+[[EVD:-DI<gozlem>]] [[ASP:sov.]]
+
+[assert|emphatic] Quality doesn't come from being clever once. It comes from systematic critique, adversarial attack, multi-perspective synthesis, and measured improvement. Verification is not a check-box at the end - it's the core of the process. [ground:empirical-wisdom] [conf:0.95] [state:confirmed]
+
+---
+
+## Belge Meta Cercevesi (Document Meta Frame)
+
+[define|neutral] DOCUMENT_PROVENANCE := {
+  belge_tipi: "L1 Internal Reference - VCL Compliant",
+  vcl_surum: "v3.1.1",
+  [[MOR:root:S-D-Q]] // Sadaqa = verify
+  bilissel_cerceveler: ["HON:teineigo", "EVD:-DI", "ASP:nesov.", "CLS:tiao", "SPC:kuzey", "MOR", "COM"],
+  teknik_sayisi: 7,
+  amac: "Advanced verification and multi-perspective synthesis techniques"
+} [ground:document-manifest] [conf:0.95] [state:confirmed]
+
+[commit|confident] <promise>VERIFICATION_SYNTHESIS_VCL_V3.1.1_FULL_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

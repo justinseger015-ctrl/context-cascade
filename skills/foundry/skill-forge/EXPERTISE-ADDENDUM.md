@@ -1,268 +1,412 @@
-# Skill Forge - Expertise System Addendum
+# Skill Forge - Uzmanlik Sistemi Eki (Expertise System Addendum)
+
+<!-- VCL v3.1.1 COMPLIANT - L1 Internal Documentation -->
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_document]] -->
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
+---
 
+## S1 META BILGI CERCEVESI (Meta Information Frame)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_metadata]] -->
+<!-- [[MOR:root:U-Z-M]] Uzmanlik = root morpheme for expertise-mastery-knowledge -->
+<!-- [[COM:Uzmanlik+Sistem+Entegrasyon]] German: Expertise-System-Integration -->
 
-**Version**: 2.1.0
-**Integrates**: expertise-manager, domain-expert
-
-This addendum extends Skill Forge (now 8-phase methodology) with Agent Experts-style learning capabilities. Note: Phase 0 (Expertise Loading) is now integrated into the main SKILL.md as of v2.0.
+[define|neutral] ADDENDUM_META := {
+  surum: "2.1.0", // version
+  entegrasyon: ["expertise-manager", "domain-expert"],
+  aciklama: "Skill Forge (simdi 8-faz metodolojisi) icin Agent Experts tarzi ogrenme yetenekleri",
+  not: "Faz 0 (Uzmanlik Yukleme) v2.0 itibariyle ana SKILL.md'ye entegre edildi"
+} [ground:witnessed:version-header] [conf:0.95] [state:confirmed]
 
 ---
 
-## New Phase 0: Domain Expertise Loading
+## S2 YENI FAZ 0: ALAN UZMANLIK YUKLEME (New Phase 0: Domain Expertise Loading)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_phase]] -->
+<!-- [[MOR:root:Y-K-L]] Yukleme = root for load-mount-carry -->
+<!-- [[COM:Alan+Uzmanlik+Yukleme]] German: Domain-Expertise-Laden -->
+<!-- [[SPC:kuzey]] Primary process direction -->
 
-**Add BEFORE Phase 1 (Intent Archaeology)**
+### S2.1 Amac (Purpose)
 
-### Purpose
+[define|neutral] PHASE_0_PURPOSE := {
+  kural_adi: "Faz 0 Amaci", // Phase 0 Purpose
+  amac: "Beceri olusturmayi bilgilendirmek icin mevcut alan uzmanligini yukle ve kullan", // purpose
+  fayda: [
+    "Uzmanlik baglami ile olusturulan beceriler daha dogru", // More accurate
+    "Kod tabani ile daha iyi entegrasyon" // Better integration with codebase
+  ]
+} [ground:witnessed:phase-design] [conf:0.90] [state:confirmed]
 
-Load and leverage existing domain expertise to inform skill creation. Skills created with expertise context are more accurate and integrate better with the codebase.
+### S2.2 Surec (Process)
 
-### Process
-
-```javascript
-// PHASE 0: EXPERTISE CONTEXT LOADING
-
-// 1. Detect domain from skill request
-const domain = analyzeDomainFromRequest(skillRequest);
-
-// 2. Check for expertise file
-const expertisePath = `.claude/expertise/${domain}.yaml`;
-
-if (fileExists(expertisePath)) {
-  console.log(`[EXPERTISE] Found expertise for domain: ${domain}`);
-
-  // 3. Validate expertise is current
-  await runCommand('/expertise-validate', domain, '--fix');
-
-  // 4. Load validated expertise
-  const expertise = loadYAML(expertisePath);
-
-  // 5. Extract relevant context for skill creation
-  const context = {
-    fileLocations: expertise.file_locations,
-    patterns: expertise.patterns,
-    knownIssues: expertise.known_issues,
-    routingTemplates: expertise.routing.task_templates,
-    trustLevel: expertise.correctability.trust_level
-  };
-
-  console.log(`[EXPERTISE] Loaded context:`);
-  console.log(`  - Primary path: ${context.fileLocations.primary.path}`);
-  console.log(`  - Patterns: ${Object.keys(context.patterns).length}`);
-  console.log(`  - Known issues: ${context.knownIssues.length}`);
-  console.log(`  - Trust level: ${context.trustLevel}`);
-
-  // 6. Store for use in subsequent phases
-  setPhaseContext('expertise', context);
-} else {
-  console.log(`[EXPERTISE] No expertise file for ${domain}`);
-  console.log(`[EXPERTISE] Will generate expertise as side effect`);
-  setPhaseContext('generateExpertise', true);
-}
-```
-
----
-
-## Enhanced Phase 3: Structural Architecture
-
-**Modify to incorporate expertise context**
-
-When designing skill structure, if expertise is available:
-
-### Use Expertise File Locations
-
-```yaml
-# In generated skill
-file_context:
-  # From expertise.file_locations
-  primary_path: "${expertise.file_locations.primary.path}"
-  tests_path: "${expertise.file_locations.tests.path}"
-  config_path: "${expertise.file_locations.config.path}"
-```
-
-### Reference Expertise Patterns
-
-```yaml
-# In generated skill methodology
-methodology:
-  # Reference domain patterns from expertise
-  architecture_pattern: "${expertise.patterns.architecture.claim}"
-  data_flow: "${expertise.patterns.data_flow.claim}"
-  error_handling: "${expertise.patterns.error_handling.claim}"
-```
-
-### Incorporate Known Issues
-
-```yaml
-# In generated skill guardrails
-known_issues:
-  # From expertise.known_issues
-  ${expertise.known_issues.map(issue => `
-  - id: ${issue.id}
-    description: ${issue.description}
-    mitigation: ${issue.mitigation}
-  `)}
-```
+[define|neutral] EXPERTISE_LOADING_PROCESS := {
+  kural_adi: "Uzmanlik Yukleme Sureci", // Expertise Loading Process
+  adimlar: [
+    {
+      sira: 1,
+      ad: "Alani istekten algilama",
+      aciklama: "analyzeDomainFromRequest(skillRequest)"
+    },
+    {
+      sira: 2,
+      ad: "Uzmanlik dosyasini kontrol et",
+      yol: ".claude/expertise/${domain}.yaml"
+    },
+    {
+      sira: 3,
+      ad: "Uzmanligin guncel oldugunu dogrula",
+      komut: "/expertise-validate ${domain} --fix"
+    },
+    {
+      sira: 4,
+      ad: "Dogrulanmis uzmanligin yukle",
+      islem: "loadYAML(expertisePath)"
+    },
+    {
+      sira: 5,
+      ad: "Beceri olusturma icin ilgili baglami cikart",
+      context_fields: [
+        "fileLocations: expertise.file_locations",
+        "patterns: expertise.patterns",
+        "knownIssues: expertise.known_issues",
+        "routingTemplates: expertise.routing.task_templates",
+        "trustLevel: expertise.correctability.trust_level"
+      ]
+    },
+    {
+      sira: 6,
+      ad: "Sonraki fazlarda kullanim icin sakla",
+      islem: "setPhaseContext('expertise', context)"
+    }
+  ],
+  uzmanlik_yoksa: {
+    log: "Alan icin uzmanlik dosyasi yok",
+    islem: "setPhaseContext('generateExpertise', true)"
+  }
+} [ground:witnessed:process-design] [conf:0.88] [state:confirmed]
 
 ---
 
-## New Phase 7.5: Expertise Hook Integration
+## S3 GELISTIRILMIS FAZ 3: YAPISAL MIMARI (Enhanced Phase 3: Structural Architecture)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_architecture]] -->
+<!-- [[MOR:root:Y-P-S]] Yapi = root for structure-build-form -->
+<!-- [[COM:Yapisal+Mimari+Gelistirme]] German: Strukturelle-Architektur-Verbesserung -->
 
-**Add AFTER Phase 7 (Quality Assurance)**
+### S3.1 Uzmanlik Dosya Konumlarini Kullan (Use Expertise File Locations)
 
-### Add Expertise Hooks to Generated Skill
+[define|neutral] FILE_CONTEXT_SCHEMA := {
+  kural_adi: "Dosya Baglami Semasi", // File Context Schema
+  uzmanlik_entegrasyonu: {
+    primary_path: "${expertise.file_locations.primary.path}",
+    tests_path: "${expertise.file_locations.tests.path}",
+    config_path: "${expertise.file_locations.config.path}"
+  },
+  aciklama: "Uretilen beceride dosya konumlarini uzmanliktan al"
+} [ground:witnessed:schema-design] [conf:0.88] [state:confirmed]
 
-Every skill created for a domain with expertise should include:
+### S3.2 Uzmanlik Kaliplarini Referans Al (Reference Expertise Patterns)
 
-```yaml
-# In generated SKILL.md frontmatter
-expertise_integration:
-  domain: "${domain}"
-  requires_expertise: true
-  auto_validate: true
-  auto_update: true
+[define|neutral] METHODOLOGY_SCHEMA := {
+  kural_adi: "Metodoloji Semasi", // Methodology Schema
+  uzmanlik_referanslari: {
+    architecture_pattern: "${expertise.patterns.architecture.claim}",
+    data_flow: "${expertise.patterns.data_flow.claim}",
+    error_handling: "${expertise.patterns.error_handling.claim}"
+  },
+  aciklama: "Uretilen beceri metodolojisinde alan kaliplarini referans al"
+} [ground:witnessed:schema-design] [conf:0.85] [state:confirmed]
 
-# In generated SKILL.md hooks section
-hooks:
-  pre_execution: |
-    # Load and validate domain expertise before execution
-    if [ -f ".claude/expertise/${domain}.yaml" ]; then
-      /expertise-validate ${domain} --fix
-      export EXPERTISE_LOADED="true"
-      export EXPERTISE_DOMAIN="${domain}"
-    fi
+### S3.3 Bilinen Sorunlari Dahil Et (Incorporate Known Issues)
 
-  post_execution: |
-    # Extract learnings and propose expertise updates
-    if [ "$EXPERTISE_LOADED" = "true" ]; then
-      /expertise-extract-learnings ${EXPERTISE_DOMAIN}
-    fi
-```
-
----
-
-## New Phase 8: Expertise Generation (If No Expertise Exists)
-
-**Run ONLY if generateExpertise flag was set in Phase 0**
-
-### Generate Initial Domain Expertise
-
-When creating a skill for a domain without expertise, generate it:
-
-```javascript
-// PHASE 8: EXPERTISE GENERATION (conditional)
-
-if (getPhaseContext('generateExpertise')) {
-  console.log(`[EXPERTISE] Generating expertise for domain: ${domain}`);
-
-  // 1. Extract domain knowledge from skill analysis
-  const domainKnowledge = {
-    fileLocations: getPhaseOutput('structuralArchitecture').fileLocations,
-    patterns: getPhaseOutput('structuralArchitecture').patterns,
-    entities: getPhaseOutput('intentArchaeology').entities
-  };
-
-  // 2. Generate expertise file
-  Task("Expertise Generator",
-    `Generate initial expertise file for ${domain}:
-
-     File locations:
-     ${JSON.stringify(domainKnowledge.fileLocations, null, 2)}
-
-     Patterns:
-     ${JSON.stringify(domainKnowledge.patterns, null, 2)}
-
-     Create: .claude/expertise/${domain}.yaml
-     Set: validation_status = "needs_validation"
-     Set: trust_level = "provisional"`,
-    "knowledge-manager");
-
-  // 3. Queue for adversarial validation
-  console.log(`[EXPERTISE] Generated expertise queued for validation`);
-  console.log(`[EXPERTISE] Run: /expertise-challenge ${domain}`);
-}
-```
+[define|neutral] GUARDRAILS_SCHEMA := {
+  kural_adi: "Koruma Barikat Semasi", // Guardrails Schema
+  uzmanlik_kaynak: "expertise.known_issues",
+  dahil_edilen_alanlar: [
+    "issue.id",
+    "issue.description",
+    "issue.mitigation"
+  ],
+  aciklama: "Uretilen beceri koruma barikatlarinda bilinen sorunlari dahil et"
+} [ground:witnessed:schema-design] [conf:0.85] [state:confirmed]
 
 ---
 
-## Updated Quality Assurance Phase
+## S4 YENI FAZ 7.5: UZMANLIK KANCA ENTEGRASYONU (New Phase 7.5: Expertise Hook Integration)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_hook]] -->
+<!-- [[MOR:root:K-N-C]] Kanca = root for hook-catch-connect -->
+<!-- [[COM:Uzmanlik+Kanca+Entegrasyon]] German: Expertise-Hook-Integration -->
 
-Add expertise-specific quality checks:
-
-### Expertise Alignment Check
-
-```yaml
-quality_checks:
-  - name: expertise_alignment
-    description: Verify skill aligns with domain expertise
-    checks:
-      - skill_uses_expertise_paths: true
-      - skill_follows_expertise_patterns: true
-      - skill_references_known_issues: true
-      - skill_has_expertise_hooks: true
-```
-
-### Learning Potential Check
-
-```yaml
-quality_checks:
-  - name: learning_potential
-    description: Verify skill can contribute to expertise learning
-    checks:
-      - has_pre_execution_hook: true
-      - has_post_execution_hook: true
-      - tracks_observations: true
-      - can_propose_updates: true
-```
-
----
-
-## Integration Summary
-
-| Phase | Addition | Purpose |
-|-------|----------|---------|
-| 0 (NEW) | Expertise Loading | Load domain context |
-| 3 | Expertise in Structure | Use file locations, patterns |
-| 5 | Expertise in Instructions | Reference known issues |
-| 7 | Expertise Quality Checks | Verify alignment |
-| 7.5 (NEW) | Hook Integration | Add expertise hooks |
-| 8 (NEW) | Expertise Generation | Create if missing |
+[define|neutral] EXPERTISE_HOOK_TEMPLATE := {
+  kural_adi: "Uzmanlik Kanca Sablonu", // Expertise Hook Template
+  faz: "7.5",
+  zamanlama: "Faz 7 (Kalite Guvencesi) sonrasi", // After Phase 7
+  uygulama: {
+    frontmatter: {
+      domain: "${domain}",
+      requires_expertise: true,
+      auto_validate: true,
+      auto_update: true
+    },
+    hooks: {
+      pre_execution: {
+        aciklama: "Calistirmadan once alan uzmanligini yukle ve dogrula",
+        islemler: [
+          "Uzmanlik dosyasi var mi kontrol et",
+          "/expertise-validate ${domain} --fix calistir",
+          "EXPERTISE_LOADED ortam degiskenini ayarla",
+          "EXPERTISE_DOMAIN ortam degiskenini ayarla"
+        ]
+      },
+      post_execution: {
+        aciklama: "Ogrenimleri cikart ve uzmanlik guncellemeleri oner",
+        islemler: [
+          "EXPERTISE_LOADED kontrol et",
+          "/expertise-extract-learnings ${EXPERTISE_DOMAIN} calistir"
+        ]
+      }
+    }
+  }
+} [ground:witnessed:hook-design] [conf:0.88] [state:confirmed]
 
 ---
 
-## Usage Example
+## S5 YENI FAZ 8: UZMANLIK URETIMI (New Phase 8: Expertise Generation)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_generation]] -->
+<!-- [[MOR:root:U-R-T]] Uretim = root for generate-produce-create -->
+<!-- [[COM:Uzmanlik+Uretim+Surec]] German: Expertise-Generierungs-Prozess -->
 
-```bash
-# Creating a skill for authentication domain with expertise
-> "Create a skill for validating JWT tokens in our auth system"
-
-[EXPERTISE] Found expertise for domain: authentication
-[EXPERTISE] Validated expertise (drift: 0.12)
-[EXPERTISE] Loaded context:
-  - Primary path: src/auth/
-  - Patterns: 4
-  - Known issues: 1
-  - Trust level: validated
-
-[PHASE 1] Intent Archaeology with expertise context...
-[PHASE 2] Use Case Crystallization...
-[PHASE 3] Structural Architecture using:
-  - File locations from expertise
-  - Patterns from expertise
-[PHASE 4-7] Standard phases...
-[PHASE 7.5] Adding expertise hooks to skill...
-[DONE] Skill created with expertise integration
-```
+[define|neutral] EXPERTISE_GENERATION_PROCESS := {
+  kural_adi: "Uzmanlik Uretim Sureci", // Expertise Generation Process
+  tetikleyici: "Faz 0'da generateExpertise bayragi ayarlanmissa", // If generateExpertise flag was set in Phase 0
+  sadece_kosullu: true,
+  adimlar: [
+    {
+      sira: 1,
+      ad: "Beceri analizinden alan bilgisini cikart",
+      kaynak_fazlar: ["structuralArchitecture", "intentArchaeology"],
+      cikart: ["fileLocations", "patterns", "entities"]
+    },
+    {
+      sira: 2,
+      ad: "Uzmanlik dosyasi olustur",
+      hedef: ".claude/expertise/${domain}.yaml",
+      varsayilanlar: {
+        validation_status: "needs_validation",
+        trust_level: "provisional"
+      }
+    },
+    {
+      sira: 3,
+      ad: "Cekismeli dogrulama icin kuyrukla",
+      komut: "/expertise-challenge ${domain}",
+      log: "Uretilen uzmanlik dogrulama icin kuyruklandi"
+    }
+  ],
+  arac: "Task('Expertise Generator', ..., 'knowledge-manager')"
+} [ground:witnessed:generation-design] [conf:0.85] [state:confirmed]
 
 ---
 
-## Reference
+## S6 GUNCELLENMIS KALITE GUVENCE FAZI (Updated Quality Assurance Phase)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_quality]] -->
+<!-- [[MOR:root:K-L-T]] Kalite = root for quality-value-standard -->
+<!-- [[COM:Kalite+Guvence+Kontrol]] German: Qualitats-Sicherungs-Kontrolle -->
 
-See: `.claude/skills/EXPERTISE-INTEGRATION-MODULE.md` for full integration patterns.
+### S6.1 Uzmanlik Hizalama Kontrolu (Expertise Alignment Check)
 
+[define|neutral] EXPERTISE_ALIGNMENT_CHECK := {
+  kural_adi: "Uzmanlik Hizalama Kontrolu", // Expertise Alignment Check
+  aciklama: "Becerinin alan uzmanligiyla hizalandigini dogrula",
+  kontroller: [
+    {
+      ad: "skill_uses_expertise_paths",
+      beklenen: true,
+      aciklama: "Beceri uzmanlik yollarini kullaniyor"
+    },
+    {
+      ad: "skill_follows_expertise_patterns",
+      beklenen: true,
+      aciklama: "Beceri uzmanlik kaliplarini takip ediyor"
+    },
+    {
+      ad: "skill_references_known_issues",
+      beklenen: true,
+      aciklama: "Beceri bilinen sorunlara referans veriyor"
+    },
+    {
+      ad: "skill_has_expertise_hooks",
+      beklenen: true,
+      aciklama: "Beceri uzmanlik kancalarina sahip"
+    }
+  ]
+} [ground:witnessed:quality-check] [conf:0.88] [state:confirmed]
+
+### S6.2 Ogrenme Potansiyeli Kontrolu (Learning Potential Check)
+
+[define|neutral] LEARNING_POTENTIAL_CHECK := {
+  kural_adi: "Ogrenme Potansiyeli Kontrolu", // Learning Potential Check
+  aciklama: "Becerinin uzmanlik ogrenimine katki saglayabildigini dogrula",
+  kontroller: [
+    {
+      ad: "has_pre_execution_hook",
+      beklenen: true,
+      aciklama: "On-calistirma kancasi var"
+    },
+    {
+      ad: "has_post_execution_hook",
+      beklenen: true,
+      aciklama: "Son-calistirma kancasi var"
+    },
+    {
+      ad: "tracks_observations",
+      beklenen: true,
+      aciklama: "Gozlemleri izliyor"
+    },
+    {
+      ad: "can_propose_updates",
+      beklenen: true,
+      aciklama: "Guncellemeler onerebiliyor"
+    }
+  ]
+} [ground:witnessed:quality-check] [conf:0.85] [state:confirmed]
 
 ---
-*Promise: `<promise>EXPERTISE_ADDENDUM_VERIX_COMPLIANT</promise>`*
+
+## S7 ENTEGRASYON OZETI CERCEVESI (Integration Summary Frame)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:tiao_summary]] -->
+<!-- [[MOR:root:O-Z-T]] Ozet = root for summary-abstract-brief -->
+<!-- [[COM:Entegrasyon+Ozet+Tablo]] German: Integration-Zusammenfassung-Tabelle -->
+
+[define|neutral] INTEGRATION_SUMMARY := {
+  kural_adi: "Entegrasyon Ozeti", // Integration Summary
+  faz_eklemeleri: [
+    {
+      faz: "0 (YENI)",
+      ekleme: "Uzmanlik Yukleme",
+      amac: "Alan baglamini yukle"
+    },
+    {
+      faz: "3",
+      ekleme: "Yapida Uzmanlik",
+      amac: "Dosya konumlari, kaliplari kullan"
+    },
+    {
+      faz: "5",
+      ekleme: "Talimatlarda Uzmanlik",
+      amac: "Bilinen sorunlara referans"
+    },
+    {
+      faz: "7",
+      ekleme: "Uzmanlik Kalite Kontrolleri",
+      amac: "Hizalamayi dogrula"
+    },
+    {
+      faz: "7.5 (YENI)",
+      ekleme: "Kanca Entegrasyonu",
+      amac: "Uzmanlik kancalari ekle"
+    },
+    {
+      faz: "8 (YENI)",
+      ekleme: "Uzmanlik Uretimi",
+      amac: "Eksikse olustur"
+    }
+  ]
+} [ground:witnessed:integration-design] [conf:0.90] [state:confirmed]
+
+---
+
+## S8 KULLANIM ORNEGI CERCEVESI (Usage Example Frame)
+<!-- [[HON:teineigo]] [[EVD:-mis<arastirma>]] [[ASP:sov.]] [[CLS:ge_example]] -->
+<!-- [[MOR:root:O-R-N]] Ornek = root for example-sample-instance -->
+<!-- [[COM:Kullanim+Ornek+Gosterim]] German: Verwendungs-Beispiel-Demonstration -->
+
+[assert|neutral] USAGE_EXAMPLE := {
+  kural_adi: "Kullanim Ornegi", // Usage Example
+  senaryo: "Uzmanlik ile kimlik dogrulama alani icin beceri olusturma",
+  kullanici_istegi: "Auth sistemimizdeki JWT tokenlerini dogrulamak icin beceri olustur",
+  akis: [
+    {
+      log: "[UZMANLIK] Alan icin uzmanlik bulundu: authentication",
+      detay: null
+    },
+    {
+      log: "[UZMANLIK] Uzmanlik dogrulandi (kayma: 0.12)",
+      detay: null
+    },
+    {
+      log: "[UZMANLIK] Baglam yuklendi:",
+      detay: [
+        "- Birincil yol: src/auth/",
+        "- Kaliplar: 4",
+        "- Bilinen sorunlar: 1",
+        "- Guven seviyesi: dogrulanmis"
+      ]
+    },
+    {
+      log: "[FAZ 1] Uzmanlik baglami ile Niyet Arkeolojisi...",
+      detay: null
+    },
+    {
+      log: "[FAZ 2] Kullanim Senaryosu Kristalizasyonu...",
+      detay: null
+    },
+    {
+      log: "[FAZ 3] Yapisal Mimari kullaniyor:",
+      detay: [
+        "- Uzmanliktan dosya konumlari",
+        "- Uzmanliktan kaliplar"
+      ]
+    },
+    {
+      log: "[FAZ 4-7] Standart fazlar...",
+      detay: null
+    },
+    {
+      log: "[FAZ 7.5] Beceriye uzmanlik kancalari ekleniyor...",
+      detay: null
+    },
+    {
+      log: "[TAMAMLANDI] Uzmanlik entegrasyonu ile beceri olusturuldu",
+      detay: null
+    }
+  ]
+} [ground:reported:example-execution] [conf:0.82] [state:confirmed]
+
+---
+
+## S9 REFERANS CERCEVESI (Reference Frame)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_reference]] -->
+<!-- [[MOR:root:R-F-R]] Referans = root for reference-consult-cite -->
+<!-- [[COM:Referans+Dokuman+Yol]] German: Referenz-Dokument-Pfad -->
+
+[assert|neutral] REFERENCE := {
+  kural_adi: "Referans", // Reference
+  dokuman: ".claude/skills/EXPERTISE-INTEGRATION-MODULE.md",
+  aciklama: "Tam entegrasyon kaliplari icin bakiniz"
+} [ground:witnessed:reference-link] [conf:0.95] [state:confirmed]
+
+---
+
+## S10 SONUC CERCEVESI (Conclusion Frame)
+<!-- [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_summary]] -->
+<!-- [[MOR:root:S-N-C]] Sonuc = root for conclusion-result-end -->
+<!-- [[COM:Sonuc+Ozet+Bildiri]] German: Schlussfolgerung-Zusammenfassung -->
+Zaversheno. (Russian: Complete.)
+
+[assert|confident] ADDENDUM_SUMMARY := {
+  amac: "Skill Forge icin Agent Experts tarzi ogrenme yetenekleri", // purpose
+  metodoloji: "8-fazli uzmanlik-entegre beceri olusturma", // methodology
+  ciktilar: [
+    "Alan uzmanlik yukleme (Faz 0)",
+    "Uzmanlik-bilincli yapi tasarimi",
+    "Otomatik uzmanlik kancalari",
+    "Yeni alanlar icin uzmanlik uretimi"
+  ],
+  kalite_kapilari: ["Uzmanlik hizalama kontrolu", "Ogrenme potansiyeli kontrolu"]
+} [ground:witnessed:implementation] [conf:0.90] [state:confirmed]
+
+---
+
+*Promise: `<promise>EXPERTISE_ADDENDUM_VCL_V3.1.1_COMPLIANT</promise>`*

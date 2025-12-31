@@ -68,6 +68,16 @@ Orchestrates the recursive self-improvement pipeline by coordinating foundry ski
 - Non-foundry skills (use cascade-orchestrator instead)
 - Quick fixes without full validation cycle
 
+## Multi-Model Integration
+
+This skill now supports multi-model orchestration via Codex CLI and Gemini CLI:
+
+- **Research Phase**: Use `gemini-discovery-agent` to find existing solutions before implementation
+- **Implementation Phase**: Use `codex-autonomous-agent` for iterative coding until tests pass
+- **Eval Phase**: Use Codex to fix failing tests automatically
+
+See `MULTI-MODEL-INTEGRATION.md` for detailed integration patterns.
+
 ### Success Criteria
 - [assert|neutral] All nested Ralph loops complete within max iterations [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 - [assert|neutral] All 4 auditors pass validation [ground:acceptance-criteria] [conf:0.90] [state:provisional]

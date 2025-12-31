@@ -1,0 +1,13 @@
+{
+  "run_id": "20251231T004544Z_7f1f1u781767141944",
+  "mode": "codex",
+  "cwd": "/c/Users/17175/claude-code-plugins/context-cascade/scripts/multi-model",
+  "outdir": "/c/Users/17175/claude-code-plugins/context-cascade/scripts/multi-model/.delegate-logs",
+  "command": "codex exec --help",
+  "prompt": "--help",
+  "raw_command": "",
+  "stdout_file": "codex_20251231T004544Z_7f1f1u781767141944.stdout",
+  "stderr_file": "codex_20251231T004544Z_7f1f1u781767141944.stderr",
+  "exit_code": 0,
+  "timestamp": "2025-12-30T19:45:47-05:00"
+}

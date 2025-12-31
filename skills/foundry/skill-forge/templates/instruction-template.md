@@ -1,339 +1,454 @@
-# Skill Instructions Template (Quick Track - Phase 5)
+---
+<!-- SABLON DOKUMANI [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[CLS:ge_template]] -->
+---
+
+# Beceri Talimat Sablonu (Skill Instructions Template - Quick Track - Phase 5)
 
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
-
-
-**Time**: 10 minutes | **Purpose**: Write clear, actionable instructions with explicit success criteria
-
----
-
-## Usage Instructions
-
-Replace all `[PLACEHOLDER]` sections with your skill-specific content. Follow the anti-pattern guidelines at the bottom.
+<!-- [[MOR:root:T-L-M]] Talimat = root for instruction-command-directive -->
+<!-- [[COM:Beceri+Talimat+Sablon+Belgesi]] Skill Instructions Template Document -->
+<!-- [[ASP:nesov.]] Devam ediyor. Prodolzhaetsya. (Template to be filled) -->
+<!-- [[SPC:merkez/sablon]] Central template location -->
 
 ---
 
-## Instructions for Claude
+## Sablon Tanimlari (Template Definitions)
 
-When this skill is activated, follow these steps to [PRIMARY GOAL].
+[define|neutral] INSTRUCTION_TEMPLATE := {
+  id: "TPL-INS-001",
+  sablon_adi: "Beceri Talimat Sablonu",
+  amac: "Acik basari kriterleriyle acik, eyleme donusturulebilir talimatlar yazmak",
+  kullanim: "Faz 5 - Talimat Olusturma sirasinda kullanilir",
+  sure: "10 dakika",
+  arastirma_temeli: "Liu et al. (2023), Zhou et al. (2023) - Kanita dayali istem teknikleri"
+} [ground:witnessed:template-usage] [conf:0.90] [state:confirmed]
 
-### Step 1: [PHASE NAME - VALIDATION/SETUP]
+---
 
-**Action**: [Clear imperative verb] + [what to do]
+## Kullanim Talimatlari (Usage Instructions)
 
-**Example**: Validate that the input file exists and is readable.
+<!-- [[EVD:-DI<gozlem>]] Dogrudan gozlem gerektiren talimatlar -->
 
-**Implementation**:
+[direct|neutral] Tum `[YER_TUTUCU]` bolumlerini beceriye ozel icerikle degistirin. Alttaki anti-kalip rehberine uyun. [ground:witnessed:usage-instructions] [conf:0.90] [state:confirmed]
+
+---
+
+## Claude Icin Talimatlar (Instructions for Claude)
+
+Bu beceri aktive edildiginde, [BIRINCIL_HEDEF]'i gerceklestirmek icin bu adimlari takip edin.
+
+### Adim 1: [FAZ_ADI - DOGRULAMA/KURULUM]
+
+<!-- [[MOR:root:D-G-R]] Dogrulama = root for validation-setup-check -->
+
+[define|neutral] STEP_1_TEMPLATE := {
+  adim_adi: "[Dogrulama/Kurulum Fazi]",
+  eylem: "[Net emir kipi fiil] + [ne yapilacak]",
+  ornek: "Giris dosyasinin var oldugunu ve okunabilir oldugunu dogrula"
+} [ground:witnessed:step-template] [conf:0.88] [state:confirmed]
+
+**Eylem**: [Net emir kipi fiil] + [ne yapilacak]
+
+**Ornek**: Belirtilen dosyanin var oldugunu ve okunabilir oldugunu dogrula.
+
+**Uygulama**:
 ```bash
-# Check file exists
-if [ ! -f "[FILE_PATH]" ]; then
-    echo "Error: File '[FILE_PATH]' not found."
+# Dosya varligini kontrol et
+if [ ! -f "[DOSYA_YOLU]" ]; then
+    echo "Hata: '[DOSYA_YOLU]' dosyasi bulunamadi."
     exit 1
 fi
 
-# Verify file is readable
-if [ ! -r "[FILE_PATH]" ]; then
-    echo "Error: File '[FILE_PATH]' is not readable. Check permissions."
-    exit 1
-fi
-```
-
-**Success Criteria**:
-- ✓ File exists at specified path
-- ✓ File is readable (not a permissions error)
-- ✓ File is non-empty (size > 0 bytes)
-
-**Error Handling**:
-- If file not found → Display error message with file path, abort
-- If permissions denied → Display error with permission fix instructions, abort
-- If file empty → Warn user, ask whether to proceed or abort
-
----
-
-### Step 2: [PHASE NAME - CORE OPERATION]
-
-**Action**: [Clear imperative verb] + [what to do]
-
-**Example**: Run the formatter on the file and capture output.
-
-**Implementation**:
-```bash
-# Run formatter with timeout
-timeout 60s [FORMATTER_COMMAND] "[FILE_PATH]" > /tmp/formatter-output.txt 2>&1
-exit_code=$?
-
-if [ $exit_code -eq 124 ]; then
-    echo "Error: Formatter timed out after 60 seconds."
-    exit 1
-elif [ $exit_code -ne 0 ]; then
-    echo "Error: Formatter failed with exit code $exit_code"
-    cat /tmp/formatter-output.txt
+# Dosyanin okunabilir oldugunu dogrula
+if [ ! -r "[DOSYA_YOLU]" ]; then
+    echo "Hata: '[DOSYA_YOLU]' dosyasi okunamiyor. Izinleri kontrol edin."
     exit 1
 fi
 ```
 
-**Success Criteria**:
-- ✓ Formatter completes within 60 seconds
-- ✓ Formatter exits with code 0 (success)
-- ✓ Output file is created/modified
+**Basari Kriterleri**:
+- [assert|neutral] Dosya belirtilen yolda var [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Dosya okunabilir (izin hatasi yok) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Dosya bos degil (boyut > 0 bayt) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
-**Error Handling**:
-- If timeout → Display timeout message, abort
-- If formatter error → Display formatter output, abort
-- If syntax error → Display error location, ask user to fix first
+**Hata Isleme**:
+- Dosya bulunamazsa -> Dosya yoluyla hata mesaji goster, iptal et
+- Izin reddedilirse -> Izin duzeltme talimatlariyla hata goster, iptal et
+- Dosya bossa -> Kullaniciyi uyar, devam mi iptal mi sor
 
 ---
 
-### Step 3: [PHASE NAME - VERIFICATION/OUTPUT]
+### Adim 2: [FAZ_ADI - TEMEL_ISLEM]
 
-**Action**: [Clear imperative verb] + [what to do]
+<!-- [[MOR:root:T-M-L]] Temel = root for core-operation-action -->
 
-**Example**: Verify formatting was applied and report changes.
+[define|neutral] STEP_2_TEMPLATE := {
+  adim_adi: "[Temel Islem Fazi]",
+  eylem: "[Net emir kipi fiil] + [ne yapilacak]",
+  ornek: "Formatlayiciyi dosya uzerinde calistir ve ciktiyi yakala"
+} [ground:witnessed:step-template] [conf:0.88] [state:confirmed]
 
-**Implementation**:
+**Eylem**: [Net emir kipi fiil] + [ne yapilacak]
+
+**Ornek**: Formatlayiciyi dosya uzerinde calistir ve ciktiyi yakala.
+
+**Uygulama**:
 ```bash
-# Compare original and formatted versions
-changes=$(diff -u "[FILE_PATH].backup" "[FILE_PATH]" | wc -l)
+# Formatlayiciyi zaman asimi ile calistir
+timeout 60s [FORMATLAYICI_KOMUTU] "[DOSYA_YOLU]" > /tmp/formatlayici-cikti.txt 2>&1
+cikis_kodu=$?
 
-if [ $changes -eq 0 ]; then
-    echo "No formatting changes needed."
+if [ $cikis_kodu -eq 124 ]; then
+    echo "Hata: Formatlayici 60 saniye sonra zaman asimina ugradi."
+    exit 1
+elif [ $cikis_kodu -ne 0 ]; then
+    echo "Hata: Formatlayici $cikis_kodu cikis koduyla basarisiz oldu"
+    cat /tmp/formatlayici-cikti.txt
+    exit 1
+fi
+```
+
+**Basari Kriterleri**:
+- [assert|neutral] Formatlayici 60 saniye icinde tamamlanir [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Formatlayici kod 0 (basari) ile cikar [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Cikti dosyasi olusturulur/degistirilir [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+
+**Hata Isleme**:
+- Zaman asimi olursa -> Zaman asimi mesaji goster, iptal et
+- Formatlayici hatasi olursa -> Formatlayici ciktisini goster, iptal et
+- Sozdizimi hatasi varsa -> Hata konumunu goster, kullanicidan once duzeltmesini iste
+
+---
+
+### Adim 3: [FAZ_ADI - DOGRULAMA/CIKTI]
+
+<!-- [[MOR:root:D-G-C]] Dogrulama/Cikti = root for verification-output-report -->
+
+[define|neutral] STEP_3_TEMPLATE := {
+  adim_adi: "[Dogrulama/Cikti Fazi]",
+  eylem: "[Net emir kipi fiil] + [ne yapilacak]",
+  ornek: "Formatlama uygulandigini dogrula ve degisiklikleri raporla"
+} [ground:witnessed:step-template] [conf:0.88] [state:confirmed]
+
+**Eylem**: [Net emir kipi fiil] + [ne yapilacak]
+
+**Ornek**: Formatlama uygulandigini dogrula ve degisiklikleri raporla.
+
+**Uygulama**:
+```bash
+# Orijinal ve formatli surumu karsilastir
+degisiklikler=$(diff -u "[DOSYA_YOLU].yedek" "[DOSYA_YOLU]" | wc -l)
+
+if [ $degisiklikler -eq 0 ]; then
+    echo "Formatlama degisikligi gerekli degil."
 else
-    echo "Formatted file: $changes lines changed."
-    echo "Backup saved to: [FILE_PATH].backup"
+    echo "Dosya formatlandi: $degisiklikler satir degistirildi."
+    echo "Yedek: [DOSYA_YOLU].yedek"
 fi
 ```
 
-**Success Criteria**:
-- ✓ Diff between original and formatted is computed
-- ✓ User receives clear feedback (X lines changed)
-- ✓ Backup file is preserved for rollback
+**Basari Kriterleri**:
+- [assert|neutral] Orijinal ve formatli arasindaki fark hesaplandi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Kullanici net geri bildirim aldi (X satir degistirildi) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Yedek dosya geri alma icin korundu [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
-**Error Handling**:
-- If diff fails → Display error, but don't abort (formatting may still be valid)
-- If backup fails → Warn user, but continue (formatting is more important)
+**Hata Isleme**:
+- Diff basarisiz olursa -> Hata goster, ama iptal etme (formatlama hala gecerli olabilir)
+- Yedek basarisiz olursa -> Kullaniciyi uyar, ama devam et (formatlama daha onemli)
 
 ---
 
-### Step 4: [PHASE NAME - CLEANUP/FINALIZATION]
+### Adim 4: [FAZ_ADI - TEMIZLIK/SONLANDIRMA]
 
-**Action**: [Clear imperative verb] + [what to do]
+<!-- [[MOR:root:T-M-Z]] Temizlik = root for cleanup-finalization-complete -->
+<!-- [[ASP:sov.]] Tamamlandi. Zaversheno. (Cleanup complete) -->
 
-**Example**: Clean up temporary files and display final summary.
+[define|neutral] STEP_4_TEMPLATE := {
+  adim_adi: "[Temizlik/Sonlandirma Fazi]",
+  eylem: "[Net emir kipi fiil] + [ne yapilacak]",
+  ornek: "Gecici dosyalari temizle ve son ozeti goster"
+} [ground:witnessed:step-template] [conf:0.88] [state:confirmed]
 
-**Implementation**:
+**Eylem**: [Net emir kipi fiil] + [ne yapilacak]
+
+**Ornek**: Gecici dosyalari temizle ve son ozeti goster.
+
+**Uygulama**:
 ```bash
-# Remove temporary files
-rm -f /tmp/formatter-output.txt
+# Gecici dosyalari kaldir
+rm -f /tmp/formatlayici-cikti.txt
 
-# Display summary
+# Ozeti goster
 echo "---"
-echo "Formatting complete!"
-echo "File: [FILE_PATH]"
-echo "Changes: $changes lines"
-echo "Time: ${SECONDS}s"
+echo "Formatlama tamamlandi!"
+echo "Dosya: [DOSYA_YOLU]"
+echo "Degisiklikler: $degisiklikler satir"
+echo "Sure: ${SECONDS}s"
 echo "---"
 ```
 
-**Success Criteria**:
-- ✓ Temporary files removed
-- ✓ User receives clear summary of what happened
-- ✓ Exit code indicates success (0) or failure (non-zero)
+**Basari Kriterleri**:
+- [assert|neutral] Gecici dosyalar kaldirildi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Kullanici ne olduguna dair net ozet aldi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Cikis kodu basari (0) veya basarisizlik (sifir olmayan) gosterir [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
-**Error Handling**:
-- If cleanup fails → Warn but don't abort (not critical)
-- If display fails → Silently continue (formatting already done)
+**Hata Isleme**:
+- Temizlik basarisiz olursa -> Uyar ama iptal etme (kritik degil)
+- Gosterim basarisiz olursa -> Sessizce devam et (formatlama zaten yapildi)
 
 ---
 
-## Edge Cases & Special Handling
+## Uc Vakalar ve Ozel Isleme (Edge Cases & Special Handling)
 
-### Edge Case 1: [SCENARIO]
+<!-- [[MOR:root:U-C-V]] Uc Vaka = root for edge-case-special-handling -->
 
-**When**: [Conditions that trigger this edge case]
+### Uc Vaka 1: [SENARYO]
 
-**Example**: When file has mixed line endings (CRLF and LF)
+[define|neutral] EDGE_CASE_1 := {
+  senaryo: "[Kosullar]",
+  ornek: "Dosyada karisik satir sonlari (CRLF ve LF) var"
+} [ground:witnessed:edge-case] [conf:0.85] [state:provisional]
 
-**Handling**:
+**Ne Zaman**: [Bu uc vakayi tetikleyen kosullar]
+
+**Ornek**: Dosyada karisik satir sonlari (CRLF ve LF) var
+
+**Isleme**:
 ```bash
-# Detect line endings
-line_endings=$(file "[FILE_PATH]" | grep -o "CRLF\|LF")
+# Satir sonlarini tespit et
+satir_sonlari=$(file "[DOSYA_YOLU]" | grep -o "CRLF\|LF")
 
-if [[ "$line_endings" == *"CRLF"* && "$line_endings" == *"LF"* ]]; then
-    echo "Warning: Mixed line endings detected. Normalizing to LF."
-    dos2unix "[FILE_PATH]"
+if [[ "$satir_sonlari" == *"CRLF"* && "$satir_sonlari" == *"LF"* ]]; then
+    echo "Uyari: Karisik satir sonlari tespit edildi. LF'ye normallestiriliyor."
+    dos2unix "[DOSYA_YOLU]"
 fi
 ```
 
-**Success Criteria**:
-- ✓ Mixed line endings detected and reported
-- ✓ Line endings normalized to LF (Unix style)
+**Basari Kriterleri**:
+- [assert|neutral] Karisik satir sonlari tespit edildi ve raporlandi [ground:acceptance-criteria] [conf:0.85] [state:provisional]
+- [assert|neutral] Satir sonlari LF'ye (Unix stili) normallendi [ground:acceptance-criteria] [conf:0.85] [state:provisional]
 
 ---
 
-### Edge Case 2: [SCENARIO]
+### Uc Vaka 2: [SENARYO]
 
-**When**: [Conditions that trigger this edge case]
+[define|neutral] EDGE_CASE_2 := {
+  senaryo: "[Kosullar]",
+  ornek: "Formatlayici kurulu degil"
+} [ground:witnessed:edge-case] [conf:0.85] [state:provisional]
 
-**Example**: When formatter is not installed
+**Ne Zaman**: [Bu uc vakayi tetikleyen kosullar]
 
-**Handling**:
+**Ornek**: Formatlayici kurulu degil
+
+**Isleme**:
 ```bash
-# Check if formatter is available
-if ! command -v [FORMATTER] &> /dev/null; then
-    echo "Error: [FORMATTER] is not installed."
-    echo "Install with: [INSTALLATION_COMMAND]"
-    echo "Continue without [FORMATTER]? (y/n)"
-    read -r response
-    if [[ "$response" != "y" ]]; then
+# Formatlayicinin mevcut olup olmadigini kontrol et
+if ! command -v [FORMATLAYICI] &> /dev/null; then
+    echo "Hata: [FORMATLAYICI] kurulu degil."
+    echo "Su komutla kurun: [KURULUM_KOMUTU]"
+    echo "[FORMATLAYICI] olmadan devam edilsin mi? (e/h)"
+    read -r yanit
+    if [[ "$yanit" != "e" ]]; then
         exit 1
     fi
 fi
 ```
 
-**Success Criteria**:
-- ✓ Missing formatter detected and reported
-- ✓ Installation instructions provided
-- ✓ User can choose to abort or continue
+**Basari Kriterleri**:
+- [assert|neutral] Eksik formatlayici tespit edildi ve raporlandi [ground:acceptance-criteria] [conf:0.85] [state:provisional]
+- [assert|neutral] Kurulum talimatlari saglandi [ground:acceptance-criteria] [conf:0.85] [state:provisional]
+- [assert|neutral] Kullanici iptal veya devam secebilir [ground:acceptance-criteria] [conf:0.85] [state:provisional]
 
 ---
 
-### Edge Case 3: [SCENARIO]
+### Uc Vaka 3: [SENARYO]
 
-**When**: [Conditions that trigger this edge case]
+[define|neutral] EDGE_CASE_3 := {
+  senaryo: "[Kosullar]",
+  ornek: "Dosya cok buyuk (>10MB)"
+} [ground:witnessed:edge-case] [conf:0.85] [state:provisional]
 
-**Example**: When file is too large (>10MB)
+**Ne Zaman**: [Bu uc vakayi tetikleyen kosullar]
 
-**Handling**:
+**Ornek**: Dosya cok buyuk (>10MB)
+
+**Isleme**:
 ```bash
-# Check file size
-file_size=$(stat -f%z "[FILE_PATH]" 2>/dev/null || stat -c%s "[FILE_PATH]")
-max_size=$((10 * 1024 * 1024))  # 10MB
+# Dosya boyutunu kontrol et
+dosya_boyutu=$(stat -f%z "[DOSYA_YOLU]" 2>/dev/null || stat -c%s "[DOSYA_YOLU]")
+max_boyut=$((10 * 1024 * 1024))  # 10MB
 
-if [ $file_size -gt $max_size ]; then
-    echo "Warning: File is $(($file_size / 1024 / 1024))MB (max: 10MB)"
-    echo "Large files may take a long time. Continue? (y/n)"
-    read -r response
-    if [[ "$response" != "y" ]]; then
+if [ $dosya_boyutu -gt $max_boyut ]; then
+    echo "Uyari: Dosya $(($dosya_boyutu / 1024 / 1024))MB (max: 10MB)"
+    echo "Buyuk dosyalar uzun surebilir. Devam edilsin mi? (e/h)"
+    read -r yanit
+    if [[ "$yanit" != "e" ]]; then
         exit 1
     fi
 fi
 ```
 
-**Success Criteria**:
-- ✓ Large file detected and reported
-- ✓ User warned about potential delays
-- ✓ User can choose to abort or continue
+**Basari Kriterleri**:
+- [assert|neutral] Buyuk dosya tespit edildi ve raporlandi [ground:acceptance-criteria] [conf:0.85] [state:provisional]
+- [assert|neutral] Kullanici potansiyel gecikmeler hakkinda uyarildi [ground:acceptance-criteria] [conf:0.85] [state:provisional]
+- [assert|neutral] Kullanici iptal veya devam secebilir [ground:acceptance-criteria] [conf:0.85] [state:provisional]
 
 ---
 
-## Error Codes & Recovery
+## Hata Kodlari ve Kurtarma (Error Codes & Recovery)
 
-| Code | Error | User Message | Recovery Strategy |
-|------|-------|--------------|-------------------|
-| 1 | File not found | "Error: File '[FILE_PATH]' not found." | Check path, try again |
-| 2 | Permissions denied | "Error: Cannot read '[FILE_PATH]'. Fix with: chmod +r '[FILE_PATH]'" | Fix permissions, try again |
-| 3 | Formatter not installed | "Error: [FORMATTER] not installed. Install with: [COMMAND]" | Install formatter, try again |
-| 4 | Formatter timeout | "Error: Formatter timed out after 60s." | Use smaller file or increase timeout |
-| 5 | Syntax error | "Error: Syntax error at line [N]: [MESSAGE]" | Fix syntax error, try again |
-| 10 | Unknown error | "Error: Unexpected failure. Check logs." | Review logs, report issue |
+<!-- [[CLS:tiao_hata]] Classification: error codes -->
 
----
+[define|neutral] ERROR_CODES := {
+  hata_kodlari: [
+    {kod: 1, hata: "Dosya bulunamadi", mesaj: "Hata: '[DOSYA_YOLU]' dosyasi bulunamadi.", kurtarma: "Yolu kontrol edin, tekrar deneyin"},
+    {kod: 2, hata: "Izin reddedildi", mesaj: "Hata: '[DOSYA_YOLU]' okunamiyor. Duzeltmek icin: chmod +r '[DOSYA_YOLU]'", kurtarma: "Izinleri duzelt, tekrar dene"},
+    {kod: 3, hata: "Formatlayici kurulu degil", mesaj: "Hata: [FORMATLAYICI] kurulu degil. Su komutla kurun: [KOMUT]", kurtarma: "Formatlayiciyi kur, tekrar dene"},
+    {kod: 4, hata: "Formatlayici zaman asimi", mesaj: "Hata: Formatlayici 60s sonra zaman asimina ugradi.", kurtarma: "Daha kucuk dosya kullan veya zaman asimini artir"},
+    {kod: 5, hata: "Sozdizimi hatasi", mesaj: "Hata: Satir [N]'de sozdizimi hatasi: [MESAJ]", kurtarma: "Sozdizimi hatasini duzelt, tekrar dene"},
+    {kod: 10, hata: "Bilinmeyen hata", mesaj: "Hata: Beklenmedik basarisizlik. Gunlukleri kontrol edin.", kurtarma: "Gunlukleri incele, sorun raporla"}
+  ]
+} [ground:witnessed:error-handling] [conf:0.90] [state:confirmed]
 
-## Success Verification Checklist
-- [assert|neutral] After execution, verify: [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ File was formatted according to style guide [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ Original file backed up before modification [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ User received clear feedback on changes [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ No data loss or corruption [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] ✓ Exit code indicates success/failure correctly [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] - [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-
-## Performance Expectations
-
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| **Execution Time** | <5 seconds for typical file | Stopwatch |
-| **Max File Size** | 10MB | File size check |
-| **Timeout** | 60 seconds max | Timeout mechanism |
-| **Memory Usage** | <100MB | Process monitor |
+| Kod | Hata | Kullanici Mesaji | Kurtarma Stratejisi |
+|-----|------|------------------|---------------------|
+| 1 | Dosya bulunamadi | "Hata: '[YOLU]' dosyasi bulunamadi." | Yolu kontrol et, tekrar dene |
+| 2 | Izin reddedildi | "Hata: '[YOLU]' okunamiyor. Duzeltmek icin: chmod +r" | Izinleri duzelt, tekrar dene |
+| 3 | Formatlayici kurulu degil | "Hata: [FORMATLAYICI] kurulu degil. Su komutla kurun: [KOMUT]" | Formatlayiciyi kur, tekrar dene |
+| 4 | Formatlayici zaman asimi | "Hata: Formatlayici 60s sonra zaman asimina ugradi." | Daha kucuk dosya veya zaman asimini artir |
+| 5 | Sozdizimi hatasi | "Hata: Satir [N]'de sozdizimi hatasi: [MESAJ]" | Sozdizimini duzelt, tekrar dene |
+| 10 | Bilinmeyen hata | "Hata: Beklenmedik basarisizlik. Gunlukleri kontrol edin." | Gunlukleri incele, sorun raporla |
 
 ---
 
-## Anti-Pattern Checklist (Review before finalizing)
+## Basari Dogrulama Kontrol Listesi (Success Verification Checklist)
 
-**AVOID** these common instruction anti-patterns:
+<!-- [[MOR:root:B-S-R]] Basari = root for success-verification-checklist -->
 
-### ❌ Vague Verbs
-- **Bad**: "Handle the file formatting"
-- **Good**: "Run Prettier on the file and capture output"
+[direct|neutral] Yurutmeden sonra dogrula [ground:acceptance-criteria] [conf:0.90] [state:confirmed]
 
-### ❌ Missing Success Criteria
-- **Bad**: "Format the file."
-- **Good**: "Format the file. Success: File formatted without errors, changes_made ≥ 0"
-
-### ❌ No Error Handling
-- **Bad**: "Run formatter: prettier file.js"
-- **Good**: "Run formatter with timeout and error capture: timeout 60s prettier file.js || handle_error"
-
-### ❌ Ambiguous Instructions
-- **Bad**: "Check if the formatter is available"
-- **Good**: "Check if formatter exists: command -v prettier &> /dev/null"
-
-### ❌ No Edge Cases
-- **Bad**: "Format all files in directory"
-- **Good**: "Format all .js files in directory. Handle: no files found, syntax errors, large files (>10MB)"
-
-### ❌ Missing Examples
-- **Bad**: "Use the appropriate formatter for each file type"
-- **Good**: "Use Prettier for .js/.jsx, Black for .py, rustfmt for .rs. Example: prettier --write src/*.js"
-
-### ❌ No Verification
-- **Bad**: "Format complete."
-- **Good**: "Format complete. Verify: diff original vs formatted, count changes, backup exists"
+- [assert|neutral] Dosya stil rehberine gore formatlandi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Degisiklikten once orijinal dosya yedeklendi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Kullanici degisiklikler hakkinda net geri bildirim aldi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Veri kaybi veya bozulmasi yok [ground:acceptance-criteria] [conf:0.90] [state:provisional]
+- [assert|neutral] Cikis kodu basari/basarisizligi dogru gosteriyor [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 ---
 
-## Validation Before Deployment
+## Performans Beklentileri (Performance Expectations)
 
-Run these checks:
-1. Every step has explicit success criteria ✓
-2. Every step has error handling ✓
-3. At least 3 edge cases documented ✓
-4. Error codes table complete ✓
-5. Performance expectations defined ✓
-6. No anti-patterns present ✓
+<!-- [[CLS:ge_metrik]] Classification: metrics -->
 
-**If all checks pass** → Proceed to Phase 6 (Resource Development)
-**If any checks fail** → Revise instructions until all pass
+[define|neutral] PERFORMANCE_EXPECTATIONS := {
+  metrikler: [
+    {metrik: "Yurutme Suresi", hedef: "Tipik dosya icin <5 saniye", olcum: "Kronometre"},
+    {metrik: "Maksimum Dosya Boyutu", hedef: "10MB", olcum: "Dosya boyutu kontrolu"},
+    {metrik: "Zaman Asimi", hedef: "Maksimum 60 saniye", olcum: "Zaman asimi mekanizmasi"},
+    {metrik: "Bellek Kullanimi", hedef: "<100MB", olcum: "Surec izleyici"}
+  ]
+} [ground:witnessed:performance-targets] [conf:0.88] [state:confirmed]
+
+| Metrik | Hedef | Olcum |
+|--------|-------|-------|
+| **Yurutme Suresi** | Tipik dosya icin <5 saniye | Gercek calisma suresi |
+| **Maksimum Dosya Boyutu** | 10MB | Dosya boyutu kontrolu |
+| **Zaman Asimi** | Maksimum 60 saniye | Zaman asimi mekanizmasi |
+| **Bellek Kullanimi** | <100MB | Surec izleyici |
 
 ---
 
-## Time Investment & ROI
+## Anti-Kalip Kontrol Listesi (Anti-Pattern Checklist)
 
-**Time to Complete**: 10-15 minutes
+<!-- [[MOR:root:A-N-T]] Anti-Kalip = root for anti-pattern-mistake -->
+
+[direct|neutral] Sonlandirmadan once inceleyin [ground:witnessed:anti-patterns] [conf:0.90] [state:confirmed]
+
+Bu yaygin talimat anti-kaliplerinden **KACININ**:
+
+### Belirsiz Fiiller
+- **Kotu**: "Dosya formatlamasini isle"
+- **Iyi**: "Prettier'i dosya uzerinde calistir ve ciktiyi yakala"
+
+### Eksik Basari Kriterleri
+- **Kotu**: "Dosyayi formatla."
+- **Iyi**: "Dosyayi formatla. Basari: Dosya hatasiz formatlandi, degisiklik_sayisi >= 0"
+
+### Hata Isleme Yok
+- **Kotu**: "Formatlayiciyi calistir: prettier file.js"
+- **Iyi**: "Formatlayiciyi zaman asimi ve hata yakalama ile calistir: timeout 60s prettier file.js || hata_isle"
+
+### Belirsiz Talimatlar
+- **Kotu**: "Formatlayicinin mevcut olup olmadigini kontrol et"
+- **Iyi**: "Formatlayicinin var olup olmadigini kontrol et: command -v prettier &> /dev/null"
+
+### Uc Vaka Yok
+- **Kotu**: "Dizindeki tum dosyalari formatla"
+- **Iyi**: "Dizindeki tum .js dosyalarini formatla. Isle: dosya bulunamadi, sozdizimi hatalari, buyuk dosyalar (>10MB)"
+
+### Eksik Ornekler
+- **Kotu**: "Her dosya turu icin uygun formatlayiciyi kullan"
+- **Iyi**: ".js/.jsx icin Prettier, .py icin Black, .rs icin rustfmt kullan. Ornek: prettier --write src/*.js"
+
+### Dogrulama Yok
+- **Kotu**: "Formatlama tamamlandi."
+- **Iyi**: "Formatlama tamamlandi. Dogrula: orijinal vs formatli diff, degisiklikleri say, yedek var"
+
+---
+
+## Dagitimdan Once Dogrulama (Validation Before Deployment)
+
+[direct|neutral] Bu kontrolleri calistir [ground:witnessed:validation-checklist] [conf:0.90] [state:confirmed]
+
+1. Her adimin acik basari kriterleri var
+2. Her adimin hata islemesi var
+3. En az 3 uc vaka belgelendi
+4. Hata kodlari tablosu tamamlandi
+5. Performans beklentileri tanimlandi
+6. Anti-kalip mevcut degil
+
+**Tum kontroller gecerse** -> Faz 6'ya (Kaynak Gelistirme) devam et
+**Herhangi kontrol basarisiz olursa** -> Tum kontroller gecene kadar talimatlari gozden gecir
+
+---
+
+## Zaman Yatirimi ve ROI (Time Investment & ROI)
+
+[define|neutral] TEMPLATE_ROI := {
+  tamamlama_suresi: "10-15 dakika",
+  roi: {
+    eyleme_donusturulebilirlik: "+%50 (acik basari kriterleri)",
+    dagitim_sonrasi_sorunlar: "-%67 (kapsamli hata isleme)",
+    hata_ayiklama_hizi: "+%40 (net hata kodlari ve mesajlari)"
+  }
+} [ground:research:template-effectiveness] [conf:0.85] [state:confirmed]
+
+**Tamamlama Suresi**: 10-15 dakika
 **ROI**:
-- +50% actionability (explicit success criteria)
-- +67% fewer post-deployment issues (comprehensive error handling)
-- +40% faster debugging (clear error codes and messages)
+- +%50 eyleme donusturulebilirlik (acik basari kriterleri)
+- -%67 daha az dagitim sonrasi sorun (kapsamli hata isleme)
+- +%40 daha hizli hata ayiklama (net hata kodlari ve mesajlari)
 
 ---
 
-## Integration with Other Phases
+## Diger Fazlarla Entegrasyon (Integration with Other Phases)
 
-- **Phase 0 (Schema)**: Instructions must satisfy schema's success_conditions
-- **Phase 1b (CoV)**: Verify instructions aren't ambiguous via self-critique
-- **Phase 7 (Validation)**: Test instructions with real examples
-- **Phase 7a (Adversarial)**: Attack instructions to find failure modes
-- **Phase 8 (Metrics)**: Track actionability % (instructions with success criteria)
+[assert|neutral] Faz entegrasyonu [ground:witnessed:phase-integration] [conf:0.88] [state:confirmed]
+
+- **Faz 0 (Sema)**: Talimatlar semanin basari_kosullarini karsilamali
+- **Faz 1b (CoV)**: Talimatlarin oz-elestiri yoluyla belirsiz olmadigini dogrula
+- **Faz 7 (Dogrulama)**: Talimatlari gercek orneklerle test et
+- **Faz 7a (Carpici)**: Basarisizlik modlarini bulmak icin talimatlara saldir
+- **Faz 8 (Metrikler)**: Eyleme donusturulebilirlik %'sini izle (basari kriterli talimatlar)
+
+---
+
+**Sablon Surumu**: 2.0.0
+**Son Guncelleme**: 2025-11-06
+**Arastirma Destegi**: Liu et al. (2023), Zhou et al. (2023) - Kanita dayali istem teknikleri
 
 ---
 
-**Template Version**: 2.0.0
-**Last Updated**: 2025-11-06
-**Research Backing**: Evidence-based prompting techniques from Liu et al. (2023), Zhou et al. (2023)
-
-
----
-*Promise: `<promise>INSTRUCTION_TEMPLATE_VERIX_COMPLIANT</promise>`*
+[commit|confident] <promise>INSTRUCTION_TEMPLATE_VCL_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.95] [state:confirmed]

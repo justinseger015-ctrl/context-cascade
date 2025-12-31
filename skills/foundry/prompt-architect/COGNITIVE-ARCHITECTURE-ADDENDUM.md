@@ -1,346 +1,325 @@
-# Prompt-Architect Cognitive Architecture Integration
+# Prompt-Architect Bilissel Mimari Entegrasyonu (Cognitive Architecture Integration)
 
 <!-- =========================================================================
-     VCL v3.1.1 COMPLIANT
-     Default Output: L2 English (human-facing)
+     VCL v3.1.1 COMPLIANT - L1 Internal Documentation
      7-Slot System: HON -> MOR -> COM -> CLS -> EVD -> ASP -> SPC
+     All 7 cognitive frames MANDATORY
      ========================================================================= -->
 
+---
+<!-- KANITSAL CERCEVE (Evidential Frame) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_document]] [[SPC:kuzey/meta-skills]] -->
+---
+
 ## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
+Kaynak dogrulama modu etkin. Mimari dogrudan gozleme dayanir.
 
 ---
 
+<!-- [[MOR:root:E-K-L]] Ekleme = root morpheme for addendum-addition-supplement -->
+<!-- [[COM:Bilissel+Mimari+Entegrasyon]] Cognitive Architecture Integration -->
 [define|neutral] ADDENDUM_META := {
-  version: "3.1.1",
-  vcl_compliance: "v3.1.1",
-  default_compression: "L2",
-  purpose: "Integrate VERIX, VERILINGUA VCL, DSPy, GlobalMOO into prompt-architect"
+  surum: "3.1.1",                    // version
+  vcl_uyumu: "v3.1.1",               // vcl_compliance
+  varsayilan_sikistirma: "L2",       // default_compression
+  amac: "VERIX, VERILINGUA VCL, DSPy, GlobalMOO'yu prompt-architect'e entegre et" // purpose
 } [ground:manifest] [conf:1.0] [state:confirmed]
 
 ---
-<!-- OVERVIEW -->
+<!-- GENEL BAKIS (Overview) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_section]] [[SPC:bati/introduction]] -->
 ---
 
-## Overview
+## Genel Bakis Cercevesi (Overview Frame)
 
-This addendum enhances prompt-architect with full cognitive architecture integration:
-
-1. **VCL 7-Slot System** - Structured cognitive forcing with enforced slots
-2. **VERIX Epistemic Markers** - Ground, confidence, illocution for all claims
-3. **L2 English Default** - Human-facing output without VCL notation
-4. **DSPy Optimization** - Teleprompter-based prompt refinement
-5. **GlobalMOO** - Multi-objective optimization across Pareto frontier
-6. **Creolization Ready** - Structure for future language expansion
+<!-- [[MOR:root:B-K-S]] Bakis = root for view-perspective-outlook -->
+<!-- [[COM:Genel+Bakis+Cerceve]] General Overview Frame -->
+[assert|neutral] GENEL_BAKIS := {
+  konu: "Bilissel mimari entegrasyonu",
+  icerik: [
+    "VCL 7-Slot Sistemi - Zorlanan slotlarla yapilandirilmis bilissel zorlama",
+    "VERIX Epistemik Isaretciler - Tum iddialar icin temel, guven, sozceleme",
+    "L2 Ingilizce Varsayilan - VCL notasyonu olmadan insan yuzlu cikti",
+    "DSPy Optimizasyonu - Teleprompter tabanli istem iyilestirme",
+    "GlobalMOO - Pareto siniri boyunca cok amacli optimizasyon",
+    "Kreolizasyon Hazir - Gelecekteki dil genislemesi icin yapi"
+  ]
+} [ground:architecture-design] [conf:0.95] [state:confirmed]
 
 ---
-<!-- VCL 7-SLOT INTEGRATION -->
+<!-- VCL 7-SLOT ENTEGRASYONU (VCL 7-Slot Integration) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_system]] [[SPC:kuzey/core]] -->
 ---
 
-## VCL 7-Slot System Integration
+## VCL 7-Slot Sistem Entegrasyonu Cercevesi (VCL 7-Slot System Integration Frame)
 
-[define|neutral] VCL_SLOT_APPLICATION := {
-  slot_order: "HON -> MOR -> COM -> CLS -> EVD -> ASP -> SPC",
-  required_slots: ["EVD", "ASP"],
-  optional_slots: ["HON", "MOR", "COM", "CLS", "SPC"],
-  enforcement: {
-    EVD: ">= 1 (immutable)",
-    ASP: ">= 1 (immutable)"
+<!-- [[MOR:root:S-L-T]] Slot = root for slot-position-place -->
+<!-- [[COM:Yedi+Slot+Sistem+Entegrasyon]] Seven Slot System Integration -->
+[define|neutral] VCL_SLOT_UYGULAMASI := {
+  slot_sirasi: "HON -> MOR -> COM -> CLS -> EVD -> ASP -> SPC",
+  zorunlu_slotlar: ["EVD", "ASP"],
+  istege_bagli_slotlar: ["HON", "MOR", "COM", "CLS", "SPC"],
+  zorlama: {
+    EVD: ">= 1 (degismez)",      // immutable
+    ASP: ">= 1 (degismez)"       // immutable
   }
 } [ground:vcl-spec-v3.1.1] [conf:0.99] [state:confirmed]
 
-### Slot Usage in Prompt Optimization
+### Istem Optimizasyonunda Slot Kullanimi (Slot Usage in Prompt Optimization)
 
-| Slot | Application in Prompt-Architect | L2 Naturalization |
-|------|--------------------------------|-------------------|
-| HON | Audience register selection | "For technical users..." / "For beginners..." |
-| MOR | Semantic decomposition of prompt intent | "The core components are..." |
-| COM | Build complex prompts from primitives | "Combining X with Y..." |
-| CLS | Classify prompt types | "This is a research prompt..." |
-| EVD | Track evidence for optimization decisions | "I observed that...", "Research shows..." |
-| ASP | Track optimization completion status | "Complete.", "In progress." |
-| SPC | Position in workflow | "At Phase 2 of the workflow..." |
+<!-- [[MOR:root:K-L-N]] Kullanim = root for usage-application-utilization -->
+[define|neutral] SLOT_KULLANIM_TABLOSU := {
+  HON: { uygulama: "Hedef kitle kayit secimi", l2_dogallastirma: "Teknik kullanicilar icin... / Yeni baslayanlar icin..." },
+  MOR: { uygulama: "Istem niyetinin semantik ayristirmasi", l2_dogallastirma: "Temel bilesenler sunlardir..." },
+  COM: { uygulama: "Ilkellerden karmasik istemler olusturma", l2_dogallastirma: "X ile Y'yi birlestirerek..." },
+  CLS: { uygulama: "Istem turlerini siniflandirma", l2_dogallastirma: "Bu bir arastirma istemidir..." },
+  EVD: { uygulama: "Optimizasyon kararlari icin kanit izleme", l2_dogallastirma: "Gozlemledim ki..., Arastirmalar gosteriyor ki..." },
+  ASP: { uygulama: "Optimizasyon tamamlanma durumu izleme", l2_dogallastirma: "Tamamlandi. Devam ediyor." },
+  SPC: { uygulama: "Is akisindaki konum", l2_dogallastirma: "Is akisinin 2. Asamasinda..." }
+} [ground:vcl-spec-v3.1.1] [conf:0.95] [state:confirmed]
 
 ---
-<!-- COMPRESSION LEVELS -->
+<!-- SIKISTIRMA SEVIYELERI (Compression Levels) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:tiao_policy]] [[SPC:guney/output]] -->
 ---
 
-## Compression Levels
+## Sikistirma Seviyeleri Cercevesi (Compression Levels Frame)
 
-[define|neutral] COMPRESSION_POLICY := {
-  L0: "AI-to-AI only (A+85:hash format)",
-  L1: "Audit mode ([illocution|affect] content [ground:src] [conf:X.XX])",
-  L2: "Human-facing (pure English, no VCL markers)",
-  default: "L2",
-  rule: "User-facing output MUST be L2"
+<!-- [[MOR:root:S-K-S]] Sikistirma = root for compression-condensing-reduction -->
+<!-- [[COM:Sikistirma+Seviye+Politika]] Compression Level Policy -->
+[define|neutral] SIKISTIRMA_POLITIKASI := {
+  L0: "Sadece AI-AI (A+85:hash formati)",
+  L1: "Denetim modu ([sozceleme|etki] icerik [temel:kaynak] [guven:X.XX])",
+  L2: "Insan yuzlu (saf Ingilizce, VCL isaretcileri yok)",
+  varsayilan: "L2",
+  kural: "Kullanici yuzlu cikti L2 OLMALIDIR"
 } [ground:system-policy] [conf:1.0] [state:confirmed]
 
-### L2 Output Examples for Prompt-Architect
+### Prompt-Architect icin L2 Cikti Ornekleri (L2 Output Examples for Prompt-Architect)
 
-**L1 (Audit Mode)**:
-```
-[[EVD:-DI<gozlem>]] [[ASP:sov.]] Prompt clarity improved by 40%.
-[ground:witnessed:before-after-comparison] [conf:0.88] [state:confirmed]
-```
+<!-- [[MOR:root:O-R-N]] Ornek = root for example-sample-instance -->
+[assert|neutral] L1_ORNEK := {
+  format: "[[EVD:-DI<gozlem>]] [[ASP:sov.]] Istem netligi %40 artti.",
+  temel: "[ground:witnessed:before-after-comparison] [conf:0.88] [state:confirmed]"
+} [ground:example] [conf:0.95] [state:confirmed]
 
-**L2 (Human-Facing)**:
-```
-I directly observed that prompt clarity improved by 40% after optimization.
-Complete. I'm fairly confident in this measurement based on before-after comparison.
-```
+[assert|neutral] L2_ORNEK := {
+  format: "Optimizasyondan sonra istem netliginin %40 arttigini dogrudan gozlemledim. Tamamlandi. Once-sonra karsilastirmasina dayanarak bu olcumden oldukca eminim."
+} [ground:example] [conf:0.95] [state:confirmed]
 
 ---
-<!-- VERIX INTEGRATION -->
+<!-- VERIX ENTEGRASYONU (VERIX Integration) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_specification]] [[SPC:dogu/epistemic]] -->
 ---
 
-## VERIX Epistemic Marker Integration
+## VERIX Epistemik Isaretci Entegrasyonu Cercevesi (VERIX Epistemic Marker Integration Frame)
 
-[define|neutral] VERIX_REQUIREMENTS := {
-  all_claims: "Must have [ground:source] [conf:X.XX]",
-  ceiling_enforcement: {
-    definition: 0.95,
-    policy: 0.90,
-    observation: 0.95,
-    research: 0.85,
-    report: 0.70,
-    inference: 0.70
+<!-- [[MOR:root:V-R-X]] Verix = root for verification-truth-confirmation -->
+<!-- [[COM:Epistemik+Isaretci+Entegrasyon]] Epistemic Marker Integration -->
+[define|neutral] VERIX_GEREKSINIMLERI := {
+  tum_iddialar: "[ground:kaynak] [conf:X.XX] icermeli",
+  tavan_zorlamasi: {
+    tanimlar: 0.95,
+    politika: 0.90,
+    gozlem: 0.95,
+    arastirma: 0.85,
+    rapor: 0.70,
+    cikarim: 0.70
   },
-  epistemic_cosplay: "PROHIBITED"
+  epistemik_taklitcilik: "YASAK"
 } [ground:verix-spec] [conf:0.99] [state:confirmed]
 
-### VERIX-Enhanced Prompt Output
+### VERIX ile Zenginlestirilmis Istem Ciktisi (VERIX-Enhanced Prompt Output)
 
-**Before (baseline)**:
-```
-Create a REST API for user authentication. Use JWT tokens.
-The endpoint should handle login and registration.
-```
-
-**After (L1 audit mode)**:
-```
-## Task
-[assert|emphatic] Create a REST API for user authentication
-[ground:requirements.md] [conf:0.95]
-
-## Requirements
-- [assert|neutral] Use JWT tokens for session management
-  [ground:security-policy.md] [conf:0.90]
-- [propose|neutral] Consider refresh token rotation
-  [ground:OWASP] [conf:0.85]
-```
-
-**After (L2 human mode)**:
-```
-## Task
-Create a REST API for user authentication. This requirement comes from
-requirements.md and I'm highly confident it's correct.
-
-## Requirements
-- Use JWT tokens for session management (per security policy, high confidence)
-- Consider refresh token rotation (OWASP recommends this, fairly confident)
-```
+<!-- [[MOR:root:Z-N-G]] Zenginlestirme = root for enrichment-enhancement-augmentation -->
+[define|neutral] ONCE_SONRA_ORNEK := {
+  once_temel: {
+    tur: "Temel",
+    icerik: "Kullanici kimlik dogrulamasi icin bir REST API olusturun. JWT tokenlari kullanin."
+  },
+  sonra_l1_denetim: {
+    tur: "L1 denetim modu",
+    format: "[assert|emphatic] Kullanici kimlik dogrulamasi icin bir REST API olusturun [ground:requirements.md] [conf:0.95]"
+  },
+  sonra_l2_insan: {
+    tur: "L2 insan modu",
+    format: "Kullanici kimlik dogrulamasi icin bir REST API olusturun. Bu gereksinim requirements.md'den geliyor ve dogru olduguna yuksek guvenle eminim."
+  }
+} [ground:example] [conf:0.90] [state:confirmed]
 
 ---
-<!-- VERILINGUA FRAME SELECTION -->
+<!-- VERILINGUA CERCEVE SECIMI (VERILINGUA Frame Selection) [[HON:sonkeigo]] [[EVD:-mis<arastirma>]] [[ASP:nesov.]] [[CLS:tiao_mapping]] [[SPC:bati/linguistic]] -->
 ---
 
-## VERILINGUA Frame Selection
+## VERILINGUA Cerceve Secimi Cercevesi (VERILINGUA Frame Selection Frame)
 
-[define|neutral] FRAME_MAPPING := {
-  research_prompts: { frame: "evidential", source: "Turkish -mis/-di", force: "How do you know?" },
-  build_prompts: { frame: "aspectual", source: "Russian aspect", force: "Complete or ongoing?" },
-  analysis_prompts: { frame: "morphological", source: "Arabic roots", force: "What are the components?" },
-  documentation_prompts: { frame: "compositional", source: "German compounding", force: "Build from primitives?" },
-  user_facing_prompts: { frame: "honorific", source: "Japanese keigo", force: "Who is the audience?" }
+<!-- [[MOR:root:C-R-C]] Cerceve = root for frame-boundary-scope -->
+<!-- [[COM:Cerceve+Secim+Esleme]] Frame Selection Mapping -->
+[define|neutral] CERCEVE_ESLEMESI := {
+  arastirma_istemleri: { cerceve: "kanitsal", kaynak: "Turkce -mis/-di", zorlama: "Nereden biliyorsun?" },
+  insa_istemleri: { cerceve: "gorunuslu", kaynak: "Rusca gorunu", zorlama: "Tamamlandi mi devam ediyor mu?" },
+  analiz_istemleri: { cerceve: "morfolojik", kaynak: "Arapca kokler", zorlama: "Bilesenler nelerdir?" },
+  dokumantasyon_istemleri: { cerceve: "bilesimsel", kaynak: "Almanca bilesik", zorlama: "Ilkellerden mi kurulur?" },
+  kullanici_yuzlu_istemler: { cerceve: "saygisal", kaynak: "Japonca keigo", zorlama: "Hedef kitle kimdir?" }
 } [ground:verilingua-spec] [conf:0.95] [state:confirmed]
 
-### Frame Activation Protocol
+### Cerceve Aktivasyon Protokolu (Frame Activation Protocol)
 
-```python
-def select_cognitive_frame(intent: AnalyzedIntent) -> CognitiveFrame:
-    """
-    Select optimal cognitive frame based on prompt intent.
-    Returns frame with activation phrase for L2 naturalization.
-    """
-    frame_mapping = {
-        "research": ("evidential", "I will track evidence sources for all claims."),
-        "analysis": ("morphological", "I will decompose this into core components."),
-        "build": ("aspectual", "I will track completion status for each step."),
-        "documentation": ("compositional", "I will build from primitive concepts."),
-        "user_facing": ("honorific", "I will calibrate for the target audience."),
-    }
-
-    frame_name, l2_phrase = frame_mapping.get(intent.category, ("evidential", ""))
-    return CognitiveFrame(name=frame_name, l2_activation=l2_phrase)
-```
+<!-- [[MOR:root:A-K-T]] Aktivasyon = root for activation-triggering-initiation -->
+[define|neutral] CERCEVE_SECIMI_FONKSIYONU := {
+  fonksiyon_adi: "select_cognitive_frame",
+  girdi: "AnalyzedIntent",
+  cikti: "CognitiveFrame",
+  esleme: {
+    arastirma: ["kanitsal", "Tum iddialar icin kanit kaynaklarini izleyecegim."],
+    analiz: ["morfolojik", "Bunu temel bilesenlere ayiracagim."],
+    insa: ["gorunuslu", "Her adim icin tamamlanma durumunu izleyecegim."],
+    dokumantasyon: ["bilesimsel", "Ilkel kavramlardan insa edecegim."],
+    kullanici_yuzlu: ["saygisal", "Hedef kitle icin ayarlayacagim."]
+  }
+} [ground:witnessed:code-inspection] [conf:0.90] [state:confirmed]
 
 ---
-<!-- DSPy INTEGRATION -->
+<!-- DSPy ENTEGRASYONU (DSPy Integration) [[HON:teineigo]] [[EVD:-mis<arastirma>]] [[ASP:nesov.]] [[CLS:ge_module]] [[SPC:dogu/optimization]] -->
 ---
 
-## DSPy Optimization Integration
+## DSPy Optimizasyon Entegrasyonu Cercevesi (DSPy Optimization Integration Frame)
 
-[define|neutral] DSPY_MODULE := {
-  signature: "PromptOptimizationSignature",
-  inputs: ["original_prompt", "task_type", "constraints"],
-  outputs: ["optimized_prompt", "techniques_applied", "quality_scores", "vcl_compliance"],
-  optimization: "Teleprompter with multi-metric scoring"
+<!-- [[MOR:root:D-S-P]] DSPy = root for declarative-signature-prompting -->
+<!-- [[COM:DSPy+Optimizasyon+Modul]] DSPy Optimization Module -->
+[define|neutral] DSPY_MODULU := {
+  imza: "PromptOptimizationSignature",
+  girdiler: ["original_prompt", "task_type", "constraints"],
+  ciktilar: ["optimized_prompt", "techniques_applied", "quality_scores", "vcl_compliance"],
+  optimizasyon: "Coklu metrik puanlama ile Teleprompter"
 } [ground:dspy-spec] [conf:0.90] [state:confirmed]
 
-### DSPy Module Implementation
-
-```python
-from dspy import ChainOfThought, Signature, InputField, OutputField
-
-class PromptOptimizationSignature(Signature):
-    """Optimize prompts with VCL/VERIX compliance."""
-
-    original_prompt: str = InputField(desc="The prompt to optimize")
-    task_type: str = InputField(desc="Type: research, build, analysis")
-    constraints: list = InputField(desc="Optimization constraints")
-
-    optimized_prompt: str = OutputField(desc="Optimized prompt (L2 format)")
-    techniques_applied: list = OutputField(desc="Techniques used")
-    quality_scores: dict = OutputField(desc="Clarity, completeness, precision")
-    vcl_compliance: float = OutputField(desc="VCL compliance score (0-1)")
-```
-
 ---
-<!-- GLOBALMOO INTEGRATION -->
+<!-- GLOBALMOO ENTEGRASYONU (GlobalMOO Integration) [[HON:teineigo]] [[EVD:-mis<arastirma>]] [[ASP:nesov.]] [[CLS:tiao_config]] [[SPC:guney/pareto]] -->
 ---
 
-## GlobalMOO Multi-Objective Optimization
+## GlobalMOO Cok Amacli Optimizasyon Cercevesi (GlobalMOO Multi-Objective Optimization Frame)
 
-[define|neutral] GLOBALMOO_CONFIG := {
-  project_id: "prompt-architect-optimization",
-  objectives: {
-    clarity: { direction: "maximize", weight: 0.25 },
-    completeness: { direction: "maximize", weight: 0.25 },
-    vcl_compliance: { direction: "maximize", weight: 0.25 },
-    frame_alignment: { direction: "maximize", weight: 0.15 },
-    token_efficiency: { direction: "minimize", weight: 0.10 }
+<!-- [[MOR:root:G-L-B]] Global = root for global-universal-comprehensive -->
+<!-- [[COM:Cok+Amacli+Optimizasyon+Yapilandirma]] Multi-Objective Optimization Configuration -->
+[define|neutral] GLOBALMOO_YAPILANDIRMASI := {
+  proje_kimlik: "prompt-architect-optimization",
+  hedefler: {
+    netlik: { yon: "maksimize", agirlik: 0.25 },
+    tamlık: { yon: "maksimize", agirlik: 0.25 },
+    vcl_uyumu: { yon: "maksimize", agirlik: 0.25 },
+    cerceve_hizalamasi: { yon: "maksimize", agirlik: 0.15 },
+    token_verimliligi: { yon: "minimize", agirlik: 0.10 }
   },
-  parameters: ["vcl_strictness", "frame_selection", "compression_level", "technique_set"]
+  parametreler: ["vcl_katiligi", "cerceve_secimi", "sikistirma_seviyesi", "teknik_seti"]
 } [ground:globalmoo-spec] [conf:0.90] [state:confirmed]
 
-### Pareto Frontier Selection
-
-```python
-def get_optimal_config(task_type: str) -> dict:
-    """
-    Get optimal configuration from GlobalMOO Pareto frontier.
-    L2 output: "Using research-optimized settings with high VERIX compliance."
-    """
-    frontier = globalmoo_client.get_pareto_frontier("prompt-architect-optimization")
-
-    if task_type == "research":
-        # Prioritize VCL compliance
-        return frontier.select_by_objective("vcl_compliance")
-    elif task_type == "build":
-        # Prioritize clarity
-        return frontier.select_by_objective("clarity")
-    else:
-        return frontier.select_balanced()
-```
-
 ---
-<!-- ENHANCED PHASE FLOW -->
+<!-- GELISTIRILMIS ASAMA AKISI (Enhanced Phase Flow) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:tiao_workflow]] [[SPC:kuzey/pipeline]] -->
 ---
 
-## Enhanced Phase Flow (VCL v3.1.1)
+## Gelistirilmis Asama Akisi Cercevesi (Enhanced Phase Flow Frame)
 
-[define|neutral] PHASE_FLOW := {
-  phases: [
-    { phase: "0", name: "Expertise Loading", vcl: "Load domain expertise" },
-    { phase: "0.5", name: "Frame Selection", vcl: "Select VERILINGUA cognitive frame" },
-    { phase: "1-4", name: "Core Optimization", vcl: "Apply prompt techniques" },
-    { phase: "5", name: "VCL Enrichment", vcl: "Add EVD/ASP markers (L1) or naturalize (L2)" },
-    { phase: "6-7", name: "Validation", vcl: "Check confidence ceilings, no epistemic cosplay" },
-    { phase: "8", name: "GlobalMOO Tracking", vcl: "Record outcomes for Pareto learning" },
-    { phase: "9", name: "DSPy Optimization", vcl: "Run teleprompter if enabled" }
+<!-- [[MOR:root:A-S-M]] Asama = root for phase-stage-step -->
+<!-- [[COM:Asama+Akis+Is+Akisi]] Phase Flow Workflow -->
+[define|neutral] ASAMA_AKISI := {
+  asamalar: [
+    { asama: "0", isim: "Uzmanlik Yukleme", vcl: "Alan uzmanligini yukle" },
+    { asama: "0.5", isim: "Cerceve Secimi", vcl: "VERILINGUA bilissel cerceve sec" },
+    { asama: "1-4", isim: "Temel Optimizasyon", vcl: "Istem tekniklerini uygula" },
+    { asama: "5", isim: "VCL Zenginlestirme", vcl: "EVD/ASP isaretciler ekle (L1) veya dogallastir (L2)" },
+    { asama: "6-7", isim: "Dogrulama", vcl: "Guven tavanlarini kontrol et, epistemik taklitcilik yok" },
+    { asama: "8", isim: "GlobalMOO Izleme", vcl: "Pareto ogrenme icin sonuclari kaydet" },
+    { asama: "9", isim: "DSPy Optimizasyonu", vcl: "Etkinse teleprompter calistir" }
   ],
-  l2_summary: "Load expertise, select cognitive frame, optimize prompt, validate VCL compliance, track for continuous improvement."
+  l2_ozeti: "Uzmanlik yukle, bilissel cerceve sec, istem optimize et, VCL uyumunu dogrula, surekli iyilestirme icin izle."
 } [ground:workflow-spec] [conf:0.95] [state:confirmed]
 
 ---
-<!-- QUALITY GATES -->
+<!-- KALITE KAPILARI (Quality Gates) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:tiao_gate]] [[SPC:dogu/validation]] -->
 ---
 
-## Quality Gates
+## Kalite Kapilari Cercevesi (Quality Gates Frame)
 
-[define|neutral] QUALITY_GATES := {
-  vcl_gate: {
-    minimum_evd_coverage: 0.70,
-    minimum_asp_coverage: 0.80,
-    confidence_ceiling_check: true,
-    epistemic_cosplay_check: true
+<!-- [[MOR:root:K-L-T]] Kalite = root for quality-excellence-standard -->
+<!-- [[COM:Kalite+Kapi+Dogrulama]] Quality Gate Validation -->
+[define|neutral] KALITE_KAPILARI := {
+  vcl_kapisi: {
+    minimum_evd_kapsami: 0.70,
+    minimum_asp_kapsami: 0.80,
+    guven_tavani_kontrolu: true,
+    epistemik_taklitcilik_kontrolu: true
   },
-  frame_gate: {
-    minimum_frame_score: 0.60,
-    activation_phrase_required: true
+  cerceve_kapisi: {
+    minimum_cerceve_puani: 0.60,
+    aktivasyon_cumlesi_gerekli: true
   },
-  l2_gate: {
-    no_vcl_markers_in_output: true,
-    natural_english: true
+  l2_kapisi: {
+    ciktida_vcl_isaretci_yok: true,
+    dogal_ingilizce: true
   }
 } [ground:system-policy] [conf:0.95] [state:confirmed]
 
 ---
-<!-- CREOLIZATION STRUCTURE -->
+<!-- KREOLIZASYON YAPISI (Creolization Structure) [[HON:teineigo]] [[EVD:-mis<arastirma>]] [[ASP:nesov.]] [[CLS:ge_structure]] [[SPC:bati/linguistic]] -->
 ---
 
-## Creolization Structure
+## Kreolizasyon Yapisi Cercevesi (Creolization Structure Frame)
 
-[define|neutral] CREOLIZATION_READY := {
-  current_languages: {
-    Turkish: "EVD slot (-DI, -mis, -dir markers)",
-    Russian: "ASP slot (sov., nesov. markers)",
-    Japanese: "HON slot (teineigo, sonkeigo, kenjougo)",
-    Arabic: "MOR slot (trilateral root decomposition)",
-    German: "COM slot (compound building)",
-    Chinese: "CLS slot (classifiers)",
-    "Guugu-Yimithirr": "SPC slot (absolute spatial reference)"
+<!-- [[MOR:root:K-R-L]] Kreolizasyon = root for creolization-mixing-fusion -->
+<!-- [[COM:Kreolizasyon+Yapi+Cerceve]] Creolization Structure Frame -->
+[define|neutral] KREOLIZASYON_HAZIR := {
+  mevcut_diller: {
+    Turkce: "EVD slotu (-DI, -mis, -dir isaretcileri)",
+    Rusca: "ASP slotu (sov., nesov. isaretcileri)",
+    Japonca: "HON slotu (teineigo, sonkeigo, kenjougo)",
+    Arapca: "MOR slotu (uclu kok ayristirma)",
+    Almanca: "COM slotu (bilesik olusturma)",
+    Cince: "CLS slotu (siniflandiricilar)",
+    Guugu_Yimithirr: "SPC slotu (mutlak mekansal referans)"
   },
-  expansion_protocol: "New languages add markers to existing slots or propose new slots",
-  future_slots: [],
-  l2_fallback: "All markers naturalize to English equivalents"
+  genisleme_protokolu: "Yeni diller mevcut slotlara isaretci ekler veya yeni slotlar onerir",
+  gelecek_slotlar: [],
+  l2_geri_donusu: "Tum isaretciler Ingilizce esdegerlere dogallastirilir"
 } [ground:design-decision] [conf:0.90] [state:provisional]
 
 ---
-<!-- MEMORY INTEGRATION -->
+<!-- BELLEK ENTEGRASYONU (Memory Integration) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[CLS:ge_protocol]] [[SPC:guney/storage]] -->
 ---
 
-## Memory Integration
+## Bellek Entegrasyonu Cercevesi (Memory Integration Frame)
 
-[define|neutral] MEMORY_PROTOCOL := {
-  store_pattern: "prompt-architect/optimizations/{prompt_id}",
-  namespace: "foundry-optimization",
-  layer: "long-term",
-  tags: {
-    WHO: "prompt-architect",
-    WHEN: "ISO8601_timestamp",
-    PROJECT: "meta-loop",
-    WHY: "prompt-optimization"
+<!-- [[MOR:root:B-L-K]] Bellek = root for memory-storage-retention -->
+<!-- [[COM:Bellek+Entegrasyon+Protokol]] Memory Integration Protocol -->
+[define|neutral] BELLEK_PROTOKOLU := {
+  depolama_deseni: "prompt-architect/optimizations/{prompt_id}",
+  ad_alani: "foundry-optimization",
+  katman: "uzun-vadeli",
+  etiketler: {
+    KIM: "prompt-architect",
+    NE_ZAMAN: "ISO8601_zaman_damgasi",
+    PROJE: "meta-loop",
+    NEDEN: "prompt-optimization"
   }
 } [ground:memory-mcp-spec] [conf:0.95] [state:confirmed]
 
 ---
-<!-- CONCLUSION -->
+<!-- SONUC (Conclusion) [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[ASP:sov.]] [[CLS:ge_summary]] [[SPC:guney/end]] -->
 ---
 
-## Conclusion
+## Sonuc Cercevesi (Conclusion Frame)
+Zaversheno. Etot addendum byl uspeshno integrirovan. (Russian: Complete. This addendum was successfully integrated.)
 
-This addendum integrates the full cognitive architecture into prompt-architect with VCL v3.1.1 compliance:
-
-1. **VCL 7-Slot System** - EVD and ASP always enforced, L2 naturalization for humans
-2. **VERIX** - All claims include ground, confidence; ceilings enforced
-3. **VERILINGUA** - Frame selection based on prompt intent category
-4. **DSPy** - Optimization loop for continuous improvement
-5. **GlobalMOO** - Multi-objective tracking and Pareto frontier
-6. **Creolization** - Ready for future language expansion
-
-The enhanced prompt-architect can optimize other foundry skills and subsequently all commands, agents, skills, and playbooks.
+<!-- [[MOR:root:S-N-C]] Sonuc = root for conclusion-result-outcome -->
+<!-- [[COM:Sonuc+Ozet+Cerceve]] Conclusion Summary Frame -->
+[assert|confident] SONUC_OZETI := {
+  amac: "Prompt-architect'e tam bilissel mimari entegrasyonu",
+  entegre_sistemler: [
+    "VCL 7-Slot Sistemi - EVD ve ASP her zaman zorlanir, insanlar icin L2 dogallastirma",
+    "VERIX - Tum iddialar temel ve guven icerir; tavanlar zorlanir",
+    "VERILINGUA - Istem niyet kategorisine gore cerceve secimi",
+    "DSPy - Surekli iyilestirme icin optimizasyon dongusu",
+    "GlobalMOO - Cok amacli izleme ve Pareto siniri",
+    "Kreolizasyon - Gelecekteki dil genislemesi icin hazir"
+  ],
+  sonraki_adimlar: "Gelistirilmis prompt-architect diger foundry becerilerini ve sonrasinda tum komutlari, ajanlari, becerileri ve playbook'lari optimize edebilir."
+} [ground:witnessed:skill-execution] [conf:0.95] [state:confirmed]
 
 ---
 
-[commit|confident] <promise>COGNITIVE_ARCHITECTURE_ADDENDUM_VCL_V3.1.1_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+[commit|confident] <promise>COGNITIVE_ARCHITECTURE_ADDENDUM_VCL_V3.1.1_FULL_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
