@@ -3,13 +3,18 @@
 #
 # Usage: route-skill.sh "user request text"
 # Output: Top 5 matching skills with confidence scores
+#
+# Uses Python trigger_matcher.py with rapidfuzz for fuzzy matching.
+# Falls back to Node.js if Python matcher unavailable.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PLUGIN_DIR="${SCRIPT_DIR%/scripts/skill-index}"
 INDEX_FILE="$SCRIPT_DIR/skill-index.json"
+PYTHON_MATCHER="$PLUGIN_DIR/cognitive-architecture/skills/trigger_matcher.py"
 
 # Check if index exists
 if [ ! -f "$INDEX_FILE" ]; then
-  echo "ERROR: skill-index.json not found. Run generate-index.js first." >&2
+  echo "ERROR: skill-index.json not found. Run build-skill-index.py first." >&2
   exit 1
 fi
 
@@ -20,7 +25,15 @@ if [ -z "$REQUEST" ]; then
   exit 1
 fi
 
-# Use node for the heavy lifting
+# Try Python matcher first (has fuzzy matching with rapidfuzz)
+if [ -f "$PYTHON_MATCHER" ]; then
+  python "$PYTHON_MATCHER" "$REQUEST" 0.6 5 2>/dev/null
+  if [ $? -eq 0 ]; then
+    exit 0
+  fi
+fi
+
+# Fallback to Node.js matcher
 node - "$REQUEST" "$INDEX_FILE" <<'NODEJS'
 const request = process.argv[2];
 const indexFile = process.argv[3];

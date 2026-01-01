@@ -2,11 +2,15 @@
 Automatic mode selection based on task characteristics.
 
 Analyzes task context to recommend the most appropriate mode.
+
+FIX-7: Now includes telemetry-driven steering for dynamic adjustment.
+When enabled, historical performance data influences mode selection.
 """
 
 import os
 import sys
 import re
+import logging
 from dataclasses import dataclass, field
 from typing import Dict, List, Any, Optional, Tuple
 from enum import Enum
@@ -14,6 +18,8 @@ from enum import Enum
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from modes.library import Mode, ModeLibrary, ModeType, BUILTIN_MODES
+
+logger = logging.getLogger(__name__)
 
 
 class TaskDomain(Enum):
@@ -313,9 +319,157 @@ class ModeSelector:
         return score, reasons
 
 
+# FIX-7: Telemetry steering integration
+# Lazy import to avoid circular dependencies
+_steering_engine = None
+
+
+def _get_steering_engine():
+    """Get or create steering engine (lazy initialization)."""
+    global _steering_engine
+    if _steering_engine is None:
+        try:
+            from optimization.telemetry_steering import TelemetrySteeringEngine
+            _steering_engine = TelemetrySteeringEngine()
+        except ImportError:
+            logger.warning("Telemetry steering not available")
+            _steering_engine = False  # Mark as unavailable
+    return _steering_engine if _steering_engine else None
+
+
+class TelemetryAwareModeSelector(ModeSelector):
+    """
+    FIX-7: Mode selector with telemetry-driven steering.
+
+    Enhances base ModeSelector with historical performance data
+    to make better mode selection decisions.
+    """
+
+    def __init__(
+        self,
+        library: Optional[ModeLibrary] = None,
+        steering_weight: float = 0.3,
+        enable_steering: bool = True,
+    ):
+        """
+        Initialize telemetry-aware selector.
+
+        Args:
+            library: Mode library
+            steering_weight: Weight for steering (0.0-1.0)
+            enable_steering: Enable telemetry steering
+        """
+        super().__init__(library)
+        self.steering_weight = steering_weight
+        self.enable_steering = enable_steering
+        self._steering_engine = None
+        self._last_mode: Optional[str] = None
+        self._last_domain: Optional[str] = None
+
+    def _get_engine(self):
+        """Get steering engine (lazy load)."""
+        if self._steering_engine is None and self.enable_steering:
+            self._steering_engine = _get_steering_engine()
+        return self._steering_engine
+
+    def select(self, context: TaskContext) -> Mode:
+        """
+        Select mode with telemetry steering.
+
+        Args:
+            context: Task context
+
+        Returns:
+            Selected mode
+        """
+        # Get base recommendations
+        recs = self.recommend(context, top_k=3)
+        if not recs:
+            return self._fallback()
+
+        base_mode = recs[0].mode
+        base_score = recs[0].score
+
+        # Apply steering if available
+        engine = self._get_engine()
+        if engine and self.enable_steering:
+            domain = context.domain.value if context.domain else "general"
+
+            steering_rec = engine.get_steering_recommendation(domain)
+
+            if steering_rec and steering_rec.confidence > 0.3:
+                # Check if steering recommends a different mode
+                if steering_rec.mode_name != base_mode.name:
+                    # Calculate combined score
+                    steering_score = steering_rec.confidence * self.steering_weight
+                    base_adjusted = base_score * (1 - self.steering_weight)
+
+                    # If steering has higher combined score, use it
+                    if steering_score > base_adjusted * 0.5:
+                        steered_mode = self.library.get(steering_rec.mode_name)
+                        if steered_mode:
+                            logger.info(
+                                f"Steering override: {base_mode.name} -> {steered_mode.name} "
+                                f"(confidence: {steering_rec.confidence:.2f})"
+                            )
+                            self._last_mode = steered_mode.name
+                            self._last_domain = domain
+                            return steered_mode
+
+            self._last_domain = domain
+
+        self._last_mode = base_mode.name
+        return base_mode
+
+    def _fallback(self) -> Mode:
+        """Get fallback mode."""
+        return self.library.get("balanced") or list(BUILTIN_MODES.values())[0]
+
+    def record_outcome(
+        self,
+        accuracy: float,
+        efficiency: float,
+        consistency: float = 0.5,
+    ) -> None:
+        """
+        Record outcome for steering feedback.
+
+        Call after task completion to improve future selections.
+
+        Args:
+            accuracy: Task accuracy (0.0 - 1.0)
+            efficiency: Token efficiency (0.0 - 1.0)
+            consistency: Epistemic consistency (0.0 - 1.0)
+        """
+        engine = self._get_engine()
+        if engine and self._last_mode and self._last_domain:
+            engine.record_outcome(
+                self._last_mode,
+                self._last_domain,
+                accuracy,
+                efficiency,
+                consistency,
+            )
+            logger.debug(
+                f"Recorded outcome for {self._last_mode}/{self._last_domain}: "
+                f"acc={accuracy:.2f}, eff={efficiency:.2f}"
+            )
+
+
 # Convenience functions
 
-_default_selector = ModeSelector()
+_default_selector = None
+
+
+def _get_default_selector() -> ModeSelector:
+    """Get or create default selector (telemetry-aware if available)."""
+    global _default_selector
+    if _default_selector is None:
+        try:
+            _default_selector = TelemetryAwareModeSelector()
+        except Exception:
+            _default_selector = ModeSelector()
+    return _default_selector
 
 
 def select_mode(task: str, **kwargs) -> Mode:
@@ -330,7 +484,7 @@ def select_mode(task: str, **kwargs) -> Mode:
         Selected mode
     """
     context = TaskContext.from_task(task, **kwargs)
-    return _default_selector.select(context)
+    return _get_default_selector().select(context)
 
 
 def recommend_modes(task: str, top_k: int = 3, **kwargs) -> List[ModeRecommendation]:
@@ -346,4 +500,24 @@ def recommend_modes(task: str, top_k: int = 3, **kwargs) -> List[ModeRecommendat
         List of recommendations
     """
     context = TaskContext.from_task(task, **kwargs)
-    return _default_selector.recommend(context, top_k)
+    return _get_default_selector().recommend(context, top_k)
+
+
+def record_mode_outcome(
+    accuracy: float,
+    efficiency: float,
+    consistency: float = 0.5,
+) -> None:
+    """
+    Record outcome for last selected mode.
+
+    FIX-7: Feeds back to steering engine for learning.
+
+    Args:
+        accuracy: Task accuracy (0.0 - 1.0)
+        efficiency: Token efficiency (0.0 - 1.0)
+        consistency: Epistemic consistency (0.0 - 1.0)
+    """
+    selector = _get_default_selector()
+    if hasattr(selector, "record_outcome"):
+        selector.record_outcome(accuracy, efficiency, consistency)

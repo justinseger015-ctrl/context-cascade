@@ -13,14 +13,29 @@ THE CONTRACT:
 - Output: (system_prompt, user_prompt) tuple
 - This signature NEVER changes
 - All other code wraps around this contract
+
+FIX-4 from REMEDIATION-PLAN.md:
+- ModeSelector now integrated for runtime mode selection
+- Modes are selected based on task context and applied before frame activation
 """
 
 from typing import Tuple, List, Optional
 from dataclasses import dataclass
+import logging
 
 from .config import FullConfig, VectorCodec, CompressionLevel
 from .verix import VerixValidator, VerixStrictness
 from .verilingua import FrameRegistry, CognitiveFrame, get_combined_activation_instruction
+from .frame_validation_bridge import FrameValidationBridge, ValidationFeedback
+
+# Import ModeSelector for FIX-4
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from modes.selector import ModeSelector, TaskContext, select_mode
+from modes.library import Mode
+
+logger = logging.getLogger(__name__)
 
 
 # Task type definitions with base instructions
@@ -103,19 +118,47 @@ class PromptBuilder:
     1. Changing the FullConfig passed to __init__
     2. Caching compiled prompts by cluster_key
     3. NOT by changing this class's interface
+
+    FIX-4: Now includes ModeSelector for runtime mode selection.
+    Modes are selected based on task context and applied before frame activation.
+
+    FIX-5: Now includes FrameValidationBridge for bidirectional VERIX-VERILINGUA integration.
+    Validation feedback is used to dynamically adjust frame weights.
     """
 
-    def __init__(self, config: FullConfig):
+    def __init__(
+        self,
+        config: FullConfig,
+        mode_selector: Optional[ModeSelector] = None,
+        auto_select_mode: bool = True,
+        enable_feedback_loop: bool = True,
+    ):
         """
         Initialize builder with configuration.
 
         Args:
             config: FullConfig specifying frames and VERIX settings
+            mode_selector: Optional ModeSelector for runtime mode selection
+            auto_select_mode: If True, automatically select mode based on task
+            enable_feedback_loop: If True, enable VERIX-VERILINGUA feedback loop (FIX-5)
         """
         self.config = config
         self.active_frames = FrameRegistry.get_active(config.framework)
         self.verix_validator = VerixValidator(config.prompt)
         self._cluster_key = VectorCodec.cluster_key(config)
+
+        # FIX-4: Mode selection integration
+        self.mode_selector = mode_selector or ModeSelector()
+        self.auto_select_mode = auto_select_mode
+        self._selected_mode: Optional[Mode] = None
+        self._mode_applied: bool = False
+
+        # FIX-5: VERIX-VERILINGUA bidirectional bridge
+        self.enable_feedback_loop = enable_feedback_loop
+        self._validation_bridge: Optional[FrameValidationBridge] = None
+        if enable_feedback_loop:
+            self._validation_bridge = FrameValidationBridge(config, auto_adjust=True)
+        self._last_task_type: str = "default"
 
     def build(self, task: str, task_type: str) -> Tuple[str, str]:
         """
@@ -130,6 +173,13 @@ class PromptBuilder:
         Returns:
             (system_prompt, user_prompt) tuple
         """
+        # FIX-5: Track task type for feedback loop
+        self._last_task_type = task_type
+
+        # FIX-4: Select and apply mode based on task context
+        if self.auto_select_mode and not self._mode_applied:
+            self._select_and_apply_mode(task, task_type)
+
         # Gather components
         components = PromptComponents(
             base_instruction=self._base_instruction(task_type),
@@ -144,6 +194,159 @@ class PromptBuilder:
         user_prompt = self._assemble_user_prompt(components)
 
         return system_prompt, user_prompt
+
+    def _select_and_apply_mode(self, task: str, task_type: str) -> None:
+        """
+        FIX-4: Select optimal mode based on task context and apply configuration.
+
+        Args:
+            task: Task description
+            task_type: Task category
+        """
+        try:
+            # Create task context for mode selection
+            context = TaskContext.from_task(task)
+
+            # Select optimal mode
+            self._selected_mode = self.mode_selector.select(context)
+
+            # Apply mode configuration to current config
+            self._apply_mode_config(self._selected_mode)
+
+            # Log mode selection for telemetry
+            logger.info(
+                f"Mode selected: {self._selected_mode.name} "
+                f"(type={self._selected_mode.mode_type.value}, "
+                f"task_type={task_type})"
+            )
+
+            self._mode_applied = True
+
+        except Exception as e:
+            logger.warning(f"Mode selection failed: {e}, using default config")
+            self._mode_applied = True  # Prevent retry
+
+    def _apply_mode_config(self, mode: Mode) -> None:
+        """
+        Apply mode configuration to the current config.
+
+        Updates frame activations and other settings based on selected mode.
+
+        Args:
+            mode: Selected mode to apply
+        """
+        # Apply mode's frame configuration (mode.config is a FullConfig)
+        mode_config = mode.config
+
+        # Update framework config based on mode
+        if mode_config.framework:
+            # Update frame toggles
+            self.config.framework.evidential = mode_config.framework.evidential
+            self.config.framework.aspectual = mode_config.framework.aspectual
+            self.config.framework.morphological = mode_config.framework.morphological
+            self.config.framework.compositional = mode_config.framework.compositional
+            self.config.framework.honorific = mode_config.framework.honorific
+            self.config.framework.classifier = mode_config.framework.classifier
+            self.config.framework.spatial = mode_config.framework.spatial
+
+            # Refresh active frames
+            self.active_frames = FrameRegistry.get_active(self.config.framework)
+
+        # Update prompt config if mode has prompt settings
+        if mode_config.prompt:
+            self.config.prompt = mode_config.prompt
+
+        # Update cluster key after config change
+        self._cluster_key = VectorCodec.cluster_key(self.config)
+
+        logger.debug(f"Applied mode config: frames={[f.name for f in self.active_frames]}")
+
+    def get_selected_mode(self) -> Optional[Mode]:
+        """Return the currently selected mode, if any."""
+        return self._selected_mode
+
+    def set_mode(self, mode: Mode) -> None:
+        """
+        Manually set a mode (bypasses auto-selection).
+
+        Args:
+            mode: Mode to apply
+        """
+        self._selected_mode = mode
+        self._apply_mode_config(mode)
+        self._mode_applied = True
+
+    def validate_response(
+        self,
+        response_text: str,
+        task_type: Optional[str] = None,
+    ) -> Tuple[float, List[str], Optional[ValidationFeedback]]:
+        """
+        FIX-5: Validate a response and feed results back to frame weights.
+
+        This completes the bidirectional loop:
+        1. build() generates prompts with frame activations
+        2. Model generates response
+        3. validate_response() checks VERIX compliance
+        4. Feedback adjusts frame weights for future builds
+
+        Args:
+            response_text: The model's response to validate
+            task_type: Task type (uses last build's type if not provided)
+
+        Returns:
+            (compliance_score, violations, feedback)
+            feedback is None if feedback loop is disabled
+        """
+        task_type = task_type or self._last_task_type
+
+        if self._validation_bridge:
+            score, violations, feedback = self._validation_bridge.validate_and_feedback(
+                response_text, task_type
+            )
+
+            # Refresh active frames after potential weight adjustment
+            self.active_frames = FrameRegistry.get_active(self.config.framework)
+
+            # Update cluster key if config changed
+            self._cluster_key = VectorCodec.cluster_key(self.config)
+
+            logger.info(
+                f"Validation complete: score={score:.2f}, "
+                f"violations={len(violations)}, feedback_loop=active"
+            )
+
+            return score, violations, feedback
+        else:
+            # Fallback to simple validation without feedback
+            from .verix import VerixParser
+            parser = VerixParser(self.config.prompt)
+            claims = parser.parse(response_text)
+            is_valid, violations = self.verix_validator.validate(claims)
+            score = self.verix_validator.compliance_score(claims)
+            return score, violations, None
+
+    def get_frame_performance_report(self) -> Optional[dict]:
+        """
+        FIX-5: Get a report on frame performance based on validation feedback.
+
+        Returns:
+            Performance report dict, or None if feedback loop is disabled
+        """
+        if self._validation_bridge:
+            return self._validation_bridge.get_frame_performance_report()
+        return None
+
+    def get_weight_suggestions(self) -> Optional[dict]:
+        """
+        FIX-5: Get suggested weight adjustments without applying them.
+
+        Returns:
+            Dict of suggested adjustments, or None if feedback loop is disabled
+        """
+        if self._validation_bridge:
+            return self._validation_bridge.get_adjustment_suggestions()
+        return None
 
     def cluster_key(self) -> str:
         """

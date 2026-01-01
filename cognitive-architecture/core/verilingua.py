@@ -33,12 +33,44 @@ Protocol:
 """
 
 from abc import ABC, abstractmethod
-from typing import List, Dict, Protocol, runtime_checkable
+from typing import List, Dict, Protocol, runtime_checkable, Tuple
 from dataclasses import dataclass
 import re
 import threading
 
 from .config import FrameworkConfig
+
+
+# =============================================================================
+# FRAME WEIGHT POLICY (FIX-2 from REMEDIATION-PLAN.md)
+# =============================================================================
+# Numeric weights for prioritizing frame activation instructions.
+# Higher weight = frame instruction appears earlier and is emphasized more.
+# Evidential frame is always highest as evidence is foundational.
+# =============================================================================
+
+FRAME_WEIGHTS: Dict[str, float] = {
+    "evidential": 0.95,      # Always high - evidence is foundational
+    "aspectual": 0.80,       # Completion status is important for tasks
+    "illocutionary": 0.75,   # VERIX assertion types
+    "modal": 0.70,           # Certainty/possibility modals
+    "morphological": 0.65,   # Semantic decomposition
+    "compositional": 0.60,   # Compound building
+    "specificity": 0.55,     # Detail level
+    "comparative": 0.50,     # Comparison structures
+    "classifier": 0.45,      # Measure words
+    "spatial": 0.40,         # Position/navigation
+    "honorific": 0.35,       # Audience calibration (context-dependent)
+}
+
+# Minimum activation weight for evidential frame
+# If evidential is active, its weight cannot be lowered below this threshold
+EVIDENTIAL_MINIMUM: float = 0.30
+
+
+class FrameWeightViolation(Exception):
+    """Raised when frame weight policy is violated."""
+    pass
 
 
 @runtime_checkable
@@ -827,29 +859,114 @@ def aggregate_frame_score(response: str, config: FrameworkConfig) -> float:
     return sum(scores.values()) / len(scores)
 
 
-def get_combined_activation_instruction(config: FrameworkConfig) -> str:
+def get_combined_activation_instruction(
+    config: FrameworkConfig,
+    custom_weights: Dict[str, float] = None,
+    enforce_evidential_minimum: bool = True
+) -> str:
     """
     Get combined activation instructions for all active frames.
 
+    Frames are sorted by weight (highest first) to prioritize more important
+    cognitive constraints. The evidential frame has a minimum weight floor
+    that cannot be violated.
+
     Args:
         config: Configuration specifying active frames
+        custom_weights: Optional custom weights to override defaults
+        enforce_evidential_minimum: If True, raises FrameWeightViolation if
+            evidential frame weight is below EVIDENTIAL_MINIMUM
 
     Returns:
         Combined instruction string
+
+    Raises:
+        FrameWeightViolation: If evidential weight is below minimum
     """
     active_frames = FrameRegistry.get_active(config)
     if not active_frames:
         return ""
 
+    # Get weights (use custom or default)
+    weights = custom_weights if custom_weights else FRAME_WEIGHTS
+
+    # Build list of (frame, weight) tuples
+    weighted_frames: List[Tuple[CognitiveFrame, float]] = []
+    for frame in active_frames:
+        weight = weights.get(frame.name, 0.5)  # Default weight 0.5
+
+        # Enforce evidential minimum
+        if enforce_evidential_minimum and frame.name == "evidential":
+            if weight < EVIDENTIAL_MINIMUM:
+                raise FrameWeightViolation(
+                    f"Evidential frame weight ({weight}) is below minimum ({EVIDENTIAL_MINIMUM}). "
+                    "Evidence is foundational and cannot be de-prioritized."
+                )
+
+        weighted_frames.append((frame, weight))
+
+    # Sort by weight descending (highest priority first)
+    weighted_frames.sort(key=lambda x: x[1], reverse=True)
+
+    # Build instruction string
     instructions = [
         "# COGNITIVE FRAMES ACTIVATION",
         "",
-        "The following cognitive frames are ACTIVE. You MUST follow their requirements:",
+        "The following cognitive frames are ACTIVE (ordered by priority).",
+        "You MUST follow their requirements:",
         "",
     ]
 
-    for frame in active_frames:
+    for frame, weight in weighted_frames:
+        priority_label = _get_priority_label(weight)
+        instructions.append(f"## [{priority_label}] {frame.name.upper()} (weight: {weight:.2f})")
         instructions.append(frame.activation_instruction())
         instructions.append("")
 
     return "\n".join(instructions)
+
+
+def _get_priority_label(weight: float) -> str:
+    """Get human-readable priority label for a weight value."""
+    if weight >= 0.90:
+        return "CRITICAL"
+    elif weight >= 0.75:
+        return "HIGH"
+    elif weight >= 0.50:
+        return "MEDIUM"
+    elif weight >= 0.30:
+        return "LOW"
+    else:
+        return "OPTIONAL"
+
+
+def get_frame_weights() -> Dict[str, float]:
+    """Get the current frame weight configuration."""
+    return dict(FRAME_WEIGHTS)
+
+
+def validate_frame_weights(weights: Dict[str, float]) -> List[str]:
+    """
+    Validate a frame weight configuration.
+
+    Args:
+        weights: Dictionary of frame name to weight
+
+    Returns:
+        List of validation errors (empty if valid)
+    """
+    errors = []
+
+    # Check evidential minimum
+    if "evidential" in weights:
+        if weights["evidential"] < EVIDENTIAL_MINIMUM:
+            errors.append(
+                f"Evidential weight ({weights['evidential']}) below minimum ({EVIDENTIAL_MINIMUM})"
+            )
+
+    # Check weight ranges
+    for frame_name, weight in weights.items():
+        if weight < 0.0 or weight > 1.0:
+            errors.append(f"Weight for '{frame_name}' ({weight}) outside valid range [0.0, 1.0]")
+
+    return errors

@@ -1,6 +1,9 @@
 """
 Memory MCP Integration for DSPy Level 1.
 
+FIX-3 from REMEDIATION-PLAN.md:
+Unstubbed integration that uses real MCP client for persistence.
+
 Provides cross-session telemetry persistence via Memory MCP.
 Enables aggregation of telemetry data across multiple sessions
 for monthly structural analysis.
@@ -11,10 +14,14 @@ Part of the DSPy Level 1 monthly structural evolution system.
 import json
 import time
 import os
+import logging
 from dataclasses import dataclass
 from typing import Dict, List, Any, Optional
 from pathlib import Path
 
+from .mcp_client import MemoryMCPClient, get_mcp_client, MCPToolResult
+
+logger = logging.getLogger(__name__)
 
 # Memory MCP namespace for DSPy telemetry
 MEMORY_MCP_NAMESPACE = "dspy/telemetry"
@@ -63,12 +70,15 @@ class MemoryMCPTelemetryStore:
 
     Stores telemetry snapshots to Memory MCP for cross-session aggregation.
     Uses the 12FA tagging protocol for proper metadata.
+
+    FIX-3: Now uses real MCP client instead of stubbed interface.
     """
 
     def __init__(
         self,
         project_name: str = "context-cascade",
         fallback_dir: Optional[Path] = None,
+        mcp_client: Optional[MemoryMCPClient] = None,
     ):
         """
         Initialize Memory MCP telemetry store.
@@ -76,6 +86,7 @@ class MemoryMCPTelemetryStore:
         Args:
             project_name: Project identifier for tagging
             fallback_dir: Directory for file-based fallback when MCP unavailable
+            mcp_client: Optional MCP client instance (uses default if None)
         """
         self.project_name = project_name
         self.namespace = MEMORY_MCP_NAMESPACE
@@ -86,26 +97,12 @@ class MemoryMCPTelemetryStore:
         self.fallback_dir = Path(fallback_dir)
         self.fallback_dir.mkdir(parents=True, exist_ok=True)
 
-        self._mcp_available: Optional[bool] = None
+        # Use injected client or get default
+        self.mcp_client = mcp_client or get_mcp_client(namespace=self.namespace)
 
     def _check_mcp_availability(self) -> bool:
-        """Check if Memory MCP is available."""
-        if self._mcp_available is not None:
-            return self._mcp_available
-
-        try:
-            # Try to import the tagging protocol
-            hooks_path = Path(__file__).parent.parent.parent / "hooks" / "12fa"
-            if hooks_path.exists():
-                # Check if the JS module exists
-                protocol_path = hooks_path / "memory-mcp-tagging-protocol.js"
-                self._mcp_available = protocol_path.exists()
-            else:
-                self._mcp_available = False
-        except Exception:
-            self._mcp_available = False
-
-        return self._mcp_available
+        """Check if Memory MCP is available via the client."""
+        return self.mcp_client.is_available()
 
     async def persist_snapshot(
         self,
@@ -140,21 +137,38 @@ class MemoryMCPTelemetryStore:
         content: str,
         tags: Dict[str, str],
     ) -> Dict[str, Any]:
-        """Persist to Memory MCP (async)."""
-        # Note: This would integrate with the actual Memory MCP
-        # For now, we simulate the interface
-        result = {
-            "stored": True,
-            "location": "memory-mcp",
-            "namespace": tags["x-namespace"],
-            "snapshot_id": snapshot_id,
-            "timestamp": time.time(),
-        }
+        """Persist to Memory MCP (async) - FIX-3: Now uses real MCP client."""
+        try:
+            # Use real MCP client for storage
+            mcp_result = self.mcp_client.memory_store(
+                key=f"snapshots/{snapshot_id}",
+                value=content,
+                metadata={
+                    "WHO": f"cognitive-architecture:{self.project_name}",
+                    "WHEN": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                    "PROJECT": self.project_name,
+                    "WHY": "telemetry_snapshot",
+                    **tags,
+                },
+            )
 
-        # Also write to fallback for redundancy
-        self._persist_to_fallback(snapshot_id, content, tags)
+            if mcp_result.success:
+                logger.info(f"Snapshot {snapshot_id} stored to MCP")
+                return {
+                    "stored": True,
+                    "location": "memory-mcp",
+                    "namespace": tags.get("x-namespace", self.namespace),
+                    "snapshot_id": snapshot_id,
+                    "timestamp": time.time(),
+                    "mcp_result": mcp_result.data,
+                }
+            else:
+                logger.warning(f"MCP store failed: {mcp_result.error}, using fallback")
+                return self._persist_to_fallback(snapshot_id, content, tags)
 
-        return result
+        except Exception as e:
+            logger.error(f"MCP persist error: {e}, using fallback")
+            return self._persist_to_fallback(snapshot_id, content, tags)
 
     def _persist_to_fallback(
         self,
@@ -207,10 +221,47 @@ class MemoryMCPTelemetryStore:
         since: Optional[float],
         limit: int,
     ) -> List[TelemetrySnapshot]:
-        """Load from Memory MCP (async)."""
-        # Note: This would query the actual Memory MCP
-        # For now, fall back to file storage
-        return self._load_from_fallback(since, limit)
+        """Load from Memory MCP (async) - FIX-3: Now uses real MCP client."""
+        try:
+            # Search for snapshots using vector search
+            search_result = self.mcp_client.vector_search(
+                query="telemetry snapshot",
+                limit=limit,
+                namespace=self.namespace,
+            )
+
+            if not search_result.success:
+                logger.warning(f"MCP search failed: {search_result.error}, using fallback")
+                return self._load_from_fallback(since, limit)
+
+            snapshots = []
+            matches = search_result.data.get("matches", [])
+
+            for match in matches:
+                try:
+                    value = match.get("value", {})
+                    if isinstance(value, str):
+                        value = json.loads(value)
+
+                    timestamp = value.get("timestamp", 0)
+
+                    # Filter by since timestamp
+                    if since is not None and timestamp < since:
+                        continue
+
+                    snapshot = TelemetrySnapshot.from_dict(value)
+                    snapshots.append(snapshot)
+
+                except (json.JSONDecodeError, KeyError, TypeError) as e:
+                    logger.debug(f"Skipping invalid snapshot: {e}")
+                    continue
+
+            logger.info(f"Loaded {len(snapshots)} snapshots from MCP")
+            return snapshots
+
+        except Exception as e:
+            logger.error(f"MCP load error: {e}, using fallback")
+            return self._load_from_fallback(since, limit)
 
     def _load_from_fallback(
         self,

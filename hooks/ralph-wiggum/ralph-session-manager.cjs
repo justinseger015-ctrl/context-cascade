@@ -594,3 +594,210 @@ module.exports = {
   SESSIONS_DIR,
   CHECKPOINTS_DIR
 };
+
+
+// ============================================================================
+// CLI Interface (FIX-6 from REMEDIATION-PLAN.md)
+// ============================================================================
+// Enables ralph-loop-stop-hook.sh to persist session state to Memory MCP
+
+/**
+ * Parse command line arguments
+ */
+function parseArgs(args) {
+  const result = { command: null, options: {} };
+
+  if (args.length < 1) {
+    return result;
+  }
+
+  result.command = args[0];
+
+  for (let i = 1; i < args.length; i++) {
+    const arg = args[i];
+    if (arg.startsWith('--')) {
+      const key = arg.slice(2);
+      const value = args[i + 1] && !args[i + 1].startsWith('--') ? args[++i] : true;
+      result.options[key] = value;
+    }
+  }
+
+  return result;
+}
+
+/**
+ * CLI command handlers
+ */
+const commands = {
+  /**
+   * Persist current session state to Memory MCP
+   * Usage: node ralph-session-manager.js persist --iteration N --state FILE --timestamp ISO
+   */
+  async persist(options) {
+    const session = manager.loadActiveSession();
+
+    if (!session) {
+      console.error('No active session to persist');
+      process.exit(1);
+    }
+
+    // Update iteration if provided
+    if (options.iteration) {
+      session.iteration = parseInt(options.iteration, 10);
+    }
+
+    // Add timestamp to handoff notes
+    if (options.timestamp) {
+      session.handoff_notes.push(`Iteration ${session.iteration} at ${options.timestamp}`);
+    }
+
+    // Save to file system
+    manager.saveToFile(session);
+
+    // Create checkpoint
+    const checkpointId = await manager.checkpoint(
+      session,
+      `Stop hook iteration ${session.iteration}`
+    );
+
+    // Persist to Memory MCP
+    const mcpResult = await manager.persistToMemoryMCP(session);
+
+    console.log(JSON.stringify({
+      success: true,
+      session_id: session.session_id,
+      iteration: session.iteration,
+      checkpoint_id: checkpointId,
+      mcp_persisted: mcpResult,
+      phase: session.getPhaseName()
+    }));
+  },
+
+  /**
+   * List active sessions
+   * Usage: node ralph-session-manager.js list
+   */
+  list() {
+    const sessions = manager.listActiveSessions();
+    console.log(JSON.stringify({ sessions, count: sessions.length }, null, 2));
+  },
+
+  /**
+   * Get status of current session
+   * Usage: node ralph-session-manager.js status
+   */
+  status() {
+    const session = manager.loadActiveSession();
+
+    if (!session) {
+      console.log(JSON.stringify({ active: false }));
+      return;
+    }
+
+    console.log(JSON.stringify({
+      active: true,
+      session_id: session.session_id,
+      phase: session.getPhaseName(),
+      iteration: session.iteration,
+      max_iterations: session.max_iterations,
+      progress: session.getProgress(),
+      status: session.status
+    }, null, 2));
+  },
+
+  /**
+   * Resume a session by ID
+   * Usage: node ralph-session-manager.js resume --id SESSION_ID
+   */
+  async resume(options) {
+    if (!options.id) {
+      console.error('Missing --id parameter');
+      process.exit(1);
+    }
+
+    const session = await manager.resumeSession(options.id);
+
+    if (!session) {
+      console.error(`Session ${options.id} not found`);
+      process.exit(1);
+    }
+
+    console.log(JSON.stringify({
+      success: true,
+      session_id: session.session_id,
+      phase: session.getPhaseName(),
+      iteration: session.iteration,
+      resume_instructions: manager.generateResumeInstructions(session)
+    }));
+  },
+
+  /**
+   * Complete a session
+   * Usage: node ralph-session-manager.js complete [--success true|false]
+   */
+  async complete(options) {
+    const session = manager.loadActiveSession();
+
+    if (!session) {
+      console.error('No active session to complete');
+      process.exit(1);
+    }
+
+    const success = options.success !== 'false';
+    await manager.completeSession(session, success);
+
+    console.log(JSON.stringify({
+      success: true,
+      session_id: session.session_id,
+      completed_with_success: success
+    }));
+  },
+
+  /**
+   * Show help
+   */
+  help() {
+    console.log(`
+Ralph Session Manager CLI (FIX-6)
+
+Commands:
+  persist   Persist current session to Memory MCP
+            Options: --iteration N --state FILE --timestamp ISO
+
+  list      List all active sessions
+
+  status    Get status of current session
+
+  resume    Resume a session by ID
+            Options: --id SESSION_ID
+
+  complete  Complete the current session
+            Options: --success true|false
+
+Examples:
+  node ralph-session-manager.js persist --iteration 5 --timestamp 2026-01-01T12:00:00Z
+  node ralph-session-manager.js list
+  node ralph-session-manager.js status
+  node ralph-session-manager.js resume --id ralph-1234567890-abc123
+  node ralph-session-manager.js complete --success true
+`);
+  }
+};
+
+// Run CLI if invoked directly
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  const { command, options } = parseArgs(args);
+
+  if (!command || !commands[command]) {
+    commands.help();
+    process.exit(command ? 1 : 0);
+  }
+
+  // Run command
+  Promise.resolve(commands[command](options))
+    .catch(err => {
+      console.error(`Error: ${err.message}`);
+      process.exit(1);
+    });
+}

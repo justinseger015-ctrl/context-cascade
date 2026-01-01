@@ -108,6 +108,19 @@ else
     sed -i "s/^iteration: .*/iteration: $ITERATION/" "$STATE_FILE"
 fi
 
+# FIX-6: Persist to session manager for Memory MCP cross-context handoff
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SESSION_MANAGER="$SCRIPT_DIR/ralph-session-manager.cjs"
+
+if [[ -f "$SESSION_MANAGER" ]]; then
+    TIMESTAMP=$(date -Iseconds 2>/dev/null || date +%Y-%m-%dT%H:%M:%S%z)
+    node "$SESSION_MANAGER" persist \
+        --iteration "$ITERATION" \
+        --state "$STATE_FILE" \
+        --timestamp "$TIMESTAMP" 2>/dev/null || true
+    log_message "Session persisted to Memory MCP (iteration $ITERATION)"
+fi
+
 # Extract prompt (everything after the --- separator)
 PROMPT=$(awk '/^---$/{if(++n==2){found=1;next}}found' "$STATE_FILE")
 

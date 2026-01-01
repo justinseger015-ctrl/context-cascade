@@ -11,7 +11,7 @@ This module is the FOUNDATION - all other modules depend on it.
 """
 
 from dataclasses import dataclass, field
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 from enum import Enum
 
 
@@ -29,6 +29,21 @@ class CompressionLevel(Enum):
     L2_HUMAN = 2      # Natural language (end user, lossy)
 
 
+# Default frame weights (matches FRAME_WEIGHTS in verilingua.py)
+DEFAULT_FRAME_WEIGHTS: Dict[str, float] = {
+    "evidential": 0.95,
+    "aspectual": 0.80,
+    "morphological": 0.65,
+    "compositional": 0.60,
+    "honorific": 0.35,
+    "classifier": 0.45,
+    "spatial": 0.40,
+}
+
+# Minimum weight for evidential frame (evidence is foundational)
+DEFAULT_EVIDENTIAL_MINIMUM: float = 0.30
+
+
 @dataclass
 class FrameworkConfig:
     """
@@ -42,7 +57,13 @@ class FrameworkConfig:
     - honorific: Japanese keigo (audience calibration)
     - classifier: Chinese measure words (object comparison)
     - spatial: Guugu Yimithirr absolute positioning (navigation)
+
+    Frame Weight Policy (FIX-2 from REMEDIATION-PLAN.md):
+    - Each frame has a numeric weight (0.0 - 1.0) for prioritization
+    - Higher weight = frame instruction appears earlier and is emphasized more
+    - Evidential frame has a minimum weight floor (cannot be de-prioritized)
     """
+    # Frame activation toggles
     evidential: bool = True
     aspectual: bool = True
     morphological: bool = False
@@ -50,6 +71,13 @@ class FrameworkConfig:
     honorific: bool = False
     classifier: bool = False
     spatial: bool = False
+
+    # Frame weight overrides (optional)
+    # If not set, uses DEFAULT_FRAME_WEIGHTS
+    frame_weights: Dict[str, float] = field(default_factory=lambda: DEFAULT_FRAME_WEIGHTS.copy())
+
+    # Evidential minimum weight (evidence is foundational)
+    evidential_minimum: float = DEFAULT_EVIDENTIAL_MINIMUM
 
     # Hofstadter recursion control (FR1.2, SYNTH-MECH-001)
     max_frame_depth: int = 3  # Base case: stop at depth 3
@@ -77,6 +105,62 @@ class FrameworkConfig:
     def frame_count(self) -> int:
         """Return number of active frames."""
         return len(self.active_frames())
+
+    def get_weighted_frames(self) -> List[Tuple[str, float]]:
+        """
+        Get active frames with their weights, sorted by weight descending.
+
+        Returns:
+            List of (frame_name, weight) tuples, highest weight first
+        """
+        active = self.active_frames()
+        weighted = [(f, self.frame_weights.get(f, 0.5)) for f in active]
+        return sorted(weighted, key=lambda x: x[1], reverse=True)
+
+    def validate_weights(self) -> List[str]:
+        """
+        Validate the frame weight configuration.
+
+        Returns:
+            List of validation error messages (empty if valid)
+        """
+        errors = []
+
+        # Check evidential minimum
+        evidential_weight = self.frame_weights.get("evidential", 0.95)
+        if self.evidential and evidential_weight < self.evidential_minimum:
+            errors.append(
+                f"Evidential weight ({evidential_weight}) is below minimum ({self.evidential_minimum})"
+            )
+
+        # Check all weights are in valid range
+        for frame_name, weight in self.frame_weights.items():
+            if weight < 0.0 or weight > 1.0:
+                errors.append(f"Weight for '{frame_name}' ({weight}) outside valid range [0.0, 1.0]")
+
+        return errors
+
+    def set_frame_weight(self, frame_name: str, weight: float) -> None:
+        """
+        Set the weight for a specific frame.
+
+        Args:
+            frame_name: Name of the frame
+            weight: Weight value (0.0 - 1.0)
+
+        Raises:
+            ValueError: If weight is out of range or violates evidential minimum
+        """
+        if weight < 0.0 or weight > 1.0:
+            raise ValueError(f"Weight must be between 0.0 and 1.0, got {weight}")
+
+        if frame_name == "evidential" and weight < self.evidential_minimum:
+            raise ValueError(
+                f"Cannot set evidential weight ({weight}) below minimum ({self.evidential_minimum}). "
+                "Evidence is foundational and cannot be de-prioritized."
+            )
+
+        self.frame_weights[frame_name] = weight
 
     def validate_nesting(self, frame_stack: List[str]) -> bool:
         """
