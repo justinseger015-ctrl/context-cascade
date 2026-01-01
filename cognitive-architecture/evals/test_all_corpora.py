@@ -12,7 +12,7 @@ Run with: pytest evals/test_all_corpora.py -v
 """
 
 import pytest
-from conftest import load_corpus
+from evals.conftest import load_corpus
 
 
 class TestAllCorpora:

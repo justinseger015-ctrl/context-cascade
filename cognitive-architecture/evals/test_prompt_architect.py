@@ -13,7 +13,7 @@ import json
 import pytest
 from pathlib import Path
 
-from conftest import (
+from evals.conftest import (
     load_corpus,
     check_confidence_ceiling,
     check_verix_format,
