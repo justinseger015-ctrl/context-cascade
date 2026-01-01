@@ -64,10 +64,11 @@ class FrameworkConfig:
     - Evidential frame has a minimum weight floor (cannot be de-prioritized)
     """
     # Frame activation toggles
+    # P1-3 FIX: Enable morphological and compositional by default for richer cognitive forcing
     evidential: bool = True
     aspectual: bool = True
-    morphological: bool = False
-    compositional: bool = False
+    morphological: bool = True   # P1-3: Enable semantic decomposition (Arabic roots)
+    compositional: bool = True   # P1-3: Enable primitives->compounds (German compounding)
     honorific: bool = False
     classifier: bool = False
     spatial: bool = False

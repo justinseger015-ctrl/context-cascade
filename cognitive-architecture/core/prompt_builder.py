@@ -27,6 +27,7 @@ from .config import FullConfig, VectorCodec, CompressionLevel
 from .verix import VerixValidator, VerixStrictness
 from .verilingua import FrameRegistry, CognitiveFrame, get_combined_activation_instruction
 from .frame_validation_bridge import FrameValidationBridge, ValidationFeedback
+from .vcl_validator import VCLValidator, VCLConfig, ValidationResult as VCLValidationResult
 
 # Import ModeSelector for FIX-4
 # FIX: Import TelemetryAwareModeSelector for PB-TELEMETRY
@@ -169,6 +170,9 @@ class PromptBuilder:
             self._validation_bridge = FrameValidationBridge(config, auto_adjust=True)
         self._last_task_type: str = "default"
 
+        # P1-4 FIX: VCL validation integration
+        self._vcl_validator = VCLValidator()
+
     def build(self, task: str, task_type: str) -> Tuple[str, str]:
         """
         THE CONTRACT - NEVER CHANGES
@@ -308,11 +312,12 @@ class PromptBuilder:
     ) -> Tuple[float, List[str], Optional[ValidationFeedback]]:
         """
         FIX-5: Validate a response and feed results back to frame weights.
+        P1-4 FIX: Now also runs VCL validation for 7-slot compliance.
 
         This completes the bidirectional loop:
         1. build() generates prompts with frame activations
         2. Model generates response
-        3. validate_response() checks VERIX compliance
+        3. validate_response() checks VERIX + VCL compliance
         4. Feedback adjusts frame weights for future builds
 
         Args:
@@ -324,11 +329,28 @@ class PromptBuilder:
             feedback is None if feedback loop is disabled
         """
         task_type = task_type or self._last_task_type
+        all_violations: List[str] = []
+
+        # P1-4 FIX: Run VCL validation (7-slot, confidence ceilings, epistemic cosplay)
+        vcl_score = 1.0
+        try:
+            vcl_result = self._vcl_validator.validate(response_text)
+            vcl_score = vcl_result.vcl_compliance_score
+            if vcl_result.violations:
+                all_violations.extend([f"VCL: {v}" for v in vcl_result.violations])
+        except Exception as e:
+            logger.warning(f"VCL validation error (non-fatal): {e}")
 
         if self._validation_bridge:
             score, violations, feedback = self._validation_bridge.validate_and_feedback(
                 response_text, task_type
             )
+
+            # Merge VERIX violations with VCL violations
+            all_violations.extend(violations)
+
+            # Combined score: 70% VERIX, 30% VCL
+            combined_score = (score * 0.7) + (vcl_score * 0.3)
 
             # Refresh active frames after potential weight adjustment
             self.active_frames = FrameRegistry.get_active(self.config.framework)
@@ -337,11 +359,11 @@ class PromptBuilder:
             self._cluster_key = VectorCodec.cluster_key(self.config)
 
             logger.info(
-                f"Validation complete: score={score:.2f}, "
-                f"violations={len(violations)}, feedback_loop=active"
+                f"Validation complete: verix={score:.2f}, vcl={vcl_score:.2f}, "
+                f"combined={combined_score:.2f}, violations={len(all_violations)}"
             )
 
-            return score, violations, feedback
+            return combined_score, all_violations, feedback
         else:
             # Fallback to simple validation without feedback
             from .verix import VerixParser
@@ -349,7 +371,11 @@ class PromptBuilder:
             claims = parser.parse(response_text)
             is_valid, violations = self.verix_validator.validate(claims)
             score = self.verix_validator.compliance_score(claims)
-            return score, violations, None
+
+            all_violations.extend(violations)
+            combined_score = (score * 0.7) + (vcl_score * 0.3)
+
+            return combined_score, all_violations, None
 
     def get_frame_performance_report(self) -> Optional[dict]:
         """
