@@ -510,14 +510,17 @@ class VerixValidator:
         # MODEL claims are strictest, USER claims are most lenient
         agent_strictness = self._get_agent_strictness(claim.agent)
 
-        # Check required ground (adjusted by agent strictness)
+        # Check required ground
+        # P3-7 FIX (CORRECTED): When require_ground=True, ALWAYS enforce it
+        # Agent strictness only affects message severity, not whether it's a violation
         if self.config.require_ground and not claim.is_grounded():
-            # MODEL and DOC claims always need grounding
+            agent_str = claim.agent.value if claim.agent else 'unknown'
             if agent_strictness >= 0.8:
-                violations.append(f"{prefix}: Missing ground/evidence (agent={claim.agent.value if claim.agent else 'unknown'})")
-            elif agent_strictness >= 0.5:
-                # Warning level for moderate strictness agents
-                pass  # Soft requirement, no violation
+                # High strictness agents: strong violation
+                violations.append(f"{prefix}: Missing ground/evidence (agent={agent_str})")
+            else:
+                # Other agents: still a violation when require_ground=True, but noted as softer
+                violations.append(f"{prefix}: Missing ground (agent={agent_str}, ground required by config)")
 
         # Check confidence range
         if not (0.0 <= claim.confidence <= 1.0):

@@ -70,7 +70,8 @@ include = ["cognitive_architecture*"]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_functions = ["test_*"]
-addopts = "-v --tb=short"
+# Disable pytest-randomly to prevent test pollution from module-level config objects
+addopts = "-v --tb=short -p no:randomly"
 norecursedirs = [".git", "__pycache__", "storage", "docs"]
 collect_ignore = ["__init__.py"]
 

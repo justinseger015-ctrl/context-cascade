@@ -34,21 +34,34 @@ class TestFrameworkConfig:
         assert config.aspectual is True
 
     def test_default_config_has_others_inactive(self):
-        """Default config should have other frames inactive."""
+        """Default config should have honorific, classifier, spatial inactive.
+
+        Note: P1-3 FIX changed morphological and compositional to True by default
+        for richer cognitive forcing.
+        """
         config = FrameworkConfig()
-        assert config.morphological is False
-        assert config.compositional is False
+        # P1-3 FIX: morphological and compositional now True by default
+        assert config.morphological is True
+        assert config.compositional is True
+        # These remain False by default
         assert config.honorific is False
         assert config.classifier is False
         assert config.spatial is False
 
     def test_active_frames_returns_list(self):
-        """active_frames() should return list of active frame names."""
+        """active_frames() should return list of active frame names.
+
+        Note: P1-3 FIX changed defaults to include morphological and compositional.
+        """
         config = FrameworkConfig()
         active = config.active_frames()
         assert "evidential" in active
         assert "aspectual" in active
-        assert "morphological" not in active
+        # P1-3 FIX: morphological and compositional now active by default
+        assert "morphological" in active
+        assert "compositional" in active
+        # These remain inactive by default
+        assert "honorific" not in active
 
     def test_frame_count_matches_active(self):
         """frame_count() should match length of active_frames()."""
