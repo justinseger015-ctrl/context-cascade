@@ -7,22 +7,68 @@
 
 ---
 
-## OVERALL STATUS (2026-01-01)
+## OVERALL STATUS (2026-01-01 - Updated)
 
 | Phase | Status | Notes |
 |-------|--------|-------|
 | Phase 1 | COMPLETE | Medium bugs fixed (case sensitivity, thread safety) |
 | Phase 2 | COMPLETE | Low bugs fixed (to_l2, httpx leak) |
-| Phase 3 | REVISED | Issue 3.1: cascade files intentionally separate (different purposes) |
-| Phase 4 | PARTIAL | Holdout validation exists, needs real evaluator |
-| Phase 5 | MOSTLY COMPLETE | Tests pass, CI workflow added, needs CALIBRATION.md |
+| Phase 3 | PARTIAL | 3.1 closed (intentional separation), 3.2-3.3 pending |
+| Phase 4 | PARTIAL | Holdout validation exists, needs real evaluator, CALIBRATION.md |
+| Phase 5 | MOSTLY COMPLETE | Tests pass, CI workflow added (commit 460fe0d), needs CALIBRATION.md |
 | Phase 6 | PENDING | Final audit not started |
+
+### Commits Applied This Session
+| Commit | Description |
+|--------|-------------|
+| `3f25aec` | docs: Update plan docs with P0-P3 completion status |
+| `e6eb320` | docs: Update REMEDIATION-PLAN Phase 3.1 - cascade files intentionally separate |
+| `460fe0d` | ci: Add GitHub Actions workflow for cognitive architecture tests |
 
 **Related Completions (VERILINGUA/VERIX P0-P3):**
 - P0: Feedback loops closed (runtime, hooks)
 - P1: Cognitive forcing enhanced (4 default frames, VCL validation)
 - P2: Hofstadter controls (depth limits, cycle detection)
 - P3: Agent/meta handling (strictness, MetaLevel enum)
+
+---
+
+## UNFINISHED ITEMS (QUICK REFERENCE)
+
+### High Priority (Blocking Final Audit)
+1. **Phase 4.3/5.3: CALIBRATION.md** - Document all hyperparameters
+   - Location: `docs/CALIBRATION.md` (needs creation)
+   - Content: Explain all magic numbers in objective functions
+
+2. **Phase 4.1: Real Evaluator** - Replace synthetic objectives with real LLM execution
+   - Location: `optimization/real_evaluator.py` (needs creation)
+   - Blocked by: Needs task corpus and grading rubric
+
+### Medium Priority (Improves Quality)
+3. **Phase 3.2: Agent Template** - Extract 29 identical lines to YAML anchor
+   - Location: `agents/_templates/cognitive-frames.yaml` (needs creation)
+   - Impact: Reduces 150+ agent file redundancy
+
+4. **Phase 3.3: Storage Deduplication** - Delta-based cascade storage
+   - Location: `storage/cascade/` (16 files currently)
+   - Impact: Reduces disk usage, faster loads
+
+5. **Phase 5.4: Error Handling Tests** - Test API failure recovery paths
+   - Location: `tests/test_error_recovery.py` (needs creation)
+   - Impact: Ensures graceful degradation
+
+### Low Priority (Final Polish)
+6. **Phase 6: Final Audit** - Complete verification
+   - Theater detection on all files
+   - Connascence analysis
+   - Memory MCP summary
+
+### HOFSTADTER-SPEC.md Remaining (P2-P3 DSPy/PyMOO)
+7. **P2: Self-mod objective** - Add self_modification_potential to PyMOO
+8. **P2: Thrashing detection** - Add detect_optimization_thrashing() to PyMOO
+9. **P3: Self-ref signatures** - MetaVerilinguaSignature for DSPy
+10. **P3: Homoiconic sigs** - signature_to_dict()/dict_to_signature()
+11. **P3: Hofstadter optimizer** - HofstadterOptimizer with base case detection
 
 ---
 
