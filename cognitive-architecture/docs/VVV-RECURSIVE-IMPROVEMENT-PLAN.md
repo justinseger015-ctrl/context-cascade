@@ -292,15 +292,116 @@ Add vvv-eval.yml for recursive improvement eval.
 
 ---
 
-## NEXT STEPS
+## PREREQUISITE INFRASTRUCTURE (From REMEDIATION-PLAN)
 
-1. [ ] Create task corpus files (150 total tasks)
-2. [ ] Set up DeepEval test structure
-3. [ ] Create vvv-eval.yml GitHub Action
-4. [ ] Begin Phase 1: prompt-architect dogfooding
-5. [ ] Document creolization gaps as they arise
+These items from the cognitive architecture remediation must be completed
+before or during the VVV loop to provide proper infrastructure.
+
+### High Priority (Blocking VVV Loop)
+
+| ID | Item | Status | Integrated Into |
+|----|------|--------|-----------------|
+| 4.1 | Real Evaluator | PENDING | Phase 0 (task corpus IS the real evaluator) |
+
+### Medium Priority (Improves Quality)
+
+| ID | Item | Status | Integrated Into |
+|----|------|--------|-----------------|
+| 3.2 | Agent template YAML anchor | PENDING | Phase 2 (agent-creator optimization) |
+| 3.3 | Storage deduplication | PENDING | Phase 5 (cleanup after propagation) |
+| 5.4 | Error handling tests | PENDING | Phase 0 (eval framework) |
+
+### Low Priority (Final Polish)
+
+| ID | Item | Status | Integrated Into |
+|----|------|--------|-----------------|
+| 6 | Final audit | PENDING | After Phase 5 complete |
+
+### HOFSTADTER-SPEC P2-P3 (DSPy/PyMOO Advanced)
+
+These advanced Hofstadter features can be implemented during or after the VVV loop.
+
+| Priority | Item | Target | Integrated Into |
+|----------|------|--------|-----------------|
+| P2 | Self-mod objective | PyMOO | Phase 5 (optimization application) |
+| P2 | Thrashing detection | PyMOO | Phase 5 (detect optimization loops) |
+| P3 | Self-ref signatures | DSPy | Phase 3 (skill-forge meta-skill) |
+| P3 | Homoiconic sigs | DSPy | Phase 3 (signature manipulation) |
+| P3 | Hofstadter optimizer | DSPy | Phase 5 (base case detection) |
+
+### Integration Notes
+
+1. **Real Evaluator (4.1)**: The 150-task corpus in Phase 0 IS the real evaluator.
+   No separate implementation needed - the VVV loop uses real LLM execution.
+
+2. **Agent Template (3.2)**: Implement during Phase 2 when optimizing agent-creator.
+   The YAML anchor template reduces redundancy across 217 agents.
+
+3. **Storage Deduplication (3.3)**: Implement in Phase 5 after propagation.
+   Delta-based storage for cascade results.
+
+4. **Self-mod Objective (P2)**: Add to PyMOO during Phase 5.
+   Weight: 20% of optimization objectives.
+
+5. **Hofstadter Optimizer (P3)**: Implement base case detection for DSPy.
+   Prevents infinite recursion in skill self-improvement.
 
 ---
 
-*Plan Version: 1.0*
+## NEXT STEPS
+
+### Immediate (Before VVV Loop)
+1. [ ] Create task corpus files (150 total tasks) - BECOMES Real Evaluator
+2. [ ] Set up DeepEval test structure
+3. [ ] Create vvv-eval.yml GitHub Action
+4. [ ] Add error handling tests (5.4)
+
+### Phase 1-3 (During VVV Loop)
+5. [ ] Begin Phase 1: prompt-architect dogfooding
+6. [ ] Implement agent template YAML anchor (3.2) in Phase 2
+7. [ ] Implement self-ref signatures (P3) in Phase 3
+8. [ ] Document creolization gaps as they arise
+
+### Phase 5 (After VVV Loop)
+9. [ ] Add self-mod objective to PyMOO (P2)
+10. [ ] Add thrashing detection (P2)
+11. [ ] Implement Hofstadter optimizer (P3)
+12. [ ] Implement storage deduplication (3.3)
+13. [ ] Run final audit (Phase 6)
+
+---
+
+## CONSOLIDATED CHECKLIST
+
+All items from REMEDIATION-PLAN + HOFSTADTER-SPEC + VVV-PLAN:
+
+### Infrastructure
+- [x] CALIBRATION.md (commit 95ad023)
+- [x] CI workflow (commit 460fe0d)
+- [ ] Task corpus (150 tasks)
+- [ ] DeepEval setup
+- [ ] Error handling tests
+
+### VVV Optimization
+- [ ] Phase 1: prompt-architect
+- [ ] Phase 2: agent-creator + YAML anchor
+- [ ] Phase 3: skill-forge + cross-improvement
+- [ ] Phase 4: propagate to 660+ components
+- [ ] Phase 5: apply optimizations
+
+### Advanced Hofstadter
+- [ ] P2: Self-mod objective
+- [ ] P2: Thrashing detection
+- [ ] P3: Self-ref signatures
+- [ ] P3: Homoiconic sigs
+- [ ] P3: Hofstadter optimizer
+
+### Final
+- [ ] Storage deduplication
+- [ ] Final audit
+
+---
+
+*Plan Version: 1.1*
 *Last Updated: 2026-01-01*
+*Incorporates: REMEDIATION-PLAN.md, HOFSTADTER-SPEC.md*
