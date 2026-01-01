@@ -469,6 +469,8 @@ class VerixValidator:
         """
         Validate a list of claims against configuration requirements.
 
+        P2-6 FIX: Now calls detect_ground_cycles() for circular reference detection.
+
         Args:
             claims: List of VerixClaim objects to validate
 
@@ -485,6 +487,12 @@ class VerixValidator:
         if len(claims) > 1:
             consistency_violations = self._check_consistency(claims)
             violations.extend(consistency_violations)
+
+        # P2-6 FIX: Detect ground cycles (Hofstadter FR2.3 - avoid paradoxical self-reference)
+        if len(claims) > 1:
+            cycles = self.detect_ground_cycles(claims)
+            for cycle in cycles:
+                violations.append(f"Circular ground reference detected: {cycle}")
 
         return len(violations) == 0, violations
 

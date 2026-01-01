@@ -710,32 +710,56 @@ class FrameRegistry:
         return dict(cls._frames)
 
     @classmethod
-    def get_active(cls, config: FrameworkConfig) -> List[CognitiveFrame]:
+    def get_active(
+        cls,
+        config: FrameworkConfig,
+        depth: int = 0,
+    ) -> List[CognitiveFrame]:
         """
         Get all frames that are enabled in config.
 
+        P2-5 FIX: Enforces max_frame_depth for Hofstadter recursion control.
+        When depth >= max_frame_depth, returns only essential frames (evidential).
+
         Args:
             config: FrameworkConfig specifying which frames are active
+            depth: Current recursion depth (0 = top level)
 
         Returns:
             List of active CognitiveFrame instances
         """
         cls._ensure_initialized()
+
+        # P2-5 FIX: Enforce max_frame_depth (Hofstadter FR1.2, SYNTH-MECH-001)
+        if depth >= config.max_frame_depth:
+            # At max depth, return only evidential frame (foundational minimum)
+            if config.evidential and "evidential" in cls._frames:
+                return [cls._frames["evidential"]]
+            return []
+
         active = []
 
-        if config.evidential:
+        # P2-5 FIX: Apply frame_step_policy for nested levels
+        # "simpler" policy means deeper levels get fewer/lighter frames
+        if config.frame_step_policy == "simpler" and depth > 0:
+            # At depth > 0, prioritize higher-weight frames only
+            weight_threshold = 0.5 + (depth * 0.1)  # Increase threshold with depth
+        else:
+            weight_threshold = 0.0
+
+        if config.evidential and FRAME_WEIGHTS.get("evidential", 1.0) >= weight_threshold:
             active.append(cls._frames["evidential"])
-        if config.aspectual:
+        if config.aspectual and FRAME_WEIGHTS.get("aspectual", 1.0) >= weight_threshold:
             active.append(cls._frames["aspectual"])
-        if config.morphological:
+        if config.morphological and FRAME_WEIGHTS.get("morphological", 1.0) >= weight_threshold:
             active.append(cls._frames["morphological"])
-        if config.compositional:
+        if config.compositional and FRAME_WEIGHTS.get("compositional", 1.0) >= weight_threshold:
             active.append(cls._frames["compositional"])
-        if config.honorific:
+        if config.honorific and FRAME_WEIGHTS.get("honorific", 1.0) >= weight_threshold:
             active.append(cls._frames["honorific"])
-        if config.classifier:
+        if config.classifier and FRAME_WEIGHTS.get("classifier", 1.0) >= weight_threshold:
             active.append(cls._frames["classifier"])
-        if config.spatial:
+        if config.spatial and FRAME_WEIGHTS.get("spatial", 1.0) >= weight_threshold:
             active.append(cls._frames["spatial"])
 
         return active
