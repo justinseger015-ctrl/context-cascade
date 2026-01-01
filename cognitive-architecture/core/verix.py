@@ -497,25 +497,143 @@ class VerixValidator:
         return len(violations) == 0, violations
 
     def _validate_single(self, claim: VerixClaim, index: int) -> List[str]:
-        """Validate a single claim."""
+        """
+        Validate a single claim.
+
+        P3-7 FIX: Now applies different strictness based on agent type.
+        P3-8 FIX: Now handles meta-level claims with special logging.
+        """
         violations = []
         prefix = f"Claim {index + 1}"
 
-        # Check required ground
+        # P3-7 FIX: Agent-based strictness multiplier (Hofstadter FR2.1)
+        # MODEL claims are strictest, USER claims are most lenient
+        agent_strictness = self._get_agent_strictness(claim.agent)
+
+        # Check required ground (adjusted by agent strictness)
         if self.config.require_ground and not claim.is_grounded():
-            violations.append(f"{prefix}: Missing ground/evidence (require_ground=True)")
+            # MODEL and DOC claims always need grounding
+            if agent_strictness >= 0.8:
+                violations.append(f"{prefix}: Missing ground/evidence (agent={claim.agent.value if claim.agent else 'unknown'})")
+            elif agent_strictness >= 0.5:
+                # Warning level for moderate strictness agents
+                pass  # Soft requirement, no violation
 
         # Check confidence range
         if not (0.0 <= claim.confidence <= 1.0):
             violations.append(f"{prefix}: Confidence {claim.confidence} outside [0, 1] range")
 
+        # P3-7 FIX: Agent-adjusted confidence ceiling
+        max_confidence = self._get_agent_confidence_ceiling(claim.agent)
+        if claim.confidence > max_confidence:
+            violations.append(
+                f"{prefix}: Confidence {claim.confidence:.2f} exceeds ceiling {max_confidence:.2f} "
+                f"for agent={claim.agent.value if claim.agent else 'unknown'}"
+            )
+
         # Check strictness requirements
         if self.config.verix_strictness == VerixStrictness.STRICT:
-            if not claim.ground:
+            if not claim.ground and agent_strictness >= 0.7:
                 violations.append(f"{prefix}: STRICT mode requires ground field")
             if claim.state == State.PROVISIONAL and claim.confidence > 0.8:
                 violations.append(
                     f"{prefix}: High confidence ({claim.confidence}) with provisional state"
+                )
+
+        # P3-8 FIX: Meta-level handling (Hofstadter FR2.3)
+        meta_violations = self._validate_meta_level(claim, index)
+        violations.extend(meta_violations)
+
+        return violations
+
+    def _get_agent_strictness(self, agent: Optional[Agent]) -> float:
+        """
+        P3-7 FIX: Get strictness multiplier based on agent type.
+
+        MODEL claims require highest standards (AI should be precise).
+        USER claims are most trusted (human input).
+
+        Returns:
+            Strictness multiplier 0.0-1.0 (higher = stricter)
+        """
+        if agent is None:
+            return 0.7  # Default: moderate strictness
+
+        strictness_map = {
+            Agent.MODEL: 1.0,    # AI claims: strictest
+            Agent.DOC: 0.9,      # Documentation: high standards
+            Agent.PROCESS: 0.8,  # Computed: reliable but verify
+            Agent.SYSTEM: 0.6,   # System-generated: trusted
+            Agent.USER: 0.4,     # User input: most lenient
+        }
+        return strictness_map.get(agent, 0.7)
+
+    def _get_agent_confidence_ceiling(self, agent: Optional[Agent]) -> float:
+        """
+        P3-7 FIX: Get maximum allowed confidence based on agent type.
+
+        Different agents have different epistemic authority.
+
+        Returns:
+            Maximum confidence allowed for this agent type
+        """
+        if agent is None:
+            return 0.95  # Default ceiling
+
+        ceiling_map = {
+            Agent.MODEL: 0.95,   # AI can be highly confident
+            Agent.DOC: 0.98,     # Documentation is authoritative
+            Agent.PROCESS: 0.99, # Computed values are precise
+            Agent.SYSTEM: 0.95,  # System claims are reliable
+            Agent.USER: 1.0,     # User claims unrestricted
+        }
+        return ceiling_map.get(agent, 0.95)
+
+    def _validate_meta_level(self, claim: VerixClaim, index: int) -> List[str]:
+        """
+        P3-8 FIX: Validate and handle meta-level claims.
+
+        META_VERIX claims (about VERIX itself) require special attention.
+        Self-referential claims are flagged for review.
+
+        Returns:
+            List of violations for meta-level issues
+        """
+        import logging
+        logger = logging.getLogger(__name__)
+
+        violations = []
+        prefix = f"Claim {index + 1}"
+
+        # META_VERIX claims: trigger special logging
+        if claim.meta_level == MetaLevel.META_VERIX:
+            logger.info(
+                f"META_VERIX claim detected: {claim.content[:50]}... "
+                f"[conf:{claim.confidence:.2f}] - flagged for review"
+            )
+            # META_VERIX claims should have high evidence standards
+            if not claim.is_grounded():
+                violations.append(
+                    f"{prefix}: META_VERIX claim requires ground (claims about VERIX must be justified)"
+                )
+            # Confidence ceiling for self-referential claims
+            if claim.confidence > 0.85:
+                violations.append(
+                    f"{prefix}: META_VERIX confidence {claim.confidence:.2f} exceeds 0.85 ceiling "
+                    f"(self-referential claims require epistemic humility)"
+                )
+
+        # META claims: check for proper grounding
+        elif claim.meta_level == MetaLevel.META:
+            if not claim.is_grounded():
+                logger.debug(f"META claim without ground: {claim.content[:30]}...")
+            # Meta-claims about claims should reference specific claims
+            if claim.ground and not any(
+                marker in claim.ground.lower()
+                for marker in ["claim", "statement", "assertion", "above", "previous"]
+            ):
+                logger.debug(
+                    f"META claim ground may not reference other claims: {claim.ground}"
                 )
 
         return violations
