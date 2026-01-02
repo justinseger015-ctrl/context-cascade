@@ -105,6 +105,14 @@ Kaynak dogrulama modu etkin. Bu beceri dogrudan gozleme dayanir.
 <!-- ANTHROPIC OFFICIAL FORMAT TEMPLATE v1.0 -->
 ## CRITICAL: Agent Output Format (Anthropic Compliant)
 
+[direct|emphatic] OUTPUT_REQUIREMENT := {
+  rule: "ALWAYS output the COMPLETE agent definition in your response",
+  rationale: "Users need to see the full agent definition, not just a completion message",
+  anti_pattern: "Agent definition created successfully. (WITHOUT showing the definition)",
+  correct_pattern: "Here is the complete agent definition: [FULL YAML + CONTENT]",
+  enforcement: "Every agent creation MUST include the full markdown file content in the response"
+} [ground:witnessed:eval-failure-AC-001] [conf:0.95] [state:confirmed]
+
 When creating agents, you MUST use this exact YAML frontmatter format:
 
 ```yaml
@@ -120,6 +128,17 @@ x-capabilities:
   - capability2
 x-priority: high|medium|low
 x-category: delivery|foundry|operations|orchestration|platforms|quality|research|security|specialists|tooling
+# CATEGORY MAPPING GUIDE (use this to select correct category):
+# - delivery: Documentation, report generation, content creation, output-focused agents
+# - quality: Code review, testing, linting, performance profiling, quality gates
+# - security: Vulnerability scanning, security audits, threat detection
+# - operations: CI/CD, deployment, logging, monitoring, infrastructure
+# - platforms: GitHub, AWS, GCP, Azure, Slack, platform-specific integrations
+# - orchestration: Multi-agent coordination, workflow management, task routing
+# - research: Literature review, data analysis, synthesis, investigation
+# - specialists: Domain experts (API design, DB optimization, ML, etc.)
+# - tooling: Build tools, dependency management, developer utilities
+# - foundry: Meta-skills for creating other skills/agents
 x-version: 1.0.0
 x-verix-description: Optional VERIX notation for AI-to-AI communication
 ---

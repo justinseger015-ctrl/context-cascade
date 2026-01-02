@@ -291,6 +291,20 @@ x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
   l2_output: "I understand you want [intent]. Based on [evidence], I'm [confidence_phrase] about this interpretation."
 } [ground:workflow-spec] [conf:0.95] [state:confirmed]
 
+[direct|emphatic] INTENT_EXTRACTION_RULE := {
+  rule: "ALWAYS identify and state the intent FIRST before asking clarifying questions",
+  rationale: "Users expect acknowledgment of their obvious intent even when details are missing",
+  pattern: {
+    step_1: "Identify the primary intent type (code_generation, debugging, refactoring, feature_addition, etc.)",
+    step_2: "Extract all constraints visible in the request",
+    step_3: "State the intent and constraints clearly",
+    step_4: "ONLY THEN ask for clarification on genuinely ambiguous details"
+  },
+  anti_pattern: "Do NOT skip intent identification to ask clarifying questions first",
+  example_wrong: "What kind of validation do you need? (skips intent extraction)",
+  example_right: "I understand you want to ADD INPUT VALIDATION (feature_addition) to a user form. The constraints are: validation, user_input, forms. To proceed, I need: which fields require validation?"
+} [ground:witnessed:eval-failure-PA-004] [conf:0.90] [state:confirmed]
+
 [define|neutral] PHASE_2_OPTIMIZE := {
   name: "Prompt Optimization",
   action: "Restructure request with evidential grounding",

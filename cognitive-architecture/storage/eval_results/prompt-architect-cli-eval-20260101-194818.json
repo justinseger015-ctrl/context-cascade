@@ -1,0 +1,29 @@
+{
+  "skill_name": "prompt-architect",
+  "version": "3.1.1",
+  "timestamp": "2026-01-02T00:48:18.867271+00:00",
+  "evaluation_type": "cli",
+  "total_tasks": 1,
+  "passed_tasks": 1,
+  "easy_score": 0.65,
+  "medium_score": 0,
+  "hard_score": 0,
+  "intent_accuracy": 0.7,
+  "constraint_coverage": 0.6,
+  "output_quality": 0.65,
+  "verix_compliance": 0.5,
+  "l2_purity": 1.0,
+  "overall_score": 1.0,
+  "task_results": [
+    {
+      "task_id": "PA-004",
+      "difficulty": "easy",
+      "category": "intent_extraction",
+      "passed": true,
+      "intent_accuracy": 0.7,
+      "output_quality": 0.65,
+      "execution_time_ms": 82776,
+      "reasoning": "The skill recognized this involves validation and forms (matching constraints), but didn't explicitly identify it as a 'feature_addition' intent. The output correctly identifies missing specificity (which form, which fields, what rules) which shows good analytical thinking. However, the response is incomplete - it references an 'optimized prompt template above' that isn't shown in the output, suggesting truncation or referencing external content. Output is in pure English (L2 compliant) but lacks explicit epistemic markers for VERIX compliance. The offer to explore codebase or ask clarifying questions is appropriate but the core deliverable (the optimized prompt) appears missing from the provided output."
+    }
+  ]
+}
