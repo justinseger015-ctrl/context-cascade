@@ -1,20 +1,22 @@
 #!/bin/bash
 # skill-router-hook.sh
-# PURPOSE: Smart skill routing via keyword matching
+# PURPOSE: Smart skill routing via keyword matching with CASCADE DISCOVERY
 # HOOK TYPE: UserPromptSubmit (runs before Claude processes user message)
+# UPDATED: 2026-01-02 - Added cascade discovery integration
 #
-# Replaces brute-force skill listing with intelligent routing:
-# 1. Tokenizes user request
-# 2. Queries skill-index.json
-# 3. Returns ONLY top 5 matching skills
-# 4. Includes match confidence and file paths
+# CASCADE ARCHITECTURE:
+#   User Request -> Skills (SKILL-INDEX) -> Agents (AGENT-REGISTRY) -> Commands
+#
+# This hook handles the TOP LEVEL: routing user intent to skills
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PLUGIN_DIR="${SCRIPT_DIR%/*}"
 ROUTER="$PLUGIN_DIR/scripts/skill-index/route-skill.sh"
 INDEX_FILE="$PLUGIN_DIR/scripts/skill-index/skill-index.json"
+SKILL_INDEX="$PLUGIN_DIR/discovery/SKILL-INDEX.md"
+AGENT_REGISTRY="$PLUGIN_DIR/discovery/AGENT-REGISTRY.md"
 
-# Read the user's message from stdin
+# Read the user's message from stdin (with timeout to prevent blocking)
 USER_MESSAGE=$(timeout 5 cat 2>/dev/null || echo '{}')
 
 # Extract the actual message text
@@ -56,49 +58,64 @@ if [ -z "$ROUTER_OUTPUT" ] || echo "$ROUTER_OUTPUT" | grep -q "No matching skill
     # No matches - fallback to standard 5-phase without skill suggestions
     cat << 'EOF'
 
-!! 5-PHASE WORKFLOW ACTIVE !!
+!! CASCADE DISCOVERY - 5-PHASE WORKFLOW !!
+================================================================
 
-Execute the standard 5-phase workflow:
-1. Intent Analysis (intent-analyzer)
-2. Prompt Optimization (prompt-architect)
-3. Strategic Planning (research-driven-planning)
-4. Playbook Routing (match tasks to skills)
-5. Execution (Skill -> Task -> TodoWrite)
+No specific skill matched. Execute standard 5-phase workflow:
 
-No specific skills matched - use general workflow.
+1. Intent Analysis    -> Skill("intent-analyzer")
+2. Prompt Optimization -> Skill("prompt-architect")
+3. Strategic Planning  -> Skill("research-driven-planning")
+4. Playbook Routing    -> Match tasks to skills from SKILL-INDEX
+5. Execution           -> Skill -> Task(agent) -> TodoWrite
 
+CASCADE DISCOVERY INDEXES:
+- Skills:   discovery/SKILL-INDEX.md
+- Agents:   discovery/AGENT-REGISTRY.md
+- Commands: discovery/COMMAND-INDEX.md
+
+================================================================
 EOF
     exit 0
 fi
 
-# Output the smart routing result
+# Output the smart routing result with CASCADE context
 cat << EOF
 
-!! SKILL ROUTER RESULTS !!
+!! CASCADE SKILL ROUTER !!
 ================================================================
 
-Based on your request, these skills are MOST RELEVANT:
+MATCHED SKILLS (based on your request):
 
 $ROUTER_OUTPUT
 
 ================================================================
 
-INSTRUCTIONS:
-1. LOAD the top-matching skill(s) - Read SKILL.md from the path shown
-2. Also read ANTI-PATTERNS.md and examples/ if they exist
-3. Use the skill's SOP to guide your approach
-4. Follow 5-phase workflow with these specific skills
+CASCADE EXECUTION PATTERN:
 
-EXECUTION PATTERN:
-  Skill("matched-skill-name")  // Load the SOP
-       |
-       v
-  Task("Agent", "...", "type")  // Execute via registry agent
-       |
-       v
-  TodoWrite({ todos: [...] })   // Track progress
+  1. LOAD SKILL SOP:
+     Read the matched skill's SKILL.md file
+     Also check for ANTI-PATTERNS.md and examples/
 
-DO NOT use generic implementations when matched skills exist.
+  2. SKILL INVOKES AGENTS:
+     Skill("skill-name")
+         |
+         v
+     Task("description", "prompt", "agent-type")
+         |
+         v
+     TodoWrite({ todos: [...] })
+
+  3. AGENT DISCOVERY:
+     Find agents in: discovery/AGENT-REGISTRY.md
+     Or: agents/foundry/registry/registry.json
+
+  4. COMMAND DISCOVERY:
+     Agents use commands from: discovery/COMMAND-INDEX.md
+     Registered at: ~/.claude/commands/
+
+GOLDEN RULE: 1 MESSAGE = ALL PARALLEL Task() calls
+
 ================================================================
 
 EOF

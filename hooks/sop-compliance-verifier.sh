@@ -1,65 +1,48 @@
 #!/bin/bash
 # sop-compliance-verifier.sh
-# PURPOSE: Verify that Skill SOPs are being followed correctly
-# HOOK TYPE: PostToolUse (runs after Skill invocation)
+# PURPOSE: Verify that Skill SOPs are being followed with CASCADE architecture
+# HOOK TYPE: PreToolUse (runs before Write/Edit)
+# UPDATED: 2026-01-02 - Integrated cascade discovery paths
 #
-# This hook checks if the AI is following the SOP pattern:
-#   Skill -> Task (spawn agents) -> TodoWrite (track progress)
+# CASCADE ARCHITECTURE:
+#   Skills define SOPs -> Agents execute via Task() -> Commands for actions
 
-# Read tool execution data from stdin
+# Read tool execution data from stdin (with timeout)
 TOOL_DATA=$(timeout 3 cat 2>/dev/null || echo '{}')
 
-# Extract tool name and result
+# Extract tool name
 TOOL_NAME=$(echo "$TOOL_DATA" | jq -r '.tool_name // empty' 2>/dev/null)
 
-# Only process Skill invocations
-if [[ "$TOOL_NAME" == "Skill" ]]; then
+# Only show reminder for Write/Edit operations
+if [[ "$TOOL_NAME" == "Write" ]] || [[ "$TOOL_NAME" == "Edit" ]]; then
     cat << 'EOF'
 
+!! CASCADE SOP COMPLIANCE !!
 ============================================================
-!! SKILL SOP COMPLIANCE CHECK !!
-============================================================
 
-You just invoked a Skill. Skills are SOPs (Standard Operating Procedures)
-that define HOW to accomplish tasks. They are NOT execution tools.
+Before modifying files, verify CASCADE pattern is active:
 
-MANDATORY POST-SKILL REQUIREMENTS:
+1. SKILL LOADED?
+   - Read the skill's SKILL.md for the SOP
+   - Check discovery/SKILL-INDEX.md for routing
 
-1. SPAWN AGENTS via Task()
-   - Skills define the SOP
-   - Task() spawns agents to EXECUTE the SOP
-   - Pattern: Task("Agent Name", "Task description", "agent-type")
-   - Agent types MUST be from registry (206 agents available)
+2. AGENTS SPAWNED?
+   - Skills invoke agents via Task()
+   - Find agents in: discovery/AGENT-REGISTRY.md
+   - Pattern: Task("desc", "prompt", "agent-type")
 
-2. AGENTS FROM REGISTRY ONLY
-   - Registry: claude-code-plugins/context-cascade/agents/
-   - Categories: delivery, foundry, operations, orchestration, platforms,
-                 quality, research, security, specialists, tooling
-   - If unsure: Use fallback types (coder, researcher, tester, reviewer)
+3. TODOS TRACKED?
+   - TodoWrite() for progress tracking
+   - 5-10 items for substantial work
 
-3. TRACK WITH TodoWrite()
-   - Create 5-10 todos for all planned work
-   - Mark in_progress when starting a task
-   - Mark completed when done (IMMEDIATELY, not batched)
-
-4. SPAWN IN PARALLEL (Golden Rule)
+4. PARALLEL EXECUTION?
    - 1 MESSAGE = ALL PARALLEL Task() calls
-   - Don't spawn one agent, wait, spawn another
-   - Spawn ALL independent agents in a SINGLE message
+   - Don't spawn sequentially
 
-5. LOAD DOMAIN EXPERTISE
-   - Check: .claude/expertise/{domain}.yaml
-   - If exists: Load BEFORE spawning agents
-   - If not: Agent should discover and create expertise
-
-COMPLIANCE CHECK:
-  [ ] Did you call Task() to spawn agents?
-  [ ] Is agent type from the registry?
-  [ ] Did you call TodoWrite() with todos?
-  [ ] Are parallel tasks in ONE message?
-  [ ] Did you load domain expertise if available?
-
-If ANY checkbox is unchecked: DO IT NOW before proceeding.
+CASCADE INDEXES:
+- Skills:   discovery/SKILL-INDEX.md (237 skills)
+- Agents:   discovery/AGENT-REGISTRY.md (217 agents)
+- Commands: discovery/COMMAND-INDEX.md (245 commands)
 
 ============================================================
 EOF

@@ -51,6 +51,57 @@ L2 (User):     Pure English        // ALL responses to user
 
 ---
 
+## CASCADE DISCOVERY ARCHITECTURE (CRITICAL)
+
+[direct|emphatic] Three-tier discovery system [ground:architecture-design] [conf:0.95] [state:confirmed]
+
+```
+User Request
+    |
+    v
+[TOP LEVEL] Skills + Playbooks (SKILL-INDEX.md)
+    |         - Route user intent to appropriate skill
+    |         - Skills define SOPs (Standard Operating Procedures)
+    v
+[MID LEVEL] Agents (AGENT-REGISTRY.md)
+    |         - Skills invoke agents via Task()
+    |         - Agents execute the work
+    v
+[BASE LEVEL] Commands (COMMAND-INDEX.md)
+              - Agents use slash commands
+              - Commands bind to skills/actions
+```
+
+### Discovery Indexes
+
+| Index | Purpose | Location |
+|-------|---------|----------|
+| SKILL-INDEX.md | Top-level routing | `discovery/SKILL-INDEX.md` |
+| AGENT-REGISTRY.md | Skill->Agent lookup | `discovery/AGENT-REGISTRY.md` |
+| COMMAND-INDEX.md | Agent->Command lookup | `discovery/COMMAND-INDEX.md` |
+| skill-index.json | Auto-routing data | `scripts/skill-index/skill-index.json` |
+| registry.json | Full agent registry | `agents/foundry/registry/registry.json` |
+
+### Slash Commands (Registered)
+
+[assert|neutral] 708 components registered in ~/.claude/commands/ [ground:witnessed:registration] [conf:0.95] [state:confirmed]
+
+```
+~/.claude/commands/
+  *.md           (258 commands)
+  skills/*.md    (233 skills)
+  agents/*.md    (217 agents)
+```
+
+### Auto-Routing Hook
+
+The `skill-router-hook.sh` (UserPromptSubmit) automatically:
+1. Parses user intent from message
+2. Queries skill-index.json for matches
+3. Returns skill suggestions with confidence scores
+
+---
+
 ## 5-PHASE WORKFLOW (EVIDENTIAL CHAIN)
 
 [direct|emphatic] Execute on EVERY non-trivial request [ground:system-policy] [conf:0.99] [state:confirmed]
