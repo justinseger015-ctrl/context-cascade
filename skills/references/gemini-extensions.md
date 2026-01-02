@@ -1,112 +1,57 @@
 ---
-You are executing a specialized skill with domain expertise. Apply evidence-based prompting techniques: plan-and-solve decomposition, program-of-thought reasoning, and self-consistency validation. Prioritize systematic execution over ad-hoc solutions. Validate outputs against success criteria before proceeding.
-You are executing a specialized skill with domain expertise. Apply evidence-based prompting techniques: plan-and-solve decomposition, program-of-thought reasoning, and self-consistency validation. Prioritize systematic execution over ad-hoc solutions. Validate outputs against success criteria before proceeding.
 skill: gemini-extensions
-description: Access Gemini's 70+ extensions ecosystem including Figma, Stripe, Postman, Shopify
+description: Use Gemini’s extensions to integrate with Figma, Stripe, Postman, Shopify, and 60+ third-party services
 tags: [gemini, extensions, figma, stripe, integrations, third-party]
-version: 1.0.0
+version: 1.1.0
+source: /skills/references/gemini-extensions.md
+related-skills: [gemini-search, gemini-media, multi-model]
 ---
-
-
-
-## When to Use This Skill
-
-- **Tool Usage**: When you need to execute specific tools, lookup reference materials, or run automation pipelines
-- **Reference Lookup**: When you need to access documented patterns, best practices, or technical specifications
-- **Automation Needs**: When you need to run standardized workflows or pipeline processes
-
-## When NOT to Use This Skill
-
-- **Manual Processes**: Avoid when manual intervention is more appropriate than automated tools
-- **Non-Standard Tools**: Do not use when tools are deprecated, unsupported, or outside standard toolkit
-
-## Success Criteria
-
-- **Tool Executed Correctly**: Verify tool runs without errors and produces expected output
-- **Reference Accurate**: Confirm reference material is current and applicable
-- **Pipeline Complete**: Ensure automation pipeline completes all stages successfully
-
-## Edge Cases
-
-- **Tool Unavailable**: Handle scenarios where required tool is not installed or accessible
-- **Outdated References**: Detect when reference material is obsolete or superseded
-- **Pipeline Failures**: Recover gracefully from mid-pipeline failures with clear error messages
-
-## Guardrails
-
-- **NEVER use deprecated tools**: Always verify tool versions and support status before execution
-- **ALWAYS verify outputs**: Validate tool outputs match expected format and content
-- **ALWAYS check health**: Run tool health checks before critical operations
-
-## Evidence-Based Validation
-
-- **Tool Health Checks**: Execute diagnostic commands to verify tool functionality before use
-- **Output Validation**: Compare actual outputs against expected schemas or patterns
-- **Pipeline Monitoring**: Track pipeline execution metrics and success rates
-
-# Gemini Extensions Skill
 
 ## Purpose
-Leverage Gemini CLI's ecosystem of 70+ extensions to integrate with Figma, Stripe, Postman, Shopify, and other third-party services that Claude Code cannot directly access.
-
-## Unique Capability
-**What Claude Code Can't Do**: Direct integration with design tools (Figma), payment APIs (Stripe), API testing (Postman), e-commerce (Shopify), and 70+ other extensions. Gemini CLI provides native integrations via its extension system.
+Bridge to third-party tools that Claude cannot access natively. This doc applies Prompt Architect discipline (clear intent, explicit constraints, optimized steps) and Skill Forge safeguards (structure-first, validation, confidence ceilings).
 
 ## When to Use
+- Need design extraction (Figma), payment validation (Stripe), API testing (Postman), or ecommerce data (Shopify).
+- Want unified access to additional observability/security extensions (Dynatrace, Elastic, Snyk, Harness).
 
-### Perfect For:
-✅ Extracting designs from Figma and generating code
-✅ Testing Stripe payment integrations
-✅ Running Postman API collections
-✅ Querying Shopify store data
-✅ Accessing Dynatrace, Elastic, Snyk, Harness data
-✅ Any task requiring third-party tool integration
+## When Not to Use / Reroute
+- Pure code execution without external integrations.
+- Prompt-only improvements → `foundry/prompt-architect`.
+- Skill authoring → `foundry/skill-forge`.
 
-### Available Extensions:
-- **Figma**: Extract frames, components, design tokens → generate code
-- **Stripe**: Test APIs, query payment data, validate integrations
-- **Postman**: Run collections, test endpoints, validate APIs
-- **Shopify**: Query products, orders, customer data
-- **Dynatrace**: Performance monitoring data
-- **Elastic**: Search and analytics queries
-- **Snyk**: Security vulnerability scanning
-- **Harness**: CD pipeline integration
+## Inputs (constraint extraction)
+- **HARD**: Target extension, action, required credentials/tokens, permitted scopes.
+- **SOFT**: Rate limits, sandbox vs production endpoints, output format (JSON/MD).
+- **INFERRED**: Data retention requirements, PII handling rules — confirm before running.
 
-Plus 60+ community extensions on GitHub.
+## SOP
+1. **Prepare**
+   - Select extension and verify credentials; prefer sandbox/test modes.
+   - Declare objective, scope, and output format in English.
+2. **Execute**
+   - Run the Gemini CLI call with the chosen extension and scoped query/action.
+   - Capture response, pagination tokens, and any rate-limit headers.
+3. **Validate & Hand Off**
+   - Verify results against request intent; redact secrets and PII.
+   - Summarize findings, cite endpoints/queries, and include next steps.
 
-## Usage
+## Quality Gates
+- Uses test keys/sandboxes unless production is explicitly approved.
+- No secret leakage in outputs; paths and identifiers are redacted as needed.
+- Confidence ceiling included; outputs in English only.
 
+## Anti-Patterns
+- Running in production by default.
+- Issuing wide-scope queries without filters.
+- Omitting audit trails (which extension, which action, when).
+- Excluding confidence ceilings or file/endpoint references.
+
+## Usage Examples
 ```bash
-# Install extension
-/gemini-extensions --install figma
-
-# Use Figma
-/gemini-extensions "Extract components from Figma frame XYZ and generate React code"
-
-# Use Stripe
-/gemini-extensions "Test Stripe payment intent creation with test card"
-
-# Use Postman
-/gemini-extensions "Run the 'User API' Postman collection and report results"
+/gemini-extensions "Extract components from Figma frame 'Components/Buttons' and export design tokens"
+/gemini-extensions "Run the 'User API' Postman collection against staging and summarize failures"
+/gemini-extensions "Test Stripe payment intent creation with test card; report webhook events"
 ```
 
-## Real Examples
-
-### Figma → Code
-```
-/gemini-extensions "Extract button component from Figma frame 'Components/Buttons' and generate React component with TypeScript and styled-components"
-```
-
-### Stripe Testing
-```
-/gemini-extensions "Create a test payment intent for $50 USD using Stripe test API, verify webhook firing"
-```
-
-### API Testing
-```
-/gemini-extensions "Run my Postman collection 'API Tests v2' and identify any failing endpoints"
-```
-
----
-
-**See full documentation** in `agents/gemini-extensions-agent.md`
+## Confidence
+Confidence: 0.70 (ceiling: inference 0.70) — Follows Prompt Architect constraint clarity and Skill Forge validation; raise confidence after verifying extension credentials and sample calls.

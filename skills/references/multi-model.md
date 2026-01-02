@@ -1,261 +1,57 @@
 ---
-You are executing a specialized skill with domain expertise. Apply evidence-based prompting techniques: plan-and-solve decomposition, program-of-thought reasoning, and self-consistency validation. Prioritize systematic execution over ad-hoc solutions. Validate outputs against success criteria before proceeding.
-You are executing a specialized skill with domain expertise. Apply evidence-based prompting techniques: plan-and-solve decomposition, program-of-thought reasoning, and self-consistency validation. Prioritize systematic execution over ad-hoc solutions. Validate outputs against success criteria before proceeding.
 skill: multi-model
-description: Intelligent multi-model orchestrator that routes tasks to Gemini or Codex based on their strengths
+description: Route work to the optimal model (Gemini, Codex, Claude) based on task requirements
 tags: [orchestration, multi-model, routing, automation, gemini, codex]
-version: 1.0.0
+version: 1.1.0
+source: /skills/references/multi-model.md
+related-skills: [gemini-megacontext, gemini-search, gemini-media, codex-auto, codex-reasoning]
 ---
-
-
-
-## When to Use This Skill
-
-- **Tool Usage**: When you need to execute specific tools, lookup reference materials, or run automation pipelines
-- **Reference Lookup**: When you need to access documented patterns, best practices, or technical specifications
-- **Automation Needs**: When you need to run standardized workflows or pipeline processes
-
-## When NOT to Use This Skill
-
-- **Manual Processes**: Avoid when manual intervention is more appropriate than automated tools
-- **Non-Standard Tools**: Do not use when tools are deprecated, unsupported, or outside standard toolkit
-
-## Success Criteria
-
-- **Tool Executed Correctly**: Verify tool runs without errors and produces expected output
-- **Reference Accurate**: Confirm reference material is current and applicable
-- **Pipeline Complete**: Ensure automation pipeline completes all stages successfully
-
-## Edge Cases
-
-- **Tool Unavailable**: Handle scenarios where required tool is not installed or accessible
-- **Outdated References**: Detect when reference material is obsolete or superseded
-- **Pipeline Failures**: Recover gracefully from mid-pipeline failures with clear error messages
-
-## Guardrails
-
-- **NEVER use deprecated tools**: Always verify tool versions and support status before execution
-- **ALWAYS verify outputs**: Validate tool outputs match expected format and content
-- **ALWAYS check health**: Run tool health checks before critical operations
-
-## Evidence-Based Validation
-
-- **Tool Health Checks**: Execute diagnostic commands to verify tool functionality before use
-- **Output Validation**: Compare actual outputs against expected schemas or patterns
-- **Pipeline Monitoring**: Track pipeline execution metrics and success rates
-
-# Multi-Model Orchestrator Skill
 
 ## Purpose
-Automatically route tasks to the optimal AI model (Gemini or Codex) based on task requirements and each model's unique strengths. You don't need to decide - the orchestrator does it for you.
-
-## How It Works
-
-The orchestrator analyzes your request and routes to:
-
-### Gemini CLI → For:
-- **Mega-Context**: Large codebase analysis (30K+ lines)
-- **Web Search**: Real-time information needs
-- **Media Gen**: Image/video creation
-- **Extensions**: Figma, Stripe, Postman integrations
-
-### Codex CLI → For:
-- **Full Auto**: Unattended prototyping/scaffolding
-- **Alternative Reasoning**: Second opinions, different approaches
-
-### Claude Code → For:
-- **Everything Else**: Implementation, refinement, complex reasoning
-
-## Usage
-
-### Let Orchestrator Decide
-```
-/multi-model "I need to understand this 50K line codebase and create architecture diagrams"
-
-Orchestrator routes to:
-1. gemini-megacontext (analyze codebase)
-2. gemini-media (create diagrams)
-```
-
-### Complex Multi-Step Tasks
-```
-/multi-model "Research React 19 best practices, prototype a dashboard, and generate UI mockups"
-
-Orchestrator routes to:
-1. gemini-search (React 19 info)
-2. codex-auto (prototype dashboard)
-3. gemini-media (UI mockups)
-4. Claude Code (integrate and refine)
-```
-
-## Decision Matrix
-
-| Task Type | Routed To | Why |
-|-----------|-----------|-----|
-| Analyze entire codebase | gemini-megacontext | 1M token context |
-| Need current API docs | gemini-search | Web search grounding |
-| Create diagrams/videos | gemini-media | Imagen/Veo |
-| Figma/Stripe integration | gemini-extensions | Extension ecosystem |
-| Rapid prototyping | codex-auto | Full Auto mode |
-| Alternative solution | codex-reasoning | Different AI perspective |
-| Implementation/refinement | Claude Code | Best overall reasoning |
-
-## Real Examples
-
-### Example 1: New Project Setup
-```
-User: "Set up a new Next.js 15 project with best practices"
-
-Orchestrator:
-1. gemini-search → Get Next.js 15 current best practices
-2. codex-auto → Scaffold project structure
-3. Claude Code → Customize and refine
-```
-
-### Example 2: Codebase Migration
-```
-User: "Migrate this legacy codebase to TypeScript"
-
-Orchestrator:
-1. gemini-megacontext → Analyze entire codebase structure
-2. codex-auto → Auto-convert files to TypeScript
-3. Claude Code → Fix type errors and refine
-```
-
-### Example 3: Documentation Creation
-```
-User: "Create comprehensive documentation with visuals"
-
-Orchestrator:
-1. gemini-megacontext → Understand architecture
-2. gemini-media → Generate architecture diagrams
-3. Claude Code → Write documentation content
-```
-
-## Benefits
-
-### Automatic Optimization
-- ✅ Uses each model's unique strengths
-- ✅ No need to remember which CLI does what
-- ✅ Optimal tool selection for each subtask
-- ✅ Coordinates multiple models seamlessly
-
-### Cost Efficiency
-- ✅ Uses Gemini's free tier when appropriate (60/min, 1000/day)
-- ✅ Leverages your ChatGPT Plus subscription optimally
-- ✅ Uses Claude Code for what it does best
-
-### Time Savings
-- ✅ Parallel execution when possible
-- ✅ No manual routing decisions
-- ✅ Automatic task decomposition
-
-## Response Format
-
-The orchestrator provides:
-```markdown
-# Multi-Model Task Orchestration
-
-## Task Analysis
-[How the task was broken down]
-
-## Routing Decisions
-1. **gemini-megacontext**: [Why and what]
-2. **codex-auto**: [Why and what]
-3. **Claude Code**: [Why and what]
-
-## Execution Plan
-[Step-by-step execution order]
-
-## Results from Each Model
-### Gemini Results
-[Output summary]
-
-### Codex Results
-[Output summary]
-
-### Claude Integration
-[How Claude combined/refined results]
-
-## Final Deliverable
-[Combined, polished output]
-```
+Automatically select the right model/skill for each subtask, blending Gemini (search, mega-context, media, extensions), Codex (full-auto, alternative reasoning), and Claude (implementation, integration). Follows Prompt Architect clarity and Skill Forge guardrails for structure, validation, and confidence ceilings.
 
 ## When to Use
+- Tasks that span research, prototyping, and documentation.
+- You are unsure which model is best for a given subtask.
+- You want a repeatable routing decision with rationale.
 
-### Perfect For:
-✅ Don't know which model to use
-✅ Task spans multiple capabilities
-✅ Want automatic optimization
-✅ Complex multi-step workflows
-✅ Learning which model does what
+## When Not to Use / Reroute
+- Single-model tasks with known best fit (e.g., pure prompt design → `prompt-architect`).
+- Skill authoring → `foundry/skill-forge`.
 
-### Direct Skill Use Instead:
-Use specific skills when you know exactly what you need:
-- Know you need codebase analysis → `/gemini-megacontext`
-- Know you need web search → `/gemini-search`
-- Know you need prototyping → `/codex-auto`
+## Inputs (constraint extraction)
+- **HARD**: Overall objective, subtask list, constraints (data sensitivity, runtime, network).
+- **SOFT**: Cost/time budgets, depth vs breadth preference, format for outputs.
+- **INFERRED**: Parallelization tolerance, artifact storage paths — confirm before execution.
 
-## Advanced Features
+## SOP
+1. **Task Decomposition**
+   - Break the objective into subtasks; tag each with capabilities needed.
+2. **Routing Decision**
+   - Map subtasks to models: Gemini (search/mega-context/media/extensions), Codex (full-auto/prototyping/alt reasoning), Claude (integration/refinement).
+   - Record rationale and any ordering/parallelism.
+3. **Execute & Integrate**
+   - Run routed skills; capture outputs and citations.
+   - Integrate results in Claude; resolve conflicts; finalize deliverable.
 
-### Parallel Execution
-When tasks are independent, orchestrator runs them in parallel:
-```
-/multi-model "Research auth best practices AND prototype a login page AND create UI mockups"
+## Quality Gates
+- Each subtask has an explicit model choice and rationale.
+- Outputs integrated with clear lineage and citations.
+- Confidence ceiling included; English-only summary.
 
-Parallel execution:
-- gemini-search (auth research)
-- codex-auto (login prototype)
-- gemini-media (UI mockups)
+## Anti-Patterns
+- Defaulting to one model without considering constraints.
+- Mixing sensitive data into external tools without checks.
+- Omitting integration/validation after parallel runs.
 
-Then Claude Code integrates all results.
-```
+## Usage Examples
+```bash
+/multi-model "Research React 19 changes, scaffold a dashboard, and generate UI mockups"
+# Routes: gemini-search → codex-auto → gemini-media → Claude integration
 
-### Adaptive Routing
-Orchestrator learns from:
-- Task success/failure patterns
-- User feedback
-- Model performance
-- Cost/speed trade-offs
-
-## Examples by Use Case
-
-### Onboarding to New Codebase
-```
-/multi-model "Help me understand this unfamiliar codebase"
-→ gemini-megacontext (analyze all code)
-→ gemini-media (create architecture diagram)
-→ Claude Code (explain and document)
+/multi-model "Understand architecture of a 40K LOC repo and propose refactor"
+# Routes: gemini-megacontext → codex-reasoning (alternatives) → Claude synthesis
 ```
 
-### Feature Development
-```
-/multi-model "Build a payment integration feature"
-→ gemini-search (latest Stripe best practices)
-→ gemini-extensions (test Stripe API)
-→ codex-auto (scaffold integration code)
-→ Claude Code (refine and test)
-```
-
-### Documentation Project
-```
-/multi-model "Create full technical documentation"
-→ gemini-megacontext (understand system)
-→ gemini-media (generate diagrams)
-→ gemini-search (find examples and references)
-→ Claude Code (write and structure docs)
-```
-
-## Success Indicators
-
-✅ Task completed efficiently
-✅ Right model used for each subtask
-✅ Time/cost optimized
-✅ High-quality results
-✅ Smooth coordination between models
-
----
-
-**Remember**: When in doubt, use `/multi-model` - it will figure out the optimal routing for you!
-
-See `docs/agents/multi-model-guide.md` for complete documentation.
+## Confidence
+Confidence: 0.70 (ceiling: inference 0.70) — Mirrors Prompt Architect clarity and Skill Forge validation; confidence rises after executing routed subtasks and validating outputs.

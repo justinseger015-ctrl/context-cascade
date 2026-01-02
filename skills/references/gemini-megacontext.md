@@ -1,272 +1,55 @@
 ---
-You are executing a specialized skill with domain expertise. Apply evidence-based prompting techniques: plan-and-solve decomposition, program-of-thought reasoning, and self-consistency validation. Prioritize systematic execution over ad-hoc solutions. Validate outputs against success criteria before proceeding.
-You are executing a specialized skill with domain expertise. Apply evidence-based prompting techniques: plan-and-solve decomposition, program-of-thought reasoning, and self-consistency validation. Prioritize systematic execution over ad-hoc solutions. Validate outputs against success criteria before proceeding.
 skill: gemini-megacontext
-description: Analyze entire codebases with Gemini's 1 million token context window - process 30K lines at once
+description: Analyze entire codebases with Gemini’s 1M-token context for architecture, dependency, and pattern mapping
 tags: [gemini, codebase-analysis, architecture, large-context, multi-file]
-version: 1.0.0
+version: 1.1.0
+source: /skills/references/gemini-megacontext.md
+related-skills: [gemini-search, multi-model, reverse-engineer-debug]
 ---
-
-
-
-## When to Use This Skill
-
-- **Tool Usage**: When you need to execute specific tools, lookup reference materials, or run automation pipelines
-- **Reference Lookup**: When you need to access documented patterns, best practices, or technical specifications
-- **Automation Needs**: When you need to run standardized workflows or pipeline processes
-
-## When NOT to Use This Skill
-
-- **Manual Processes**: Avoid when manual intervention is more appropriate than automated tools
-- **Non-Standard Tools**: Do not use when tools are deprecated, unsupported, or outside standard toolkit
-
-## Success Criteria
-
-- **Tool Executed Correctly**: Verify tool runs without errors and produces expected output
-- **Reference Accurate**: Confirm reference material is current and applicable
-- **Pipeline Complete**: Ensure automation pipeline completes all stages successfully
-
-## Edge Cases
-
-- **Tool Unavailable**: Handle scenarios where required tool is not installed or accessible
-- **Outdated References**: Detect when reference material is obsolete or superseded
-- **Pipeline Failures**: Recover gracefully from mid-pipeline failures with clear error messages
-
-## Guardrails
-
-- **NEVER use deprecated tools**: Always verify tool versions and support status before execution
-- **ALWAYS verify outputs**: Validate tool outputs match expected format and content
-- **ALWAYS check health**: Run tool health checks before critical operations
-
-## Evidence-Based Validation
-
-- **Tool Health Checks**: Execute diagnostic commands to verify tool functionality before use
-- **Output Validation**: Compare actual outputs against expected schemas or patterns
-- **Pipeline Monitoring**: Track pipeline execution metrics and success rates
-
-# Gemini Mega-Context Skill
 
 ## Purpose
-Leverage Gemini CLI's massive 1 million token context window to analyze entire codebases, architectural patterns, and multi-file dependencies in a single pass - something Claude Code's context window cannot achieve.
-
-## Unique Capability
-**What Claude Code Can't Do**: Claude Code has limited context window. Gemini 2.5 Pro can process up to 1 million tokens (~1,500 pages or 30,000 lines of code) simultaneously, enabling whole-codebase analysis without losing context.
+Load and reason over whole codebases (≈30K LOC) in a single pass. Uses Prompt Architect framing (explicit intent/constraints) and Skill Forge guardrails (structure-first, validation, confidence ceilings) to avoid vague, unfocused analysis.
 
 ## When to Use
+- Need a holistic architecture map, dependency graph, or cross-cutting pattern search.
+- Preparing migrations, large refactors, or security/quality sweeps that require global context.
 
-### Perfect For:
-✅ Analyzing entire project architecture
-✅ Understanding multi-file dependencies across large codebases
-✅ Refactoring that requires understanding the whole system
-✅ Generating comprehensive documentation from full codebase
-✅ Finding patterns and anti-patterns across all files
-✅ Onboarding to unfamiliar large projects
-✅ Security audits requiring full codebase awareness
-✅ Migration planning (understand everything before changing)
+## When Not to Use / Reroute
+- Small-module questions → Claude local analysis.
+- Prompt-only improvements → `foundry/prompt-architect`.
+- Skill authoring → `foundry/skill-forge`.
 
-### Don't Use When:
-❌ Working with single file or small module (use Claude Code)
-❌ Need complex problem-solving (Claude is better)
-❌ Writing new features (Gemini gets stuck in loops per user feedback)
-❌ Need iterative refinement (Gemini switches to Flash after 5 min)
+## Inputs (constraint extraction)
+- **HARD**: Repository root, scope include/exclude patterns, primary questions, output format.
+- **SOFT**: Priority areas (auth, data, performance), file citation requirements, diagram needs.
+- **INFERRED**: Size limits, sensitive file handling, redaction rules — confirm before run.
 
-## How It Works
+## SOP
+1. **Scope & Questions**
+   - Define target directories and explicit questions (architecture, endpoints, migrations).
+   - Set output expectations (markdown summary, tables, diagrams).
+2. **Gemini Analysis**
+   - Run Gemini CLI with `--all-files` (or equivalent) under the defined scope.
+   - Capture key findings: components, interactions, hotspots, anti-patterns.
+3. **Validate & Summarize**
+   - Ensure findings map to asked questions and cite file:line where possible.
+   - Flag uncertainties; propose follow-up focused analyses.
 
-This skill spawns a **Gemini Mega-Context Agent** that:
-1. Uses `gemini --all-files` to load your entire codebase
-2. Leverages 1M token context for comprehensive analysis
-3. Returns architectural insights, dependency maps, or refactoring plans
-4. Provides results back to Claude Code for user presentation
+## Quality Gates
+- Answers each declared question with evidence.
+- Provides citations/paths for claims; highlights unknowns.
+- Confidence ceiling included; English-only outputs.
 
-## Usage
+## Anti-Patterns
+- Running without scope filters on very large repos (noisy results).
+- Returning unsourced claims or missing confidence ceilings.
+- Mixing unrelated tasks (refactor + design + audit) into one run.
 
-### Basic Codebase Analysis
-```
-/gemini-megacontext
-```
-
-### With Specific Question
-```
-/gemini-megacontext "Explain the complete architecture and how all components interact"
-```
-
-### Detailed Analysis
-```
-/gemini-megacontext "Map all database queries across the entire codebase and identify N+1 patterns"
-```
-
-## Input Examples
-
+## Usage Examples
 ```bash
-# Architecture analysis
-/gemini-megacontext "Document the full system architecture with component interactions"
-
-# Dependency mapping
-/gemini-megacontext "Create a dependency graph showing how all modules relate"
-
-# Security audit
-/gemini-megacontext "Identify all authentication and authorization patterns across the codebase"
-
-# Migration planning
-/gemini-megacontext "Analyze entire codebase for Python 2 to 3 migration requirements"
-
-# Code patterns
-/gemini-megacontext "Find all API endpoints and document their authentication methods"
-
-# Refactoring scope
-/gemini-megacontext "Identify all files that would need changes to rename User to Account"
+/gemini-megacontext "Map all auth flows and data stores across the repo; include file citations"
+/gemini-megacontext "Identify all API endpoints and their auth methods; produce a dependency table"
 ```
 
-## Output
-
-The agent provides:
-- **Architectural Overview**: How the system is structured
-- **Component Interactions**: How pieces fit together
-- **Dependency Map**: What depends on what
-- **Pattern Analysis**: Common patterns and anti-patterns found
-- **File References**: Specific locations with file:line citations
-- **Recommendations**: Improvement suggestions based on full context
-
-## Real-World Examples
-
-### Example 1: Architecture Documentation
-```
-Task: "Document our microservices architecture"
-
-Agent analyzes all services simultaneously and provides:
-- Service dependency graph
-- API contract documentation
-- Database schema relationships
-- Authentication flow across services
-- Configuration management patterns
-```
-
-### Example 2: Refactoring Impact Analysis
-```
-Task: "If we change the User model, what breaks?"
-
-Agent scans entire codebase and identifies:
-- 47 files with direct User references
-- 12 database migrations to update
-- 8 API endpoints that return User data
-- 15 frontend components displaying user info
-- 3 background jobs processing users
-```
-
-### Example 3: Security Audit
-```
-Task: "Find all places where we handle sensitive data"
-
-Agent reviews full codebase and reports:
-- All database fields storing PII
-- API endpoints exposing sensitive data
-- Logging statements that might leak secrets
-- File upload handlers and validation
-- Authentication/authorization patterns
-```
-
-## Technical Details
-
-### Gemini CLI Command Pattern
-```bash
-cd /path/to/project
-gemini --all-files "Your analysis question here"
-```
-
-### Context Window Specs
-- **Capacity**: 1 million tokens
-- **Equivalent**: ~1,500 pages or ~30,000 lines of code
-- **Best for**: Projects under 30K LOC
-- **Larger projects**: Agent will prioritize most relevant files
-
-### Free Tier Limits
-- 60 requests per minute
-- 1,000 requests per day
-- No cost with your Google account
-
-## Best Practices
-
-### Provide Clear Scope
-✅ "Analyze authentication flow across all services"
-✅ "Map database query patterns throughout the codebase"
-❌ "Tell me about the code" (too vague)
-
-### Be Specific About Output
-✅ "Create a markdown dependency diagram"
-✅ "List all files affected by this change"
-❌ "Give me information" (unclear deliverable)
-
-### Use for Breadth, Not Depth
-✅ "What are all the API endpoints in this project?"
-✅ "How do services communicate with each other?"
-❌ "Implement a new feature" (Gemini gets stuck per feedback)
-
-## Limitations (Based on Real Developer Feedback)
-
-⚠️ **Known Issues**:
-- May generate errors in its own analysis (missing XML tags, etc.)
-- Can get stuck in loops trying to fix its mistakes
-- Switches to Flash model after 5 minutes (Flash is "awful at coding")
-- Slower than Claude for complex reasoning
-- Not great for implementation tasks
-
-✅ **Strengths**:
-- Breadth of analysis is excellent
-- Can summarize entire folders effectively
-- Great for onboarding and auditing
-- Powerful for architectural understanding
-
-## Integration with Workflow
-
-### Works Well With:
-- Claude Code for implementation after analysis
-- Root Cause Analyzer for debugging across large codebases
-- Documentation generation agents
-- SPARC architecture phase
-
-### Typical Workflow:
-1. Use `/gemini-megacontext` to understand architecture
-2. Use Claude Code to implement specific changes
-3. Use `/gemini-megacontext` again to verify impact
-4. Use Claude Code for refinement and testing
-
-## Cost Considerations
-
-- **Free tier**: 60 req/min, 1000/day
-- **No credit card required** with Google account
-- **Perfect for**: Daily architecture reviews and analysis
-- **Upgrade**: Available if you need more quota
-
-## Troubleshooting
-
-### "Context too large" Error
-→ Agent will automatically prioritize most relevant files
-
-### Analysis Too Shallow
-→ Provide more specific questions about what you need
-
-### Takes Too Long
-→ Gemini CLI might be analyzing large codebase, wait for completion
-
-### Keeps Making Mistakes
-→ Known issue per user feedback; use Claude Code for implementation instead
-
-## Related Skills
-
-- `gemini-search`: For finding latest documentation while analyzing
-- `gemini-extensions`: For Figma/Stripe integration during design analysis
-- `root-cause-analyzer`: For deep debugging after identifying areas of concern
-- `multi-model`: Let orchestrator decide when to use mega-context
-
-## Success Indicators
-
-✅ Got comprehensive architectural understanding
-✅ Identified all affected files for a change
-✅ Mapped dependencies across entire system
-✅ Understood how components interact
-✅ Generated documentation from full codebase
-✅ Found patterns across many files
-
----
-
-**Remember**: Use Gemini's mega-context for BREADTH (understanding the whole system), use Claude Code for DEPTH (implementing and refining solutions).
+## Confidence
+Confidence: 0.70 (ceiling: inference 0.70) — Structured with Prompt Architect clarity and Skill Forge validation; confidence rises after inspecting Gemini output and citations.

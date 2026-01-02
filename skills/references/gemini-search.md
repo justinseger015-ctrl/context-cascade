@@ -1,305 +1,55 @@
 ---
-You are executing a specialized skill with domain expertise. Apply evidence-based prompting techniques: plan-and-solve decomposition, program-of-thought reasoning, and self-consistency validation. Prioritize systematic execution over ad-hoc solutions. Validate outputs against success criteria before proceeding.
-You are executing a specialized skill with domain expertise. Apply evidence-based prompting techniques: plan-and-solve decomposition, program-of-thought reasoning, and self-consistency validation. Prioritize systematic execution over ad-hoc solutions. Validate outputs against success criteria before proceeding.
 skill: gemini-search
-description: Get real-time web information using Gemini's built-in Google Search grounding
+description: Use Gemini’s Google Search grounding for real-time web research with citations
 tags: [gemini, web-search, real-time, documentation, current-info]
-version: 1.0.0
+version: 1.1.0
+source: /skills/references/gemini-search.md
+related-skills: [gemini-megacontext, multi-model, gemini-extensions]
 ---
-
-
-
-## When to Use This Skill
-
-- **Tool Usage**: When you need to execute specific tools, lookup reference materials, or run automation pipelines
-- **Reference Lookup**: When you need to access documented patterns, best practices, or technical specifications
-- **Automation Needs**: When you need to run standardized workflows or pipeline processes
-
-## When NOT to Use This Skill
-
-- **Manual Processes**: Avoid when manual intervention is more appropriate than automated tools
-- **Non-Standard Tools**: Do not use when tools are deprecated, unsupported, or outside standard toolkit
-
-## Success Criteria
-
-- **Tool Executed Correctly**: Verify tool runs without errors and produces expected output
-- **Reference Accurate**: Confirm reference material is current and applicable
-- **Pipeline Complete**: Ensure automation pipeline completes all stages successfully
-
-## Edge Cases
-
-- **Tool Unavailable**: Handle scenarios where required tool is not installed or accessible
-- **Outdated References**: Detect when reference material is obsolete or superseded
-- **Pipeline Failures**: Recover gracefully from mid-pipeline failures with clear error messages
-
-## Guardrails
-
-- **NEVER use deprecated tools**: Always verify tool versions and support status before execution
-- **ALWAYS verify outputs**: Validate tool outputs match expected format and content
-- **ALWAYS check health**: Run tool health checks before critical operations
-
-## Evidence-Based Validation
-
-- **Tool Health Checks**: Execute diagnostic commands to verify tool functionality before use
-- **Output Validation**: Compare actual outputs against expected schemas or patterns
-- **Pipeline Monitoring**: Track pipeline execution metrics and success rates
-
-# Gemini Search Skill
 
 ## Purpose
-Leverage Gemini CLI's built-in Google Search grounding to fetch real-time web information, validate current best practices, and access the latest documentation - capabilities Claude Code doesn't have natively.
-
-## Unique Capability
-**What Claude Code Can't Do**: Claude Code's knowledge has a cutoff date and cannot access real-time web information during analysis. Gemini CLI has built-in Google Search integration that grounds responses in current web content with citations.
+Fetch current web information (docs, advisories, changelogs) with grounded citations. Applies Prompt Architect clarity (intent, constraints, success) and Skill Forge guardrails (structure-first, validation, confidence ceilings).
 
 ## When to Use
+- Need up-to-date API docs, breaking changes, security advisories, or version status.
+- Validating best practices against current standards or comparing technologies.
 
-### Perfect For:
-✅ Checking latest API documentation
-✅ Finding current library versions and changelogs
-✅ Validating best practices against current standards
-✅ Researching breaking changes in dependencies
-✅ Comparing current technology options
-✅ Finding solutions to recent issues
-✅ Checking security advisories and CVEs
-✅ Verifying current framework conventions
+## When Not to Use / Reroute
+- Information is local to the repo or offline resources.
+- Prompt-only rewriting → `foundry/prompt-architect`.
+- Skill authoring → `foundry/skill-forge`.
 
-### Don't Use When:
-❌ Information is in your local codebase (use Claude Code)
-❌ Need deep implementation logic (use Claude Code)
-❌ Question doesn't require current web information
-❌ Working with proprietary/internal systems
+## Inputs (constraint extraction)
+- **HARD**: Query/topic, recency or version targets, citation requirement.
+- **SOFT**: Preferred sources (vendor docs, RFCs), format (bullets/table), depth.
+- **INFERRED**: Regional/language bias, cache/TTL expectations — confirm before run.
 
-## How It Works
+## SOP
+1. **Frame the Query**
+   - Specify version/date filters and desired output structure.
+2. **Search & Ground**
+   - Run Gemini with search grounding; collect top relevant sources.
+   - Extract key findings with URLs.
+3. **Validate & Present**
+   - Check consistency across sources; flag conflicts.
+   - Summarize in English with citations and confidence ceiling.
 
-This skill spawns a **Gemini Search Agent** that:
-1. Uses Gemini CLI's `@search` tool or built-in Google Search grounding
-2. Fetches current web content with citations
-3. Grounds analysis in real-time information
-4. Returns findings with source URLs to Claude Code
+## Quality Gates
+- At least two corroborating sources for critical claims.
+- Explicit URLs cited; conflicting info highlighted.
+- Confidence ceiling included; English-only output.
 
-## Usage
+## Anti-Patterns
+- Using vague queries without recency/version constraints.
+- Omitting citations or returning vendor marketing without verification.
+- Failing to note conflicts or uncertainties.
 
-### Basic Search
-```
-/gemini-search
-```
-
-### With Specific Query
-```
-/gemini-search "What are the breaking changes in React 19?"
-```
-
-### Detailed Research
-```
-/gemini-search "Compare authentication approaches for Next.js 15 apps with latest security best practices"
-```
-
-## Input Examples
-
+## Usage Examples
 ```bash
-# API Documentation
-/gemini-search "Latest Stripe API authentication methods 2025"
-
-# Breaking Changes
-/gemini-search "What changed in Python 3.13 that would break my code?"
-
-# Best Practices
-/gemini-search "Current best practices for securing Node.js REST APIs"
-
-# Version Information
-/gemini-search "Is TensorFlow 2.16 stable? What are known issues?"
-
-# Framework Conventions
-/gemini-search "How should I structure a Next.js 15 app directory?"
-
-# Security Research
-/gemini-search "Recent vulnerabilities in Express.js and mitigation strategies"
-
-# Technology Comparison
-/gemini-search "Compare Prisma vs Drizzle ORM for TypeScript projects 2025"
+/gemini-search "React 19 breaking changes and migration steps" 
+/gemini-search "Latest Stripe API auth methods (2025) with citations"
+/gemini-search "Recent CVEs for lodash and remediation guidance"
 ```
 
-## Output
-
-The agent provides:
-- **Direct Answer**: Response to your query
-- **Source Citations**: URLs where information was found
-- **Current Status**: What's latest/stable/recommended
-- **Key Findings**: Bullet points of important info
-- **Recommendations**: Based on current web consensus
-- **Related Resources**: Links to docs, guides, discussions
-
-## Real-World Examples
-
-### Example 1: API Changes
-```
-Query: "What changed in OpenAI API v2?"
-
-Agent searches and returns:
-- New endpoint structure with examples
-- Deprecated methods and replacements
-- Migration guide links
-- Breaking changes to watch for
-- Source: Official OpenAI docs + dev discussions
-```
-
-### Example 2: Security Advisory
-```
-Query: "Are there security issues with lodash 4.17.20?"
-
-Agent searches and returns:
-- CVE-2020-8203 prototype pollution vulnerability
-- Affected versions: < 4.17.21
-- Severity: High
-- Fix: Upgrade to 4.17.21 or higher
-- Sources: npm advisory, Snyk, GitHub issues
-```
-
-### Example 3: Framework Best Practices
-```
-Query: "How should I handle authentication in Next.js 15?"
-
-Agent searches and returns:
-- Recommended approaches (NextAuth.js, Clerk, Auth.js)
-- App router vs pages router differences
-- Server components considerations
-- Code examples from official docs
-- Sources: Next.js docs, Vercel guides, community tutorials
-```
-
-## Technical Details
-
-### Gemini CLI Command Pattern
-```bash
-# Using @search tool
-gemini "@search What are the latest Rust 2024 features?"
-
-# Natural prompt with automatic search
-gemini "Search for current best practices in GraphQL API security"
-
-# Specific URL analysis
-gemini "@search https://github.com/facebook/react/releases/tag/v19.0.0"
-```
-
-### Search Grounding Features
-- **Automatic invocation**: GoogleSearch tool activates when needed
-- **Citation**: Results include source URLs
-- **Real-time**: Fetches current web content
-- **Context-aware**: Combines search results with Gemini's reasoning
-
-### Free Tier Limits
-- 60 requests per minute
-- 1,000 requests per day
-- No additional cost for search grounding
-
-## Best Practices
-
-### Be Specific About Version/Date
-✅ "React 19 breaking changes"
-✅ "Node.js 22 LTS features"
-❌ "React changes" (too vague)
-
-### Request Sources
-✅ "Find official documentation for..."
-✅ "What do security researchers say about..."
-✅ "Check GitHub issues for..."
-
-### Combine with Context
-✅ "I'm using Express 4.18, what security updates are recommended?"
-✅ "For a TypeScript project, what's the current best testing framework?"
-
-### Verify Critical Information
-For security or architecture decisions:
-1. Use `/gemini-search` to find current information
-2. Review sources provided
-3. Cross-reference with official docs
-4. Make decision with Claude Code
-
-## Advantages Over Claude Code WebSearch
-
-### Gemini Search Advantages:
-✅ Grounding built into analysis (not separate step)
-✅ Can combine search with codebase context
-✅ Better for technical documentation
-✅ Free tier more generous
-
-### When to Use Each:
-- **Gemini Search**: Technical docs, API references, framework info
-- **Claude WebSearch**: General information, news, broader research
-
-## Integration with Workflow
-
-### Typical Workflow:
-1. Use `/gemini-search` to find current best practices
-2. Use Claude Code to implement based on findings
-3. Use `/gemini-search` to validate approach
-4. Use Claude Code for refinement and testing
-
-### Works Well With:
-- `gemini-megacontext`: Search for info, then analyze with full context
-- `codex-reasoning`: Search for approaches, implement with Codex
-- `multi-model`: Let orchestrator decide when search is needed
-
-## Cost Considerations
-
-- **Free tier**: 60 req/min, 1000/day
-- **No credit card required** with Google account
-- **Search included**: No extra cost for Google Search grounding
-- **Perfect for**: Daily development research and validation
-
-## Troubleshooting
-
-### No Sources Returned
-→ Gemini found answer in its training data, not web search
-→ Try: "Search the web for..." to force search
-
-### Outdated Information
-→ Be specific about date: "2025 best practices for..."
-→ Request: "Find the most recent information about..."
-
-### Too Generic
-→ Add specificity: version numbers, framework names, use case
-→ Example: "Next.js 15 App Router authentication" not "auth in Next"
-
-### Search Not Triggered
-→ Explicitly mention: "Search for...", "Find current...", "What's latest..."
-
-## Limitations
-
-⚠️ **Dependent on Search Quality**:
-- Results only as good as what Google finds
-- May return outdated info if it ranks highly
-- Personal blogs may outrank official docs
-
-⚠️ **Can't Access Private Resources**:
-- No access to internal wikis
-- No access to private GitHub repos
-- No access to paywalled content
-
-✅ **Best For**:
-- Public documentation
-- Open source projects
-- Community best practices
-- Security advisories
-- Official changelogs
-
-## Related Skills
-
-- `gemini-megacontext`: Use search findings to inform codebase analysis
-- `gemini-extensions`: Search for extension documentation
-- `root-cause-analyzer`: Search for similar issues and solutions
-- `multi-model`: Let orchestrator decide when to search
-
-## Success Indicators
-
-✅ Got current, accurate information with sources
-✅ Found latest API documentation
-✅ Identified breaking changes or updates
-✅ Validated best practices against current standards
-✅ Discovered security advisories or patches
-✅ Sources are authoritative and recent
-
----
-
-**Remember**: Use Gemini Search for CURRENT information Claude Code doesn't have access to. Always verify critical information from multiple sources.
+## Confidence
+Confidence: 0.70 (ceiling: inference 0.70) — Built with Prompt Architect framing and Skill Forge validation; increase confidence after verifying cited sources.
