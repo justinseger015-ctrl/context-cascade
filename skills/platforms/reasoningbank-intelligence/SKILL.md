@@ -1,218 +1,56 @@
 ---
 name: reasoningbank-intelligence
-description: Implement adaptive learning with ReasoningBank for pattern recognition, strategy optimization, and continuous improvement. Use when building self-learning agents, optimizing workflows, or implementing
+description: ReasoningBank skill for structured reasoning workflows and verification.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+model: sonnet
+x-version: 3.2.0
+x-category: platforms
+x-vcl-compliance: v3.1.1
+x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
 
+## Purpose
+Apply ReasoningBank patterns with explicit checkpoints, citations, and verification loops.
 
----
-<!-- S0 META-IDENTITY                                                             -->
----
+## Trigger Conditions
+- **Use this skill when:** Need disciplined reasoning with stored proofs, validation, and routing.
+- **Reroute when:** If external memory required, pair with reasoningbank-agentdb.
 
-[define|neutral] SKILL := {
-  name: "reasoningbank-intelligence",
-  category: "platforms",
-  version: "1.0.0",
-  layer: L1
-} [ground:given] [conf:1.0] [state:confirmed]
+## Guardrails (Inherited from Skill-Forge + Prompt-Architect)
+- Structure-first: every platform skill keeps `SKILL.md`, `examples/`, and `tests/` populated; create `resources/` and `references/` as needed. Log any missing artifact and fill a placeholder before proceeding.
+- Confidence ceilings are mandatory in outputs: inference/report 0.70, research 0.85, observation/definition 0.95. State as `Confidence: X.XX (ceiling: TYPE Y.YY)`.
+- English-only user-facing text; keep VCL markers internal. Do not leak internal notation.
+- Adversarial validation is required before sign-off: boundary, failure, and COV checks with notes.
+- MCP tagging for runs: `WHO=reasoningbank-intelligence-{session}`, `WHY=skill-execution`, namespace `skills/platforms/reasoningbank-intelligence/{project}`.
 
----
-<!-- S1 COGNITIVE FRAME                                                           -->
----
+## Execution Framework
+1. **Intent & Constraints** — clarify task goal, inputs, success criteria, and risk limits; extract hard/soft/inferred constraints explicitly.
+2. **Plan & Docs** — outline steps, needed examples/tests, and data contracts; confirm platform-specific policies.
+3. **Build & Optimize** — apply platform playbook below; keep iterative checkpoints and diffs.
+4. **Validate** — run adversarial tests, measure KPIs, and record evidence with ceilings.
+5. **Deliver & Hand off** — summarize decisions, artifacts, and next actions; capture learnings for reuse.
 
-[define|neutral] COGNITIVE_FRAME := {
-  frame: "Aspectual",
-  source: "Russian",
-  force: "Complete or ongoing?"
-} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+## Platform Playbook
+- **Workflow patterns:**
+  - Decompose problems into checkpoints with success criteria
+  - Capture citations/evidence at each step
+  - Run verification/coverage checks before final answer
+- **Anti-patterns to avoid:** One-shot answers without checkpoints, Missing evidence tagging, Skipping adversarial review
+- **Example executions:**
+  - Break down complex research question with stored notes
+  - Validate reasoning chains with independent checks
 
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
+## Documentation & Artifacts
+- `SKILL.md` (this file) is canonical; keep quick-reference notes in `README.md` if present.
+- `examples/` should hold runnable or narrative examples; `tests/` should include validation steps or checklists.
+- `resources/` stores helper scripts/templates; `references/` stores background links or research.
+- Update `metadata.json` version if behavior meaningfully changes.
 
----
-<!-- S2 TRIGGER CONDITIONS                                                        -->
----
+## Verification Checklist
+- [ ] Trigger matched and reroute considered
+- [ ] Examples/tests present or stubbed with TODOs
+- [ ] Constraints captured and confidence ceiling stated
+- [ ] Validation evidence captured (boundary, failure, COV)
+- [ ] MCP tags applied for this run
 
-[define|neutral] TRIGGER_POSITIVE := {
-  keywords: ["reasoningbank-intelligence", "platforms", "workflow"],
-  context: "user needs reasoningbank-intelligence capability"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S3 CORE CONTENT                                                              -->
----
-
-## When NOT to Use This Skill
-
-- Simple fact retrieval without reasoning chains
-- Operations that do not require logical inference
-- Tasks without complex multi-step reasoning needs
-- Applications that do not benefit from reasoning trace storage
-
-## Success Criteria
-- [assert|neutral] Reasoning chain accuracy: >90% logically valid steps [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Retrieval relevance: Top-5 recall >0.85 for similar reasoning [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Storage efficiency: <1MB per 100 reasoning chains [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Query latency: <50ms for reasoning retrieval [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Integration success: Seamless connection with AgentDB backend [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-
-## Edge Cases & Error Handling
-
-- **Invalid Reasoning Chains**: Validate logical consistency before storage
-- **Retrieval Failures**: Fallback to alternative search strategies
-- **Storage Limits**: Implement pruning strategies for old/low-quality chains
-- **Embedding Mismatches**: Ensure consistent embedding models across storage/retrieval
-- **Circular Reasoning**: Detect and prevent circular reference chains
-
-## Guardrails & Safety
-- [assert|emphatic] NEVER: store reasoning chains with sensitive or PII data [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: validate reasoning quality before storage [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: sanitize inputs to prevent prompt injection [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|emphatic] NEVER: expose internal reasoning structures in public APIs [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: implement access control for reasoning retrieval [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: audit reasoning chains for bias and harmful content [ground:policy] [conf:0.98] [state:confirmed]
-
-## Evidence-Based Validation
-
-- Verify reasoning quality: Check logical consistency and validity
-- Validate retrieval: Test that similar reasoning is correctly retrieved
-- Monitor storage: Track database size and query performance
-- Test edge cases: Validate handling of complex/invalid reasoning chains
-- Benchmark improvements: Measure reasoning quality vs baseline methods
-
-
-# ReasoningBank Intelligence
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
-
-
-## What This Skill Does
-
-Implements ReasoningBank's adaptive learning system for AI agents to learn from experience, recognize patterns, and optimize strategies over time. Enables meta-cognitive capabilities and continuous improvement.
-
-## Prerequisites
-
-- agentic-flow v1.5.11+
-- AgentDB v1.0.4+ (for persistence)
-- Node.js 18+
-
-## Quick Start
-
-```typescript
-import { ReasoningBank } from 'agentic-flow/reasoningbank';
-
-// Initialize ReasoningBank
-const rb = new ReasoningBank({
-  persist: true,
-  learningRate: 0.1,
-  adapter: 'agentdb' // Use AgentDB for storage
-});
-
-// Record task outcome
-await rb.recordExperience({
-  task: 'code_review',
-  approach: 'static_analysis_first',
-  outcome: {
-    success: true,
-    metrics: {
-      bugs_found: 5,
-      time_taken: 120,
-      false_positives: 1
-    }
-  },
-  context: {
-    language: 'typescript',
-    complexity: 'medium'
-  }
-});
-
-// Get optimal strategy
-const strategy = await rb.recommendStrategy('code_review', {
-  language: 'typescript',
-  complexity: 'high'
-});
-```
-
-## Core Features
-
-### 1. Pattern Recognition
-```typescript
-// Learn patterns from data
-await rb.learnPattern({
-  pattern: 'api_errors_increase_after_deploy',
-  triggers: ['deployment', 'traffic_spike'],
-  actions: ['rollback', 'scale_up'],
-  confidence: 0.85
-});
-
-// Match patterns
-const matches = await rb.matchPatterns(currentSituation);
-```
-
-### 2. Strategy Optimization
-```typ
-
----
-<!-- S4 SUCCESS CRITERIA                                                          -->
----
-
-[define|neutral] SUCCESS_CRITERIA := {
-  primary: "Skill execution completes successfully",
-  quality: "Output meets quality thresholds",
-  verification: "Results validated against requirements"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S5 MCP INTEGRATION                                                           -->
----
-
-[define|neutral] MCP_INTEGRATION := {
-  memory_mcp: "Store execution results and patterns",
-  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
-} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
-
----
-<!-- S6 MEMORY NAMESPACE                                                          -->
----
-
-[define|neutral] MEMORY_NAMESPACE := {
-  pattern: "skills/platforms/reasoningbank-intelligence/{project}/{timestamp}",
-  store: ["executions", "decisions", "patterns"],
-  retrieve: ["similar_tasks", "proven_patterns"]
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
-[define|neutral] MEMORY_TAGGING := {
-  WHO: "reasoningbank-intelligence-{session_id}",
-  WHEN: "ISO8601_timestamp",
-  PROJECT: "{project_name}",
-  WHY: "skill-execution"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
----
-
-[direct|emphatic] COMPLETION_CHECKLIST := {
-  agent_spawning: "Spawn agents via Task()",
-  registry_validation: "Use registry agents only",
-  todowrite_called: "Track progress with TodoWrite",
-  work_delegation: "Delegate to specialized agents"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S8 ABSOLUTE RULES                                                            -->
----
-
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- PROMISE                                                                      -->
----
-
-[commit|confident] <promise>REASONINGBANK_INTELLIGENCE_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+Confidence: 0.70 (ceiling: inference 0.70) - Standardized platform skill rewrite aligned with skill-forge + prompt-architect guardrails.

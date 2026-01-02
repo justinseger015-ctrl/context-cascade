@@ -1,245 +1,56 @@
 ---
 name: gemini-search
-description: Get real-time web information using Gemini's built-in Google Search grounding
+description: Gemini search-augmented workflows for grounded answers.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+model: sonnet
+x-version: 3.2.0
+x-category: platforms
+x-vcl-compliance: v3.1.1
+x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
-
-
----
-<!-- S0 META-IDENTITY                                                             -->
----
-
-[define|neutral] SKILL := {
-  name: "SKILL",
-  category: "platforms",
-  version: "1.0.0",
-  layer: L1
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S1 COGNITIVE FRAME                                                           -->
----
-
-[define|neutral] COGNITIVE_FRAME := {
-  frame: "Compositional",
-  source: "German",
-  force: "Build from primitives?"
-} [ground:cognitive-science] [conf:0.92] [state:confirmed]
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
----
-<!-- S2 TRIGGER CONDITIONS                                                        -->
----
-
-[define|neutral] TRIGGER_POSITIVE := {
-  keywords: ["SKILL", "platforms", "workflow"],
-  context: "user needs SKILL capability"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S3 CORE CONTENT                                                              -->
----
-
-# Gemini Search Skill
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
-
 
 ## Purpose
-Leverage Gemini CLI's built-in Google Search grounding to fetch real-time web information, validate current best practices, and access the latest documentation - capabilities Claude Code doesn't have natively.
+Combine Gemini with search/retrieval steps to deliver cited, grounded responses.
 
-## Unique Capability
-**What Claude Code Can't Do**: Claude Code's knowledge has a cutoff date and cannot access real-time web information during analysis. Gemini CLI has built-in Google Search integration that grounds responses in current web content with citations.
+## Trigger Conditions
+- **Use this skill when:** Need grounded answers with cited sources via Gemini + search stack.
+- **Reroute when:** If using other vector DBs, pair with agentdb skills for retrieval details.
 
-## When to Use
+## Guardrails (Inherited from Skill-Forge + Prompt-Architect)
+- Structure-first: every platform skill keeps `SKILL.md`, `examples/`, and `tests/` populated; create `resources/` and `references/` as needed. Log any missing artifact and fill a placeholder before proceeding.
+- Confidence ceilings are mandatory in outputs: inference/report 0.70, research 0.85, observation/definition 0.95. State as `Confidence: X.XX (ceiling: TYPE Y.YY)`.
+- English-only user-facing text; keep VCL markers internal. Do not leak internal notation.
+- Adversarial validation is required before sign-off: boundary, failure, and COV checks with notes.
+- MCP tagging for runs: `WHO=gemini-search-{session}`, `WHY=skill-execution`, namespace `skills/platforms/gemini-search/{project}`.
 
-### Perfect For:
-✅ Checking latest API documentation
-✅ Finding current library versions and changelogs
-✅ Validating best practices against current standards
-✅ Researching breaking changes in dependencies
-✅ Comparing current technology options
-✅ Finding solutions to recent issues
-✅ Checking security advisories and CVEs
-✅ Verifying current framework conventions
+## Execution Framework
+1. **Intent & Constraints** — clarify task goal, inputs, success criteria, and risk limits; extract hard/soft/inferred constraints explicitly.
+2. **Plan & Docs** — outline steps, needed examples/tests, and data contracts; confirm platform-specific policies.
+3. **Build & Optimize** — apply platform playbook below; keep iterative checkpoints and diffs.
+4. **Validate** — run adversarial tests, measure KPIs, and record evidence with ceilings.
+5. **Deliver & Hand off** — summarize decisions, artifacts, and next actions; capture learnings for reuse.
 
-### Don't Use When:
-❌ Information is in your local codebase (use Claude Code)
-❌ Need deep implementation logic (use Claude Code)
-❌ Question doesn't require current web information
-❌ Working with proprietary/internal systems
+## Platform Playbook
+- **Workflow patterns:**
+  - Formulate search plans with intents and guardrails
+  - Retrieve, rank, and cite sources before synthesis
+  - Cache results and note freshness/expiry
+- **Anti-patterns to avoid:** Returning answers without citations, Using stale cache without freshness checks, Letting search run without domain restrictions
+- **Example executions:**
+  - Answer policy questions with citation-backed search
+  - Build FAQ bot with Gemini plus enterprise search
 
-## How It Works
+## Documentation & Artifacts
+- `SKILL.md` (this file) is canonical; keep quick-reference notes in `README.md` if present.
+- `examples/` should hold runnable or narrative examples; `tests/` should include validation steps or checklists.
+- `resources/` stores helper scripts/templates; `references/` stores background links or research.
+- Update `metadata.json` version if behavior meaningfully changes.
 
-This skill spawns a **Gemini Search Agent** that:
-1. Uses Gemini CLI's `@search` tool or built-in Google Search grounding
-2. Fetches current web content with citations
-3. Grounds analysis in real-time information
-4. Returns findings with source URLs to Claude Code
+## Verification Checklist
+- [ ] Trigger matched and reroute considered
+- [ ] Examples/tests present or stubbed with TODOs
+- [ ] Constraints captured and confidence ceiling stated
+- [ ] Validation evidence captured (boundary, failure, COV)
+- [ ] MCP tags applied for this run
 
-## Usage
-
-### Basic Search
-```
-/gemini-search
-```
-
-### With Specific Query
-```
-/gemini-search "What are the breaking changes in React 19?"
-```
-
-### Detailed Research
-```
-/gemini-search "Compare authentication approaches for Next.js 15 apps with latest security best practices"
-```
-
-## Input Examples
-
-```bash
-# API Documentation
-/gemini-search "Latest Stripe API authentication methods 2025"
-
-# Breaking Changes
-/gemini-search "What changed in Python 3.13 that would break my code?"
-
-# Best Practices
-/gemini-search "Current best practices for securing Node.js REST APIs"
-
-# Version Information
-/gemini-search "Is TensorFlow 2.16 stable? What are known issues?"
-
-# Framework Conventions
-/gemini-search "How should I structure a Next.js 15 app directory?"
-
-# Security Research
-/gemini-search "Recent vulnerabilities in Express.js and mitigation strategies"
-
-# Technology Comparison
-/gemini-search "Compare Prisma vs Drizzle ORM for TypeScript projects 2025"
-```
-
-## Output
-
-The agent provides:
-- **Direct Answer**: Response to your query
-- **Source Citations**: URLs where information was found
-- **Current Status**: What's latest/stable/recommended
-- **Key Findings**: Bullet points of important info
-- **Recommendations**: Based on current web consensus
-- **Related Resources**: Links to docs, guides, discussions
-
-## Real-World Examples
-
-### Example 1: API Changes
-```
-Query: "What changed in OpenAI API v2?"
-
-Agent searches and returns:
-- New endpoint structure with examples
-- Deprecated methods and replacements
-- Migration guide links
-- Breaking changes to watch for
-- Source: Official OpenAI docs + dev discussions
-```
-
-### Example 2: Security Advisory
-```
-Query: "Are there security issues with lodash 4.17.20?"
-
-Agent searches and returns:
-- CVE-2020-8203 prototype pollution vulnerability
-- Affected versions: < 4.17.21
-- Severity: High
-- Fix: Upgrade to 4.17.21 or higher
-- Sources: npm advisory, Snyk, GitHub issues
-```
-
-### Example 3: Framework Best Practices
-```
-Query: "How should I handle authentication in Next.js 15?"
-
-Agent searches and returns:
-- Recommended approaches (NextAuth.js, Clerk, Auth.js)
-- App router vs pages router differences
-- Server components considerations
-- Code examples from official docs
-- Sources: Next.js docs, Vercel guides, community tutorials
-```
-
-## Technical Details
-
-### Gemini CLI Command Pattern
-```bash
-# Using @search tool
-gemini "@search What are the latest Rust 2024 features?"
-
-# Natural prompt with automatic search
-gemini "Search for current best practices i
-
----
-<!-- S4 SUCCESS CRITERIA                                                          -->
----
-
-[define|neutral] SUCCESS_CRITERIA := {
-  primary: "Skill execution completes successfully",
-  quality: "Output meets quality thresholds",
-  verification: "Results validated against requirements"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S5 MCP INTEGRATION                                                           -->
----
-
-[define|neutral] MCP_INTEGRATION := {
-  memory_mcp: "Store execution results and patterns",
-  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
-} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
-
----
-<!-- S6 MEMORY NAMESPACE                                                          -->
----
-
-[define|neutral] MEMORY_NAMESPACE := {
-  pattern: "skills/platforms/SKILL/{project}/{timestamp}",
-  store: ["executions", "decisions", "patterns"],
-  retrieve: ["similar_tasks", "proven_patterns"]
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
-[define|neutral] MEMORY_TAGGING := {
-  WHO: "SKILL-{session_id}",
-  WHEN: "ISO8601_timestamp",
-  PROJECT: "{project_name}",
-  WHY: "skill-execution"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
----
-
-[direct|emphatic] COMPLETION_CHECKLIST := {
-  agent_spawning: "Spawn agents via Task()",
-  registry_validation: "Use registry agents only",
-  todowrite_called: "Track progress with TodoWrite",
-  work_delegation: "Delegate to specialized agents"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S8 ABSOLUTE RULES                                                            -->
----
-
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- PROMISE                                                                      -->
----
-
-[commit|confident] <promise>SKILL_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+Confidence: 0.70 (ceiling: inference 0.70) - Standardized platform skill rewrite aligned with skill-forge + prompt-architect guardrails.

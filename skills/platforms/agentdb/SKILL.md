@@ -1,192 +1,56 @@
 ---
 name: agentdb
-description: High-performance vector search and semantic memory for AI agents. Use when implementing RAG systems, semantic document retrieval, or persistent agent memory. Provides 150x faster vector search vs trad
+description: Vector search and semantic memory backbone for agents and RAG pipelines.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+model: sonnet
+x-version: 3.2.0
+x-category: platforms
+x-vcl-compliance: v3.1.1
+x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
 
+## Purpose
+Provide production-ready vector search, semantic memory, and recall patterns for agent workloads.
 
----
-<!-- S0 META-IDENTITY                                                             -->
----
+## Trigger Conditions
+- **Use this skill when:** Need high-speed similarity search, persistent agent memory, or RAG retrieval tuning.
+- **Reroute when:** If user only needs basic KV storage or non-vector data, direct to standard database guidance.
 
-[define|neutral] SKILL := {
-  name: "agentdb",
-  category: "platforms",
-  version: "1.0.0",
-  layer: L1
-} [ground:given] [conf:1.0] [state:confirmed]
+## Guardrails (Inherited from Skill-Forge + Prompt-Architect)
+- Structure-first: every platform skill keeps `SKILL.md`, `examples/`, and `tests/` populated; create `resources/` and `references/` as needed. Log any missing artifact and fill a placeholder before proceeding.
+- Confidence ceilings are mandatory in outputs: inference/report 0.70, research 0.85, observation/definition 0.95. State as `Confidence: X.XX (ceiling: TYPE Y.YY)`.
+- English-only user-facing text; keep VCL markers internal. Do not leak internal notation.
+- Adversarial validation is required before sign-off: boundary, failure, and COV checks with notes.
+- MCP tagging for runs: `WHO=agentdb-{session}`, `WHY=skill-execution`, namespace `skills/platforms/agentdb/{project}`.
 
----
-<!-- S1 COGNITIVE FRAME                                                           -->
----
+## Execution Framework
+1. **Intent & Constraints** — clarify task goal, inputs, success criteria, and risk limits; extract hard/soft/inferred constraints explicitly.
+2. **Plan & Docs** — outline steps, needed examples/tests, and data contracts; confirm platform-specific policies.
+3. **Build & Optimize** — apply platform playbook below; keep iterative checkpoints and diffs.
+4. **Validate** — run adversarial tests, measure KPIs, and record evidence with ceilings.
+5. **Deliver & Hand off** — summarize decisions, artifacts, and next actions; capture learnings for reuse.
 
-[define|neutral] COGNITIVE_FRAME := {
-  frame: "Aspectual",
-  source: "Russian",
-  force: "Complete or ongoing?"
-} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+## Platform Playbook
+- **Workflow patterns:**
+  - Embed and index documents with dimension validation and metadata hygiene
+  - Tune search parameters (HNSW/MIPS) for latency vs. recall and tenant isolation
+  - Operate memory tiers (short-term, episodic, long-term) with retention policies
+- **Anti-patterns to avoid:** Storing PII in plaintext metadata, Skipping dimension validation before insert, Returning unvalidated search hits to end users
+- **Example executions:**
+  - Index knowledge base chunks then retrieve top-k for RAG answers
+  - Run latency benchmark and adjust ef_search/ef_construction for 99p targets
 
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
+## Documentation & Artifacts
+- `SKILL.md` (this file) is canonical; keep quick-reference notes in `README.md` if present.
+- `examples/` should hold runnable or narrative examples; `tests/` should include validation steps or checklists.
+- `resources/` stores helper scripts/templates; `references/` stores background links or research.
+- Update `metadata.json` version if behavior meaningfully changes.
 
----
-<!-- S2 TRIGGER CONDITIONS                                                        -->
----
+## Verification Checklist
+- [ ] Trigger matched and reroute considered
+- [ ] Examples/tests present or stubbed with TODOs
+- [ ] Constraints captured and confidence ceiling stated
+- [ ] Validation evidence captured (boundary, failure, COV)
+- [ ] MCP tags applied for this run
 
-[define|neutral] TRIGGER_POSITIVE := {
-  keywords: ["agentdb", "platforms", "workflow"],
-  context: "user needs agentdb capability"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S3 CORE CONTENT                                                              -->
----
-
-## When NOT to Use This Skill
-
-- Local-only operations with no vector search needs
-- Simple key-value storage without semantic similarity
-- Real-time streaming data without persistence requirements
-- Operations that do not require embedding-based retrieval
-
-## Success Criteria
-- [assert|neutral] Vector search query latency: <10ms for 99th percentile [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Embedding generation: <100ms per document [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Index build time: <1s per 1000 vectors [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Recall@10: >0.95 for similar documents [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Database connection success rate: >99.9% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Memory footprint: <2GB for 1M vectors with quantization [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-
-## Edge Cases & Error Handling
-
-- **Rate Limits**: AgentDB local instances have no rate limits; cloud deployments may vary
-- **Connection Failures**: Implement retry logic with exponential backoff (max 3 retries)
-- **Index Corruption**: Maintain backup indices; rebuild from source if corrupted
-- **Memory Overflow**: Use quantization (4-bit, 8-bit) to reduce memory by 4-32x
-- **Stale Embeddings**: Implement TTL-based refresh for dynamic content
-- **Dimension Mismatch**: Validate embedding dimensions (384 for sentence-transformers) before insertion
-
-## Guardrails & Safety
-- [assert|emphatic] NEVER: expose database connection strings in logs or error messages [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: validate vector dimensions before insertion [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: sanitize metadata to prevent injection attacks [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|emphatic] NEVER: store PII in vector metadata without encryption [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: implement access control for multi-tenant deployments [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: validate search results before returning to users [ground:policy] [conf:0.98] [state:confirmed]
-
-## Evidence-Based Validation
-
-- Verify database health: Check connection status and index integrity
-- Validate search quality: Measure recall/precision on test queries
-- Monitor performance: Track query latency, throughput, and memory usage
-- Test failure recovery: Simulate connection drops and index corruption
-- Benchmark improvements: Compare against baseline metrics (e.g., 150x speedup claim)
-
-
-# AgentDB - Vector Search & Semantic Memory
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
-
-
-Ultra-fast vector database for AI agent memory, RAG systems, and semantic search applications.
-
-## When to Use This Skill
-
-Use when implementing retrieval-augmented generation (RAG), building semantic search engines, creating persistent agent memory systems, or optimizing vector similarity searches for production workloads.
-
-## Core Capabilities
-
-### Vector Search
-- 150x faster than traditional databases
-- HNSW (Hierarchical Navigable Small World) indexing
-- 384-dimensional sentence embeddings
-- Sub-millisecond query latency
-
-### Semantic Memory
-- Persistent cross-session storage
-- Automatic embedding generation
-- Similarity-based retrieval
-- Metadata filtering and ranking
-
-### Memory Patterns
-- Short-term: Recent context (1-100 items)
-- Long-term: Persistent knowledge (unlimited)
-- Episodic: Timestamped experiences
-- Semantic: Concept relationships
-
-## Process
-
-1. **Initialize vector store**
-   - Configure embedding model (sentence-transformers)
-   - Set up HNSW index parameters
-   - Define metadata schema
-   - Allocate storage backend
-
-2. **Store information**
-   - Generate embeddings automatically
-   
-
----
-<!-- S4 SUCCESS CRITERIA                                                          -->
----
-
-[define|neutral] SUCCESS_CRITERIA := {
-  primary: "Skill execution completes successfully",
-  quality: "Output meets quality thresholds",
-  verification: "Results validated against requirements"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S5 MCP INTEGRATION                                                           -->
----
-
-[define|neutral] MCP_INTEGRATION := {
-  memory_mcp: "Store execution results and patterns",
-  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
-} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
-
----
-<!-- S6 MEMORY NAMESPACE                                                          -->
----
-
-[define|neutral] MEMORY_NAMESPACE := {
-  pattern: "skills/platforms/agentdb/{project}/{timestamp}",
-  store: ["executions", "decisions", "patterns"],
-  retrieve: ["similar_tasks", "proven_patterns"]
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
-[define|neutral] MEMORY_TAGGING := {
-  WHO: "agentdb-{session_id}",
-  WHEN: "ISO8601_timestamp",
-  PROJECT: "{project_name}",
-  WHY: "skill-execution"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
----
-
-[direct|emphatic] COMPLETION_CHECKLIST := {
-  agent_spawning: "Spawn agents via Task()",
-  registry_validation: "Use registry agents only",
-  todowrite_called: "Track progress with TodoWrite",
-  work_delegation: "Delegate to specialized agents"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S8 ABSOLUTE RULES                                                            -->
----
-
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- PROMISE                                                                      -->
----
-
-[commit|confident] <promise>AGENTDB_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+Confidence: 0.70 (ceiling: inference 0.70) - Standardized platform skill rewrite aligned with skill-forge + prompt-architect guardrails.

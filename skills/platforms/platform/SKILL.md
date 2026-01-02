@@ -1,239 +1,56 @@
 ---
 name: platform
-description: Platform services hub routing to Flow Nexus platform skills. Use for cloud AI platform management, neural network training, swarm deployment, and platform authentication. Routes to flow-nexus-neural,
+description: Platform selection and orchestration meta-skill across Flow Nexus, Codex, Gemini, and AgentDB.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+model: sonnet
+x-version: 3.2.0
+x-category: platforms
+x-vcl-compliance: v3.1.1
+x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
 
+## Purpose
+Quickly route work to the right platform skill with consistent governance and documentation.
 
----
-<!-- S0 META-IDENTITY                                                             -->
----
+## Trigger Conditions
+- **Use this skill when:** Need to choose or coordinate among supported platforms for a task.
+- **Reroute when:** If user already specifies exact platform, jump to that platform skill directly.
 
-[define|neutral] SKILL := {
-  name: "platform",
-  category: "platforms",
-  version: "2.1.0",
-  layer: L1
-} [ground:given] [conf:1.0] [state:confirmed]
+## Guardrails (Inherited from Skill-Forge + Prompt-Architect)
+- Structure-first: every platform skill keeps `SKILL.md`, `examples/`, and `tests/` populated; create `resources/` and `references/` as needed. Log any missing artifact and fill a placeholder before proceeding.
+- Confidence ceilings are mandatory in outputs: inference/report 0.70, research 0.85, observation/definition 0.95. State as `Confidence: X.XX (ceiling: TYPE Y.YY)`.
+- English-only user-facing text; keep VCL markers internal. Do not leak internal notation.
+- Adversarial validation is required before sign-off: boundary, failure, and COV checks with notes.
+- MCP tagging for runs: `WHO=platform-{session}`, `WHY=skill-execution`, namespace `skills/platforms/platform/{project}`.
 
----
-<!-- S1 COGNITIVE FRAME                                                           -->
----
+## Execution Framework
+1. **Intent & Constraints** — clarify task goal, inputs, success criteria, and risk limits; extract hard/soft/inferred constraints explicitly.
+2. **Plan & Docs** — outline steps, needed examples/tests, and data contracts; confirm platform-specific policies.
+3. **Build & Optimize** — apply platform playbook below; keep iterative checkpoints and diffs.
+4. **Validate** — run adversarial tests, measure KPIs, and record evidence with ceilings.
+5. **Deliver & Hand off** — summarize decisions, artifacts, and next actions; capture learnings for reuse.
 
-[define|neutral] COGNITIVE_FRAME := {
-  frame: "Aspectual",
-  source: "Russian",
-  force: "Complete or ongoing?"
-} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+## Platform Playbook
+- **Workflow patterns:**
+  - Assess requirements and map to platform capability
+  - Set routing instructions and guardrails for chosen platform
+  - Capture decision log and verification checklist
+- **Anti-patterns to avoid:** Choosing platforms without constraint analysis, Mixing platform instructions in one session, Skipping documentation of routing rationale
+- **Example executions:**
+  - Decide between Codex vs Gemini for autonomous refactor
+  - Route data-heavy job to Flow Nexus neural with AgentDB backing
 
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
+## Documentation & Artifacts
+- `SKILL.md` (this file) is canonical; keep quick-reference notes in `README.md` if present.
+- `examples/` should hold runnable or narrative examples; `tests/` should include validation steps or checklists.
+- `resources/` stores helper scripts/templates; `references/` stores background links or research.
+- Update `metadata.json` version if behavior meaningfully changes.
 
----
-<!-- S2 TRIGGER CONDITIONS                                                        -->
----
+## Verification Checklist
+- [ ] Trigger matched and reroute considered
+- [ ] Examples/tests present or stubbed with TODOs
+- [ ] Constraints captured and confidence ceiling stated
+- [ ] Validation evidence captured (boundary, failure, COV)
+- [ ] MCP tags applied for this run
 
-[define|neutral] TRIGGER_POSITIVE := {
-  keywords: ["platform", "platforms", "workflow"],
-  context: "user needs platform capability"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S3 CORE CONTENT                                                              -->
----
-
-# Platform
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
-
-
-Central hub for Flow Nexus platform services and cloud AI capabilities.
-
-## Phase 0: Expertise Loading
-
-```yaml
-expertise_check:
-  domain: platform
-  file: .claude/expertise/platform.yaml
-
-  if_exists:
-    - Load platform configurations
-    - Load API patterns
-    - Apply service quotas
-
-  if_not_exists:
-    - Flag discovery mode
-    - Document patterns learned
-```
-
-## When to Use This Skill
-
-Use platform when:
-- Training neural networks in cloud sandboxes
-- Deploying AI swarms to cloud
-- Managing Flow Nexus platform services
-- Setting up platform authentication
-- Integrating payment systems
-
-## Sub-Skills
-
-| Skill | Use Case |
-|-------|----------|
-| flow-nexus-neural | Neural network training |
-| flow-nexus-platform | Platform management |
-| flow-nexus-swarm | Cloud swarm deployment |
-
-## Routing Logic
-
-```yaml
-routing:
-  if "neural" or "training" or "ml":
-    route_to: flow-nexus-neural
-  if "swarm" or "deploy":
-    route_to: flow-nexus-swarm
-  if "auth" or "payment" or "sandbox":
-    route_to: flow-nexus-platform
-  default:
-    route_to: flow-nexus-platform
-```
-
-## MCP Requirements
-
-- **claude-flow**: Platform coordination
-- **memory-mcp**: State management
-
-## Recursive Improvement Integration (v2.1)
-
-### Eval Harness Integration
-
-```yaml
-benchmark: platform-benchmark-v1
-  tests:
-    - plat-001: Platform routing
-    - plat-002: Service availability
-  minimum_scores:
-    routing_accuracy: 0.90
-    service_uptime: 0.99
-```
-
-### Memory Namespace
-
-```yaml
-namespaces:
-  - platform/services/{id}: Service configs
-  - platform/metrics: Performance tracking
-  - improvement/audits/platform: Skill audits
-```
-
-### Uncertainty Handling
-
-```yaml
-confidence_check:
-  if confidence >= 0.8:
-    - Route to appropriate service
-  if confidence 0.5-0.8:
-    - Present service options
-  if confidence < 0.5:
-    - Ask clarifying questions
-```
-
-### Cross-Skill Coordination
-
-Works with: **flow-nexus-neural**, **flow-nexus-platform**, **flow-nexus-swarm**
-
----
-
-## !! SKILL COMPLETION VERIFICATION (MANDATORY) !!
-
-- [ ] **Agent Spawning**: Spawned agent via Task()
-- [ ] **Agent Registry Validation**: Agent from registry
-- [ ] **TodoWrite Called**: Called with 5+ todos
-- [ ] **Work Delegation**: Delegated to agents
-
-**Remember: Skill() -> Task() -> TodoWrite() - ALWAYS**
-
-
-## Core Principles
-
-1. **Service Abstraction**: Platform services abstract away infrastructure complexity (E2B sandboxes, QUIC synchronization, GPU allocation) behind unified API interfaces, allowing agents to focus on neural network design rather than cloud resource management.
-
-2. **Resource Efficiency Through Routing**: Intelligent routing minimizes unnecessary service hops - neural training requests go directly to flow-nexus-neural, swarm deployments to flow-nexus-swarm, avoiding generic platform overhead when domain-specific paths are available.
-
-3. **Graceful Degradation with Confidence Scoring**: When routing confidence falls below 0.8, the system presents service options rather than making incorrect assumptions, preventing wasted computation on misrouted requests while maintaining user control.
-
-## Anti-Patterns
-
-| Anti-Pattern | Why It Fails | Correct Approach |
-|--------------|--------------|------------------|
-| Hardcoding service endpoints | Breaks when Flow Nexus platform migrates infrastructure or updates API versions | Use platform routing logic to resolve services dynamically, load from expertise files |
-| Skipping Phase 0 expertise loading | Every request re-discovers service quotas, rate limits, and authentication patterns | Always check .claude/expertise/platform.yaml first, cache service configs in memory-mcp namespace |
-| Bypassing confidence checks (forcing routes <0.5) | Routes neural training to generic platform service, wasting GPU time on incorrect setup | Respect confidence thresholds, present options or ask clarifying questions when uncertain |
-
-## Conclusion
-
-The 
-
----
-<!-- S4 SUCCESS CRITERIA                                                          -->
----
-
-[define|neutral] SUCCESS_CRITERIA := {
-  primary: "Skill execution completes successfully",
-  quality: "Output meets quality thresholds",
-  verification: "Results validated against requirements"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S5 MCP INTEGRATION                                                           -->
----
-
-[define|neutral] MCP_INTEGRATION := {
-  memory_mcp: "Store execution results and patterns",
-  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
-} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
-
----
-<!-- S6 MEMORY NAMESPACE                                                          -->
----
-
-[define|neutral] MEMORY_NAMESPACE := {
-  pattern: "skills/platforms/platform/{project}/{timestamp}",
-  store: ["executions", "decisions", "patterns"],
-  retrieve: ["similar_tasks", "proven_patterns"]
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
-[define|neutral] MEMORY_TAGGING := {
-  WHO: "platform-{session_id}",
-  WHEN: "ISO8601_timestamp",
-  PROJECT: "{project_name}",
-  WHY: "skill-execution"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
----
-
-[direct|emphatic] COMPLETION_CHECKLIST := {
-  agent_spawning: "Spawn agents via Task()",
-  registry_validation: "Use registry agents only",
-  todowrite_called: "Track progress with TodoWrite",
-  work_delegation: "Delegate to specialized agents"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S8 ABSOLUTE RULES                                                            -->
----
-
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- PROMISE                                                                      -->
----
-
-[commit|confident] <promise>PLATFORM_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+Confidence: 0.70 (ceiling: inference 0.70) - Standardized platform skill rewrite aligned with skill-forge + prompt-architect guardrails.

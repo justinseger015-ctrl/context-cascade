@@ -1,209 +1,56 @@
 ---
 name: codex-auto
-description: Use Codex CLI's Full Auto mode for unattended sandboxed prototyping and scaffolding
+description: Use Codex CLI Full Auto for unattended, sandboxed prototyping and refactors.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+model: sonnet
+x-version: 3.2.0
+x-category: platforms
+x-vcl-compliance: v3.1.1
+x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
-
-
----
-<!-- S0 META-IDENTITY                                                             -->
----
-
-[define|neutral] SKILL := {
-  name: "SKILL",
-  category: "platforms",
-  version: "1.0.0",
-  layer: L1
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S1 COGNITIVE FRAME                                                           -->
----
-
-[define|neutral] COGNITIVE_FRAME := {
-  frame: "Compositional",
-  source: "German",
-  force: "Build from primitives?"
-} [ground:cognitive-science] [conf:0.92] [state:confirmed]
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
----
-<!-- S2 TRIGGER CONDITIONS                                                        -->
----
-
-[define|neutral] TRIGGER_POSITIVE := {
-  keywords: ["SKILL", "platforms", "workflow"],
-  context: "user needs SKILL capability"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S3 CORE CONTENT                                                              -->
----
-
-# Codex Full Auto Skill
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
-
 
 ## Purpose
-Leverage Codex CLI's Full Auto mode for unattended, sandboxed prototyping where the AI can autonomously read, write, and execute code without approval - perfect for rapid scaffolding and overnight builds.
+Let Codex run autonomously in a sandbox to scaffold, refactor, and validate code without approvals.
 
-## Unique Capability
-**What Claude Code Can't Do**: Run completely autonomously without user approval for extended periods. Codex Full Auto mode can prototype entire features, fix broken builds, or scaffold projects while you're away - all in a secure sandbox.
+## Trigger Conditions
+- **Use this skill when:** Need overnight builds, unattended refactors, or autonomous scaffolding in a sandbox.
+- **Reroute when:** If work needs human-in-loop or policy-heavy guardrails, use codex-reasoning instead.
 
-## When to Use
+## Guardrails (Inherited from Skill-Forge + Prompt-Architect)
+- Structure-first: every platform skill keeps `SKILL.md`, `examples/`, and `tests/` populated; create `resources/` and `references/` as needed. Log any missing artifact and fill a placeholder before proceeding.
+- Confidence ceilings are mandatory in outputs: inference/report 0.70, research 0.85, observation/definition 0.95. State as `Confidence: X.XX (ceiling: TYPE Y.YY)`.
+- English-only user-facing text; keep VCL markers internal. Do not leak internal notation.
+- Adversarial validation is required before sign-off: boundary, failure, and COV checks with notes.
+- MCP tagging for runs: `WHO=codex-auto-{session}`, `WHY=skill-execution`, namespace `skills/platforms/codex-auto/{project}`.
 
-### Perfect For:
-✅ Rapid prototyping of new features
-✅ Scaffolding entire projects (APIs, apps, tools)
-✅ Fixing broken builds while you're away
-✅ Automated refactoring tasks
-✅ Generating boilerplate code
-✅ "Set it and forget it" tasks
-✅ Exploring implementation approaches
+## Execution Framework
+1. **Intent & Constraints** — clarify task goal, inputs, success criteria, and risk limits; extract hard/soft/inferred constraints explicitly.
+2. **Plan & Docs** — outline steps, needed examples/tests, and data contracts; confirm platform-specific policies.
+3. **Build & Optimize** — apply platform playbook below; keep iterative checkpoints and diffs.
+4. **Validate** — run adversarial tests, measure KPIs, and record evidence with ceilings.
+5. **Deliver & Hand off** — summarize decisions, artifacts, and next actions; capture learnings for reuse.
 
-### Don't Use When:
-❌ Need human oversight for critical decisions
-❌ Working with production systems
-❌ Requires network access (Full Auto disables network)
-❌ Need to access resources outside project directory
+## Platform Playbook
+- **Workflow patterns:**
+  - Kick off full-auto scaffolds with explicit acceptance tests
+  - Queue unattended refactors guarded by linters and smoke tests
+  - Collect execution logs and diffs for review on return
+- **Anti-patterns to avoid:** Running against production directories, Allowing network access during full-auto runs, Skipping diff review before merge
+- **Example executions:**
+  - `codex --full-auto Scaffold CRUD API with tests`
+  - `codex --full-auto Refactor to TS strict mode and fix type errors`
 
-## How It Works
+## Documentation & Artifacts
+- `SKILL.md` (this file) is canonical; keep quick-reference notes in `README.md` if present.
+- `examples/` should hold runnable or narrative examples; `tests/` should include validation steps or checklists.
+- `resources/` stores helper scripts/templates; `references/` stores background links or research.
+- Update `metadata.json` version if behavior meaningfully changes.
 
-Codex Full Auto mode:
-- ✅ Reads/writes files automatically
-- ✅ Executes commands in sandbox
-- ✅ Iterates on its own output
-- ⚠️ **Network disabled** for security
-- ⚠️ **CWD only** - can't access outside project
-- ⚠️ Uses macOS Seatbelt / Docker sandbox
+## Verification Checklist
+- [ ] Trigger matched and reroute considered
+- [ ] Examples/tests present or stubbed with TODOs
+- [ ] Constraints captured and confidence ceiling stated
+- [ ] Validation evidence captured (boundary, failure, COV)
+- [ ] MCP tags applied for this run
 
-## Usage
-
-### Basic Auto Prototyping
-```
-/codex-auto "Create a REST API with user CRUD operations using Express and SQLite"
-```
-
-### Scaffolding
-```
-/codex-auto "Build a complete todo app with React frontend and Node.js backend, include tests"
-```
-
-### Overnight Task
-```
-/codex-auto "Refactor entire src/ directory to use TypeScript strict mode, fix all type errors"
-```
-
-## Safety
-
-Full Auto runs in **secure sandbox**:
-- Network: **DISABLED** (no external connections)
-- Scope: **CWD only** (current working directory)
-- Isolation: **Seatbelt (macOS) / Docker**
-- Can't: Access parent dirs, make network calls, modify system
-
-## Command Pattern
-```bash
-codex --full-auto "Detailed task description"
-# Equivalent to: codex -a on-failure -s workspace-write
-```
-
-## Real Examples
-
-### Example 1: API Scaffolding
-```
-/codex-auto "Create Express REST API with:
-- User endpoints (CRUD)
-- JWT authentication
-- Input validation
-- Error handling
-- SQLite database
-- Tests with Jest"
-
-Result: Complete API in ~45 minutes
-```
-
-### Example 2: Refactoring
-```
-/codex-auto "Refactor all components in src/components to use hooks instead of class components, preserve all functionality"
-
-Result: All components refactored, tests passing
-```
-
----
-
-**Note**: Use your ChatGPT Plus ($20/month) subscription. Recommended model: GPT-5-Codex for agentic tasks.
-
-See `.claude/agents/codex-auto-agent.md` for full details.
-
-
----
-*Promise: `<promise>SKILL_VERIX_COMPLIANT</promise>`*
-
----
-<!-- S4 SUCCESS CRITERIA                                                          -->
----
-
-[define|neutral] SUCCESS_CRITERIA := {
-  primary: "Skill execution completes successfully",
-  quality: "Output meets quality thresholds",
-  verification: "Results validated against requirements"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S5 MCP INTEGRATION                                                           -->
----
-
-[define|neutral] MCP_INTEGRATION := {
-  memory_mcp: "Store execution results and patterns",
-  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
-} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
-
----
-<!-- S6 MEMORY NAMESPACE                                                          -->
----
-
-[define|neutral] MEMORY_NAMESPACE := {
-  pattern: "skills/platforms/SKILL/{project}/{timestamp}",
-  store: ["executions", "decisions", "patterns"],
-  retrieve: ["similar_tasks", "proven_patterns"]
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
-[define|neutral] MEMORY_TAGGING := {
-  WHO: "SKILL-{session_id}",
-  WHEN: "ISO8601_timestamp",
-  PROJECT: "{project_name}",
-  WHY: "skill-execution"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
----
-
-[direct|emphatic] COMPLETION_CHECKLIST := {
-  agent_spawning: "Spawn agents via Task()",
-  registry_validation: "Use registry agents only",
-  todowrite_called: "Track progress with TodoWrite",
-  work_delegation: "Delegate to specialized agents"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S8 ABSOLUTE RULES                                                            -->
----
-
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- PROMISE                                                                      -->
----
-
-[commit|confident] <promise>SKILL_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+Confidence: 0.70 (ceiling: inference 0.70) - Standardized platform skill rewrite aligned with skill-forge + prompt-architect guardrails.

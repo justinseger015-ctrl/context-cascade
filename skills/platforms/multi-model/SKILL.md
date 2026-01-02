@@ -1,260 +1,56 @@
 ---
 name: multi-model
-description: Intelligent multi-model orchestrator that routes tasks to Gemini or Codex based on their strengths
+description: Coordinate multiple models for routing, ensembling, or fallback strategies.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+model: sonnet
+x-version: 3.2.0
+x-category: platforms
+x-vcl-compliance: v3.1.1
+x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
-
-
----
-<!-- S0 META-IDENTITY                                                             -->
----
-
-[define|neutral] SKILL := {
-  name: "SKILL",
-  category: "platforms",
-  version: "1.0.0",
-  layer: L1
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S1 COGNITIVE FRAME                                                           -->
----
-
-[define|neutral] COGNITIVE_FRAME := {
-  frame: "Compositional",
-  source: "German",
-  force: "Build from primitives?"
-} [ground:cognitive-science] [conf:0.92] [state:confirmed]
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
----
-<!-- S2 TRIGGER CONDITIONS                                                        -->
----
-
-[define|neutral] TRIGGER_POSITIVE := {
-  keywords: ["SKILL", "platforms", "workflow"],
-  context: "user needs SKILL capability"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S3 CORE CONTENT                                                              -->
----
-
-# Multi-Model Orchestrator Skill
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
-
 
 ## Purpose
-Automatically route tasks to the optimal AI model (Gemini or Codex) based on task requirements and each model's unique strengths. You don't need to decide - the orchestrator does it for you.
+Design model routing and orchestration playbooks with clear guardrails and observability.
 
-## How It Works
+## Trigger Conditions
+- **Use this skill when:** Need model selection, fallback, or ensemble flows across providers.
+- **Reroute when:** If limited to single provider, use its dedicated skill.
 
-The orchestrator analyzes your request and routes to:
+## Guardrails (Inherited from Skill-Forge + Prompt-Architect)
+- Structure-first: every platform skill keeps `SKILL.md`, `examples/`, and `tests/` populated; create `resources/` and `references/` as needed. Log any missing artifact and fill a placeholder before proceeding.
+- Confidence ceilings are mandatory in outputs: inference/report 0.70, research 0.85, observation/definition 0.95. State as `Confidence: X.XX (ceiling: TYPE Y.YY)`.
+- English-only user-facing text; keep VCL markers internal. Do not leak internal notation.
+- Adversarial validation is required before sign-off: boundary, failure, and COV checks with notes.
+- MCP tagging for runs: `WHO=multi-model-{session}`, `WHY=skill-execution`, namespace `skills/platforms/multi-model/{project}`.
 
-### Gemini CLI → For:
-- **Mega-Context**: Large codebase analysis (30K+ lines)
-- **Web Search**: Real-time information needs
-- **Media Gen**: Image/video creation
-- **Extensions**: Figma, Stripe, Postman integrations
+## Execution Framework
+1. **Intent & Constraints** — clarify task goal, inputs, success criteria, and risk limits; extract hard/soft/inferred constraints explicitly.
+2. **Plan & Docs** — outline steps, needed examples/tests, and data contracts; confirm platform-specific policies.
+3. **Build & Optimize** — apply platform playbook below; keep iterative checkpoints and diffs.
+4. **Validate** — run adversarial tests, measure KPIs, and record evidence with ceilings.
+5. **Deliver & Hand off** — summarize decisions, artifacts, and next actions; capture learnings for reuse.
 
-### Codex CLI → For:
-- **Full Auto**: Unattended prototyping/scaffolding
-- **Alternative Reasoning**: Second opinions, different approaches
+## Platform Playbook
+- **Workflow patterns:**
+  - Define routing policies by task, cost, and latency
+  - Implement fallback chains with health checks
+  - Log decisions and outcomes for continuous tuning
+- **Anti-patterns to avoid:** Routing without telemetry, Infinite fallback loops without stop conditions, Mixing models without normalizing prompts
+- **Example executions:**
+  - Route generation to cost-effective model with quality checks
+  - Blend embeddings from multiple providers for robustness
 
-### Claude Code → For:
-- **Everything Else**: Implementation, refinement, complex reasoning
+## Documentation & Artifacts
+- `SKILL.md` (this file) is canonical; keep quick-reference notes in `README.md` if present.
+- `examples/` should hold runnable or narrative examples; `tests/` should include validation steps or checklists.
+- `resources/` stores helper scripts/templates; `references/` stores background links or research.
+- Update `metadata.json` version if behavior meaningfully changes.
 
-## Usage
+## Verification Checklist
+- [ ] Trigger matched and reroute considered
+- [ ] Examples/tests present or stubbed with TODOs
+- [ ] Constraints captured and confidence ceiling stated
+- [ ] Validation evidence captured (boundary, failure, COV)
+- [ ] MCP tags applied for this run
 
-### Let Orchestrator Decide
-```
-/multi-model "I need to understand this 50K line codebase and create architecture diagrams"
-
-Orchestrator routes to:
-1. gemini-megacontext (analyze codebase)
-2. gemini-media (create diagrams)
-```
-
-### Complex Multi-Step Tasks
-```
-/multi-model "Research React 19 best practices, prototype a dashboard, and generate UI mockups"
-
-Orchestrator routes to:
-1. gemini-search (React 19 info)
-2. codex-auto (prototype dashboard)
-3. gemini-media (UI mockups)
-4. Claude Code (integrate and refine)
-```
-
-## Decision Matrix
-
-| Task Type | Routed To | Why |
-|-----------|-----------|-----|
-| Analyze entire codebase | gemini-megacontext | 1M token context |
-| Need current API docs | gemini-search | Web search grounding |
-| Create diagrams/videos | gemini-media | Imagen/Veo |
-| Figma/Stripe integration | gemini-extensions | Extension ecosystem |
-| Rapid prototyping | codex-auto | Full Auto mode |
-| Alternative solution | codex-reasoning | Different AI perspective |
-| Implementation/refinement | Claude Code | Best overall reasoning |
-
-## Real Examples
-
-### Example 1: New Project Setup
-```
-User: "Set up a new Next.js 15 project with best practices"
-
-Orchestrator:
-1. gemini-search → Get Next.js 15 current best practices
-2. codex-auto → Scaffold project structure
-3. Claude Code → Customize and refine
-```
-
-### Example 2: Codebase Migration
-```
-User: "Migrate this legacy codebase to TypeScript"
-
-Orchestrator:
-1. gemini-megacontext → Analyze entire codebase structure
-2. codex-auto → Auto-convert files to TypeScript
-3. Claude Code → Fix type errors and refine
-```
-
-### Example 3: Documentation Creation
-```
-User: "Create comprehensive documentation with visuals"
-
-Orchestrator:
-1. gemini-megacontext → Understand architecture
-2. gemini-media → Generate architecture diagrams
-3. Claude Code → Write documentation content
-```
-
-## Benefits
-
-### Automatic Optimization
-- ✅ Uses each model's unique strengths
-- ✅ No need to remember which CLI does what
-- ✅ Optimal tool selection for each subtask
-- ✅ Coordinates multiple models seamlessly
-
-### Cost Efficiency
-- ✅ Uses Gemini's free tier when appropriate (60/min, 1000/day)
-- ✅ Leverages your ChatGPT Plus subscription optimally
-- ✅ Uses Claude Code for what it does best
-
-### Time Savings
-- ✅ Parallel execution when possible
-- ✅ No manual routing decisions
-- ✅ Automatic task decomposition
-
-## Response Format
-
-The orchestrator provides:
-```markdown
-# Multi-Model Task Orchestration
-
-## Task Analysis
-[How the task was broken down]
-
-## Routing Decisions
-1. **gemini-megacontext**: [Why and what]
-2. **codex-auto**: [Why and what]
-3. **Claude Code**: [Why and what]
-
-## Execution Plan
-[Step-by-step execution order]
-
-## Results from Each Model
-### Gemini Results
-[Output summary]
-
-### Codex Results
-[Output summary]
-
-### Claude Integration
-[How Claude combined/refined results]
-
-## Final Deliverable
-[Combined, polished output]
-```
-
-## When to Use
-
-### Perfect For:
-✅ Don't know which model to use
-✅ Task spans multiple capabilities
-✅ Want automatic optimization
-✅ Complex multi-step workflows
-✅ Learning which model does what
-
-### Direct Skill Use Instead:
-Use specific sk
-
----
-<!-- S4 SUCCESS CRITERIA                                                          -->
----
-
-[define|neutral] SUCCESS_CRITERIA := {
-  primary: "Skill execution completes successfully",
-  quality: "Output meets quality thresholds",
-  verification: "Results validated against requirements"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S5 MCP INTEGRATION                                                           -->
----
-
-[define|neutral] MCP_INTEGRATION := {
-  memory_mcp: "Store execution results and patterns",
-  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
-} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
-
----
-<!-- S6 MEMORY NAMESPACE                                                          -->
----
-
-[define|neutral] MEMORY_NAMESPACE := {
-  pattern: "skills/platforms/SKILL/{project}/{timestamp}",
-  store: ["executions", "decisions", "patterns"],
-  retrieve: ["similar_tasks", "proven_patterns"]
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
-[define|neutral] MEMORY_TAGGING := {
-  WHO: "SKILL-{session_id}",
-  WHEN: "ISO8601_timestamp",
-  PROJECT: "{project_name}",
-  WHY: "skill-execution"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
----
-
-[direct|emphatic] COMPLETION_CHECKLIST := {
-  agent_spawning: "Spawn agents via Task()",
-  registry_validation: "Use registry agents only",
-  todowrite_called: "Track progress with TodoWrite",
-  work_delegation: "Delegate to specialized agents"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S8 ABSOLUTE RULES                                                            -->
----
-
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- PROMISE                                                                      -->
----
-
-[commit|confident] <promise>SKILL_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+Confidence: 0.70 (ceiling: inference 0.70) - Standardized platform skill rewrite aligned with skill-forge + prompt-architect guardrails.

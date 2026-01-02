@@ -1,187 +1,56 @@
 ---
 name: agentdb-advanced
-description: Master advanced AgentDB features including QUIC synchronization, multi-database management, custom distance metrics, hybrid search, and distributed systems integration. Use when building distributed A
+description: Advanced AgentDB deployment patterns, multi-tenant controls, and durability hardening.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+model: sonnet
+x-version: 3.2.0
+x-category: platforms
+x-vcl-compliance: v3.1.1
+x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
 
+## Purpose
+Design and operate resilient AgentDB clusters with governance, quotas, and observability baked in.
 
----
-<!-- S0 META-IDENTITY                                                             -->
----
+## Trigger Conditions
+- **Use this skill when:** Need guardrails for multi-tenant AgentDB, backups, or compliance-focused deployments.
+- **Reroute when:** If only doing basic local prototyping, use the base agentdb skill.
 
-[define|neutral] SKILL := {
-  name: "agentdb-advanced-features",
-  category: "platforms",
-  version: "1.0.0",
-  layer: L1
-} [ground:given] [conf:1.0] [state:confirmed]
+## Guardrails (Inherited from Skill-Forge + Prompt-Architect)
+- Structure-first: every platform skill keeps `SKILL.md`, `examples/`, and `tests/` populated; create `resources/` and `references/` as needed. Log any missing artifact and fill a placeholder before proceeding.
+- Confidence ceilings are mandatory in outputs: inference/report 0.70, research 0.85, observation/definition 0.95. State as `Confidence: X.XX (ceiling: TYPE Y.YY)`.
+- English-only user-facing text; keep VCL markers internal. Do not leak internal notation.
+- Adversarial validation is required before sign-off: boundary, failure, and COV checks with notes.
+- MCP tagging for runs: `WHO=agentdb-advanced-{session}`, `WHY=skill-execution`, namespace `skills/platforms/agentdb-advanced/{project}`.
 
----
-<!-- S1 COGNITIVE FRAME                                                           -->
----
+## Execution Framework
+1. **Intent & Constraints** — clarify task goal, inputs, success criteria, and risk limits; extract hard/soft/inferred constraints explicitly.
+2. **Plan & Docs** — outline steps, needed examples/tests, and data contracts; confirm platform-specific policies.
+3. **Build & Optimize** — apply platform playbook below; keep iterative checkpoints and diffs.
+4. **Validate** — run adversarial tests, measure KPIs, and record evidence with ceilings.
+5. **Deliver & Hand off** — summarize decisions, artifacts, and next actions; capture learnings for reuse.
 
-[define|neutral] COGNITIVE_FRAME := {
-  frame: "Aspectual",
-  source: "Russian",
-  force: "Complete or ongoing?"
-} [ground:cognitive-science] [conf:0.92] [state:confirmed]
+## Platform Playbook
+- **Workflow patterns:**
+  - Provision clusters with backups, encryption, and rotation policies
+  - Define tenant-level quotas, namespaces, and authZ
+  - Instrument metrics/alerts for latency, recall, and index health
+- **Anti-patterns to avoid:** Running production on single-node dev defaults, Sharing credentials across tenants, Skipping periodic compaction or snapshot verification
+- **Example executions:**
+  - Set up staging and production clusters with nightly snapshot policies
+  - Add per-tenant rate limits and API tokens for a hosted AgentDB service
 
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
+## Documentation & Artifacts
+- `SKILL.md` (this file) is canonical; keep quick-reference notes in `README.md` if present.
+- `examples/` should hold runnable or narrative examples; `tests/` should include validation steps or checklists.
+- `resources/` stores helper scripts/templates; `references/` stores background links or research.
+- Update `metadata.json` version if behavior meaningfully changes.
 
----
-<!-- S2 TRIGGER CONDITIONS                                                        -->
----
+## Verification Checklist
+- [ ] Trigger matched and reroute considered
+- [ ] Examples/tests present or stubbed with TODOs
+- [ ] Constraints captured and confidence ceiling stated
+- [ ] Validation evidence captured (boundary, failure, COV)
+- [ ] MCP tags applied for this run
 
-[define|neutral] TRIGGER_POSITIVE := {
-  keywords: ["agentdb-advanced-features", "platforms", "workflow"],
-  context: "user needs agentdb-advanced-features capability"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S3 CORE CONTENT                                                              -->
----
-
-## When NOT to Use This Skill
-
-- Local-only operations with no vector search needs
-- Simple key-value storage without semantic similarity
-- Real-time streaming data without persistence requirements
-- Operations that do not require embedding-based retrieval
-
-## Success Criteria
-- [assert|neutral] Vector search query latency: <10ms for 99th percentile [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Embedding generation: <100ms per document [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Index build time: <1s per 1000 vectors [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Recall@10: >0.95 for similar documents [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Database connection success rate: >99.9% [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Memory footprint: <2GB for 1M vectors with quantization [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-
-## Edge Cases & Error Handling
-
-- **Rate Limits**: AgentDB local instances have no rate limits; cloud deployments may vary
-- **Connection Failures**: Implement retry logic with exponential backoff (max 3 retries)
-- **Index Corruption**: Maintain backup indices; rebuild from source if corrupted
-- **Memory Overflow**: Use quantization (4-bit, 8-bit) to reduce memory by 4-32x
-- **Stale Embeddings**: Implement TTL-based refresh for dynamic content
-- **Dimension Mismatch**: Validate embedding dimensions (384 for sentence-transformers) before insertion
-
-## Guardrails & Safety
-- [assert|emphatic] NEVER: expose database connection strings in logs or error messages [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: validate vector dimensions before insertion [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: sanitize metadata to prevent injection attacks [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|emphatic] NEVER: store PII in vector metadata without encryption [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: implement access control for multi-tenant deployments [ground:policy] [conf:0.98] [state:confirmed]
-- [assert|neutral] ALWAYS: validate search results before returning to users [ground:policy] [conf:0.98] [state:confirmed]
-
-## Evidence-Based Validation
-
-- Verify database health: Check connection status and index integrity
-- Validate search quality: Measure recall/precision on test queries
-- Monitor performance: Track query latency, throughput, and memory usage
-- Test failure recovery: Simulate connection drops and index corruption
-- Benchmark improvements: Compare against baseline metrics (e.g., 150x speedup claim)
-
-
-# AgentDB Advanced Features
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
-
-
-## What This Skill Does
-
-Covers advanced AgentDB capabilities for distributed systems, multi-database coordination, custom distance metrics, hybrid search (vector + metadata), QUIC synchronization, and production deployment patterns. Enables building sophisticated AI systems with sub-millisecond cross-node communication and advanced search capabilities.
-
-**Performance**: <1ms QUIC sync, hybrid search with filters, custom distance metrics.
-
-## Prerequisites
-
-- Node.js 18+
-- AgentDB v1.0.7+ (via agentic-flow)
-- Understanding of distributed systems (for QUIC sync)
-- Vector search fundamentals
-
----
-
-## QUIC Synchronization
-
-### What is QUIC Sync?
-
-QUIC (Quick UDP Internet Connections) enables sub-millisecond latency synchronization between AgentDB instances across network boundaries with automatic retry, multiplexing, and encryption.
-
-**Benefits**:
-- <1ms latency between nodes
-- Multiplexed streams (multiple operations simultaneously)
-- Built-in encryption (TLS 1.3)
-- Automatic retry and recovery
-- Event-based broadcasting
-
-### Enable QUIC Sync
-
-```typescript
-import { createAgentDBAdapter } from 'agentic-flow/reasoningbank'
-
----
-<!-- S4 SUCCESS CRITERIA                                                          -->
----
-
-[define|neutral] SUCCESS_CRITERIA := {
-  primary: "Skill execution completes successfully",
-  quality: "Output meets quality thresholds",
-  verification: "Results validated against requirements"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S5 MCP INTEGRATION                                                           -->
----
-
-[define|neutral] MCP_INTEGRATION := {
-  memory_mcp: "Store execution results and patterns",
-  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
-} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
-
----
-<!-- S6 MEMORY NAMESPACE                                                          -->
----
-
-[define|neutral] MEMORY_NAMESPACE := {
-  pattern: "skills/platforms/agentdb-advanced-features/{project}/{timestamp}",
-  store: ["executions", "decisions", "patterns"],
-  retrieve: ["similar_tasks", "proven_patterns"]
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
-[define|neutral] MEMORY_TAGGING := {
-  WHO: "agentdb-advanced-features-{session_id}",
-  WHEN: "ISO8601_timestamp",
-  PROJECT: "{project_name}",
-  WHY: "skill-execution"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
----
-
-[direct|emphatic] COMPLETION_CHECKLIST := {
-  agent_spawning: "Spawn agents via Task()",
-  registry_validation: "Use registry agents only",
-  todowrite_called: "Track progress with TodoWrite",
-  work_delegation: "Delegate to specialized agents"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S8 ABSOLUTE RULES                                                            -->
----
-
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- PROMISE                                                                      -->
----
-
-[commit|confident] <promise>AGENTDB_ADVANCED_FEATURES_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+Confidence: 0.70 (ceiling: inference 0.70) - Standardized platform skill rewrite aligned with skill-forge + prompt-architect guardrails.

@@ -1,196 +1,56 @@
 ---
 name: codex-reasoning
-description: Use GPT-5-Codex's specialized reasoning for alternative approaches and second opinions
+description: Codex guided reasoning mode for complex fixes with explicit checkpoints.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
+model: sonnet
+x-version: 3.2.0
+x-category: platforms
+x-vcl-compliance: v3.1.1
+x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
-
-
----
-<!-- S0 META-IDENTITY                                                             -->
----
-
-[define|neutral] SKILL := {
-  name: "SKILL",
-  category: "platforms",
-  version: "1.0.0",
-  layer: L1
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S1 COGNITIVE FRAME                                                           -->
----
-
-[define|neutral] COGNITIVE_FRAME := {
-  frame: "Compositional",
-  source: "German",
-  force: "Build from primitives?"
-} [ground:cognitive-science] [conf:0.92] [state:confirmed]
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
----
-<!-- S2 TRIGGER CONDITIONS                                                        -->
----
-
-[define|neutral] TRIGGER_POSITIVE := {
-  keywords: ["SKILL", "platforms", "workflow"],
-  context: "user needs SKILL capability"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S3 CORE CONTENT                                                              -->
----
-
-# Codex Reasoning Skill
-
-## Kanitsal Cerceve (Evidential Frame Activation)
-Kaynak dogrulama modu etkin.
-
-
 
 ## Purpose
-Leverage OpenAI's GPT-5-Codex model (optimized for agentic coding) to get alternative reasoning approaches, second opinions, and specialized algorithmic solutions that complement Claude's perspective.
+Coordinate Codex through reasoning checkpoints, tests, and evidence gathering when autonomy must stay bounded.
 
-## Unique Capability
-**What This Adds**: Different AI reasoning patterns. GPT-5-Codex is optimized for agentic coding workflows and may approach problems differently than Claude, providing valuable alternative perspectives and solutions.
+## Trigger Conditions
+- **Use this skill when:** Need Codex to reason through multi-step fixes or analyses with reviewable checkpoints.
+- **Reroute when:** If fully unattended work is acceptable, use codex-auto.
 
-## When to Use
+## Guardrails (Inherited from Skill-Forge + Prompt-Architect)
+- Structure-first: every platform skill keeps `SKILL.md`, `examples/`, and `tests/` populated; create `resources/` and `references/` as needed. Log any missing artifact and fill a placeholder before proceeding.
+- Confidence ceilings are mandatory in outputs: inference/report 0.70, research 0.85, observation/definition 0.95. State as `Confidence: X.XX (ceiling: TYPE Y.YY)`.
+- English-only user-facing text; keep VCL markers internal. Do not leak internal notation.
+- Adversarial validation is required before sign-off: boundary, failure, and COV checks with notes.
+- MCP tagging for runs: `WHO=codex-reasoning-{session}`, `WHY=skill-execution`, namespace `skills/platforms/codex-reasoning/{project}`.
 
-### Perfect For:
-✅ Getting a second opinion on architecture decisions
-✅ Exploring alternative implementation approaches
-✅ Algorithmic optimization problems
-✅ When stuck on a problem (different perspective helps)
-✅ Comparing solution approaches
-✅ Code generation with different patterns
-✅ Performance-critical implementations
+## Execution Framework
+1. **Intent & Constraints** — clarify task goal, inputs, success criteria, and risk limits; extract hard/soft/inferred constraints explicitly.
+2. **Plan & Docs** — outline steps, needed examples/tests, and data contracts; confirm platform-specific policies.
+3. **Build & Optimize** — apply platform playbook below; keep iterative checkpoints and diffs.
+4. **Validate** — run adversarial tests, measure KPIs, and record evidence with ceilings.
+5. **Deliver & Hand off** — summarize decisions, artifacts, and next actions; capture learnings for reuse.
 
-### Don't Use When:
-❌ Claude's solution is clearly working (no need for alternatives)
-❌ Simple tasks that don't benefit from multiple perspectives
-❌ When consistency with existing Claude-generated code matters more
+## Platform Playbook
+- **Workflow patterns:**
+  - Plan-execute-review loops with explicit hypotheses
+  - Attach tests/benchmarks at each checkpoint
+  - Summarize diffs with evidence and open risks
+- **Anti-patterns to avoid:** Skipping checkpoint notes and evidence, Letting Codex run without bounding commands, Shipping without regression tests
+- **Example executions:**
+  - Guide Codex through debugging flaky integration tests
+  - Run reasoning loop to redesign API boundaries with proposals
 
-## Usage
+## Documentation & Artifacts
+- `SKILL.md` (this file) is canonical; keep quick-reference notes in `README.md` if present.
+- `examples/` should hold runnable or narrative examples; `tests/` should include validation steps or checklists.
+- `resources/` stores helper scripts/templates; `references/` stores background links or research.
+- Update `metadata.json` version if behavior meaningfully changes.
 
-### Second Opinion
-```
-/codex-reasoning "I'm implementing user authentication. What's your approach?"
-```
+## Verification Checklist
+- [ ] Trigger matched and reroute considered
+- [ ] Examples/tests present or stubbed with TODOs
+- [ ] Constraints captured and confidence ceiling stated
+- [ ] Validation evidence captured (boundary, failure, COV)
+- [ ] MCP tags applied for this run
 
-### Algorithm Optimization
-```
-/codex-reasoning "Optimize this sorting algorithm for large datasets with these constraints..."
-```
-
-### Alternative Architecture
-```
-/codex-reasoning "What's an alternative way to structure this microservices communication?"
-```
-
-## Why Use Both Models?
-
-**Claude Strengths:**
-- Deep reasoning and problem understanding
-- Complex multi-step tasks
-- Comprehensive documentation
-- Reliability and error rate
-
-**GPT-5-Codex Strengths:**
-- Optimized for agentic coding
-- Fast prototyping
-- Different algorithmic approaches
-- Good for one-shot prompting
-
-**Together**: Get best of both worlds!
-
-## Real Examples
-
-### Example: Alternative Architecture
-```
-Claude suggests: Event-driven with message queue
-Codex suggests: REST with polling + webhooks
-
-Result: Hybrid approach combining benefits of both
-```
-
-### Example: Algorithm Optimization
-```
-Claude: Recursive solution with memoization
-Codex: Iterative solution with lookup table
-
-Result: Codex approach 2x faster for this use case
-```
-
----
-
-**Uses your ChatGPT Plus subscription.** Use `/model` in Codex to switch to GPT-5-Codex.
-
-See `.claude/agents/codex-reasoning-agent.md` for details.
-
-
----
-*Promise: `<promise>SKILL_VERIX_COMPLIANT</promise>`*
-
----
-<!-- S4 SUCCESS CRITERIA                                                          -->
----
-
-[define|neutral] SUCCESS_CRITERIA := {
-  primary: "Skill execution completes successfully",
-  quality: "Output meets quality thresholds",
-  verification: "Results validated against requirements"
-} [ground:given] [conf:1.0] [state:confirmed]
-
----
-<!-- S5 MCP INTEGRATION                                                           -->
----
-
-[define|neutral] MCP_INTEGRATION := {
-  memory_mcp: "Store execution results and patterns",
-  tools: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
-} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
-
----
-<!-- S6 MEMORY NAMESPACE                                                          -->
----
-
-[define|neutral] MEMORY_NAMESPACE := {
-  pattern: "skills/platforms/SKILL/{project}/{timestamp}",
-  store: ["executions", "decisions", "patterns"],
-  retrieve: ["similar_tasks", "proven_patterns"]
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
-[define|neutral] MEMORY_TAGGING := {
-  WHO: "SKILL-{session_id}",
-  WHEN: "ISO8601_timestamp",
-  PROJECT: "{project_name}",
-  WHY: "skill-execution"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S7 SKILL COMPLETION VERIFICATION                                             -->
----
-
-[direct|emphatic] COMPLETION_CHECKLIST := {
-  agent_spawning: "Spawn agents via Task()",
-  registry_validation: "Use registry agents only",
-  todowrite_called: "Track progress with TodoWrite",
-  work_delegation: "Delegate to specialized agents"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- S8 ABSOLUTE RULES                                                            -->
----
-
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- PROMISE                                                                      -->
----
-
-[commit|confident] <promise>SKILL_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]
+Confidence: 0.70 (ceiling: inference 0.70) - Standardized platform skill rewrite aligned with skill-forge + prompt-architect guardrails.
