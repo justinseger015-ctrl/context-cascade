@@ -1,0 +1,69 @@
+{
+  "skill_name": "prompt-architect",
+  "version": "3.1.1",
+  "timestamp": "2026-01-02T02:26:00.398339+00:00",
+  "evaluation_type": "cli",
+  "total_tasks": 5,
+  "passed_tasks": 2,
+  "easy_score": 0,
+  "medium_score": 0.5333333333333333,
+  "hard_score": 0.7749999999999999,
+  "intent_accuracy": 0.5599999999999999,
+  "constraint_coverage": 0.41,
+  "output_quality": 0.63,
+  "verix_compliance": 0.51,
+  "l2_purity": 1.0,
+  "overall_score": 0.4,
+  "task_results": [
+    {
+      "task_id": "PA-020",
+      "difficulty": "medium",
+      "category": "prompt_optimization",
+      "passed": false,
+      "intent_accuracy": 0.7,
+      "output_quality": 0.75,
+      "execution_time_ms": 59821,
+      "reasoning": "The skill correctly identified that 'handle errors better' is vague and needs clarification, providing good semantic decomposition and identifying critical ambiguities. However, the success criteria specifically required 'idiomatic Go patterns' - the output is completely language-agnostic and doesn't mention Go at all. The output cuts off mid-sentence ('Refactor error handling') suggesting incomplete generation. While the analysis structure is good and the ambiguity table is useful, failing to address the Go-specific requirement is a significant miss. L2 purity is perfect (pure English, no VCL markers). VERIX compliance is partial - reasoning is present but lacks explicit confidence markers or evidence grounding."
+    },
+    {
+      "task_id": "PA-023",
+      "difficulty": "medium",
+      "category": "prompt_optimization",
+      "passed": false,
+      "intent_accuracy": 0.0,
+      "output_quality": 0.0,
+      "execution_time_ms": 122175,
+      "reasoning": "The skill output is completely empty. No output was produced, so the skill failed to convert the vague 'add caching' request into any Django-specific implementation guidance. Intent was not identified, no constraints were addressed, and no useful output was generated. The only passing dimension is L2 purity since an empty string technically contains no VCL markers."
+    },
+    {
+      "task_id": "PA-024",
+      "difficulty": "medium",
+      "category": "prompt_optimization",
+      "passed": true,
+      "intent_accuracy": 0.75,
+      "output_quality": 0.85,
+      "execution_time_ms": 58399,
+      "reasoning": "The skill correctly identified the ambiguity in 'make it accessible' and provided multiple interpretations. However, the success criteria specified 'Transforms accessibility into WCAG compliance checklist' - the skill offered WCAG as one option among several rather than decisively producing a WCAG checklist. The output is well-structured with clear problem identification and multiple actionable options. It demonstrates good analytical process but doesn't fully commit to the expected WCAG-focused output. The L2 purity is perfect - no VCL markers in user-facing content. VERIX compliance is moderate; while the skill implicitly grounds its reasoning, it lacks explicit confidence indicators or evidence markers in its internal analysis. The constraint coverage is limited since no constraints were explicitly provided to address."
+    },
+    {
+      "task_id": "PA-047",
+      "difficulty": "hard",
+      "category": "epistemic_calibration",
+      "passed": true,
+      "intent_accuracy": 0.95,
+      "output_quality": 0.85,
+      "execution_time_ms": 57360,
+      "reasoning": "The skill correctly identified this as epistemic calibration task requiring application of the report confidence ceiling. It explicitly states the evidence type as 'reported claim' and correctly applies the 0.70 confidence ceiling as required by success criteria. The output properly refuses to confirm an absolute claim based on secondhand information, demonstrating sound epistemic reasoning. It provides substantive reasons why the claim cannot be confirmed and offers a refined question. The output is in pure L2 English with no VCL markers. Minor deduction on output_quality because the response appears truncated at the end ('What are the perf'), but the core epistemic calibration task was successfully completed."
+    },
+    {
+      "task_id": "PA-048",
+      "difficulty": "hard",
+      "category": "epistemic_calibration",
+      "passed": false,
+      "intent_accuracy": 0.4,
+      "output_quality": 0.7,
+      "execution_time_ms": 53672,
+      "reasoning": "The success criteria specifically requires applying an inference ceiling of 0.70, which is a VERIX epistemic calibration requirement. The skill output does not demonstrate this - it never mentions confidence ceilings, inference limits, or epistemic calibration. While the output correctly identifies that the prompt lacks context and provides a useful restructured template (good output quality), it completely misses the core evaluation criterion: recognizing that any causal inference about a bug from description alone should be capped at 0.70 confidence per VERIX standards. The skill treated this as a general prompt improvement task rather than an epistemic calibration test. The output is in pure L2 English with no VCL markers, which is correct."
+    }
+  ]
+}

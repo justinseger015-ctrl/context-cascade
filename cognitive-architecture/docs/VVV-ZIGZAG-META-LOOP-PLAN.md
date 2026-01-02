@@ -332,4 +332,333 @@ Think: **adaptive immune system / evolution**
 
 ---
 
+## Cognitive Architecture Integration (DSPy + VCL Evolution)
+
+The RMIS dogfooding loops generate rich data that feeds into the cognitive architecture's two-layer optimization system.
+
+### Data Flow Architecture
+
+```
+                      RMIS LOOPS (L0-L8)
+                            |
+                            | (eval outcomes, VERIX claims, configs)
+                            v
+    +-------------------+---+---+-------------------+
+    |                   |       |                   |
+    v                   v       v                   v
++--------+        +--------+  +--------+      +--------+
+| DSPy   |        | DSPy   |  | Language|     | Two-   |
+| Level 2|        | Level 1|  | Evolution|    | Stage  |
+| (cache)|        | (struct)|  | (VCL)   |    | MOO    |
++--------+        +--------+  +--------+      +--------+
+    |                   |         |               |
+    | (minutes)         | (monthly)| (daily)      | (3-day)
+    v                   v         v               v
++-----------------------------------------------------------+
+|                    OPTIMIZED CONFIGS                       |
+|   (named_modes, frame_mappings, verix_patterns)           |
++-----------------------------------------------------------+
+                            |
+                            v
+                    APPLY TO NEXT RMIS CYCLE
+```
+
+### Layer Responsibilities
+
+| Layer | Cadence | Input from RMIS | Output | Files |
+|-------|---------|-----------------|--------|-------|
+| **DSPy Level 2** | Minutes | Cluster keys + prompts | Cached compiled prompts | `dspy_level2.py` |
+| **DSPy Level 1** | Monthly | Aggregated telemetry | EvolutionProposals | `dspy_level1.py` |
+| **Language Evolution** | Daily | VERIX claims + success | Pattern effectiveness | `language_evolution.py` |
+| **Two-Stage MOO** | 3-Day | TelemetryStore batch | Named modes | `two_stage_optimizer.py` |
+
+### RMIS -> Telemetry Mapping
+
+Each evaluation in L0-L8 produces telemetry:
+
+```python
+# For each eval task (PA-001, AC-001, etc.)
+ExecutionTelemetry(
+    task_id="PA-001",
+    config_vector=[...],           # 14-dim configuration used
+    active_frames=["evidential", "aspectual"],
+    verix_strictness=1,            # MODERATE
+    task_success=True,             # From claude-as-judge
+    aggregate_frame_score=0.85,    # Frame compliance
+    verix_compliance_score=0.90,   # VERIX adherence
+    skill_name="prompt-architect", # Which skill tested
+)
+```
+
+### Language Evolution Data Capture
+
+Every skill evaluation also feeds Language Evolution:
+
+```python
+# For each skill output containing VERIX claims
+LanguageEvolutionOptimizer.analyze_execution(
+    output="[assert|neutral] Intent analyzed... [conf:0.9]",
+    context="prompt-architect",     # Skill context
+    success=True,                   # From eval result
+    config_vector=[...],            # Config used
+)
+```
+
+This captures:
+- **VERIX patterns**: Which `[illocution|affect]` combos work
+- **Frame effectiveness**: Which frames succeed in which contexts
+- **Illocution-context mapping**: Best speech acts per task type
+
+### Integration Points in Loop System
+
+```
+L0 (Baseline)
+    |
+    +---> TelemetryStore.store() [initial data batch]
+    |
+L1-L5 (Dogfooding Loops)
+    |
+    +---> Per-iteration:
+    |       TelemetryAggregator.record_outcome()
+    |       LanguageEvolutionOptimizer.analyze_execution()
+    |
+    +---> Per-loop-completion:
+    |       LanguageEvolutionOptimizer.evolve() [daily]
+    |       DSPyLevel1Analyzer.analyze() [if monthly]
+    |
+L6-L8 (Global Sweeps)
+    |
+    +---> TwoStageOptimizer.run_with_telemetry()
+    |       [Major 3-day optimization cycle]
+    |
+    +---> Distill named_modes for next RMIS round
+```
+
+### Why This Integration Matters
+
+1. **Volume**: One RMIS run (L0-L8) generates 500+ eval telemetry points
+2. **Diversity**: Tests prompt-level AND structural changes
+3. **Ground Truth**: Claude-as-judge provides real success signals
+4. **VCL Discovery**: Pattern analysis finds what VERIX constructs work
+5. **Feedback Loop**: Improved VCL -> Better prompts -> Higher scores
+
+### Expected Data Yield
+
+| RMIS Phase | Telemetry Records | VERIX Claims | Language Patterns |
+|------------|-------------------|--------------|-------------------|
+| L0 (100 evals) | 100 | ~500 | ~50 unique |
+| L1-L5 (5 loops x 50) | 250 | ~1250 | ~100 unique |
+| L6-L8 (688 artifacts) | 688 | ~3440 | ~200 unique |
+| **Total per RMIS** | **~1000** | **~5000** | **~300 unique** |
+
+This is equivalent to ~30 days of normal usage compressed into one RMIS cycle.
+
+### Implementation Hooks
+
+The following hooks capture RMIS data for the cognitive architecture:
+
+```python
+# In cli_evaluator.py - after each eval
+def on_eval_complete(task_id, skill, result, config):
+    # 1. Store telemetry
+    telemetry = ExecutionTelemetry(
+        task_id=task_id,
+        skill_name=skill,
+        config_vector=config.to_vector(),
+        task_success=result.passed,
+        ...
+    )
+    TelemetryStore().store(telemetry)
+
+    # 2. Analyze language patterns
+    if hasattr(result, 'output'):
+        LanguageEvolutionOptimizer().analyze_execution(
+            output=result.output,
+            context=skill,
+            success=result.passed,
+            config_vector=config.to_vector(),
+        )
+```
+
+### Post-RMIS Optimization Cycle
+
+After L8 completes:
+
+```bash
+# Run two-stage optimization with accumulated telemetry
+python cognitive-architecture/optimization/two_stage_optimizer.py
+
+# Expected output:
+# - storage/two_stage_optimization/named_modes.json
+# - storage/language_evolution/evolution_state.json
+# - storage/proposals/proposals.json
+```
+
+---
+
+## Production Vision: VCL-ified Subagent Prompts + Pipeline Telemetry
+
+The RMIS system serves a larger purpose: **Claude Code IS a prompt writer** whenever it spawns subagents.
+
+### The Core Insight
+
+```
+Current:
+  Task("Explore", "find all API endpoints", "general-purpose")
+                   ^
+                   |
+        This IS a prompt, written ad-hoc in plain English
+
+Future:
+  Task("Explore", VCL_Prompt({
+    intent: "codebase_exploration",
+    frames: ["evidential", "spatial"],
+    constraints: ["API", "endpoints", "REST"],
+    verix: "[query|neutral] Locate API endpoints [ground:codebase]"
+  }), "general-purpose")
+                   ^
+                   |
+        Structured VCL prompt, optimizable by DSPy
+```
+
+### Two Data Sources
+
+1. **RMIS Dogfooding (Manual/Scheduled)**
+   - Runs L1-L8 loops on foundry skills
+   - Generates ~1000 telemetry records per run
+   - Feeds VCL pattern discovery
+
+2. **Daily Automated Pipelines (Continuous)**
+   - Content pipeline, research synthesis, etc.
+   - Same prompts executed daily in sequence
+   - Massive telemetry from real usage
+   - A/B testing of prompt variants
+
+### Pipeline Telemetry Architecture
+
+```
++------------------+     +------------------+     +------------------+
+| Daily Pipeline 1 |     | Daily Pipeline 2 |     | Daily Pipeline N |
+| (Content)        |     | (Research)       |     | (Trading)        |
++--------+---------+     +--------+---------+     +--------+---------+
+         |                        |                        |
+         v                        v                        v
+    +----+----+              +----+----+              +----+----+
+    | VCL     |              | VCL     |              | VCL     |
+    | Prompt  |              | Prompt  |              | Prompt  |
+    | v1.2    |              | v2.1    |              | v1.0    |
+    +----+----+              +----+----+              +----+----+
+         |                        |                        |
+         v                        v                        v
++--------+------------------------+------------------------+--------+
+|                    RMIS TELEMETRY HARNESS                         |
+|  - Capture outcome (success/failure)                              |
+|  - Capture output (VERIX claims)                                  |
+|  - Capture config (which prompt version)                          |
++--------+------------------------+------------------------+--------+
+         |                        |                        |
+         v                        v                        v
++------------------+     +------------------+     +------------------+
+| Language         |     | DSPy Level 2    |     | Two-Stage        |
+| Evolution        |     | (A/B variants)   |     | Optimizer        |
++------------------+     +------------------+     +------------------+
+         |                        |                        |
+         +------------------------+------------------------+
+                                  |
+                                  v
+                    +---------------------------+
+                    | IMPROVED VCL PROMPTS      |
+                    | (deployed to pipelines)   |
+                    +---------------------------+
+```
+
+### A/B Testing Framework
+
+```python
+# Pipeline step with A/B testing
+class PipelineStep:
+    prompt_variants: Dict[str, VCLPrompt] = {
+        "control": VCLPrompt(version="v1.0", ...),
+        "treatment_a": VCLPrompt(version="v1.1", ...),
+        "treatment_b": VCLPrompt(version="v1.2", ...),
+    }
+
+    def execute(self):
+        # Select variant (weighted by historical performance)
+        variant = self.select_variant()
+
+        # Execute with telemetry
+        result = self.run_with_telemetry(variant)
+
+        # Record outcome
+        harness.on_eval_complete(
+            loop="PIPELINE",
+            skill=self.step_name,
+            task_id=f"{self.pipeline}_{self.run_id}",
+            passed=result.success,
+            output=result.output,
+            metrics={"variant": variant.version}
+        )
+```
+
+### VCL Prompt Schema
+
+```python
+@dataclass
+class VCLPrompt:
+    """A VCL-formatted prompt for subagent invocation."""
+    version: str
+    intent_type: str                    # codebase_exploration, code_generation, etc.
+    active_frames: List[str]            # evidential, aspectual, etc.
+    constraints: List[str]              # Domain constraints
+    verix_statement: str                # The core VERIX-annotated instruction
+    compression_level: str = "L2"       # Output format
+    grounding_required: bool = True     # Must ground claims
+
+    def to_prompt(self) -> str:
+        """Compile to executable prompt string."""
+        return f"""[Context: {self.intent_type}]
+[Frames: {', '.join(self.active_frames)}]
+[Constraints: {', '.join(self.constraints)}]
+
+{self.verix_statement}
+
+[Output: {self.compression_level} compression, {'grounded' if self.grounding_required else 'ungrounded'}]"""
+```
+
+### Daily Pipeline Examples
+
+| Pipeline | Cadence | Steps | Prompts to Optimize |
+|----------|---------|-------|---------------------|
+| Content Pipeline | Daily 6AM | 5 | zeitgeist_analysis, transcript_synthesis, blog_draft |
+| Research Synthesis | Daily 8AM | 3 | source_gather, synthesis, report_gen |
+| Trading Analysis | Hourly | 4 | market_scan, signal_detect, risk_eval, action_rec |
+| Hackathon Prep | Weekly | 6 | trend_scan, idea_gen, scope_def, tech_stack, pitch_draft |
+
+### Expected Telemetry Volume
+
+| Source | Frequency | Records/Day | Records/Month |
+|--------|-----------|-------------|---------------|
+| Content Pipeline | 1x daily | 5 | 150 |
+| Research Synthesis | 1x daily | 3 | 90 |
+| Trading Analysis | 24x daily | 96 | 2,880 |
+| RMIS Dogfooding | 1x weekly | 143 (1000/7) | 4,300 |
+| **Total** | - | **~250** | **~7,500** |
+
+This continuous telemetry stream enables:
+- Daily language evolution cycles
+- Weekly DSPy L1 proposals
+- Monthly named mode refinement
+- Quarterly VCL spec updates
+
+### Implementation Phases
+
+1. **Phase 1 (Current)**: RMIS dogfooding with telemetry capture
+2. **Phase 2**: VCL prompt schema + compiler
+3. **Phase 3**: Pipeline integration + A/B framework
+4. **Phase 4**: Automated daily optimization cycle
+5. **Phase 5**: Self-evolving VCL spec based on pattern analysis
+
+---
+
 *This plan represents a systematic approach to recursive self-improvement that compounds gains across prompt, structural, and agent dimensions.*

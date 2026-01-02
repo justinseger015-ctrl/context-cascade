@@ -428,18 +428,59 @@ def main():
 
     parser = argparse.ArgumentParser(description="Run CLI-based task evaluation")
     parser.add_argument("skill", choices=["prompt-architect", "agent-creator", "skill-forge"])
-    parser.add_argument("--max-tasks", type=int, default=5, help="Max tasks to run")
+    parser.add_argument("--max-tasks", type=int, default=None, help="Max tasks to run (default: all)")
     parser.add_argument("--difficulty", choices=["easy", "medium", "hard"], default=None)
+    parser.add_argument("--tasks", type=str, default=None,
+                        help="Comma-separated list of task IDs to run (e.g., PA-020,PA-023)")
+    parser.add_argument("--format", choices=["text", "json"], default="text",
+                        help="Output format (default: text)")
 
     args = parser.parse_args()
+
+    # Parse task IDs if provided
+    task_ids = None
+    if args.tasks:
+        task_ids = [t.strip() for t in args.tasks.split(",")]
 
     try:
         evaluator = CLITaskEvaluator(args.skill)
         result = evaluator.run_evaluation(
+            task_ids=task_ids,
             difficulty_filter=args.difficulty,
             max_tasks=args.max_tasks,
         )
-        evaluator.print_summary(result)
+
+        if args.format == "json":
+            # Output JSON for L1 loop consumption
+            failures = [r.task_id for r in result.task_results if not r.passed]
+            output = {
+                "skill": result.skill_name,
+                "passed": result.passed_tasks,
+                "failed": result.total_tasks - result.passed_tasks,
+                "total": result.total_tasks,
+                "pass_rate": result.overall_score,
+                "failures": failures,
+                "results": [
+                    {
+                        "task_id": r.task_id,
+                        "passed": r.passed,
+                        "output": r.skill_output,
+                        "reasoning": r.judge_reasoning,
+                    }
+                    for r in result.task_results
+                ],
+                "metrics": {
+                    "intent_accuracy": result.intent_accuracy,
+                    "constraint_coverage": result.constraint_coverage,
+                    "output_quality": result.output_quality,
+                    "verix_compliance": result.verix_compliance,
+                    "l2_purity": result.l2_purity,
+                },
+            }
+            print(json.dumps(output))
+        else:
+            evaluator.print_summary(result)
+
     except Exception as e:
         print(f"Error: {e}")
         return 1

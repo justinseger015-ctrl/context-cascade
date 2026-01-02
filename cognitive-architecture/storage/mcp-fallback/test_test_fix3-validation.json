@@ -1,0 +1,13 @@
+{
+  "key": "test/test/fix3-validation",
+  "value": {
+    "message": "FIX-3 Memory MCP Integration test",
+    "timestamp": 1234567890
+  },
+  "metadata": {
+    "WHO": "test",
+    "WHY": "validation",
+    "timestamp": "2026-01-01T18:34:07Z"
+  },
+  "stored_at": 1767292447.5565434
+}
