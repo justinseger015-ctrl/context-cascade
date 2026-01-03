@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated": "2026-01-02T18:11:18.912Z",
-  "total_skills": 223,
+  "generated": "2026-01-03T17:17:44.279Z",
+  "total_skills": 167,
   "categories": {
     "delivery": {
       "description": "",
@@ -14,12 +14,7 @@
         "pair-programming",
         "smart-bug-fix",
         "sop-api-development",
-        "sparc-methodology",
-        "when-collaborative-coding-use-pair-programming",
-        "when-debugging-code-use-debugging-assistant",
-        "when-developing-complete-feature-use-feature-dev-complete",
-        "when-fixing-complex-bug-use-smart-bug-fix",
-        "when-internationalizing-app-use-i18n-automation"
+        "sparc-methodology"
       ],
       "keywords": [
         "feature",
@@ -43,18 +38,12 @@
         "github-integration",
         "bootstrap-loop",
         "clarity-linter",
-        "when-mapping-dependencies-use-dependency-mapper",
-        "when-documenting-code-use-doc-generator",
         "eval-harness",
         "image-gen",
         "improvement-pipeline",
         "pptx-generation",
         "template-extractor",
         "ui-ux-excellence",
-        "when-analyzing-user-intent-use-intent-analyzer",
-        "when-creating-presentations-use-pptx-generation",
-        "when-optimizing-agent-learning-use-reasoningbank-intelligence",
-        "when-optimizing-prompts-use-prompt-architect",
         "web-cli-teleport"
       ],
       "keywords": [
@@ -76,9 +65,6 @@
         "base-template-generator",
         "cognitive-lensing",
         "meta-tools",
-        "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-        "when-managing-token-budget-use-token-budget-advisor",
-        "when-optimizing-prompts-use-prompt-optimization-analyzer",
         "micro-skill-creator",
         "playbook-architect",
         "prompt-architect",
@@ -87,14 +73,7 @@
         "skill-builder",
         "skill-creator-agent",
         "pilot-1-code-formatter",
-        "skill-forge",
-        "when-building-semantic-search-use-agentdb-vector-search",
-        "when-creating-skill-template-use-skill-builder",
-        "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-        "when-implementing-persistent-memory-use-agentdb-memory",
-        "when-optimizing-vector-search-use-agentdb-optimization",
-        "when-training-rl-agents-use-agentdb-learning",
-        "when-using-advanced-vector-search-use-agentdb-advanced"
+        "skill-forge"
       ],
       "keywords": [
         "create",
@@ -106,6 +85,13 @@
         "builder",
         "prompt"
       ]
+    },
+    "gap-reconnaissance": {
+      "description": "",
+      "skills": [
+        "gap-reconnaissance"
+      ],
+      "keywords": []
     },
     "operations": {
       "description": "",
@@ -127,12 +113,7 @@
         "performance-analysis",
         "platform-integration",
         "production-readiness",
-        "sop-product-launch",
-        "when-analyzing-performance-use-performance-analysis",
-        "when-managing-github-projects-use-github-project-management",
-        "when-managing-multiple-repos-use-github-multi-repo",
-        "when-profiling-performance-use-performance-profiler",
-        "when-releasing-software-use-github-release-management"
+        "sop-product-launch"
       ],
       "keywords": [
         "deploy",
@@ -163,20 +144,7 @@
         "slash-command-encoder",
         "stream-chain",
         "swarm-advanced",
-        "swarm-orchestration",
-        "when-automating-github-actions-use-workflow-automation",
-        "when-automating-workflows-use-hooks-automation",
-        "when-building-backend-api-orchestrate-api-development",
-        "when-chaining-workflows-use-cascade-orchestrator",
-        "when-coordinating-collective-intelligence-use-hive-mind",
-        "when-releasing-new-product-orchestrate-product-launch",
-        "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-        "when-using-sparc-methodology-use-sparc-workflow",
-        "when-bridging-web-cli-use-web-cli-teleport",
-        "when-chaining-agent-pipelines-use-stream-chain",
-        "when-creating-slash-commands-use-slash-command-encoder",
-        "when-orchestrating-swarm-use-swarm-orchestration",
-        "when-using-advanced-swarm-use-swarm-advanced"
+        "swarm-orchestration"
       ],
       "keywords": [
         "coordinate",
@@ -192,7 +160,6 @@
     "platforms": {
       "description": "",
       "skills": [
-        "when-deploying-cloud-swarm-use-flow-nexus-swarm",
         "agentdb",
         "agentdb-advanced",
         "advanced-agentdb-vector-search-implementation",
@@ -218,8 +185,6 @@
         "gemini-megacontext",
         "gemini-search",
         "machine-learning",
-        "when-debugging-ml-training-use-ml-training-debugger",
-        "when-developing-ml-models-use-ml-expert",
         "multi-model",
         "codex-audit",
         "codex-iterative-fix",
@@ -230,7 +195,6 @@
         "gemini-research",
         "multi-model-discovery",
         "platform",
-        "when-using-flow-nexus-platform-use-flow-nexus-platform",
         "reasoningbank-agentdb",
         "reasoningbank-intelligence"
       ],
@@ -244,37 +208,6 @@
         "codex",
         "gemini",
         "multi-model"
-      ]
-    },
-    "security": {
-      "description": "",
-      "skills": [
-        "when-training-neural-networks-use-flow-nexus-neural",
-        "compliance",
-        "wcag-accessibility",
-        "network-security-setup",
-        "reverse-engineer-debug",
-        "reverse-engineering-deep",
-        "reverse-engineering-deep-analysis",
-        "reverse-engineering-firmware-analysis",
-        "reverse-engineering-quick-triage",
-        "reverse-engineering-firmware",
-        "reverse-engineering-quick",
-        "sandbox-configurator",
-        "security",
-        "when-auditing-security-use-security-analyzer",
-        "when-configuring-sandbox-security-use-sandbox-configurator",
-        "when-setting-network-security-use-network-security-setup"
-      ],
-      "keywords": [
-        "security",
-        "auth",
-        "authentication",
-        "permission",
-        "vulnerability",
-        "pentest",
-        "compliance",
-        "encrypt"
       ]
     },
     "quality": {
@@ -295,12 +228,9 @@
         "sop-dogfooding-pattern-retrieval",
         "sop-dogfooding-quality-detection",
         "style-audit",
-        "when-testing-code-use-testing-framework",
         "theater-detection-audit",
         "verification-and-quality-assurance",
-        "verification-quality",
-        "when-reviewing-github-pr-use-github-code-review",
-        "when-reviewing-pull-request-orchestrate-comprehensive-code-revie"
+        "verification-quality"
       ],
       "keywords": [
         "test",
@@ -318,11 +248,6 @@
     "research": {
       "description": "",
       "skills": [
-        "when-auditing-code-style-use-style-audit",
-        "when-detecting-fake-code-use-theater-detection",
-        "when-reviewing-code-comprehensively-use-code-review-assistant",
-        "when-validating-code-works-use-functionality-audit",
-        "when-verifying-quality-use-verification-quality",
         "academic-reading-workflow",
         "baseline-replication",
         "deep-research-orchestrator",
@@ -339,7 +264,6 @@
         "research-publication",
         "researcher",
         "source-credibility-analyzer",
-        "when-gathering-requirements-use-interactive-planner",
         "testing-quality",
         "visual-asset-generator"
       ],
@@ -355,6 +279,33 @@
         "synthesis"
       ]
     },
+    "security": {
+      "description": "",
+      "skills": [
+        "compliance",
+        "wcag-accessibility",
+        "network-security-setup",
+        "reverse-engineer-debug",
+        "reverse-engineering-deep",
+        "reverse-engineering-deep-analysis",
+        "reverse-engineering-firmware-analysis",
+        "reverse-engineering-quick-triage",
+        "reverse-engineering-firmware",
+        "reverse-engineering-quick",
+        "sandbox-configurator",
+        "security"
+      ],
+      "keywords": [
+        "security",
+        "auth",
+        "authentication",
+        "permission",
+        "vulnerability",
+        "pentest",
+        "compliance",
+        "encrypt"
+      ]
+    },
     "specialists": {
       "description": "",
       "skills": [
@@ -368,8 +319,7 @@
         "ml",
         "ml-expert",
         "ml-training-debugger",
-        "system-design-architect",
-        "when-creating-claude-hooks-use-hook-creator"
+        "system-design-architect"
       ],
       "keywords": [
         "business",
@@ -713,141 +663,6 @@
       ],
       "tags": []
     },
-    "when-collaborative-coding-use-pair-programming": {
-      "name": "when-collaborative-coding-use-pair-programming",
-      "path": "skills/delivery/when-collaborative-coding-use-pair-programming/",
-      "category": "delivery",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "detect",
-        "collaborative",
-        "coding",
-        "intents",
-        "execute",
-        "pair-programming",
-        "workflow",
-        "constraint",
-        "confidence",
-        "discipline",
-        "prompt-architect",
-        "skill-forge"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "examples/",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-debugging-code-use-debugging-assistant": {
-      "name": "when-debugging-code-use-debugging-assistant",
-      "path": "skills/delivery/when-debugging-code-use-debugging-assistant/",
-      "category": "delivery",
-      "description": "",
-      "triggers": [
-        "debugging",
-        "purpose",
-        "classify",
-        "requests",
-        "gather",
-        "evidence",
-        "execute",
-        "structure-first",
-        "confidence",
-        "rules",
-        "prompt-architect",
-        "skill-forge"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md",
-        "subagent-debugging-assistant.md"
-      ],
-      "tags": []
-    },
-    "when-developing-complete-feature-use-feature-dev-complete": {
-      "name": "when-developing-complete-feature-use-feature-dev-complete",
-      "path": "skills/delivery/when-developing-complete-feature-use-feature-dev-complete/",
-      "category": "delivery",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "detect",
-        "route",
-        "end-to-end",
-        "feature",
-        "requests",
-        "feature-dev-complete",
-        "while",
-        "preserving",
-        "constraints",
-        "structure-first",
-        "assets",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "examples/",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-fixing-complex-bug-use-smart-bug-fix": {
-      "name": "when-fixing-complex-bug-use-smart-bug-fix",
-      "path": "skills/delivery/when-fixing-complex-bug-use-smart-bug-fix/",
-      "category": "delivery",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "identify",
-        "complex",
-        "defects",
-        "hand",
-        "them",
-        "smart-bug-fix",
-        "preserved",
-        "constraints",
-        "structure",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "examples/",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-internationalizing-app-use-i18n-automation": {
-      "name": "when-internationalizing-app-use-i18n-automation",
-      "path": "skills/delivery/when-internationalizing-app-use-i18n-automation/",
-      "category": "delivery",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "detect",
-        "localization",
-        "needs",
-        "invoke",
-        "i18n-automation",
-        "while",
-        "preserving",
-        "constraints",
-        "structure",
-        "ceilinged",
-        "confidence"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "examples/",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
     "agent-creation": {
       "name": "agent-creation",
       "path": "skills/foundry/agent-creation/",
@@ -1021,108 +836,6 @@
       "negativeTriggers": [],
       "files": [
         "examples/",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-analyzing-skill-gaps-use-skill-gap-analyzer": {
-      "name": "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-      "path": "skills/foundry/meta-tools/when-analyzing-skill-gaps-use-skill-gap-analyzer/",
-      "category": "foundry",
-      "description": "",
-      "triggers": [
-        "auto-extracted",
-        "description",
-        "content",
-        "patterns",
-        "optimized",
-        "workflow",
-        "contexts",
-        "excels"
-      ],
-      "negativeTriggers": [
-        "situations",
-        "alternative",
-        "better",
-        "suited",
-        "anti-patterns",
-        "indicate",
-        "wrong",
-        "choice",
-        "edge",
-        "cases"
-      ],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-managing-token-budget-use-token-budget-advisor": {
-      "name": "when-managing-token-budget-use-token-budget-advisor",
-      "path": "skills/foundry/meta-tools/when-managing-token-budget-use-token-budget-advisor/",
-      "category": "foundry",
-      "description": "",
-      "triggers": [
-        "auto-extracted",
-        "description",
-        "content",
-        "patterns",
-        "optimized",
-        "workflow",
-        "contexts",
-        "excels"
-      ],
-      "negativeTriggers": [
-        "situations",
-        "alternative",
-        "better",
-        "suited",
-        "anti-patterns",
-        "indicate",
-        "wrong",
-        "choice",
-        "edge",
-        "cases"
-      ],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-optimizing-prompts-use-prompt-optimization-analyzer": {
-      "name": "when-optimizing-prompts-use-prompt-optimization-analyzer",
-      "path": "skills/foundry/meta-tools/when-optimizing-prompts-use-prompt-optimization-analyzer/",
-      "category": "foundry",
-      "description": "",
-      "triggers": [
-        "auto-extracted",
-        "description",
-        "content",
-        "patterns",
-        "optimized",
-        "workflow",
-        "contexts",
-        "excels"
-      ],
-      "negativeTriggers": [
-        "situations",
-        "alternative",
-        "better",
-        "suited",
-        "anti-patterns",
-        "indicate",
-        "wrong",
-        "choice",
-        "edge",
-        "cases"
-      ],
-      "files": [
-        "process.md",
         "readme.md",
         "SKILL.md"
       ],
@@ -1377,204 +1090,32 @@
       ],
       "tags": []
     },
-    "when-building-semantic-search-use-agentdb-vector-search": {
-      "name": "when-building-semantic-search-use-agentdb-vector-search",
-      "path": "skills/foundry/when-building-semantic-search-use-agentdb-vector-search/",
-      "category": "foundry",
-      "description": "",
-      "triggers": [
-        "search",
-        "purpose",
-        "guide",
-        "teams",
-        "implement",
-        "semantic",
-        "agentdb",
-        "vector",
-        "correct",
-        "indexing",
-        "query",
-        "tuning",
-        "evaluation",
-        "practices"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-creating-skill-template-use-skill-builder": {
-      "name": "when-creating-skill-template-use-skill-builder",
-      "path": "skills/foundry/when-creating-skill-template-use-skill-builder/",
-      "category": "foundry",
+    "gap-reconnaissance": {
+      "name": "gap-reconnaissance",
+      "path": "skills/gap-reconnaissance/",
+      "category": "gap-reconnaissance",
       "description": "",
       "triggers": [
         "purpose",
-        "route",
-        "template",
-        "creation",
-        "requests",
-        "builder",
-        "guarantee",
-        "compliant",
-        "content",
-        "scaffolding",
-        "validation",
-        "notes"
+        "systematic",
+        "process",
+        "identifying",
+        "gaps",
+        "project",
+        "researching",
+        "solutions",
+        "extracting",
+        "reusable",
+        "patterns",
+        "creating",
+        "integration",
+        "guides",
+        "cleaning",
+        "minimize",
+        "storage"
       ],
       "negativeTriggers": [],
       "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-implementing-adaptive-learning-use-reasoningbank-agentdb": {
-      "name": "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "path": "skills/foundry/when-implementing-adaptive-learning-use-reasoningbank-agentdb/",
-      "category": "foundry",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "guide",
-        "adaptive",
-        "learning",
-        "setups",
-        "reasoningbank",
-        "agentdb",
-        "covering",
-        "data",
-        "capture",
-        "policy",
-        "updates",
-        "evaluation",
-        "safety",
-        "controls"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-implementing-persistent-memory-use-agentdb-memory": {
-      "name": "when-implementing-persistent-memory-use-agentdb-memory",
-      "path": "skills/foundry/when-implementing-persistent-memory-use-agentdb-memory/",
-      "category": "foundry",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "design",
-        "persistent",
-        "memory",
-        "strategies",
-        "agentdb",
-        "covering",
-        "namespaces",
-        "retention",
-        "policies",
-        "retrieval",
-        "contracts",
-        "safety",
-        "privacy",
-        "requirements"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-optimizing-vector-search-use-agentdb-optimization": {
-      "name": "when-optimizing-vector-search-use-agentdb-optimization",
-      "path": "skills/foundry/when-optimizing-vector-search-use-agentdb-optimization/",
-      "category": "foundry",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "tune",
-        "agentdb",
-        "vector",
-        "search",
-        "parameters",
-        "embeddings",
-        "chunking",
-        "filters",
-        "rerankers",
-        "caching",
-        "improve",
-        "relevance",
-        "latency",
-        "evidence"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-training-rl-agents-use-agentdb-learning": {
-      "name": "when-training-rl-agents-use-agentdb-learning",
-      "path": "skills/foundry/when-training-rl-agents-use-agentdb-learning/",
-      "category": "foundry",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "train",
-        "deploy",
-        "reinforcement-learning-driven",
-        "agentdb",
-        "experience",
-        "storage",
-        "evaluation",
-        "controlled",
-        "rollout"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-using-advanced-vector-search-use-agentdb-advanced": {
-      "name": "when-using-advanced-vector-search-use-agentdb-advanced",
-      "path": "skills/foundry/when-using-advanced-vector-search-use-agentdb-advanced/",
-      "category": "foundry",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "guide",
-        "advanced",
-        "agentdb",
-        "vector",
-        "search",
-        "implementations",
-        "involving",
-        "hybrid",
-        "retrieval",
-        "multi-tenant",
-        "isolation",
-        "faceted",
-        "filters",
-        "custom",
-        "scoring"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
         "SKILL.md"
       ],
       "tags": []
@@ -2087,131 +1628,6 @@
       ],
       "tags": []
     },
-    "when-analyzing-performance-use-performance-analysis": {
-      "name": "when-analyzing-performance-use-performance-analysis",
-      "path": "skills/operations/when-analyzing-performance-use-performance-analysis/",
-      "category": "operations",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "performance",
-        "analysis",
-        "work",
-        "follows",
-        "performance-analysis",
-        "sop",
-        "evidence-driven",
-        "investigation",
-        "validation"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-managing-github-projects-use-github-project-management": {
-      "name": "when-managing-github-projects-use-github-project-management",
-      "path": "skills/operations/when-managing-github-projects-use-github-project-management/",
-      "category": "operations",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "github",
-        "project",
-        "governance",
-        "uses",
-        "github-project-management",
-        "sop",
-        "clear",
-        "automation",
-        "reporting",
-        "guardrails"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-managing-multiple-repos-use-github-multi-repo": {
-      "name": "when-managing-multiple-repos-use-github-multi-repo",
-      "path": "skills/operations/when-managing-multiple-repos-use-github-multi-repo/",
-      "category": "operations",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "cross-repo",
-        "initiatives",
-        "github-multi-repo",
-        "sop",
-        "batching",
-        "approvals",
-        "rollback",
-        "guardrails"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-profiling-performance-use-performance-profiler": {
-      "name": "when-profiling-performance-use-performance-profiler",
-      "path": "skills/operations/when-profiling-performance-use-performance-profiler/",
-      "category": "operations",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "direct",
-        "profiling-heavy",
-        "requests",
-        "performance-profiler",
-        "sop",
-        "ensure",
-        "structured",
-        "data",
-        "collection",
-        "analysis"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md",
-        "subagent-performance-profiler.md"
-      ],
-      "tags": []
-    },
-    "when-releasing-software-use-github-release-management": {
-      "name": "when-releasing-software-use-github-release-management",
-      "path": "skills/operations/when-releasing-software-use-github-release-management/",
-      "category": "operations",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "software",
-        "releases",
-        "follow",
-        "github-release-management",
-        "sop",
-        "approvals",
-        "automation",
-        "rollback",
-        "protections"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
     "advanced-coordination": {
       "name": "advanced-coordination",
       "path": "skills/orchestration/advanced-coordination/",
@@ -2677,391 +2093,6 @@
       ],
       "negativeTriggers": [],
       "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-automating-github-actions-use-workflow-automation": {
-      "name": "when-automating-github-actions-use-workflow-automation",
-      "path": "skills/orchestration/when-automating-github-actions-use-workflow-automation/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "design",
-        "update",
-        "validate",
-        "github",
-        "actions",
-        "workflows",
-        "explicit",
-        "constraints",
-        "safety",
-        "rails",
-        "confidence",
-        "ceilings",
-        "automation",
-        "changes"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-automating-workflows-use-hooks-automation": {
-      "name": "when-automating-workflows-use-hooks-automation",
-      "path": "skills/orchestration/when-automating-workflows-use-hooks-automation/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "design",
-        "maintain",
-        "hook-based",
-        "automations",
-        "pre",
-        "post",
-        "hooks",
-        "webhooks",
-        "explicit",
-        "constraints",
-        "monitoring",
-        "confidence-aware",
-        "delivery"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-building-backend-api-orchestrate-api-development": {
-      "name": "when-building-backend-api-orchestrate-api-development",
-      "path": "skills/orchestration/when-building-backend-api-orchestrate-api-development/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "coordinate",
-        "backend",
-        "api",
-        "delivery",
-        "design",
-        "deployment",
-        "explicit",
-        "constraints",
-        "validations",
-        "confidence-aware",
-        "approvals"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-chaining-workflows-use-cascade-orchestrator": {
-      "name": "when-chaining-workflows-use-cascade-orchestrator",
-      "path": "skills/orchestration/when-chaining-workflows-use-cascade-orchestrator/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "design",
-        "linked",
-        "workflows",
-        "pass",
-        "artifacts",
-        "across",
-        "stages",
-        "enforce",
-        "entry",
-        "exit",
-        "gates",
-        "keep",
-        "evidence",
-        "plus",
-        "confidence",
-        "ceilings",
-        "explicit"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-coordinating-collective-intelligence-use-hive-mind": {
-      "name": "when-coordinating-collective-intelligence-use-hive-mind",
-      "path": "skills/orchestration/when-coordinating-collective-intelligence-use-hive-mind/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "run",
-        "hive-mind",
-        "style",
-        "workflows",
-        "encourage",
-        "diverse",
-        "exploration",
-        "synthesize",
-        "findings",
-        "record",
-        "dissent",
-        "explicit",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-deploying-cloud-swarm-use-flow-nexus-swarm": {
-      "name": "when-deploying-cloud-swarm-use-flow-nexus-swarm",
-      "path": "skills/platforms/platform/when-deploying-cloud-swarm-use-flow-nexus-swarm/",
-      "category": "platforms",
-      "description": "",
-      "triggers": [],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-releasing-new-product-orchestrate-product-launch": {
-      "name": "when-releasing-new-product-orchestrate-product-launch",
-      "path": "skills/orchestration/when-releasing-new-product-orchestrate-product-launch/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "coordinate",
-        "cross-functional",
-        "product",
-        "launches",
-        "gtm",
-        "engineering",
-        "readiness",
-        "gated",
-        "milestones",
-        "evidence-backed",
-        "signoffs",
-        "explicit",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-reviewing-pull-request-orchestrate-comprehensive-code-review": {
-      "name": "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "path": "skills/orchestration/when-reviewing-pull-request-orchestrate-comprehensive-code-review/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "coordinate",
-        "comprehensive",
-        "reviews",
-        "specialized",
-        "reviewers",
-        "security",
-        "performance",
-        "correctness",
-        "explicit",
-        "constraints",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-using-sparc-methodology-use-sparc-workflow": {
-      "name": "when-using-sparc-methodology-use-sparc-workflow",
-      "path": "skills/orchestration/when-using-sparc-methodology-use-sparc-workflow/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "run",
-        "sparc",
-        "methodology",
-        "end-to-end",
-        "clear",
-        "intent",
-        "capture",
-        "stage",
-        "gates",
-        "evidence-backed",
-        "reviews",
-        "confidence-aware",
-        "delivery"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-bridging-web-cli-use-web-cli-teleport": {
-      "name": "when-bridging-web-cli-use-web-cli-teleport",
-      "path": "skills/orchestration/workflow/when-bridging-web-cli-use-web-cli-teleport/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "enable",
-        "reliable",
-        "teleportation",
-        "web",
-        "cli",
-        "flows",
-        "preserving",
-        "context",
-        "validating",
-        "sessions",
-        "controlling",
-        "risks",
-        "explicit",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-chaining-agent-pipelines-use-stream-chain": {
-      "name": "when-chaining-agent-pipelines-use-stream-chain",
-      "path": "skills/orchestration/workflow/when-chaining-agent-pipelines-use-stream-chain/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "operate",
-        "streaming",
-        "pipelines",
-        "partial",
-        "outputs",
-        "flow",
-        "across",
-        "stages",
-        "deterministic",
-        "routing",
-        "safety",
-        "rails",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-creating-slash-commands-use-slash-command-encoder": {
-      "name": "when-creating-slash-commands-use-slash-command-encoder",
-      "path": "skills/orchestration/workflow/when-creating-slash-commands-use-slash-command-encoder/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "create",
-        "update",
-        "slash",
-        "commands",
-        "explicit",
-        "constraints",
-        "security",
-        "checks",
-        "evidence-backed",
-        "routing",
-        "while",
-        "keeping",
-        "confidence",
-        "ceilings",
-        "clear"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-orchestrating-swarm-use-swarm-orchestration": {
-      "name": "when-orchestrating-swarm-use-swarm-orchestration",
-      "path": "skills/orchestration/workflow/when-orchestrating-swarm-use-swarm-orchestration/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "stand",
-        "swarms",
-        "workflow",
-        "explicit",
-        "roles",
-        "routing",
-        "safety",
-        "rails",
-        "confidence-aware",
-        "reporting"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-using-advanced-swarm-use-swarm-advanced": {
-      "name": "when-using-advanced-swarm-use-swarm-advanced",
-      "path": "skills/orchestration/workflow/when-using-advanced-swarm-use-swarm-advanced/",
-      "category": "orchestration",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "run",
-        "advanced",
-        "swarm",
-        "behaviors",
-        "high-scale",
-        "high-risk",
-        "workflows",
-        "explicit",
-        "constraints",
-        "resilience",
-        "checks",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
         "SKILL.md"
       ],
       "tags": []
@@ -3764,90 +2795,6 @@
       ],
       "tags": []
     },
-    "when-debugging-ml-training-use-ml-training-debugger": {
-      "name": "when-debugging-ml-training-use-ml-training-debugger",
-      "path": "skills/platforms/machine-learning/when-debugging-ml-training-use-ml-training-debugger/",
-      "category": "platforms",
-      "description": "",
-      "triggers": [
-        "training",
-        "loss",
-        "becomes",
-        "nan",
-        "infinite",
-        "severe",
-        "overfitting",
-        "train",
-        "val",
-        "performance",
-        "converging",
-        "gradient",
-        "vanishing",
-        "exploding",
-        "poor",
-        "validation",
-        "accuracy",
-        "slow"
-      ],
-      "negativeTriggers": [
-        "without",
-        "model",
-        "training",
-        "simple",
-        "data",
-        "preprocessing",
-        "statistical",
-        "analysis",
-        "require",
-        "models"
-      ],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-developing-ml-models-use-ml-expert": {
-      "name": "when-developing-ml-models-use-ml-expert",
-      "path": "skills/platforms/machine-learning/when-developing-ml-models-use-ml-expert/",
-      "category": "platforms",
-      "description": "",
-      "triggers": [
-        "models",
-        "developing",
-        "new",
-        "training",
-        "neural",
-        "networks",
-        "model",
-        "optimization",
-        "production",
-        "deployment",
-        "transfer",
-        "learning",
-        "fine-tuning",
-        "existing"
-      ],
-      "negativeTriggers": [
-        "without",
-        "model",
-        "training",
-        "simple",
-        "data",
-        "preprocessing",
-        "statistical",
-        "analysis",
-        "require",
-        "models"
-      ],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
     "multi-model": {
       "name": "multi-model",
       "path": "skills/platforms/multi-model/",
@@ -4196,69 +3143,6 @@
         "CHANGELOG.md",
         "examples/",
         "QUICK-REFERENCE.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-training-neural-networks-use-flow-nexus-neural": {
-      "name": "when-training-neural-networks-use-flow-nexus-neural",
-      "path": "skills/security/when-training-neural-networks-use-flow-nexus-neural/",
-      "category": "security",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "training",
-        "requests",
-        "invoke",
-        "flow",
-        "nexus",
-        "neural",
-        "pipeline",
-        "proper",
-        "security",
-        "compliance",
-        "sandbox",
-        "controls",
-        "applies",
-        "skill-forge",
-        "structure-first",
-        "requirements",
-        "prompt-architect",
-        "constraint"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-using-flow-nexus-platform-use-flow-nexus-platform": {
-      "name": "when-using-flow-nexus-platform-use-flow-nexus-platform",
-      "path": "skills/platforms/when-using-flow-nexus-platform-use-flow-nexus-platform/",
-      "category": "platforms",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "platform-specific",
-        "work",
-        "handled",
-        "flow",
-        "nexus",
-        "platform",
-        "correct",
-        "sop",
-        "safety",
-        "gates"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "examples/",
-        "PROCESS.md",
-        "README.md",
         "SKILL.md"
       ],
       "tags": []
@@ -4744,171 +3628,6 @@
       ],
       "tags": []
     },
-    "when-testing-code-use-testing-framework": {
-      "name": "when-testing-code-use-testing-framework",
-      "path": "skills/quality/testing/when-testing-code-use-testing-framework/",
-      "category": "quality",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "guide",
-        "reviewers",
-        "developers",
-        "execute",
-        "testing",
-        "framework",
-        "code",
-        "validation",
-        "ensuring",
-        "evidence",
-        "capture",
-        "reproducibility",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md",
-        "subagent-testing-framework.md"
-      ],
-      "tags": []
-    },
-    "when-auditing-code-style-use-style-audit": {
-      "name": "when-auditing-code-style-use-style-audit",
-      "path": "skills/research/testing-quality/when-auditing-code-style-use-style-audit/",
-      "category": "research",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "style",
-        "linting",
-        "code-health",
-        "reviews",
-        "run",
-        "style-audit",
-        "constraint",
-        "clarity",
-        "confidence",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-detecting-fake-code-use-theater-detection": {
-      "name": "when-detecting-fake-code-use-theater-detection",
-      "path": "skills/research/testing-quality/when-detecting-fake-code-use-theater-detection/",
-      "category": "research",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "detect",
-        "fake",
-        "non-executable",
-        "theatrical",
-        "code",
-        "invoking",
-        "theater-detection",
-        "proper",
-        "guardrails"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-reviewing-code-comprehensively-use-code-review-assistant": {
-      "name": "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "path": "skills/research/testing-quality/when-reviewing-code-comprehensively-use-code-review-assistant/",
-      "category": "research",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "direct",
-        "comprehensive",
-        "research",
-        "code",
-        "reviews",
-        "code-review-assistant",
-        "workflow",
-        "proper",
-        "constraint",
-        "capture",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-validating-code-works-use-functionality-audit": {
-      "name": "when-validating-code-works-use-functionality-audit",
-      "path": "skills/research/testing-quality/when-validating-code-works-use-functionality-audit/",
-      "category": "research",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "functional",
-        "correctness",
-        "checks",
-        "executed",
-        "via",
-        "functionality-audit",
-        "explicit",
-        "constraints",
-        "ceilings"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-verifying-quality-use-verification-quality": {
-      "name": "when-verifying-quality-use-verification-quality",
-      "path": "skills/research/testing-quality/when-verifying-quality-use-verification-quality/",
-      "category": "research",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "quality",
-        "verification",
-        "tests",
-        "metrics",
-        "acceptance",
-        "gates",
-        "runs",
-        "via",
-        "verification-quality",
-        "constraint",
-        "confidence",
-        "rigor"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
     "theater-detection-audit": {
       "name": "theater-detection-audit",
       "path": "skills/quality/theater-detection-audit/",
@@ -4989,58 +3708,6 @@
         "constraints",
         "calibrating",
         "confidence"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-reviewing-github-pr-use-github-code-review": {
-      "name": "when-reviewing-github-pr-use-github-code-review",
-      "path": "skills/quality/when-reviewing-github-pr-use-github-code-review/",
-      "category": "quality",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "direct",
-        "review",
-        "requests",
-        "github-code-review",
-        "restate",
-        "essential",
-        "guardrails",
-        "outputs",
-        "expected",
-        "github",
-        "reviews"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-reviewing-pull-request-orchestrate-comprehensive-code-revie": {
-      "name": "when-reviewing-pull-request-orchestrate-comprehensive-code-revie",
-      "path": "skills/quality/when-reviewing-pull-request-orchestrate-comprehensive-code-revie/",
-      "category": "quality",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "pull-request",
-        "review",
-        "requests",
-        "routed",
-        "code-review-assistant",
-        "carry",
-        "forward",
-        "required",
-        "guardrails",
-        "structure",
-        "confidence",
-        "rules"
       ],
       "negativeTriggers": [],
       "files": [
@@ -5601,39 +4268,6 @@
       ],
       "tags": []
     },
-    "when-gathering-requirements-use-interactive-planner": {
-      "name": "when-gathering-requirements-use-interactive-planner",
-      "path": "skills/research/specialized-tools/when-gathering-requirements-use-interactive-planner/",
-      "category": "research",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "ensure",
-        "requirement-gathering",
-        "sessions",
-        "leverage",
-        "interactive-planner",
-        "constraint",
-        "hygiene",
-        "confidence",
-        "ceilings",
-        "provide",
-        "lightweight",
-        "router",
-        "plus",
-        "guardrails",
-        "research",
-        "requirement",
-        "discovery"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
     "testing-quality": {
       "name": "testing-quality",
       "path": "skills/research/testing-quality/",
@@ -6114,106 +4748,6 @@
       ],
       "tags": []
     },
-    "when-auditing-security-use-security-analyzer": {
-      "name": "when-auditing-security-use-security-analyzer",
-      "path": "skills/security/when-auditing-security-use-security-analyzer/",
-      "category": "security",
-      "description": "",
-      "triggers": [
-        "security",
-        "audits",
-        "purpose",
-        "provide",
-        "clear",
-        "entry",
-        "point",
-        "analyzer",
-        "stack",
-        "encodes",
-        "skill-forge",
-        "structure-first",
-        "expectations",
-        "prompt-architect",
-        "constraint",
-        "confidence",
-        "practices",
-        "route",
-        "scope",
-        "validate"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md",
-        "subagent-security-analyzer.md"
-      ],
-      "tags": []
-    },
-    "when-configuring-sandbox-security-use-sandbox-configurator": {
-      "name": "when-configuring-sandbox-security-use-sandbox-configurator",
-      "path": "skills/security/specialized-tools/when-configuring-sandbox-security-use-sandbox-configurator/",
-      "category": "security",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "activate",
-        "sandbox-configurator",
-        "workflow",
-        "sandbox",
-        "policy",
-        "design",
-        "filesystem",
-        "network",
-        "secrets",
-        "observability",
-        "skill-forge",
-        "structure-first",
-        "prompt-architect",
-        "constraint",
-        "confidence",
-        "rules"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-setting-network-security-use-network-security-setup": {
-      "name": "when-setting-network-security-use-network-security-setup",
-      "path": "skills/security/specialized-tools/when-setting-network-security-use-network-security-setup/",
-      "category": "security",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "activate",
-        "network-security-setup",
-        "workflow",
-        "deny-by-default",
-        "policies",
-        "trusted",
-        "allowlists",
-        "tls",
-        "hardening",
-        "following",
-        "skill-forge",
-        "structure-first",
-        "prompt-architect",
-        "constraint",
-        "confidence",
-        "practices"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
     "sql-database-specialist": {
       "name": "sql-database-specialist",
       "path": "skills/specialists/database-specialists/sql-database-specialist/",
@@ -6530,40 +5064,6 @@
       ],
       "tags": []
     },
-    "when-creating-claude-hooks-use-hook-creator": {
-      "name": "when-creating-claude-hooks-use-hook-creator",
-      "path": "skills/specialists/when-creating-claude-hooks-use-hook-creator/",
-      "category": "specialists",
-      "description": "",
-      "triggers": [
-        "target",
-        "100ms",
-        "max",
-        "purpose",
-        "deliver",
-        "production-ready",
-        "claude",
-        "code",
-        "hooks",
-        "follow",
-        "official",
-        "schemas",
-        "satisfy",
-        "rbac",
-        "permission",
-        "policies",
-        "meet",
-        "latency",
-        "targets",
-        "pre-hooks"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "examples/",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
     "bootstrap-loop": {
       "name": "bootstrap-loop",
       "path": "skills/tooling/bootstrap-loop/",
@@ -6619,66 +5119,6 @@
         "QUICK-REFERENCE.md",
         "README.md",
         "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-mapping-dependencies-use-dependency-mapper": {
-      "name": "when-mapping-dependencies-use-dependency-mapper",
-      "path": "skills/tooling/when-mapping-dependencies-use-dependency-mapper/",
-      "category": "tooling",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "map",
-        "project",
-        "dependencies",
-        "highlight",
-        "risks",
-        "circular",
-        "unused",
-        "outdated",
-        "vulnerable",
-        "produce",
-        "actionable",
-        "reports",
-        "visuals"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md",
-        "subagent-dependency-mapper.md"
-      ],
-      "tags": []
-    },
-    "when-documenting-code-use-doc-generator": {
-      "name": "when-documenting-code-use-doc-generator",
-      "path": "skills/tooling/when-documenting-code-use-doc-generator/",
-      "category": "tooling",
-      "description": "",
-      "triggers": [
-        "purpose",
-        "produce",
-        "accurate",
-        "documentation",
-        "readme",
-        "api",
-        "docs",
-        "inline",
-        "comments",
-        "code",
-        "requirements",
-        "clear",
-        "provenance",
-        "validation"
-      ],
-      "negativeTriggers": [],
-      "files": [
-        "PROCESS.md",
-        "README.md",
-        "SKILL.md",
-        "subagent-doc-generator.md"
       ],
       "tags": []
     },
@@ -6864,62 +5304,6 @@
       ],
       "tags": []
     },
-    "when-analyzing-user-intent-use-intent-analyzer": {
-      "name": "when-analyzing-user-intent-use-intent-analyzer",
-      "path": "skills/tooling/utilities/when-analyzing-user-intent-use-intent-analyzer/",
-      "category": "tooling",
-      "description": "",
-      "triggers": [],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-creating-presentations-use-pptx-generation": {
-      "name": "when-creating-presentations-use-pptx-generation",
-      "path": "skills/tooling/utilities/when-creating-presentations-use-pptx-generation/",
-      "category": "tooling",
-      "description": "",
-      "triggers": [],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-optimizing-agent-learning-use-reasoningbank-intelligence": {
-      "name": "when-optimizing-agent-learning-use-reasoningbank-intelligence",
-      "path": "skills/tooling/utilities/when-optimizing-agent-learning-use-reasoningbank-intelligence/",
-      "category": "tooling",
-      "description": "",
-      "triggers": [],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
-    "when-optimizing-prompts-use-prompt-architect": {
-      "name": "when-optimizing-prompts-use-prompt-architect",
-      "path": "skills/tooling/utilities/when-optimizing-prompts-use-prompt-architect/",
-      "category": "tooling",
-      "description": "",
-      "triggers": [],
-      "negativeTriggers": [],
-      "files": [
-        "process.md",
-        "readme.md",
-        "SKILL.md"
-      ],
-      "tags": []
-    },
     "web-cli-teleport": {
       "name": "web-cli-teleport",
       "path": "skills/tooling/web-cli-teleport/",
@@ -6957,6 +5341,9 @@
     "27001": [
       "compliance"
     ],
+    "accurate": [
+      "api-docs"
+    ],
     "consumable": [
       "api-docs"
     ],
@@ -6970,6 +5357,9 @@
       "debugging"
     ],
     "resolve": [
+      "debugging"
+    ],
+    "defects": [
       "debugging"
     ],
     "graphing": [
@@ -6988,6 +5378,9 @@
       "documentation"
     ],
     "delegating": [
+      "documentation"
+    ],
+    "inline": [
       "documentation"
     ],
     "generation": [
@@ -7038,6 +5431,9 @@
     "builds": [
       "landing-page-generator"
     ],
+    "collaborative": [
+      "pair-programming"
+    ],
     "driver": [
       "pair-programming"
     ],
@@ -7053,6 +5449,9 @@
     "handle": [
       "smart-bug-fix"
     ],
+    "high-risk": [
+      "smart-bug-fix"
+    ],
     "bugs": [
       "smart-bug-fix"
     ],
@@ -7065,43 +5464,25 @@
     "release": [
       "sop-api-development"
     ],
+    "guide": [
+      "sparc-methodology"
+    ],
+    "sparc": [
+      "sparc-methodology"
+    ],
     "phases": [
       "sparc-methodology"
     ],
     "trails": [
       "sparc-methodology"
     ],
-    "intents": [
-      "when-collaborative-coding-use-pair-programming"
-    ],
-    "pair-programming": [
-      "when-collaborative-coding-use-pair-programming"
-    ],
-    "classify": [
-      "when-debugging-code-use-debugging-assistant"
-    ],
-    "gather": [
-      "when-debugging-code-use-debugging-assistant"
-    ],
-    "feature-dev-complete": [
-      "when-developing-complete-feature-use-feature-dev-complete"
-    ],
-    "smart-bug-fix": [
-      "when-fixing-complex-bug-use-smart-bug-fix"
-    ],
-    "preserved": [
-      "when-fixing-complex-bug-use-smart-bug-fix"
-    ],
-    "localization": [
-      "when-internationalizing-app-use-i18n-automation"
-    ],
-    "i18n-automation": [
-      "when-internationalizing-app-use-i18n-automation"
-    ],
-    "ceilinged": [
-      "when-internationalizing-app-use-i18n-automation"
-    ],
     "personas": [
+      "agent-creation"
+    ],
+    "scaffolding": [
+      "agent-creation"
+    ],
+    "routed": [
       "agent-creation"
     ],
     "layers": [
@@ -7212,7 +5593,13 @@
     "triggers": [
       "playbook-architect"
     ],
+    "roles": [
+      "playbook-architect"
+    ],
     "completion": [
+      "playbook-architect"
+    ],
+    "teams": [
       "playbook-architect"
     ],
     "consistently": [
@@ -7230,9 +5617,6 @@
     "epistemic": [
       "prompt-architect"
     ],
-    "systematic": [
-      "prompt-forge"
-    ],
     "harnesses": [
       "prompt-forge"
     ],
@@ -7241,6 +5625,9 @@
     ],
     "marginal": [
       "recursive-improvement"
+    ],
+    "template": [
+      "skill-builder"
     ],
     "metadata": [
       "skill-builder"
@@ -7257,65 +5644,26 @@
     "directory": [
       "skill-forge"
     ],
-    "creation": [
-      "when-creating-skill-template-use-skill-builder"
+    "process": [
+      "gap-reconnaissance"
     ],
-    "builder": [
-      "when-creating-skill-template-use-skill-builder"
+    "identifying": [
+      "gap-reconnaissance"
     ],
-    "guarantee": [
-      "when-creating-skill-template-use-skill-builder"
+    "extracting": [
+      "gap-reconnaissance"
     ],
-    "compliant": [
-      "when-creating-skill-template-use-skill-builder"
+    "creating": [
+      "gap-reconnaissance"
     ],
-    "setups": [
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb"
+    "guides": [
+      "gap-reconnaissance"
     ],
-    "namespaces": [
-      "when-implementing-persistent-memory-use-agentdb-memory"
+    "cleaning": [
+      "gap-reconnaissance"
     ],
-    "privacy": [
-      "when-implementing-persistent-memory-use-agentdb-memory"
-    ],
-    "tune": [
-      "when-optimizing-vector-search-use-agentdb-optimization"
-    ],
-    "parameters": [
-      "when-optimizing-vector-search-use-agentdb-optimization"
-    ],
-    "embeddings": [
-      "when-optimizing-vector-search-use-agentdb-optimization"
-    ],
-    "chunking": [
-      "when-optimizing-vector-search-use-agentdb-optimization"
-    ],
-    "rerankers": [
-      "when-optimizing-vector-search-use-agentdb-optimization"
-    ],
-    "relevance": [
-      "when-optimizing-vector-search-use-agentdb-optimization"
-    ],
-    "reinforcement-learning-driven": [
-      "when-training-rl-agents-use-agentdb-learning"
-    ],
-    "implementations": [
-      "when-using-advanced-vector-search-use-agentdb-advanced"
-    ],
-    "involving": [
-      "when-using-advanced-vector-search-use-agentdb-advanced"
-    ],
-    "multi-tenant": [
-      "when-using-advanced-vector-search-use-agentdb-advanced"
-    ],
-    "isolation": [
-      "when-using-advanced-vector-search-use-agentdb-advanced"
-    ],
-    "faceted": [
-      "when-using-advanced-vector-search-use-agentdb-advanced"
-    ],
-    "scoring": [
-      "when-using-advanced-vector-search-use-agentdb-advanced"
+    "minimize": [
+      "gap-reconnaissance"
     ],
     "stabilize": [
       "cicd-intelligent-recovery"
@@ -7335,13 +5683,22 @@
     "runbook": [
       "cicd-intelligent-recovery"
     ],
+    "updates": [
+      "cicd-intelligent-recovery"
+    ],
     "aws-focused": [
+      "aws-specialist"
+    ],
+    "tuning": [
       "aws-specialist"
     ],
     "iam": [
       "aws-specialist"
     ],
     "kubernetes": [
+      "kubernetes-specialist"
+    ],
+    "rbac": [
       "kubernetes-specialist"
     ],
     "autoscaling": [
@@ -7377,6 +5734,12 @@
     "integrations": [
       "github-integration"
     ],
+    "cross-repo": [
+      "github-multi-repo"
+    ],
+    "initiatives": [
+      "github-multi-repo"
+    ],
     "batched": [
       "github-multi-repo"
     ],
@@ -7404,6 +5767,9 @@
     "foundations": [
       "infrastructure"
     ],
+    "covering": [
+      "infrastructure"
+    ],
     "compute": [
       "infrastructure"
     ],
@@ -7426,6 +5792,9 @@
       "terraform-iac"
     ],
     "opentelemetry": [
+      "opentelemetry-observability"
+    ],
+    "collection": [
       "opentelemetry-observability"
     ],
     "traces": [
@@ -7461,6 +5830,9 @@
     "verify": [
       "production-readiness"
     ],
+    "production": [
+      "production-readiness"
+    ],
     "operational": [
       "production-readiness"
     ],
@@ -7470,50 +5842,17 @@
     "go-live": [
       "production-readiness"
     ],
+    "launches": [
+      "sop-product-launch"
+    ],
     "objectives": [
+      "sop-product-launch"
+    ],
+    "cross-functional": [
       "sop-product-launch"
     ],
     "contingency": [
       "sop-product-launch"
-    ],
-    "follows": [
-      "when-analyzing-performance-use-performance-analysis"
-    ],
-    "performance-analysis": [
-      "when-analyzing-performance-use-performance-analysis"
-    ],
-    "evidence-driven": [
-      "when-analyzing-performance-use-performance-analysis"
-    ],
-    "investigation": [
-      "when-analyzing-performance-use-performance-analysis"
-    ],
-    "uses": [
-      "when-managing-github-projects-use-github-project-management"
-    ],
-    "github-project-management": [
-      "when-managing-github-projects-use-github-project-management"
-    ],
-    "github-multi-repo": [
-      "when-managing-multiple-repos-use-github-multi-repo"
-    ],
-    "batching": [
-      "when-managing-multiple-repos-use-github-multi-repo"
-    ],
-    "profiling-heavy": [
-      "when-profiling-performance-use-performance-profiler"
-    ],
-    "performance-profiler": [
-      "when-profiling-performance-use-performance-profiler"
-    ],
-    "software": [
-      "when-releasing-software-use-github-release-management"
-    ],
-    "github-release-management": [
-      "when-releasing-software-use-github-release-management"
-    ],
-    "protections": [
-      "when-releasing-software-use-github-release-management"
     ],
     "hierarchical": [
       "advanced-coordination"
@@ -7560,6 +5899,9 @@
     "hybrids": [
       "coordination"
     ],
+    "loss": [
+      "coordination"
+    ],
     "deadlocks": [
       "coordination"
     ],
@@ -7587,6 +5929,9 @@
     "modes": [
       "flow-nexus-swarm"
     ],
+    "hive-mind": [
+      "hive-mind-advanced"
+    ],
     "blend": [
       "hive-mind-advanced"
     ],
@@ -7600,6 +5945,9 @@
       "llm-council"
     ],
     "deliberations": [
+      "llm-council"
+    ],
+    "diverse": [
       "llm-council"
     ],
     "opinions": [
@@ -7647,6 +5995,9 @@
     "multi-model": [
       "ralph-multimodel"
     ],
+    "leverage": [
+      "ralph-multimodel"
+    ],
     "alignment": [
       "ralph-multimodel"
     ],
@@ -7677,6 +6028,9 @@
     "chains": [
       "stream-chain"
     ],
+    "partial": [
+      "stream-chain"
+    ],
     "consumed": [
       "stream-chain"
     ],
@@ -7684,6 +6038,9 @@
       "stream-chain"
     ],
     "sophisticated": [
+      "swarm-advanced"
+    ],
+    "behaviors": [
       "swarm-advanced"
     ],
     "quorum": [
@@ -7704,71 +6061,11 @@
     "delegation": [
       "swarm-orchestration"
     ],
-    "hook-based": [
-      "when-automating-workflows-use-hooks-automation"
+    "rails": [
+      "swarm-orchestration"
     ],
-    "automations": [
-      "when-automating-workflows-use-hooks-automation"
-    ],
-    "pre": [
-      "when-automating-workflows-use-hooks-automation"
-    ],
-    "post": [
-      "when-automating-workflows-use-hooks-automation"
-    ],
-    "webhooks": [
-      "when-automating-workflows-use-hooks-automation"
-    ],
-    "backend": [
-      "when-building-backend-api-orchestrate-api-development"
-    ],
-    "validations": [
-      "when-building-backend-api-orchestrate-api-development"
-    ],
-    "linked": [
-      "when-chaining-workflows-use-cascade-orchestrator"
-    ],
-    "pass": [
-      "when-chaining-workflows-use-cascade-orchestrator"
-    ],
-    "exit": [
-      "when-chaining-workflows-use-cascade-orchestrator"
-    ],
-    "encourage": [
-      "when-coordinating-collective-intelligence-use-hive-mind"
-    ],
-    "record": [
-      "when-coordinating-collective-intelligence-use-hive-mind"
-    ],
-    "dissent": [
-      "when-coordinating-collective-intelligence-use-hive-mind"
-    ],
-    "gtm": [
-      "when-releasing-new-product-orchestrate-product-launch"
-    ],
-    "gated": [
-      "when-releasing-new-product-orchestrate-product-launch"
-    ],
-    "signoffs": [
-      "when-releasing-new-product-orchestrate-product-launch"
-    ],
-    "methodology": [
-      "when-using-sparc-methodology-use-sparc-workflow"
-    ],
-    "teleportation": [
-      "when-bridging-web-cli-use-web-cli-teleport"
-    ],
-    "controlling": [
-      "when-bridging-web-cli-use-web-cli-teleport"
-    ],
-    "streaming": [
-      "when-chaining-agent-pipelines-use-stream-chain"
-    ],
-    "slash": [
-      "when-creating-slash-commands-use-slash-command-encoder"
-    ],
-    "high-scale": [
-      "when-using-advanced-swarm-use-swarm-advanced"
+    "confidence-aware": [
+      "swarm-orchestration"
     ],
     "workloads": [
       "agentdb"
@@ -7824,6 +6121,12 @@
     "hnsw": [
       "agentdb-performance-optimization"
     ],
+    "caching": [
+      "agentdb-performance-optimization"
+    ],
+    "strategies": [
+      "agentdb-performance-optimization"
+    ],
     "batch": [
       "agentdb-performance-optimization"
     ],
@@ -7835,6 +6138,12 @@
     ],
     "improving": [
       "agentdb-performance-optimization"
+    ],
+    "persistent": [
+      "agentdb-persistent-memory-patterns"
+    ],
+    "experience": [
+      "agentdb-reinforcement-learning-training"
     ],
     "trial": [
       "agentdb-reinforcement-learning-training"
@@ -7887,10 +6196,16 @@
     "tagging": [
       "agentdb-memory-patterns"
     ],
+    "latency": [
+      "agentdb-optimization"
+    ],
     "benchmarking": [
       "agentdb-optimization"
     ],
     "ingestion": [
+      "agentdb-vector-search"
+    ],
+    "query": [
       "agentdb-vector-search"
     ],
     "let": [
@@ -7910,6 +6225,12 @@
     ],
     "bounded": [
       "codex-reasoning"
+    ],
+    "neural": [
+      "flow-nexus-neural"
+    ],
+    "policies": [
+      "flow-nexus-platform"
     ],
     "extension": [
       "gemini-extensions"
@@ -7943,57 +6264,6 @@
     ],
     "grounded": [
       "gemini-search"
-    ],
-    "becomes": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "nan": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "infinite": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "severe": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "overfitting": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "val": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "converging": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "gradient": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "vanishing": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "exploding": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "poor": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "accuracy": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "slow": [
-      "when-debugging-ml-training-use-ml-training-debugger"
-    ],
-    "developing": [
-      "when-developing-ml-models-use-ml-expert"
-    ],
-    "networks": [
-      "when-developing-ml-models-use-ml-expert"
-    ],
-    "transfer": [
-      "when-developing-ml-models-use-ml-expert"
-    ],
-    "fine-tuning": [
-      "when-developing-ml-models-use-ml-expert"
     ],
     "auditing": [
       "codex-audit"
@@ -8133,6 +6403,9 @@
     "exceeds": [
       "gemini-research"
     ],
+    "claude": [
+      "gemini-research"
+    ],
     "200k": [
       "gemini-research"
     ],
@@ -8149,9 +6422,6 @@
       "gemini-research"
     ],
     "find": [
-      "multi-model-discovery"
-    ],
-    "researching": [
       "multi-model-discovery"
     ],
     "technology": [
@@ -8172,16 +6442,13 @@
     "problem": [
       "multi-model-discovery"
     ],
-    "platform-specific": [
-      "when-using-flow-nexus-platform-use-flow-nexus-platform"
-    ],
-    "handled": [
-      "when-using-flow-nexus-platform-use-flow-nexus-platform"
-    ],
     "agentdb-backed": [
       "reasoningbank-agentdb"
     ],
     "three-stage": [
+      "audit-pipeline"
+    ],
+    "pipeline": [
       "audit-pipeline"
     ],
     "proves": [
@@ -8262,6 +6529,12 @@
     "suite": [
       "dogfooding-system"
     ],
+    "functional": [
+      "functionality-audit"
+    ],
+    "correctness": [
+      "functionality-audit"
+    ],
     "probes": [
       "functionality-audit"
     ],
@@ -8289,6 +6562,9 @@
     "line": [
       "github-code-review"
     ],
+    "comments": [
+      "github-code-review"
+    ],
     "suitable": [
       "github-code-review"
     ],
@@ -8297,6 +6573,9 @@
     ],
     "threads": [
       "github-code-review"
+    ],
+    "synthesize": [
+      "holistic-evaluation"
     ],
     "multi-domain": [
       "holistic-evaluation"
@@ -8310,6 +6589,9 @@
     "strengths": [
       "holistic-evaluation"
     ],
+    "stack": [
+      "holistic-evaluation"
+    ],
     "sweep": [
       "quick-quality-check"
     ],
@@ -8321,6 +6603,9 @@
     ],
     "pinned": [
       "reproducibility-audit"
+    ],
+    "sop": [
+      "sop-code-review"
     ],
     "conducting": [
       "sop-code-review"
@@ -8385,51 +6670,6 @@
     "conventions": [
       "style-audit"
     ],
-    "developers": [
-      "when-testing-code-use-testing-framework"
-    ],
-    "framework": [
-      "when-testing-code-use-testing-framework"
-    ],
-    "linting": [
-      "when-auditing-code-style-use-style-audit"
-    ],
-    "code-health": [
-      "when-auditing-code-style-use-style-audit"
-    ],
-    "style-audit": [
-      "when-auditing-code-style-use-style-audit"
-    ],
-    "fake": [
-      "when-detecting-fake-code-use-theater-detection"
-    ],
-    "non-executable": [
-      "when-detecting-fake-code-use-theater-detection"
-    ],
-    "theatrical": [
-      "when-detecting-fake-code-use-theater-detection"
-    ],
-    "invoking": [
-      "when-detecting-fake-code-use-theater-detection"
-    ],
-    "theater-detection": [
-      "when-detecting-fake-code-use-theater-detection"
-    ],
-    "executed": [
-      "when-validating-code-works-use-functionality-audit"
-    ],
-    "functionality-audit": [
-      "when-validating-code-works-use-functionality-audit"
-    ],
-    "acceptance": [
-      "when-verifying-quality-use-verification-quality"
-    ],
-    "runs": [
-      "when-verifying-quality-use-verification-quality"
-    ],
-    "verification-quality": [
-      "when-verifying-quality-use-verification-quality"
-    ],
     "mock": [
       "theater-detection-audit"
     ],
@@ -8486,27 +6726,6 @@
     ],
     "calibrating": [
       "verification-quality"
-    ],
-    "github-code-review": [
-      "when-reviewing-github-pr-use-github-code-review"
-    ],
-    "restate": [
-      "when-reviewing-github-pr-use-github-code-review"
-    ],
-    "essential": [
-      "when-reviewing-github-pr-use-github-code-review"
-    ],
-    "expected": [
-      "when-reviewing-github-pr-use-github-code-review"
-    ],
-    "pull-request": [
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie"
-    ],
-    "carry": [
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie"
-    ],
-    "forward": [
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie"
     ],
     "paper-reading": [
       "academic-reading-workflow"
@@ -8673,11 +6892,17 @@
     "whose": [
       "research-driven-planning"
     ],
+    "milestones": [
+      "research-driven-planning"
+    ],
     "backed": [
       "research-driven-planning"
     ],
     "recommendations": [
       "research-driven-planning"
+    ],
+    "map": [
+      "research-gap-visualizer"
     ],
     "known": [
       "research-gap-visualizer"
@@ -8688,10 +6913,16 @@
     "topic": [
       "research-gap-visualizer"
     ],
+    "highlight": [
+      "research-gap-visualizer"
+    ],
     "submission-ready": [
       "research-publication"
     ],
     "packages": [
+      "research-publication"
+    ],
+    "rigor": [
       "research-publication"
     ],
     "ethics": [
@@ -8714,21 +6945,6 @@
     ],
     "unvetted": [
       "source-credibility-analyzer"
-    ],
-    "requirement-gathering": [
-      "when-gathering-requirements-use-interactive-planner"
-    ],
-    "interactive-planner": [
-      "when-gathering-requirements-use-interactive-planner"
-    ],
-    "router": [
-      "when-gathering-requirements-use-interactive-planner"
-    ],
-    "requirement": [
-      "when-gathering-requirements-use-interactive-planner"
-    ],
-    "discovery": [
-      "when-gathering-requirements-use-interactive-planner"
     ],
     "audit": [
       "testing-quality"
@@ -8775,6 +6991,9 @@
     "mirrors": [
       "compliance"
     ],
+    "rules": [
+      "compliance"
+    ],
     "screen": [
       "wcag-accessibility"
     ],
@@ -8808,10 +7027,28 @@
     "defense-in-depth": [
       "network-security-setup"
     ],
+    "deny-by-default": [
+      "network-security-setup"
+    ],
+    "trusted": [
+      "network-security-setup"
+    ],
     "domain": [
       "network-security-setup"
     ],
+    "allowlists": [
+      "network-security-setup"
+    ],
+    "tls": [
+      "network-security-setup"
+    ],
+    "monitoring": [
+      "network-security-setup"
+    ],
     "sandboxes": [
+      "network-security-setup"
+    ],
+    "applies": [
       "network-security-setup"
     ],
     "quick-turn": [
@@ -8867,6 +7104,9 @@
     ],
     "exploitability": [
       "reverse-engineering-deep-analysis"
+    ],
+    "comprehensive": [
+      "reverse-engineering-firmware-analysis"
     ],
     "partition": [
       "reverse-engineering-firmware-analysis"
@@ -8934,7 +7174,16 @@
     "leverages": [
       "reverse-engineering-quick"
     ],
+    "expectations": [
+      "reverse-engineering-quick"
+    ],
     "least-privilege": [
+      "sandbox-configurator"
+    ],
+    "filesystem": [
+      "sandbox-configurator"
+    ],
+    "secrets": [
       "sandbox-configurator"
     ],
     "role": [
@@ -8951,21 +7200,6 @@
     ],
     "lockdown": [
       "security"
-    ],
-    "analyzer": [
-      "when-auditing-security-use-security-analyzer"
-    ],
-    "encodes": [
-      "when-auditing-security-use-security-analyzer"
-    ],
-    "sandbox-configurator": [
-      "when-configuring-sandbox-security-use-sandbox-configurator"
-    ],
-    "network-security-setup": [
-      "when-setting-network-security-use-network-security-setup"
-    ],
-    "following": [
-      "when-setting-network-security-use-network-security-setup"
     ],
     "performant": [
       "sql-database-specialist"
@@ -9021,6 +7255,9 @@
     "prototypes": [
       "ml"
     ],
+    "hand": [
+      "ml"
+    ],
     "ml-expert": [
       "ml"
     ],
@@ -9060,30 +7297,6 @@
     "tradeoffs": [
       "system-design-architect"
     ],
-    "target": [
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "100ms": [
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "max": [
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "official": [
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "satisfy": [
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "permission": [
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "targets": [
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "pre-hooks": [
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
     "cycle": [
       "bootstrap-loop"
     ],
@@ -9110,27 +7323,6 @@
     ],
     "rubric-backed": [
       "clarity-linter"
-    ],
-    "circular": [
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "unused": [
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "outdated": [
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "vulnerable": [
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "reports": [
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "visuals": [
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "provenance": [
-      "when-documenting-code-use-doc-generator"
     ],
     "anchor": [
       "eval-harness"
@@ -9207,23 +7399,26 @@
     "bridge": [
       "web-cli-teleport"
     ],
+    "commands": [
+      "web-cli-teleport"
+    ],
     "synchronize": [
       "web-cli-teleport"
     ],
     "permissions": [
       "web-cli-teleport"
     ],
-    "accurate": [
+    "docs": [
       "api-docs",
-      "when-documenting-code-use-doc-generator"
+      "template-extractor"
+    ],
+    "schemas": [
+      "api-docs",
+      "sql-database-specialist"
     ],
     "error": [
       "api-docs",
       "agentdb-reinforcement-learning-training"
-    ],
-    "defects": [
-      "debugging",
-      "when-fixing-complex-bug-use-smart-bug-fix"
     ],
     "quickly": [
       "debugging",
@@ -9237,6 +7432,14 @@
       "dependencies",
       "holistic-evaluation"
     ],
+    "entry": [
+      "dependencies",
+      "security"
+    ],
+    "point": [
+      "dependencies",
+      "security"
+    ],
     "dependency": [
       "dependencies",
       "github-multi-repo"
@@ -9249,9 +7452,17 @@
       "dependencies",
       "documentation"
     ],
-    "inline": [
+    "requests": [
       "documentation",
-      "when-documenting-code-use-doc-generator"
+      "code-review-assistant"
+    ],
+    "readme": [
+      "documentation",
+      "general-research-workflow"
+    ],
+    "feature": [
+      "feature-dev-complete",
+      "multi-model-discovery"
     ],
     "needing": [
       "feature-dev-complete",
@@ -9261,6 +7472,10 @@
       "feature-dev-complete",
       "skill-builder"
     ],
+    "end-to-end": [
+      "feature-dev-complete",
+      "system-design-architect"
+    ],
     "strings": [
       "i18n-automation",
       "reverse-engineer-debug"
@@ -9269,49 +7484,37 @@
       "landing-page-generator",
       "cloud-platforms"
     ],
-    "collaborative": [
+    "coding": [
       "pair-programming",
-      "when-collaborative-coding-use-pair-programming"
+      "security"
     ],
     "switch": [
       "pair-programming",
       "cognitive-lensing"
     ],
-    "high-risk": [
-      "smart-bug-fix",
-      "when-using-advanced-swarm-use-swarm-advanced"
-    ],
     "regression": [
       "smart-bug-fix",
       "eval-harness"
     ],
-    "sparc": [
+    "rollout": [
+      "sop-api-development",
+      "github-multi-repo"
+    ],
+    "discipline": [
       "sparc-methodology",
-      "when-using-sparc-methodology-use-sparc-workflow"
+      "reverse-engineering-firmware"
     ],
     "adversarial": [
       "sparc-methodology",
       "prompt-forge"
     ],
-    "hand": [
-      "when-fixing-complex-bug-use-smart-bug-fix",
-      "ml"
-    ],
-    "invoke": [
-      "when-internationalizing-app-use-i18n-automation",
-      "when-training-neural-networks-use-flow-nexus-neural"
+    "production-ready": [
+      "agent-creation",
+      "agentdb"
     ],
     "tool": [
       "agent-creation",
       "agent-creator"
-    ],
-    "scaffolding": [
-      "agent-creation",
-      "when-creating-skill-template-use-skill-builder"
-    ],
-    "routed": [
-      "agent-creation",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie"
     ],
     "orchestration": [
       "agent-creation",
@@ -9320,6 +7523,14 @@
     "definitions": [
       "agent-creator",
       "gate-validation"
+    ],
+    "notes": [
+      "agent-creator",
+      "reasoningbank-agentdb"
+    ],
+    "intent": [
+      "agent-selector",
+      "slash-command-encoder"
     ],
     "tools": [
       "agent-selector",
@@ -9337,17 +7548,17 @@
       "micro-skill-creator",
       "gemini-media"
     ],
-    "roles": [
-      "playbook-architect",
-      "when-orchestrating-swarm-use-swarm-orchestration"
-    ],
     "criteria": [
       "playbook-architect",
       "rapid-idea-generator"
     ],
-    "teams": [
-      "playbook-architect",
-      "when-building-semantic-search-use-agentdb-vector-search"
+    "improve": [
+      "prompt-forge",
+      "ui-ux-excellence"
+    ],
+    "systematic": [
+      "prompt-forge",
+      "gap-reconnaissance"
     ],
     "targeted": [
       "recursive-improvement",
@@ -9365,10 +7576,6 @@
       "recursive-improvement",
       "ml"
     ],
-    "template": [
-      "skill-builder",
-      "when-creating-skill-template-use-skill-builder"
-    ],
     "forge": [
       "skill-builder",
       "bootstrap-loop"
@@ -9377,48 +7584,16 @@
       "skill-creator-agent",
       "agentdb-advanced-features"
     ],
-    "integration": [
-      "skill-creator-agent",
-      "agentdb-advanced-features"
+    "structure": [
+      "skill-forge",
+      "general-research-workflow"
     ],
-    "query": [
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "agentdb-vector-search"
-    ],
-    "tuning": [
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "aws-specialist"
-    ],
-    "policy": [
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "when-configuring-sandbox-security-use-sandbox-configurator"
-    ],
-    "updates": [
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "cicd-intelligent-recovery"
-    ],
-    "persistent": [
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "agentdb-persistent-memory-patterns"
-    ],
-    "strategies": [
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "agentdb-performance-optimization"
-    ],
-    "filters": [
-      "when-optimizing-vector-search-use-agentdb-optimization",
-      "when-using-advanced-vector-search-use-agentdb-advanced"
-    ],
-    "caching": [
-      "when-optimizing-vector-search-use-agentdb-optimization",
-      "agentdb-performance-optimization"
-    ],
-    "experience": [
-      "when-training-rl-agents-use-agentdb-learning",
-      "agentdb-reinforcement-learning-training"
+    "researching": [
+      "gap-reconnaissance",
+      "multi-model-discovery"
     ],
     "storage": [
-      "when-training-rl-agents-use-agentdb-learning",
+      "gap-reconnaissance",
       "infrastructure"
     ],
     "failing": [
@@ -9437,9 +7612,9 @@
       "kubernetes-specialist",
       "agentdb-advanced"
     ],
-    "rbac": [
-      "kubernetes-specialist",
-      "when-creating-claude-hooks-use-hook-creator"
+    "models": [
+      "cloud-platforms",
+      "agentdb-learning-plugins"
     ],
     "whether": [
       "deployment-readiness",
@@ -9449,6 +7624,14 @@
       "deployment-readiness",
       "reverse-engineering-firmware-analysis"
     ],
+    "risks": [
+      "deployment-readiness",
+      "performance-analysis"
+    ],
+    "rollback": [
+      "deployment-readiness",
+      "sql-database-specialist"
+    ],
     "posture": [
       "deployment-readiness",
       "production-readiness"
@@ -9457,13 +7640,9 @@
       "github-integration",
       "agentdb-advanced-features"
     ],
-    "cross-repo": [
-      "github-multi-repo",
-      "when-managing-multiple-repos-use-github-multi-repo"
-    ],
-    "initiatives": [
-      "github-multi-repo",
-      "when-managing-multiple-repos-use-github-multi-repo"
+    "releases": [
+      "github-integration",
+      "github-release-management"
     ],
     "projects": [
       "github-project-management",
@@ -9485,14 +7664,6 @@
       "docker-containerization",
       "reverse-engineering-deep"
     ],
-    "reusable": [
-      "terraform-iac",
-      "template-extractor"
-    ],
-    "collection": [
-      "opentelemetry-observability",
-      "when-profiling-performance-use-performance-profiler"
-    ],
     "instrumentation": [
       "opentelemetry-observability",
       "reverse-engineer-debug"
@@ -9501,25 +7672,33 @@
       "performance-analysis",
       "system-design-architect"
     ],
-    "production": [
+    "meet": [
       "production-readiness",
-      "when-developing-ml-models-use-ml-expert"
+      "sop-code-review"
     ],
-    "launches": [
+    "product": [
       "sop-product-launch",
-      "when-releasing-new-product-orchestrate-product-launch"
+      "ui-ux-excellence"
     ],
-    "cross-functional": [
+    "readiness": [
       "sop-product-launch",
-      "when-releasing-new-product-orchestrate-product-launch"
-    ],
-    "follow": [
-      "when-releasing-software-use-github-release-management",
-      "when-creating-claude-hooks-use-hook-creator"
+      "ml-expert"
     ],
     "meshes": [
       "advanced-coordination",
       "coordination"
+    ],
+    "hybrid": [
+      "advanced-coordination",
+      "agentdb-advanced-features"
+    ],
+    "resilience": [
+      "advanced-coordination",
+      "flow-nexus-swarm"
+    ],
+    "deterministic": [
+      "advanced-coordination",
+      "reproducibility-audit"
     ],
     "outcomes": [
       "advanced-coordination",
@@ -9529,21 +7708,21 @@
       "ai-dev-orchestration",
       "deep-research-orchestrator"
     ],
+    "stage": [
+      "cascade-orchestrator",
+      "deep-research-orchestrator"
+    ],
     "exposes": [
       "cascade-orchestrator",
       "audit-pipeline"
     ],
-    "loss": [
-      "coordination",
-      "when-debugging-ml-training-use-ml-training-debugger"
+    "controlled": [
+      "cascade-orchestrator",
+      "ralph-multimodel"
     ],
-    "hive-mind": [
+    "exploration": [
       "hive-mind-advanced",
-      "when-coordinating-collective-intelligence-use-hive-mind"
-    ],
-    "diverse": [
-      "llm-council",
-      "when-coordinating-collective-intelligence-use-hive-mind"
+      "reverse-engineering-deep"
     ],
     "refine": [
       "meta-loop-orchestrator",
@@ -9552,6 +7731,14 @@
     "drift": [
       "meta-loop-orchestrator",
       "bootstrap-loop"
+    ],
+    "swarm": [
+      "parallel-swarm-implementation",
+      "swarm-advanced"
+    ],
+    "via": [
+      "parallel-swarm-implementation",
+      "eval-harness"
     ],
     "ralph": [
       "ralph-loop",
@@ -9565,9 +7752,9 @@
       "ralph-loop",
       "ralph-multimodel"
     ],
-    "leverage": [
+    "flows": [
       "ralph-multimodel",
-      "when-gathering-requirements-use-interactive-planner"
+      "ui-ux-excellence"
     ],
     "quotas": [
       "safe-task-spawn",
@@ -9581,9 +7768,9 @@
       "slash-command-encoder",
       "agentdb-learning"
     ],
-    "partial": [
-      "stream-chain",
-      "when-chaining-agent-pipelines-use-stream-chain"
+    "actions": [
+      "slash-command-encoder",
+      "holistic-evaluation"
     ],
     "live": [
       "stream-chain",
@@ -9593,51 +7780,35 @@
       "stream-chain",
       "codex-iterative-fix"
     ],
-    "behaviors": [
+    "adaptive": [
       "swarm-advanced",
-      "when-using-advanced-swarm-use-swarm-advanced"
+      "reasoningbank-with-agentdb"
     ],
     "topologies": [
       "swarm-advanced",
       "flow-nexus-platform"
     ],
-    "update": [
-      "when-automating-github-actions-use-workflow-automation",
-      "when-creating-slash-commands-use-slash-command-encoder"
+    "stand": [
+      "swarm-orchestration",
+      "flow-nexus-neural"
     ],
-    "monitoring": [
-      "when-automating-workflows-use-hooks-automation",
-      "network-security-setup"
+    "reporting": [
+      "swarm-orchestration",
+      "functionality-audit"
     ],
-    "stages": [
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "when-chaining-agent-pipelines-use-stream-chain"
-    ],
-    "plus": [
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "when-gathering-requirements-use-interactive-planner"
-    ],
-    "synthesize": [
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "holistic-evaluation"
-    ],
-    "milestones": [
-      "when-releasing-new-product-orchestrate-product-launch",
-      "research-driven-planning"
-    ],
-    "reviewers": [
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-testing-code-use-testing-framework"
-    ],
-    "commands": [
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "web-cli-teleport"
+    "semantic": [
+      "agentdb",
+      "agentdb-vector-search"
     ],
     "recall": [
       "agentdb",
       "agentdb-optimization"
     ],
     "distributed": [
+      "advanced-agentdb-vector-search-implementation",
+      "agentdb-advanced-features"
+    ],
+    "custom": [
       "advanced-agentdb-vector-search-implementation",
       "agentdb-advanced-features"
     ],
@@ -9649,6 +7820,10 @@
       "agentdb-learning-plugins",
       "agentdb-reinforcement-learning-training"
     ],
+    "train": [
+      "agentdb-learning-plugins",
+      "agentdb-reinforcement-learning-training"
+    ],
     "self-learning": [
       "agentdb-learning-plugins",
       "reasoningbank-with-agentdb"
@@ -9656,6 +7831,10 @@
     "reduce": [
       "agentdb-performance-optimization",
       "agentdb-optimization"
+    ],
+    "indexing": [
+      "agentdb-performance-optimization",
+      "agentdb-vector-search"
     ],
     "150x": [
       "agentdb-performance-optimization",
@@ -9677,9 +7856,17 @@
       "agentdb-semantic-vector-search",
       "reasoningbank-adaptive-learning-with-agentdb"
     ],
+    "optimization": [
+      "agentdb-vector-search-optimization",
+      "ml-expert"
+    ],
     "wire": [
       "agentdb-learning",
       "reasoningbank-agentdb"
+    ],
+    "retention": [
+      "agentdb-memory-patterns",
+      "codex-zdr"
     ],
     "set": [
       "agentdb-vector-search",
@@ -9688,6 +7875,10 @@
     "gathering": [
       "codex-reasoning",
       "researcher"
+    ],
+    "platform": [
+      "flow-nexus-platform",
+      "platform"
     ],
     "auditability": [
       "gemini-extensions",
@@ -9725,29 +7916,25 @@
       "codex-safe-experiment",
       "codex-sandbox"
     ],
-    "claude": [
-      "gemini-research",
-      "when-creating-claude-hooks-use-hook-creator"
+    "dependencies": [
+      "gemini-codebase-onboard",
+      "reproducibility-audit"
+    ],
+    "audits": [
+      "gemini-codebase-onboard",
+      "wcag-accessibility"
     ],
     "implementing": [
       "multi-model-discovery",
       "wcag-accessibility"
     ],
-    "solutions": [
+    "existing": [
       "multi-model-discovery",
-      "ml"
+      "template-extractor"
     ],
     "first": [
       "multi-model-discovery",
       "audit-pipeline"
-    ],
-    "pipeline": [
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "audit-pipeline"
-    ],
-    "applies": [
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "network-security-setup"
     ],
     "citations": [
       "reasoningbank-intelligence",
@@ -9777,10 +7964,6 @@
       "dogfooding-system",
       "sop-dogfooding-continuous-improvement"
     ],
-    "functional": [
-      "functionality-audit",
-      "when-validating-code-works-use-functionality-audit"
-    ],
     "file": [
       "github-code-review",
       "reverse-engineering-firmware"
@@ -9788,10 +7971,6 @@
     "maps": [
       "github-code-review",
       "expertise-manager"
-    ],
-    "comments": [
-      "github-code-review",
-      "when-documenting-code-use-doc-generator"
     ],
     "summaries": [
       "github-code-review",
@@ -9801,25 +7980,25 @@
       "holistic-evaluation",
       "reverse-engineering-quick"
     ],
-    "stack": [
-      "holistic-evaluation",
-      "when-auditing-security-use-security-analyzer"
+    "scope": [
+      "quick-quality-check",
+      "ml"
+    ],
+    "ensuring": [
+      "quick-quality-check",
+      "sop-dogfooding-quality-detection"
     ],
     "processes": [
       "reproducibility-audit",
       "sandbox-configurator"
     ],
+    "reviews": [
+      "sop-code-review",
+      "ui-ux-excellence"
+    ],
     "respecting": [
       "style-audit",
       "web-cli-teleport"
-    ],
-    "code-review-assistant": [
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie"
-    ],
-    "rigor": [
-      "when-verifying-quality-use-verification-quality",
-      "research-publication"
     ],
     "document": [
       "verification-and-quality-assurance",
@@ -9841,6 +8020,14 @@
       "general-research-workflow",
       "researcher"
     ],
+    "clarity": [
+      "general-research-workflow",
+      "rapid-manuscript-drafter"
+    ],
+    "needs": [
+      "intent-analyzer",
+      "language-specialists"
+    ],
     "hard": [
       "intent-analyzer",
       "reverse-engineering-deep-analysis"
@@ -9861,14 +8048,6 @@
       "rapid-manuscript-drafter",
       "research-publication"
     ],
-    "map": [
-      "research-gap-visualizer",
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "highlight": [
-      "research-gap-visualizer",
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
     "coverage": [
       "research-gap-visualizer",
       "expertise-manager"
@@ -9881,29 +8060,25 @@
       "source-credibility-analyzer",
       "ui-ux-excellence"
     ],
+    "assets": [
+      "visual-asset-generator",
+      "image-gen"
+    ],
     "assessments": [
       "compliance",
       "security"
     ],
-    "deny-by-default": [
+    "hardening": [
       "network-security-setup",
-      "when-setting-network-security-use-network-security-setup"
-    ],
-    "trusted": [
-      "network-security-setup",
-      "when-setting-network-security-use-network-security-setup"
-    ],
-    "allowlists": [
-      "network-security-setup",
-      "when-setting-network-security-use-network-security-setup"
-    ],
-    "tls": [
-      "network-security-setup",
-      "when-setting-network-security-use-network-security-setup"
+      "reverse-engineering-firmware-analysis"
     ],
     "triage": [
       "reverse-engineer-debug",
       "ml-training-debugger"
+    ],
+    "lightweight": [
+      "reverse-engineer-debug",
+      "ml"
     ],
     "aligns": [
       "reverse-engineer-debug",
@@ -9929,22 +8104,6 @@
       "reverse-engineering-firmware",
       "reverse-engineering-quick"
     ],
-    "expectations": [
-      "reverse-engineering-quick",
-      "when-auditing-security-use-security-analyzer"
-    ],
-    "filesystem": [
-      "sandbox-configurator",
-      "when-configuring-sandbox-security-use-sandbox-configurator"
-    ],
-    "secrets": [
-      "sandbox-configurator",
-      "when-configuring-sandbox-security-use-sandbox-configurator"
-    ],
-    "activate": [
-      "when-configuring-sandbox-security-use-sandbox-configurator",
-      "when-setting-network-security-use-network-security-setup"
-    ],
     "architectures": [
       "react-specialist",
       "frontend-specialists"
@@ -9952,6 +8111,10 @@
     "strong": [
       "react-specialist",
       "frontend-specialists"
+    ],
+    "web": [
+      "python-specialist",
+      "web-cli-teleport"
     ],
     "select": [
       "language-specialists",
@@ -9973,15 +8136,10 @@
       "bootstrap-loop",
       "eval-harness"
     ],
-    "docs": [
+    "api": [
       "api-docs",
-      "when-documenting-code-use-doc-generator",
-      "template-extractor"
-    ],
-    "schemas": [
-      "api-docs",
-      "sql-database-specialist",
-      "when-creating-claude-hooks-use-hook-creator"
+      "documentation",
+      "image-gen"
     ],
     "guidance": [
       "api-docs",
@@ -9998,25 +8156,15 @@
       "performance-analysis",
       "sop-dogfooding-quality-detection"
     ],
-    "point": [
-      "dependencies",
-      "security",
-      "when-auditing-security-use-security-analyzer"
-    ],
-    "readme": [
-      "documentation",
-      "general-research-workflow",
-      "when-documenting-code-use-doc-generator"
-    ],
     "full": [
       "feature-dev-complete",
       "skill-forge",
       "gemini-codebase-onboard"
     ],
-    "feature": [
+    "required": [
       "feature-dev-complete",
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "multi-model-discovery"
+      "codex-audit",
+      "ml"
     ],
     "wiring": [
       "i18n-automation",
@@ -10028,6 +8176,11 @@
       "infrastructure",
       "terraform-iac"
     ],
+    "validating": [
+      "i18n-automation",
+      "deployment-readiness",
+      "reproducibility-audit"
+    ],
     "convert": [
       "landing-page-generator",
       "interactive-planner",
@@ -10038,55 +8191,30 @@
       "github-integration",
       "platform"
     ],
-    "coding": [
+    "sessions": [
       "pair-programming",
-      "when-collaborative-coding-use-pair-programming",
-      "security"
+      "gemini-megacontext",
+      "sop-dogfooding-pattern-retrieval"
+    ],
+    "analysis": [
+      "smart-bug-fix",
+      "reverse-engineering-deep-analysis",
+      "reverse-engineering-firmware-analysis"
     ],
     "apis": [
       "sop-api-development",
       "typescript-specialist",
       "system-design-architect"
     ],
-    "rollout": [
-      "sop-api-development",
-      "when-training-rl-agents-use-agentdb-learning",
-      "github-multi-repo"
-    ],
-    "discipline": [
-      "sparc-methodology",
-      "when-collaborative-coding-use-pair-programming",
-      "reverse-engineering-firmware"
-    ],
-    "assets": [
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "visual-asset-generator",
-      "image-gen"
-    ],
-    "needs": [
-      "when-internationalizing-app-use-i18n-automation",
-      "intent-analyzer",
-      "language-specialists"
-    ],
-    "production-ready": [
+    "evaluation": [
       "agent-creation",
-      "agentdb",
-      "when-creating-claude-hooks-use-hook-creator"
+      "prompt-forge",
+      "rapid-idea-generator"
     ],
     "registry": [
       "agent-creator",
       "skill-creator-agent",
       "safe-task-spawn"
-    ],
-    "notes": [
-      "agent-creator",
-      "when-creating-skill-template-use-skill-builder",
-      "reasoningbank-agentdb"
-    ],
-    "intent": [
-      "agent-selector",
-      "slash-command-encoder",
-      "when-using-sparc-methodology-use-sparc-workflow"
     ],
     "python": [
       "base-template-generator",
@@ -10103,31 +8231,6 @@
       "slash-command-encoder",
       "gemini-megacontext"
     ],
-    "auto-extracted": [
-      "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-      "when-managing-token-budget-use-token-budget-advisor",
-      "when-optimizing-prompts-use-prompt-optimization-analyzer"
-    ],
-    "description": [
-      "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-      "when-managing-token-budget-use-token-budget-advisor",
-      "when-optimizing-prompts-use-prompt-optimization-analyzer"
-    ],
-    "optimized": [
-      "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-      "when-managing-token-budget-use-token-budget-advisor",
-      "when-optimizing-prompts-use-prompt-optimization-analyzer"
-    ],
-    "contexts": [
-      "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-      "when-managing-token-budget-use-token-budget-advisor",
-      "when-optimizing-prompts-use-prompt-optimization-analyzer"
-    ],
-    "excels": [
-      "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-      "when-managing-token-budget-use-token-budget-advisor",
-      "when-optimizing-prompts-use-prompt-optimization-analyzer"
-    ],
     "steps": [
       "playbook-architect",
       "gemini-search",
@@ -10142,11 +8245,6 @@
       "prompt-architect",
       "reproducibility-audit",
       "eval-harness"
-    ],
-    "improve": [
-      "prompt-forge",
-      "when-optimizing-vector-search-use-agentdb-optimization",
-      "ui-ux-excellence"
     ],
     "iteration": [
       "prompt-forge",
@@ -10193,50 +8291,25 @@
       "bootstrap-loop",
       "improvement-pipeline"
     ],
-    "semantic": [
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "agentdb",
-      "agentdb-vector-search"
-    ],
-    "indexing": [
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "agentdb-performance-optimization",
-      "agentdb-vector-search"
-    ],
-    "adaptive": [
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "swarm-advanced",
-      "reasoningbank-with-agentdb"
-    ],
-    "covering": [
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "infrastructure"
-    ],
-    "retention": [
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "agentdb-memory-patterns",
-      "codex-zdr"
-    ],
-    "latency": [
-      "when-optimizing-vector-search-use-agentdb-optimization",
-      "agentdb-optimization",
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "controlled": [
-      "when-training-rl-agents-use-agentdb-learning",
-      "cascade-orchestrator",
-      "ralph-multimodel"
-    ],
-    "hybrid": [
-      "when-using-advanced-vector-search-use-agentdb-advanced",
-      "advanced-coordination",
+    "integration": [
+      "skill-creator-agent",
+      "gap-reconnaissance",
       "agentdb-advanced-features"
     ],
-    "custom": [
-      "when-using-advanced-vector-search-use-agentdb-advanced",
-      "advanced-agentdb-vector-search-implementation",
-      "agentdb-advanced-features"
+    "project": [
+      "gap-reconnaissance",
+      "github-integration",
+      "style-audit"
+    ],
+    "solutions": [
+      "gap-reconnaissance",
+      "multi-model-discovery",
+      "ml"
+    ],
+    "reusable": [
+      "gap-reconnaissance",
+      "terraform-iac",
+      "template-extractor"
     ],
     "cost": [
       "aws-specialist",
@@ -10248,15 +8321,20 @@
       "github-release-management",
       "cascade-orchestrator"
     ],
-    "models": [
+    "governance": [
       "cloud-platforms",
-      "agentdb-learning-plugins",
-      "when-developing-ml-models-use-ml-expert"
+      "agentdb-advanced",
+      "platform"
     ],
-    "releases": [
+    "github": [
       "github-integration",
-      "github-release-management",
-      "when-releasing-software-use-github-release-management"
+      "github-project-management",
+      "github-workflow-automation"
+    ],
+    "workflow": [
+      "github-integration",
+      "academic-reading-workflow",
+      "general-research-workflow"
     ],
     "safe": [
       "github-multi-repo",
@@ -10268,45 +8346,25 @@
       "ai-dev-orchestration",
       "gate-validation"
     ],
+    "approvals": [
+      "github-release-management",
+      "github-workflow-automation",
+      "codex-auto"
+    ],
     "optimize": [
       "github-workflow-automation",
       "agentdb-learning-plugins",
       "agentdb-reinforcement-learning-training"
     ],
-    "meet": [
-      "production-readiness",
-      "sop-code-review",
-      "when-creating-claude-hooks-use-hook-creator"
+    "model": [
+      "terraform-iac",
+      "llm-council",
+      "multi-model"
     ],
-    "product": [
-      "sop-product-launch",
-      "when-releasing-new-product-orchestrate-product-launch",
-      "ui-ux-excellence"
-    ],
-    "readiness": [
-      "sop-product-launch",
-      "when-releasing-new-product-orchestrate-product-launch",
-      "ml-expert"
-    ],
-    "direct": [
-      "when-profiling-performance-use-performance-profiler",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "when-reviewing-github-pr-use-github-code-review"
-    ],
-    "resilience": [
-      "advanced-coordination",
-      "flow-nexus-swarm",
-      "when-using-advanced-swarm-use-swarm-advanced"
-    ],
-    "deterministic": [
-      "advanced-coordination",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "reproducibility-audit"
-    ],
-    "stage": [
-      "cascade-orchestrator",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "deep-research-orchestrator"
+    "keeping": [
+      "ai-dev-orchestration",
+      "safe-task-spawn",
+      "swarm-advanced"
     ],
     "multi-agent": [
       "coordination",
@@ -10318,10 +8376,15 @@
       "advanced-agentdb-vector-search-implementation",
       "agentdb-advanced-features"
     ],
-    "exploration": [
-      "hive-mind-advanced",
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "reverse-engineering-deep"
+    "flow": [
+      "flow-nexus-swarm",
+      "flow-nexus-neural",
+      "flow-nexus-platform"
+    ],
+    "nexus": [
+      "flow-nexus-swarm",
+      "flow-nexus-neural",
+      "flow-nexus-platform"
     ],
     "overclaiming": [
       "hive-mind-advanced",
@@ -10348,50 +8411,15 @@
       "sop-dogfooding-pattern-retrieval",
       "sop-dogfooding-quality-detection"
     ],
-    "swarm": [
-      "parallel-swarm-implementation",
-      "swarm-advanced",
-      "when-using-advanced-swarm-use-swarm-advanced"
-    ],
     "checkpoints": [
       "parallel-swarm-implementation",
       "codex-reasoning",
       "reasoningbank-intelligence"
     ],
-    "flows": [
-      "ralph-multimodel",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "ui-ux-excellence"
-    ],
-    "actions": [
-      "slash-command-encoder",
-      "when-automating-github-actions-use-workflow-automation",
-      "holistic-evaluation"
-    ],
     "stay": [
       "stream-chain",
       "codex-reasoning",
       "language-specialists"
-    ],
-    "stand": [
-      "swarm-orchestration",
-      "when-orchestrating-swarm-use-swarm-orchestration",
-      "flow-nexus-neural"
-    ],
-    "comprehensive": [
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "reverse-engineering-firmware-analysis"
-    ],
-    "correctness": [
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "functionality-audit",
-      "when-validating-code-works-use-functionality-audit"
-    ],
-    "web": [
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "python-specialist",
-      "web-cli-teleport"
     ],
     "behavior": [
       "agentdb-learning-plugins",
@@ -10403,10 +8431,10 @@
       "flow-nexus-platform",
       "sandbox-configurator"
     ],
-    "optimization": [
-      "agentdb-vector-search-optimization",
-      "when-developing-ml-models-use-ml-expert",
-      "ml-expert"
+    "reasoningbank": [
+      "reasoningbank-with-agentdb",
+      "reasoningbank-agentdb",
+      "reasoningbank-intelligence"
     ],
     "disciplined": [
       "agentdb-optimization",
@@ -10418,45 +8446,35 @@
       "python-specialist",
       "typescript-specialist"
     ],
-    "neural": [
+    "deployment": [
       "flow-nexus-neural",
-      "when-developing-ml-models-use-ml-expert",
-      "when-training-neural-networks-use-flow-nexus-neural"
-    ],
-    "platform": [
-      "flow-nexus-platform",
-      "platform",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform"
+      "machine-learning",
+      "ml-expert"
     ],
     "combine": [
       "gemini-media",
       "gemini-search",
       "literature-synthesis"
     ],
-    "existing": [
-      "when-developing-ml-models-use-ml-expert",
-      "multi-model-discovery",
-      "template-extractor"
+    "retrieval": [
+      "gemini-megacontext",
+      "gemini-search",
+      "reasoningbank-agentdb"
+    ],
+    "debugging": [
+      "codex-audit",
+      "codex-iterative-fix",
+      "observability"
+    ],
+    "cli": [
+      "codex-audit",
+      "gemini-research",
+      "web-cli-teleport"
     ],
     "libraries": [
       "codex-safe-experiment",
       "multi-model-discovery",
       "typescript-specialist"
-    ],
-    "dependencies": [
-      "gemini-codebase-onboard",
-      "reproducibility-audit",
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "audits": [
-      "gemini-codebase-onboard",
-      "wcag-accessibility",
-      "when-auditing-security-use-security-analyzer"
-    ],
-    "proper": [
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "when-detecting-fake-code-use-theater-detection",
-      "when-reviewing-code-comprehensively-use-code-review-assistant"
     ],
     "theater": [
       "audit-pipeline",
@@ -10483,21 +8501,6 @@
       "sop-code-review",
       "literature-synthesis"
     ],
-    "scope": [
-      "quick-quality-check",
-      "when-auditing-security-use-security-analyzer",
-      "ml"
-    ],
-    "ensuring": [
-      "quick-quality-check",
-      "sop-dogfooding-quality-detection",
-      "when-testing-code-use-testing-framework"
-    ],
-    "clarity": [
-      "when-auditing-code-style-use-style-audit",
-      "general-research-workflow",
-      "rapid-manuscript-drafter"
-    ],
     "user": [
       "verification-and-quality-assurance",
       "intent-analyzer",
@@ -10523,20 +8526,15 @@
       "rapid-manuscript-drafter",
       "research-publication"
     ],
-    "lightweight": [
-      "when-gathering-requirements-use-interactive-planner",
-      "reverse-engineer-debug",
-      "ml"
+    "compliance": [
+      "research-publication",
+      "compliance",
+      "wcag-accessibility"
     ],
     "accessibility": [
       "wcag-accessibility",
       "frontend-specialists",
       "ui-ux-excellence"
-    ],
-    "hardening": [
-      "network-security-setup",
-      "reverse-engineering-firmware-analysis",
-      "when-setting-network-security-use-network-security-setup"
     ],
     "ship": [
       "api-docs",
@@ -10544,11 +8542,23 @@
       "deployment-readiness",
       "ml-expert"
     ],
-    "entry": [
+    "checks": [
       "dependencies",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "security",
-      "when-auditing-security-use-security-analyzer"
+      "prompt-forge",
+      "gate-validation",
+      "ui-ux-excellence"
+    ],
+    "routing": [
+      "dependencies",
+      "hooks-automation",
+      "multi-model",
+      "security"
+    ],
+    "specialized": [
+      "dependencies",
+      "ralph-multimodel",
+      "general-research-workflow",
+      "security"
     ],
     "mapping": [
       "dependencies",
@@ -10574,12 +8584,6 @@
       "ai-dev-orchestration",
       "baseline-replication"
     ],
-    "end-to-end": [
-      "feature-dev-complete",
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "system-design-architect"
-    ],
     "implementation": [
       "feature-dev-complete",
       "aws-specialist",
@@ -10598,47 +8602,71 @@
       "theater-detection-audit",
       "testing-quality"
     ],
-    "required": [
-      "feature-dev-complete",
-      "codex-audit",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie",
-      "ml"
-    ],
     "best": [
       "feature-dev-complete",
       "agentdb-vector-search",
       "multi-model-discovery",
       "image-gen"
     ],
-    "validating": [
+    "enable": [
       "i18n-automation",
-      "deployment-readiness",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "reproducibility-audit"
+      "cloud-platforms",
+      "agentdb-performance-optimization",
+      "reverse-engineering-quick"
     ],
-    "detect": [
-      "when-collaborative-coding-use-pair-programming",
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-internationalizing-app-use-i18n-automation",
-      "when-detecting-fake-code-use-theater-detection"
+    "delivery": [
+      "i18n-automation",
+      "sparc-methodology",
+      "cloud-platforms",
+      "sandbox-configurator"
     ],
-    "debugging": [
-      "when-debugging-code-use-debugging-assistant",
-      "codex-audit",
-      "codex-iterative-fix",
-      "observability"
+    "guardrails": [
+      "pair-programming",
+      "docker-containerization",
+      "multi-model",
+      "ml-expert"
     ],
-    "rules": [
-      "when-debugging-code-use-debugging-assistant",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie",
-      "compliance",
-      "when-configuring-sandbox-security-use-sandbox-configurator"
+    "complex": [
+      "smart-bug-fix",
+      "sparc-methodology",
+      "cognitive-lensing",
+      "pptx-generation"
+    ],
+    "evidence-backed": [
+      "smart-bug-fix",
+      "llm-council",
+      "slash-command-encoder",
+      "literature-synthesis"
+    ],
+    "contracts": [
+      "sop-api-development",
+      "meta-tools",
+      "flow-nexus-neural",
+      "machine-learning"
+    ],
+    "correct": [
+      "agent-creator",
+      "verification-quality",
+      "sql-database-specialist",
+      "language-specialists"
+    ],
+    "content": [
+      "agent-creator",
+      "skill-builder",
+      "skill-creator-agent",
+      "skill-forge"
     ],
     "templates": [
       "base-template-generator",
       "prompt-forge",
       "pptx-generation",
       "template-extractor"
+    ],
+    "them": [
+      "meta-tools",
+      "recursive-improvement",
+      "intent-analyzer",
+      "source-credibility-analyzer"
     ],
     "playbooks": [
       "playbook-architect",
@@ -10658,23 +8686,11 @@
       "code-review-assistant",
       "general-research-workflow"
     ],
-    "reasoningbank": [
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "reasoningbank-with-agentdb",
-      "reasoningbank-agentdb",
-      "reasoningbank-intelligence"
-    ],
-    "policies": [
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "flow-nexus-platform",
-      "when-setting-network-security-use-network-security-setup",
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "train": [
-      "when-training-rl-agents-use-agentdb-learning",
-      "agentdb-learning-plugins",
-      "agentdb-reinforcement-learning-training",
-      "when-debugging-ml-training-use-ml-training-debugger"
+    "hooks": [
+      "skill-creator-agent",
+      "deployment-readiness",
+      "hooks-automation",
+      "flow-nexus-neural"
     ],
     "resilient": [
       "kubernetes-specialist",
@@ -10682,35 +8698,11 @@
       "agentdb-advanced",
       "ml-expert"
     ],
-    "governance": [
-      "cloud-platforms",
-      "when-managing-github-projects-use-github-project-management",
-      "agentdb-advanced",
-      "platform"
-    ],
-    "risks": [
-      "deployment-readiness",
-      "performance-analysis",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "rollback": [
-      "deployment-readiness",
-      "when-managing-multiple-repos-use-github-multi-repo",
-      "when-releasing-software-use-github-release-management",
-      "sql-database-specialist"
-    ],
-    "project": [
-      "github-integration",
-      "when-managing-github-projects-use-github-project-management",
-      "style-audit",
-      "when-mapping-dependencies-use-dependency-mapper"
-    ],
-    "model": [
-      "terraform-iac",
-      "llm-council",
-      "when-developing-ml-models-use-ml-expert",
-      "multi-model"
+    "network": [
+      "infrastructure",
+      "network-security-setup",
+      "sandbox-configurator",
+      "security"
     ],
     "state": [
       "terraform-iac",
@@ -10724,23 +8716,17 @@
       "python-specialist",
       "system-design-architect"
     ],
-    "reporting": [
-      "when-managing-github-projects-use-github-project-management",
+    "advanced": [
+      "advanced-coordination",
+      "hive-mind-advanced",
+      "advanced-agentdb-vector-search-implementation",
+      "agentdb-advanced-features"
+    ],
+    "swarms": [
+      "flow-nexus-swarm",
+      "hive-mind-advanced",
       "swarm-orchestration",
-      "when-orchestrating-swarm-use-swarm-orchestration",
-      "functionality-audit"
-    ],
-    "keeping": [
-      "ai-dev-orchestration",
-      "safe-task-spawn",
-      "swarm-advanced",
-      "when-creating-slash-commands-use-slash-command-encoder"
-    ],
-    "via": [
-      "parallel-swarm-implementation",
-      "when-validating-code-works-use-functionality-audit",
-      "when-verifying-quality-use-verification-quality",
-      "eval-harness"
+      "flow-nexus-platform"
     ],
     "decisions": [
       "swarm-advanced",
@@ -10748,17 +8734,11 @@
       "reverse-engineering-quick",
       "eval-harness"
     ],
-    "rails": [
-      "swarm-orchestration",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "when-orchestrating-swarm-use-swarm-orchestration"
-    ],
-    "cli": [
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "codex-audit",
-      "gemini-research",
-      "web-cli-teleport"
+    "vector": [
+      "agentdb",
+      "advanced-agentdb-vector-search-implementation",
+      "agentdb-vector-search-optimization",
+      "reasoningbank-with-agentdb"
     ],
     "operates": [
       "advanced-agentdb-vector-search-implementation",
@@ -10777,6 +8757,12 @@
       "agentdb-persistent-memory-patterns",
       "agentdb-reinforcement-learning-training",
       "agentdb-vector-search-optimization"
+    ],
+    "training": [
+      "agentdb-reinforcement-learning-training",
+      "flow-nexus-neural",
+      "ml-expert",
+      "ml-training-debugger"
     ],
     "safely": [
       "agentdb-learning",
@@ -10808,11 +8794,17 @@
       "expertise-manager",
       "ml"
     ],
-    "compliance": [
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "research-publication",
-      "compliance",
-      "wcag-accessibility"
+    "verification": [
+      "reasoningbank-agentdb",
+      "reasoningbank-intelligence",
+      "verification-and-quality-assurance",
+      "testing-quality"
+    ],
+    "style": [
+      "audit-pipeline",
+      "style-audit",
+      "rapid-manuscript-drafter",
+      "testing-quality"
     ],
     "perform": [
       "code-review-assistant",
@@ -10820,13 +8812,31 @@
       "reverse-engineering-deep-analysis",
       "reverse-engineering-firmware-analysis"
     ],
-    "gaps": [
+    "capture": [
       "dogfooding-system",
-      "holistic-evaluation",
+      "baseline-replication",
+      "observability",
+      "web-cli-teleport"
+    ],
+    "reproducibility": [
+      "functionality-audit",
+      "reproducibility-audit",
+      "observability",
+      "visual-asset-generator"
+    ],
+    "identify": [
+      "sop-dogfooding-quality-detection",
       "theater-detection-audit",
-      "research-gap-visualizer"
+      "language-specialists",
+      "template-extractor"
     ],
     "reverse": [
+      "reverse-engineer-debug",
+      "reverse-engineering-deep",
+      "reverse-engineering-deep-analysis",
+      "security"
+    ],
+    "engineering": [
       "reverse-engineer-debug",
       "reverse-engineering-deep",
       "reverse-engineering-deep-analysis",
@@ -10838,13 +8848,6 @@
       "reverse-engineering-firmware",
       "sandbox-configurator"
     ],
-    "api": [
-      "api-docs",
-      "documentation",
-      "when-building-backend-api-orchestrate-api-development",
-      "when-documenting-code-use-doc-generator",
-      "image-gen"
-    ],
     "planning": [
       "dependencies",
       "documentation",
@@ -10852,26 +8855,26 @@
       "gemini-codebase-onboard",
       "interactive-planner"
     ],
-    "specialized": [
-      "dependencies",
-      "ralph-multimodel",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "general-research-workflow",
-      "security"
+    "new": [
+      "feature-dev-complete",
+      "codex-safe-experiment",
+      "gemini-codebase-onboard",
+      "multi-model-discovery",
+      "baseline-replication"
     ],
-    "enable": [
+    "reliable": [
       "i18n-automation",
-      "cloud-platforms",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "agentdb-performance-optimization",
-      "reverse-engineering-quick"
+      "sop-api-development",
+      "coordination",
+      "slash-command-encoder",
+      "react-specialist"
     ],
-    "sessions": [
-      "pair-programming",
-      "when-bridging-web-cli-use-web-cli-teleport",
+    "structured": [
+      "landing-page-generator",
+      "smart-bug-fix",
       "gemini-megacontext",
-      "sop-dogfooding-pattern-retrieval",
-      "when-gathering-requirements-use-interactive-planner"
+      "intent-analyzer",
+      "image-gen"
     ],
     "shared": [
       "pair-programming",
@@ -10880,54 +8883,26 @@
       "parallel-swarm-implementation",
       "advanced-agentdb-vector-search-implementation"
     ],
-    "complex": [
-      "smart-bug-fix",
-      "sparc-methodology",
-      "when-fixing-complex-bug-use-smart-bug-fix",
-      "cognitive-lensing",
-      "pptx-generation"
+    "route": [
+      "agent-selector",
+      "github-integration",
+      "codex-audit",
+      "gemini-research",
+      "platform"
     ],
-    "analysis": [
-      "smart-bug-fix",
-      "when-analyzing-performance-use-performance-analysis",
-      "when-profiling-performance-use-performance-profiler",
-      "reverse-engineering-deep-analysis",
-      "reverse-engineering-firmware-analysis"
+    "performance": [
+      "agent-selector",
+      "docker-containerization",
+      "performance-analysis",
+      "react-specialist",
+      "frontend-specialists"
     ],
-    "contracts": [
-      "sop-api-development",
-      "meta-tools",
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "flow-nexus-neural",
-      "machine-learning"
-    ],
-    "guide": [
-      "sparc-methodology",
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "when-using-advanced-vector-search-use-agentdb-advanced",
-      "when-testing-code-use-testing-framework"
-    ],
-    "identify": [
-      "when-fixing-complex-bug-use-smart-bug-fix",
-      "sop-dogfooding-quality-detection",
-      "theater-detection-audit",
-      "language-specialists",
-      "template-extractor"
-    ],
-    "them": [
-      "when-fixing-complex-bug-use-smart-bug-fix",
-      "meta-tools",
-      "recursive-improvement",
-      "intent-analyzer",
-      "source-credibility-analyzer"
-    ],
-    "structure": [
-      "when-fixing-complex-bug-use-smart-bug-fix",
-      "when-internationalizing-app-use-i18n-automation",
-      "skill-forge",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie",
-      "general-research-workflow"
+    "security": [
+      "base-template-generator",
+      "docker-containerization",
+      "production-readiness",
+      "gemini-codebase-onboard",
+      "security"
     ],
     "paths": [
       "cognitive-lensing",
@@ -10943,6 +8918,20 @@
       "baseline-replication",
       "intent-analyzer"
     ],
+    "ensure": [
+      "prompt-forge",
+      "gate-validation",
+      "general-research-workflow",
+      "expertise-manager",
+      "language-specialists"
+    ],
+    "changes": [
+      "recursive-improvement",
+      "github-multi-repo",
+      "codex-safe-experiment",
+      "bootstrap-loop",
+      "eval-harness"
+    ],
     "aligned": [
       "skill-builder",
       "sop-product-launch",
@@ -10957,12 +8946,19 @@
       "sop-code-review",
       "source-credibility-analyzer"
     ],
-    "retrieval": [
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "when-using-advanced-vector-search-use-agentdb-advanced",
-      "gemini-megacontext",
-      "gemini-search",
-      "reasoningbank-agentdb"
+    "gaps": [
+      "gap-reconnaissance",
+      "dogfooding-system",
+      "holistic-evaluation",
+      "theater-detection-audit",
+      "research-gap-visualizer"
+    ],
+    "deploy": [
+      "cicd-intelligent-recovery",
+      "flow-nexus-swarm",
+      "agentdb-learning-plugins",
+      "agentdb-reinforcement-learning-training",
+      "network-security-setup"
     ],
     "repeatable": [
       "cloud-platforms",
@@ -10971,12 +8967,12 @@
       "academic-reading-workflow",
       "pptx-generation"
     ],
-    "network": [
-      "infrastructure",
-      "network-security-setup",
-      "sandbox-configurator",
-      "security",
-      "when-configuring-sandbox-security-use-sandbox-configurator"
+    "automation": [
+      "github-integration",
+      "github-project-management",
+      "github-release-management",
+      "hooks-automation",
+      "python-specialist"
     ],
     "experiments": [
       "performance-analysis",
@@ -10985,47 +8981,26 @@
       "baseline-replication",
       "observability"
     ],
-    "nexus": [
-      "flow-nexus-swarm",
-      "flow-nexus-neural",
-      "flow-nexus-platform",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform"
-    ],
-    "swarms": [
-      "flow-nexus-swarm",
-      "hive-mind-advanced",
+    "safety": [
+      "slash-command-encoder",
       "swarm-orchestration",
-      "when-orchestrating-swarm-use-swarm-orchestration",
-      "flow-nexus-platform"
-    ],
-    "confidence-aware": [
-      "swarm-orchestration",
-      "when-automating-workflows-use-hooks-automation",
-      "when-building-backend-api-orchestrate-api-development",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "when-orchestrating-swarm-use-swarm-orchestration"
-    ],
-    "deployment": [
-      "when-building-backend-api-orchestrate-api-development",
-      "flow-nexus-neural",
-      "machine-learning",
-      "when-developing-ml-models-use-ml-expert",
-      "ml-expert"
-    ],
-    "engineering": [
-      "when-releasing-new-product-orchestrate-product-launch",
-      "reverse-engineer-debug",
-      "reverse-engineering-deep",
-      "reverse-engineering-deep-analysis",
-      "security"
-    ],
-    "verification": [
+      "codex-audit",
       "reasoningbank-agentdb",
-      "reasoningbank-intelligence",
-      "when-verifying-quality-use-verification-quality",
-      "verification-and-quality-assurance",
-      "testing-quality"
+      "image-gen"
+    ],
+    "preserving": [
+      "agentdb-optimization",
+      "rapid-manuscript-drafter",
+      "research-publication",
+      "reverse-engineering-quick-triage",
+      "template-extractor"
+    ],
+    "practices": [
+      "agentdb-vector-search",
+      "multi-model-discovery",
+      "sandbox-configurator",
+      "react-specialist",
+      "frontend-specialists"
     ],
     "evidential": [
       "code-review-assistant",
@@ -11034,36 +9009,35 @@
       "rapid-manuscript-drafter",
       "research-publication"
     ],
-    "reproducibility": [
-      "functionality-audit",
-      "reproducibility-audit",
-      "when-testing-code-use-testing-framework",
-      "observability",
+    "findings": [
+      "code-review-assistant",
+      "quick-quality-check",
+      "sop-dogfooding-quality-detection",
+      "literature-synthesis",
       "visual-asset-generator"
     ],
-    "new": [
-      "feature-dev-complete",
-      "when-developing-ml-models-use-ml-expert",
-      "codex-safe-experiment",
-      "gemini-codebase-onboard",
-      "multi-model-discovery",
-      "baseline-replication"
+    "keep": [
+      "method-development",
+      "rapid-idea-generator",
+      "researcher",
+      "source-credibility-analyzer",
+      "bootstrap-loop"
     ],
-    "reliable": [
-      "i18n-automation",
-      "sop-api-development",
-      "coordination",
-      "slash-command-encoder",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "react-specialist"
+    "learning": [
+      "debugging",
+      "ralph-multimodel",
+      "agentdb-learning-plugins",
+      "agentdb-reinforcement-learning-training",
+      "reasoningbank-with-agentdb",
+      "agentdb-learning"
     ],
-    "structured": [
-      "landing-page-generator",
-      "smart-bug-fix",
-      "when-profiling-performance-use-performance-profiler",
+    "context": [
+      "pair-programming",
       "gemini-megacontext",
+      "gemini-codebase-onboard",
+      "gemini-research",
       "intent-analyzer",
-      "image-gen"
+      "template-extractor"
     ],
     "fixes": [
       "smart-bug-fix",
@@ -11073,6 +9047,14 @@
       "sop-dogfooding-pattern-retrieval",
       "clarity-linter"
     ],
+    "controls": [
+      "sop-api-development",
+      "aws-specialist",
+      "github-multi-repo",
+      "network-security-setup",
+      "sandbox-configurator",
+      "system-design-architect"
+    ],
     "specialist": [
       "agent-creation",
       "agent-selector",
@@ -11080,22 +9062,6 @@
       "expertise-manager",
       "language-specialists",
       "ml"
-    ],
-    "evaluation": [
-      "agent-creation",
-      "prompt-forge",
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "when-training-rl-agents-use-agentdb-learning",
-      "rapid-idea-generator"
-    ],
-    "correct": [
-      "agent-creator",
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform",
-      "verification-quality",
-      "sql-database-specialist",
-      "language-specialists"
     ],
     "prompts": [
       "prompt-architect",
@@ -11105,38 +9071,6 @@
       "pptx-generation",
       "template-extractor"
     ],
-    "changes": [
-      "recursive-improvement",
-      "github-multi-repo",
-      "when-automating-github-actions-use-workflow-automation",
-      "codex-safe-experiment",
-      "bootstrap-loop",
-      "eval-harness"
-    ],
-    "hooks": [
-      "skill-creator-agent",
-      "deployment-readiness",
-      "hooks-automation",
-      "when-automating-workflows-use-hooks-automation",
-      "flow-nexus-neural",
-      "when-creating-claude-hooks-use-hook-creator"
-    ],
-    "deploy": [
-      "when-training-rl-agents-use-agentdb-learning",
-      "cicd-intelligent-recovery",
-      "flow-nexus-swarm",
-      "agentdb-learning-plugins",
-      "agentdb-reinforcement-learning-training",
-      "network-security-setup"
-    ],
-    "advanced": [
-      "when-using-advanced-vector-search-use-agentdb-advanced",
-      "advanced-coordination",
-      "hive-mind-advanced",
-      "when-using-advanced-swarm-use-swarm-advanced",
-      "advanced-agentdb-vector-search-implementation",
-      "agentdb-advanced-features"
-    ],
     "secure": [
       "cloud-platforms",
       "github-workflow-automation",
@@ -11145,21 +9079,21 @@
       "flow-nexus-swarm",
       "security"
     ],
-    "github": [
+    "review": [
       "github-integration",
-      "github-project-management",
-      "github-workflow-automation",
-      "when-managing-github-projects-use-github-project-management",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-reviewing-github-pr-use-github-code-review"
+      "code-review-assistant",
+      "github-code-review",
+      "testing-quality",
+      "reverse-engineering-firmware-analysis",
+      "python-specialist"
     ],
-    "approvals": [
-      "github-release-management",
-      "github-workflow-automation",
-      "when-managing-multiple-repos-use-github-multi-repo",
-      "when-releasing-software-use-github-release-management",
-      "when-building-backend-api-orchestrate-api-development",
-      "codex-auto"
+    "metrics": [
+      "github-project-management",
+      "opentelemetry-observability",
+      "advanced-agentdb-vector-search-implementation",
+      "agentdb-advanced-features",
+      "baseline-replication",
+      "ml-training-debugger"
     ],
     "loops": [
       "ai-dev-orchestration",
@@ -11169,14 +9103,6 @@
       "reasoningbank-intelligence",
       "sop-dogfooding-quality-detection"
     ],
-    "flow": [
-      "flow-nexus-swarm",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "flow-nexus-neural",
-      "flow-nexus-platform",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform"
-    ],
     "avoid": [
       "parallel-swarm-implementation",
       "literature-synthesis",
@@ -11184,30 +9110,6 @@
       "source-credibility-analyzer",
       "visual-asset-generator",
       "bootstrap-loop"
-    ],
-    "keep": [
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "method-development",
-      "rapid-idea-generator",
-      "researcher",
-      "source-credibility-analyzer",
-      "bootstrap-loop"
-    ],
-    "style": [
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "audit-pipeline",
-      "style-audit",
-      "when-auditing-code-style-use-style-audit",
-      "rapid-manuscript-drafter",
-      "testing-quality"
-    ],
-    "findings": [
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "code-review-assistant",
-      "quick-quality-check",
-      "sop-dogfooding-quality-detection",
-      "literature-synthesis",
-      "visual-asset-generator"
     ],
     "codex": [
       "codex-auto",
@@ -11217,152 +9119,13 @@
       "codex-sandbox",
       "codex-zdr"
     ],
-    "checks": [
-      "dependencies",
-      "prompt-forge",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "when-using-advanced-swarm-use-swarm-advanced",
-      "gate-validation",
-      "when-validating-code-works-use-functionality-audit",
-      "ui-ux-excellence"
-    ],
-    "routing": [
-      "dependencies",
-      "hooks-automation",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "when-orchestrating-swarm-use-swarm-orchestration",
-      "multi-model",
-      "security"
-    ],
-    "delivery": [
-      "i18n-automation",
-      "sparc-methodology",
-      "cloud-platforms",
-      "when-automating-workflows-use-hooks-automation",
-      "when-building-backend-api-orchestrate-api-development",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "sandbox-configurator"
-    ],
-    "context": [
-      "pair-programming",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "gemini-megacontext",
-      "gemini-codebase-onboard",
-      "gemini-research",
-      "intent-analyzer",
-      "template-extractor"
-    ],
-    "evidence-backed": [
-      "smart-bug-fix",
-      "llm-council",
-      "slash-command-encoder",
-      "when-releasing-new-product-orchestrate-product-launch",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "literature-synthesis"
-    ],
-    "reuse": [
-      "prompt-forge",
-      "agentdb-learning",
-      "dogfooding-system",
-      "sop-dogfooding-pattern-retrieval",
-      "literature-synthesis",
-      "rapid-idea-generator",
-      "researcher"
-    ],
-    "vector": [
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "when-optimizing-vector-search-use-agentdb-optimization",
-      "when-using-advanced-vector-search-use-agentdb-advanced",
-      "agentdb",
-      "advanced-agentdb-vector-search-implementation",
-      "agentdb-vector-search-optimization",
-      "reasoningbank-with-agentdb"
-    ],
-    "plan": [
-      "github-multi-repo",
-      "sop-product-launch",
-      "ralph-loop",
-      "gemini-extensions",
-      "machine-learning",
-      "verification-and-quality-assurance",
-      "frontend-specialists"
-    ],
-    "metrics": [
-      "github-project-management",
-      "opentelemetry-observability",
-      "advanced-agentdb-vector-search-implementation",
-      "agentdb-advanced-features",
-      "when-verifying-quality-use-verification-quality",
-      "baseline-replication",
-      "ml-training-debugger"
-    ],
-    "sop": [
-      "when-analyzing-performance-use-performance-analysis",
-      "when-managing-github-projects-use-github-project-management",
-      "when-managing-multiple-repos-use-github-multi-repo",
-      "when-profiling-performance-use-performance-profiler",
-      "when-releasing-software-use-github-release-management",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform",
-      "sop-code-review"
-    ],
-    "without": [
-      "advanced-coordination",
-      "hive-mind-advanced",
-      "parallel-swarm-implementation",
-      "safe-task-spawn",
+    "sandbox": [
       "codex-auto",
-      "codex-audit",
-      "reverse-engineer-debug"
-    ],
-    "reviews": [
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "sop-code-review",
-      "when-auditing-code-style-use-style-audit",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "when-reviewing-github-pr-use-github-code-review",
-      "ui-ux-excellence"
-    ],
-    "training": [
-      "agentdb-reinforcement-learning-training",
-      "flow-nexus-neural",
-      "when-debugging-ml-training-use-ml-training-debugger",
-      "when-developing-ml-models-use-ml-expert",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "ml-expert",
-      "ml-training-debugger"
-    ],
-    "examples": [
-      "api-docs",
-      "micro-skill-creator",
-      "skill-builder",
-      "skill-forge",
-      "multi-model-discovery",
-      "general-research-workflow",
-      "compliance",
-      "language-specialists"
-    ],
-    "learning": [
-      "debugging",
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "ralph-multimodel",
-      "agentdb-learning-plugins",
-      "agentdb-reinforcement-learning-training",
-      "reasoningbank-with-agentdb",
-      "agentdb-learning",
-      "when-developing-ml-models-use-ml-expert"
-    ],
-    "build": [
-      "sop-api-development",
-      "advanced-agentdb-vector-search-implementation",
-      "agentdb-learning-plugins",
-      "agentdb-reinforcement-learning-training",
-      "codex-iterative-fix",
-      "reproducibility-audit",
-      "typescript-specialist",
-      "improvement-pipeline"
+      "codex-sandbox",
+      "audit-pipeline",
+      "functionality-audit",
+      "sandbox-configurator",
+      "security"
     ],
     "tests": [
       "sop-api-development",
@@ -11370,64 +9133,12 @@
       "skill-forge",
       "codex-reasoning",
       "codex-iterative-fix",
-      "when-verifying-quality-use-verification-quality",
       "compliance",
       "language-specialists"
-    ],
-    "controls": [
-      "sop-api-development",
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "aws-specialist",
-      "github-multi-repo",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "network-security-setup",
-      "sandbox-configurator",
-      "system-design-architect"
-    ],
-    "route": [
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "agent-selector",
-      "when-creating-skill-template-use-skill-builder",
-      "github-integration",
-      "codex-audit",
-      "gemini-research",
-      "platform",
-      "when-auditing-security-use-security-analyzer"
-    ],
-    "preserving": [
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-internationalizing-app-use-i18n-automation",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "agentdb-optimization",
-      "rapid-manuscript-drafter",
-      "research-publication",
-      "reverse-engineering-quick-triage",
-      "template-extractor"
-    ],
-    "content": [
-      "agent-creator",
-      "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-      "when-managing-token-budget-use-token-budget-advisor",
-      "when-optimizing-prompts-use-prompt-optimization-analyzer",
-      "skill-builder",
-      "skill-creator-agent",
-      "skill-forge",
-      "when-creating-skill-template-use-skill-builder"
-    ],
-    "performance": [
-      "agent-selector",
-      "docker-containerization",
-      "performance-analysis",
-      "when-analyzing-performance-use-performance-analysis",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-debugging-ml-training-use-ml-training-debugger",
-      "react-specialist",
-      "frontend-specialists"
     ],
     "testing": [
       "base-template-generator",
       "codex-safe-experiment",
-      "when-testing-code-use-testing-framework",
       "theater-detection-audit",
       "testing-quality",
       "wcag-accessibility",
@@ -11441,28 +9152,120 @@
       "github-code-review",
       "interactive-planner",
       "research-driven-planning",
-      "research-gap-visualizer",
-      "when-mapping-dependencies-use-dependency-mapper"
+      "research-gap-visualizer"
     ],
-    "practices": [
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "agentdb-vector-search",
-      "multi-model-discovery",
-      "sandbox-configurator",
-      "when-auditing-security-use-security-analyzer",
-      "when-setting-network-security-use-network-security-setup",
-      "react-specialist",
+    "requirements": [
+      "playbook-architect",
+      "deployment-readiness",
+      "verification-and-quality-assurance",
+      "research-publication",
+      "wcag-accessibility",
+      "network-security-setup",
+      "reverse-engineering-deep"
+    ],
+    "reuse": [
+      "prompt-forge",
+      "agentdb-learning",
+      "dogfooding-system",
+      "sop-dogfooding-pattern-retrieval",
+      "literature-synthesis",
+      "rapid-idea-generator",
+      "researcher"
+    ],
+    "plan": [
+      "github-multi-repo",
+      "sop-product-launch",
+      "ralph-loop",
+      "gemini-extensions",
+      "machine-learning",
+      "verification-and-quality-assurance",
       "frontend-specialists"
     ],
-    "capture": [
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "dogfooding-system",
-      "when-testing-code-use-testing-framework",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
+    "operate": [
+      "github-project-management",
+      "hooks-automation",
+      "cascade-orchestrator",
+      "hive-mind-advanced",
+      "stream-chain",
+      "swarm-orchestration",
+      "agentdb-advanced"
+    ],
+    "without": [
+      "advanced-coordination",
+      "hive-mind-advanced",
+      "parallel-swarm-implementation",
+      "safe-task-spawn",
+      "codex-auto",
+      "codex-audit",
+      "reverse-engineer-debug"
+    ],
+    "enforce": [
+      "llm-council",
+      "connascence-quality-gate",
+      "deep-research-orchestrator",
+      "rapid-manuscript-drafter",
+      "research-driven-planning",
+      "research-publication",
+      "testing-quality"
+    ],
+    "agentdb": [
+      "agentdb-advanced",
+      "advanced-agentdb-vector-search-implementation",
+      "agentdb-advanced-features",
+      "agentdb-persistent-memory-patterns",
+      "agentdb-reinforcement-learning-training",
+      "agentdb-vector-search-optimization",
+      "agentdb-learning"
+    ],
+    "examples": [
+      "api-docs",
+      "micro-skill-creator",
+      "skill-builder",
+      "skill-forge",
+      "multi-model-discovery",
+      "general-research-workflow",
+      "compliance",
+      "language-specialists"
+    ],
+    "produce": [
+      "landing-page-generator",
+      "agent-creator",
+      "micro-skill-creator",
       "baseline-replication",
+      "rapid-idea-generator",
+      "rapid-manuscript-drafter",
+      "visual-asset-generator",
+      "pptx-generation"
+    ],
+    "build": [
+      "sop-api-development",
+      "advanced-agentdb-vector-search-implementation",
+      "agentdb-learning-plugins",
+      "agentdb-reinforcement-learning-training",
+      "codex-iterative-fix",
+      "reproducibility-audit",
+      "typescript-specialist",
+      "improvement-pipeline"
+    ],
+    "validate": [
+      "recursive-improvement",
+      "slash-command-encoder",
+      "codex-auto",
+      "verification-and-quality-assurance",
+      "intent-analyzer",
+      "method-development",
+      "reverse-engineering-deep-analysis",
+      "improvement-pipeline"
+    ],
+    "pipelines": [
+      "cicd-intelligent-recovery",
+      "docker-containerization",
+      "gemini-media",
+      "reproducibility-audit",
       "observability",
-      "web-cli-teleport"
+      "network-security-setup",
+      "react-specialist",
+      "ml-expert"
     ],
     "assess": [
       "deployment-readiness",
@@ -11474,35 +9277,15 @@
       "verification-quality",
       "clarity-linter"
     ],
-    "review": [
-      "github-integration",
-      "code-review-assistant",
-      "github-code-review",
-      "when-reviewing-github-pr-use-github-code-review",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie",
-      "testing-quality",
-      "reverse-engineering-firmware-analysis",
-      "python-specialist"
-    ],
-    "automation": [
-      "github-integration",
+    "workflows": [
       "github-project-management",
-      "github-release-management",
-      "hooks-automation",
-      "when-managing-github-projects-use-github-project-management",
-      "when-releasing-software-use-github-release-management",
-      "when-automating-github-actions-use-workflow-automation",
-      "python-specialist"
-    ],
-    "operate": [
-      "github-project-management",
-      "hooks-automation",
+      "github-workflow-automation",
       "cascade-orchestrator",
-      "hive-mind-advanced",
-      "stream-chain",
-      "swarm-orchestration",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "agentdb-advanced"
+      "agentdb-learning-plugins",
+      "flow-nexus-neural",
+      "machine-learning",
+      "reasoningbank-agentdb",
+      "observability"
     ],
     "plans": [
       "github-release-management",
@@ -11514,15 +9297,55 @@
       "system-design-architect",
       "ui-ux-excellence"
     ],
-    "enforce": [
-      "llm-council",
-      "when-chaining-workflows-use-cascade-orchestrator",
+    "implement": [
+      "opentelemetry-observability",
+      "advanced-agentdb-vector-search-implementation",
+      "agentdb-learning-plugins",
+      "agentdb-performance-optimization",
+      "agentdb-reinforcement-learning-training",
+      "reasoningbank-with-agentdb",
+      "frontend-specialists",
+      "python-specialist"
+    ],
+    "artifacts": [
+      "ai-dev-orchestration",
+      "baseline-replication",
+      "literature-synthesis",
+      "method-development",
+      "rapid-idea-generator",
+      "research-publication",
+      "researcher",
+      "template-extractor"
+    ],
+    "gates": [
+      "cascade-orchestrator",
+      "machine-learning",
       "connascence-quality-gate",
       "deep-research-orchestrator",
-      "rapid-manuscript-drafter",
-      "research-driven-planning",
-      "research-publication",
-      "testing-quality"
+      "testing-quality",
+      "bootstrap-loop",
+      "eval-harness",
+      "pptx-generation"
+    ],
+    "memory": [
+      "hive-mind-advanced",
+      "agentdb",
+      "advanced-agentdb-vector-search-implementation",
+      "agentdb-performance-optimization",
+      "agentdb-persistent-memory-patterns",
+      "reasoningbank-with-agentdb",
+      "agentdb-memory-patterns",
+      "reverse-engineering-deep"
+    ],
+    "search": [
+      "agentdb",
+      "advanced-agentdb-vector-search-implementation",
+      "agentdb-advanced-features",
+      "agentdb-performance-optimization",
+      "agentdb-vector-search-optimization",
+      "agentdb-vector-search",
+      "gemini-search",
+      "gemini-research"
     ],
     "apply": [
       "agentdb-performance-optimization",
@@ -11534,37 +9357,27 @@
       "researcher",
       "visual-asset-generator"
     ],
-    "sandbox": [
-      "codex-auto",
-      "codex-sandbox",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "audit-pipeline",
-      "functionality-audit",
-      "sandbox-configurator",
-      "security",
-      "when-configuring-sandbox-security-use-sandbox-configurator"
+    "work": [
+      "dependencies",
+      "sparc-methodology",
+      "agent-selector",
+      "platform",
+      "sop-dogfooding-pattern-retrieval",
+      "theater-detection-audit",
+      "deep-research-orchestrator",
+      "intent-analyzer",
+      "security"
     ],
-    "requests": [
+    "documentation": [
       "documentation",
-      "when-debugging-code-use-debugging-assistant",
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-creating-skill-template-use-skill-builder",
-      "when-profiling-performance-use-performance-profiler",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "code-review-assistant",
-      "when-reviewing-github-pr-use-github-code-review",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie"
-    ],
-    "security": [
-      "base-template-generator",
-      "docker-containerization",
-      "production-readiness",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "gemini-codebase-onboard",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "security",
-      "when-auditing-security-use-security-analyzer"
+      "sop-api-development",
+      "agent-creation",
+      "platform",
+      "style-audit",
+      "research-driven-planning",
+      "source-credibility-analyzer",
+      "visual-asset-generator",
+      "compliance"
     ],
     "improvement": [
       "recursive-improvement",
@@ -11577,39 +9390,6 @@
       "eval-harness",
       "improvement-pipeline"
     ],
-    "implement": [
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "opentelemetry-observability",
-      "advanced-agentdb-vector-search-implementation",
-      "agentdb-learning-plugins",
-      "agentdb-performance-optimization",
-      "agentdb-reinforcement-learning-training",
-      "reasoningbank-with-agentdb",
-      "frontend-specialists",
-      "python-specialist"
-    ],
-    "memory": [
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "hive-mind-advanced",
-      "agentdb",
-      "advanced-agentdb-vector-search-implementation",
-      "agentdb-performance-optimization",
-      "agentdb-persistent-memory-patterns",
-      "reasoningbank-with-agentdb",
-      "agentdb-memory-patterns",
-      "reverse-engineering-deep"
-    ],
-    "pipelines": [
-      "cicd-intelligent-recovery",
-      "docker-containerization",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "gemini-media",
-      "reproducibility-audit",
-      "observability",
-      "network-security-setup",
-      "react-specialist",
-      "ml-expert"
-    ],
     "systems": [
       "hooks-automation",
       "platform-integration",
@@ -11621,92 +9401,19 @@
       "ml-expert",
       "system-design-architect"
     ],
-    "artifacts": [
+    "run": [
       "ai-dev-orchestration",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "baseline-replication",
-      "literature-synthesis",
-      "method-development",
-      "rapid-idea-generator",
-      "research-publication",
-      "researcher",
-      "template-extractor"
-    ],
-    "validated": [
-      "api-docs",
-      "landing-page-generator",
-      "pair-programming",
-      "prompt-architect",
-      "cicd-intelligent-recovery",
-      "hooks-automation",
-      "infrastructure",
-      "performance-analysis",
-      "parallel-swarm-implementation",
-      "ml-training-debugger"
-    ],
-    "documentation": [
-      "documentation",
-      "sop-api-development",
-      "agent-creation",
-      "platform",
-      "style-audit",
-      "research-driven-planning",
-      "source-credibility-analyzer",
-      "visual-asset-generator",
-      "compliance",
-      "when-documenting-code-use-doc-generator"
-    ],
-    "produce": [
-      "landing-page-generator",
-      "agent-creator",
-      "micro-skill-creator",
-      "baseline-replication",
-      "rapid-idea-generator",
-      "rapid-manuscript-drafter",
-      "visual-asset-generator",
-      "when-mapping-dependencies-use-dependency-mapper",
-      "when-documenting-code-use-doc-generator",
-      "pptx-generation"
-    ],
-    "guardrails": [
-      "pair-programming",
-      "docker-containerization",
-      "when-managing-github-projects-use-github-project-management",
-      "when-managing-multiple-repos-use-github-multi-repo",
-      "multi-model",
-      "when-detecting-fake-code-use-theater-detection",
-      "when-reviewing-github-pr-use-github-code-review",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie",
-      "when-gathering-requirements-use-interactive-planner",
-      "ml-expert"
-    ],
-    "requirements": [
-      "playbook-architect",
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "deployment-readiness",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "verification-and-quality-assurance",
-      "research-publication",
-      "wcag-accessibility",
-      "network-security-setup",
-      "reverse-engineering-deep",
-      "when-documenting-code-use-doc-generator"
-    ],
-    "validate": [
-      "recursive-improvement",
-      "slash-command-encoder",
-      "when-automating-github-actions-use-workflow-automation",
+      "llm-council",
+      "ralph-multimodel",
       "codex-auto",
-      "verification-and-quality-assurance",
-      "intent-analyzer",
-      "method-development",
-      "reverse-engineering-deep-analysis",
-      "when-auditing-security-use-security-analyzer",
+      "audit-pipeline",
+      "gate-validation",
+      "academic-reading-workflow",
+      "bootstrap-loop",
       "improvement-pipeline"
     ],
     "maintain": [
       "hive-mind-advanced",
-      "when-automating-workflows-use-hooks-automation",
       "deep-research-orchestrator",
       "general-research-workflow",
       "literature-synthesis",
@@ -11722,63 +9429,22 @@
       "method-development",
       "research-gap-visualizer",
       "researcher",
-      "when-gathering-requirements-use-interactive-planner",
       "testing-quality",
       "visual-asset-generator",
       "reverse-engineering-firmware",
       "typescript-specialist"
     ],
-    "work": [
-      "dependencies",
-      "sparc-methodology",
-      "agent-selector",
-      "when-analyzing-performance-use-performance-analysis",
-      "platform",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform",
-      "sop-dogfooding-pattern-retrieval",
-      "theater-detection-audit",
-      "deep-research-orchestrator",
-      "intent-analyzer",
-      "security"
-    ],
-    "workflow": [
-      "when-collaborative-coding-use-pair-programming",
-      "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-      "when-managing-token-budget-use-token-budget-advisor",
-      "when-optimizing-prompts-use-prompt-optimization-analyzer",
-      "github-integration",
-      "when-orchestrating-swarm-use-swarm-orchestration",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "academic-reading-workflow",
-      "general-research-workflow",
-      "when-configuring-sandbox-security-use-sandbox-configurator",
-      "when-setting-network-security-use-network-security-setup"
-    ],
-    "search": [
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "when-optimizing-vector-search-use-agentdb-optimization",
-      "when-using-advanced-vector-search-use-agentdb-advanced",
-      "agentdb",
-      "advanced-agentdb-vector-search-implementation",
-      "agentdb-advanced-features",
-      "agentdb-performance-optimization",
-      "agentdb-vector-search-optimization",
-      "agentdb-vector-search",
-      "gemini-search",
-      "gemini-research"
-    ],
-    "safety": [
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "slash-command-encoder",
-      "swarm-orchestration",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "when-orchestrating-swarm-use-swarm-orchestration",
-      "codex-audit",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform",
-      "reasoningbank-agentdb",
-      "image-gen"
+    "validated": [
+      "api-docs",
+      "landing-page-generator",
+      "pair-programming",
+      "prompt-architect",
+      "cicd-intelligent-recovery",
+      "hooks-automation",
+      "infrastructure",
+      "performance-analysis",
+      "parallel-swarm-implementation",
+      "ml-training-debugger"
     ],
     "provide": [
       "dependencies",
@@ -11789,15 +9455,35 @@
       "sop-code-review",
       "sop-dogfooding-continuous-improvement",
       "general-research-workflow",
-      "when-gathering-requirements-use-interactive-planner",
       "testing-quality",
-      "reverse-engineer-debug",
-      "when-auditing-security-use-security-analyzer"
+      "reverse-engineer-debug"
+    ],
+    "coordinate": [
+      "documentation",
+      "github-integration",
+      "github-release-management",
+      "advanced-coordination",
+      "meta-loop-orchestrator",
+      "parallel-swarm-implementation",
+      "ralph-loop",
+      "codex-reasoning",
+      "deep-research-orchestrator",
+      "expertise-manager"
+    ],
+    "execute": [
+      "playbook-architect",
+      "github-multi-repo",
+      "sop-product-launch",
+      "parallel-swarm-implementation",
+      "gemini-extensions",
+      "machine-learning",
+      "codex-sandbox",
+      "codex-zdr",
+      "verification-and-quality-assurance",
+      "web-cli-teleport"
     ],
     "data": [
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
       "aws-specialist",
-      "when-profiling-performance-use-performance-profiler",
       "flow-nexus-neural",
       "machine-learning",
       "codex-zdr",
@@ -11807,6 +9493,19 @@
       "observability",
       "python-specialist",
       "system-design-architect"
+    ],
+    "outputs": [
+      "micro-skill-creator",
+      "cascade-orchestrator",
+      "hive-mind-advanced",
+      "parallel-swarm-implementation",
+      "stream-chain",
+      "gemini-media",
+      "github-code-review",
+      "verification-quality",
+      "source-credibility-analyzer",
+      "image-gen",
+      "web-cli-teleport"
     ],
     "observability": [
       "aws-specialist",
@@ -11819,22 +9518,7 @@
       "agentdb-advanced",
       "flow-nexus-platform",
       "multi-model",
-      "when-configuring-sandbox-security-use-sandbox-configurator",
       "system-design-architect"
-    ],
-    "workflows": [
-      "github-project-management",
-      "github-workflow-automation",
-      "cascade-orchestrator",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "when-using-advanced-swarm-use-swarm-advanced",
-      "agentdb-learning-plugins",
-      "flow-nexus-neural",
-      "machine-learning",
-      "reasoningbank-agentdb",
-      "observability"
     ],
     "quality": [
       "cascade-orchestrator",
@@ -11845,105 +9529,26 @@
       "sop-dogfooding-continuous-improvement",
       "sop-dogfooding-pattern-retrieval",
       "sop-dogfooding-quality-detection",
-      "when-verifying-quality-use-verification-quality",
       "deep-research-orchestrator",
       "testing-quality",
       "reverse-engineering-quick-triage"
     ],
-    "gates": [
-      "cascade-orchestrator",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "machine-learning",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform",
-      "connascence-quality-gate",
-      "when-verifying-quality-use-verification-quality",
-      "deep-research-orchestrator",
-      "testing-quality",
-      "bootstrap-loop",
-      "eval-harness",
-      "pptx-generation"
-    ],
-    "coordinate": [
-      "documentation",
-      "github-integration",
-      "github-release-management",
-      "advanced-coordination",
-      "meta-loop-orchestrator",
-      "parallel-swarm-implementation",
-      "ralph-loop",
-      "when-building-backend-api-orchestrate-api-development",
-      "when-releasing-new-product-orchestrate-product-launch",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "codex-reasoning",
-      "deep-research-orchestrator",
-      "expertise-manager"
-    ],
-    "execute": [
-      "when-collaborative-coding-use-pair-programming",
-      "when-debugging-code-use-debugging-assistant",
-      "playbook-architect",
-      "github-multi-repo",
-      "sop-product-launch",
-      "parallel-swarm-implementation",
-      "gemini-extensions",
-      "machine-learning",
-      "codex-sandbox",
-      "codex-zdr",
-      "when-testing-code-use-testing-framework",
-      "verification-and-quality-assurance",
-      "web-cli-teleport"
-    ],
-    "outputs": [
-      "micro-skill-creator",
-      "cascade-orchestrator",
-      "hive-mind-advanced",
-      "parallel-swarm-implementation",
-      "stream-chain",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "gemini-media",
-      "github-code-review",
-      "verification-quality",
-      "when-reviewing-github-pr-use-github-code-review",
-      "source-credibility-analyzer",
-      "image-gen",
-      "web-cli-teleport"
-    ],
-    "agentdb": [
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "when-optimizing-vector-search-use-agentdb-optimization",
-      "when-training-rl-agents-use-agentdb-learning",
-      "when-using-advanced-vector-search-use-agentdb-advanced",
-      "agentdb-advanced",
-      "advanced-agentdb-vector-search-implementation",
-      "agentdb-advanced-features",
-      "agentdb-persistent-memory-patterns",
-      "agentdb-reinforcement-learning-training",
-      "agentdb-vector-search-optimization",
-      "agentdb-learning"
-    ],
-    "run": [
-      "ai-dev-orchestration",
-      "llm-council",
-      "ralph-multimodel",
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "when-using-advanced-swarm-use-swarm-advanced",
-      "codex-auto",
-      "audit-pipeline",
-      "gate-validation",
-      "when-auditing-code-style-use-style-audit",
+    "prompt-architect": [
       "academic-reading-workflow",
-      "bootstrap-loop",
-      "improvement-pipeline"
+      "interactive-planner",
+      "rapid-idea-generator",
+      "researcher",
+      "network-security-setup",
+      "reverse-engineering-deep",
+      "reverse-engineering-firmware-analysis",
+      "reverse-engineering-quick-triage",
+      "reverse-engineering-firmware",
+      "reverse-engineering-quick",
+      "sandbox-configurator"
     ],
     "patterns": [
       "meta-tools",
-      "when-analyzing-skill-gaps-use-skill-gap-analyzer",
-      "when-managing-token-budget-use-token-budget-advisor",
-      "when-optimizing-prompts-use-prompt-optimization-analyzer",
+      "gap-reconnaissance",
       "kubernetes-specialist",
       "docker-containerization",
       "agentdb",
@@ -11954,6 +9559,51 @@
       "reasoningbank-intelligence",
       "dogfooding-system",
       "sop-dogfooding-pattern-retrieval"
+    ],
+    "skill-forge": [
+      "general-research-workflow",
+      "source-credibility-analyzer",
+      "compliance",
+      "network-security-setup",
+      "reverse-engineer-debug",
+      "reverse-engineering-deep",
+      "reverse-engineering-deep-analysis",
+      "reverse-engineering-firmware-analysis",
+      "reverse-engineering-quick-triage",
+      "reverse-engineering-firmware",
+      "reverse-engineering-quick",
+      "sandbox-configurator"
+    ],
+    "clear": [
+      "api-docs",
+      "sparc-methodology",
+      "agent-creation",
+      "meta-tools",
+      "micro-skill-creator",
+      "kubernetes-specialist",
+      "github-release-management",
+      "github-workflow-automation",
+      "production-readiness",
+      "sop-product-launch",
+      "multi-model",
+      "quick-quality-check",
+      "pptx-generation"
+    ],
+    "validation": [
+      "documentation",
+      "sparc-methodology",
+      "agent-creator",
+      "meta-tools",
+      "micro-skill-creator",
+      "skill-forge",
+      "terraform-iac",
+      "opentelemetry-observability",
+      "ai-dev-orchestration",
+      "ralph-loop",
+      "codex-iterative-fix",
+      "reverse-engineering-deep",
+      "sql-database-specialist",
+      "pptx-generation"
     ],
     "create": [
       "agent-creation",
@@ -11967,80 +9617,34 @@
       "infrastructure",
       "safe-task-spawn",
       "slash-command-encoder",
-      "when-creating-slash-commands-use-slash-command-encoder",
       "advanced-agentdb-vector-search-implementation",
       "agentdb-learning-plugins",
       "research-driven-planning"
     ],
-    "prompt-architect": [
-      "when-collaborative-coding-use-pair-programming",
-      "when-debugging-code-use-debugging-assistant",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "academic-reading-workflow",
+    "constraint": [
+      "baseline-replication",
+      "general-research-workflow",
       "interactive-planner",
+      "method-development",
       "rapid-idea-generator",
+      "rapid-manuscript-drafter",
+      "research-gap-visualizer",
       "researcher",
-      "network-security-setup",
-      "reverse-engineering-deep",
+      "testing-quality",
+      "visual-asset-generator",
       "reverse-engineering-firmware-analysis",
       "reverse-engineering-quick-triage",
       "reverse-engineering-firmware",
-      "reverse-engineering-quick",
-      "sandbox-configurator",
-      "when-auditing-security-use-security-analyzer",
-      "when-configuring-sandbox-security-use-sandbox-configurator",
-      "when-setting-network-security-use-network-security-setup"
-    ],
-    "ensure": [
-      "prompt-forge",
-      "when-analyzing-performance-use-performance-analysis",
-      "when-managing-github-projects-use-github-project-management",
-      "when-managing-multiple-repos-use-github-multi-repo",
-      "when-profiling-performance-use-performance-profiler",
-      "when-releasing-software-use-github-release-management",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform",
-      "gate-validation",
-      "when-auditing-code-style-use-style-audit",
-      "when-validating-code-works-use-functionality-audit",
-      "when-verifying-quality-use-verification-quality",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie",
-      "general-research-workflow",
-      "when-gathering-requirements-use-interactive-planner",
-      "expertise-manager",
-      "language-specialists"
-    ],
-    "clear": [
-      "api-docs",
-      "sparc-methodology",
-      "agent-creation",
-      "meta-tools",
-      "micro-skill-creator",
-      "kubernetes-specialist",
-      "github-release-management",
-      "github-workflow-automation",
-      "production-readiness",
-      "sop-product-launch",
-      "when-managing-github-projects-use-github-project-management",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "multi-model",
-      "quick-quality-check",
-      "when-auditing-security-use-security-analyzer",
-      "when-documenting-code-use-doc-generator",
-      "pptx-generation"
+      "sandbox-configurator"
     ],
     "while": [
       "debugging",
       "dependencies",
       "documentation",
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-internationalizing-app-use-i18n-automation",
       "ai-dev-orchestration",
       "coordination",
       "meta-loop-orchestrator",
       "swarm-advanced",
-      "when-creating-slash-commands-use-slash-command-encoder",
       "agentdb-optimization",
       "sop-dogfooding-quality-detection",
       "style-audit",
@@ -12050,11 +9654,28 @@
       "template-extractor",
       "web-cli-teleport"
     ],
+    "code": [
+      "debugging",
+      "codex-auto",
+      "codex-sandbox",
+      "codex-zdr",
+      "multi-model-discovery",
+      "code-review-assistant",
+      "connascence-quality-gate",
+      "github-code-review",
+      "reproducibility-audit",
+      "sop-code-review",
+      "style-audit",
+      "theater-detection-audit",
+      "testing-quality",
+      "python-specialist",
+      "typescript-specialist",
+      "template-extractor"
+    ],
     "research": [
       "feature-dev-complete",
       "landing-page-generator",
       "gemini-research",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
       "deep-research-orchestrator",
       "general-research-workflow",
       "intent-analyzer",
@@ -12066,50 +9687,63 @@
       "research-gap-visualizer",
       "research-publication",
       "source-credibility-analyzer",
-      "when-gathering-requirements-use-interactive-planner",
       "testing-quality",
       "visual-asset-generator"
     ],
-    "skill-forge": [
-      "when-collaborative-coding-use-pair-programming",
-      "when-debugging-code-use-debugging-assistant",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "general-research-workflow",
-      "source-credibility-analyzer",
-      "compliance",
-      "network-security-setup",
-      "reverse-engineer-debug",
-      "reverse-engineering-deep",
-      "reverse-engineering-deep-analysis",
-      "reverse-engineering-firmware-analysis",
-      "reverse-engineering-quick-triage",
-      "reverse-engineering-firmware",
-      "reverse-engineering-quick",
-      "sandbox-configurator",
-      "when-auditing-security-use-security-analyzer",
-      "when-configuring-sandbox-security-use-sandbox-configurator",
-      "when-setting-network-security-use-network-security-setup"
-    ],
-    "validation": [
-      "documentation",
-      "sparc-methodology",
-      "agent-creator",
-      "meta-tools",
-      "micro-skill-creator",
-      "skill-forge",
-      "when-creating-skill-template-use-skill-builder",
-      "terraform-iac",
+    "design": [
+      "feature-dev-complete",
+      "landing-page-generator",
+      "sop-api-development",
+      "prompt-architect",
+      "aws-specialist",
+      "github-project-management",
+      "hooks-automation",
       "opentelemetry-observability",
-      "when-analyzing-performance-use-performance-analysis",
-      "ai-dev-orchestration",
+      "cascade-orchestrator",
+      "stream-chain",
+      "agentdb-advanced",
+      "gemini-media",
+      "multi-model",
+      "network-security-setup",
+      "ml-expert",
+      "system-design-architect"
+    ],
+    "constraints": [
+      "agent-selector",
+      "github-workflow-automation",
       "ralph-loop",
-      "when-debugging-ml-training-use-ml-training-debugger",
-      "codex-iterative-fix",
-      "when-testing-code-use-testing-framework",
-      "reverse-engineering-deep",
-      "sql-database-specialist",
-      "when-documenting-code-use-doc-generator",
-      "pptx-generation"
+      "verification-quality",
+      "academic-reading-workflow",
+      "intent-analyzer",
+      "literature-synthesis",
+      "method-development",
+      "observability",
+      "rapid-idea-generator",
+      "research-driven-planning",
+      "research-publication",
+      "source-credibility-analyzer",
+      "visual-asset-generator",
+      "reverse-engineering-quick-triage",
+      "reverse-engineering-quick"
+    ],
+    "across": [
+      "aws-specialist",
+      "cloud-platforms",
+      "github-integration",
+      "github-release-management",
+      "hooks-automation",
+      "production-readiness",
+      "coordination",
+      "gemini-codebase-onboard",
+      "dogfooding-system",
+      "holistic-evaluation",
+      "reproducibility-audit",
+      "sop-code-review",
+      "literature-synthesis",
+      "compliance",
+      "sandbox-configurator",
+      "python-specialist",
+      "improvement-pipeline"
     ],
     "deliver": [
       "pair-programming",
@@ -12127,109 +9761,32 @@
       "typescript-specialist",
       "ml",
       "ml-training-debugger",
-      "when-creating-claude-hooks-use-hook-creator",
       "clarity-linter",
       "image-gen",
       "improvement-pipeline"
     ],
-    "across": [
-      "aws-specialist",
-      "cloud-platforms",
-      "github-integration",
-      "github-release-management",
-      "hooks-automation",
-      "production-readiness",
-      "coordination",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "gemini-codebase-onboard",
-      "dogfooding-system",
-      "holistic-evaluation",
-      "reproducibility-audit",
-      "sop-code-review",
-      "literature-synthesis",
-      "compliance",
-      "sandbox-configurator",
-      "python-specialist",
-      "improvement-pipeline"
-    ],
-    "code": [
-      "debugging",
-      "codex-auto",
-      "codex-sandbox",
-      "codex-zdr",
-      "multi-model-discovery",
-      "code-review-assistant",
-      "connascence-quality-gate",
-      "github-code-review",
-      "reproducibility-audit",
-      "sop-code-review",
-      "style-audit",
-      "when-testing-code-use-testing-framework",
-      "when-detecting-fake-code-use-theater-detection",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "theater-detection-audit",
-      "testing-quality",
-      "python-specialist",
-      "typescript-specialist",
-      "when-creating-claude-hooks-use-hook-creator",
-      "when-documenting-code-use-doc-generator",
-      "template-extractor"
-    ],
-    "design": [
-      "feature-dev-complete",
-      "landing-page-generator",
-      "sop-api-development",
+    "ceilings": [
       "prompt-architect",
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "aws-specialist",
-      "github-project-management",
-      "hooks-automation",
-      "opentelemetry-observability",
-      "cascade-orchestrator",
+      "ai-dev-orchestration",
+      "ralph-loop",
+      "safe-task-spawn",
       "stream-chain",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-automating-workflows-use-hooks-automation",
-      "when-building-backend-api-orchestrate-api-development",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "agentdb-advanced",
-      "gemini-media",
-      "multi-model",
-      "network-security-setup",
-      "when-configuring-sandbox-security-use-sandbox-configurator",
-      "ml-expert",
-      "system-design-architect"
-    ],
-    "constraint": [
-      "when-collaborative-coding-use-pair-programming",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "when-auditing-code-style-use-style-audit",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "when-verifying-quality-use-verification-quality",
-      "baseline-replication",
+      "swarm-advanced",
+      "quick-quality-check",
+      "deep-research-orchestrator",
       "general-research-workflow",
       "interactive-planner",
       "method-development",
       "rapid-idea-generator",
       "rapid-manuscript-drafter",
+      "research-driven-planning",
       "research-gap-visualizer",
+      "research-publication",
       "researcher",
-      "when-gathering-requirements-use-interactive-planner",
-      "testing-quality",
-      "visual-asset-generator",
-      "reverse-engineering-firmware-analysis",
-      "reverse-engineering-quick-triage",
-      "reverse-engineering-firmware",
-      "sandbox-configurator",
-      "when-auditing-security-use-security-analyzer",
-      "when-configuring-sandbox-security-use-sandbox-configurator",
-      "when-setting-network-security-use-network-security-setup"
+      "visual-asset-generator"
     ],
     "structure-first": [
       "sparc-methodology",
-      "when-debugging-code-use-debugging-assistant",
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-training-neural-networks-use-flow-nexus-neural",
       "interactive-planner",
       "literature-synthesis",
       "method-development",
@@ -12247,66 +9804,28 @@
       "reverse-engineering-quick-triage",
       "reverse-engineering-firmware",
       "reverse-engineering-quick",
-      "sandbox-configurator",
-      "when-auditing-security-use-security-analyzer",
-      "when-configuring-sandbox-security-use-sandbox-configurator",
-      "when-setting-network-security-use-network-security-setup"
+      "sandbox-configurator"
     ],
-    "evidence": [
-      "sparc-methodology",
-      "when-debugging-code-use-debugging-assistant",
-      "meta-tools",
-      "micro-skill-creator",
-      "playbook-architect",
-      "skill-forge",
-      "when-optimizing-vector-search-use-agentdb-optimization",
+    "confidence": [
+      "advanced-coordination",
+      "ai-dev-orchestration",
+      "coordination",
+      "meta-loop-orchestrator",
+      "ralph-loop",
       "safe-task-spawn",
+      "stream-chain",
       "swarm-advanced",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "agentdb-memory-patterns",
-      "codex-reasoning",
-      "gate-validation",
-      "github-code-review",
       "quick-quality-check",
-      "when-testing-code-use-testing-framework",
       "verification-quality",
-      "academic-reading-workflow",
       "deep-research-orchestrator",
       "general-research-workflow",
+      "interactive-planner",
       "research-driven-planning",
+      "research-gap-visualizer",
       "researcher",
-      "source-credibility-analyzer",
-      "reverse-engineering-quick-triage",
-      "ml-training-debugger",
-      "clarity-linter"
-    ],
-    "constraints": [
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-fixing-complex-bug-use-smart-bug-fix",
-      "when-internationalizing-app-use-i18n-automation",
-      "agent-selector",
-      "github-workflow-automation",
-      "ralph-loop",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-automating-workflows-use-hooks-automation",
-      "when-building-backend-api-orchestrate-api-development",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "when-using-advanced-swarm-use-swarm-advanced",
-      "when-validating-code-works-use-functionality-audit",
-      "verification-quality",
-      "academic-reading-workflow",
-      "intent-analyzer",
-      "literature-synthesis",
-      "method-development",
-      "observability",
-      "rapid-idea-generator",
-      "research-driven-planning",
-      "research-publication",
-      "source-credibility-analyzer",
-      "visual-asset-generator",
-      "reverse-engineering-quick-triage",
-      "reverse-engineering-quick"
+      "testing-quality",
+      "reverse-engineering-firmware",
+      "sandbox-configurator"
     ],
     "explicit": [
       "pair-programming",
@@ -12315,19 +9834,7 @@
       "stream-chain",
       "swarm-advanced",
       "swarm-orchestration",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-automating-workflows-use-hooks-automation",
-      "when-building-backend-api-orchestrate-api-development",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "when-releasing-new-product-orchestrate-product-launch",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "when-orchestrating-swarm-use-swarm-orchestration",
-      "when-using-advanced-swarm-use-swarm-advanced",
       "reasoningbank-intelligence",
-      "when-validating-code-works-use-functionality-audit",
       "deep-research-orchestrator",
       "method-development",
       "rapid-idea-generator",
@@ -12342,84 +9849,29 @@
       "ml-expert",
       "system-design-architect"
     ],
-    "ceilings": [
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-fixing-complex-bug-use-smart-bug-fix",
-      "prompt-architect",
-      "ai-dev-orchestration",
-      "ralph-loop",
+    "evidence": [
+      "sparc-methodology",
+      "meta-tools",
+      "micro-skill-creator",
+      "playbook-architect",
+      "skill-forge",
       "safe-task-spawn",
-      "stream-chain",
       "swarm-advanced",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "when-releasing-new-product-orchestrate-product-launch",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "when-using-advanced-swarm-use-swarm-advanced",
+      "agentdb-memory-patterns",
+      "codex-reasoning",
+      "gate-validation",
+      "github-code-review",
       "quick-quality-check",
-      "when-testing-code-use-testing-framework",
-      "when-auditing-code-style-use-style-audit",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "when-validating-code-works-use-functionality-audit",
-      "deep-research-orchestrator",
-      "general-research-workflow",
-      "interactive-planner",
-      "method-development",
-      "rapid-idea-generator",
-      "rapid-manuscript-drafter",
-      "research-driven-planning",
-      "research-gap-visualizer",
-      "research-publication",
-      "researcher",
-      "when-gathering-requirements-use-interactive-planner",
-      "visual-asset-generator"
-    ],
-    "confidence": [
-      "when-collaborative-coding-use-pair-programming",
-      "when-debugging-code-use-debugging-assistant",
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-fixing-complex-bug-use-smart-bug-fix",
-      "when-internationalizing-app-use-i18n-automation",
-      "advanced-coordination",
-      "ai-dev-orchestration",
-      "coordination",
-      "meta-loop-orchestrator",
-      "ralph-loop",
-      "safe-task-spawn",
-      "stream-chain",
-      "swarm-advanced",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "when-releasing-new-product-orchestrate-product-launch",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "when-using-advanced-swarm-use-swarm-advanced",
-      "quick-quality-check",
-      "when-testing-code-use-testing-framework",
-      "when-auditing-code-style-use-style-audit",
-      "when-verifying-quality-use-verification-quality",
       "verification-quality",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie",
+      "academic-reading-workflow",
       "deep-research-orchestrator",
       "general-research-workflow",
-      "interactive-planner",
       "research-driven-planning",
-      "research-gap-visualizer",
       "researcher",
-      "when-gathering-requirements-use-interactive-planner",
-      "testing-quality",
-      "reverse-engineering-firmware",
-      "sandbox-configurator",
-      "when-auditing-security-use-security-analyzer",
-      "when-configuring-sandbox-security-use-sandbox-configurator",
-      "when-setting-network-security-use-network-security-setup"
+      "source-credibility-analyzer",
+      "reverse-engineering-quick-triage",
+      "ml-training-debugger",
+      "clarity-linter"
     ],
     "purpose": [
       "api-docs",
@@ -12432,11 +9884,6 @@
       "smart-bug-fix",
       "sop-api-development",
       "sparc-methodology",
-      "when-collaborative-coding-use-pair-programming",
-      "when-debugging-code-use-debugging-assistant",
-      "when-developing-complete-feature-use-feature-dev-complete",
-      "when-fixing-complex-bug-use-smart-bug-fix",
-      "when-internationalizing-app-use-i18n-automation",
       "agent-creation",
       "agent-creator",
       "agent-selector",
@@ -12451,13 +9898,7 @@
       "skill-builder",
       "skill-creator-agent",
       "skill-forge",
-      "when-building-semantic-search-use-agentdb-vector-search",
-      "when-creating-skill-template-use-skill-builder",
-      "when-implementing-adaptive-learning-use-reasoningbank-agentdb",
-      "when-implementing-persistent-memory-use-agentdb-memory",
-      "when-optimizing-vector-search-use-agentdb-optimization",
-      "when-training-rl-agents-use-agentdb-learning",
-      "when-using-advanced-vector-search-use-agentdb-advanced",
+      "gap-reconnaissance",
       "cicd-intelligent-recovery",
       "aws-specialist",
       "kubernetes-specialist",
@@ -12477,11 +9918,6 @@
       "platform-integration",
       "production-readiness",
       "sop-product-launch",
-      "when-analyzing-performance-use-performance-analysis",
-      "when-managing-github-projects-use-github-project-management",
-      "when-managing-multiple-repos-use-github-multi-repo",
-      "when-profiling-performance-use-performance-profiler",
-      "when-releasing-software-use-github-release-management",
       "advanced-coordination",
       "ai-dev-orchestration",
       "cascade-orchestrator",
@@ -12498,19 +9934,6 @@
       "stream-chain",
       "swarm-advanced",
       "swarm-orchestration",
-      "when-automating-github-actions-use-workflow-automation",
-      "when-automating-workflows-use-hooks-automation",
-      "when-building-backend-api-orchestrate-api-development",
-      "when-chaining-workflows-use-cascade-orchestrator",
-      "when-coordinating-collective-intelligence-use-hive-mind",
-      "when-releasing-new-product-orchestrate-product-launch",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-review",
-      "when-using-sparc-methodology-use-sparc-workflow",
-      "when-bridging-web-cli-use-web-cli-teleport",
-      "when-chaining-agent-pipelines-use-stream-chain",
-      "when-creating-slash-commands-use-slash-command-encoder",
-      "when-orchestrating-swarm-use-swarm-orchestration",
-      "when-using-advanced-swarm-use-swarm-advanced",
       "agentdb",
       "agentdb-advanced",
       "agentdb-learning",
@@ -12532,8 +9955,6 @@
       "codex-zdr",
       "gemini-research",
       "platform",
-      "when-training-neural-networks-use-flow-nexus-neural",
-      "when-using-flow-nexus-platform-use-flow-nexus-platform",
       "reasoningbank-agentdb",
       "reasoningbank-intelligence",
       "audit-pipeline",
@@ -12551,17 +9972,9 @@
       "sop-dogfooding-pattern-retrieval",
       "sop-dogfooding-quality-detection",
       "style-audit",
-      "when-testing-code-use-testing-framework",
-      "when-auditing-code-style-use-style-audit",
-      "when-detecting-fake-code-use-theater-detection",
-      "when-reviewing-code-comprehensively-use-code-review-assistant",
-      "when-validating-code-works-use-functionality-audit",
-      "when-verifying-quality-use-verification-quality",
       "theater-detection-audit",
       "verification-and-quality-assurance",
       "verification-quality",
-      "when-reviewing-github-pr-use-github-code-review",
-      "when-reviewing-pull-request-orchestrate-comprehensive-code-revie",
       "academic-reading-workflow",
       "baseline-replication",
       "deep-research-orchestrator",
@@ -12578,7 +9991,6 @@
       "research-publication",
       "researcher",
       "source-credibility-analyzer",
-      "when-gathering-requirements-use-interactive-planner",
       "testing-quality",
       "visual-asset-generator",
       "compliance",
@@ -12592,9 +10004,6 @@
       "reverse-engineering-quick",
       "sandbox-configurator",
       "security",
-      "when-auditing-security-use-security-analyzer",
-      "when-configuring-sandbox-security-use-sandbox-configurator",
-      "when-setting-network-security-use-network-security-setup",
       "sql-database-specialist",
       "expertise-manager",
       "react-specialist",
@@ -12606,11 +10015,8 @@
       "ml-expert",
       "ml-training-debugger",
       "system-design-architect",
-      "when-creating-claude-hooks-use-hook-creator",
       "bootstrap-loop",
       "clarity-linter",
-      "when-mapping-dependencies-use-dependency-mapper",
-      "when-documenting-code-use-doc-generator",
       "eval-harness",
       "image-gen",
       "improvement-pipeline",

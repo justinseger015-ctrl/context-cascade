@@ -4,7 +4,7 @@ CURRENT SKILL.md (first 2500 chars):
 ```
 ---
 name: prompt-architect
-description: Meta-loop skill for prompt optimization using VERILINGUA VCL + VERIX v3.1.1
+description: Optimize prompts for clarity, structure, and epistemic hygiene
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
 model: sonnet
 x-version: 3.1.1
@@ -13,130 +13,72 @@ x-vcl-compliance: v3.1.1
 x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
 
-<!-- =========================================================================
-     PROMPT ARCHITECT v3.1.1 :: VERILINGUA VCL + VERIX COMPLIANT
+## STANDARD OPERATING PROCEDURE
 
-     VCL 7-Slot System: HON -> MOR -> COM -> CLS -> EVD -> ASP -> SPC
-     Default Output: L2 English (human-facing)
-     Immutable Rules: EVD >= 1, ASP >= 1
-     ========================================================================= -->
+### Purpose
+Optimize user prompts for clarity, structure, and effectiveness while maintaining epistemic hygiene.
 
----
-<!-- S0 META-IDENTITY -->
----
+### Trigger Conditions
+- Positive: "optimize prompt", "design prompt", "improve my prompt", "self-consistency check"
+- Negative: Route to agent-creator, prompt-forge, or skill-forge instead
 
-[define|neutral] SKILL := {
-  name: "prompt-architect",
-  category: "foundry",
-  version: "3.1.1",
-  layer: L2,
-  vcl_compliance: "v3.1.1"
-} [ground:given] [conf:0.95] [state:confirmed]
+### Execution Phases
 
-[define|neutral] COGNITIVE_FRAME := {
-  frame: "Compositional",
-  source: "German",
-  force: "Build from primitives?"
-} [ground:cognitive-science] [conf:0.85] [state:confirmed]
+#### Phase 1: Intent Analysis
+1. Parse the user's original prompt or request
+2. Identify the primary intent (code_generation, explanation, debugging, refactoring, review, analysis, etc.)
+3. Extract constraints (domain, language, scope, requirements)
+4. Ask clarifying questions if ambiguity exists
+5. Document what you observed: "I identified the intent as X with constraints Y"
 
----
-<!-- S1 VCL 7-SLOT SYSTEM REFERENCE -->
----
+#### Phase 2: Prompt Optimization
+1. Restructure the request for clarity (subject-verb-object)
+2. Add missing context and constraints explicitly
+3. Specify success criteria clearly
+4. Remove ambiguous language
+5. Detect and avoid anti-patterns:
+   - Overclaiming certainty without evidence
+   - Leaking internal notation into output
+   - Premature optimization
+   - Confidence inflation beyond what evidence supports
 
-[define|neutral] VCL_SLOT_ORDER := {
-  order: ["HON", "MOR", "COM", "CLS", "EVD", "ASP", "SPC"],
-  rule: "Slots MUST appear in this order when present",
-  enforcement: "E1"
-} [ground:vcl-spec-v3.1.1] [conf:0.90] [state:confirmed]
+#### Phase 3: Validation
+1. Verify all identified constraints are addressed
+2. Check that confidence claims are appropriate
+3. Ensure output is in pure English (no markup or notation)
+4. Generate evidence chain showing reasoning
+5. Mark task as complete or ongoing
 
-[define|neutral] VCL_SLOT_HON := {
-  name: "Honorific",
-  source: "Japanese keigo",
-  purpose: "Audience register selection",
-  values: ["teineigo", "sonkeigo", "kenjougo"],
-  weight: 0.08,
-  enforcement: 0
-} [ground:vcl-spec-v3.1.1] [conf:0.90] [state:confirmed]
+### Output Format
+Provide analysis in pure English with:
+- Identified intent and category
+- Extracted constraints as a list
+- Optimized version of the prompt (if applicable)
+- Confidence assessment with reasoning
+- Evidence grounding (what you observed/analyzed)
 
-[define|neutral] VCL_SLOT_MOR := {
-  name: "Morphological",
-  source: "Arabic trilateral roots",
-  purpose: "Semantic decomposition into root components",
-  notation: "root:X-Y-Z",
-  weight: 0.10,
-  enforcement: 0
-} [ground:vcl-spec-v3.1.1] [conf:0.90] [state:confirmed]
+### Example Output
+```
+**Intent Analysis**
+- Primary Intent: code_generation
+- Category: mathematical function
+- Constraints: single function, recursive or iterative approach
 
-[define|neutral] VCL_SLOT_COM := {
-  name: "Compositional",
-  source: "German compounding",
-  purpose: "Build concepts from primitives",
-  notation: "Concept+From+Parts",
-  weight: 0.10,
-  enforcement: 0
-} [ground:vcl-spec-v3.1.1] [conf:0.90] [state:confirmed]
+**Observations**
+I analyzed the request "Write a function to calculate factorial" and identified it as a code generation task in the mathematical domain. The request implies a single function is needed, with flexibility in implementation approach.
 
-[define|neutral] VCL_SLOT_CLS := {
-  name: "Classifier",
-  source: "Chinese classifiers",
-  purpose: "Semantic typing and counting",
-  notation: "type_specifier",
-  weight: 0.08,
-  enforcement: 0
-} [ground:vcl-spec-v3.1.1] [conf:0.90] [state:confirmed]
+**Confidence**: High (0.90) - The intent is clear and unambiguous.
+```
 
-[define|neutral] VCL_SLOT_EVD := {
-  name: "Evidential",
-  
+### Qua
 ```
 
 FAILURE ANALYSIS:
-- Total failures: 11
-- Pattern summary: {"timeout": 3, "domain_specific": 2, "epistemic_calibration": 2, "incomplete_output": 1, "wrong_language": 2}
+- Total failures: 0
+- Pattern summary: {"timeout": 0, "domain_specific": 0, "epistemic_calibration": 0, "incomplete_output": 0, "wrong_language": 0}
 
 TOP FAILURES:
-[
-  {
-    "id": "PA-017",
-    "category": "prompt_optimization",
-    "issue": "The skill execution failed due to a CLI timeout after 5 minutes, producing no usable output. The task required creating a diagnostic prompt for test failures, but nothing was generated. Intent was not"
-  },
-  {
-    "id": "PA-020",
-    "category": "prompt_optimization",
-    "issue": "The skill failed to address the success criteria which explicitly requires 'idiomatic Go patterns'. The output is generic and language-agnostic, mentioning TypeScript, Python, and Rust but never Go. W"
-  },
-  {
-    "id": "PA-021",
-    "category": "prompt_optimization",
-    "issue": "The skill failed to execute due to a timeout error. No actual output was produced, so intent accuracy, constraint coverage, output quality, and VERIX compliance cannot be evaluated and receive 0.0 sco"
-  },
-  {
-    "id": "PA-023",
-    "category": "prompt_optimization",
-    "issue": "The skill correctly identified that 'add caching' is ambiguous and needs clarification, which shows good intent recognition. However, the success criteria specifically states 'Converts caching into sp"
-  },
-  {
-    "id": "PA-024",
-    "category": "prompt_optimization",
-    "issue": "The success criteria explicitly requires transforming 'accessibility' into a WCAG compliance checklist, but the skill output only mentions WCAG as one of four options (Option D) and provides no actual"
-  },
-  {
-    "id": "PA-025",
-    "category": "prompt_optimization",
-    "issue": "The success criteria explicitly requires 'Creates incremental TypeScript migration plan', but the skill output pivoted to Python type hints instead. While the skill correctly identified the codebase i"
-  },
-  {
-    "id": "PA-027",
-    "category": "prompt_optimization",
-    "issue": "The skill correctly identified that 'add authentication' is vague and needs clarification - this is good prompt architect behavior. However, the success criteria specified 'Converts auth into complete"
-  },
-  {
-    "id": "PA-039",
-    "category": "anti_pattern_detection",
-    "issue": "The skill partially identified the anti-pattern nature of 'connection per request' by noting it's 'generally considered an anti-pattern' with valid reasons (overhead, resource exhaustion, performance)"
-  }
-]
+[]
 
 Based on these failures, propose ONE specific improvement to add to SKILL.md.
 
