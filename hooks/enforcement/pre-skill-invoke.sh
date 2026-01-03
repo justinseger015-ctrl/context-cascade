@@ -36,8 +36,8 @@ After this skill completes, you MUST:
    Pattern: Task("Agent Name", "Task description", "agent-type")
 
    Agent types MUST be from registry:
-   - Registry: claude-code-plugins/ruv-sparc-three-loop-system/agents/
-   - 206 agents in 10 categories
+   - Registry: claude-code-plugins/context-cascade/agents/
+   - 217 agents in 10 categories
    - Fallbacks if unsure: coder, researcher, tester, reviewer
 
 2. CREATE TODOS via TodoWrite()

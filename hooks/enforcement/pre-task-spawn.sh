@@ -16,9 +16,9 @@ You are about to spawn an agent via Task().
 
 CRITICAL: Agent type MUST be from registry!
 
-AGENT REGISTRY: claude-code-plugins/ruv-sparc-three-loop-system/agents/
+AGENT REGISTRY: claude-code-plugins/context-cascade/agents/
 
-VALID CATEGORIES (206 agents):
+VALID CATEGORIES (217 agents):
 
   1. DELIVERY (18 agents)
      - coder, backend-dev, frontend-dev, fullstack-dev

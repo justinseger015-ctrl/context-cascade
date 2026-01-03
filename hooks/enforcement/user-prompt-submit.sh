@@ -14,8 +14,14 @@ SKILL_INDEX="$PLUGIN_DIR/scripts/skill-index/skill-index.json"
 # Read user message from stdin
 USER_MESSAGE=$(timeout 5 cat 2>/dev/null || echo '{}')
 
-# Extract message text
-MESSAGE_TEXT=$(echo "$USER_MESSAGE" | jq -r '.message // empty' 2>/dev/null || echo "$USER_MESSAGE")
+# Extract prompt text (Claude Code sends 'prompt' field per official spec)
+MESSAGE_TEXT=$(echo "$USER_MESSAGE" | jq -r '.prompt // empty' 2>/dev/null)
+if [ -z "$MESSAGE_TEXT" ]; then
+    MESSAGE_TEXT=$(echo "$USER_MESSAGE" | jq -r '.message // empty' 2>/dev/null)
+fi
+if [ -z "$MESSAGE_TEXT" ]; then
+    MESSAGE_TEXT="$USER_MESSAGE"
+fi
 
 # Classify request as trivial or non-trivial
 IS_TRIVIAL=false

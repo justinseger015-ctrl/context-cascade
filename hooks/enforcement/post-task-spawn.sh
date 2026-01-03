@@ -15,10 +15,10 @@ TOOL_NAME=$(echo "$TOOL_DATA" | jq -r '.tool_name // empty' 2>/dev/null)
 # Only process Task invocations
 if [[ "$TOOL_NAME" == "Task" ]]; then
     # Try to extract agent info (limited by hook constraints)
-    # NOTE: This may not work if hooks can't see tool input
-    AGENT_TYPE=$(echo "$TOOL_DATA" | jq -r '.tool_input.agent_type // "unknown"' 2>/dev/null)
-    AGENT_NAME=$(echo "$TOOL_DATA" | jq -r '.tool_input.name // "unknown"' 2>/dev/null)
-    TASK_DESC=$(echo "$TOOL_DATA" | jq -r '.tool_input.task // "unknown"' 2>/dev/null)
+    # NOTE: Task tool uses 'subagent_type' per official Claude Code spec
+    AGENT_TYPE=$(echo "$TOOL_DATA" | jq -r '.tool_input.subagent_type // "unknown"' 2>/dev/null)
+    AGENT_NAME=$(echo "$TOOL_DATA" | jq -r '.tool_input.description // "unknown"' 2>/dev/null)
+    TASK_DESC=$(echo "$TOOL_DATA" | jq -r '.tool_input.prompt // "unknown"' 2>/dev/null)
 
     # Log agent spawn (even if unknown - will be validated later)
     if [ "$AGENT_TYPE" != "unknown" ]; then
@@ -36,8 +36,8 @@ An agent has been spawned. Great!
 NEXT MANDATORY STEPS:
 
 [ ] STEP 1: Verify agent type is from registry
-    - Registry: claude-code-plugins/ruv-sparc-three-loop-system/agents/
-    - 206 agents in 10 categories
+    - Registry: claude-code-plugins/context-cascade/agents/
+    - 217 agents in 10 categories
     - If you used a generic type: FIX IT NOW
 
 [ ] STEP 2: If spawning multiple agents (parallel work):
