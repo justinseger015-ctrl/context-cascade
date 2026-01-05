@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Reframed the teleport skill with Prompt Architect clarity and Skill Forge guardrails.
 - Added explicit routing, safety constraints, and memory tagging.
@@ -72,18 +71,3 @@ Bridge web and CLI tasks safely—execute commands, capture outputs, and synchro
 - **Hooks:** follow Skill Forge latency bounds; abort on safety violations.
 
 Confidence: 0.70 (ceiling: inference 0.70) – SOP aligned to Prompt Architect clarity and Skill Forge safeguards.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:T-L-P]] [[COM:Teleport+Kopru]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/web-cli-teleport]]
-[define|neutral] TELEPORT := web<->CLI senkronizasyonu; guvenlik/siralama kurallari ile. [ground:SKILL.md] [conf:0.84] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:S-F-T]] [[COM:Safety+Guard]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:safeguards]]
-[direct|emphatic] SAFETY := destruktif komutlar icin dry-run/onay; gizli bilgiler ciktiya yazilmaz. [ground:SKILL.md] [conf:0.88] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:C-F-D]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; belirtilir. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>WEB_CLI_TELEPORT_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

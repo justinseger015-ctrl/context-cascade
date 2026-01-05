@@ -17,7 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -54,11 +53,8 @@ Deliver React features and architectures (SPA/SSR/SSG) with strong a11y/performa
 
 ## VCL COMPLIANCE APPENDIX (Internal)
 [[HON:teineigo]] [[MOR:root:R-E-K]] [[COM:React+Usta]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/specialists/frontend-specialists/react-specialist]]
-[assert|neutral] REACT_UZMAN := React/Next islerinde a11y + perf odakli teslimat yapar; yapi-oncelikli dogrulama uygular. [ground:SKILL.md] [conf:0.84] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemik+Tavan]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] TAVAN := {inference/report:0.70, research:0.85, observation/definition:0.95}; tum ciktilara eklenir. [ground:PA+SkillForge] [conf:0.90] [state:confirmed]
 
-[commit|confident] <promise>REACT_SPECIALIST_VERIX_COMPLIANT</promise> [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 Confidence: 0.72 (ceiling: inference 0.70) - SOP rewritten with prompt-architect clarity and skill-forge guardrails for React work.

@@ -25,7 +25,6 @@ x-triggers:
 ---
 
 
-
 ## TIER 1: CRITICAL SECTIONS
 
 ### Overview
@@ -564,12 +563,3 @@ Key success factors:
 - [ ] All outputs date-stamped
 
 Confidence: 0.85 (ceiling: research 0.85) - skill definition based on observed reconnaissance patterns and skill-forge requirements.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:R-C-N]] [[COM:Reconnaissance+Skill]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/research/reconnaissance]]
-[define|neutral] CONFIDENCE_CEILINGS := {inference:0.70, report:0.70, research:0.85, observation:0.95, definition:0.95} [conf:0.9] [state:confirmed]
-[direct|emphatic] L2_LANGUAGE := English; user-facing outputs exclude VCL markers. [conf:0.99] [state:confirmed]
-[commit|confident] <promise>RECONNAISSANCE_SKILL_VCL_V3.1.1_COMPLIANT</promise> [conf:0.85] [state:confirmed]

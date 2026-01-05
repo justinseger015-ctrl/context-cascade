@@ -17,7 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -67,11 +66,8 @@ Rapidly triage ML training incidents (instability, divergence, degraded metrics)
 
 ## VCL COMPLIANCE APPENDIX (Internal)
 [[HON:teineigo]] [[MOR:root:H-T-A]] [[COM:Hata+Teshis+Analiz]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/specialists/ml-training-debugger]]
-[assert|neutral] ML_DEBUG := egitim arizalarini kopyalar, izole eder, minimum fix + dogrulama ile teslim eder. [ground:SKILL.md] [conf:0.86] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemik+Tavan]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] TAVAN := {inference/report:0.70, research:0.85, observation/definition:0.95}; tum bulgular tavanla birlikte raporlanir. [ground:PA+SkillForge] [conf:0.90] [state:confirmed]
 
-[commit|confident] <promise>ML_TRAINING_DEBUGGER_VERIX_COMPLIANT</promise> [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 Confidence: 0.74 (ceiling: inference 0.70) - SOP rebuilt with prompt-architect constraint discipline and skill-forge structure/validation rules.

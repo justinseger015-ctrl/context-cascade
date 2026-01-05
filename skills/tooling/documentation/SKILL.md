@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Converted the documentation hub to an English-first SOP with structure-first guardrails and explicit routing to doc-generator.
 - Added constraint extraction (Prompt Architect) and validation hooks (Skill Forge) with confidence ceilings.
@@ -72,18 +71,3 @@ Coordinate documentation requests—planning, drafting, and validation—while d
 - **Hooks:** Skill Forge latency bounds respected for doc generation and review.
 
 Confidence: 0.70 (ceiling: inference 0.70) – SOP aligned to Prompt Architect constraint-first drafting and Skill Forge validation gates.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:D-K-M]] [[COM:Dokuman+Merkezi]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/documentation]]
-[define|neutral] DOC_HUB := README/API/inline ciktilar icin yonetim; agir uretim doc-generator'a delege edilir. [ground:SKILL.md] [conf:0.84] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:R-O-T]] [[COM:Route+Generator]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:routing]]
-[direct|emphatic] ROUTE_DOC := agir uretim ve slash-komutlar doc-generator alt-becerisine aktarilir; hub planlama+dogrulama yapar. [ground:SKILL.md] [conf:0.85] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:C-F-D]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; beyan zorunlu. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>DOCUMENTATION_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

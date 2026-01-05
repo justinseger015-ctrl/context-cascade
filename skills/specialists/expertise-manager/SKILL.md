@@ -17,7 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -67,14 +66,10 @@ Coordinate specialist skills, ensure the right agent is activated, and maintain 
 
 ## VCL COMPLIANCE APPENDIX (Internal)
 [[HON:teineigo]] [[MOR:root:U-Z-M]] [[COM:Uzman+Yonetim]] [[CLS:ge_meta_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/specialists/expertise-manager]]
-[assert|neutral] UZMAN_YONETICI := kapsama haritasi + yonlendirme matrisi olusturur; skill-forge ilke_p1 (yapi), ilke_p2 (dusmanca test), ilke_p3 (oz-iyilestirme) uygular. [ground:SKILL.md] [conf:0.86] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemik+Tavan]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] TAVAN := {inference/report:0.70, research:0.85, observation/definition:0.95}; tavan belirtilmeden cikti yok. [ground:PA+SkillForge] [conf:0.90] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:R-T-G]] [[COM:Routing+Safe]] [[CLS:ge_guardrail]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:safety]]
-[assert|neutral] ROUTE_SAFE := yalniz kayitli becerilere yetki ver; belgesiz veya eksik testli beceriler once remediye edilir. [ground:SKILL.md] [conf:0.83] [state:confirmed]
 
-[commit|confident] <promise>EXPERTISE_MANAGER_VCL_VERIX_COMPLIANT</promise> [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 Confidence: 0.73 (ceiling: inference 0.70) - SOP rewritten with prompt-architect clarity and skill-forge guardrails while retaining routing focus.

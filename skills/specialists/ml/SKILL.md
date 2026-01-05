@@ -17,7 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -66,11 +65,8 @@ Scope and deliver ML prototypes or lightweight solutions, then hand off to the r
 
 ## VCL COMPLIANCE APPENDIX (Internal)
 [[HON:teineigo]] [[MOR:root:M-L]] [[COM:Genel+ML]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/specialists/ml]]
-[assert|neutral] ML_GENEL := hizli kavramsal modelleme ve prototip yapar; derin isler icin ml-expert/ ml-training-debugger delege eder. [ground:SKILL.md] [conf:0.84] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemik+Tavan]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] TAVAN := {inference/report:0.70, research:0.85, observation/definition:0.95}; tum ciktilarda aciklanir. [ground:PA+SkillForge] [conf:0.90] [state:confirmed]
 
-[commit|confident] <promise>ML_SKILL_VERIX_COMPLIANT</promise> [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 Confidence: 0.72 (ceiling: inference 0.70) - SOP rewritten with skill-forge structure and prompt-architect constraint discipline.

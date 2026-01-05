@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Rewrote the harness SOP in English-first Prompt Architect style with explicit confidence ceilings.
 - Clarified freeze rules, routing, and validation gates to align with Skill Forge guardrails.
@@ -71,18 +70,3 @@ Act as the immutable anchor for recursive improvement cycles. The harness does n
 - **Hooks:** follow Skill Forge latency bounds; refuse execution if harness assets are modified.
 
 Confidence: 0.70 (ceiling: inference 0.70) – Harness SOP aligned to Prompt Architect clarity and Skill Forge safeguards.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:E-V-L]] [[COM:Degerlendirme+Ankora]] [[CLS:ge_guard]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/eval-harness]]
-[define|neutral] HARNESS := donmus benchmark/regresyon seti; kendi kendini iyilestirmez; karar kapisi gorevi gorur. [ground:SKILL.md] [conf:0.86] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:F-R-Z]] [[COM:Freeze+Rule]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:axis:safeguards]]
-[direct|emphatic] FREEZE_RULE := benchmark tanimi + skorlayici degismez; degisim sadece manuel versiyonlama ile. [ground:SKILL.md] [conf:0.88] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:C-F-D]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; karar ciktisinda zorunlu. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>EVAL_HARNESS_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

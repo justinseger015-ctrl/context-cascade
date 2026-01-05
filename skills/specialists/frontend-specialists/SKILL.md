@@ -17,7 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -54,11 +53,8 @@ Plan and implement frontend features and architectures with strong accessibility
 
 ## VCL COMPLIANCE APPENDIX (Internal)
 [[HON:teineigo]] [[MOR:root:F-R-N]] [[COM:Frontend+Usta]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/specialists/frontend-specialists]]
-[assert|neutral] FRONTEND_UZMAN := a11y + perf odakli arayuz uretir; yapi-oncelik + kalite kapi uygular. [ground:SKILL.md] [conf:0.83] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemik+Tavan]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] TAVAN := {inference/report:0.70, research:0.85, observation/definition:0.95}; tum ciktilar tavani bildirir. [ground:PA+SkillForge] [conf:0.90] [state:confirmed]
 
-[commit|confident] <promise>FRONTEND_SPECIALISTS_VERIX_COMPLIANT</promise> [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 Confidence: 0.71 (ceiling: inference 0.70) - SOP refreshed with prompt-architect constraint handling and skill-forge structure-first rules.

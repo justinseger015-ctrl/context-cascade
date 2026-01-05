@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Converted the bootstrap loop into an English-first SOP that mirrors the Prompt Architect + Skill Forge cadence.
 - Added structure-first guardrails (SKILL.md + README + examples/tests placeholders) and explicit eval-harness boundaries.
@@ -88,18 +87,3 @@ Run the recursive improvement cycle where Prompt Forge analyzes, Skill Forge reb
 - **Hooks:** pre/post targets in Skill Forge style (`pre_hook_target_ms:20`, `post_hook_target_ms:1000`) to keep loops responsive.
 
 Confidence: 0.70 (ceiling: inference 0.70) - English-first rewrite aligns the bootstrap loop with Prompt Architect + Skill Forge guardrails and keeps the eval harness frozen.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:B-T-S]] [[COM:Bootstrap+Schleife]] [[CLS:ge_meta_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/bootstrap-loop]]
-[define|neutral] BOOTSTRAP_LOOP := PromptForge↔SkillForge doviz; degismez degerlendirici ile dokunur. [ground:SKILL.md] [conf:0.83] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:E-V-L]] [[COM:Eval+Ankora]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:axis:safeguards]]
-[direct|emphatic] HARNESS_FROZEN := degerlendirme paketleri otonom iyilestirilmez; hash kaydi zorunlu. [ground:SKILL.md] [conf:0.87] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:C-F-D]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; ustu yasak. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>BOOTSTRAP_LOOP_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

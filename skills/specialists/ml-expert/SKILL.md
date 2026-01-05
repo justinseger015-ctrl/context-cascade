@@ -17,7 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -68,14 +67,10 @@ Ship resilient ML systems: architecture design, training pipelines, optimization
 
 ## VCL COMPLIANCE APPENDIX (Internal)
 [[HON:teineigo]] [[MOR:root:M-L]] [[COM:Model+Schmiede]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/specialists/ml-expert]]
-[assert|neutral] ML_UZMAN := uretiyim seviyesi egitim + optimizasyon yapar; yapi-oncelikli + dusmanca test zorunlu. [ground:SKILL.md] [conf:0.86] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemik+Tavan]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] TAVAN := {inference/report:0.70, research:0.85, observation/definition:0.95}; metrik raporlarinda belirtilir. [ground:PA+SkillForge] [conf:0.90] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:S-F-T]] [[COM:Safety+Test]] [[CLS:ge_guardrail]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:quality]]
-[assert|neutral] GUARD := veri_sızıntısı_yok + test_set_son + drift/advaryel prob; ihlal deploy yasak. [ground:SKILL.md] [conf:0.84] [state:confirmed]
 
-[commit|confident] <promise>ML_EXPERT_VERIX_COMPLIANT</promise> [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 Confidence: 0.74 (ceiling: inference 0.70) - SOP rebuilt with prompt-architect constraints and skill-forge validation loops while preserving ML execution depth.

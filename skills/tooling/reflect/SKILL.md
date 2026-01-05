@@ -28,7 +28,6 @@ x-reflection-count: 1
 ---
 
 
-
 ### L1 Improvement
 - Created as new skill following Skill Forge v3.2 required sections
 - Implements Loop 1.5 (Session Reflection) to fill gap between Loop 1 (Execution) and Loop 3 (Meta-Loop)
@@ -642,19 +641,3 @@ Confidence: 0.85 (ceiling: observation 0.95) - New skill created following Skill
 - Self-test on creation session validates the workflow and demonstrates dogfooding [ground:observation:2026-01-05]
   - Context: User requested immediate test after skill creation
   - Action: Offer to run /reflect on the creation session as final validation step
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:R-F-L]] [[COM:Reflect+Skill+Loop]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/reflect]]
-
-[define|neutral] REFLECT_SKILL := Per-session micro-learning that extracts corrections and patterns, updates skill files, and stores in Memory MCP for Meta-Loop aggregation [ground:skill-definition] [conf:0.85] [state:confirmed]
-
-[define|neutral] LOOP_1.5 := Session-level reflection layer between Loop 1 (Execution) and Loop 3 (Meta-Loop) that captures immediate learnings [ground:architecture-design] [conf:0.88] [state:confirmed]
-
-[direct|emphatic] EVAL_HARNESS_FROZEN := Reflect skill MUST NOT modify eval-harness; it is frozen per Bootstrap Loop rules [ground:bootstrap-loop-policy] [conf:0.99] [state:confirmed]
-
-[direct|emphatic] CONFIDENCE_CEILINGS := {HIGH:0.90, MEDIUM:0.75, LOW:0.55}; never exceed observation ceiling (0.95) [ground:verix-spec] [conf:0.95] [state:confirmed]
-
-[commit|confident] <promise>REFLECT_SKILL_VCL_V3.1.1_COMPLIANT</promise> [ground:self-check] [conf:0.88] [state:confirmed]

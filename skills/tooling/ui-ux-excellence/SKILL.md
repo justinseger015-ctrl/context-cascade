@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Recast the UX skill in Prompt Architect style with clear triggers, heuristics, and confidence ceilings.
 - Added structure-first guardrails and validation steps aligned to Skill Forge.
@@ -70,18 +69,3 @@ Evaluate and improve product UI/UX using heuristic reviews, user flows, accessib
 - **Hooks:** follow Skill Forge latency bounds; integrate with screenshot tooling when available.
 
 Confidence: 0.70 (ceiling: inference 0.70) – SOP aligned to Prompt Architect clarity and Skill Forge guardrails.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:U-X]] [[COM:Kullanici+Deneyimi]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/ui-ux-excellence]]
-[define|neutral] UI_UX := heuristik denetim + yolculuk analizi + oncelikli duzeltme planlari. [ground:SKILL.md] [conf:0.84] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:H-R-S]] [[COM:Heuristik+Guard]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:quality]]
-[direct|emphatic] HEURISTICS := {clarity, consistency, affordance, feedback, accessibility, performance}; her ciktiya kanit. [ground:SKILL.md] [conf:0.87] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:C-F-D]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; ciktiya yazilir. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>UI_UX_EXCELLENCE_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

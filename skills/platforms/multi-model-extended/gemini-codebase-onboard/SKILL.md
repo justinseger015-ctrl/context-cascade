@@ -12,10 +12,8 @@ x-tags:
   - onboarding
 x-author: context-cascade
 x-verix-description: |
-  [assert|neutral] gemini-codebase-onboard skill for megacontext analysis [ground:given] [conf:0.95] [state:confirmed]
+  
 ---
-
-
 
 
 <!-- S0 META-IDENTITY -->
@@ -225,5 +223,3 @@ Based on real developer feedback:
 - [ ] Memory-MCP updated
 
 <!-- PROMISE -->
-
-[commit|confident] <promise>GEMINI_CODEBASE_ONBOARD_COMPLETE</promise>

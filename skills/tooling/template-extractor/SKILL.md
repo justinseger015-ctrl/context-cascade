@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Rebuilt the extractor SOP using Prompt Architect constraint ordering and Skill Forge structure-first guardrails.
 - Added clear triggers, input/output contracts, and confidence ceilings with memory tagging.
@@ -73,18 +72,3 @@ Identify, isolate, and package reusable templates (prompts, code snippets, docs,
 - **Hooks:** follow Skill Forge latency bounds; integrate with validation tools as needed.
 
 Confidence: 0.70 (ceiling: inference 0.70) – SOP aligned to Prompt Architect clarity and Skill Forge guardrails.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:T-M-P]] [[COM:Sablon+Cikarim]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/template-extractor]]
-[define|neutral] TEMPLATE_EXTRACTOR := kaynak dogrulamalariyla tekrar kullanilabilir sablonlar cikartir; sahte icerik yasak. [ground:SKILL.md] [conf:0.84] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:F-D-L]] [[COM:Fidelity+Guard]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:quality]]
-[direct|emphatic] FIDELITY_RULE := kaynaga referans (path+line) olmadan sablon yok; belirsiz kisimlar bayraklanir. [ground:SKILL.md] [conf:0.87] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:C-F-D]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; beyan zorunlu. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>TEMPLATE_EXTRACTOR_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

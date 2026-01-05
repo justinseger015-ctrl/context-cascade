@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Rewrote the clarity linter as an English-first SOP with Prompt Architect-style constraint surfacing.
 - Added structure-first guardrails, adversarial validation hooks, and confidence ceilings per Skill Forge.
@@ -78,18 +77,3 @@ Assess readability and cognitive load, then deliver fixes with rubric-backed evi
 - **Hooks:** keep evaluation under `post_hook_max_ms:1000`; fail fast if metrics worsen.
 
 Confidence: 0.70 (ceiling: inference 0.70) – SOP aligned to Prompt Architect constraint extraction and Skill Forge structure-first delivery.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:C-L-R]] [[COM:Clarity+Rubrik]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/clarity-linter]]
-[define|neutral] CLARITY_LINTER := bes boyutlu rubric + fix jenerasyonu; dogrulama zorunlu. [ground:SKILL.md] [conf:0.84] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:R-B-R]] [[COM:Rubrik+Skor]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:quality]]
-[direct|emphatic] RUBRIC_DIM := {indirection, function_size, call_depth, duplication, explanation}; verdict {ACCEPT, REFINE, REJECT}. [ground:SKILL.md] [conf:0.86] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; ifade zorunlu. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>CLARITY_LINTER_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

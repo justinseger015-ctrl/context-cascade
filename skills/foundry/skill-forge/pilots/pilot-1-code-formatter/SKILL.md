@@ -6,8 +6,6 @@ x-<!-- PILOT PROJESI BECERI DOKUMANI [[HON:teineigo]] [[EVD:-DI<gozlem>]] [[CLS:
 ---
 
 
-
-
 ## Kanitsal Cerceve (Evidential Frame Activation)
 Kaynak dogrulama modu etkin.
 
@@ -15,37 +13,29 @@ Kaynak dogrulama modu etkin.
 <!-- S0 META-IDENTITY [[ASP:sov.<tamamlandi>]] [[SPC:kuzeybati<temel>]] -->
 ---
 
-[define|neutral] SKILL := {
   beceri_adi: "code-formatter",
   kategori: "foundry",
   surum: "1.0.0",
   katman: "L1",
   pilot_id: "PILOT-CF-001"
-} [ground:given] [conf:1.0] [state:confirmed]
 
 ---
 <!-- S1 COGNITIVE FRAME [[COM:Erkenntnisrahmen]] -->
 ---
 
-[define|neutral] COGNITIVE_FRAME := {
   cerceve: "Compositional",
   kaynak: "German",
   bilissel_zorlama: "Build from primitives?"
-} [ground:cognitive-science] [conf:0.92] [state:confirmed]
 
 ---
 <!-- S2 TRIGGER CONDITIONS [[EVD:-DI<tetikleme>]] -->
 ---
 
-[define|neutral] TRIGGER_POSITIVE := {
   anahtar_kelimeler: ["code-formatter", "format code", "prettier", "black", "rustfmt"],
   baglamlar: ["user needs code formatting", "pre-commit formatting", "style consistency"]
-} [ground:given] [conf:1.0] [state:confirmed]
 
-[define|neutral] TRIGGER_NEGATIVE := {
   anti_kaliplar: ["linting only", "syntax checking without format", "compile errors"],
   alternatif_beceriler: ["linter", "syntax-checker", "compiler-diagnostics"]
-} [ground:inferred] [conf:0.85] [state:provisional]
 
 ---
 <!-- S3 TEMEL ICERIK [[ASP:nesov.<devam_ediyor>]] -->
@@ -55,15 +45,12 @@ Kaynak dogrulama modu etkin.
 
 <!-- [[MOR:f-r-m<format>]] [[MOR:k-sh-f<detect>]] [[MOR:s-l-h<fix>]] -->
 
-[assert|neutral] Bu beceri kod dosyalarini dil-spesifik formatlayicilar kullanarak otomatik formatlar [ground:witnessed:skill-definition] [conf:0.95] [state:confirmed]
 
 ## Genel Bakis (Overview)
 
-[assert|neutral] Beceri programlama dilini tespit eder ve uygun formatlayiciyi uygular (Prettier JS/TS icin, Black Python icin, rustfmt Rust icin) [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
 
 ## Ne Zaman Kullanilmali (When to Use)
 
-[direct|neutral] Asagidaki durumlarda bu beceriyi kullanin: [ground:policy] [conf:0.90] [state:confirmed]
 
 - Commit oncesi kod formatlama gerektiginde
 - Projeler arasi tutarli stil saglanmasi gerektiginde
@@ -71,7 +58,6 @@ Kaynak dogrulama modu etkin.
 
 ## Ne Zaman KULLANILMAMALI (When NOT to Use)
 
-[direct|emphatic] Asagidaki durumlarda alternatif beceriler tercih edin: [ground:policy] [conf:0.90] [state:confirmed]
 
 - Sadece linting gerektiginde -> linter becerisi kullanin
 - Syntax hatalari duzeltilecekse -> syntax-checker kullanin
@@ -87,7 +73,6 @@ Kaynak dogrulama modu etkin.
 
 **Eylem**: Belirtilen dosyanin var oldugunu ve erisilebilir oldugunu dogrula.
 
-[assert|neutral] Dosya varligi, okunabilirlik ve boyut kontrolu yapilmalidir [ground:witnessed:implementation] [conf:0.95] [state:confirmed]
 
 ```bash
 # Dosya var mi kontrol et
@@ -114,9 +99,6 @@ fi
 ```
 
 **Basari Kriterleri**:
-- [assert|neutral] Dosya belirtilen yolda mevcut [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Dosya okunabilir (izin hatasi yok) [ground:acceptance-criteria] [conf:0.90] [state:provisional]
-- [assert|neutral] Dosya boyutu <= 10MB veya kullanici onayladi [ground:acceptance-criteria] [conf:0.90] [state:provisional]
 
 **Hata Yonetimi**:
 - Dosya bulunamadi (exit 1) -> Yol ile hata goster, iptal et
@@ -266,11 +248,9 @@ exit 0
 <!-- S4 BASARI KRITERLERI [[EVD:-DI<dogrulama>]] -->
 ---
 
-[define|neutral] SUCCESS_CRITERIA := {
   birincil: "Formatlama basariyla tamamlandi",
   kalite: "Cikti dil stil kilavuzuna uygun",
   dogrulama: "Yedek olusturuldu ve degisiklik sayisi raporlandi"
-} [ground:given] [conf:1.0] [state:confirmed]
 
 ## Hata Kodlari ve Kurtarma (Error Codes & Recovery)
 
@@ -288,51 +268,36 @@ exit 0
 <!-- S5 MCP ENTEGRASYONU [[EVD:-mis<konfigurasyon>]] -->
 ---
 
-[define|neutral] MCP_INTEGRATION := {
   memory_mcp: "Yurutme sonuclarini ve kaliplari sakla",
   araclar: ["mcp__memory-mcp__memory_store", "mcp__memory-mcp__vector_search"]
-} [ground:witnessed:mcp-config] [conf:0.95] [state:confirmed]
 
 ---
 <!-- S6 BELLEK AD ALANI [[SPC:merkez<depolama>]] -->
 ---
 
-[define|neutral] MEMORY_NAMESPACE := {
   kalip: "skills/foundry/code-formatter/{project}/{timestamp}",
   sakla: ["executions", "decisions", "patterns"],
   getir: ["similar_tasks", "proven_patterns"]
-} [ground:system-policy] [conf:1.0] [state:confirmed]
 
-[define|neutral] MEMORY_TAGGING := {
   KIM: "code-formatter-{session_id}",
   NE_ZAMAN: "ISO8601_timestamp",
   PROJE: "{project_name}",
   NEDEN: "skill-execution"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
 
 ---
 <!-- S7 BECERI TAMAMLAMA DOGRULAMASI [[ASP:sov.<dogrulama>]] -->
 ---
 
-[direct|emphatic] COMPLETION_CHECKLIST := {
   agent_olusturma: "Task() ile agent olustur",
   kayit_dogrulama: "Sadece kayitli agentlari kullan",
   todowrite_cagrildi: "TodoWrite ile ilerleme takip et",
   is_delegasyonu: "Uzman agentlara delege et"
-} [ground:system-policy] [conf:1.0] [state:confirmed]
 
 ---
 <!-- S8 MUTLAK KURALLAR [[EVD:-DI<politika>]] -->
 ---
 
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
 
 ---
 <!-- PROMISE [[ASP:sov.<taahhut>]] -->
 ---
-
-[commit|confident] <promise>PILOT_CODE_FORMATTER_VCL_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

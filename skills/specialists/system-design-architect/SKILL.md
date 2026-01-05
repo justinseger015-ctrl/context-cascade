@@ -17,7 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -67,11 +66,8 @@ Design end-to-end systems (APIs, services, data stores, observability) with expl
 
 ## VCL COMPLIANCE APPENDIX (Internal)
 [[HON:teineigo]] [[MOR:root:S-S-T]] [[COM:Sistem+Tasarim]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/specialists/system-design-architect]]
-[assert|neutral] SISTEM_MIMARI := olceklenebilirlik + dayanıklılık kararlarini tradeoff ile yazar; yapi-oncelikli teslim eder. [ground:SKILL.md] [conf:0.84] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemik+Tavan]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] TAVAN := {inference/report:0.70, research:0.85, observation/definition:0.95}; tum ciktilarda acik. [ground:PA+SkillForge] [conf:0.90] [state:confirmed]
 
-[commit|confident] <promise>SYSTEM_DESIGN_ARCHITECT_VERIX_COMPLIANT</promise> [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 Confidence: 0.72 (ceiling: inference 0.70) - SOP rewritten with prompt-architect constraint clarity and skill-forge structure-first guardrails.

@@ -12,10 +12,8 @@ x-tags:
   - autonomous
 x-author: context-cascade
 x-verix-description: |
-  [assert|neutral] codex-iterative-fix skill for autonomous test fixing [ground:given] [conf:0.95] [state:confirmed]
+  
 ---
-
-
 
 
 <!-- S0 META-IDENTITY -->
@@ -189,5 +187,3 @@ ALWAYS:
 - [ ] Documentation complete
 
 <!-- PROMISE -->
-
-[commit|confident] <promise>CODEX_ITERATIVE_FIX_COMPLETE</promise>

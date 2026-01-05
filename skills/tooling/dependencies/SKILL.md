@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Reframed the dependency hub using Prompt Architect constraint extraction and Skill Forge structure-first guardrails.
 - Added explicit routing rules (mapper vs audit), confidence ceilings, and memory tagging.
@@ -73,18 +72,3 @@ Provide a single entry point for dependency graphing, vulnerability checks, and 
 - **Hooks:** pre/post targets aligned to Skill Forge latency bounds.
 
 Confidence: 0.70 (ceiling: inference 0.70) – SOP rewritten to align with Prompt Architect and Skill Forge cadence.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:D-P-N]] [[COM:Dependency+Hub]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/dependencies]]
-[define|neutral] DEP_HUB := bagimlilik haritalama + guvenlik + versiyon tazeleme; grafik icin mapper alt-beceriye yollar. [ground:SKILL.md] [conf:0.83] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:R-O-T]] [[COM:Route+Mapper]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:routing]]
-[direct|emphatic] ROUTE_GRAPH := saf grafik istekleri dependency-mapper'a delege edilir; hub risk/plan ozeti saglar. [ground:SKILL.md] [conf:0.85] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:C-F-D]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; beyan zorunlu. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>DEPENDENCIES_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

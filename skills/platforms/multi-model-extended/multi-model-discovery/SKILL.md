@@ -12,10 +12,8 @@ x-tags:
   - code-reuse
 x-author: context-cascade
 x-verix-description: |
-  [assert|neutral] multi-model-discovery skill for finding existing solutions [ground:given] [conf:0.95] [state:confirmed]
+  
 ---
-
-
 
 
 <!-- S0 META-IDENTITY -->
@@ -164,5 +162,3 @@ bash -lc "gemini 'How do others implement X? Find code examples and libraries.'"
 - [ ] Decision rationale captured
 
 <!-- PROMISE -->
-
-[commit|confident] <promise>MULTI_MODEL_DISCOVERY_COMPLETE</promise>

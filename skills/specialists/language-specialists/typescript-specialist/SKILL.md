@@ -17,7 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -55,11 +54,8 @@ Deliver robust TypeScript code for APIs, frontends, CLIs, and libraries with str
 
 ## VCL COMPLIANCE APPENDIX (Internal)
 [[HON:teineigo]] [[MOR:root:T-Y-P]] [[COM:TypeScript+Usta]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/specialists/language-specialists/typescript-specialist]]
-[assert|neutral] TS_UZMAN := TypeScript kodunu siki tip + kalite kapi ile teslim eder; yapi-oncelik korunur. [ground:SKILL.md] [conf:0.84] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemik+Tavan]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] TAVAN := {inference/report:0.70, research:0.85, observation/definition:0.95}; ciktilar tavani bildirir. [ground:PA+SkillForge] [conf:0.90] [state:confirmed]
 
-[commit|confident] <promise>TYPESCRIPT_SPECIALIST_VERIX_COMPLIANT</promise> [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 Confidence: 0.72 (ceiling: inference 0.70) - SOP rewritten with prompt-architect clarity and skill-forge structure/validation guardrails.

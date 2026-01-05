@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Simplified the pipeline into an English-first SOP aligned with Prompt Architect constraint ordering.
 - Added structure-first documentation, confidence ceilings, and memory tagging per Skill Forge.
@@ -72,15 +71,3 @@ Run disciplined improvement cycles for any artifact (prompt, skill, doc, script)
 - **Hooks:** align with Skill Forge latency bounds; integrate with eval-harness when gating is required.
 
 Confidence: 0.70 (ceiling: inference 0.70) – Pipeline rewritten to blend Prompt Architect clarity with Skill Forge delivery gates.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:I-Y-I]] [[COM:Improvement+Hatti]] [[CLS:ge_pipeline]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/improvement-pipeline]]
-[define|neutral] IMP_PIPE := analiz→oner→insaa→dogrula→teslim; atlama yasak. [ground:SKILL.md] [conf:0.83] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:G-R-L]] [[COM:Guardrail]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:axis:safeguards]]
-[direct|emphatic] VAL_GATES := dogrulama ve rollback planlari olmadan gecis yok; confidence tavani beyan edilir. [ground:SKILL.md] [conf:0.87] [state:confirmed]
-
-[commit|confident] <promise>IMPROVEMENT_PIPELINE_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

@@ -17,7 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -62,11 +61,8 @@ Deliver correct, performant, and safe SQL schemas, queries, and migrations with 
 
 ## VCL COMPLIANCE APPENDIX (Internal)
 [[HON:teineigo]] [[MOR:root:S-Q-L]] [[COM:SQL+Schmiede]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/specialists/database-specialists/sql-database-specialist]]
-[assert|neutral] SQL_UZMAN := sorgu/semayi optimize eder; yapi-oncelikli + rollback zorunlu. [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemik+Tavan]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] TAVAN := {inference/report:0.70, research:0.85, observation/definition:0.95}; raporlar tavani icerir. [ground:PA+SkillForge] [conf:0.90] [state:confirmed]
 
-[commit|confident] <promise>SQL_DATABASE_SPECIALIST_VERIX_COMPLIANT</promise> [ground:SKILL.md] [conf:0.85] [state:confirmed]
 
 Confidence: 0.74 (ceiling: inference 0.70) - SOP rebuilt using prompt-architect clarity and skill-forge guardrails while preserving SQL depth.

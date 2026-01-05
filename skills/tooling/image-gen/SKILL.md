@@ -24,7 +24,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Recast the image generation SOP using Prompt Architect clarity and Skill Forge structure-first guardrails.
 - Added provider selection rules, confidence ceilings, and memory tagging.
@@ -71,18 +70,3 @@ Select the best image provider (local or API) for the request, generate assets w
 - **Memory MCP:** `skills/tooling/image-gen/{project}/{timestamp}` for prompts/results.
 
 Confidence: 0.70 (ceiling: inference 0.70) – SOP aligned to Prompt Architect clarity and Skill Forge delivery.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:I-M-G]] [[COM:Gorsel+Uretim]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/image-gen]]
-[define|neutral] IMAGE_GEN := saglayici-secim + prompt-uygulama + guvenlik kontrolu; SDXL/DALL·E/Replicate/custom destekli. [ground:SKILL.md] [conf:0.84] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:P-R-V]] [[COM:Provider+Secim]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:routing]]
-[direct|emphatic] PROVIDER_RULE := gizlilik->local; GPU yok->API; maliyet kritik->Replicate; kalite yuksek->DALL·E veya SDXL. [ground:SKILL.md] [conf:0.87] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:C-F-D]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; ciktida belirtilir. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>IMAGE_GEN_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]

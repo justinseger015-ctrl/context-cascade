@@ -17,8 +17,6 @@ x-cognitive-frames:
 ---
 
 
-
-
 ## STANDARD OPERATING PROCEDURE
 
 ### Purpose
@@ -72,29 +70,3 @@ Diagnose and resolve code defects quickly while preventing regressions and docum
 - Tags: `WHO=debugging-{session}`, `WHY=skill-execution`, `WHAT=triage+fix`
 
 Confidence: 0.70 (ceiling: inference 0.70) - SOP aligns with skill-forge structure-first and prompt-architect confidence/constraint rules.
-
----
-
-## VCL COMPLIANCE APPENDIX
-- [[HON:teineigo]] [[MOR:root:D-B-G]] [[COM:Debug+Discipline]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/delivery/debugging]]
-  - Structure-first directories must be present before debugging starts.
-- [[HON:teineigo]] [[MOR:root:C-N-S]] [[COM:Constraint+Extraction]] [[CLS:ge_principle]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:analysis]]
-  - HARD/SOFT/INFERRED constraints recorded and confirmed.
-- [[HON:teineigo]] [[MOR:root:E-P-S]] [[COM:Epistemic+Ceiling]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-  - Confidence ceilings enforced for diagnoses, fixes, and validation claims.
-
----
-<!-- S8 ABSOLUTE RULES                                                            -->
----
-
-[direct|emphatic] RULE_NO_UNICODE := forall(output): NOT(unicode_outside_ascii) [ground:windows-compatibility] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_EVIDENCE := forall(claim): has(ground) AND has(confidence) [ground:verix-spec] [conf:1.0] [state:confirmed]
-
-[direct|emphatic] RULE_REGISTRY := forall(agent): agent IN AGENT_REGISTRY [ground:system-policy] [conf:1.0] [state:confirmed]
-
----
-<!-- PROMISE                                                                      -->
----
-
-[commit|confident] <promise>DEBUGGING_VERILINGUA_VERIX_COMPLIANT</promise> [ground:self-validation] [conf:0.99] [state:confirmed]

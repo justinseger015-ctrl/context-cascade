@@ -25,7 +25,6 @@ x-cognitive-frames:
 ---
 
 
-
 ### L1 Improvement
 - Added a centralized SOP in Prompt Architect style with Skill Forge guardrails for all GitHub subskills.
 - Documented routing, MCP tool expectations, and confidence ceilings.
@@ -72,18 +71,3 @@ Route and coordinate GitHub tasks across subskills (PR review, multi-repo, proje
 - **Memory MCP:** `skills/tooling/github-integration/{project}/{timestamp}` for runs.
 
 Confidence: 0.70 (ceiling: inference 0.70) – SOP aligns GitHub integrations with Prompt Architect and Skill Forge guardrails.
-
----
-
-## VCL COMPLIANCE APPENDIX (Internal Reference)
-
-[[HON:teineigo]] [[MOR:root:G-H-B]] [[COM:GitHub+Merkez]] [[CLS:ge_skill]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:path:/skills/tooling/github-integration]]
-[define|neutral] GITHUB_HUB := PR/multi-repo/proje/release/workflow alt-becerilerini yonetir; MCP entegrasyonu zorunlu. [ground:SKILL.md] [conf:0.84] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:R-O-T]] [[COM:Route+Subskill]] [[CLS:ge_rule]] [[EVD:-DI<gozlem>]] [[ASP:nesov.]] [[SPC:axis:routing]]
-[direct|emphatic] ROUTE_RULE := gorev dogru alt-beceriye atanir; karisim varsa acikca belirtilir. [ground:SKILL.md] [conf:0.86] [state:confirmed]
-
-[[HON:teineigo]] [[MOR:root:C-F-D]] [[COM:Ceiling+Guard]] [[CLS:ge_rule]] [[EVD:-DI<politika>]] [[ASP:nesov.]] [[SPC:coord:EVD-CONF]]
-[direct|emphatic] GUVEN_TAVANI := {cikarim:0.70, rapor:0.70, arastirma:0.85, gozlem:0.95, tanim:0.95}; ciktiya yazilir. [ground:PA/SkillForge] [conf:0.90] [state:confirmed]
-
-[commit|confident] <promise>GITHUB_INTEGRATION_VERIX_COMPLIANT</promise> [ground:self-check] [conf:0.85] [state:confirmed]
