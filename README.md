@@ -239,13 +239,50 @@ Every claim encodes its epistemic status:
 
 Example: `[assert|positive] Use async/await here [ground:performance_testing] [conf:0.92] [state:confirmed]`
 
-### Three-Loop Architecture
+### Four-Loop Self-Improvement Architecture
 
 | Loop | Trigger | Duration | Purpose |
 |------|---------|----------|---------|
 | **Loop 1: Execution** | Every request | Seconds-minutes | 5-phase workflow |
+| **Loop 1.5: Reflect** | Per session | Minutes | Extract learnings from corrections/approvals |
 | **Loop 2: Quality** | Per session | Minutes-hours | Theater detection, audits |
 | **Loop 3: Meta** | Every 3 days | Hours | Self-optimization via GlobalMOO |
+
+### Loop 1.5: Session Reflection (NEW)
+
+The `/reflect` skill implements per-session micro-learning:
+
+```
+Session End
+    |
+    v
+Signal Detection (corrections, approvals, explicit rules)
+    |
+    v
+Confidence Classification (HIGH/MEDIUM/LOW)
+    |
+    v
+Skill File Updates (LEARNED PATTERNS section)
+    |
+    v
+Memory MCP Storage (for Loop 3 aggregation)
+```
+
+**Commands**:
+- `/reflect` - Manual reflection on current session
+- `/reflect-on` - Enable automatic reflection on session end
+- `/reflect-off` - Disable automatic reflection
+- `/reflect-status` - Check current state and history
+
+**Signal Types**:
+| Signal | Confidence | Action |
+|--------|------------|--------|
+| Corrections ("No, use X instead") | HIGH (0.90) | Requires approval |
+| Explicit Rules ("Always/Never") | HIGH (0.90) | Requires approval |
+| Approvals ("Perfect", "Exactly") | MEDIUM (0.75) | Auto-apply if enabled |
+| Observations (patterns) | LOW (0.55) | Auto-apply if enabled |
+
+**Value**: Correct once, never again. Session learnings persist in skill files.
 
 ### GlobalMOO Integration
 
@@ -283,7 +320,7 @@ Multi-objective optimization for cognitive architecture tuning:
 | quality | 16 | `commands/quality/` |
 | research | 9 | `commands/research/` |
 | security | 11 | `commands/security/` |
-| tooling | 3 | `commands/tooling/` |
+| tooling | 7 | `commands/tooling/` (includes /reflect commands) |
 | root (quality loop + templates) | 2 | `commands/quality-loop.md`, `commands/VERIX-COMMAND-TEMPLATE.md` |
 
 **Complete Reference**: [MASTER-COMMAND-INDEX.md](docs/MASTER-COMMAND-INDEX.md)
@@ -621,30 +658,37 @@ Requirements   Algorithm    System       TDD        Integration
   Analysis      Design       Design   Implementation   Testing
 ```
 
-### Three-Loop Architecture (optional plugin)
+### Four-Loop Self-Improvement Architecture
 ```
 ┌─────────────────────────────────────────────────────┐
-│ Loop 1: Research-Driven Planning                    │
-│ - 5x pre-mortem cycles                              │
-│ - Multi-agent consensus                             │
-│ - Evidence-based technology selection               │
-│ - Output: Validated plan with <3% failure confidence│
+│ Loop 1: Execution (Per-Request)                     │
+│ - 5-phase workflow (Intent→Prompt→Plan→Route→Exec) │
+│ - Multi-agent task execution                        │
+│ - Output: Completed task with quality gates         │
 └─────────────────────────────────────────────────────┘
                         ↓
 ┌─────────────────────────────────────────────────────┐
-│ Loop 2: Parallel Swarm Implementation               │
-│ - Dynamic agent+skill execution graphs              │
-│ - 6-10 specialist agents in parallel                │
+│ Loop 1.5: Session Reflection (NEW)                  │
+│ - Signal detection (corrections, approvals, rules) │
+│ - Confidence classification (HIGH/MEDIUM/LOW)       │
+│ - Skill file updates (LEARNED PATTERNS section)     │
+│ - Output: Persistent learnings in skill files       │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│ Loop 2: Quality Validation (Per-Session)            │
 │ - Theater detection via Byzantine consensus         │
+│ - Functionality audits                              │
+│ - Security and performance validation               │
 │ - Output: Reality-validated implementation          │
 └─────────────────────────────────────────────────────┘
                         ↓
 ┌─────────────────────────────────────────────────────┐
-│ Loop 3: CI/CD Intelligent Recovery                  │
-│ - Automated test execution                          │
-│ - Root cause analysis                               │
-│ - Automated repair and re-validation                │
-│ - Output: 100% test success, production-ready code  │
+│ Loop 3: Meta-Optimization (Every 3 Days)            │
+│ - Aggregate learnings from Loop 1.5                 │
+│ - GlobalMOO 5D + PyMOO NSGA-II 14D optimization    │
+│ - Cascade updates to skills, agents, commands       │
+│ - Output: System-wide cognitive tuning              │
 └─────────────────────────────────────────────────────┘
 ```
 
