@@ -3,8 +3,10 @@ name: skill-forge
 description: Meta-skill for producing production-grade skills with complete structure, validation, and self-improvement loops.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, TodoWrite
 model: sonnet
-x-version: 3.2.0
+x-version: 3.2.1
 x-category: foundry
+x-last-reflection: 2026-01-05T00:00:00Z
+x-reflection-count: 1
 x-vcl-compliance: v3.1.1
 x-cognitive-frames: [HON, MOR, COM, CLS, EVD, ASP, SPC]
 ---
@@ -35,7 +37,19 @@ Create or upgrade skills so they ship with full directory structure, SKILL.md co
 3. **Skill Definition**: Author SKILL.md with frontmatter, SOP, guardrails, integrations, IO contracts, and anti-patterns.
 4. **Adversarial Validation**: Run boundary/failure/COV checks; capture evidence and metrics.
 5. **Dogfooding Loop**: Apply skill-forge to itself or the target skill; iterate until convergence threshold or timebox.
-6. **Packaging & Delivery**: Package artifacts, examples, tests, references/resources, and delivery notes with confidence ceilings.
+6. **Packaging & Delivery**: Package skill as .skill file and deliver:
+   ```
+   # Package new skill:
+   powershell scripts/skill-packaging/skill-package.ps1 -SkillFolder <path> -CopyToPackaged -Force
+
+   # Edit existing .skill:
+   powershell scripts/skill-packaging/skill-edit.ps1 -Action edit -SkillPath <path>.skill
+   ```
+   - Validate SKILL.md exists with required sections
+   - Package folder contents as .zip, rename to .skill
+   - Copy to skills/packaged/ directory
+   - Verify package size and contents
+   - Record delivery notes with confidence ceilings
 
 ### Pattern Recognition
 - Greenfield skill → prioritize purpose, triggers, and contracts before details.
@@ -74,7 +88,15 @@ inputs:
   domain: string  # optional domain focus
   constraints: list[string]  # optional constraints and policies
 outputs:
-  skill_artifacts: list[file]  # SKILL.md, examples, tests, resources, references
+  skill_folder: directory  # skills/{category}/{skill_name}/
+  skill_artifacts:
+    - SKILL.md           # required - main skill definition
+    - readme.md          # recommended - quick start guide
+    - examples/*.md      # required - usage examples
+    - tests/*.md         # required - validation tests
+    - references/*.md    # optional - methodology docs
+    - resources/*        # optional - templates, scripts
+  skill_package: file    # {skill_name}.skill in skills/packaged/
   validation_report: file  # adversarial and COV results
   delivery_notes: summary  # packaging summary, risks, and next steps
 ```
@@ -92,9 +114,45 @@ outputs:
 - Convergence slow → tighten hypotheses and focus on highest-risk gaps.
 
 ### Completion Verification
-- [ ] Required directories present; SKILL.md includes all tiers.
-- [ ] Adversarial validation executed with evidence and ceilings.
-- [ ] Dogfooding loop run or explicitly deferred with rationale.
-- [ ] Delivery notes include risks, hooks, and MCP tags.
+- [ ] Required directories present (SKILL.md, examples/, tests/)
+- [ ] SKILL.md includes all tiers (frontmatter, SOP, integrations, closure)
+- [ ] Adversarial validation executed with evidence and ceilings
+- [ ] Dogfooding loop run or explicitly deferred with rationale
+- [ ] **Skill packaged as .skill file** using skill-package.ps1
+- [ ] **Package copied to skills/packaged/** directory
+- [ ] Delivery notes include risks, hooks, and MCP tags
 
-Confidence: 0.70 (ceiling: inference 0.70) - Skill Forge SOP rewritten to match required sections with ceiling discipline.
+### Skill Editing Workflow
+To update an existing .skill file:
+```powershell
+# 1. Unpack for editing
+.\scripts\skill-packaging\skill-edit.ps1 -Action unpack -SkillPath skills/packaged/myskill.skill
+
+# 2. Edit files in myskill-edit/ folder
+
+# 3. Repack
+.\scripts\skill-packaging\skill-edit.ps1 -Action pack -SkillPath myskill-edit -EditPath skills/packaged/myskill.skill -Force
+```
+
+Or use interactive mode:
+```powershell
+.\scripts\skill-packaging\skill-edit.ps1 -Action edit -SkillPath skills/packaged/myskill.skill
+```
+
+---
+
+## LEARNED PATTERNS
+
+### Medium Confidence [conf:0.75]
+- Include .skill packaging as explicit final step in skill creation workflow [ground:user-directive:2026-01-05]
+  - Context: User expects packaged output, not just source files
+  - Action: Always run skill-package.ps1 before declaring skill complete
+
+### Low Confidence [conf:0.55]
+- TodoWrite tracking throughout multi-file creation improves workflow visibility [ground:observation:2026-01-05]
+  - Context: No corrections received during 8-task tracked workflow
+  - Action: Use TodoWrite for all multi-step skill creation sessions
+
+---
+
+Confidence: 0.75 (ceiling: inference 0.70) - Skill Forge SOP updated with .skill packaging workflow.
