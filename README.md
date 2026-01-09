@@ -1,6 +1,6 @@
 # Context Cascade - Nested Plugin Architecture for Claude Code
 
-**Official Claude Code Plugin** | Version 3.0.0 | Last updated: 2026-01-03 (see `docs/COMPONENT-COUNTS.json` for source counts)
+**Official Claude Code Plugin** | Version 3.1.0 | Last updated: 2026-01-09 (see `docs/COMPONENT-COUNTS.json` for source counts)
 
 **Context-saving nested architecture**: Playbooks -> Skills -> Agents -> Commands. Load only what you need, saving **90%+ context space**.
 
@@ -299,6 +299,70 @@ Multi-objective optimization for cognitive architecture tuning:
 | balanced | 0.882 | 0.928 | General purpose |
 
 **Full Documentation**: [docs/COGNITIVE-ARCHITECTURE.md](docs/COGNITIVE-ARCHITECTURE.md)
+
+---
+
+## Cognitive Architecture Integration (NEW in v3.1.0)
+
+The cognitive architecture now includes **FrozenHarness** - an immutable evaluation system integrated with the **7-Analyzer Suite** from Connascence Safety Analyzer.
+
+### FrozenHarness Evaluation System
+
+Located at `cognitive-architecture/loopctl/core.py`, FrozenHarness provides:
+
+```python
+from loopctl.core import FrozenHarness
+
+harness = FrozenHarness(loop_dir=".", use_cli_evaluator=True, use_connascence=True)
+metrics = harness.grade(artifact_path)
+
+# Returns comprehensive metrics:
+# - task_accuracy, token_efficiency, edge_robustness, epistemic_consistency
+# - connascence: sigma_level, dpmo, nasa_compliance, mece_score, theater_risk
+# - overall score with quality gate enforcement
+```
+
+### Information Flow Architecture
+
+```
+User Request -> Loop 1 (Execution) -> FrozenHarness.grade()
+                                            |
+                    +---------------------+-+--------------------+
+                    |                     |                      |
+              CLI Evaluator        ConnascenceBridge      TelemetryBridge
+                    |                     |                      |
+              {metrics}           {quality_gate}         Memory MCP Storage
+                    |                     |                      |
+                    +---------------------+----------------------+
+                                          |
+                                    eval_report.json
+                                          |
+                    Loop 1.5 (Reflect) -> Memory MCP -> Loop 3 (Meta-Opt)
+```
+
+### Smoke Test Results (2026-01-09)
+
+| Component | Status | Mode | Key Metrics |
+|-----------|--------|------|-------------|
+| FrozenHarness | PASS | cli_evaluator | overall: 0.79 |
+| ConnascenceBridge | PASS | cli (mock fallback) | sigma: 4.0, dpmo: 3132 |
+| TelemetryBridge | PASS | file-based | 17 items stored |
+| Library Catalog | PASS | json | 25 components |
+| Meta-Loop Runner | PASS | script ready | 9 functions |
+| Reflect-to-Memory | PASS | script ready | 6 functions |
+| Memory MCP Storage | PASS | mcp-fallback | 17+ items |
+| Scheduled Task | PASS | Windows Task Scheduler | Ready |
+
+### Key Files
+
+| Component | Location | Purpose |
+|-----------|----------|---------|
+| FrozenHarness | `cognitive-architecture/loopctl/core.py` | Immutable evaluation harness |
+| ConnascenceBridge | `cognitive-architecture/integration/connascence_bridge.py` | 7-Analyzer quality metrics |
+| TelemetryBridge | `cognitive-architecture/integration/telemetry_bridge.py` | Memory MCP storage |
+| Information Flow | `cognitive-architecture/docs/INFORMATION-FLOW-DIAGRAM.md` | Complete flow documentation |
+
+**Full Documentation**: [cognitive-architecture/INTEGRATION-COMPLETE.md](cognitive-architecture/INTEGRATION-COMPLETE.md)
 
 ---
 
